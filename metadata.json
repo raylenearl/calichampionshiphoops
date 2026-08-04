@@ -1,0 +1,6 @@
+{
+  "name": "Cali Championship Hoops Hub",
+  "description": "Official encyclopedia, season records, team directories, standings, player awards, and interactive schedule browser for Cali Championship Hoops (CCH).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
