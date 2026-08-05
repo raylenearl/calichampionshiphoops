@@ -57,11 +57,11 @@ export const PLAYOFF_HISTORY: SeasonPlayoffInfo[] = [
   {
     season: 3,
     title: 'Season 3 Playoffs',
-    champion: 'Pending Finals Result',
-    runnerUp: 'Pending Finals Result',
-    finalsMvp: 'TBD',
-    finalsScore: 'Fresno Mad Dogs vs. Sacramento Stallions',
-    narrative: 'The #8 seed Fresno Mad Dogs pulled off a major postseason victory by eliminating top seed California Reds 90-86 in the Quarterfinals, advancing to face #2 seed Sacramento Stallions in the Season 3 Finals.',
+    champion: 'Sacramento Stallions',
+    runnerUp: 'Fresno Mad Dogs',
+    finalsMvp: 'Dorell Kabal (Sacramento Stallions)',
+    finalsScore: 'Sacramento Stallions 87, Fresno Mad Dogs 72',
+    narrative: 'Behind a masterclass 25-point, 11-rebound retirement performance from Finals MVP Dorell Kabal and 29 points from George Madsen, the #2 seed Sacramento Stallions defeated the Cinderella #8 seed Fresno Mad Dogs 87-72 to claim their second CCH Championship in three seasons.',
     quarterfinals: [
       { round: 'Quarterfinals', team1: 'Fresno Mad Dogs', seed1: 8, score1: 90, team2: 'California Reds', seed2: 1, score2: 86, winner: 'Fresno Mad Dogs', notes: 'Fresno physically dominated the interior, outscoring the Reds 50-40 in the paint.' },
       { round: 'Quarterfinals', team1: 'Sacramento Stallions', seed1: 2, score1: 80, team2: 'San Francisco Knights', seed2: 7, score2: 79, winner: 'Sacramento Stallions', notes: 'Sacramento rallied from a 10-point first-half deficit to survive.' },
@@ -72,6 +72,6 @@ export const PLAYOFF_HISTORY: SeasonPlayoffInfo[] = [
       { round: 'Semifinals', team1: 'Fresno Mad Dogs', seed1: 8, score1: 80, team2: 'San Diego Strykers', seed2: 4, score2: 75, winner: 'Fresno Mad Dogs', notes: 'The Cinderella run lived on behind a legendary 27-point game from Josh Parks.' },
       { round: 'Semifinals', team1: 'Sacramento Stallions', seed1: 2, score1: 88, team2: 'San Diego Sabrewolves', seed2: 6, score2: 72, winner: 'Sacramento Stallions', notes: 'The Stallions put on a shooting clinic, hitting 12-of-17 three-pointers.' },
     ],
-    finals: { round: 'Season 3 Finals', team1: 'Fresno Mad Dogs', seed1: 8, score1: 0, team2: 'Sacramento Stallions', seed2: 2, score2: 0, winner: 'Pending Finals', notes: 'Season 3 Championship Game pending between #8 Fresno and #2 Sacramento.' },
+    finals: { round: 'Season 3 Finals', team1: 'Sacramento Stallions', seed1: 2, score1: 87, team2: 'Fresno Mad Dogs', seed2: 8, score2: 72, winner: 'Sacramento Stallions', notes: 'Dorell Kabal capped his legendary career with Finals MVP honors (25 PTS, 11 REB, 3 BLK, 78.6% FG) alongside George Madsen (29 PTS) to seal Sacramento’s second CCH Championship.' },
   },
 ];

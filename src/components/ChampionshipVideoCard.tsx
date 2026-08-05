@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tv, Sparkles, Flame } from 'lucide-react';
+import { Tv, Sparkles, Flame, Trophy } from 'lucide-react';
 
 export const ChampionshipVideoCard: React.FC = () => {
   return (
@@ -24,26 +24,26 @@ export const ChampionshipVideoCard: React.FC = () => {
         <div className="lg:col-span-6 xl:col-span-7 space-y-3">
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 pb-2">
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-black uppercase tracking-wider text-red-400 bg-red-950/80 border border-red-800/80 px-2 py-0.5 rounded-full flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" /> Live Broadcast
+              <span className="text-[10px] font-black uppercase tracking-wider text-amber-400 bg-amber-950/80 border border-amber-800/80 px-2 py-0.5 rounded-full flex items-center gap-1">
+                <Trophy size={12} className="text-amber-400" /> Finals Replay
               </span>
               <span className="text-[11px] text-slate-400 font-mono font-bold">SAC TOWN ARENA</span>
             </div>
             <span className="text-[10px] font-bold text-amber-400 bg-amber-950/50 border border-amber-800/50 px-2 py-0.5 rounded-lg flex items-center gap-1">
-              <Sparkles size={12} /> CCH Season 3 Finals
+              <Sparkles size={12} /> CCH Season 3 Finals Final: Stallions 87, Mad Dogs 72
             </span>
           </div>
 
           <h3 className="text-lg sm:text-xl font-black text-white tracking-tight leading-snug">
-            Season 3 Championship Game
+            STALLIONS REIGN SUPREME: Season 3 Finals Broadcast
           </h3>
 
           <div className="space-y-2 text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
             <p className="line-clamp-2 sm:line-clamp-none font-medium text-slate-200">
-              The ultimate clash of eras, styles, and destinies has arrived. Welcome to the Cali Championship Hoops Season 3 Championship Game live from a sold-out, electric SacTown Arena!
+              Behind a masterclass from Finals MVP Dorell Kabal (25 PTS, 11 REB, 3 BLK on 78.6% FG) in his final game and 29 points from George Madsen (5-7 3PT), the Sacramento Stallions captured their 2nd CCH Title with an 87–72 victory over the Cinderella Fresno Mad Dogs!
             </p>
             <p className="text-slate-400 text-xs hidden sm:block">
-              Tonight, the championship road runs directly through Northern California as the league&apos;s ultimate David vs. Goliath story takes center stage. Will the veteran dynasty claim their second franchise title, or will the greatest Cinderella story in professional sports complete their historic giant-killing run?
+              Fresno fought valiantly led by Douglas Bradley’s 28 points, but Sacramento’s veteran discipline and interior dominance sealed their status as the league&apos;s first true dynasty (2-time champions, 3 consecutive Finals).
             </p>
           </div>
         </div>

@@ -70,45 +70,45 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onNavigate, selectedSeas
             <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
               <span className="text-xs font-black uppercase text-amber-400 tracking-wider flex items-center gap-1.5">
                 <Flame size={15} className="text-amber-500" />
-                Featured Season 3 Drama
+                Season 3 Champions
               </span>
-              <span className="text-[10px] bg-red-950 text-red-400 font-bold px-2 py-0.5 rounded-full border border-red-800">
-                PENDING FINALS
+              <span className="text-[10px] bg-amber-950 text-amber-400 font-bold px-2 py-0.5 rounded-full border border-amber-800 flex items-center gap-1">
+                <Trophy size={12} /> CCH CHAMPIONS
               </span>
             </div>
 
             <div className="text-center space-y-3 py-2">
               <div className="text-xs text-slate-400 font-semibold uppercase tracking-wider">
-                Historical Cinderella Upset & Finals Matchup
+                Season 3 Championship Game Final
               </div>
 
               <div className="flex items-center justify-around gap-2 bg-slate-900/90 p-4 rounded-2xl border border-slate-800">
-                {/* Team 1: Fresno Mad Dogs (#8 Seed Cinderella) */}
+                {/* Team 1: Sacramento Stallions (#2 Dynasty) */}
                 <div className="flex flex-col items-center space-y-1">
-                  <TeamBadge teamId="fresno-mad-dogs" size="lg" />
-                  <span className="text-xs font-bold text-slate-200 mt-1">Fresno</span>
-                  <span className="text-[10px] text-amber-400 font-extrabold bg-amber-950/60 px-2 py-0.5 rounded-full border border-amber-800/50">
-                    #8 Seed (10-12)
+                  <TeamBadge teamId="sacramento-stallions" size="lg" />
+                  <span className="text-xs font-bold text-slate-200 mt-1">Sacramento</span>
+                  <span className="text-[10px] text-amber-400 font-black bg-amber-950/60 px-2 py-0.5 rounded-full border border-amber-800/50">
+                    87 (CHAMPS)
                   </span>
                 </div>
 
                 <div className="flex flex-col items-center">
-                  <span className="text-lg font-black text-amber-400">VS</span>
-                  <span className="text-[10px] text-slate-400 uppercase font-mono font-bold">FINALS</span>
+                  <span className="text-lg font-black text-amber-400">FINAL</span>
+                  <span className="text-[10px] text-slate-400 uppercase font-mono font-bold">87 - 72</span>
                 </div>
 
-                {/* Team 2: Sacramento Stallions (#2 Dynasty) */}
+                {/* Team 2: Fresno Mad Dogs (#8 Seed Cinderella) */}
                 <div className="flex flex-col items-center space-y-1">
-                  <TeamBadge teamId="sacramento-stallions" size="lg" />
-                  <span className="text-xs font-bold text-slate-200 mt-1">Sacramento</span>
-                  <span className="text-[10px] text-emerald-400 font-extrabold bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-800/50">
-                    #2 Seed (15-7)
+                  <TeamBadge teamId="fresno-mad-dogs" size="lg" />
+                  <span className="text-xs font-bold text-slate-200 mt-1">Fresno</span>
+                  <span className="text-[10px] text-slate-400 font-bold bg-slate-950/80 px-2 py-0.5 rounded-full border border-slate-800">
+                    72 (Runner-Up)
                   </span>
                 </div>
               </div>
 
               <p className="text-xs text-slate-300 leading-relaxed italic bg-slate-900/50 p-3 rounded-xl border border-slate-800/50">
-                &quot;The #8 seed Fresno Mad Dogs pulled off the biggest upset in CCH history, stunning top seed California Reds (90-86) to reach the Season 3 Finals against the 3-time finalist Stallions!&quot;
+                &quot;STALLIONS REIGN SUPREME! Sacramento captured their 2nd CCH title with an 87-72 victory over Fresno behind Finals MVP Dorell Kabal&apos;s 25 PTS, 11 REB retirement masterpiece and 29 PTS from George Madsen!&quot;
               </p>
             </div>
           </div>

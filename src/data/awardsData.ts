@@ -172,6 +172,14 @@ export const ALL_AWARDS: Award[] = [
   // Season 3
   {
     season: 3,
+    category: 'Finals MVP',
+    player: 'Dorell Kabal',
+    team: 'Sacramento Stallions',
+    statDetails: '25.0 PTS | 11.0 REB | 3.0 BLK | 78.6% FG',
+    description: 'Delivered an immortal 25-point, 11-rebound retirement masterpiece on 11-of-14 FG (78.6%) to cap his legendary career and lead Sacramento to their second CCH title.',
+  },
+  {
+    season: 3,
     category: 'Most Valuable Player (MVP)',
     player: 'A.J. Hinton',
     team: 'San Diego Strykers',
