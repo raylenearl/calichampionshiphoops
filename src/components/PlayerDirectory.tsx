@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PLAYERS } from '../data/playersData';
 import { Player } from '../types';
-import { Search, Users, Award, Star, Zap, Activity } from 'lucide-react';
+import { Search, Users, Award, Star, Zap, Activity, X } from 'lucide-react';
 
 export const PlayerDirectory: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -41,8 +41,18 @@ export const PlayerDirectory: React.FC = () => {
               placeholder="Search player or team..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-3 py-2 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-500"
+              className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-8 py-2 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-500"
             />
+            {searchTerm && (
+              <button
+                type="button"
+                onClick={() => setSearchTerm('')}
+                className="absolute right-2.5 top-2.5 text-slate-400 hover:text-white"
+                title="Clear search"
+              >
+                <X size={14} />
+              </button>
+            )}
           </div>
 
           {/* Position Filter */}

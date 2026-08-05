@@ -7,6 +7,7 @@ import { Search, Trophy, UserCheck, Shield, ChevronRight, X, Sparkles, MapPin, A
 
 interface TeamDirectoryProps {
   onSelectTeam?: (teamId: string) => void;
+  onSelectTeamRecap?: (teamId: string, season?: 1 | 2 | 3) => void;
 }
 
 interface TeamPlayoffGameRecord {
@@ -121,7 +122,7 @@ function getTeamPlayoffHistory(teamName: string) {
   };
 }
 
-export const TeamDirectory: React.FC<TeamDirectoryProps> = () => {
+export const TeamDirectory: React.FC<TeamDirectoryProps> = ({ onSelectTeamRecap }) => {
   const [selectedConference, setSelectedConference] = useState<'All' | 'Northern Cali' | 'Southern Cali'>('All');
   const [searchTerm, setSearchTerm] = useState('');
   const [activeTeamModal, setActiveTeamModal] = useState<Team | null>(null);
@@ -158,8 +159,18 @@ export const TeamDirectory: React.FC<TeamDirectoryProps> = () => {
               placeholder="Search team or player..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-3 py-2 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-all"
+              className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-8 py-2 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-all"
             />
+            {searchTerm && (
+              <button
+                type="button"
+                onClick={() => setSearchTerm('')}
+                className="absolute right-2.5 top-2.5 text-slate-400 hover:text-white"
+                title="Clear search"
+              >
+                <X size={14} />
+              </button>
+            )}
           </div>
 
           {/* Conference Filter Tabs */}
@@ -232,19 +243,42 @@ export const TeamDirectory: React.FC<TeamDirectoryProps> = () => {
             </div>
 
             {/* Middle Section: Records Pill */}
-            <div className="bg-slate-950/80 border border-slate-800/80 rounded-2xl p-3 grid grid-cols-3 gap-2 text-center text-xs">
-              <div>
-                <span className="block text-[10px] text-slate-500 font-bold uppercase">S1 Record</span>
+            <div className="bg-slate-950/80 border border-slate-800/80 rounded-2xl p-2.5 grid grid-cols-3 gap-1.5 text-center text-xs">
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onSelectTeamRecap ? onSelectTeamRecap(team.id, 1) : setActiveTeamModal(team);
+                }}
+                className="p-1.5 rounded-xl hover:bg-slate-800 transition-colors group/s1 text-left sm:text-center"
+              >
+                <span className="block text-[10px] text-slate-500 group-hover/s1:text-amber-400 font-bold uppercase">S1 Record</span>
                 <span className="font-bold text-slate-300 text-xs">{team.s1Record}</span>
-              </div>
-              <div>
-                <span className="block text-[10px] text-slate-500 font-bold uppercase">S2 Record</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onSelectTeamRecap ? onSelectTeamRecap(team.id, 2) : setActiveTeamModal(team);
+                }}
+                className="p-1.5 rounded-xl hover:bg-slate-800 transition-colors group/s2 text-left sm:text-center"
+              >
+                <span className="block text-[10px] text-slate-500 group-hover/s2:text-amber-400 font-bold uppercase">S2 Record</span>
                 <span className="font-bold text-slate-300 text-xs">{team.s2Record}</span>
-              </div>
-              <div>
-                <span className="block text-[10px] text-slate-500 font-bold uppercase">S3 Record</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onSelectTeamRecap ? onSelectTeamRecap(team.id, 3) : setActiveTeamModal(team);
+                }}
+                className="p-1.5 rounded-xl hover:bg-slate-800 transition-colors group/s3 text-left sm:text-center"
+              >
+                <span className="block text-[10px] text-slate-500 group-hover/s3:text-amber-400 font-bold uppercase">S3 Record</span>
                 <span className="font-bold text-amber-400 text-xs">{team.s3Record}</span>
-              </div>
+              </button>
             </div>
 
             {/* Coach & Key Stars */}
@@ -281,7 +315,7 @@ export const TeamDirectory: React.FC<TeamDirectoryProps> = () => {
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="bg-slate-900 border border-slate-800 w-full max-w-4xl lg:max-w-5xl max-h-[85vh] sm:max-h-[90vh] rounded-3xl flex flex-col shadow-2xl overflow-hidden relative my-auto"
+            className="bg-slate-900 border border-slate-800 w-full max-w-5xl lg:max-w-6xl max-h-[85vh] sm:max-h-[90vh] rounded-3xl flex flex-col shadow-2xl overflow-hidden relative my-auto"
           >
             {/* Modal Header (Sticky Top with Close Button) */}
             <div className="sticky top-0 z-20 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 p-4 sm:p-5 flex items-center justify-between gap-4 shrink-0">
@@ -290,7 +324,7 @@ export const TeamDirectory: React.FC<TeamDirectoryProps> = () => {
                 <div>
                   <div className="flex items-center gap-2">
                     <span className="text-[10px] font-black uppercase text-amber-400 bg-amber-950/60 border border-amber-800/60 px-2 py-0.5 rounded-full">
-                      {activeTeamModal.conference} Conference
+                      {activeTeamModal.conference}
                     </span>
                   </div>
                   <h2 className="text-xl sm:text-2xl font-black text-white mt-0.5">

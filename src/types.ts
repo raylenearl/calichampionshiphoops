@@ -100,3 +100,20 @@ export interface StatRecord {
   isTeamRecord?: boolean;
   description?: string;
 }
+
+export interface TeamSeasonRecap {
+  teamId: string;
+  season: 1 | 2 | 3;
+  headline: string;
+  summary: string;
+  keyAccomplishments: string[];
+  seasonAwards?: string[];
+  playoffFinish: string;
+  topPlayers?: Array<{
+    name: string;
+    role: string;
+    statLine?: string;
+  }>;
+  keyWins?: string[];
+}
+

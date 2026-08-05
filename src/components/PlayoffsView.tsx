@@ -1,15 +1,30 @@
 import React, { useState } from 'react';
 import { PLAYOFF_HISTORY } from '../data/playoffsData';
+import { TEAMS } from '../data/teamsData';
 import { TeamBadge } from './TeamBadge';
 import { Trophy, Flame, Sparkles, Award, ShieldAlert, ChevronRight, Zap } from 'lucide-react';
 
 interface PlayoffsViewProps {
   selectedSeason: 1 | 2 | 3;
   setSelectedSeason: (s: 1 | 2 | 3) => void;
+  onSelectTeamRecap?: (teamId: string, season?: 1 | 2 | 3) => void;
 }
 
-export const PlayoffsView: React.FC<PlayoffsViewProps> = ({ selectedSeason, setSelectedSeason }) => {
+export const PlayoffsView: React.FC<PlayoffsViewProps> = ({
+  selectedSeason,
+  setSelectedSeason,
+  onSelectTeamRecap,
+}) => {
   const playoffInfo = PLAYOFF_HISTORY.find((p) => p.season === selectedSeason) || PLAYOFF_HISTORY[2];
+
+  const handleTeamClick = (teamName: string) => {
+    const matchedTeam = TEAMS.find(
+      (t) => t.name.toLowerCase() === teamName.toLowerCase() || t.shortName.toLowerCase() === teamName.toLowerCase()
+    );
+    if (matchedTeam && onSelectTeamRecap) {
+      onSelectTeamRecap(matchedTeam.id, selectedSeason);
+    }
+  };
 
   return (
     <div className="space-y-8">

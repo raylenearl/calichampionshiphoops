@@ -6,19 +6,33 @@ import { PLAYOFF_HISTORY } from '../data/playoffsData';
 import { TEAMS } from '../data/teamsData';
 import { GameRecord } from '../types';
 import { TeamBadge } from './TeamBadge';
-import { Calendar, Search, Flame, User, Trophy, Layers } from 'lucide-react';
+import { Calendar, Search, Flame, User, Trophy, Layers, X } from 'lucide-react';
 
 interface ScheduleBrowserProps {
   selectedSeason: 1 | 2 | 3;
   setSelectedSeason: (s: 1 | 2 | 3) => void;
+  onSelectTeamRecap?: (teamId: string, season?: 1 | 2 | 3) => void;
 }
 
-export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({ selectedSeason, setSelectedSeason }) => {
+export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
+  selectedSeason,
+  setSelectedSeason,
+  onSelectTeamRecap,
+}) => {
   const [selectedMonth, setSelectedMonth] = useState<string>('All');
   const [selectedTeam, setSelectedTeam] = useState<string>('All');
   const [gameStage, setGameStage] = useState<'all' | 'regular' | 'playoffs'>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [highScoringOnly, setHighScoringOnly] = useState<boolean>(false);
+
+  const handleTeamClick = (teamName: string) => {
+    const matchedTeam = TEAMS.find(
+      (t) => t.name.toLowerCase() === teamName.toLowerCase() || t.shortName.toLowerCase() === teamName.toLowerCase()
+    );
+    if (matchedTeam && onSelectTeamRecap) {
+      onSelectTeamRecap(matchedTeam.id, selectedSeason);
+    }
+  };
 
   // Combine schedule & playoffs for the selected season
   const activeSchedule = useMemo(() => {
@@ -231,8 +245,18 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({ selectedSeason
               placeholder="Search team, player, or date..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-3 py-2 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-500"
+              className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-8 py-2 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-500"
             />
+            {searchQuery && (
+              <button
+                type="button"
+                onClick={() => setSearchQuery('')}
+                className="absolute right-2.5 top-2.5 text-slate-400 hover:text-white"
+                title="Clear search"
+              >
+                <X size={14} />
+              </button>
+            )}
           </div>
 
           {/* Team Dropdown */}

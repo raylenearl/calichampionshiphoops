@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { HeroBanner } from './components/HeroBanner';
+import { ChampionshipVideoCard } from './components/ChampionshipVideoCard';
 import { StandingsView } from './components/StandingsView';
 import { PlayoffsView } from './components/PlayoffsView';
 import { ScheduleBrowser } from './components/ScheduleBrowser';
@@ -10,7 +11,9 @@ import { HallOfFameView } from './components/HallOfFameView';
 import { PlayerDirectory } from './components/PlayerDirectory';
 import { HeadToHeadView } from './components/HeadToHeadView';
 import { AllStarGameView } from './components/AllStarGameView';
+import { TransactionsView } from './components/TransactionsView';
 import { SearchModal } from './components/SearchModal';
+import { TeamSeasonModal } from './components/TeamSeasonModal';
 import { CCHLeagueLogo } from './components/TeamLogos';
 import { SocialFooterGrid } from './components/SocialLinks';
 import { Trophy, Shield, Calendar, Award, BookOpen, Users, Activity, ExternalLink, Tv, Heart, Star } from 'lucide-react';
@@ -19,6 +22,11 @@ export default function App() {
   const [activeTab, setActiveTab] = useState<string>('hub');
   const [selectedSeason, setSelectedSeason] = useState<1 | 2 | 3>(3);
   const [searchModalOpen, setSearchModalOpen] = useState<boolean>(false);
+  const [teamRecapModal, setTeamRecapModal] = useState<{ teamId: string; season: 1 | 2 | 3 } | null>(null);
+
+  const handleSelectTeamRecap = (teamId: string, season?: 1 | 2 | 3) => {
+    setTeamRecapModal({ teamId, season: season || selectedSeason });
+  };
 
   // Keyboard shortcut Cmd+K / Ctrl+K
   useEffect(() => {
@@ -50,6 +58,9 @@ export default function App() {
             {/* Hero Showcase */}
             <HeroBanner onNavigate={(tab) => setActiveTab(tab)} selectedSeason={selectedSeason} />
 
+            {/* Championship Game Video Broadcast */}
+            <ChampionshipVideoCard />
+
             {/* Quick Access Sections */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {/* Standings Quick Card */}
@@ -67,7 +78,7 @@ export default function App() {
                   Regular Season Standings
                 </h3>
                 <p className="text-xs text-slate-400 leading-relaxed">
-                  Track win/loss records, current streaks, PPG, and playoff seed qualification across NorCal and SoCal divisions.
+                  Track win/loss records, current streaks, PPG, and playoff seed qualification across Northern Cali and Southern Cali.
                 </p>
               </div>
 
@@ -130,23 +141,41 @@ export default function App() {
             </div>
 
             {/* Standings Component Preview */}
-            <StandingsView selectedSeason={selectedSeason} setSelectedSeason={setSelectedSeason} />
+            <StandingsView
+              selectedSeason={selectedSeason}
+              setSelectedSeason={setSelectedSeason}
+              onSelectTeamRecap={handleSelectTeamRecap}
+            />
           </div>
         )}
 
         {activeTab === 'standings' && (
-          <StandingsView selectedSeason={selectedSeason} setSelectedSeason={setSelectedSeason} />
+          <StandingsView
+            selectedSeason={selectedSeason}
+            setSelectedSeason={setSelectedSeason}
+            onSelectTeamRecap={handleSelectTeamRecap}
+          />
         )}
 
         {activeTab === 'playoffs' && (
-          <PlayoffsView selectedSeason={selectedSeason} setSelectedSeason={setSelectedSeason} />
+          <PlayoffsView
+            selectedSeason={selectedSeason}
+            setSelectedSeason={setSelectedSeason}
+            onSelectTeamRecap={handleSelectTeamRecap}
+          />
         )}
 
         {activeTab === 'schedule' && (
-          <ScheduleBrowser selectedSeason={selectedSeason} setSelectedSeason={setSelectedSeason} />
+          <ScheduleBrowser
+            selectedSeason={selectedSeason}
+            setSelectedSeason={setSelectedSeason}
+            onSelectTeamRecap={handleSelectTeamRecap}
+          />
         )}
 
-        {activeTab === 'teams' && <TeamDirectory />}
+        {activeTab === 'teams' && <TeamDirectory onSelectTeamRecap={handleSelectTeamRecap} />}
+
+        {activeTab === 'transactions' && <TransactionsView />}
 
         {activeTab === 'allstar' && <AllStarGameView />}
 
@@ -156,7 +185,7 @@ export default function App() {
 
         {activeTab === 'players' && <PlayerDirectory />}
 
-        {activeTab === 'h2h' && <HeadToHeadView />}
+        {activeTab === 'h2h' && <HeadToHeadView onSelectTeamRecap={handleSelectTeamRecap} />}
       </main>
 
       {/* Global Search Modal */}
@@ -164,7 +193,17 @@ export default function App() {
         isOpen={searchModalOpen}
         onClose={() => setSearchModalOpen(false)}
         onNavigateTab={(tab) => setActiveTab(tab)}
+        onSelectTeamRecap={handleSelectTeamRecap}
       />
+
+      {/* Team Season Recap Modal */}
+      {teamRecapModal && (
+        <TeamSeasonModal
+          teamId={teamRecapModal.teamId}
+          initialSeason={teamRecapModal.season}
+          onClose={() => setTeamRecapModal(null)}
+        />
+      )}
 
       {/* Footer */}
       <footer className="border-t border-slate-800 bg-slate-950 py-10 text-slate-500 text-xs">

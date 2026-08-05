@@ -8,9 +8,9 @@ export const TEAMS: Team[] = [
     shortName: 'Stallions',
     city: 'Sacramento',
     conference: 'Northern Cali',
-    primaryColor: '#059669', // Emerald
-    secondaryColor: '#eab308', // Gold
-    accentColor: '#10b981',
+    primaryColor: '#4a03a9', // Purple
+    secondaryColor: '#000000', // Gold
+    accentColor: '#ffffff',
     iconName: 'Crown',
     description: 'The league’s premier dynasty and Season 1 Champions. Built on legendary interior dominance by Dorell Kabal and clutch shooting from George Madsen.',
     keyPlayers: ['Dorell Kabal (C, S1 MVP)', 'George Madsen (SG)', 'Frank Hackett (SF)', 'Trevor Floyd (PG)'],
@@ -26,9 +26,9 @@ export const TEAMS: Team[] = [
     shortName: 'Knights',
     city: 'San Francisco',
     conference: 'Northern Cali',
-    primaryColor: '#1e3a8a', // Midnight Blue
-    secondaryColor: '#94a3b8', // Silver/Slate
-    accentColor: '#3b82f6',
+    primaryColor: '#ee1e24', // Midnight Red
+    secondaryColor: '#d2ab66', // Gold
+    accentColor: '#000000',
     iconName: 'Shield',
     description: 'A tactical unit known for cold-blooded late-game execution, spearheaded by clutch specialist Munir Kassa and versatile playmaker S. Cook.',
     keyPlayers: ['Munir Kassa (PG, S1 Clutch Player)', 'Charlie Garnett (SG, S2 6th Man)', 'S. Cook (SF)', 'E. Barea (G)'],
@@ -44,9 +44,9 @@ export const TEAMS: Team[] = [
     shortName: 'Renegades',
     city: 'Oakland',
     conference: 'Northern Cali',
-    primaryColor: '#f97316', // Orange
-    secondaryColor: '#18181b', // Dark Zinc
-    accentColor: '#fb923c',
+    primaryColor: '#2d1e0a', // Brown
+    secondaryColor: '#bfaa8c', // Baige
+    accentColor: '#000000',
     iconName: 'Flame',
     description: 'An explosive, high-scoring organization powered by All-Star scoring machine Alonzo Reece and perimeter wizard Dakoulas Alexandris.',
     keyPlayers: ['Alonzo Reece (SG, All-Star MVP Candidate)', 'Dakoulas Alexandris (PG, Steals Leader)', 'E. Caver (F)', 'F. Bridges (G)'],
@@ -62,9 +62,9 @@ export const TEAMS: Team[] = [
     shortName: 'Tigersharks',
     city: 'San Jose',
     conference: 'Northern Cali',
-    primaryColor: '#0d9488', // Teal
-    secondaryColor: '#0f172a', // Slate Dark
-    accentColor: '#14b8a6',
+    primaryColor: '#ff9900', // Orange
+    secondaryColor: '#ffffff', // Slate Dark
+    accentColor: '#000000',
     iconName: 'Zap',
     description: 'Defensive powerhouse and winners of the rivalry "Platinum Cup". Anchored by dominant glass-cleaner J.C. McMillan and high-flying Donald Hardy.',
     keyPlayers: ['J.C. McMillan (C, Rebound King)', 'Donald Hardy (SF, S3 Dunk Champ & ASG MVP)', 'Celso Costa (PG)', 'O.J. House (SG)'],
@@ -78,9 +78,9 @@ export const TEAMS: Team[] = [
     id: 'golden-state-enterprise',
     name: 'Golden State Enterprise',
     shortName: 'Enterprise',
-    city: 'San Francisco Bay Area',
+    city: 'San Francisco',
     conference: 'Northern Cali',
-    primaryColor: '#2563eb', // Royal Blue
+    primaryColor: '#000000', // Black
     secondaryColor: '#f59e0b', // Gold
     accentColor: '#60a5fa',
     iconName: 'Activity',
@@ -98,9 +98,9 @@ export const TEAMS: Team[] = [
     shortName: 'Mad Dogs',
     city: 'Fresno',
     conference: 'Northern Cali',
-    primaryColor: '#dc2626', // Crimson Red
-    secondaryColor: '#3f3f46', // Charcoal
-    accentColor: '#ef4444',
+    primaryColor: '#b41927', // Mad Dog Red
+    secondaryColor: '#f66d23', // Orange
+    accentColor: '#000000',
     iconName: 'Dog',
     description: 'The ultimate underdog organization. Drafted Lamar Anderson #1 overall in Season 1, and orchestrated the historic #8 seed Cinderella run to the Season 3 Finals!',
     keyPlayers: ['D. Bradley (SG, S3 Postseason Hero)', 'D. Cousins (C)', 'Damon Stephens (PF, S3 MIP)', 'Former: Lamar Anderson'],
@@ -118,9 +118,9 @@ export const TEAMS: Team[] = [
     shortName: 'Dynamics',
     city: 'Los Angeles',
     conference: 'Southern Cali',
-    primaryColor: '#7c3aed', // Purple
-    secondaryColor: '#eab308', // Yellow/Gold
-    accentColor: '#8b5cf6',
+    primaryColor: '#004aad', // Blue
+    secondaryColor: '#ffffff', // White
+    accentColor: '#000000',
     iconName: 'Trophy',
     description: 'A perennial Southern Cali juggernaut. Led by interior titan Mo Alexander (defensive triple crown) and perimeter sharp-shooter Jack McMichael Jr.',
     keyPlayers: ['Mo Alexander (C, S1 DPOY)', 'Jack McMichael Jr. (SG, 3PT Specialist)', 'G. Mann (PG)', 'J. Rivers (SF)'],
@@ -134,11 +134,11 @@ export const TEAMS: Team[] = [
     id: 'california-reds',
     name: 'California Reds',
     shortName: 'Reds',
-    city: 'Los Angeles Area',
+    city: 'Los Angeles',
     conference: 'Southern Cali',
-    primaryColor: '#b91c1c', // Deep Scarlet
+    primaryColor: '#ff3131', // Deep Red
     secondaryColor: '#f8fafc', // Pure White
-    accentColor: '#f87171',
+    accentColor: '#000000',
     iconName: 'Award',
     description: 'The Season 2 Champions and Season 3 Top Seed. Transformed from a 9-game loss streak in Season 1 into a dominant force under Coach William Walker & MVP Lamar Anderson.',
     keyPlayers: ['Lamar Anderson (G, S2 MVP, Finals MVP & Clutch POY)', 'Andor Marai (C, S2 ROTY)', 'A.J. Cox (PG, Single-Game Assist Record 15)'],
@@ -155,9 +155,9 @@ export const TEAMS: Team[] = [
     shortName: 'Sabrewolves',
     city: 'San Diego',
     conference: 'Southern Cali',
-    primaryColor: '#0284c7', // Cyber Navy Blue
-    secondaryColor: '#38bdf8', // Sky Blue
-    accentColor: '#0284c7',
+    primaryColor: '#e47334', // Cyber Orange
+    secondaryColor: '#8c8c8c', // Sky Gray
+    accentColor: '#00000',
     iconName: 'Swords',
     description: 'A high-tempo defensive juggernaut. Home of the single-game scoring king Kirk Barnes (56 pts), S3 DPOY Wes Taylor, and court general Donnell Nash.',
     keyPlayers: ['Kirk Barnes (SG, All-Time 56pt Single Game Record)', 'Wes Taylor (SF, S3 DPOY 1.8 SPG)', 'Donnell Nash (PG, Assist Leader 7.0 APG)', 'Cameron Barkley (S2 DPOY)'],
@@ -173,8 +173,8 @@ export const TEAMS: Team[] = [
     shortName: 'Strykers',
     city: 'San Diego',
     conference: 'Southern Cali',
-    primaryColor: '#ea580c', // Bright Orange
-    secondaryColor: '#09090b', // Pitch Black
+    primaryColor: '#e95315', // Bright Orange
+    secondaryColor: '#2b2e13', // Combat Green
     accentColor: '#f97316',
     iconName: 'Target',
     description: 'An explosive offensive powerhouse spearheaded by Season 3 League MVP A.J. Hinton (21.1 PPG), Ray Gambino, All-Cali forward DeAnte Gray, and block party host Adrian Pognotti.',
@@ -191,9 +191,9 @@ export const TEAMS: Team[] = [
     shortName: 'Admirals',
     city: 'Anaheim',
     conference: 'Southern Cali',
-    primaryColor: '#0369a1', // Marine Blue
-    secondaryColor: '#d97706', // Brass Gold
-    accentColor: '#38bdf8',
+    primaryColor: '#f15a2d', // Marine Orange
+    secondaryColor: '#458f8a', // Brass Blue
+    accentColor: '#000000',
     iconName: 'Anchor',
     description: 'Perimeter-heavy shooting squad reliant on elite league 3-point specialist Kirk Tinsley (.626 3PT%) and veteran guard B. Oakley.',
     keyPlayers: ['Kirk Tinsley (SG, 3PT % Leader .626)', 'Xavi Roach (G/F, S2 MIP)', 'B. Oakley (PG)', 'L. Goodwin (SF)'],
@@ -209,9 +209,9 @@ export const TEAMS: Team[] = [
     shortName: 'Vipers',
     city: 'Long Beach',
     conference: 'Southern Cali',
-    primaryColor: '#15803d', // Viper Green
-    secondaryColor: '#172554', // Dark Blue
-    accentColor: '#22c55e',
+    primaryColor: '#003f25', // Viper Green
+    secondaryColor: '#000000', // Black
+    accentColor: '#afaeae',
     iconName: 'Zap',
     description: 'An energetic, youthful squad guided by award-winning leadership and head coach Fred Daniels. Powered by rising stars Phil Martin Jr. & Jaydan Moody.',
     keyPlayers: ['Phil Martin Jr. (PF, Emerging Star)', 'Jaydan Moody (SF)', 'Josh Parks (G)', 'Marcus Vance (C)'],

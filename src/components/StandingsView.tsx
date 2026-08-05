@@ -7,9 +7,14 @@ import { Trophy, Activity, Filter, CheckCircle2, AlertCircle } from 'lucide-reac
 interface StandingsViewProps {
   selectedSeason: 1 | 2 | 3;
   setSelectedSeason: (s: 1 | 2 | 3) => void;
+  onSelectTeamRecap?: (teamId: string, season: 1 | 2 | 3) => void;
 }
 
-export const StandingsView: React.FC<StandingsViewProps> = ({ selectedSeason, setSelectedSeason }) => {
+export const StandingsView: React.FC<StandingsViewProps> = ({
+  selectedSeason,
+  setSelectedSeason,
+  onSelectTeamRecap,
+}) => {
   const [conferenceFilter, setConferenceFilter] = useState<'All' | 'Northern Cali' | 'Southern Cali'>('All');
 
   const rawStandings = {
@@ -126,7 +131,8 @@ export const StandingsView: React.FC<StandingsViewProps> = ({ selectedSeason, se
                 return (
                   <tr
                     key={row.teamId}
-                    className={`hover:bg-slate-800/50 transition-colors ${
+                    onClick={() => onSelectTeamRecap && onSelectTeamRecap(row.teamId, selectedSeason)}
+                    className={`hover:bg-slate-800/80 transition-colors cursor-pointer group ${
                       isTop8 ? 'bg-slate-900/40' : 'bg-slate-950/20'
                     }`}
                   >
@@ -147,18 +153,25 @@ export const StandingsView: React.FC<StandingsViewProps> = ({ selectedSeason, se
 
                     {/* Team Name & Badge */}
                     <td className="py-3.5 px-4 font-bold text-white">
-                      <div className="flex items-center gap-3">
-                        <TeamBadge teamId={row.teamId} size="sm" />
-                        <div>
-                          <div className="flex items-center gap-1.5">
-                            {row.clinchedTopSeed ? (
-                              <span className="text-amber-400 font-extrabold text-xs">z-</span>
-                            ) : row.clinchedPlayoffs ? (
-                              <span className="text-slate-400 font-bold text-xs">x-</span>
-                            ) : null}
-                            <span className="hover:text-amber-400 cursor-pointer">{row.teamName}</span>
+                      <div className="flex items-center justify-between gap-3">
+                        <div className="flex items-center gap-3">
+                          <TeamBadge teamId={row.teamId} size="sm" />
+                          <div>
+                            <div className="flex items-center gap-1.5">
+                              {row.clinchedTopSeed ? (
+                                <span className="text-amber-400 font-extrabold text-xs">z-</span>
+                              ) : row.clinchedPlayoffs ? (
+                                <span className="text-slate-400 font-bold text-xs">x-</span>
+                              ) : null}
+                              <span className="group-hover:text-amber-400 font-black text-sm transition-colors">
+                                {row.teamName}
+                              </span>
+                            </div>
                           </div>
                         </div>
+                        <span className="text-[10px] bg-slate-800 group-hover:bg-amber-500 group-hover:text-slate-950 text-slate-400 px-2 py-0.5 rounded-full font-bold transition-all shrink-0">
+                          S{selectedSeason} Recap
+                        </span>
                       </div>
                     </td>
 

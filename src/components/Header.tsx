@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Search, Menu, X, Trophy, Calendar, Users, Award, BookOpen, Activity, GitCompare, ExternalLink, Star } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { Search, Menu, X, Trophy, Calendar, Users, Award, BookOpen, Activity, GitCompare, ExternalLink, Star, ArrowLeftRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { CCHLeagueLogo } from './TeamLogos';
 import { SocialHeaderButtons, SOCIAL_PLATFORMS } from './SocialLinks';
 
@@ -19,6 +19,14 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenSearch,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const scrollNav = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = direction === 'left' ? -260 : 260;
+      scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   const navItems = [
     { id: 'hub', label: 'League Hub', icon: Trophy },
@@ -26,6 +34,7 @@ export const Header: React.FC<HeaderProps> = ({
     { id: 'playoffs', label: 'Playoffs & Brackets', icon: Trophy, highlight: true },
     { id: 'schedule', label: 'Schedule Browser', icon: Calendar },
     { id: 'teams', label: '12 Teams', icon: Users },
+    { id: 'transactions', label: 'Transactions', icon: ArrowLeftRight },
     { id: 'allstar', label: 'All-Star Game', icon: Star },
     { id: 'halloffame', label: 'Hall of Achievements', icon: Award },
     { id: 'records', label: 'Record Book', icon: BookOpen },
@@ -137,9 +146,23 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
 
-        {/* Desktop Navigation Sub-bar */}
-        <div className="hidden lg:flex items-center border-t border-slate-800/60 py-1.5">
-          <div className="flex flex-wrap items-center gap-1 xl:gap-1.5 w-full justify-start xl:justify-between">
+        {/* Desktop Navigation Sub-bar with Scroll Controls */}
+        <div className="hidden lg:flex items-center gap-1 border-t border-slate-800/60 py-1.5 relative group">
+          {/* Left Scroll Button */}
+          <button
+            onClick={() => scrollNav('left')}
+            className="p-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-amber-400 hover:border-amber-500/50 transition-all shrink-0 cursor-pointer"
+            title="Scroll left"
+          >
+            <ChevronLeft size={16} />
+          </button>
+
+          {/* Scrollable Nav Items */}
+          <div
+            ref={scrollContainerRef}
+            className="flex items-center gap-1.5 overflow-x-auto py-1 scroll-smooth w-full no-scrollbar focus:outline-none"
+            style={{ scrollbarWidth: 'thin', scrollbarColor: '#f59e0b #0f172a' }}
+          >
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = activeTab === item.id;
@@ -147,12 +170,12 @@ export const Header: React.FC<HeaderProps> = ({
                 <button
                   key={item.id}
                   onClick={() => setActiveTab(item.id)}
-                  className={`flex items-center gap-1.5 px-2.5 xl:px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap shrink-0 ${
                     isActive
-                      ? 'bg-amber-500 text-slate-950 shadow-md font-black'
+                      ? 'bg-amber-500 text-slate-950 shadow-md font-black ring-1 ring-amber-400'
                       : item.highlight
                       ? 'bg-amber-950/40 text-amber-400 border border-amber-800/60 hover:bg-amber-900/50'
-                      : 'text-slate-300 hover:text-white hover:bg-slate-900/80'
+                      : 'bg-slate-900/60 text-slate-300 border border-slate-800/60 hover:text-white hover:bg-slate-800/80 hover:border-slate-700'
                   }`}
                 >
                   <Icon size={14} className={isActive ? 'text-slate-950' : item.highlight ? 'text-amber-400' : 'text-slate-400'} />
@@ -161,6 +184,15 @@ export const Header: React.FC<HeaderProps> = ({
               );
             })}
           </div>
+
+          {/* Right Scroll Button */}
+          <button
+            onClick={() => scrollNav('right')}
+            className="p-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-amber-400 hover:border-amber-500/50 transition-all shrink-0 cursor-pointer"
+            title="Scroll right"
+          >
+            <ChevronRight size={16} />
+          </button>
         </div>
 
         {/* Mobile Navigation Dropdown */}
