@@ -146,23 +146,9 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
 
-        {/* Desktop Navigation Sub-bar with Scroll Controls */}
-        <div className="hidden lg:flex items-center gap-1 border-t border-slate-800/60 py-1.5 relative group">
-          {/* Left Scroll Button */}
-          <button
-            onClick={() => scrollNav('left')}
-            className="p-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-amber-400 hover:border-amber-500/50 transition-all shrink-0 cursor-pointer"
-            title="Scroll left"
-          >
-            <ChevronLeft size={16} />
-          </button>
-
-          {/* Scrollable Nav Items */}
-          <div
-            ref={scrollContainerRef}
-            className="flex items-center gap-1.5 overflow-x-auto py-1 scroll-smooth w-full no-scrollbar focus:outline-none"
-            style={{ scrollbarWidth: 'thin', scrollbarColor: '#f59e0b #0f172a' }}
-          >
+        {/* Desktop Navigation Sub-bar - Responsive & Dynamic */}
+        <div className="hidden lg:flex items-center border-t border-slate-800/60 py-2">
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 w-full justify-start">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = activeTab === item.id;
@@ -170,7 +156,7 @@ export const Header: React.FC<HeaderProps> = ({
                 <button
                   key={item.id}
                   onClick={() => setActiveTab(item.id)}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap shrink-0 ${
+                  className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-[11px] xl:text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                     isActive
                       ? 'bg-amber-500 text-slate-950 shadow-md font-black ring-1 ring-amber-400'
                       : item.highlight
@@ -184,15 +170,6 @@ export const Header: React.FC<HeaderProps> = ({
               );
             })}
           </div>
-
-          {/* Right Scroll Button */}
-          <button
-            onClick={() => scrollNav('right')}
-            className="p-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-amber-400 hover:border-amber-500/50 transition-all shrink-0 cursor-pointer"
-            title="Scroll right"
-          >
-            <ChevronRight size={16} />
-          </button>
         </div>
 
         {/* Mobile Navigation Dropdown */}
