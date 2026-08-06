@@ -73,7 +73,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
 
   'san-francisco-knights': {
     s1: {
-      coach: 'Willie Green',
+      coach: 'Sebastian Hawkins',
       players: [
         { name: 'Munir Kassa', position: 'Point Guard (PG)', ovr: 82, schoolOrNote: 'Lincoln HS (S1 Clutch POY)' },
         { name: 'Donovan Leonard', position: 'Guard/Forward', ovr: 78, schoolOrNote: 'San Francisco' },
@@ -177,7 +177,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
 
   'san-jose-tigersharks': {
     s1: {
-      coach: 'Michael Stauffer',
+      coach: 'Tyson McGuire',
       players: [
         { name: 'Cameron Barkley', position: 'Power Forward (PF)', ovr: 81 },
         { name: 'Ion Paunescu', position: 'Forward (F)', ovr: 77 },
@@ -228,7 +228,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
 
   'golden-state-enterprise': {
     s1: {
-      coach: 'Elton Saunders',
+      coach: 'Oliver Gordon',
       players: [
         { name: 'DeAnte Gray', position: 'Power Forward (PF)', ovr: 83, schoolOrNote: 'S1 Draft Pick' },
         { name: 'Adin Durmanenko', position: 'Center (C)', ovr: 76 },
@@ -332,7 +332,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
 
   'los-angeles-dynamics': {
     s1: {
-      coach: 'Damon Daugherty',
+      coach: 'Mark Forbes',
       players: [
         { name: 'Jack McMichael Jr.', position: 'Shooting Guard (SG)', ovr: 81, schoolOrNote: '3PT Leader' },
         { name: 'Mo Alexander', position: 'Center (C)', ovr: 79, schoolOrNote: 'S1 DPOY' },
@@ -495,7 +495,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
 
   'san-diego-strykers': {
     s1: {
-      coach: 'Jacob Underwood',
+      coach: 'Jake Thomas',
       players: [
         { name: 'A.J. Hinton', position: 'Shooting Guard (SG)', ovr: 83 },
         { name: 'Jamar Dean', position: 'Guard (G)', ovr: 81 },
@@ -603,7 +603,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
 
   'long-beach-vipers': {
     s1: {
-      coach: 'Fred Daniels',
+      coach: 'Stretch Roberts',
       players: [
         { name: 'A.J. Hinton', position: 'Shooting Guard (SG)', ovr: 83 },
         { name: 'Earl Jenkins', position: 'Forward (F)', ovr: 77, schoolOrNote: 'Traded to S.D. Strykers' },
@@ -617,7 +617,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
       ],
     },
     s2: {
-      coach: 'Fred Daniels',
+      coach: 'Stretch Roberts',
       players: [
         { name: 'Kirk Barnes', position: 'G' },
         { name: 'A.J. Hinton', position: 'SG' },
@@ -631,7 +631,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
       ],
     },
     s3: {
-      coach: 'Fred Daniels',
+      coach: 'Stretch Roberts',
       players: [
         { name: 'Lambros Edwards', position: 'PF', ovr: 85 },
         { name: 'Joseph Young', position: 'PG', ovr: 84 },

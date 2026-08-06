@@ -240,9 +240,9 @@ export const TEAMS: Team[] = [
     secondaryColor: '#000000', // Black
     accentColor: '#afaeae',
     iconName: 'Zap',
-    description: 'An energetic, youthful squad guided by award-winning leadership and head coach Fred Daniels. Powered by rising stars Phil Martin Jr. & Jaydan Moody.',
+    description: 'An energetic, youthful squad guided by award-winning leadership and head coach Stretch Roberts. Powered by rising stars Phil Martin Jr. & Jaydan Moody.',
     keyPlayers: ['Phil Martin Jr. (PF, Emerging Star)', 'Jaydan Moody (SF)', 'Josh Parks (G)', 'Marcus Vance (C)'],
-    coach: 'Fred Daniels',
+    coach: 'Stretch Roberts',
     executive: 'Anthony Nance (S1 Executive of the Year)',
     titles: ['Season 1 Coach & Executive of the Year Honors'],
     s1Record: '13-9 (3rd)',
