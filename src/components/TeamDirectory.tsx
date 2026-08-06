@@ -146,7 +146,7 @@ export const TeamDirectory: React.FC<TeamDirectoryProps> = ({ onSelectTeamRecap 
             Official CCH Team Directory
           </h2>
           <p className="text-xs text-slate-400 font-medium mt-1">
-            Explore the 12 power franchises split across Northern & Southern California Conferences
+            Explore all 12 power franchises in Cali Championship Hoops
           </p>
         </div>
 

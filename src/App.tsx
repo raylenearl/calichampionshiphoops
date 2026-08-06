@@ -233,8 +233,6 @@ export default function App() {
               </a>
               <span className="text-slate-600">•</span>
               <span className="text-slate-400">12 Franchises</span>
-              <span className="text-slate-600">•</span>
-              <span className="text-slate-400">2 Conferences</span>
             </div>
           </div>
         </div>

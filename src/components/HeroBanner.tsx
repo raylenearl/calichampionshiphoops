@@ -25,18 +25,14 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onNavigate, selectedSeas
           </h1>
 
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl font-normal">
-            California&apos;s ultimate proving ground for basketball talent. 12 power organizations across Northern & Southern California Conferences, featuring intense regular season rivalries and postseason championship battles.
+            California&apos;s ultimate proving ground for basketball talent. 12 power organizations featuring intense regular season rivalries and postseason championship battles.
           </p>
 
           {/* Quick Metrics Bar */}
-          <div className="grid grid-cols-3 gap-3 py-2">
+          <div className="grid grid-cols-2 gap-3 py-2">
             <div className="bg-slate-900/80 border border-slate-800 p-3 rounded-2xl">
               <span className="block text-2xl font-black text-amber-400">12</span>
               <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wide">Franchises</span>
-            </div>
-            <div className="bg-slate-900/80 border border-slate-800 p-3 rounded-2xl">
-              <span className="block text-2xl font-black text-white">2</span>
-              <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wide">Conferences</span>
             </div>
             <div className="bg-slate-900/80 border border-slate-800 p-3 rounded-2xl">
               <span className="block text-2xl font-black text-amber-400">3</span>

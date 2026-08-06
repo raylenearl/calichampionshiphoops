@@ -28,16 +28,23 @@ export const Header: React.FC<HeaderProps> = ({
     }
   };
 
-  const navItems = [
+  interface NavItem {
+    id: string;
+    label: string;
+    icon: React.ComponentType<{ size?: number; className?: string }>;
+    highlight?: boolean;
+  }
+
+  const navItems: NavItem[] = [
     { id: 'hub', label: 'League Hub', icon: Trophy },
-    { id: 'news', label: 'News & Gazette', icon: Newspaper, highlight: true },
+    { id: 'news', label: 'News', icon: Newspaper },
     { id: 'standings', label: 'Standings', icon: Activity },
     { id: 'playoffs', label: 'Playoffs', icon: Trophy },
     { id: 'schedule', label: 'Schedule', icon: Calendar },
     { id: 'teams', label: 'Teams', icon: Users },
     { id: 'transactions', label: 'Transactions', icon: ArrowLeftRight },
     { id: 'allstar', label: 'All-Star', icon: Star },
-    { id: 'halloffame', label: 'Hall of Fame', icon: Award },
+    { id: 'halloffame', label: 'Hall of Achievements', icon: Award },
     { id: 'records', label: 'Record Book', icon: BookOpen },
     { id: 'players', label: 'Star Players', icon: Users },
     { id: 'h2h', label: 'Head to Head', icon: GitCompare },
@@ -157,7 +164,7 @@ export const Header: React.FC<HeaderProps> = ({
                 <button
                   key={item.id}
                   onClick={() => setActiveTab(item.id)}
-                  className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-[11px] xl:text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+                  className={`flex items-center gap-1.5 px-3 sm:px-3.5 xl:px-4 py-1.5 rounded-xl text-[11px] xl:text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                     isActive
                       ? 'bg-amber-500 text-slate-950 shadow-md font-black ring-1 ring-amber-400'
                       : item.highlight

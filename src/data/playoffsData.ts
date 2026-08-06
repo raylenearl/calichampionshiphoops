@@ -122,7 +122,7 @@ export const S1_PLAYOFF_STATS: PlayoffSeasonStats = {
   totalsLeaders: [
     { category: 'Points', player: 'Dorell Kabal', team: 'Sacramento Stallions', stat: '74 PTS', details: '3 GP (30 PTS in QF, 22 PTS in Semis, 22 PTS in Finals)' },
     { category: 'Rebounds', player: 'Dorell Kabal', team: 'Sacramento Stallions', stat: '29 REB', details: '3 GP, 9.7 RPG average (12 REB in Finals)' },
-    { category: 'Assists', player: 'Munir Kassa / Jack McMichael Jr.', team: 'SF / LA', stat: '16 AST', details: '8.0 APG average across 2 postseason games' },
+    { category: 'Assists', player: 'Munir Kassa / Jack McMichael Jr.', team: 'San Francisco Knights / Los Angeles Dynamics', stat: '16 AST', details: '8.0 APG average across 2 postseason games' },
     { category: 'Blocks', player: 'Dorell Kabal', team: 'Sacramento Stallions', stat: '6 BLK', details: '3 BLK in Finals victory vs Enterprise' },
     { category: 'Steals', player: 'DeAnte Gray', team: 'Golden State Enterprise', stat: '6 STL', details: '2.0 SPG defense anchor for GS' },
     { category: '3-Pointers Made', player: 'Howie Carney', team: 'Golden State Enterprise', stat: '9 3PM', details: '4 3PM vs Long Beach Vipers in QF' },
@@ -131,7 +131,7 @@ export const S1_PLAYOFF_STATS: PlayoffSeasonStats = {
   averagesLeaders: [
     { category: 'Points per Game', player: 'Munir Kassa', team: 'San Francisco Knights', stat: '32.5 PPG', details: '33 PTS vs SAC, 32 PTS vs SAB (65.0% FG)' },
     { category: 'Rebounds per Game', player: 'DeAnte Gray', team: 'Golden State Enterprise', stat: '10.5 RPG', details: '13 REB vs LA Dynamics in Semifinals' },
-    { category: 'Assists per Game', player: 'Munir Kassa / Ray Gambino', team: 'SF / SDS', stat: '8.0 APG', details: 'Orchestrated Knights offense with only 1 team TO vs SAC' },
+    { category: 'Assists per Game', player: 'Munir Kassa / Ray Gambino', team: 'San Francisco Knights / San Diego Strykers', stat: '8.0 APG', details: 'Orchestrated Knights offense with only 1 team TO vs SAC' },
     { category: 'Steals per Game', player: 'DeAnte Gray', team: 'Golden State Enterprise', stat: '3.0 SPG', details: 'Perimeter pressure specialist' },
     { category: 'Blocks per Game', player: 'Dorell Kabal', team: 'Sacramento Stallions', stat: '2.0 BPG', details: 'Anchor of Stallions Season 1 Championship defense' },
     { category: 'Field Goal %', player: 'Coty Barry Carroll', team: 'Sacramento Stallions', stat: '75.0% FG', details: '9-11 FG (27 PTS) in Finals vs Enterprise' },
@@ -322,8 +322,8 @@ export const S2_PLAYOFF_STATS: PlayoffSeasonStats = {
     { category: 'Points', player: 'Lamar Anderson', team: 'California Reds', stat: '73 PTS', details: '3 GP (26 PTS in Finals, 27 PTS in Semis)' },
     { category: 'Rebounds', player: 'Dorell Kabal', team: 'Sacramento Stallions', stat: '25 REB', details: '3 GP, 8.3 RPG average' },
     { category: 'Assists', player: 'Ray Gambino', team: 'San Diego Strykers', stat: '18 AST', details: '2 GP, 9.0 APG average' },
-    { category: 'Blocks', player: 'Dorell Kabal / Dennis Rodman', team: 'SAC / CAL', stat: '6 BLK', details: 'Interior defensive anchors' },
-    { category: 'Steals', player: 'C. Cook / Lamar Anderson', team: 'SAC / CAL', stat: '7 STL', details: 'Perimeter pressure leaders' },
+    { category: 'Blocks', player: 'Dorell Kabal / Dennis Rodman', team: 'Sacramento Stallions / California Reds', stat: '6 BLK', details: 'Interior defensive anchors' },
+    { category: 'Steals', player: 'C. Cook / Lamar Anderson', team: 'Sacramento Stallions / California Reds', stat: '7 STL', details: 'Perimeter pressure leaders' },
     { category: '3-Pointers Made', player: 'George Madsen', team: 'Sacramento Stallions', stat: '13 3PM', details: '7 3PM in Quarterfinals vs SF' },
     { category: 'Bench Points', player: 'California Reds Bench', team: 'California Reds', stat: '26 PTS', details: 'Key factor in Season 2 Finals victory' },
     { category: 'Field Goals Made', player: 'Lamar Anderson', team: 'California Reds', stat: '26 FGM', details: 'Led postseason scoring engine' },

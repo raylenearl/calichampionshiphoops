@@ -65,7 +65,7 @@ export const RecordBookView: React.FC<RecordBookViewProps> = ({ onSelectTeamReca
       <div className="bg-slate-950/90 border border-slate-800/90 p-1.5 rounded-2xl flex items-center overflow-x-auto scrollbar-none gap-1 sm:gap-1.5 text-xs font-extrabold shadow-md">
         <button
           onClick={() => setActiveTab('all')}
-          className={`px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
+          className={`px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
             activeTab === 'all'
               ? 'bg-amber-500 text-slate-950 font-black shadow-md'
               : 'text-slate-400 hover:text-white hover:bg-slate-900/60'
@@ -76,7 +76,7 @@ export const RecordBookView: React.FC<RecordBookViewProps> = ({ onSelectTeamReca
         </button>
         <button
           onClick={() => setActiveTab('milestones')}
-          className={`px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
+          className={`px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
             activeTab === 'milestones'
               ? 'bg-amber-500 text-slate-950 font-black shadow-md'
               : 'text-slate-400 hover:text-white hover:bg-slate-900/60'
@@ -87,7 +87,7 @@ export const RecordBookView: React.FC<RecordBookViewProps> = ({ onSelectTeamReca
         </button>
         <button
           onClick={() => setActiveTab('single')}
-          className={`px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
+          className={`px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
             activeTab === 'single'
               ? 'bg-amber-500 text-slate-950 font-black shadow-md'
               : 'text-slate-400 hover:text-white hover:bg-slate-900/60'
@@ -98,7 +98,7 @@ export const RecordBookView: React.FC<RecordBookViewProps> = ({ onSelectTeamReca
         </button>
         <button
           onClick={() => setActiveTab('season_ind')}
-          className={`px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
+          className={`px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
             activeTab === 'season_ind'
               ? 'bg-amber-500 text-slate-950 font-black shadow-md'
               : 'text-slate-400 hover:text-white hover:bg-slate-900/60'
@@ -109,7 +109,7 @@ export const RecordBookView: React.FC<RecordBookViewProps> = ({ onSelectTeamReca
         </button>
         <button
           onClick={() => setActiveTab('season_team')}
-          className={`px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
+          className={`px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
             activeTab === 'season_team'
               ? 'bg-amber-500 text-slate-950 font-black shadow-md'
               : 'text-slate-400 hover:text-white hover:bg-slate-900/60'
@@ -120,7 +120,7 @@ export const RecordBookView: React.FC<RecordBookViewProps> = ({ onSelectTeamReca
         </button>
         <button
           onClick={() => setActiveTab('career_ind')}
-          className={`px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
+          className={`px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
             activeTab === 'career_ind'
               ? 'bg-amber-500 text-slate-950 font-black shadow-md'
               : 'text-slate-400 hover:text-white hover:bg-slate-900/60'
@@ -131,7 +131,7 @@ export const RecordBookView: React.FC<RecordBookViewProps> = ({ onSelectTeamReca
         </button>
         <button
           onClick={() => setActiveTab('playoffs')}
-          className={`px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
+          className={`px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
             activeTab === 'playoffs'
               ? 'bg-amber-500 text-slate-950 font-black shadow-md'
               : 'text-slate-400 hover:text-white hover:bg-slate-900/60'

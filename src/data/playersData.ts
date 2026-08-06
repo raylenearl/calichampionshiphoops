@@ -235,7 +235,6 @@ export const PLAYERS: Player[] = [
     accolades: [
       'Season 3 All-Cali First Team',
       'Season 2 Ironman Minutes Leader (23.82 MPG)',
-      'Season 1 Golden State Draft Pick',
       'Season 1 All-Star Selection',
     ],
     signaturePerformance: 'Recorded 23.82 MPG as Season 2 Minutes Leader & 4 steals vs SF Knights in Season 1.',
