@@ -43,6 +43,17 @@ export interface Season2RecordBreaker {
   previousRecord: string;
 }
 
+export interface CareerTotalRecord {
+  category: string;
+  player: string;
+  team: string;
+  teamId: string;
+  stat: string;
+  details: string;
+  seasonOrSpan: string;
+  previousRecord?: string;
+}
+
 // 1. SINGLE-GAME RECORDS (Individual)
 export const SINGLE_GAME_INDIVIDUAL: SingleGameRecord[] = [
   {
@@ -370,6 +381,110 @@ export const SINGLE_SEASON_TEAM: SingleSeasonTeamRecord[] = [
   },
 ];
 
+// 4. CAREER TOTALS (Regular Season)
+export const REGULAR_SEASON_CAREER_TOTALS: CareerTotalRecord[] = [
+  {
+    category: 'Career Regular Season Points',
+    player: 'Lamar Anderson',
+    team: 'California Reds (FRE / CAL)',
+    teamId: 'california-reds',
+    stat: '1,432 PTS',
+    details: '66 GP (21.7 PPG career avg; 550 PTS in S1, 532 PTS in S2, 350 PTS in S3)',
+    seasonOrSpan: 'Seasons 1 – 3 All-Time',
+    previousRecord: 'A.J. Hinton (1,280 PTS) / Kirk Barnes (1,215 PTS)',
+  },
+  {
+    category: 'Career Regular Season Rebounds',
+    player: 'Dorell Kabal',
+    team: 'Sacramento Stallions',
+    teamId: 'sacramento-stallions',
+    stat: '586 REB',
+    details: '66 GP (8.88 RPG career avg; 182 S1, 218 S2, 186 S3)',
+    seasonOrSpan: 'Seasons 1 – 3 All-Time',
+    previousRecord: 'Mo Alexander (542 REB) / DeAnte Gray (448 REB)',
+  },
+  {
+    category: 'Career Regular Season Assists',
+    player: 'Ray Gambino',
+    team: 'San Diego Strykers',
+    teamId: 'san-diego-strykers',
+    stat: '294 AST',
+    details: '65 GP (4.52 APG career avg)',
+    seasonOrSpan: 'Seasons 1 – 3 All-Time',
+    previousRecord: 'Munir Kassa (282 AST) / A.J. Cox (268 AST)',
+  },
+  {
+    category: 'Career Regular Season 3-Pointers Made',
+    player: 'Jack McMichael Jr.',
+    team: 'Los Angeles Dynamics',
+    teamId: 'los-angeles-dynamics',
+    stat: '212 3PM',
+    details: '66 GP (3.21 3PM/G avg; 76 in S1, 68 in S2, 68 in S3)',
+    seasonOrSpan: 'Seasons 1 – 3 All-Time',
+    previousRecord: 'Alonzo Reece (188 3PM) / Kirk Tinsley (174 3PM)',
+  },
+  {
+    category: 'Career Regular Season Steals',
+    player: 'Wes Taylor',
+    team: 'San Diego Sabrewolves',
+    teamId: 'san-diego-sabrewolves',
+    stat: '94 STL',
+    details: '66 GP (1.42 SPG avg; 28 in S1, 26 in S2, 40 in S3 - S3 DPOY)',
+    seasonOrSpan: 'Seasons 1 – 3 All-Time',
+    previousRecord: 'Mo Alexander (82 STL) / DeAnte Gray (78 STL)',
+  },
+  {
+    category: 'Career Regular Season Blocks',
+    player: 'Mo Alexander',
+    team: 'Los Angeles Dynamics',
+    teamId: 'los-angeles-dynamics',
+    stat: '152 BLK',
+    details: '66 GP (2.30 BPG avg; 64 in S1, 48 in S2, 40 in S3 - S1 DPOY)',
+    seasonOrSpan: 'Seasons 1 – 3 All-Time',
+    previousRecord: 'Dorell Kabal (128 BLK) / Adrian Pognotti (118 BLK)',
+  },
+  {
+    category: 'Career Regular Season Free Throws Made',
+    player: 'Kirk Barnes',
+    team: 'San Diego Sabrewolves',
+    teamId: 'san-diego-sabrewolves',
+    stat: '248 FTM',
+    details: '66 GP (3.76 FTM/G avg; 58 in S1, 102 in S2, 88 in S3)',
+    seasonOrSpan: 'Seasons 1 – 3 All-Time',
+    previousRecord: 'Lamar Anderson (210 FTM)',
+  },
+  {
+    category: 'Career Regular Season Double-Doubles',
+    player: 'Dorell Kabal',
+    team: 'Sacramento Stallions',
+    teamId: 'sacramento-stallions',
+    stat: '31 DBL-DBL',
+    details: '66 GP (9 in S1, 12 in S2, 10 in S3)',
+    seasonOrSpan: 'Seasons 1 – 3 All-Time',
+    previousRecord: 'Mo Alexander (24 DBL-DBL)',
+  },
+  {
+    category: 'Career Regular Season Games Played',
+    player: 'DeAnte Gray / Jack McMichael Jr. / Dorell Kabal / Frank Hackett',
+    team: 'SD / LA / SAC',
+    teamId: 'sacramento-stallions',
+    stat: '66 GP',
+    details: '100% attendance (22 games per season across Seasons 1, 2, & 3)',
+    seasonOrSpan: 'Seasons 1 – 3 All-Time',
+    previousRecord: 'Multi-player ironman benchmark',
+  },
+  {
+    category: 'Career Regular Season Wins (Player)',
+    player: 'Dorell Kabal & Frank Hackett',
+    team: 'Sacramento Stallions',
+    teamId: 'sacramento-stallions',
+    stat: '47 Wins',
+    details: '66 GP (17-5 in S1, 14-8 in S2, 16-6 in S3)',
+    seasonOrSpan: 'Seasons 1 – 3 All-Time',
+    previousRecord: 'Lamar Anderson & Andor Marai (43 Wins)',
+  },
+];
+
 // Legacy exports preserved for backwards compatibility
 export const RECORD_BREAKERS: RecordBreaker[] = [
   {
@@ -638,7 +753,7 @@ export const PLAYOFF_CAREER_TOTALS_RECORDS: PlayoffRecordItem[] = [
   },
   {
     category: 'Most CCH Championships',
-    player: 'Dorell Kabal & George Madsen & Frank Hackett',
+    player: 'Dorell Kabal & Frank Hackett',
     team: 'Sacramento Stallions',
     teamId: 'sacramento-stallions',
     stat: '2 Titles',

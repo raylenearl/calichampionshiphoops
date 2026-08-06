@@ -15,6 +15,7 @@ import {
   SINGLE_GAME_INDIVIDUAL,
   SINGLE_SEASON_INDIVIDUAL,
   SINGLE_SEASON_TEAM,
+  REGULAR_SEASON_CAREER_TOTALS,
   PLAYOFF_SINGLE_GAME_RECORDS,
   PLAYOFF_SINGLE_POSTSEASON_RECORDS,
   PLAYOFF_CAREER_TOTALS_RECORDS,
@@ -28,7 +29,7 @@ interface RecordBookViewProps {
 }
 
 export const RecordBookView: React.FC<RecordBookViewProps> = ({ onSelectTeamRecap }) => {
-  const [activeTab, setActiveTab] = useState<'all' | 'milestones' | 'single' | 'season_ind' | 'season_team' | 'playoffs'>('all');
+  const [activeTab, setActiveTab] = useState<'all' | 'milestones' | 'single' | 'season_ind' | 'season_team' | 'career_ind' | 'playoffs'>('all');
   const [isInauguralModalOpen, setIsInauguralModalOpen] = useState<boolean>(false);
 
   return (
@@ -110,6 +111,17 @@ export const RecordBookView: React.FC<RecordBookViewProps> = ({ onSelectTeamReca
             3. Season (Team)
           </button>
           <button
+            onClick={() => setActiveTab('career_ind')}
+            className={`px-3.5 py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 ${
+              activeTab === 'career_ind'
+                ? 'bg-amber-500 text-slate-950 font-black shadow-md'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <History size={14} />
+            4. Career Totals
+          </button>
+          <button
             onClick={() => setActiveTab('playoffs')}
             className={`px-3.5 py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 ${
               activeTab === 'playoffs'
@@ -118,7 +130,7 @@ export const RecordBookView: React.FC<RecordBookViewProps> = ({ onSelectTeamReca
             }`}
           >
             <Trophy size={14} />
-            4. Playoff Records
+            5. Playoff Records
           </button>
         </div>
       </div>
@@ -406,7 +418,82 @@ export const RecordBookView: React.FC<RecordBookViewProps> = ({ onSelectTeamReca
         </section>
       )}
 
-      {/* SECTION 4: PLAYOFF RECORDS */}
+      {/* SECTION 4: CAREER TOTALS (Regular Season) */}
+      {(activeTab === 'all' || activeTab === 'career_ind') && (
+        <section className="space-y-4">
+          <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-amber-500/10 border border-amber-500/20 rounded-xl text-amber-400">
+                <History size={20} />
+              </div>
+              <div>
+                <h2 className="text-xl font-black text-white">4. ALL-TIME CAREER TOTALS (Regular Season)</h2>
+                <p className="text-xs text-slate-400">All-time career leaders in regular season scoring, rebounds, assists, steals, blocks, and milestones across Seasons 1–3.</p>
+              </div>
+            </div>
+            <span className="text-xs font-mono font-bold text-amber-400 bg-amber-950/60 border border-amber-800/60 px-3 py-1 rounded-full hidden sm:inline-block">
+              Regular Season Career Leaders
+            </span>
+          </div>
+
+          <div className="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-xl">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-sm border-collapse min-w-[800px]">
+                <thead>
+                  <tr className="bg-slate-950/90 border-b border-slate-800 text-slate-400 text-xs uppercase tracking-wider font-extrabold">
+                    <th className="py-4 px-6">Category</th>
+                    <th className="py-4 px-6">Current Record Holder</th>
+                    <th className="py-4 px-6 text-center">Career Mark</th>
+                    <th className="py-4 px-6">Breakdown & Context</th>
+                    <th className="py-4 px-6">Span</th>
+                    <th className="py-4 px-6">
+                      <div className="flex items-center gap-1.5 text-amber-400">
+                        <History size={13} />
+                        Runner-Up / Previous Mark
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-800/80">
+                  {REGULAR_SEASON_CAREER_TOTALS.map((item, idx) => (
+                    <tr key={idx} className="bg-slate-900/90 hover:bg-slate-800/60 transition-colors font-medium">
+                      <td className="py-4 px-6 font-bold text-amber-400 text-sm whitespace-nowrap">
+                        {item.category}
+                      </td>
+                      <td className="py-4 px-6 text-slate-200 font-bold whitespace-nowrap">
+                        <div className="flex items-center gap-2">
+                          <TeamBadge teamId={item.teamId} size="sm" />
+                          <span className="font-black text-base text-white">{item.player}</span>
+                        </div>
+                      </td>
+                      <td className="py-4 px-6 text-center font-black text-amber-400 font-mono text-lg whitespace-nowrap">
+                        {item.stat}
+                      </td>
+                      <td className="py-4 px-6 text-xs text-slate-300 font-mono whitespace-normal max-w-xs">
+                        {item.details}
+                      </td>
+                      <td className="py-4 px-6 text-xs font-semibold text-slate-400 whitespace-nowrap">
+                        <span className="bg-slate-950 border border-slate-800 px-2.5 py-1 rounded-lg">
+                          {item.seasonOrSpan}
+                        </span>
+                      </td>
+                      <td className="py-4 px-6 text-xs font-mono text-slate-300 whitespace-nowrap bg-slate-950/40">
+                        {item.previousRecord ? (
+                          <span className="text-slate-300">{item.previousRecord}</span>
+                        ) : (
+                          <span className="text-slate-500 italic">None</span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* SECTION 5: PLAYOFF RECORDS */}
       {(activeTab === 'all' || activeTab === 'playoffs') && (
         <section className="space-y-8">
           {/* Subheader */}
@@ -416,7 +503,7 @@ export const RecordBookView: React.FC<RecordBookViewProps> = ({ onSelectTeamReca
                 <Trophy size={20} />
               </div>
               <div>
-                <h2 className="text-xl font-black text-white">4. POSTSEASON & PLAYOFF RECORDS</h2>
+                <h2 className="text-xl font-black text-white">5. POSTSEASON & PLAYOFF RECORDS</h2>
                 <p className="text-xs text-slate-400">Single game playoff high marks, single postseason totals, and career playoff leaders.</p>
               </div>
             </div>
