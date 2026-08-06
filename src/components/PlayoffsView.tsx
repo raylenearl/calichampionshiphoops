@@ -500,13 +500,13 @@ export const PlayoffsView: React.FC<PlayoffsViewProps> = ({
                 </button>
                 <button
                   onClick={() => setStatsCategory('profiles')}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                  className={`px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                     statsCategory === 'profiles'
                       ? 'bg-amber-500 text-slate-950 font-black'
                       : 'text-slate-400 hover:text-white'
                   }`}
                 >
-                  🔥 Standout Player Profiles
+                  Profiles
                 </button>
               </div>
 

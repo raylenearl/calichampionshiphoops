@@ -540,7 +540,7 @@ export const RecordBookView: React.FC<RecordBookViewProps> = ({ onSelectTeamReca
                   <tbody className="divide-y divide-slate-800/80">
                     {PLAYOFF_SINGLE_GAME_RECORDS.map((item, idx) => (
                       <tr key={idx} className="bg-slate-900/90 hover:bg-slate-800/60 transition-colors font-medium">
-                        <td className="py-3 sm:py-3.5 px-3 sm:px-4 md:px-5 font-bold text-amber-400 text-xs sm:text-sm whitespace-nowrap">
+                        <td className="py-3 sm:py-3.5 px-3 sm:px-4 md:px-5 font-bold text-amber-400 text-xs sm:text-sm max-w-[140px] sm:max-w-[180px] break-words">
                           {item.category}
                         </td>
                         <td className="py-3 sm:py-3.5 px-3 sm:px-4 md:px-5 text-slate-200 font-bold whitespace-nowrap">
@@ -592,7 +592,7 @@ export const RecordBookView: React.FC<RecordBookViewProps> = ({ onSelectTeamReca
                   <tbody className="divide-y divide-slate-800/80">
                     {PLAYOFF_SINGLE_POSTSEASON_RECORDS.map((item, idx) => (
                       <tr key={idx} className="bg-slate-900/90 hover:bg-slate-800/60 transition-colors font-medium">
-                        <td className="py-3 sm:py-3.5 px-3 sm:px-4 md:px-5 font-bold text-amber-400 text-xs sm:text-sm whitespace-nowrap">
+                        <td className="py-3 sm:py-3.5 px-3 sm:px-4 md:px-5 font-bold text-amber-400 text-xs sm:text-sm max-w-[140px] sm:max-w-[180px] break-words">
                           {item.category}
                         </td>
                         <td className="py-3 sm:py-3.5 px-3 sm:px-4 md:px-5 text-slate-200 font-bold whitespace-nowrap">
@@ -644,7 +644,7 @@ export const RecordBookView: React.FC<RecordBookViewProps> = ({ onSelectTeamReca
                   <tbody className="divide-y divide-slate-800/80">
                     {PLAYOFF_CAREER_TOTALS_RECORDS.map((item, idx) => (
                       <tr key={idx} className="bg-slate-900/90 hover:bg-slate-800/60 transition-colors font-medium">
-                        <td className="py-3 sm:py-3.5 px-3 sm:px-4 md:px-5 font-bold text-amber-400 text-xs sm:text-sm whitespace-nowrap">
+                        <td className="py-3 sm:py-3.5 px-3 sm:px-4 md:px-5 font-bold text-amber-400 text-xs sm:text-sm max-w-[140px] sm:max-w-[180px] break-words">
                           {item.category}
                         </td>
                         <td className="py-3 sm:py-3.5 px-3 sm:px-4 md:px-5 text-slate-200 font-bold whitespace-normal max-w-[180px] sm:max-w-xs break-words">

@@ -584,7 +584,7 @@ export interface PlayoffRecordItem {
 // Playoff Single-Game Records
 export const PLAYOFF_SINGLE_GAME_RECORDS: PlayoffRecordItem[] = [
   {
-    category: 'Most Points (Single Playoff Game)',
+    category: 'Most Points',
     player: 'Lamar Anderson',
     team: 'California Reds',
     teamId: 'california-reds',
@@ -604,7 +604,7 @@ export const PLAYOFF_SINGLE_GAME_RECORDS: PlayoffRecordItem[] = [
     previousRecord: 'Munir Kassa (32 PTS, Season 1 Quarterfinals vs. Sabrewolves)',
   },
   {
-    category: 'Most Rebounds (Single Playoff Game)',
+    category: 'Most Rebounds',
     player: 'DeAnte Gray',
     team: 'Golden State Enterprise',
     teamId: 'golden-state-enterprise',
@@ -614,7 +614,7 @@ export const PLAYOFF_SINGLE_GAME_RECORDS: PlayoffRecordItem[] = [
     previousRecord: 'Dorell Kabal (12 REB, Season 1 Finals vs. Enterprise)',
   },
   {
-    category: 'Most Assists (Single Playoff Game)',
+    category: 'Most Assists',
     player: 'Ray Gambino / Lamar Anderson',
     team: 'SDS / CAL',
     teamId: 'san-diego-strykers',
@@ -624,7 +624,7 @@ export const PLAYOFF_SINGLE_GAME_RECORDS: PlayoffRecordItem[] = [
     previousRecord: 'Munir Kassa & Jack McMichael Jr. (8 AST)',
   },
   {
-    category: 'Most 3-Pointers Made (Single Playoff Game)',
+    category: 'Most 3-Pointers Made',
     player: 'George Madsen',
     team: 'Sacramento Stallions',
     teamId: 'sacramento-stallions',
@@ -634,7 +634,7 @@ export const PLAYOFF_SINGLE_GAME_RECORDS: PlayoffRecordItem[] = [
     previousRecord: 'Lamar Anderson (6 3PM, Season 1 Quarterfinals vs. Dynamics)',
   },
   {
-    category: 'Most Steals (Single Playoff Game)',
+    category: 'Most Steals',
     player: 'Christopher Cook',
     team: 'Sacramento Stallions',
     teamId: 'sacramento-stallions',
@@ -644,7 +644,7 @@ export const PLAYOFF_SINGLE_GAME_RECORDS: PlayoffRecordItem[] = [
     previousRecord: 'Dorell Kabal (4 STL, Season 3 Quarterfinals vs. SF)',
   },
   {
-    category: 'Most Blocks (Single Playoff Game)',
+    category: 'Most Blocks',
     player: 'Dorell Kabal / Dennis Rodman / Adrian Pognotti',
     team: 'SAC / CAL / SF',
     teamId: 'sacramento-stallions',
@@ -658,7 +658,7 @@ export const PLAYOFF_SINGLE_GAME_RECORDS: PlayoffRecordItem[] = [
 // Single Postseason Run Records
 export const PLAYOFF_SINGLE_POSTSEASON_RECORDS: PlayoffRecordItem[] = [
   {
-    category: 'Most Points in a Single Playoff Run',
+    category: 'Most Points (Single Run)',
     player: 'George Madsen',
     team: 'Sacramento Stallions',
     teamId: 'sacramento-stallions',
@@ -668,7 +668,7 @@ export const PLAYOFF_SINGLE_POSTSEASON_RECORDS: PlayoffRecordItem[] = [
     previousRecord: 'Dorell Kabal (74 PTS, Season 1) / Lamar Anderson (73 PTS, Season 2)',
   },
   {
-    category: 'Most Rebounds in a Single Playoff Run',
+    category: 'Most Rebounds (Single Run)',
     player: 'Dorell Kabal',
     team: 'Sacramento Stallions',
     teamId: 'sacramento-stallions',
@@ -678,7 +678,7 @@ export const PLAYOFF_SINGLE_POSTSEASON_RECORDS: PlayoffRecordItem[] = [
     previousRecord: 'Dorell Kabal (29 REB, Season 1) / Dorell Kabal (25 REB, Season 2)',
   },
   {
-    category: 'Most Assists in a Single Playoff Run',
+    category: 'Most Assists (Single Run)',
     player: 'Ray Gambino',
     team: 'San Diego Strykers',
     teamId: 'san-diego-strykers',
@@ -688,7 +688,7 @@ export const PLAYOFF_SINGLE_POSTSEASON_RECORDS: PlayoffRecordItem[] = [
     previousRecord: 'Munir Kassa (16 AST, Season 1) / Lance Harrison (16 AST, Season 3)',
   },
   {
-    category: 'Most Steals in a Single Playoff Run',
+    category: 'Most Steals (Single Run)',
     player: 'Dorell Kabal',
     team: 'Sacramento Stallions',
     teamId: 'sacramento-stallions',
@@ -698,7 +698,7 @@ export const PLAYOFF_SINGLE_POSTSEASON_RECORDS: PlayoffRecordItem[] = [
     previousRecord: 'Christopher Cook & Lamar Anderson (7 STL, Season 2)',
   },
   {
-    category: 'Most 3-Pointers in a Single Playoff Run',
+    category: 'Most 3-Pointers (Single Run)',
     player: 'George Madsen',
     team: 'Sacramento Stallions',
     teamId: 'sacramento-stallions',
@@ -708,7 +708,7 @@ export const PLAYOFF_SINGLE_POSTSEASON_RECORDS: PlayoffRecordItem[] = [
     previousRecord: 'George Madsen (13 3PM, Season 2)',
   },
   {
-    category: 'Most Blocks in a Single Playoff Run',
+    category: 'Most Blocks (Single Run)',
     player: 'Dorell Kabal',
     team: 'Sacramento Stallions',
     teamId: 'sacramento-stallions',
