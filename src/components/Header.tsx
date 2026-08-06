@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Search, Menu, X, Trophy, Calendar, Users, Award, BookOpen, Activity, GitCompare, ExternalLink, Star, ArrowLeftRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Search, Menu, X, Trophy, Calendar, Users, Award, BookOpen, Activity, GitCompare, ExternalLink, Star, ArrowLeftRight, ChevronLeft, ChevronRight, Newspaper } from 'lucide-react';
 import { CCHLeagueLogo } from './TeamLogos';
 import { SocialHeaderButtons, SOCIAL_PLATFORMS } from './SocialLinks';
 
@@ -30,13 +30,14 @@ export const Header: React.FC<HeaderProps> = ({
 
   const navItems = [
     { id: 'hub', label: 'League Hub', icon: Trophy },
+    { id: 'news', label: 'News & Gazette', icon: Newspaper, highlight: true },
     { id: 'standings', label: 'Standings', icon: Activity },
-    { id: 'playoffs', label: 'Playoffs & Brackets', icon: Trophy, highlight: true },
-    { id: 'schedule', label: 'Schedule Browser', icon: Calendar },
-    { id: 'teams', label: '12 Teams', icon: Users },
+    { id: 'playoffs', label: 'Playoffs', icon: Trophy },
+    { id: 'schedule', label: 'Schedule', icon: Calendar },
+    { id: 'teams', label: 'Teams', icon: Users },
     { id: 'transactions', label: 'Transactions', icon: ArrowLeftRight },
-    { id: 'allstar', label: 'All-Star Game', icon: Star },
-    { id: 'halloffame', label: 'Hall of Achievements', icon: Award },
+    { id: 'allstar', label: 'All-Star', icon: Star },
+    { id: 'halloffame', label: 'Hall of Fame', icon: Award },
     { id: 'records', label: 'Record Book', icon: BookOpen },
     { id: 'players', label: 'Star Players', icon: Users },
     { id: 'h2h', label: 'Head to Head', icon: GitCompare },

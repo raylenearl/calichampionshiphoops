@@ -183,27 +183,27 @@ export const PlayoffsView: React.FC<PlayoffsViewProps> = ({
       </div>
 
       {/* Primary Section Switcher (Bracket vs Playoff Stats) */}
-      <div className="flex flex-wrap items-center justify-between gap-3 bg-slate-950/90 border border-slate-800 p-2 rounded-2xl">
-        <div className="flex items-center gap-2">
+      <div className="flex flex-wrap items-center justify-between gap-3 bg-slate-950/90 border border-slate-800 p-1.5 rounded-2xl">
+        <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none">
           <button
             onClick={() => setActiveTab('bracket')}
-            className={`px-4 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer ${
+            className={`px-3 py-2 rounded-xl text-xs font-black uppercase tracking-wider flex items-center gap-1.5 transition-all cursor-pointer whitespace-nowrap ${
               activeTab === 'bracket'
-                ? 'bg-amber-500 text-slate-950 shadow-lg'
+                ? 'bg-amber-500 text-slate-950 shadow-md'
                 : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
             }`}
           >
-            <Zap size={16} /> Playoff Bracket & Finals
+            <Zap size={14} /> Playoff Bracket
           </button>
           <button
             onClick={() => setActiveTab('stats')}
-            className={`px-4 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer ${
+            className={`px-3 py-2 rounded-xl text-xs font-black uppercase tracking-wider flex items-center gap-1.5 transition-all cursor-pointer whitespace-nowrap ${
               activeTab === 'stats'
-                ? 'bg-amber-500 text-slate-950 shadow-lg'
+                ? 'bg-amber-500 text-slate-950 shadow-md'
                 : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
             }`}
           >
-            <BarChart3 size={16} /> Postseason Stats & Game Notes
+            <BarChart3 size={14} /> Postseason Stats
           </button>
         </div>
 
@@ -457,46 +457,46 @@ export const PlayoffsView: React.FC<PlayoffsViewProps> = ({
           ) : (
             <div className="space-y-6">
               {/* Stats Sub-Category Controls */}
-              <div className="flex flex-wrap items-center gap-2 bg-slate-900 border border-slate-800 p-2 rounded-2xl">
+              <div className="flex flex-wrap items-center gap-1.5 bg-slate-900 border border-slate-800 p-1.5 rounded-2xl overflow-x-auto scrollbar-none">
                 <button
                   onClick={() => setStatsCategory('totals')}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                  className={`px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                     statsCategory === 'totals'
                       ? 'bg-amber-500 text-slate-950 font-black'
                       : 'text-slate-400 hover:text-white'
                   }`}
                 >
-                  🏆 Overall Totals Leaders
+                  Totals
                 </button>
                 <button
                   onClick={() => setStatsCategory('averages')}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                  className={`px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                     statsCategory === 'averages'
                       ? 'bg-amber-500 text-slate-950 font-black'
                       : 'text-slate-400 hover:text-white'
                   }`}
                 >
-                  📈 Per Game Averages
+                  Per Game
                 </button>
                 <button
                   onClick={() => setStatsCategory('highs')}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                  className={`px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                     statsCategory === 'highs'
                       ? 'bg-amber-500 text-slate-950 font-black'
                       : 'text-slate-400 hover:text-white'
                   }`}
                 >
-                  🌟 Single Game Highs
+                  Game Highs
                 </button>
                 <button
                   onClick={() => setStatsCategory('games')}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                  className={`px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                     statsCategory === 'games'
                       ? 'bg-amber-500 text-slate-950 font-black'
                       : 'text-slate-400 hover:text-white'
                   }`}
                 >
-                  📝 Detailed Game Notes & Boxscores
+                  Game Notes
                 </button>
                 <button
                   onClick={() => setStatsCategory('profiles')}

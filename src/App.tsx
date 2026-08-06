@@ -12,6 +12,7 @@ import { PlayerDirectory } from './components/PlayerDirectory';
 import { HeadToHeadView } from './components/HeadToHeadView';
 import { AllStarGameView } from './components/AllStarGameView';
 import { TransactionsView } from './components/TransactionsView';
+import { NewsView } from './components/NewsView';
 import { SearchModal } from './components/SearchModal';
 import { TeamSeasonModal } from './components/TeamSeasonModal';
 import { CCHLeagueLogo } from './components/TeamLogos';
@@ -148,6 +149,8 @@ export default function App() {
             />
           </div>
         )}
+
+        {activeTab === 'news' && <NewsView onSelectTeamRecap={handleSelectTeamRecap} />}
 
         {activeTab === 'standings' && (
           <StandingsView

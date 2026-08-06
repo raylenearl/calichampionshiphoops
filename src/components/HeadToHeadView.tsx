@@ -560,18 +560,18 @@ export const HeadToHeadView: React.FC = () => {
           </div>
 
           <div className="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-xl">
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-sm border-collapse min-w-[850px]">
+            <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-slate-700">
+              <table className="w-full text-left text-xs sm:text-sm border-collapse min-w-[620px] lg:min-w-full">
                 <thead>
-                  <tr className="bg-slate-950/90 border-b border-slate-800 text-slate-400 text-xs uppercase tracking-wider font-extrabold">
-                    <th className="py-4 px-6">Rank & Team</th>
-                    <th className="py-4 px-6">Conference</th>
-                    <th className="py-4 px-6 text-center">All-Time W-L</th>
-                    <th className="py-4 px-6 text-center">Win %</th>
-                    <th className="py-4 px-6 text-center">Reg Season W-L</th>
-                    <th className="py-4 px-6 text-center">Playoff W-L</th>
-                    <th className="py-4 px-6 text-center">Point Diff</th>
-                    <th className="py-4 px-6 text-center">Titles</th>
+                  <tr className="bg-slate-950/90 border-b border-slate-800 text-slate-400 text-[10px] sm:text-xs uppercase tracking-wider font-extrabold">
+                    <th className="py-3 sm:py-4 px-3 sm:px-4 md:px-5">Rank & Team</th>
+                    <th className="py-3 sm:py-4 px-3 sm:px-4 md:px-5">Conference</th>
+                    <th className="py-3 sm:py-4 px-3 sm:px-4 md:px-5 text-center">All-Time W-L</th>
+                    <th className="py-3 sm:py-4 px-3 sm:px-4 md:px-5 text-center">Win %</th>
+                    <th className="py-3 sm:py-4 px-3 sm:px-4 md:px-5 text-center">Reg Season W-L</th>
+                    <th className="py-3 sm:py-4 px-3 sm:px-4 md:px-5 text-center">Playoff W-L</th>
+                    <th className="py-3 sm:py-4 px-3 sm:px-4 md:px-5 text-center">Point Diff</th>
+                    <th className="py-3 sm:py-4 px-3 sm:px-4 md:px-5 text-center">Titles</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-800/80">
