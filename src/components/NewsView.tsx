@@ -139,6 +139,16 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap }) => {
             All Eras
           </button>
           <button
+            onClick={() => setSelectedSeasonFilter(4)}
+            className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
+              selectedSeasonFilter === 4
+                ? 'bg-amber-500 text-slate-950 font-black shadow-sm'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            Season 4
+          </button>
+          <button
             onClick={() => setSelectedSeasonFilter(3)}
             className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
               selectedSeasonFilter === 3
@@ -185,6 +195,22 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap }) => {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-4">
+              {featuredStory.imageUrl && (
+                <div className="relative overflow-hidden rounded-2xl border border-slate-800 shadow-xl bg-slate-950 group/hero flex flex-col items-center">
+                  <img
+                    src={featuredStory.imageUrl}
+                    alt={featuredStory.title}
+                    className="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover/hero:scale-105 p-2"
+                  />
+                  <div className="w-full bg-slate-950/95 border-t border-amber-500/20 px-4 py-2 flex items-center justify-between text-xs font-mono font-bold text-amber-300">
+                    <span className="flex items-center gap-1.5">
+                      <Sparkles size={14} className="text-amber-400" /> BREAKING FRONT OFFICE PHOTO
+                    </span>
+                    <span className="text-slate-200">Head Coach Jacob Underwood</span>
+                  </div>
+                </div>
+              )}
+
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white leading-tight tracking-tight">
                 {featuredStory.title}
               </h2>
@@ -278,6 +304,19 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap }) => {
               className="bg-slate-900 border border-slate-800 hover:border-amber-500/40 rounded-3xl p-5 space-y-4 shadow-xl flex flex-col justify-between transition-all hover:-translate-y-1 cursor-pointer group"
             >
               <div className="space-y-3">
+                {article.imageUrl && (
+                  <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 h-52 -mx-1 -mt-1 shadow-md flex flex-col items-center justify-center">
+                    <img
+                      src={article.imageUrl}
+                      alt={article.title}
+                      className="w-full h-full object-contain p-2 transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute bottom-2 left-2.5 right-2.5 text-[10px] font-mono font-bold text-amber-300 bg-slate-950/85 backdrop-blur-sm px-2.5 py-1 rounded-lg border border-amber-500/20 truncate">
+                      Breaking News Photo
+                    </div>
+                  </div>
+                )}
+
                 {/* Category & Date Header */}
                 <div className="flex items-center justify-between text-xs">
                   <span className="px-2.5 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 font-mono font-bold rounded-full text-[10px] uppercase">
@@ -368,6 +407,22 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap }) => {
               </div>
             </div>
 
+            {/* Article Image Banner if available */}
+            {selectedArticle.imageUrl && (
+              <div className="relative overflow-hidden rounded-2xl border border-slate-800 shadow-xl max-h-96">
+                <img
+                  src={selectedArticle.imageUrl}
+                  alt={selectedArticle.title}
+                  className="w-full h-64 sm:h-80 object-cover object-top"
+                />
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent p-4">
+                  <p className="text-xs text-amber-300 font-mono font-bold flex items-center gap-1.5">
+                    <Sparkles size={14} className="text-amber-400" /> Press Photo: Head Coach Jacob Underwood
+                  </p>
+                </div>
+              </div>
+            )}
+
             {/* Teams Matchup Boxscore if available */}
             {selectedArticle.teams && (
               <div className="bg-slate-950 border border-amber-500/30 p-4 rounded-2xl flex items-center justify-around gap-4 text-center">
@@ -381,8 +436,10 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap }) => {
                   )}
                 </div>
 
-                <div className="text-xs font-bold font-mono text-slate-500">
-                  FINAL SCORE
+                <div className="flex flex-col items-center gap-1">
+                  <div className="text-xs font-black font-mono text-amber-400 bg-amber-500/10 px-3.5 py-1 rounded-full border border-amber-500/20">
+                    {selectedArticle.teams.score1 !== undefined && selectedArticle.teams.score2 !== undefined ? 'FINAL' : 'VS'}
+                  </div>
                 </div>
 
                 <div className="flex flex-col items-center gap-1.5">

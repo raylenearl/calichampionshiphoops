@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { HeroBanner } from './components/HeroBanner';
+import { BreakingNewsCard } from './components/BreakingNewsCard';
 import { ChampionshipVideoCard } from './components/ChampionshipVideoCard';
 import { StandingsView } from './components/StandingsView';
 import { PlayoffsView } from './components/PlayoffsView';
@@ -58,6 +59,9 @@ export default function App() {
           <div className="space-y-8">
             {/* Hero Showcase */}
             <HeroBanner onNavigate={(tab) => setActiveTab(tab)} selectedSeason={selectedSeason} />
+
+            {/* Breaking Offseason News Card */}
+            <BreakingNewsCard onNavigateToNews={() => setActiveTab('news')} />
 
             {/* Championship Game Video Broadcast */}
             <ChampionshipVideoCard />

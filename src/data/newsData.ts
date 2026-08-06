@@ -1,11 +1,12 @@
 import { INAUGURAL_GAME_ARTICLE } from './leagueMilestonesData';
+import jacobUnderwoodImg from '../assets/images/JacobUnderwood.png';
 
 export interface CCHNewsArticle {
   id: string;
   title: string;
   subtitle: string;
   date: string;
-  season: 1 | 2 | 3;
+  season: 1 | 2 | 3 | 4;
   category: 'recap' | 'offseason' | 'feature' | 'milestone' | 'championship';
   featured?: boolean;
   author: string;
@@ -28,14 +29,56 @@ export interface CCHNewsArticle {
 
 export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
   {
+    id: 's4-underwood-defection',
+    title: 'SHOCKWAVES IN SAN DIEGO: Underwood Defects to Arch-Rival Sabrewolves',
+    subtitle: 'In the most stunning front-office defection in CCH history, head coach Jacob Underwood turns down a lucrative Strykers extension to sign a monumental 4-year, $29.11M deal with cross-town rival Sabrewolves.',
+    date: 'Season 4 Offseason',
+    season: 4,
+    category: 'offseason',
+    featured: true,
+    author: 'League Wire • San Diego Beat',
+    readTime: '3 min read',
+    imageUrl: jacobUnderwoodImg,
+    teams: {
+      team1: 'San Diego Sabrewolves',
+      team1Id: 'san-diego-sabrewolves',
+      team2: 'San Diego Strykers',
+      team2Id: 'san-diego-strykers',
+    },
+    headlineQuote: 'When the cross-town Sabrewolves entered the picture with a blank check and a vision of defensive dominance, Underwood didn\'t just walk away—he crossed the deepest battle lines in the league.',
+    contentParagraphs: [
+      'SAN DIEGO, CA — The San Diego basketball landscape has been split wide open. In the most stunning front-office defection in Cali Championship Hoops history, head coach Jacob Underwood has turned down a lucrative contract extension with the San Diego Strykers to sign a monumental four-year, $29.11 million contract with their bitter cross-town rivals, the San Diego Sabrewolves.',
+      'The move, finalized just hours into the Season 4 offseason, has sent shockwaves through the league and instantly turned the "Battle of San Diego" into a blood feud.',
+      'The Decision That Rocked the Strykers\nUnderwood was widely expected to sign a long-term extension to remain the mastermind of the Strykers. Hired in Season 2 to replace Jake Thomas, Underwood immediately transformed the Strykers into an offensive juggernaut, culminating in a spectacular Season 3 campaign where superstar guard A.J. Hinton captured the league MVP award under his tutelage.',
+      'Sources close to the Strykers organization reveal that negotiations for an extension had been ongoing for weeks. However, Underwood reportedly grew frustrated with the front office\'s hesitation to meet his valuation and their philosophical differences regarding future roster construction.',
+      'When the cross-town Sabrewolves entered the picture with a blank check and a vision of defensive dominance, Underwood didn\'t just walk away—he crossed the deepest battle lines in the league.',
+      'A Rivalry Redefined: Joining the Sabrewolves\nBy joining the Sabrewolves, Underwood takes the reins of a franchise known for its hard-nosed, suffocating defensive identity. Under former coach Milan Mack, the Sabrewolves consistently fielded elite defensive units, led by Season 3 Defensive Player of the Year Wes Taylor and interior anchor Andre Creek.',
+      'The irony is thick: Underwood\'s new squad features single-game scoring king Kirk Barnes, who famously torched Underwood\'s Strykers for a league-record 56 points in February of Season 3. Now, the coach who spent nights trying to draw up defensive schemes to stop Barnes will be drawing up plays to unleash him.',
+      'Betrayal on the Hardwood: How the Strykers Reacted\nThe reaction from the Strykers\' camp has been nothing short of volatile. Fans have taken to social media to voice their outrage, labeling Underwood a "traitor" for joining the team\'s primary rival.',
+      'Strykers star and reigning MVP A.J. Hinton reportedly expressed "extreme disappointment and shock" upon hearing the news, having built a close relationship with Underwood over the past two seasons. The Strykers front office is now left in an incredibly vulnerable position: they have a championship-ready roster featuring Hinton and elite point guard Ray Gambino, but no head coach to guide them into Season 4.'
+    ],
+    quotes: [
+      {
+        speaker: 'A.J. Hinton',
+        title: 'Reigning CCH MVP • San Diego Strykers',
+        quote: 'Extreme disappointment and shock. We built something special here over two seasons and were ready to go all the way.'
+      },
+      {
+        speaker: 'Jacob Underwood',
+        title: 'Head Coach • San Diego Sabrewolves',
+        quote: 'The vision presented by the Sabrewolves leadership aligns with my championship ambitions. I am ready for the next chapter in San Diego.'
+      }
+    ]
+  },
+  {
     id: 's3-championship-recap',
     title: 'Sacramento Stallions Claim Second CCH Title in 87-72 Finals Victory Over Fresno',
     subtitle: 'Finals MVP Dorell Kabal delivers a 25 PTS, 11 REB farewell performance on 78.6% FG alongside George Madsen’s 29 points to seal Sacramento’s dynasty status.',
     date: 'Season 3 Championship Night',
     season: 3,
     category: 'championship',
-    featured: true,
-    author: 'CCH League Wire • Operations Sports Dynasty Beat',
+    featured: false,
+    author: 'League Wire • Operations Sports Dynasty Beat',
     readTime: '4 min read',
     teams: {
       team1: 'Sacramento Stallions',
@@ -125,7 +168,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     season: 3,
     category: 'recap',
     featured: false,
-    author: 'CCH League Wire',
+    author: 'League Wire',
     readTime: '3 min read',
     teams: {
       team1: 'Fresno Mad Dogs',
@@ -150,7 +193,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     season: 2,
     category: 'championship',
     featured: false,
-    author: 'CCH League Wire',
+    author: 'League Wire',
     readTime: '3 min read',
     teams: {
       team1: 'California Reds',
@@ -192,7 +235,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     season: 1,
     category: 'championship',
     featured: false,
-    author: 'CCH League Wire',
+    author: 'League Wire',
     readTime: '3 min read',
     teams: {
       team1: 'Sacramento Stallions',
