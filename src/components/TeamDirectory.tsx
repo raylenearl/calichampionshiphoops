@@ -215,15 +215,20 @@ export const TeamDirectory: React.FC<TeamDirectoryProps> = ({ onSelectTeamRecap 
             <div className="space-y-3">
               <div className="flex items-start justify-between gap-3">
                 <TeamBadge teamId={team.id} size="lg" />
-                <span
-                  className={`text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full border ${
-                    team.conference === 'Northern Cali'
-                      ? 'bg-blue-950/80 text-blue-300 border-blue-800'
-                      : 'bg-amber-950/80 text-amber-300 border-amber-800'
-                  }`}
-                >
-                  {team.conference}
-                </span>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-xs font-mono font-black text-amber-400 bg-slate-950 px-2.5 py-1 rounded-xl border border-slate-800 shadow-sm">
+                    {team.abbreviation}
+                  </span>
+                  <span
+                    className={`text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full border ${
+                      team.conference === 'Northern Cali'
+                        ? 'bg-blue-950/80 text-blue-300 border-blue-800'
+                        : 'bg-amber-950/80 text-amber-300 border-amber-800'
+                    }`}
+                  >
+                    {team.conference}
+                  </span>
+                </div>
               </div>
 
               <div>
@@ -323,6 +328,9 @@ export const TeamDirectory: React.FC<TeamDirectoryProps> = ({ onSelectTeamRecap 
                 <TeamBadge teamId={activeTeamModal.id} size="lg" />
                 <div>
                   <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-mono font-black text-amber-400 bg-slate-950 px-2 py-0.5 rounded-full border border-slate-800">
+                      {activeTeamModal.abbreviation}
+                    </span>
                     <span className="text-[10px] font-black uppercase text-amber-400 bg-amber-950/60 border border-amber-800/60 px-2 py-0.5 rounded-full">
                       {activeTeamModal.conference}
                     </span>

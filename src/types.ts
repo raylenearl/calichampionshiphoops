@@ -4,6 +4,7 @@ export interface Team {
   id: string;
   name: string;
   shortName: string;
+  abbreviation: string;
   city: string;
   conference: Conference;
   primaryColor: string;

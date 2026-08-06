@@ -1,11 +1,27 @@
 import { Team } from '../types';
 
+export const TEAM_ABBREVIATIONS: Record<string, string> = {
+  'los-angeles-dynamics': 'LA',
+  'san-diego-strykers': 'SDS',
+  'san-diego-sabrewolves': 'SD',
+  'oakland-renegades': 'OAK',
+  'san-francisco-knights': 'SF',
+  'golden-state-enterprise': 'GS',
+  'california-reds': 'CAL',
+  'long-beach-vipers': 'LB',
+  'anaheim-admirals': 'ANA',
+  'san-jose-tigersharks': 'SJ',
+  'fresno-mad-dogs': 'FRE',
+  'sacramento-stallions': 'SAC',
+};
+
 export const TEAMS: Team[] = [
   // Northern Cali Conference
   {
     id: 'sacramento-stallions',
     name: 'Sacramento Stallions',
     shortName: 'Stallions',
+    abbreviation: 'SAC',
     city: 'Sacramento',
     conference: 'Northern Cali',
     primaryColor: '#4a03a9', // Purple
@@ -24,6 +40,7 @@ export const TEAMS: Team[] = [
     id: 'san-francisco-knights',
     name: 'San Francisco Knights',
     shortName: 'Knights',
+    abbreviation: 'SF',
     city: 'San Francisco',
     conference: 'Northern Cali',
     primaryColor: '#ee1e24', // Midnight Red
@@ -42,6 +59,7 @@ export const TEAMS: Team[] = [
     id: 'oakland-renegades',
     name: 'Oakland Renegades',
     shortName: 'Renegades',
+    abbreviation: 'OAK',
     city: 'Oakland',
     conference: 'Northern Cali',
     primaryColor: '#2d1e0a', // Brown
@@ -60,6 +78,7 @@ export const TEAMS: Team[] = [
     id: 'san-jose-tigersharks',
     name: 'San Jose Tigersharks',
     shortName: 'Tigersharks',
+    abbreviation: 'SJ',
     city: 'San Jose',
     conference: 'Northern Cali',
     primaryColor: '#ff9900', // Orange
@@ -78,6 +97,7 @@ export const TEAMS: Team[] = [
     id: 'golden-state-enterprise',
     name: 'Golden State Enterprise',
     shortName: 'Enterprise',
+    abbreviation: 'GS',
     city: 'San Francisco',
     conference: 'Northern Cali',
     primaryColor: '#000000', // Black
@@ -96,6 +116,7 @@ export const TEAMS: Team[] = [
     id: 'fresno-mad-dogs',
     name: 'Fresno Mad Dogs',
     shortName: 'Mad Dogs',
+    abbreviation: 'FRE',
     city: 'Fresno',
     conference: 'Northern Cali',
     primaryColor: '#b41927', // Mad Dog Red
@@ -116,6 +137,7 @@ export const TEAMS: Team[] = [
     id: 'los-angeles-dynamics',
     name: 'Los Angeles Dynamics',
     shortName: 'Dynamics',
+    abbreviation: 'LA',
     city: 'Los Angeles',
     conference: 'Southern Cali',
     primaryColor: '#004aad', // Blue
@@ -134,6 +156,7 @@ export const TEAMS: Team[] = [
     id: 'california-reds',
     name: 'California Reds',
     shortName: 'Reds',
+    abbreviation: 'CAL',
     city: 'Los Angeles',
     conference: 'Southern Cali',
     primaryColor: '#ff3131', // Deep Red
@@ -153,11 +176,12 @@ export const TEAMS: Team[] = [
     id: 'san-diego-sabrewolves',
     name: 'San Diego Sabrewolves',
     shortName: 'Sabrewolves',
+    abbreviation: 'SD',
     city: 'San Diego',
     conference: 'Southern Cali',
     primaryColor: '#e47334', // Cyber Orange
     secondaryColor: '#8c8c8c', // Sky Gray
-    accentColor: '#00000',
+    accentColor: '#000000',
     iconName: 'Swords',
     description: 'A high-tempo defensive juggernaut. Home of the single-game scoring king Kirk Barnes (56 pts), S3 DPOY Wes Taylor, and court general Donnell Nash.',
     keyPlayers: ['Kirk Barnes (SG, All-Time 56pt Single Game Record)', 'Wes Taylor (SF, S3 DPOY 1.8 SPG)', 'Donnell Nash (PG, Assist Leader 7.0 APG)', 'Cameron Barkley (S2 DPOY)'],
@@ -171,6 +195,7 @@ export const TEAMS: Team[] = [
     id: 'san-diego-strykers',
     name: 'San Diego Strykers',
     shortName: 'Strykers',
+    abbreviation: 'SDS',
     city: 'San Diego',
     conference: 'Southern Cali',
     primaryColor: '#e95315', // Bright Orange
@@ -189,6 +214,7 @@ export const TEAMS: Team[] = [
     id: 'anaheim-admirals',
     name: 'Anaheim Admirals',
     shortName: 'Admirals',
+    abbreviation: 'ANA',
     city: 'Anaheim',
     conference: 'Southern Cali',
     primaryColor: '#f15a2d', // Marine Orange
@@ -207,6 +233,7 @@ export const TEAMS: Team[] = [
     id: 'long-beach-vipers',
     name: 'Long Beach Vipers',
     shortName: 'Vipers',
+    abbreviation: 'LB',
     city: 'Long Beach',
     conference: 'Southern Cali',
     primaryColor: '#003f25', // Viper Green

@@ -1,8 +1,29 @@
 import React, { useState } from 'react';
-import { PLAYOFF_HISTORY } from '../data/playoffsData';
+import { PLAYOFF_HISTORY, PLAYOFF_STATS_BY_SEASON, PlayoffGameDetail } from '../data/playoffsData';
+import { PlayoffGame } from '../types';
 import { TEAMS } from '../data/teamsData';
+import { SEASON_ROSTERS } from '../data/rostersData';
 import { TeamBadge } from './TeamBadge';
-import { Trophy, Flame, Sparkles, Award, ShieldAlert, ChevronRight, Zap } from 'lucide-react';
+import {
+  Trophy,
+  Flame,
+  Sparkles,
+  Award,
+  Zap,
+  BarChart3,
+  Target,
+  Clock,
+  UserCheck,
+  Star,
+  FileText,
+  Activity,
+  Layers,
+  X,
+  ChevronRight,
+  User,
+  Users,
+  ExternalLink,
+} from 'lucide-react';
 
 interface PlayoffsViewProps {
   selectedSeason: 1 | 2 | 3;
@@ -15,7 +36,61 @@ export const PlayoffsView: React.FC<PlayoffsViewProps> = ({
   setSelectedSeason,
   onSelectTeamRecap,
 }) => {
+  const [activeTab, setActiveTab] = useState<'bracket' | 'stats'>('bracket');
+  const [statsCategory, setStatsCategory] = useState<'totals' | 'averages' | 'highs' | 'games' | 'profiles'>('totals');
+  const [selectedGameModal, setSelectedGameModal] = useState<{
+    game: PlayoffGame;
+    detail?: PlayoffGameDetail;
+  } | null>(null);
+
   const playoffInfo = PLAYOFF_HISTORY.find((p) => p.season === selectedSeason) || PLAYOFF_HISTORY[2];
+  const currentPlayoffStats = PLAYOFF_STATS_BY_SEASON[selectedSeason];
+
+  const getTeamIdByName = (name: string): string => {
+    if (!name) return '';
+    const clean = name.trim().toLowerCase();
+    const matched = TEAMS.find(
+      (t) =>
+        t.name.toLowerCase() === clean ||
+        t.shortName.toLowerCase() === clean ||
+        clean.includes(t.shortName.toLowerCase()) ||
+        t.name.toLowerCase().includes(clean)
+    );
+    if (matched) return matched.id;
+
+    if (clean.includes('stallion') || clean.includes('sac')) return 'sacramento-stallions';
+    if (clean.includes('red') || clean.includes('cal')) return 'california-reds';
+    if (clean.includes('enterprise') || clean.includes('golden') || clean.includes('gse')) return 'golden-state-enterprise';
+    if (clean.includes('knight') || clean.includes('sf') || clean.includes('san francisco')) return 'san-francisco-knights';
+    if (clean.includes('stryker') || clean.includes('sds')) return 'san-diego-strykers';
+    if (clean.includes('sabrewolf') || clean.includes('sabrewolves') || clean.includes('sab')) return 'san-diego-sabrewolves';
+    if (clean.includes('dynamic') || clean.includes('lad') || clean.includes('la ')) return 'la-dynamics';
+    if (clean.includes('mad dog') || clean.includes('fre') || clean.includes('fresno')) return 'fresno-mad-dogs';
+    if (clean.includes('viper') || clean.includes('lbc') || clean.includes('long beach')) return 'long-beach-vipers';
+    if (clean.includes('admiral') || clean.includes('adm') || clean.includes('anaheim')) return 'anaheim-admirals';
+    if (clean.includes('renegade') || clean.includes('oakland')) return 'oakland-renegades';
+    if (clean.includes('tigershark') || clean.includes('san jose')) return 'san-jose-tigersharks';
+
+    return clean.replace(/\s+/g, '-');
+  };
+
+  const handleBracketGameClick = (game: PlayoffGame) => {
+    const stats = PLAYOFF_STATS_BY_SEASON[selectedSeason];
+    let matchedDetail: PlayoffGameDetail | undefined;
+    if (stats && stats.detailedGames) {
+      matchedDetail = stats.detailedGames.find((dg) => {
+        const matchLower = dg.matchup.toLowerCase();
+        const t1 = game.team1.toLowerCase();
+        const t2 = game.team2.toLowerCase();
+        return (
+          (matchLower.includes(t1) && matchLower.includes(t2)) ||
+          matchLower.includes(t1) ||
+          matchLower.includes(t2)
+        );
+      });
+    }
+    setSelectedGameModal({ game, detail: matchedDetail });
+  };
 
   const handleTeamClick = (teamName: string) => {
     const matchedTeam = TEAMS.find(
@@ -29,25 +104,25 @@ export const PlayoffsView: React.FC<PlayoffsViewProps> = ({
   return (
     <div className="space-y-8">
       {/* Top Header Controls */}
-      <div className="bg-slate-900/80 border border-slate-800 p-5 sm:p-6 rounded-3xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="bg-slate-900/80 border border-slate-800 p-5 sm:p-6 rounded-3xl flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-xl">
         <div>
           <div className="flex items-center gap-2">
             <Trophy className="text-amber-400" size={26} />
             <h2 className="text-2xl sm:text-3xl font-black text-white">
-              CCH Postseason & Championship History
+              CCH Postseason & Championship Central
             </h2>
           </div>
           <p className="text-xs text-slate-400 font-medium mt-1">
-            Interactive playoff brackets, Cinderella underdog runs, and CCH Finals MVPs
+            Interactive playoff brackets, detailed postseason boxscores, and individual statistical leaders
           </p>
         </div>
 
         {/* Season Switcher */}
-        <div className="bg-slate-950 border border-slate-800 p-1 rounded-xl flex text-xs font-semibold">
+        <div className="bg-slate-950 border border-slate-800 p-1 rounded-xl flex text-xs font-semibold self-start md:self-auto">
           <button
             onClick={() => setSelectedSeason(1)}
             className={`px-4 py-2 rounded-lg transition-all cursor-pointer ${
-              selectedSeason === 1 ? 'bg-amber-500 text-slate-950 font-black' : 'text-slate-400 hover:text-white'
+              selectedSeason === 1 ? 'bg-amber-500 text-slate-950 font-black shadow-md' : 'text-slate-400 hover:text-white'
             }`}
           >
             Season 1
@@ -55,7 +130,7 @@ export const PlayoffsView: React.FC<PlayoffsViewProps> = ({
           <button
             onClick={() => setSelectedSeason(2)}
             className={`px-4 py-2 rounded-lg transition-all cursor-pointer ${
-              selectedSeason === 2 ? 'bg-amber-500 text-slate-950 font-black' : 'text-slate-400 hover:text-white'
+              selectedSeason === 2 ? 'bg-amber-500 text-slate-950 font-black shadow-md' : 'text-slate-400 hover:text-white'
             }`}
           >
             Season 2
@@ -63,11 +138,41 @@ export const PlayoffsView: React.FC<PlayoffsViewProps> = ({
           <button
             onClick={() => setSelectedSeason(3)}
             className={`px-4 py-2 rounded-lg transition-all cursor-pointer ${
-              selectedSeason === 3 ? 'bg-amber-500 text-slate-950 font-black' : 'text-slate-400 hover:text-white'
+              selectedSeason === 3 ? 'bg-amber-500 text-slate-950 font-black shadow-md' : 'text-slate-400 hover:text-white'
             }`}
           >
             Season 3
           </button>
+        </div>
+      </div>
+
+      {/* Primary Section Switcher (Bracket vs Playoff Stats) */}
+      <div className="flex flex-wrap items-center justify-between gap-3 bg-slate-950/90 border border-slate-800 p-2 rounded-2xl">
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setActiveTab('bracket')}
+            className={`px-4 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer ${
+              activeTab === 'bracket'
+                ? 'bg-amber-500 text-slate-950 shadow-lg'
+                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
+            }`}
+          >
+            <Zap size={16} /> Playoff Bracket & Finals
+          </button>
+          <button
+            onClick={() => setActiveTab('stats')}
+            className={`px-4 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer ${
+              activeTab === 'stats'
+                ? 'bg-amber-500 text-slate-950 shadow-lg'
+                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
+            }`}
+          >
+            <BarChart3 size={16} /> Postseason Stats & Game Notes
+          </button>
+        </div>
+
+        <div className="text-[11px] text-slate-400 font-medium px-3 hidden lg:block">
+          Season {selectedSeason} Postseason Hub
         </div>
       </div>
 
@@ -119,132 +224,598 @@ export const PlayoffsView: React.FC<PlayoffsViewProps> = ({
         )}
       </div>
 
-      {/* Visual Bracket Display */}
-      <div className="space-y-6">
-        <h3 className="text-xl font-black text-white flex items-center gap-2">
-          <Zap size={20} className="text-amber-400" />
-          Season {selectedSeason} Postseason Bracket Flow
-        </h3>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Quarterfinals Column */}
-          <div className="space-y-4">
-            <div className="bg-slate-950 border border-slate-800 p-3 rounded-2xl text-center">
-              <span className="text-xs font-black uppercase text-amber-400">Quarterfinals</span>
-            </div>
-            <div className="space-y-3">
-              {playoffInfo.quarterfinals.map((qg, idx) => (
-                <div
-                  key={idx}
-                  className="bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-2 hover:border-slate-700 transition-all shadow-md"
-                >
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-semibold text-slate-300 flex items-center gap-1.5">
-                      <span className="text-[10px] bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">
-                        #{qg.seed1}
-                      </span>
-                      {qg.team1}
-                    </span>
-                    <span className="font-mono font-black text-white">{qg.score1}</span>
-                  </div>
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-semibold text-slate-300 flex items-center gap-1.5">
-                      <span className="text-[10px] bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">
-                        #{qg.seed2}
-                      </span>
-                      {qg.team2}
-                    </span>
-                    <span className="font-mono font-black text-white">{qg.score2}</span>
-                  </div>
-                  {qg.notes && (
-                    <div className="text-[10px] text-amber-400 bg-amber-950/40 p-1.5 rounded-lg border border-amber-900/40 mt-1 font-medium">
-                      ⚡ {qg.notes}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
+      {/* Main Content View (Bracket vs Stats) */}
+      {activeTab === 'bracket' ? (
+        /* Visual Bracket Display */
+        <div className="space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <h3 className="text-xl font-black text-white flex items-center gap-2">
+              <Zap size={20} className="text-amber-400" />
+              Season {selectedSeason} Postseason Bracket Flow
+            </h3>
+            <span className="text-xs text-amber-400 font-mono bg-amber-950/60 border border-amber-800/60 px-3 py-1 rounded-full w-fit">
+              💡 Click any matchup to view full game boxscore & team rosters
+            </span>
           </div>
 
-          {/* Semifinals Column */}
-          <div className="space-y-4">
-            <div className="bg-slate-950 border border-slate-800 p-3 rounded-2xl text-center">
-              <span className="text-xs font-black uppercase text-amber-400">Semifinals</span>
-            </div>
-            <div className="space-y-3">
-              {playoffInfo.semifinals ? (
-                playoffInfo.semifinals.map((sg, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Quarterfinals Column */}
+            <div className="space-y-4">
+              <div className="bg-slate-950 border border-slate-800 p-3 rounded-2xl text-center">
+                <span className="text-xs font-black uppercase text-amber-400">Quarterfinals</span>
+              </div>
+              <div className="space-y-3">
+                {playoffInfo.quarterfinals.map((qg, idx) => (
                   <div
                     key={idx}
-                    className="bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-2 hover:border-slate-700 transition-all shadow-md"
+                    onClick={() => handleBracketGameClick(qg)}
+                    className="bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-2 hover:border-amber-500/80 hover:bg-slate-800/80 hover:scale-[1.01] transition-all cursor-pointer shadow-md group relative"
                   >
                     <div className="flex items-center justify-between text-xs">
                       <span className="font-semibold text-slate-300 flex items-center gap-1.5">
                         <span className="text-[10px] bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">
-                          #{sg.seed1}
+                          #{qg.seed1}
                         </span>
-                        {sg.team1}
+                        {qg.team1}
                       </span>
-                      <span className="font-mono font-black text-white">{sg.score1}</span>
+                      <span className="font-mono font-black text-white">{qg.score1}</span>
                     </div>
                     <div className="flex items-center justify-between text-xs">
                       <span className="font-semibold text-slate-300 flex items-center gap-1.5">
                         <span className="text-[10px] bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">
-                          #{sg.seed2}
+                          #{qg.seed2}
                         </span>
-                        {sg.team2}
+                        {qg.team2}
                       </span>
-                      <span className="font-mono font-black text-white">{sg.score2}</span>
+                      <span className="font-mono font-black text-white">{qg.score2}</span>
                     </div>
-                    {sg.notes && (
+                    {qg.notes && (
                       <div className="text-[10px] text-amber-400 bg-amber-950/40 p-1.5 rounded-lg border border-amber-900/40 mt-1 font-medium">
-                        ⚡ {sg.notes}
+                        ⚡ {qg.notes}
                       </div>
                     )}
+                    <div className="pt-1 flex items-center justify-end text-[10px] text-slate-400 font-mono group-hover:text-amber-400 transition-colors">
+                      View Boxscore & Rosters →
+                    </div>
                   </div>
-                ))
-              ) : (
-                <div className="text-xs text-slate-500 italic p-4 text-center">Semifinal data recorded in chronological logs</div>
-              )}
-            </div>
-          </div>
-
-          {/* Championship Finals Column */}
-          <div className="space-y-4">
-            <div className="bg-gradient-to-r from-amber-500/20 via-amber-500/10 to-amber-500/20 border border-amber-500/40 p-3 rounded-2xl text-center">
-              <span className="text-xs font-black uppercase text-amber-400 flex items-center justify-center gap-1.5">
-                <Trophy size={14} /> CCH Championship Finals
-              </span>
-            </div>
-            <div className="bg-slate-900 border-2 border-amber-500/50 rounded-2xl p-5 space-y-3 shadow-xl relative overflow-hidden">
-              <div className="flex items-center justify-between text-sm">
-                <span className="font-bold text-white flex items-center gap-1.5">
-                  <span className="text-[10px] bg-amber-500 text-slate-950 px-1.5 py-0.5 rounded font-black font-mono">
-                    #{playoffInfo.finals.seed1}
-                  </span>
-                  {playoffInfo.finals.team1}
-                </span>
-                <span className="font-mono font-black text-amber-400 text-base">{playoffInfo.finals.score1 || 'TBD'}</span>
+                ))}
               </div>
-              <div className="flex items-center justify-between text-sm">
-                <span className="font-bold text-white flex items-center gap-1.5">
-                  <span className="text-[10px] bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">
-                    #{playoffInfo.finals.seed2}
-                  </span>
-                  {playoffInfo.finals.team2}
-                </span>
-                <span className="font-mono font-black text-amber-400 text-base">{playoffInfo.finals.score2 || 'TBD'}</span>
-              </div>
+            </div>
 
-              {playoffInfo.finals.notes && (
-                <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-800 text-xs text-slate-300 font-medium">
-                  🏆 {playoffInfo.finals.notes}
+            {/* Semifinals Column */}
+            <div className="space-y-4">
+              <div className="bg-slate-950 border border-slate-800 p-3 rounded-2xl text-center">
+                <span className="text-xs font-black uppercase text-amber-400">Semifinals</span>
+              </div>
+              <div className="space-y-3">
+                {playoffInfo.semifinals ? (
+                  playoffInfo.semifinals.map((sg, idx) => (
+                    <div
+                      key={idx}
+                      onClick={() => handleBracketGameClick(sg)}
+                      className="bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-2 hover:border-amber-500/80 hover:bg-slate-800/80 hover:scale-[1.01] transition-all cursor-pointer shadow-md group relative"
+                    >
+                      <div className="flex items-center justify-between text-xs">
+                        <span className="font-semibold text-slate-300 flex items-center gap-1.5">
+                          <span className="text-[10px] bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">
+                            #{sg.seed1}
+                          </span>
+                          {sg.team1}
+                        </span>
+                        <span className="font-mono font-black text-white">{sg.score1}</span>
+                      </div>
+                      <div className="flex items-center justify-between text-xs">
+                        <span className="font-semibold text-slate-300 flex items-center gap-1.5">
+                          <span className="text-[10px] bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">
+                            #{sg.seed2}
+                          </span>
+                          {sg.team2}
+                        </span>
+                        <span className="font-mono font-black text-white">{sg.score2}</span>
+                      </div>
+                      {sg.notes && (
+                        <div className="text-[10px] text-amber-400 bg-amber-950/40 p-1.5 rounded-lg border border-amber-900/40 mt-1 font-medium">
+                          ⚡ {sg.notes}
+                        </div>
+                      )}
+                      <div className="pt-1 flex items-center justify-end text-[10px] text-slate-400 font-mono group-hover:text-amber-400 transition-colors">
+                        View Boxscore & Rosters →
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <div className="text-xs text-slate-500 italic p-4 text-center">Semifinal data recorded in chronological logs</div>
+                )}
+              </div>
+            </div>
+
+            {/* Championship Finals Column */}
+            <div className="space-y-4">
+              <div className="bg-gradient-to-r from-amber-500/20 via-amber-500/10 to-amber-500/20 border border-amber-500/40 p-3 rounded-2xl text-center">
+                <span className="text-xs font-black uppercase text-amber-400 flex items-center justify-center gap-1.5">
+                  <Trophy size={14} /> CCH Championship Finals
+                </span>
+              </div>
+              <div
+                onClick={() => handleBracketGameClick(playoffInfo.finals)}
+                className="bg-slate-900 border-2 border-amber-500/50 rounded-2xl p-5 space-y-3 shadow-xl relative overflow-hidden hover:border-amber-400 hover:scale-[1.01] transition-all cursor-pointer group"
+              >
+                <div className="flex items-center justify-between text-sm">
+                  <span className="font-bold text-white flex items-center gap-1.5">
+                    <span className="text-[10px] bg-amber-500 text-slate-950 px-1.5 py-0.5 rounded font-black font-mono">
+                      #{playoffInfo.finals.seed1}
+                    </span>
+                    {playoffInfo.finals.team1}
+                  </span>
+                  <span className="font-mono font-black text-amber-400 text-base">{playoffInfo.finals.score1 || 'TBD'}</span>
                 </div>
-              )}
+                <div className="flex items-center justify-between text-sm">
+                  <span className="font-bold text-white flex items-center gap-1.5">
+                    <span className="text-[10px] bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">
+                      #{playoffInfo.finals.seed2}
+                    </span>
+                    {playoffInfo.finals.team2}
+                  </span>
+                  <span className="font-mono font-black text-amber-400 text-base">{playoffInfo.finals.score2 || 'TBD'}</span>
+                </div>
+
+                {playoffInfo.finals.notes && (
+                  <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-800 text-xs text-slate-300 font-medium">
+                    🏆 {playoffInfo.finals.notes}
+                  </div>
+                )}
+                <div className="pt-1 flex items-center justify-end text-[10px] text-amber-400 font-mono font-bold">
+                  View Championship Boxscore & Rosters →
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      ) : (
+        /* Postseason Stats & Boxscores Section */
+        <div className="space-y-6">
+          {!currentPlayoffStats ? (
+            <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 text-center space-y-3">
+              <Clock className="mx-auto text-amber-400" size={32} />
+              <h3 className="text-xl font-black text-white">
+                Season {selectedSeason} Playoff Stats Archive
+              </h3>
+              <p className="text-xs text-slate-400 max-w-lg mx-auto leading-relaxed">
+                Detailed statistical logs and individual player boxscores for Season {selectedSeason} are currently being compiled into the official archive. Select Season 2 or Season 3 above to view complete postseason stats, leaderboards, game summaries, and standout profiles.
+              </p>
+            </div>
+          ) : (
+            <div className="space-y-6">
+              {/* Stats Sub-Category Controls */}
+              <div className="flex flex-wrap items-center gap-2 bg-slate-900 border border-slate-800 p-2 rounded-2xl">
+                <button
+                  onClick={() => setStatsCategory('totals')}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                    statsCategory === 'totals'
+                      ? 'bg-amber-500 text-slate-950 font-black'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  🏆 Overall Totals Leaders
+                </button>
+                <button
+                  onClick={() => setStatsCategory('averages')}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                    statsCategory === 'averages'
+                      ? 'bg-amber-500 text-slate-950 font-black'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  📈 Per Game Averages
+                </button>
+                <button
+                  onClick={() => setStatsCategory('highs')}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                    statsCategory === 'highs'
+                      ? 'bg-amber-500 text-slate-950 font-black'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  🌟 Single Game Highs
+                </button>
+                <button
+                  onClick={() => setStatsCategory('games')}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                    statsCategory === 'games'
+                      ? 'bg-amber-500 text-slate-950 font-black'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  📝 Detailed Game Notes & Boxscores
+                </button>
+                <button
+                  onClick={() => setStatsCategory('profiles')}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                    statsCategory === 'profiles'
+                      ? 'bg-amber-500 text-slate-950 font-black'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  🔥 Standout Player Profiles
+                </button>
+              </div>
+
+              {/* Category 1: Overall Totals Leaders */}
+              {statsCategory === 'totals' && (
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-black text-white flex items-center gap-2">
+                      <Trophy size={18} className="text-amber-400" />
+                      Season {selectedSeason} Overall Playoff Totals Leaders
+                    </h3>
+                    <span className="text-xs text-slate-400 font-mono">3 Playoff Rounds</span>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {currentPlayoffStats.totalsLeaders.map((item, idx) => (
+                      <div
+                        key={idx}
+                        className="bg-slate-900/90 border border-slate-800 p-4 rounded-2xl space-y-2 hover:border-slate-700 transition-all shadow-md"
+                      >
+                        <span className="text-[10px] text-amber-400 font-black uppercase tracking-wider block">
+                          {item.category}
+                        </span>
+                        <div className="text-xl font-black text-white font-mono">{item.stat}</div>
+                        <div className="text-xs font-bold text-slate-200">{item.player}</div>
+                        <div className="text-[11px] text-slate-400">{item.team}</div>
+                        {item.details && (
+                          <div className="text-[10px] text-slate-400 bg-slate-950 p-1.5 rounded-lg border border-slate-800 font-mono">
+                            {item.details}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Category 2: Per Game Averages */}
+              {statsCategory === 'averages' && (
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-black text-white flex items-center gap-2">
+                      <BarChart3 size={18} className="text-amber-400" />
+                      Season {selectedSeason} Per-Game Averages Leaders
+                    </h3>
+                    <span className="text-xs text-slate-400 font-mono">Rate Statistics</span>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {currentPlayoffStats.averagesLeaders.map((item, idx) => (
+                      <div
+                        key={idx}
+                        className="bg-slate-900/90 border border-slate-800 p-4 rounded-2xl space-y-2 hover:border-slate-700 transition-all shadow-md"
+                      >
+                        <span className="text-[10px] text-emerald-400 font-black uppercase tracking-wider block">
+                          {item.category}
+                        </span>
+                        <div className="text-xl font-black text-white font-mono">{item.stat}</div>
+                        <div className="text-xs font-bold text-slate-200">{item.player}</div>
+                        <div className="text-[11px] text-slate-400">{item.team}</div>
+                        {item.details && (
+                          <div className="text-[10px] text-slate-400 bg-slate-950 p-1.5 rounded-lg border border-slate-800 font-mono">
+                            {item.details}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Category 3: Single Game Highs */}
+              {statsCategory === 'highs' && (
+                <div className="space-y-4">
+                  <h3 className="text-lg font-black text-white flex items-center gap-2">
+                    <Star size={18} className="text-amber-400" />
+                    Season {selectedSeason} Top Individual Game Performances
+                  </h3>
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    {currentPlayoffStats.singleGameHighs.map((cat, idx) => (
+                      <div key={idx} className="bg-slate-900 border border-slate-800 p-5 rounded-2xl space-y-4 shadow-lg">
+                        <h4 className="text-xs font-black uppercase text-amber-400 tracking-wider border-b border-slate-800 pb-2 flex items-center justify-between">
+                          <span>{cat.category}</span>
+                          <span className="text-[10px] text-slate-400 font-mono">Single Game</span>
+                        </h4>
+                        <div className="space-y-3">
+                          {cat.performances.map((perf, pIdx) => (
+                            <div key={pIdx} className="bg-slate-950 border border-slate-800/80 p-3 rounded-xl flex items-center justify-between gap-2">
+                              <div>
+                                <div className="text-xs font-extrabold text-white">{perf.player}</div>
+                                <div className="text-[10px] text-slate-400 font-mono">{perf.matchup}</div>
+                              </div>
+                              <span className="text-sm font-mono font-black text-amber-400 bg-amber-950/60 px-2.5 py-1 rounded-lg border border-amber-800/60">
+                                {perf.stat}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Category 4: Detailed Game Notes & Boxscores */}
+              {statsCategory === 'games' && (
+                <div className="space-y-4">
+                  <h3 className="text-lg font-black text-white flex items-center gap-2">
+                    <FileText size={18} className="text-amber-400" />
+                    Season {selectedSeason} Detailed Playoff Game Notes & Summaries
+                  </h3>
+                  <div className="space-y-4">
+                    {currentPlayoffStats.detailedGames.map((game) => (
+                      <div key={game.id} className="bg-slate-900 border border-slate-800 p-5 rounded-2xl space-y-3 shadow-md">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                          <div className="space-y-0.5">
+                            <span className="text-[10px] text-amber-400 font-mono font-bold uppercase tracking-wider block">
+                              {game.round}
+                            </span>
+                            <h4 className="text-sm sm:text-base font-black text-white">{game.matchup}</h4>
+                          </div>
+                          <div className="bg-slate-950 border border-slate-800 px-3 py-1 rounded-xl font-mono font-black text-amber-400 text-sm self-start sm:self-auto">
+                            {game.score}
+                          </div>
+                        </div>
+
+                        <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                          {game.summary}
+                        </p>
+
+                        <div className="bg-slate-950 border border-slate-800 p-3 rounded-xl space-y-1">
+                          <span className="text-[10px] text-slate-400 uppercase font-mono font-bold block">
+                            Top Matchup Performers
+                          </span>
+                          <div className="flex flex-wrap gap-2 pt-1">
+                            {game.topPerformers.map((tp, tpIdx) => (
+                              <span
+                                key={tpIdx}
+                                className="text-xs font-semibold text-slate-200 bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-lg flex items-center gap-1.5"
+                              >
+                                <span>{tp.name}:</span>
+                                <span className="text-amber-400 font-mono font-bold">{tp.stat}</span>
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Category 5: Standout Player Profiles */}
+              {statsCategory === 'profiles' && (
+                <div className="space-y-4">
+                  <h3 className="text-lg font-black text-white flex items-center gap-2">
+                    <Flame size={18} className="text-amber-400" />
+                    Season {selectedSeason} Postseason Standout Profiles
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {currentPlayoffStats.standoutProfiles.map((prof, idx) => (
+                      <div
+                        key={idx}
+                        className="bg-slate-900 border border-slate-800 p-6 rounded-3xl space-y-4 shadow-xl relative overflow-hidden flex flex-col justify-between"
+                      >
+                        <div className="space-y-3">
+                          <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                            <div>
+                              <div className="flex items-center gap-2">
+                                <h4 className="text-xl font-black text-white">{prof.name}</h4>
+                                <span className="text-[10px] bg-slate-800 text-amber-400 px-2 py-0.5 rounded font-mono font-bold">
+                                  OVR {prof.ovr}
+                                </span>
+                              </div>
+                              <span className="text-xs text-slate-400 font-semibold">{prof.team} • {prof.position}</span>
+                            </div>
+                            <TeamBadge teamId={prof.teamId} size="md" />
+                          </div>
+
+                          <div className="bg-amber-950/40 border border-amber-900/60 p-3 rounded-2xl space-y-1">
+                            <span className="text-[10px] text-amber-400 font-black uppercase tracking-wider block">
+                              {prof.role}
+                            </span>
+                            <div className="text-xs font-mono font-black text-slate-100">{prof.statsHighlight}</div>
+                          </div>
+
+                          <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                            {prof.description}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Interactive Game Boxscore & Rosters Modal */}
+      {selectedGameModal && (() => {
+        const { game, detail } = selectedGameModal;
+        const t1Id = getTeamIdByName(game.team1);
+        const t2Id = getTeamIdByName(game.team2);
+        const seasonKey = (`s${selectedSeason}`) as 's1' | 's2' | 's3';
+        const t1Roster = SEASON_ROSTERS[t1Id]?.[seasonKey];
+        const t2Roster = SEASON_ROSTERS[t2Id]?.[seasonKey];
+
+        return (
+          <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+            <div className="bg-slate-900 border border-slate-700 rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl p-6 sm:p-8 space-y-6 relative animate-in fade-in zoom-in-95 duration-150">
+              {/* Modal Close Button */}
+              <button
+                onClick={() => setSelectedGameModal(null)}
+                className="absolute top-5 right-5 p-2 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-full transition-all cursor-pointer shadow-md"
+              >
+                <X size={20} />
+              </button>
+
+              {/* Modal Header */}
+              <div className="border-b border-slate-800 pb-4 space-y-2">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-mono font-bold rounded-full uppercase">
+                  <Trophy size={14} /> Season {selectedSeason} • {game.round}
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-black text-white">
+                  {game.team1} <span className="text-amber-400">{game.score1}</span>, {game.team2} <span className="text-amber-400">{game.score2}</span>
+                </h2>
+                <div className="flex items-center gap-3 text-xs text-slate-300 font-semibold">
+                  <span>Winner: <span className="text-emerald-400 font-bold">{game.winner}</span></span>
+                  <span>•</span>
+                  <span className="text-slate-400">Official Postseason Boxscore</span>
+                </div>
+              </div>
+
+              {/* Game Summary / Notes */}
+              {(detail?.summary || game.notes) && (
+                <div className="bg-slate-950 border border-slate-800 p-4 rounded-2xl space-y-2">
+                  <h4 className="text-xs font-black uppercase text-amber-400 tracking-wider flex items-center gap-1.5">
+                    <FileText size={14} /> Official Game Summary & Recap
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">
+                    {detail?.summary || game.notes}
+                  </p>
+                </div>
+              )}
+
+              {/* Top Performers */}
+              {detail?.topPerformers && detail.topPerformers.length > 0 && (
+                <div className="space-y-3">
+                  <h4 className="text-xs font-black uppercase text-amber-400 tracking-wider flex items-center gap-1.5">
+                    <Star size={14} /> Top Performers & Boxscore Highlights
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                    {detail.topPerformers.map((tp, idx) => (
+                      <div key={idx} className="bg-slate-950/80 border border-slate-800 p-3 rounded-xl space-y-1">
+                        <div className="font-bold text-xs text-white flex items-center gap-1.5">
+                          <UserCheck size={13} className="text-amber-400 shrink-0" />
+                          {tp.name}
+                        </div>
+                        <div className="text-xs font-mono font-semibold text-amber-300">
+                          {tp.stat}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Team Rosters with Full Names */}
+              <div className="space-y-4 pt-2 border-t border-slate-800">
+                <div className="flex items-center justify-between">
+                  <h4 className="text-sm font-black text-white flex items-center gap-2">
+                    <Users size={16} className="text-amber-400" />
+                    Full Active Team Rosters (Season {selectedSeason})
+                  </h4>
+                  <span className="text-[11px] text-slate-400 font-mono">Full Player Names</span>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Team 1 Roster */}
+                  <div className="bg-slate-950 border border-slate-800 p-4 rounded-2xl space-y-3">
+                    <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                      <div className="flex items-center gap-2">
+                        <TeamBadge teamId={t1Id} size="sm" />
+                        <div>
+                          <h5 className="font-bold text-xs text-white">{game.team1}</h5>
+                          {t1Roster?.coach && (
+                            <span className="text-[10px] text-slate-400 block">Coach: {t1Roster.coach}</span>
+                          )}
+                        </div>
+                      </div>
+                      <span className="text-[10px] font-mono text-amber-400 bg-amber-950 px-2 py-0.5 rounded border border-amber-900">
+                        #{game.seed1} Seed
+                      </span>
+                    </div>
+
+                    <div className="space-y-1.5 max-h-56 overflow-y-auto pr-1">
+                      {t1Roster?.players ? (
+                        t1Roster.players.map((pl, idx) => (
+                          <div key={idx} className="flex items-center justify-between text-xs py-1.5 px-2 rounded bg-slate-900/60 border border-slate-800/60">
+                            <div className="flex items-center gap-2">
+                              {pl.number && <span className="font-mono text-[10px] text-slate-400 font-bold w-4">#{pl.number}</span>}
+                              <span className="font-bold text-slate-100">{pl.name}</span>
+                            </div>
+                            <div className="flex items-center gap-2 text-[11px]">
+                              <span className="text-slate-400 font-medium">{pl.position}</span>
+                              {pl.ovr && <span className="font-mono font-bold text-amber-400 bg-amber-950/80 px-1.5 py-0.5 rounded">{pl.ovr} OVR</span>}
+                            </div>
+                          </div>
+                        ))
+                      ) : (
+                        <div className="text-xs text-slate-500 italic p-2">Roster details available in Team Hub</div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Team 2 Roster */}
+                  <div className="bg-slate-950 border border-slate-800 p-4 rounded-2xl space-y-3">
+                    <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                      <div className="flex items-center gap-2">
+                        <TeamBadge teamId={t2Id} size="sm" />
+                        <div>
+                          <h5 className="font-bold text-xs text-white">{game.team2}</h5>
+                          {t2Roster?.coach && (
+                            <span className="text-[10px] text-slate-400 block">Coach: {t2Roster.coach}</span>
+                          )}
+                        </div>
+                      </div>
+                      <span className="text-[10px] font-mono text-amber-400 bg-amber-950 px-2 py-0.5 rounded border border-amber-900">
+                        #{game.seed2} Seed
+                      </span>
+                    </div>
+
+                    <div className="space-y-1.5 max-h-56 overflow-y-auto pr-1">
+                      {t2Roster?.players ? (
+                        t2Roster.players.map((pl, idx) => (
+                          <div key={idx} className="flex items-center justify-between text-xs py-1.5 px-2 rounded bg-slate-900/60 border border-slate-800/60">
+                            <div className="flex items-center gap-2">
+                              {pl.number && <span className="font-mono text-[10px] text-slate-400 font-bold w-4">#{pl.number}</span>}
+                              <span className="font-bold text-slate-100">{pl.name}</span>
+                            </div>
+                            <div className="flex items-center gap-2 text-[11px]">
+                              <span className="text-slate-400 font-medium">{pl.position}</span>
+                              {pl.ovr && <span className="font-mono font-bold text-amber-400 bg-amber-950/80 px-1.5 py-0.5 rounded">{pl.ovr} OVR</span>}
+                            </div>
+                          </div>
+                        ))
+                      ) : (
+                        <div className="text-xs text-slate-500 italic p-2">Roster details available in Team Hub</div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Modal Action Buttons */}
+              <div className="flex items-center justify-between pt-2 border-t border-slate-800">
+                <button
+                  onClick={() => {
+                    setSelectedGameModal(null);
+                    if (onSelectTeamRecap) {
+                      onSelectTeamRecap(t1Id, selectedSeason);
+                    }
+                  }}
+                  className="text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1.5 cursor-pointer"
+                >
+                  <ExternalLink size={14} /> Open {game.team1} Team Page
+                </button>
+                <button
+                  onClick={() => setSelectedGameModal(null)}
+                  className="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold rounded-xl transition-all cursor-pointer"
+                >
+                  Close Game Window
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 };
+

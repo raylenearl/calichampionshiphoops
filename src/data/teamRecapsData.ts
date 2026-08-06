@@ -52,7 +52,7 @@ export const TEAM_SEASON_RECAPS: Record<string, Record<number, TeamSeasonRecap>>
         'Season 3 CCH Champions (2-Time League Champions - S1 & S3)',
         '15-7 Regular Season (#2 Seed) & 18-7 Overall Postseason Record',
         '3 Consecutive CCH Finals Appearances (S1, S2, S3)',
-        'Dorell Kabal Season 3 Finals MVP (Retirement Masterclass 25 PTS, 11 REB, 3 BLK)',
+        'Dorell Kabal Season 3 Finals MVP (25 PTS, 11 REB, 3 BLK 78.6% FG)',
         'George Madsen 29 PTS (11-15 FG, 5-7 3PT) in Championship Game',
       ],
       seasonAwards: [

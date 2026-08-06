@@ -191,7 +191,7 @@ export const ALL_STAR_GAMES: AllStarGame[] = [
     norCalRoster: [
       { name: 'D. Kabal', team: 'Sacramento Stallions', teamId: 'sacramento-stallions', min: 20, pts: 22, reb: 10, ast: 0, stl: 0, blk: 4, fg: '10-10', fg3: '1-1' },
       { name: 'A. Reece', team: 'Oakland Renegades', teamId: 'oakland-renegades', min: 27, pts: 15, reb: 0, ast: 3, stl: 0, blk: 0, fg: '6-14', fg3: '3-6' },
-      { name: 'M. K (Munir Kassa)', team: 'San Francisco Knights', teamId: 'san-francisco-knights', min: 28, pts: 10, reb: 2, ast: 4, stl: 3, blk: 0, fg: '3-8', fg3: '0-0' },
+      { name: 'Munir Kassa', team: 'San Francisco Knights', teamId: 'san-francisco-knights', min: 28, pts: 10, reb: 2, ast: 4, stl: 3, blk: 0, fg: '3-8', fg3: '0-0' },
       { name: 'J. Dean', team: 'California Reds', teamId: 'california-reds', min: 22, pts: 6, reb: 0, ast: 0, stl: 0, blk: 0, fg: '1-4', fg3: '0-0' },
       { name: 'J. Parks', team: 'Fresno Mad Dogs', teamId: 'fresno-mad-dogs', min: 8, pts: 6, reb: 0, ast: 1, stl: 1, blk: 0, fg: '2-3', fg3: '0-0' },
       { name: 'C. Barkley', team: 'San Diego Sabrewolves', teamId: 'san-diego-sabrewolves', min: 13, pts: 4, reb: 4, ast: 1, stl: 0, blk: 2, fg: '1-2', fg3: '0-0' },

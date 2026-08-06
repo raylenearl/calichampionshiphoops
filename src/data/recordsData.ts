@@ -455,6 +455,209 @@ export const SEASON_2_RECORD_BREAKERS: Season2RecordBreaker[] = [
   },
 ];
 
+export interface PlayoffRecordItem {
+  category: string;
+  player: string;
+  team: string;
+  teamId: string;
+  stat: string;
+  details: string;
+  seasonOrSpan: string;
+  previousRecord?: string;
+}
+
+// Playoff Single-Game Records
+export const PLAYOFF_SINGLE_GAME_RECORDS: PlayoffRecordItem[] = [
+  {
+    category: 'Most Points (Single Playoff Game)',
+    player: 'Lamar Anderson',
+    team: 'California Reds',
+    teamId: 'california-reds',
+    stat: '34 PTS',
+    details: 'vs. Fresno Mad Dogs (11-18 FG, 5-9 3PT, 7-8 FT)',
+    seasonOrSpan: 'Season 3 Quarterfinals',
+    previousRecord: 'Munir Kassa (33 PTS, Season 1 Semifinals vs. Stallions)',
+  },
+  {
+    category: 'Most Points (Runner-Up)',
+    player: 'Munir Kassa',
+    team: 'San Francisco Knights',
+    teamId: 'san-francisco-knights',
+    stat: '33 PTS',
+    details: 'vs. Sacramento Stallions (14-23 FG, 4-7 3PT, 8 AST)',
+    seasonOrSpan: 'Season 1 Semifinals',
+    previousRecord: 'Munir Kassa (32 PTS, Season 1 Quarterfinals vs. Sabrewolves)',
+  },
+  {
+    category: 'Most Rebounds (Single Playoff Game)',
+    player: 'DeAnte Gray',
+    team: 'Golden State Enterprise',
+    teamId: 'golden-state-enterprise',
+    stat: '13 REB',
+    details: 'vs. LA Dynamics (Added 6 PTS & 8 AST)',
+    seasonOrSpan: 'Season 1 Semifinals',
+    previousRecord: 'Dorell Kabal (12 REB, Season 1 Finals vs. Enterprise)',
+  },
+  {
+    category: 'Most Assists (Single Playoff Game)',
+    player: 'Ray Gambino / Lamar Anderson',
+    team: 'SDS / CAL',
+    teamId: 'san-diego-strykers',
+    stat: '9 AST',
+    details: 'Ray Gambino (23 PTS, 9 AST vs. Sabrewolves) & Lamar Anderson (28 PTS, 9 AST vs. Dynamics)',
+    seasonOrSpan: 'Season 2 & Season 1 Quarterfinals',
+    previousRecord: 'Munir Kassa & Jack McMichael Jr. (8 AST)',
+  },
+  {
+    category: 'Most 3-Pointers Made (Single Playoff Game)',
+    player: 'George Madsen',
+    team: 'Sacramento Stallions',
+    teamId: 'sacramento-stallions',
+    stat: '7 3PM',
+    details: 'vs. San Francisco Knights (7-10 3PT, 27 PTS)',
+    seasonOrSpan: 'Season 2 Quarterfinals',
+    previousRecord: 'Lamar Anderson (6 3PM, Season 1 Quarterfinals vs. Dynamics)',
+  },
+  {
+    category: 'Most Steals (Single Playoff Game)',
+    player: 'Christopher Cook',
+    team: 'Sacramento Stallions',
+    teamId: 'sacramento-stallions',
+    stat: '5 STL',
+    details: 'vs. California Reds in CCH Finals',
+    seasonOrSpan: 'Season 2 Finals',
+    previousRecord: 'Dorell Kabal (4 STL, Season 3 Quarterfinals vs. SF)',
+  },
+  {
+    category: 'Most Blocks (Single Playoff Game)',
+    player: 'Dorell Kabal / Dennis Rodman / Adrian Pognotti',
+    team: 'SAC / CAL / SF',
+    teamId: 'sacramento-stallions',
+    stat: '3 BLK',
+    details: 'Multiple occurrences in CCH Postseason play',
+    seasonOrSpan: 'Seasons 1, 2, & 3',
+    previousRecord: 'Multi-holder postseason benchmark',
+  },
+];
+
+// Single Postseason Run Records
+export const PLAYOFF_SINGLE_POSTSEASON_RECORDS: PlayoffRecordItem[] = [
+  {
+    category: 'Most Points in a Single Playoff Run',
+    player: 'George Madsen',
+    team: 'Sacramento Stallions',
+    teamId: 'sacramento-stallions',
+    stat: '75 PTS',
+    details: '3 GP (29 in Finals, 21 in Semis, 25 in QF)',
+    seasonOrSpan: 'Season 3 Playoffs',
+    previousRecord: 'Dorell Kabal (74 PTS, Season 1) / Lamar Anderson (73 PTS, Season 2)',
+  },
+  {
+    category: 'Most Rebounds in a Single Playoff Run',
+    player: 'Dorell Kabal',
+    team: 'Sacramento Stallions',
+    teamId: 'sacramento-stallions',
+    stat: '30 REB',
+    details: '3 GP, 10.0 RPG average (11 in Finals, 8 in Semis, 11 in QF)',
+    seasonOrSpan: 'Season 3 Playoffs',
+    previousRecord: 'Dorell Kabal (29 REB, Season 1) / Dorell Kabal (25 REB, Season 2)',
+  },
+  {
+    category: 'Most Assists in a Single Playoff Run',
+    player: 'Ray Gambino',
+    team: 'San Diego Strykers',
+    teamId: 'san-diego-strykers',
+    stat: '18 AST',
+    details: '2 GP, 9.0 APG average',
+    seasonOrSpan: 'Season 2 Playoffs',
+    previousRecord: 'Munir Kassa (16 AST, Season 1) / Lance Harrison (16 AST, Season 3)',
+  },
+  {
+    category: 'Most Steals in a Single Playoff Run',
+    player: 'Dorell Kabal',
+    team: 'Sacramento Stallions',
+    teamId: 'sacramento-stallions',
+    stat: '11 STL',
+    details: '3 GP, 3.67 SPG average (4 STL in QF vs SF)',
+    seasonOrSpan: 'Season 3 Playoffs',
+    previousRecord: 'Christopher Cook & Lamar Anderson (7 STL, Season 2)',
+  },
+  {
+    category: 'Most 3-Pointers in a Single Playoff Run',
+    player: 'George Madsen',
+    team: 'Sacramento Stallions',
+    teamId: 'sacramento-stallions',
+    stat: '14 3PM',
+    details: '3 GP (5 3PM in Finals, 4 3PM in Semis, 5 3PM in QF)',
+    seasonOrSpan: 'Season 3 Playoffs',
+    previousRecord: 'George Madsen (13 3PM, Season 2)',
+  },
+  {
+    category: 'Most Blocks in a Single Playoff Run',
+    player: 'Dorell Kabal',
+    team: 'Sacramento Stallions',
+    teamId: 'sacramento-stallions',
+    stat: '8 BLK',
+    details: '3 GP, 2.67 BPG average',
+    seasonOrSpan: 'Season 3 Playoffs',
+    previousRecord: 'Dorell Kabal & Dennis Rodman (6 BLK, Season 2)',
+  },
+];
+
+// Career Playoff Totals Records
+export const PLAYOFF_CAREER_TOTALS_RECORDS: PlayoffRecordItem[] = [
+  {
+    category: 'Career Playoff Points',
+    player: 'Dorell Kabal',
+    team: 'Sacramento Stallions',
+    teamId: 'sacramento-stallions',
+    stat: '168 PTS',
+    details: '9 Playoff Games played (18.7 PPG career postseason avg)',
+    seasonOrSpan: 'Seasons 1 - 3 All-Time',
+    previousRecord: 'George Madsen (152 PTS) / Lamar Anderson (133 PTS)',
+  },
+  {
+    category: 'Career Playoff Rebounds',
+    player: 'Dorell Kabal',
+    team: 'Sacramento Stallions',
+    teamId: 'sacramento-stallions',
+    stat: '84 REB',
+    details: '9 Playoff Games played (9.33 RPG career postseason avg)',
+    seasonOrSpan: 'Seasons 1 - 3 All-Time',
+    previousRecord: 'Dennis Rodman (32 REB)',
+  },
+  {
+    category: 'Career Playoff Assists',
+    player: 'Ray Gambino',
+    team: 'San Diego Strykers',
+    teamId: 'san-diego-strykers',
+    stat: '35 AST',
+    details: '5 Playoff Games played (7.0 APG career postseason avg)',
+    seasonOrSpan: 'Seasons 1 - 3 All-Time',
+    previousRecord: 'Lamar Anderson (30 AST) / Lance Harrison (28 AST)',
+  },
+  {
+    category: 'Most CCH Championships',
+    player: 'Dorell Kabal & George Madsen & Frank Hackett',
+    team: 'Sacramento Stallions',
+    teamId: 'sacramento-stallions',
+    stat: '2 Titles',
+    details: 'Season 1 & Season 3 CCH Champions',
+    seasonOrSpan: 'Seasons 1 & 3',
+    previousRecord: 'California Reds (1 Title, Season 2)',
+  },
+  {
+    category: 'Most Finals MVP Awards',
+    player: 'Dorell Kabal',
+    team: 'Sacramento Stallions',
+    teamId: 'sacramento-stallions',
+    stat: '2 Finals MVPs',
+    details: 'Season 1 Finals MVP (22 PTS, 12 REB) & Season 3 Finals MVP (25 PTS, 11 REB)',
+    seasonOrSpan: 'Seasons 1 & 3',
+    previousRecord: 'Lamar Anderson (1 Finals MVP, Season 2)',
+  },
+];
+
 // Compatibility exports for search
 export const SINGLE_GAME_RECORDS = SINGLE_GAME_INDIVIDUAL.map((r, i) => ({
   id: `sgi-${i}`,

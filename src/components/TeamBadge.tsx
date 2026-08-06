@@ -1,6 +1,7 @@
 import React from 'react';
 import { Trophy } from 'lucide-react';
 import { TEAM_LOGOS_MAP } from './TeamLogos';
+import { TEAM_ABBREVIATIONS } from '../data/teamsData';
 
 interface TeamBadgeProps {
   teamId: string;
@@ -8,6 +9,7 @@ interface TeamBadgeProps {
   className?: string;
   showName?: boolean;
   name?: string;
+  showAbbr?: boolean;
 }
 
 export const TEAM_COLORS: Record<string, { bg: string; text: string; border: string; accent: string }> = {
@@ -25,8 +27,9 @@ export const TEAM_COLORS: Record<string, { bg: string; text: string; border: str
   'long-beach-vipers': { bg: 'bg-green-950', text: 'text-green-400', border: 'border-green-600', accent: '#15803d' },
 };
 
-export const TeamBadge: React.FC<TeamBadgeProps> = ({ teamId, size = 'md', className = '', showName = false, name }) => {
+export const TeamBadge: React.FC<TeamBadgeProps> = ({ teamId, size = 'md', className = '', showName = false, name, showAbbr = false }) => {
   const colors = TEAM_COLORS[teamId] || { bg: 'bg-slate-900', text: 'text-amber-400', border: 'border-slate-700', accent: '#334155' };
+  const abbr = TEAM_ABBREVIATIONS[teamId];
 
   const sizeClasses = {
     sm: 'w-7 h-7',
@@ -58,6 +61,11 @@ export const TeamBadge: React.FC<TeamBadgeProps> = ({ teamId, size = 'md', class
       {showName && name && (
         <span className={`font-semibold text-slate-100 ${size === 'sm' ? 'text-xs' : size === 'lg' ? 'text-base' : 'text-sm'}`}>
           {name}
+        </span>
+      )}
+      {showAbbr && abbr && (
+        <span className="text-xs font-mono font-bold text-amber-400 bg-slate-900/80 px-1.5 py-0.5 rounded border border-slate-700/60">
+          {abbr}
         </span>
       )}
     </div>

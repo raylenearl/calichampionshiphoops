@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { STANDINGS_S1, STANDINGS_S2, STANDINGS_S3 } from '../data/standingsData';
+import { TEAM_ABBREVIATIONS } from '../data/teamsData';
 import { StandingsRow } from '../types';
 import { TeamBadge } from './TeamBadge';
 import { Trophy, Activity, Filter, CheckCircle2, AlertCircle } from 'lucide-react';
@@ -166,6 +167,11 @@ export const StandingsView: React.FC<StandingsViewProps> = ({
                               <span className="group-hover:text-amber-400 font-black text-sm transition-colors">
                                 {row.teamName}
                               </span>
+                              {TEAM_ABBREVIATIONS[row.teamId] && (
+                                <span className="text-[10px] font-mono font-bold text-amber-400 bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800 shrink-0">
+                                  {TEAM_ABBREVIATIONS[row.teamId]}
+                                </span>
+                              )}
                             </div>
                           </div>
                         </div>
