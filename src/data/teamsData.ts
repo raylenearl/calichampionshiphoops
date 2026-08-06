@@ -242,7 +242,7 @@ export const TEAMS: Team[] = [
     iconName: 'Zap',
     description: 'An energetic, youthful squad guided by award-winning leadership and head coach Stretch Roberts. Powered by rising stars Phil Martin Jr. & Jaydan Moody.',
     keyPlayers: ['Phil Martin Jr. (PF, Emerging Star)', 'Jaydan Moody (SF)', 'Josh Parks (G)', 'Marcus Vance (C)'],
-    coach: 'Stretch Roberts',
+    coach: 'Stretch Roberts / Fred Daniels',
     executive: 'Anthony Nance (S1 Executive of the Year)',
     titles: ['Season 1 Coach & Executive of the Year Honors'],
     s1Record: '13-9 (3rd)',

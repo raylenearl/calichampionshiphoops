@@ -631,7 +631,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
       ],
     },
     s3: {
-      coach: 'Stretch Roberts',
+      coach: 'Stretch Roberts / Fred Daniels',
       players: [
         { name: 'Lambros Edwards', position: 'PF', ovr: 85 },
         { name: 'Joseph Young', position: 'PG', ovr: 84 },
