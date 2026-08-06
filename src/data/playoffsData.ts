@@ -29,8 +29,8 @@ export const PLAYOFF_HISTORY: SeasonPlayoffInfo[] = [
       { round: 'Quarterfinals', team1: 'Golden State Enterprise', seed1: 6, score1: 94, team2: 'Long Beach Vipers', seed2: 3, score2: 90, winner: 'Golden State Enterprise', notes: 'In a major upset, Howie Carney shot 4-of-6 from deep to drop 24 PTS.' },
     ],
     semifinals: [
-      { round: 'Semifinals', team1: 'Sacramento Stallions', seed1: 1, score1: 99, team2: 'San Francisco Knights', seed2: 4, score2: 96, winner: 'Sacramento Stallions' },
-      { round: 'Semifinals', team1: 'Golden State Enterprise', seed1: 6, score1: 85, team2: 'Los Angeles Dynamics', seed2: 2, score2: 82, winner: 'Golden State Enterprise' },
+      { round: 'Semifinals', team1: 'Sacramento Stallions', seed1: 1, score1: 99, team2: 'San Francisco Knights', seed2: 4, score2: 96, winner: 'Sacramento Stallions', notes: 'Incredible high-scoring shootout where Sacramento shot 72% FG. Munir Kassa dropped 33 PTS for SF.' },
+      { round: 'Semifinals', team1: 'Golden State Enterprise', seed1: 6, score1: 85, team2: 'Los Angeles Dynamics', seed2: 2, score2: 82, winner: 'Golden State Enterprise', notes: 'GS reached the Finals behind Howie Carney (20 PTS) and DeAnte Gray (13 REB, 8 AST). Jack McMichael Jr. scored 28 for LA.' },
     ],
     finals: { round: 'Season 1 Finals', team1: 'Sacramento Stallions', seed1: 1, score1: 86, team2: 'Golden State Enterprise', seed2: 6, score2: 81, winner: 'Sacramento Stallions', notes: 'Dorell Kabal secured the championship and was crowned Finals MVP.' },
   },
@@ -43,14 +43,14 @@ export const PLAYOFF_HISTORY: SeasonPlayoffInfo[] = [
     finalsScore: 'California Reds 77, Sacramento Stallions 71',
     narrative: 'Following a trade for Lamar Anderson, the California Reds established a league-best 18-4 record and defeated the defending champion Stallions 77-71 in the Finals.',
     quarterfinals: [
-      { round: 'Quarterfinals (South)', team1: 'California Reds', seed1: 1, score1: 83, team2: 'Anaheim Admirals', seed2: 4, score2: 63, winner: 'California Reds' },
-      { round: 'Quarterfinals (South)', team1: 'San Diego Strykers', seed1: 2, score1: 86, team2: 'San Diego Sabrewolves', seed2: 3, score2: 79, winner: 'San Diego Strykers' },
-      { round: 'Quarterfinals (North)', team1: 'Sacramento Stallions', seed1: 1, score1: 69, team2: 'San Francisco Knights', seed2: 4, score2: 57, winner: 'Sacramento Stallions' },
-      { round: 'Quarterfinals (North)', team1: 'Oakland Renegades', seed1: 2, score1: 65, team2: 'San Jose Tigersharks', seed2: 3, score2: 51, winner: 'Oakland Renegades' },
+      { round: 'Quarterfinals (South)', team1: 'California Reds', seed1: 1, score1: 83, team2: 'Anaheim Admirals', seed2: 4, score2: 63, winner: 'California Reds', notes: 'Dennis Rodman dominated with 17 PTS, 8 REB, 3 BLK on 6-7 FG. K. Tinsley scored 30 for Anaheim.' },
+      { round: 'Quarterfinals (South)', team1: 'San Diego Strykers', seed1: 2, score1: 86, team2: 'San Diego Sabrewolves', seed2: 3, score2: 79, winner: 'San Diego Strykers', notes: 'Ray Gambino dished out 9 AST with 23 PTS, while Kirk Barnes dropped 29 for Sabrewolves.' },
+      { round: 'Quarterfinals (North)', team1: 'Sacramento Stallions', seed1: 1, score1: 69, team2: 'San Francisco Knights', seed2: 4, score2: 57, winner: 'Sacramento Stallions', notes: 'George Madsen hit 7 three-pointers for 27 PTS as Sacramento forced 12 turnovers.' },
+      { round: 'Quarterfinals (North)', team1: 'Oakland Renegades', seed1: 2, score1: 65, team2: 'San Jose Tigersharks', seed2: 3, score2: 51, winner: 'Oakland Renegades', notes: 'Defensive battle where Oakland recorded 11 steals and 7 blocks as a team.' },
     ],
     semifinals: [
-      { round: 'Southern Cali Title', team1: 'California Reds', seed1: 1, score1: 70, team2: 'San Diego Strykers', seed2: 2, score2: 61, winner: 'California Reds' },
-      { round: 'Northern Cali Title', team1: 'Sacramento Stallions', seed1: 1, score1: 79, team2: 'Oakland Renegades', seed2: 2, score2: 76, winner: 'Sacramento Stallions' },
+      { round: 'Southern Cali Title', team1: 'California Reds', seed1: 1, score1: 70, team2: 'San Diego Strykers', seed2: 2, score2: 61, winner: 'California Reds', notes: 'Lamar Anderson put up 27 PTS and 6 AST (5-7 3PT) to lead California to the Finals.' },
+      { round: 'Northern Cali Title', team1: 'Sacramento Stallions', seed1: 1, score1: 79, team2: 'Oakland Renegades', seed2: 2, score2: 76, winner: 'Sacramento Stallions', notes: 'George Madsen put up 27 PTS and 5 AST as Sacramento edged Oakland in a nail-biter.' },
     ],
     finals: { round: 'Season 2 Finals', team1: 'California Reds', seed1: 1, score1: 77, team2: 'Sacramento Stallions', seed2: 1, score2: 71, winner: 'California Reds', notes: 'Lamar Anderson solidified his legacy with a 26-point Finals MVP masterpiece, ending the Stallions’ dynasty.' },
   },
@@ -122,9 +122,9 @@ export const S1_PLAYOFF_STATS: PlayoffSeasonStats = {
   totalsLeaders: [
     { category: 'Points', player: 'Dorell Kabal', team: 'Sacramento Stallions', stat: '74 PTS', details: '3 GP (30 PTS in QF, 22 PTS in Semis, 22 PTS in Finals)' },
     { category: 'Rebounds', player: 'Dorell Kabal', team: 'Sacramento Stallions', stat: '29 REB', details: '3 GP, 9.7 RPG average (12 REB in Finals)' },
-    { category: 'Assists', player: 'Munir Kassa / Jack McMichael Jr.', team: 'SF / LAD', stat: '16 AST', details: '8.0 APG average across 2 postseason games' },
+    { category: 'Assists', player: 'Munir Kassa / Jack McMichael Jr.', team: 'SF / LA', stat: '16 AST', details: '8.0 APG average across 2 postseason games' },
     { category: 'Blocks', player: 'Dorell Kabal', team: 'Sacramento Stallions', stat: '6 BLK', details: '3 BLK in Finals victory vs Enterprise' },
-    { category: 'Steals', player: 'DeAnte Gray', team: 'Golden State Enterprise', stat: '6 STL', details: '2.0 SPG defense anchor for GSE' },
+    { category: 'Steals', player: 'DeAnte Gray', team: 'Golden State Enterprise', stat: '6 STL', details: '2.0 SPG defense anchor for GS' },
     { category: '3-Pointers Made', player: 'Howie Carney', team: 'Golden State Enterprise', stat: '9 3PM', details: '4 3PM vs Long Beach Vipers in QF' },
     { category: 'Field Goals Made', player: 'Dorell Kabal', team: 'Sacramento Stallions', stat: '31 FGM', details: 'Dominant 68.8% postseason shooting' },
   ],
@@ -144,7 +144,7 @@ export const S1_PLAYOFF_STATS: PlayoffSeasonStats = {
         { stat: '33 PTS', player: 'Munir Kassa (SF)', matchup: 'vs. Sacramento Stallions (14-23 FG, 4-7 3PT, 8 AST)' },
         { stat: '32 PTS', player: 'Munir Kassa (SF)', matchup: 'vs. San Diego Sabrewolves (12-18 FG, 3-6 3PT, 5 REB)' },
         { stat: '30 PTS', player: 'Dorell Kabal (SAC)', matchup: 'vs. Anaheim Admirals (14-19 FG, 9 REB, 2 AST)' },
-        { stat: '28 PTS', player: 'Jack McMichael Jr. (LAD)', matchup: 'vs. Golden State Enterprise (10-19 FG, 5-8 3PT, 8 AST)' },
+        { stat: '28 PTS', player: 'Jack McMichael Jr. (LA)', matchup: 'vs. Golden State Enterprise (10-19 FG, 5-8 3PT, 8 AST)' },
         { stat: '28 PTS', player: 'Lamar Anderson (CAL)', matchup: 'vs. Los Angeles Dynamics (11-15 FG, 6-7 3PT, 9 AST)' },
         { stat: '27 PTS', player: 'Coty Barry Carroll (SAC)', matchup: 'vs. Golden State Enterprise (9-11 FG, 3-4 3PT, 5 AST)' },
       ],
@@ -152,10 +152,10 @@ export const S1_PLAYOFF_STATS: PlayoffSeasonStats = {
     {
       category: 'Top Rebounders',
       performances: [
-        { stat: '13 REB', player: 'DeAnte Gray (GSE)', matchup: 'vs. Los Angeles Dynamics (Added 6 PTS & 8 AST)' },
+        { stat: '13 REB', player: 'DeAnte Gray (GS)', matchup: 'vs. Los Angeles Dynamics (Added 6 PTS & 8 AST)' },
         { stat: '12 REB', player: 'Dorell Kabal (SAC)', matchup: 'vs. Golden State Enterprise (Added 22 PTS & 3 BLK)' },
-        { stat: '10 REB', player: 'Andre Creek (SAB)', matchup: 'vs. San Francisco Knights (Added 17 PTS)' },
-        { stat: '10 REB', player: 'Mo Alexander (LAD)', matchup: 'vs. Golden State Enterprise (Added 6 PTS)' },
+        { stat: '10 REB', player: 'Andre Creek (SD)', matchup: 'vs. San Francisco Knights (Added 17 PTS)' },
+        { stat: '10 REB', player: 'Mo Alexander (LA)', matchup: 'vs. Golden State Enterprise (Added 6 PTS)' },
         { stat: '9 REB', player: 'Dorell Kabal (SAC)', matchup: 'vs. Anaheim Admirals' },
       ],
     },
@@ -164,9 +164,9 @@ export const S1_PLAYOFF_STATS: PlayoffSeasonStats = {
       performances: [
         { stat: '9 AST', player: 'Lamar Anderson (CAL)', matchup: 'vs. Los Angeles Dynamics' },
         { stat: '8 AST', player: 'Munir Kassa (SF)', matchup: 'vs. Sacramento Stallions' },
-        { stat: '8 AST', player: 'Jack McMichael Jr. (LAD)', matchup: 'vs. Golden State Enterprise' },
-        { stat: '8 AST', player: 'DeAnte Gray (GSE)', matchup: 'vs. Los Angeles Dynamics' },
-        { stat: '8 AST', player: 'Josh Parks (LBC)', matchup: 'vs. Golden State Enterprise' },
+        { stat: '8 AST', player: 'Jack McMichael Jr. (LA)', matchup: 'vs. Golden State Enterprise' },
+        { stat: '8 AST', player: 'DeAnte Gray (GS)', matchup: 'vs. Los Angeles Dynamics' },
+        { stat: '8 AST', player: 'Josh Parks (LB)', matchup: 'vs. Golden State Enterprise' },
         { stat: '3 BLK', player: 'Dorell Kabal (SAC)', matchup: 'vs. Golden State Enterprise (Finals)' },
       ],
     },
@@ -182,7 +182,7 @@ export const S1_PLAYOFF_STATS: PlayoffSeasonStats = {
       topPerformers: [
         { name: 'Coty Barry Carroll (SAC)', stat: '27 PTS (9-11 FG, 3-4 3PT), 5 AST' },
         { name: 'Dorell Kabal (SAC)', stat: '22 PTS, 12 REB, 3 BLK, Finals MVP' },
-        { name: 'DeAnte Gray (GSE)', stat: '18 PTS, 8 REB, 2 STL' },
+        { name: 'DeAnte Gray (GS)', stat: '18 PTS, 8 REB, 2 STL' },
       ],
     },
     {
@@ -206,9 +206,9 @@ export const S1_PLAYOFF_STATS: PlayoffSeasonStats = {
       winner: 'Golden State Enterprise',
       summary: 'Golden State reached the Finals behind timely backcourt shot-making and DeAnte Gray’s all-around game (13 REB, 8 AST, 6 PTS). Jack McMichael Jr. carried the Dynamics with 28 PTS and 8 AST (5-8 3PT) in a nail-biter.',
       topPerformers: [
-        { name: 'Jack McMichael Jr. (LAD)', stat: '28 PTS (10-19 FG, 5-8 3PT), 8 AST' },
-        { name: 'Howie Carney (GSE)', stat: '20 PTS (4-7 3PT), 5 AST' },
-        { name: 'DeAnte Gray (GSE)', stat: '13 REB, 8 AST, 6 PTS' },
+        { name: 'Jack McMichael Jr. (LA)', stat: '28 PTS (10-19 FG, 5-8 3PT), 8 AST' },
+        { name: 'Howie Carney (GS)', stat: '20 PTS (4-7 3PT), 5 AST' },
+        { name: 'DeAnte Gray (GS)', stat: '13 REB, 8 AST, 6 PTS' },
       ],
     },
     {
@@ -220,7 +220,7 @@ export const S1_PLAYOFF_STATS: PlayoffSeasonStats = {
       summary: 'The #1 seed Stallions dominated Anaheim by shooting 68% from the field. Dorell Kabal monstered the paint with 30 PTS on 14-19 shooting with 9 REB and 2 AST.',
       topPerformers: [
         { name: 'Dorell Kabal (SAC)', stat: '30 PTS (14-19 FG), 9 REB, 2 AST' },
-        { name: 'K. Tinsley (ADM)', stat: '22 PTS, 4 AST' },
+        { name: 'K. Tinsley (ANA)', stat: '22 PTS, 4 AST' },
       ],
     },
     {
@@ -232,8 +232,8 @@ export const S1_PLAYOFF_STATS: PlayoffSeasonStats = {
       summary: 'Jack McMichael Jr. (21 PTS) and Mo Alexander (10 REB) powered the Dynamics past California. Lamar Anderson put up a heroic performance for the Reds with 28 PTS (11-15 FG, 6-7 3PT, 9 AST).',
       topPerformers: [
         { name: 'Lamar Anderson (CAL)', stat: '28 PTS (11-15 FG, 6-7 3PT), 9 AST' },
-        { name: 'Jack McMichael Jr. (LAD)', stat: '21 PTS, 6 AST' },
-        { name: 'Mo Alexander (LAD)', stat: '10 REB, 6 PTS' },
+        { name: 'Jack McMichael Jr. (LA)', stat: '21 PTS, 6 AST' },
+        { name: 'Mo Alexander (LA)', stat: '10 REB, 6 PTS' },
       ],
     },
     {
@@ -245,7 +245,7 @@ export const S1_PLAYOFF_STATS: PlayoffSeasonStats = {
       summary: '21-year-old superstar Munir Kassa exploded for 32 PTS on 12-18 FG (3-6 3PT) with 5 REB as San Francisco pulled away in the 4th quarter. Andre Creek led Sabrewolves with a 17 PTS, 10 REB double-double.',
       topPerformers: [
         { name: 'Munir Kassa (SF)', stat: '32 PTS (12-18 FG, 3-6 3PT), 5 REB' },
-        { name: 'Andre Creek (SAB)', stat: '17 PTS, 10 REB' },
+        { name: 'Andre Creek (SD)', stat: '17 PTS, 10 REB' },
       ],
     },
     {
@@ -254,11 +254,11 @@ export const S1_PLAYOFF_STATS: PlayoffSeasonStats = {
       round: 'Quarterfinals',
       score: '94 - 90',
       winner: 'Golden State Enterprise',
-      summary: 'An electric perimeter duel where Golden State drained 14 three-pointers (56% 3PT). Howie Carney (24 PTS, 4-6 3PT) and Alex Durmanenko (21 PTS, 4-7 3PT) carried GSE, while Josh Parks dished 8 AST for Long Beach.',
+      summary: 'An electric perimeter duel where Golden State drained 14 three-pointers (56% 3PT). Howie Carney (24 PTS, 4-6 3PT) and Alex Durmanenko (21 PTS, 4-7 3PT) carried GS, while Josh Parks dished 8 AST for Long Beach.',
       topPerformers: [
-        { name: 'Howie Carney (GSE)', stat: '24 PTS (4-6 3PT), 7 AST' },
-        { name: 'Alex Durmanenko (GSE)', stat: '21 PTS (4-7 3PT), 5 AST' },
-        { name: 'Josh Parks (LBC)', stat: '18 PTS, 8 AST' },
+        { name: 'Howie Carney (GS)', stat: '24 PTS (4-6 3PT), 7 AST' },
+        { name: 'Alex Durmanenko (GS)', stat: '21 PTS (4-7 3PT), 5 AST' },
+        { name: 'Josh Parks (LB)', stat: '18 PTS, 8 AST' },
       ],
     },
   ],
@@ -342,11 +342,11 @@ export const S2_PLAYOFF_STATS: PlayoffSeasonStats = {
     {
       category: 'Leading Scorers',
       performances: [
-        { stat: '30 PTS', player: 'K. Tinsley (ADM)', matchup: 'vs. California Reds (10-15 FG, 4-4 3PT)' },
-        { stat: '29 PTS', player: 'Kirk Barnes (SAB)', matchup: 'vs. San Diego Strykers (12-20 FG)' },
+        { stat: '30 PTS', player: 'K. Tinsley (ANA)', matchup: 'vs. California Reds (10-15 FG, 4-4 3PT)' },
+        { stat: '29 PTS', player: 'Kirk Barnes (SD)', matchup: 'vs. San Diego Strykers (12-20 FG)' },
         { stat: '27 PTS', player: 'Lamar Anderson (CAL)', matchup: 'vs. San Diego Strykers (9-14 FG, 5-7 3PT)' },
         { stat: '27 PTS', player: 'George Madsen (SAC)', matchup: 'vs. Oakland Renegades & vs. SF Knights' },
-        { stat: '27 PTS', player: 'A.J. Hinton (SD STRY)', matchup: 'vs. Reds & vs. Sabrewolves' },
+        { stat: '27 PTS', player: 'A.J. Hinton (SDS)', matchup: 'vs. Reds & vs. Sabrewolves' },
         { stat: '26 PTS', player: 'Lamar Anderson (CAL)', matchup: 'vs. Sacramento Stallions (Finals)' },
       ],
     },
@@ -420,7 +420,7 @@ export const S2_PLAYOFF_STATS: PlayoffSeasonStats = {
       winner: 'California Reds',
       summary: 'The Reds demolished the Admirals 83-63 with 50 points in the paint. Dennis Rodman had a stat-sheet stuffing performance: 17 PTS, 8 REB, 2 AST, 2 STL, 3 BLK on 6-7 FG. K. Tinsley scored 30 for Anaheim.',
       topPerformers: [
-        { name: 'K. Tinsley (ADM)', stat: '30 PTS (10-15 FG, 4-4 3PT)' },
+        { name: 'K. Tinsley (ANA)', stat: '30 PTS (10-15 FG, 4-4 3PT)' },
         { name: 'Dennis Rodman (CAL)', stat: '17 PTS, 8 REB, 3 BLK (6-7 FG)' },
       ],
     },
@@ -500,7 +500,7 @@ export const S2_PLAYOFF_STATS: PlayoffSeasonStats = {
       position: 'Power Forward (PF)',
       ovr: 88,
       role: 'Interior Fortress & Efficiency Leader',
-      statsHighlight: '17 PTS | 8 REB | 3 BLK | 85.7% FG vs ADM',
+      statsHighlight: '17 PTS | 8 REB | 3 BLK | 85.7% FG vs ANA',
       description: 'Anchor of the Reds defense, dominating the paint with efficient inside scoring, high-impact rebounding, and elite rim protection.',
     },
     {

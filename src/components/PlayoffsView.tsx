@@ -23,6 +23,7 @@ import {
   User,
   Users,
   ExternalLink,
+  Radio,
 } from 'lucide-react';
 
 interface PlayoffsViewProps {
@@ -78,16 +79,51 @@ export const PlayoffsView: React.FC<PlayoffsViewProps> = ({
     const stats = PLAYOFF_STATS_BY_SEASON[selectedSeason];
     let matchedDetail: PlayoffGameDetail | undefined;
     if (stats && stats.detailedGames) {
+      const gT1 = game.team1.toLowerCase();
+      const gT2 = game.team2.toLowerCase();
+      const gRound = game.round.toLowerCase();
+
+      // Check key team nicknames
+      const matchesTeam = (str: string, team: string) => {
+        const lowerStr = str.toLowerCase();
+        const lowerTeam = team.toLowerCase();
+        if (lowerStr.includes(lowerTeam)) return true;
+        if (lowerTeam.includes('stallions') && (lowerStr.includes('sac') || lowerStr.includes('stallions'))) return true;
+        if (lowerTeam.includes('reds') && (lowerStr.includes('cal') || lowerStr.includes('reds'))) return true;
+        if (lowerTeam.includes('enterprise') && (lowerStr.includes('gse') || lowerStr.includes('enterprise'))) return true;
+        if (lowerTeam.includes('knights') && (lowerStr.includes('sf') || lowerStr.includes('knights'))) return true;
+        if (lowerTeam.includes('strykers') && (lowerStr.includes('sds') || lowerStr.includes('strykers'))) return true;
+        if (lowerTeam.includes('sabrewolves') && (lowerStr.includes('sab') || lowerStr.includes('sabrewolves'))) return true;
+        if (lowerTeam.includes('dynamics') && (lowerStr.includes('lad') || lowerStr.includes('la') || lowerStr.includes('dynamics'))) return true;
+        if (lowerTeam.includes('mad dogs') && (lowerStr.includes('fre') || lowerStr.includes('mad dogs') || lowerStr.includes('fresno'))) return true;
+        if (lowerTeam.includes('vipers') && (lowerStr.includes('lbc') || lowerStr.includes('vipers'))) return true;
+        if (lowerTeam.includes('admirals') && (lowerStr.includes('adm') || lowerStr.includes('admirals'))) return true;
+        if (lowerTeam.includes('renegades') && (lowerStr.includes('oak') || lowerStr.includes('renegades'))) return true;
+        if (lowerTeam.includes('tigersharks') && (lowerStr.includes('sjt') || lowerStr.includes('tigersharks'))) return true;
+        return false;
+      };
+
+      // 1. First attempt: match BOTH teams and round
       matchedDetail = stats.detailedGames.find((dg) => {
-        const matchLower = dg.matchup.toLowerCase();
-        const t1 = game.team1.toLowerCase();
-        const t2 = game.team2.toLowerCase();
-        return (
-          (matchLower.includes(t1) && matchLower.includes(t2)) ||
-          matchLower.includes(t1) ||
-          matchLower.includes(t2)
-        );
+        const m1 = matchesTeam(dg.matchup, gT1);
+        const m2 = matchesTeam(dg.matchup, gT2);
+        const dgRound = dg.round.toLowerCase();
+        const dgId = dg.id.toLowerCase();
+
+        const roundMatches =
+          (gRound.includes('quarter') && (dgRound.includes('quarter') || dgId.includes('qf'))) ||
+          ((gRound.includes('semi') || gRound.includes('title')) && (dgRound.includes('semi') || dgRound.includes('title') || dgId.includes('semis'))) ||
+          (gRound.includes('final') && (dgRound.includes('final') || dgId.includes('finals')));
+
+        return m1 && m2 && roundMatches;
       });
+
+      // 2. Second attempt: match BOTH teams without round check
+      if (!matchedDetail) {
+        matchedDetail = stats.detailedGames.find((dg) => {
+          return matchesTeam(dg.matchup, gT1) && matchesTeam(dg.matchup, gT2);
+        });
+      }
     }
     setSelectedGameModal({ game, detail: matchedDetail });
   };
@@ -190,6 +226,40 @@ export const PlayoffsView: React.FC<PlayoffsViewProps> = ({
             <p className="text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed">
               {playoffInfo.narrative}
             </p>
+            {selectedSeason === 3 && (
+              <div className="bg-slate-950/90 border border-amber-500/30 p-3.5 rounded-2xl space-y-2 max-w-xl shadow-inner mt-3">
+                <div className="flex items-center justify-between text-xs text-amber-400 font-extrabold font-mono">
+                  <span className="flex items-center gap-1.5">
+                    <Radio size={15} className="animate-pulse text-amber-400" /> Season 3 Championship Podcast
+                  </span>
+                  <span className="text-[10px] text-slate-400 font-normal">
+                    Kabal&apos;s Final Ring &amp; Underwood&apos;s Defection
+                  </span>
+                </div>
+
+                <audio
+                  controls
+                  style={{ width: '100%', maxWidth: '600px' }}
+                  className="w-full h-10 accent-amber-500 rounded-xl bg-slate-900 border border-slate-800 focus:outline-none"
+                >
+                  <source
+                    src="https://dn601201.us.archive.org/0/items/cchoops2k/Kabal_s_Final_Ring_and_Underwood_s_Defection.m4a"
+                    type="audio/mp4"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+
+                <p className="text-xs pt-0.5">
+                  <a
+                    href="https://dn601201.us.archive.org/0/items/cchoops2k/Kabal_s_Final_Ring_and_Underwood_s_Defection.m4a"
+                    download
+                    className="inline-flex items-center gap-1 text-amber-400 hover:text-amber-300 font-bold hover:underline transition-colors text-[11px]"
+                  >
+                    <span>📥 Download Podcast Episode</span>
+                  </a>
+                </p>
+              </div>
+            )}
           </div>
 
           <div className="bg-slate-950 border border-slate-800 p-4 rounded-2xl space-y-2 min-w-[260px] shrink-0">

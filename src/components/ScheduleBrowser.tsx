@@ -6,7 +6,8 @@ import { PLAYOFF_HISTORY } from '../data/playoffsData';
 import { TEAMS } from '../data/teamsData';
 import { GameRecord } from '../types';
 import { TeamBadge } from './TeamBadge';
-import { Calendar, Search, Flame, User, Trophy, Layers, X } from 'lucide-react';
+import { InauguralGameModal } from './InauguralGameModal';
+import { Calendar, Search, Flame, User, Trophy, Layers, X, Sparkles, BookOpen, FileText } from 'lucide-react';
 
 interface ScheduleBrowserProps {
   selectedSeason: 1 | 2 | 3;
@@ -24,6 +25,7 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
   const [gameStage, setGameStage] = useState<'all' | 'regular' | 'playoffs'>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [highScoringOnly, setHighScoringOnly] = useState<boolean>(false);
+  const [isInauguralModalOpen, setIsInauguralModalOpen] = useState<boolean>(false);
 
   const handleTeamClick = (teamName: string) => {
     const matchedTeam = TEAMS.find(
@@ -305,6 +307,31 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
         </div>
       </div>
 
+      {/* CCH Inaugural Game Spotlight Banner (Shows for Season 1) */}
+      {selectedSeason === 1 && (
+        <div className="bg-gradient-to-r from-amber-950/60 via-slate-900 to-amber-950/60 border border-amber-500/40 p-5 rounded-3xl shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="space-y-1.5 max-w-2xl">
+            <div className="flex items-center gap-2 text-amber-400 font-extrabold text-xs uppercase tracking-wider">
+              <Sparkles size={15} />
+              Historic Milestone • League Opening Game
+            </div>
+            <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+              First-Ever CCH Game: California Reds vs. SD Sabrewolves
+            </h3>
+            <p className="text-xs text-slate-300 leading-relaxed font-medium">
+              Oct 24, Season 1 — Reds Triumph Over Sabrewolves in Inaugural Clash (80-74). Features quotes from Commissioner Ray Lenearl, Martin McCloud, Andre Creek, Coach William Walker & Captain J.C. McMillan.
+            </p>
+          </div>
+          <button
+            onClick={() => setIsInauguralModalOpen(true)}
+            className="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs rounded-2xl transition-all cursor-pointer shadow-lg flex items-center gap-2 shrink-0 self-start md:self-center"
+          >
+            <BookOpen size={16} />
+            Read Inaugural Game Story & Boxscore
+          </button>
+        </div>
+      )}
+
       {/* Results Header */}
       <div className="flex items-center justify-between text-xs text-slate-400 px-2">
         <span>
@@ -333,12 +360,17 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
           const team1Wins = game.score1 > game.score2;
           const isHighScoring = game.score1 + game.score2 >= 150;
           const isPlayoff = game.month === 'Playoffs' || game.date.includes('Finals') || game.date.includes('Quarterfinals') || game.date.includes('Semifinals');
+          const isInauguralGame = game.id === 's1-2' || (game.season === 1 && game.date === 'Oct 24' && game.team1.includes('California') && game.team2.includes('San Diego'));
 
           return (
             <div
               key={game.id}
               className={`bg-slate-900 border ${
-                isPlayoff ? 'border-amber-500/40 shadow-amber-950/20' : 'border-slate-800'
+                isInauguralGame
+                  ? 'border-amber-400 shadow-amber-500/10'
+                  : isPlayoff
+                  ? 'border-amber-500/40 shadow-amber-950/20'
+                  : 'border-slate-800'
               } hover:border-slate-700 rounded-2xl p-4 space-y-3 transition-all shadow-md hover:-translate-y-0.5`}
             >
               {/* Date & Tags */}
@@ -348,12 +380,17 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
                   {game.date}
                 </span>
                 <div className="flex items-center gap-1.5">
+                  {isInauguralGame && (
+                    <span className="text-[10px] bg-amber-400 text-slate-950 font-black px-2 py-0.5 rounded-full flex items-center gap-1 shadow">
+                      <Sparkles size={11} /> INAUGURAL GAME
+                    </span>
+                  )}
                   {isPlayoff && (
                     <span className="text-[10px] bg-amber-500 text-slate-950 font-black px-2 py-0.5 rounded-full flex items-center gap-1">
                       <Trophy size={11} /> POSTSEASON
                     </span>
                   )}
-                  {isHighScoring && !isPlayoff && (
+                  {isHighScoring && !isPlayoff && !isInauguralGame && (
                     <span className="text-[10px] bg-amber-950 text-amber-400 font-bold px-2 py-0.5 rounded-full border border-amber-800/60 flex items-center gap-1">
                       <Flame size={11} /> High Scoring
                     </span>
@@ -411,8 +448,8 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
               </div>
 
               {/* Leading Scorer or Notes */}
-              {(game.highScorer || game.notes) && (
-                <div className="pt-2.5 border-t border-slate-800/80 flex flex-col gap-1 text-xs">
+              {(game.highScorer || game.notes || isInauguralGame) && (
+                <div className="pt-2.5 border-t border-slate-800/80 flex flex-col gap-1.5 text-xs">
                   {game.highScorer && (
                     <div className="flex items-center justify-between text-slate-300">
                       <span className="text-[11px] text-slate-400 font-bold flex items-center gap-1">
@@ -424,10 +461,19 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
                       </span>
                     </div>
                   )}
-                  {game.notes && (
-                    <p className="text-[11px] text-amber-300/90 bg-amber-950/30 p-2 rounded-xl border border-amber-900/30 font-medium leading-relaxed mt-1">
-                      💡 {game.notes}
-                    </p>
+                  {isInauguralGame ? (
+                    <button
+                      onClick={() => setIsInauguralModalOpen(true)}
+                      className="w-full py-2 bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 font-extrabold rounded-xl text-xs flex items-center justify-center gap-2 transition-all cursor-pointer mt-1"
+                    >
+                      <BookOpen size={14} /> Read Inaugural Game Article
+                    </button>
+                  ) : (
+                    game.notes && (
+                      <p className="text-[11px] text-amber-300/90 bg-amber-950/30 p-2 rounded-xl border border-amber-900/30 font-medium leading-relaxed mt-1">
+                        💡 {game.notes}
+                      </p>
+                    )
                   )}
                 </div>
               )}
@@ -435,6 +481,13 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
           );
         })}
       </div>
+
+      {/* Inaugural Game Article Modal */}
+      <InauguralGameModal
+        isOpen={isInauguralModalOpen}
+        onClose={() => setIsInauguralModalOpen(false)}
+        onSelectTeamRecap={onSelectTeamRecap}
+      />
     </div>
   );
 };
