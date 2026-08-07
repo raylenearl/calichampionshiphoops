@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CCH_NEWS_ARTICLES, CCHNewsArticle } from '../data/newsData';
 import { TeamBadge } from './TeamBadge';
 import {
@@ -23,12 +23,27 @@ import {
 
 interface NewsViewProps {
   onSelectTeamRecap?: (teamId: string, season?: 1 | 2 | 3) => void;
+  initialArticleId?: string | null;
 }
 
-export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap }) => {
+export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialArticleId }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedSeasonFilter, setSelectedSeasonFilter] = useState<number>(0); // 0 = all seasons
-  const [selectedArticle, setSelectedArticle] = useState<CCHNewsArticle | null>(null);
+  const [selectedArticle, setSelectedArticle] = useState<CCHNewsArticle | null>(() => {
+    if (initialArticleId) {
+      return CCH_NEWS_ARTICLES.find((a) => a.id === initialArticleId) || null;
+    }
+    return null;
+  });
+
+  useEffect(() => {
+    if (initialArticleId) {
+      const art = CCH_NEWS_ARTICLES.find((a) => a.id === initialArticleId);
+      if (art) {
+        setSelectedArticle(art);
+      }
+    }
+  }, [initialArticleId]);
 
   // Filter articles
   const filteredArticles = CCH_NEWS_ARTICLES.filter((article) => {

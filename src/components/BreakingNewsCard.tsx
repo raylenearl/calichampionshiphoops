@@ -4,7 +4,7 @@ import { TeamBadge } from './TeamBadge';
 import jacobUnderwoodImg from '../assets/images/JacobUnderwood.png';
 
 interface BreakingNewsCardProps {
-  onNavigateToNews: () => void;
+  onNavigateToNews: (articleId?: string) => void;
 }
 
 export const BreakingNewsCard: React.FC<BreakingNewsCardProps> = ({ onNavigateToNews }) => {
@@ -45,7 +45,7 @@ export const BreakingNewsCard: React.FC<BreakingNewsCardProps> = ({ onNavigateTo
 
         {/* Content Side */}
         <div className="lg:col-span-7 space-y-4">
-          <div>
+          <div className="cursor-pointer" onClick={() => onNavigateToNews('s4-underwood-defection')}>
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-tight tracking-tight group-hover:text-amber-300 transition-colors">
               SHOCKWAVES IN SAN DIEGO: Underwood Defects to Arch-Rival Sabrewolves
             </h2>
@@ -80,7 +80,7 @@ export const BreakingNewsCard: React.FC<BreakingNewsCardProps> = ({ onNavigateTo
           {/* CTA Button */}
           <div className="pt-1">
             <button
-              onClick={onNavigateToNews}
+              onClick={() => onNavigateToNews('s4-underwood-defection')}
               className="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs sm:text-sm rounded-2xl shadow-lg shadow-amber-500/20 flex items-center gap-2 transition-all cursor-pointer"
             >
               <BookOpen size={16} />

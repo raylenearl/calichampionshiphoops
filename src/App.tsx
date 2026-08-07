@@ -25,10 +25,16 @@ export default function App() {
   const [selectedSeason, setSelectedSeason] = useState<1 | 2 | 3>(3);
   const [searchModalOpen, setSearchModalOpen] = useState<boolean>(false);
   const [teamRecapModal, setTeamRecapModal] = useState<{ teamId: string; season: 1 | 2 | 3 } | null>(null);
+  const [selectedNewsArticleId, setSelectedNewsArticleId] = useState<string | null>(null);
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     const saved = localStorage.getItem('cch_theme');
     return saved === 'light' || saved === 'dark' ? saved : 'dark';
   });
+
+  const handleNavigateToNews = (articleId?: string) => {
+    setSelectedNewsArticleId(articleId || null);
+    setActiveTab('news');
+  };
 
   useEffect(() => {
     localStorage.setItem('cch_theme', theme);
@@ -82,7 +88,7 @@ export default function App() {
             <HeroBanner onNavigate={(tab) => setActiveTab(tab)} selectedSeason={selectedSeason} />
 
             {/* Breaking Offseason News Card */}
-            <BreakingNewsCard onNavigateToNews={() => setActiveTab('news')} />
+            <BreakingNewsCard onNavigateToNews={handleNavigateToNews} />
 
             {/* Championship Game Video Broadcast */}
             <ChampionshipVideoCard />
@@ -175,7 +181,12 @@ export default function App() {
           </div>
         )}
 
-        {activeTab === 'news' && <NewsView onSelectTeamRecap={handleSelectTeamRecap} />}
+        {activeTab === 'news' && (
+          <NewsView
+            onSelectTeamRecap={handleSelectTeamRecap}
+            initialArticleId={selectedNewsArticleId}
+          />
+        )}
 
         {activeTab === 'standings' && (
           <StandingsView
