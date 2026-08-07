@@ -25,6 +25,25 @@ export default function App() {
   const [selectedSeason, setSelectedSeason] = useState<1 | 2 | 3>(3);
   const [searchModalOpen, setSearchModalOpen] = useState<boolean>(false);
   const [teamRecapModal, setTeamRecapModal] = useState<{ teamId: string; season: 1 | 2 | 3 } | null>(null);
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+    const saved = localStorage.getItem('cch_theme');
+    return saved === 'light' || saved === 'dark' ? saved : 'dark';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('cch_theme', theme);
+    if (theme === 'light') {
+      document.documentElement.classList.add('light');
+      document.documentElement.setAttribute('data-theme', 'light');
+    } else {
+      document.documentElement.classList.remove('light');
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  };
 
   const handleSelectTeamRecap = (teamId: string, season?: 1 | 2 | 3) => {
     setTeamRecapModal({ teamId, season: season || selectedSeason });
@@ -43,7 +62,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-amber-500 selection:text-slate-950 flex flex-col">
+    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-amber-500 selection:text-slate-950 flex flex-col transition-colors duration-200">
       {/* Main App Navigation Header */}
       <Header
         activeTab={activeTab}
@@ -51,6 +70,8 @@ export default function App() {
         selectedSeason={selectedSeason}
         setSelectedSeason={setSelectedSeason}
         onOpenSearch={() => setSearchModalOpen(true)}
+        theme={theme}
+        onToggleTheme={toggleTheme}
       />
 
       {/* Main Content Area */}
@@ -186,7 +207,7 @@ export default function App() {
 
         {activeTab === 'allstar' && <AllStarGameView />}
 
-        {activeTab === 'halloffame' && <HallOfFameView />}
+        {activeTab === 'halloffame' && <HallOfFameView onSelectTeamRecap={handleSelectTeamRecap} />}
 
         {activeTab === 'records' && <RecordBookView />}
 

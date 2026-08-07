@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Search, Menu, X, Trophy, Calendar, Users, Award, BookOpen, Activity, GitCompare, ExternalLink, Star, ArrowLeftRight, ChevronLeft, ChevronRight, Newspaper } from 'lucide-react';
+import { Search, Menu, X, Trophy, Calendar, Users, Award, BookOpen, Activity, GitCompare, ExternalLink, Star, ArrowLeftRight, ChevronLeft, ChevronRight, Newspaper, Sun, Moon } from 'lucide-react';
 import { CCHLeagueLogo } from './TeamLogos';
 import { SocialHeaderButtons, SOCIAL_PLATFORMS } from './SocialLinks';
 
@@ -9,6 +9,8 @@ interface HeaderProps {
   selectedSeason: 1 | 2 | 3;
   setSelectedSeason: (season: 1 | 2 | 3) => void;
   onOpenSearch: () => void;
+  theme: 'dark' | 'light';
+  onToggleTheme: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -17,6 +19,8 @@ export const Header: React.FC<HeaderProps> = ({
   selectedSeason,
   setSelectedSeason,
   onOpenSearch,
+  theme,
+  onToggleTheme,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -133,10 +137,36 @@ export const Header: React.FC<HeaderProps> = ({
               <ExternalLink size={13} className="text-amber-400" />
               <span className="text-[11px] whitespace-nowrap">OS Dynasty</span>
             </a>
+
+            {/* Light / Dark Mode Theme Toggle */}
+            <button
+              onClick={onToggleTheme}
+              className="flex items-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer shrink-0 shadow-sm"
+              title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+            >
+              {theme === 'dark' ? (
+                <>
+                  <Sun size={14} className="text-amber-400 shrink-0" />
+                  <span className="text-[11px] font-bold">Light Mode</span>
+                </>
+              ) : (
+                <>
+                  <Moon size={14} className="text-amber-600 shrink-0" />
+                  <span className="text-[11px] font-bold">Dark Mode</span>
+                </>
+              )}
+            </button>
           </div>
 
           {/* Mobile Hamburger & Controls */}
           <div className="flex items-center gap-2 lg:hidden">
+            <button
+              onClick={onToggleTheme}
+              className="p-2 bg-slate-900 border border-slate-800 rounded-xl text-amber-400 cursor-pointer"
+              title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+            >
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
             <button
               onClick={onOpenSearch}
               className="p-2 bg-slate-900 border border-slate-800 rounded-xl text-amber-400 cursor-pointer"

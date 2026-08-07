@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import { ALL_AWARDS, FAMOUS_QUOTES, SEASON_LEADERS, ALL_CALI_TEAMS, SEASON_1_SINGLE_GAME_HIGHS } from '../data/awardsData';
-import { Trophy, Award as AwardIcon, Quote, Sparkles, Star, Users, Flame, Shield, Award, Zap } from 'lucide-react';
+import { Trophy, Award as AwardIcon, Quote, Sparkles, Star, Users, Flame, Shield, Award, Zap, BookOpen, Calendar } from 'lucide-react';
 import { TeamBadge } from './TeamBadge';
+import { InauguralGameModal } from './InauguralGameModal';
+import { INAUGURAL_GAME_ARTICLE } from '../data/leagueMilestonesData';
 
-export const HallOfFameView: React.FC = () => {
+interface HallOfFameViewProps {
+  onSelectTeamRecap?: (teamId: string) => void;
+}
+
+export const HallOfFameView: React.FC<HallOfFameViewProps> = ({ onSelectTeamRecap }) => {
   const [selectedSeasonFilter, setSelectedSeasonFilter] = useState<0 | 1 | 2 | 3>(0);
-  const [activeTab, setActiveTab] = useState<'awards' | 'leaders' | 'allcali'>('awards');
+  const [activeTab, setActiveTab] = useState<'awards' | 'milestones' | 'leaders' | 'allcali'>('awards');
   const [allCaliCategoryFilter, setAllCaliCategoryFilter] = useState<'All' | 'All-Cali' | 'All-Defensive' | 'All-Rookie'>('All');
+  const [isInauguralModalOpen, setIsInauguralModalOpen] = useState<boolean>(false);
 
   const filteredAwards = ALL_AWARDS.filter((a) => {
     if (selectedSeasonFilter === 0) return true;
@@ -38,10 +45,10 @@ export const HallOfFameView: React.FC = () => {
           CCH Hall of Achievements & Honor Roll
         </div>
         <h2 className="text-3xl sm:text-4xl font-black text-white">
-          Individual Greatness & All-Cali Teams
+          Individual Greatness, Milestones & All-Cali Teams
         </h2>
         <p className="text-sm text-slate-300 max-w-3xl leading-relaxed">
-          Celebrating Most Valuable Players, Defensive Players of the Year, Season Leaders, and official All-Cali, All-Defensive & All-Rookie teams throughout CCH history.
+          Celebrating foundational league milestones, Most Valuable Players, Defensive Players of the Year, Season Leaders, and official All-Cali, All-Defensive & All-Rookie teams throughout CCH history.
         </p>
 
         {/* Section Navigation Tabs */}
@@ -49,7 +56,7 @@ export const HallOfFameView: React.FC = () => {
           <div className="flex items-center gap-2 bg-slate-950/80 p-1.5 rounded-2xl border border-slate-800">
             <button
               onClick={() => setActiveTab('awards')}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                 activeTab === 'awards'
                   ? 'bg-amber-500 text-slate-950 font-black shadow-lg shadow-amber-500/20'
                   : 'text-slate-400 hover:text-white'
@@ -59,8 +66,19 @@ export const HallOfFameView: React.FC = () => {
               Season Awards ({ALL_AWARDS.length})
             </button>
             <button
+              onClick={() => setActiveTab('milestones')}
+              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                activeTab === 'milestones'
+                  ? 'bg-amber-500 text-slate-950 font-black shadow-lg shadow-amber-500/20'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <Sparkles size={14} />
+              Historic Milestones
+            </button>
+            <button
               onClick={() => setActiveTab('leaders')}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                 activeTab === 'leaders'
                   ? 'bg-amber-500 text-slate-950 font-black shadow-lg shadow-amber-500/20'
                   : 'text-slate-400 hover:text-white'
@@ -71,7 +89,7 @@ export const HallOfFameView: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveTab('allcali')}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                 activeTab === 'allcali'
                   ? 'bg-amber-500 text-slate-950 font-black shadow-lg shadow-amber-500/20'
                   : 'text-slate-400 hover:text-white'
@@ -117,6 +135,64 @@ export const HallOfFameView: React.FC = () => {
           </div>
         ))}
       </div>
+
+      {/* TAB: HISTORIC LEAGUE MILESTONES & FIRSTS */}
+      {activeTab === 'milestones' && (
+        <section className="space-y-4">
+          <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-amber-500/10 border border-amber-500/20 rounded-xl text-amber-400">
+                <Sparkles size={20} />
+              </div>
+              <div>
+                <h2 className="text-lg sm:text-xl font-black text-white">HISTORIC CCH LEAGUE MILESTONES & FIRSTS</h2>
+                <p className="text-xs text-slate-400">Defining foundational moments in Cali Championship Hoops history.</p>
+              </div>
+            </div>
+            <span className="text-xs font-mono font-bold text-amber-400 bg-amber-950/60 border border-amber-800/60 px-3 py-1 rounded-full hidden sm:inline-block">
+              Historical League Archives
+            </span>
+          </div>
+
+          <div className="bg-gradient-to-r from-slate-900 via-amber-950/30 to-slate-900 border border-amber-500/30 rounded-3xl p-5 sm:p-7 shadow-xl space-y-5">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div className="space-y-3 max-w-2xl">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-mono font-bold rounded-full">
+                  <Calendar size={13} /> {INAUGURAL_GAME_ARTICLE.date}
+                </div>
+                <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+                  {INAUGURAL_GAME_ARTICLE.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed">
+                  California Reds (80) vs. San Diego Sabrewolves (74) — The first-ever game in CCH history. Donnell Nash scored the league&apos;s first basket, Martin McCloud hit the first three-pointer, and Andre Creek logged a 20-point league debut.
+                </p>
+
+                <div className="flex flex-wrap gap-2 text-xs font-mono font-bold text-slate-300 pt-1">
+                  <span className="bg-slate-950 px-2.5 py-1 rounded-lg border border-slate-800 text-amber-400">
+                    First Basket: Donnell Nash (SD)
+                  </span>
+                  <span className="bg-slate-950 px-2.5 py-1 rounded-lg border border-slate-800 text-amber-400">
+                    First 3PT: Martin McCloud (CAL)
+                  </span>
+                  <span className="bg-slate-950 px-2.5 py-1 rounded-lg border border-slate-800 text-amber-400">
+                    First Win: California Reds
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-3 shrink-0">
+                <button
+                  onClick={() => setIsInauguralModalOpen(true)}
+                  className="px-5 py-2.5 sm:px-6 sm:py-3 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs rounded-2xl shadow-lg flex items-center justify-center gap-2 transition-all cursor-pointer"
+                >
+                  <BookOpen size={16} />
+                  Read Full Inaugural Game Article
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* TAB 1: SEASON AWARDS */}
       {activeTab === 'awards' && (
@@ -399,6 +475,13 @@ export const HallOfFameView: React.FC = () => {
           </div>
         </div>
       )}
+
+      {/* Inaugural Game Modal */}
+      <InauguralGameModal
+        isOpen={isInauguralModalOpen}
+        onClose={() => setIsInauguralModalOpen(false)}
+        onSelectTeamRecap={onSelectTeamRecap}
+      />
     </div>
   );
 };

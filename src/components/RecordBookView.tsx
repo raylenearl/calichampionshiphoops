@@ -9,7 +9,6 @@ import {
   History,
   Trophy,
   FileText,
-  Calendar,
 } from 'lucide-react';
 import {
   SINGLE_GAME_INDIVIDUAL,
@@ -21,16 +20,13 @@ import {
   PLAYOFF_CAREER_TOTALS_RECORDS,
 } from '../data/recordsData';
 import { TeamBadge } from './TeamBadge';
-import { InauguralGameModal } from './InauguralGameModal';
-import { INAUGURAL_GAME_ARTICLE } from '../data/leagueMilestonesData';
 
 interface RecordBookViewProps {
   onSelectTeamRecap?: (teamId: string) => void;
 }
 
 export const RecordBookView: React.FC<RecordBookViewProps> = ({ onSelectTeamRecap }) => {
-  const [activeTab, setActiveTab] = useState<'all' | 'milestones' | 'single' | 'season_ind' | 'season_team' | 'career_ind' | 'playoffs'>('all');
-  const [isInauguralModalOpen, setIsInauguralModalOpen] = useState<boolean>(false);
+  const [activeTab, setActiveTab] = useState<'all' | 'single' | 'season_ind' | 'season_team' | 'career_ind' | 'playoffs'>('all');
 
   return (
     <div className="space-y-6">
@@ -57,7 +53,7 @@ export const RecordBookView: React.FC<RecordBookViewProps> = ({ onSelectTeamReca
 
         <div className="hidden lg:flex items-center gap-2 shrink-0 bg-slate-950/60 border border-slate-800/80 px-3.5 py-1.5 rounded-xl text-xs font-mono text-slate-400">
           <Layers size={13} className="text-amber-400" />
-          <span>7 Historical Categories</span>
+          <span>6 Historical Categories</span>
         </div>
       </div>
 
@@ -73,17 +69,6 @@ export const RecordBookView: React.FC<RecordBookViewProps> = ({ onSelectTeamReca
         >
           <Layers size={14} />
           All
-        </button>
-        <button
-          onClick={() => setActiveTab('milestones')}
-          className={`px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
-            activeTab === 'milestones'
-              ? 'bg-amber-500 text-slate-950 font-black shadow-md'
-              : 'text-slate-400 hover:text-white hover:bg-slate-900/60'
-          }`}
-        >
-          <Sparkles size={14} />
-          Firsts
         </button>
         <button
           onClick={() => setActiveTab('single')}
@@ -141,64 +126,6 @@ export const RecordBookView: React.FC<RecordBookViewProps> = ({ onSelectTeamReca
           Playoffs
         </button>
       </div>
-
-      {/* SECTION 0: HISTORIC MILESTONES & LEAGUE FIRSTS */}
-      {(activeTab === 'all' || activeTab === 'milestones') && (
-        <section className="space-y-4">
-          <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-            <div className="flex items-center gap-3">
-              <div className="p-2 bg-amber-500/10 border border-amber-500/20 rounded-xl text-amber-400">
-                <Sparkles size={20} />
-              </div>
-              <div>
-                <h2 className="text-lg sm:text-xl font-black text-white">HISTORIC CCH LEAGUE MILESTONES & FIRSTS</h2>
-                <p className="text-xs text-slate-400">Defining foundational moments in Cali Championship Hoops history.</p>
-              </div>
-            </div>
-            <span className="text-xs font-mono font-bold text-amber-400 bg-amber-950/60 border border-amber-800/60 px-3 py-1 rounded-full hidden sm:inline-block">
-              Historical League Archives
-            </span>
-          </div>
-
-          <div className="bg-gradient-to-r from-slate-900 via-amber-950/30 to-slate-900 border border-amber-500/30 rounded-3xl p-5 sm:p-7 shadow-xl space-y-5">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-              <div className="space-y-3 max-w-2xl">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-mono font-bold rounded-full">
-                  <Calendar size={13} /> {INAUGURAL_GAME_ARTICLE.date}
-                </div>
-                <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
-                  {INAUGURAL_GAME_ARTICLE.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed">
-                  California Reds (80) vs. San Diego Sabrewolves (74) — The first-ever game in CCH history. Donnell Nash scored the league's first basket, Martin McCloud hit the first three-pointer, and Andre Creek logged a 20-point league debut.
-                </p>
-
-                <div className="flex flex-wrap gap-2 text-xs font-mono font-bold text-slate-300 pt-1">
-                  <span className="bg-slate-950 px-2.5 py-1 rounded-lg border border-slate-800 text-amber-400">
-                    First Basket: Donnell Nash (SD)
-                  </span>
-                  <span className="bg-slate-950 px-2.5 py-1 rounded-lg border border-slate-800 text-amber-400">
-                    First 3PT: Martin McCloud (CAL)
-                  </span>
-                  <span className="bg-slate-950 px-2.5 py-1 rounded-lg border border-slate-800 text-amber-400">
-                    First Win: California Reds
-                  </span>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-3 shrink-0">
-                <button
-                  onClick={() => setIsInauguralModalOpen(true)}
-                  className="px-5 py-2.5 sm:px-6 sm:py-3 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs rounded-2xl shadow-lg flex items-center justify-center gap-2 transition-all cursor-pointer"
-                >
-                  <BookOpen size={16} />
-                  Read Full Inaugural Game Article
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* SECTION 1: SINGLE-GAME RECORDS (Individual) */}
       {(activeTab === 'all' || activeTab === 'single') && (
@@ -676,13 +603,6 @@ export const RecordBookView: React.FC<RecordBookViewProps> = ({ onSelectTeamReca
           </div>
         </section>
       )}
-
-      {/* Inaugural Game Modal */}
-      <InauguralGameModal
-        isOpen={isInauguralModalOpen}
-        onClose={() => setIsInauguralModalOpen(false)}
-        onSelectTeamRecap={onSelectTeamRecap}
-      />
     </div>
   );
 };
