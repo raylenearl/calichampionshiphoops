@@ -75,6 +75,7 @@ export interface GameRecord {
   points?: number;
   notes?: string;
   isPlayoff?: boolean;
+  recapArticleId?: string;
 }
 
 export interface PlayoffGame {

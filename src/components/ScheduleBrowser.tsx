@@ -13,12 +13,14 @@ interface ScheduleBrowserProps {
   selectedSeason: 1 | 2 | 3;
   setSelectedSeason: (s: 1 | 2 | 3) => void;
   onSelectTeamRecap?: (teamId: string, season?: 1 | 2 | 3) => void;
+  onNavigateToNews?: (articleId?: string) => void;
 }
 
 export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
   selectedSeason,
   setSelectedSeason,
   onSelectTeamRecap,
+  onNavigateToNews,
 }) => {
   const [selectedMonth, setSelectedMonth] = useState<string>('All');
   const [selectedTeam, setSelectedTeam] = useState<string>('All');
@@ -468,6 +470,20 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
                     >
                       <BookOpen size={14} /> Read Inaugural Game Article
                     </button>
+                  ) : game.recapArticleId && onNavigateToNews ? (
+                    <div className="space-y-1 mt-1">
+                      {game.notes && (
+                        <p className="text-[11px] text-amber-300/90 bg-amber-950/30 p-2 rounded-xl border border-amber-900/30 font-medium leading-relaxed">
+                          💡 {game.notes}
+                        </p>
+                      )}
+                      <button
+                        onClick={() => onNavigateToNews(game.recapArticleId)}
+                        className="w-full py-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black rounded-xl text-xs flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md"
+                      >
+                        <BookOpen size={14} /> Read Full Game Story
+                      </button>
+                    </div>
                   ) : (
                     game.notes && (
                       <p className="text-[11px] text-amber-300/90 bg-amber-950/30 p-2 rounded-xl border border-amber-900/30 font-medium leading-relaxed mt-1">

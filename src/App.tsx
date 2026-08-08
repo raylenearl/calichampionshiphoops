@@ -209,6 +209,7 @@ export default function App() {
             selectedSeason={selectedSeason}
             setSelectedSeason={setSelectedSeason}
             onSelectTeamRecap={handleSelectTeamRecap}
+            onNavigateToNews={handleNavigateToNews}
           />
         )}
 

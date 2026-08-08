@@ -281,6 +281,132 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     ]
   },
   {
+    id: 's1-stallions-reds-ot-thriller',
+    title: 'STALLIONS OUTLAST REDS 100-98 IN OVERTIME THRILLER',
+    subtitle: "Coty Barry Carroll pours in 31 points and hits crucial overtime threes as Sacramento wins a high-scoring 100-98 instant classic over California.",
+    date: 'Season 1 • Dec 11',
+    season: 1,
+    category: 'recap',
+    featured: false,
+    author: 'Chloe Summers • Cali Championship Hoops Correspondent',
+    readTime: '3 min read',
+    teams: {
+      team1: 'Sacramento Stallions',
+      team1Id: 'sacramento-stallions',
+      score1: 100,
+      team2: 'California Reds',
+      team2Id: 'california-reds',
+      score2: 98
+    },
+    headlineQuote: "It was a battle out there tonight. The Reds are a tough team, but we stayed composed and executed when it mattered most.",
+    contentParagraphs: [
+      "SACRAMENTO, Calif. – The Sacramento Stallions (7-2) emerged victorious in a thrilling overtime clash against the California Reds (6-2), securing a narrow 100-98 win. Coty Barry Carroll's stellar performance, highlighted by 31 points and crucial three-pointers in overtime, proved decisive in the Stallions' hard-fought victory.",
+      "The game was a back-and-forth affair, with neither team able to establish a significant lead. Martin McCloud led the charge for the Reds with an impressive 32-point outing, supported by A.J. Cox's 19 points. However, the Stallions' sharpshooting from beyond the arc, hitting 12 three-pointers as a team, ultimately made the difference.",
+      "The game's turning point came in the waning moments of regulation, with the Stallions clinging to an 87-84 lead. Carroll, who had been instrumental all game, missed two crucial free throws, allowing Mo Parks of the Reds to sink a game-tying three-pointer, forcing the game into overtime.",
+      "In the extra period, the Stallions maintained their composure, knocking down clutch free throws to secure the win. Dorell Kabal contributed a double-double with 27 points and 12 rebounds, while Jonathon Blount provided a spark off the bench with 11 points.",
+      "Despite the loss, the Reds displayed resilience, connecting on 17 three-pointers and battling on the boards with nine offensive rebounds. The game was a showcase of high-level basketball, with both teams shooting over 60% from the field."
+    ],
+    quotes: [
+      {
+        speaker: 'Coty Barry Carroll',
+        title: 'Sacramento Stallions Guard',
+        quote: "It was a battle out there tonight. The Reds are a tough team, but we stayed composed and executed when it mattered most. I'm proud of how we came together as a team."
+      },
+      {
+        speaker: 'Benjamin Nelson',
+        title: 'Sacramento Stallions Head Coach',
+        quote: "We knew it was going to be a tough game against a talented Reds team. Our guys showed a lot of heart and determination, especially in overtime. We executed our game plan and made big plays when we needed them."
+      }
+    ],
+    playerStats: [
+      { player: 'Martin McCloud', team: 'California Reds', stat: '32 PTS (17 3PM Team Total)' },
+      { player: 'Coty Barry Carroll', team: 'Sacramento Stallions', stat: '31 PTS (Clutch OT 3PT)' },
+      { player: 'Dorell Kabal', team: 'Sacramento Stallions', stat: '27 PTS, 12 REB' },
+      { player: 'A.J. Cox', team: 'California Reds', stat: '19 PTS' },
+      { player: 'Jonathon Blount', team: 'Sacramento Stallions', stat: '11 PTS (Off Bench)' }
+    ]
+  },
+  {
+    id: 's1-fresno-oakland-reece-43',
+    title: "Mad Dogs Secure 1st Win, Reece's Record-Breaking Performance Not Enough for Renegades",
+    subtitle: "In a 93-85 thriller at Oakland Arena, Fresno clinches its inaugural victory while Oakland's Alonzo Reece erupts for a CCH single-game record 43 points.",
+    date: 'Season 1 • Dec 16',
+    season: 1,
+    category: 'recap',
+    featured: false,
+    author: 'Chloe Summers • Cali Championship Hoops Correspondent',
+    readTime: '3 min read',
+    teams: {
+      team1: 'Fresno Mad Dogs',
+      team1Id: 'fresno-mad-dogs',
+      score1: 93,
+      team2: 'Oakland Renegades',
+      team2Id: 'oakland-renegades',
+      score2: 85
+    },
+    headlineQuote: "I'd trade all 43 points for a win, but this is a night I'll never forget.",
+    contentParagraphs: [
+      "OAKLAND, CA – In a thrilling matchup, the Fresno Mad Dogs (1-6) clinched their inaugural victory, triumphing over the Oakland Renegades (3-4) in a 93-85 win at the packed Oakland Arena. The game featured a historic performance from Oakland's Alonzo Reece, who set a new Cali Championship Hoops single-game scoring record with an astounding 43 points.",
+      "Reece was in the zone throughout the game, shooting 60% from the field, including 67% from beyond the arc. His 43-point outburst surpassed the previous record of 41 points set by Dorell Kabal of the Sacramento Stallions. Despite his remarkable display, Reece remained humble, stating, \"I'd trade all 43 points for a win, but this is a night I'll never forget.\"",
+      "However, the Mad Dogs' victory was a team effort, with three players scoring in double figures. Lamar Anderson led the charge with 30 points on an efficient 57% shooting. Dell Nelson contributed 11 points and 6 rebounds, while Melvin Cassell added 13 points and nine boards. Fresno dominated the rebounding battle, outmuscling Oakland 32-20 and capitalizing with a 34-26 advantage in points in the paint.",
+      "The Renegades displayed solid teamwork with 17 assists, but it wasn't enough to counter Fresno's balanced attack. Dakoulas Alexandris provided support with 15 points and six rebounds.",
+      "\"This win means everything to our franchise and fans,\" expressed an emotional Anderson postgame. \"We've been working so hard, so to finally break through with this first victory is incredible. Hopefully, this is just the start of something special.\"",
+      "While Alonzo Reece left his mark on the record books, the night belonged to the Mad Dogs. Fresno's collective effort proved decisive, overcoming Reece's exceptional performance and securing a milestone win for the franchise."
+    ],
+    quotes: [
+      {
+        speaker: 'Alonzo Reece',
+        title: 'Oakland Renegades Guard',
+        quote: "I'd trade all 43 points for a win, but this is a night I'll never forget."
+      },
+      {
+        speaker: 'Lamar Anderson',
+        title: 'Fresno Mad Dogs Guard',
+        quote: "This win means everything to our franchise and fans. We've been working so hard, so to finally break through with this first victory is incredible. Hopefully, this is just the start of something special."
+      }
+    ],
+    playerStats: [
+      { player: 'Alonzo Reece', team: 'Oakland Renegades', stat: '43 PTS (CCH Record, 60% FG, 67% 3PT)' },
+      { player: 'Lamar Anderson', team: 'Fresno Mad Dogs', stat: '30 PTS (57% FG)' },
+      { player: 'Dakoulas Alexandris', team: 'Oakland Renegades', stat: '15 PTS, 6 REB, 17 Team AST' },
+      { player: 'Melvin Cassell', team: 'Fresno Mad Dogs', stat: '13 PTS, 9 REB' },
+      { player: 'Dell Nelson', team: 'Fresno Mad Dogs', stat: '11 PTS, 6 REB' }
+    ]
+  },
+  {
+    id: 's1-spencer-jenkins-trade',
+    title: 'Breaking News: SD Strykers Trade Unhappy Spencer to Long Beach',
+    subtitle: 'In the first player trade in league history, San Diego sends disgruntled forward Coby Spencer to Long Beach for power forward Earl Jenkins and a second-round pick.',
+    date: 'Season 1 • Dec 18',
+    season: 1,
+    category: 'offseason',
+    featured: false,
+    author: 'Mindy Mason • CCH News Network',
+    readTime: '3 min read',
+    headlineQuote: "San Diego might have to move Coby Spencer who sources say isn't happy. Last thing you need is a cancer in the locker room. #CutYourLosses",
+    contentParagraphs: [
+      "SAN DIEGO — In a move that is sending shockwaves through Cali Championship Hoops, the San Diego Strykers have agreed to trade the disgruntled Coby Spencer to the Long Beach Vipers in exchange for power forward Earl Jenkins and an unprotected second-round draft pick.",
+      "This deal represents the first player trade in the history of the league. But it's the circumstances surrounding Spencer's departure from San Diego that is garnering even more attention.",
+      "Tensions had been rising with the 19-year-old Spencer, who sources say had grown unhappy with his situation and role under Strykers head coach Jake Thomas. Insider Mindy Mason was the first to drop the bombshell news on Twitter, stating: \"San Diego might have to move Coby Spencer who sources say isn't happy. Last thing you need is a cancer in the locker room. #CutYourLosses\"",
+      "Despite putting up 8.3 points and 2.5 rebounds per game, Spencer's production was overshadowed by reports of his discontent and disruptive behavior behind the scenes. Rather than let the situation potentially become an even bigger distraction and divide the locker room, San Diego made the difficult decision to cut ties via trade.",
+      "The Long Beach Vipers are taking a calculated gamble that a change of scenery could be Spencer's wake-up call to regain his motivation and harness his immense talent on the court. But if the attitude issues persist, they surrendered very little asset-wise to acquire the young forward.",
+      "This historic first trade has rocked the Cali Championship Hoops world and could have long-lasting ripple effects across the league. Both franchises are banking that this deal will improve their respective chemistry and trajectories moving forward. All eyes will be on Spencer and how he responds after this wake-up call trade. One thing is certain - this unprecedented deal has added a compelling new layer of drama to the inaugural season.",
+      "Jenkins heads to San Diego averaging 6.0 points and 2.8 rebounds per game. The Strykers and Vipers are scheduled to face off on December 23rd."
+    ],
+    quotes: [
+      {
+        speaker: 'Mindy Mason',
+        title: 'League Insider',
+        quote: "San Diego might have to move Coby Spencer who sources say isn't happy. Last thing you need is a cancer in the locker room. #CutYourLosses"
+      }
+    ],
+    playerStats: [
+      { player: 'Coby Spencer', team: 'Traded to Long Beach Vipers', stat: '8.3 PPG, 2.5 RPG' },
+      { player: 'Earl Jenkins', team: 'Traded to San Diego Strykers', stat: '6.0 PPG, 2.8 RPG' },
+      { player: 'Draft Pick', team: 'Traded to Long Beach Vipers', stat: 'Unprotected 2nd-Round Pick' }
+    ]
+  },
+  {
     id: INAUGURAL_GAME_ARTICLE.id,
     title: INAUGURAL_GAME_ARTICLE.title,
     subtitle: INAUGURAL_GAME_ARTICLE.subtitle,
