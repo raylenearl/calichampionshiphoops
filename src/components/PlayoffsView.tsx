@@ -30,12 +30,14 @@ interface PlayoffsViewProps {
   selectedSeason: 1 | 2 | 3;
   setSelectedSeason: (s: 1 | 2 | 3) => void;
   onSelectTeamRecap?: (teamId: string, season?: 1 | 2 | 3) => void;
+  onNavigateToNews?: (articleId: string) => void;
 }
 
 export const PlayoffsView: React.FC<PlayoffsViewProps> = ({
   selectedSeason,
   setSelectedSeason,
   onSelectTeamRecap,
+  onNavigateToNews,
 }) => {
   const [activeTab, setActiveTab] = useState<'bracket' | 'stats'>('bracket');
   const [statsCategory, setStatsCategory] = useState<'totals' | 'averages' | 'highs' | 'games' | 'profiles'>('totals');
@@ -743,9 +745,22 @@ export const PlayoffsView: React.FC<PlayoffsViewProps> = ({
               {/* Game Summary / Notes */}
               {(detail?.summary || game.notes) && (
                 <div className="bg-slate-950 border border-slate-800 p-4 rounded-2xl space-y-2">
-                  <h4 className="text-xs font-black uppercase text-amber-400 tracking-wider flex items-center gap-1.5">
-                    <FileText size={14} /> Official Game Summary & Recap
-                  </h4>
+                  <div className="flex items-center justify-between flex-wrap gap-2">
+                    <h4 className="text-xs font-black uppercase text-amber-400 tracking-wider flex items-center gap-1.5">
+                      <FileText size={14} /> Official Game Summary & Recap
+                    </h4>
+                    {game.recapArticleId && onNavigateToNews && (
+                      <button
+                        onClick={() => {
+                          setSelectedGameModal(null);
+                          onNavigateToNews(game.recapArticleId!);
+                        }}
+                        className="inline-flex items-center gap-1 text-xs font-bold text-amber-400 hover:text-amber-300 bg-amber-500/10 hover:bg-amber-500/20 px-2.5 py-1 rounded-lg border border-amber-500/30 transition-all cursor-pointer"
+                      >
+                        <ExternalLink size={12} /> Read Full Article
+                      </button>
+                    )}
+                  </div>
                   <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">
                     {detail?.summary || game.notes}
                   </p>

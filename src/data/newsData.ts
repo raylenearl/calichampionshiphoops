@@ -407,6 +407,45 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     ]
   },
   {
+    id: 's1-playoff-first-game-gse-lb',
+    title: '#6 Golden State 94, #3 Long Beach 90: Enterprise Upset Vipers in First-Ever Playoff Game',
+    subtitle: 'Golden State pulls off a minor upset over Long Beach behind Howie Carney\'s 24 points and Adin Durmanenko\'s 21 in the inaugural CCH postseason clash.',
+    date: 'Season 1 Postseason • Mar 20',
+    season: 1,
+    category: 'recap',
+    featured: false,
+    author: 'Chloe Summers • CCH Postseason Correspondent',
+    readTime: '2 min read',
+    teams: {
+      team1: 'Golden State Enterprise',
+      team1Id: 'golden-state-enterprise',
+      score1: 94,
+      team2: 'Long Beach Vipers',
+      team2Id: 'long-beach-vipers',
+      score2: 90
+    },
+    headlineQuote: 'In the first-ever playoff game in league history, the Golden State Enterprise (12-11) pulled off a minor upset over the higher-seeded Long Beach Vipers (13-10).',
+    contentParagraphs: [
+      "In the first-ever playoff game in league history, the Golden State Enterprise (12-11) pulled off a minor upset over the higher-seeded Long Beach Vipers (13-10). The Enterprise rode a balanced scoring onslaught, with Howie Carney leading the way with 24 points on a scorching 4-of-6 shooting display from beyond the arc. Adin Durmanenko provided valuable support, tallying 21 points and hauling down five rebounds, while Melvin Cassell chipped in 13 points and four boards.",
+      "For the Vipers, Eugene Simon turned in a solid performance with 19 points and eight rebounds, but lacked sufficient support from his teammates. A.J. Hinton scored 18 points, while Randall Reynolds contributed 11 points off the bench, but it wasn't enough to overcome the Enterprise's offensive barrage."
+    ],
+    quotes: [
+      {
+        speaker: 'Chloe Summers',
+        title: 'CCH Postseason Correspondent',
+        quote: "The Enterprise rode a balanced scoring onslaught in the first-ever playoff game in league history."
+      }
+    ],
+    playerStats: [
+      { player: 'Howie Carney', team: 'Golden State Enterprise', stat: '24 PTS (4-6 3PT)' },
+      { player: 'Adin Durmanenko', team: 'Golden State Enterprise', stat: '21 PTS, 5 REB' },
+      { player: 'Eugene Simon', team: 'Long Beach Vipers', stat: '19 PTS, 8 REB' },
+      { player: 'A.J. Hinton', team: 'Long Beach Vipers', stat: '18 PTS' },
+      { player: 'Melvin Cassell', team: 'Golden State Enterprise', stat: '13 PTS, 4 REB' },
+      { player: 'Randall Reynolds', team: 'Long Beach Vipers', stat: '11 PTS (Off Bench)' }
+    ]
+  },
+  {
     id: INAUGURAL_GAME_ARTICLE.id,
     title: INAUGURAL_GAME_ARTICLE.title,
     subtitle: INAUGURAL_GAME_ARTICLE.subtitle,

@@ -88,6 +88,7 @@ export interface PlayoffGame {
   score2: number;
   winner: string;
   notes?: string;
+  recapArticleId?: string;
 }
 
 export interface StatRecord {
