@@ -1,5 +1,30 @@
 import { INAUGURAL_GAME_ARTICLE } from './leagueMilestonesData';
 import jacobUnderwoodImg from '../assets/images/JacobUnderwood.png';
+import aSaundersImg from '../assets/images/ASaunders.jpg';
+import bNelsonImg from '../assets/images/BNelson.jpeg';
+import cGoodwinImg from '../assets/images/CGoodwin.jpg';
+import jUnderwoodPhoto from '../assets/images/JUnderwood.jpg';
+import mStaufferImg from '../assets/images/MStauffer.jpeg';
+import pSplitterImg from '../assets/images/PSplitter.jpg';
+import rFloresImg from '../assets/images/RFlores.jpg';
+import sPorterImg from '../assets/images/SPorter.jpeg';
+import sRobertsImg from '../assets/images/SRoberts.jpeg';
+import wWalkerImg from '../assets/images/WWalker.jpeg';
+import wZimmermanImg from '../assets/images/WZimmerman.jpeg';
+import zRandleImg from '../assets/images/image6.jpeg';
+
+export interface CoachProfileCard {
+  name: string;
+  team: string;
+  teamId: string;
+  status: 'Returning' | 'Newcomer';
+  tenure: string;
+  tenureYears?: string;
+  tenureNote?: string;
+  photo: string;
+  background: string;
+  philosophy?: string;
+}
 
 export interface CCHNewsArticle {
   id: string;
@@ -12,6 +37,7 @@ export interface CCHNewsArticle {
   author: string;
   readTime: string;
   imageUrl?: string;
+  imageCaption?: string;
   teams?: {
     team1: string;
     team1Id: string;
@@ -24,10 +50,193 @@ export interface CCHNewsArticle {
   contentParagraphs: string[];
   quotes?: { speaker: string; title: string; quote: string }[];
   playerStats?: { player: string; team: string; stat: string }[];
+  coachesList?: CoachProfileCard[];
   audioUrl?: string;
 }
 
 export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
+  {
+    id: 's4-head-coaches-introduction',
+    title: 'Season 4 Head Coaches Unveiled: Continuity Meets High-Stakes Sideline Shakeups',
+    subtitle: 'With four battle-tested championship tacticians returning and eight franchises debuting new sideline leadership, Cali Championship Hoops enters Season 4 with unprecedented tactical intrigue across all 12 franchises.',
+    date: 'Season 4 Offseason',
+    season: 4,
+    category: 'offseason',
+    featured: true,
+    author: 'Front-Office Insider',
+    readTime: '5 min read',
+    imageUrl: jacobUnderwoodImg,
+    imageCaption: 'The Season 4 Head Coaching Class: 12 Leaders Setting the Course for Championship Glory',
+    headlineQuote: 'The sideline chess match in Season 4 will be the fiercest in league history. Four enduring pillars defend their culture against eight fresh tacticians determined to reshape the championship hierarchy.',
+    contentParagraphs: [
+      'CALIFORNIA — As the dust settles on the wildest offseason in Cali Championship Hoops history, the league officially unveils the 12 head coaches who will command the sidelines for Season 4. Marked by blockbuster cross-town defections, coaching royalty returns, and ambitious new tacticians stepping into high-pressure roles, the tactical landscape has never been more competitive.',
+      'THE RETURNING VANGUARD: FOUR STALWARTS OF CONTINUITY\nWhile the coaching carousel spun at dizzying speeds this summer, four franchises chose to double down on their proven masterminds:\n\n• Steve Porter (Anaheim Admirals, 4th Season): Entering his fourth consecutive season in Anaheim, Porter represents the gold standard of steady player development. Porter has built the Admirals around sharp perimeter ball movement, leading the league in free-throw efficiency and maximizing dead-eye shooter Kirk Tinsley.\n\n• William Walker (California Reds, 4th Season): The reigning 2-Time CCH Coach of the Year (Season 2 & Season 3) and Season 2 Champion. Walker transformed California from a 9-game losing streak in Season 1 into a back-to-back regular season juggernaut, orchestrating the superstar tandem of Lamar Anderson and defensive anchor Andor Marai.\n\n• Benjamin Nelson (Sacramento Stallions, 4th Season): The winningest coach in CCH history. With two championship rings (Season 1 & Season 3) and three consecutive Finals appearances, Nelson remains on the throne. Season 4 will test his tactical genius as he constructs a new offensive identity following the retirement of legendary Finals MVP Dorell Kabal.\n\n• Michael Stauffer (San Jose Tigersharks, 3rd Season): Entering his third year at the helm in San Jose after taking over in Season 2. Stauffer brought home the rivalry Platinum Cup and has established one of the league’s grittiest frontcourts centered around rebounding machine J.C. McMillan.',
+      'THE NEWCOMERS & HIGH-PROFILE SHAKEUPS: EIGHT SIDELINES REBORN\nEight organizations enter Season 4 under new direction, featuring veteran switches, beloved reunions, and high-energy newcomers:\n\n• Jacob Underwood (San Diego Sabrewolves): The biggest coaching defection in league history. After mentoring A.J. Hinton to the Season 3 MVP with the Strykers, Underwood crossed enemy lines to sign a monumental 4-year, $29.11M deal with the arch-rival Sabrewolves. Underwood now commands 56-point scoring king Kirk Barnes and DPOY Wes Taylor.\n\n• Adam Saunders (San Diego Strykers): Stepping directly into the fire in San Diego, Saunders takes the helm of a championship-ready Strykers roster hungry for redemption, boasting MVP A.J. Hinton, floor general Ray Gambino, and All-Cali forward DeAnte Gray.\n\n• Pooh Splitter (Los Angeles Dynamics): After three seasons guiding the Fresno Mad Dogs to the Season 3 Finals in an iconic Cinderella run, Splitter brings his hard-nosed defensive toughness down south to Los Angeles, taking over a perennial contender headlined by Mo Alexander and Jack McMichael Jr.\n\n• Stretch Roberts (Long Beach Vipers, 4th Season): The Season 1 Coach of the Year returns to the sidelines after taking a personal leave in Season 3. Roberts brings his infectious energy back to Long Beach to accelerate the development of rising stars Phil Martin Jr. and Coby Spencer.\n\n• Ronnie Flores (Fresno Mad Dogs): Handed the keys in Fresno following Splitter’s departure, Flores inherits a passionate underdog culture and looks to keep the Mad Dogs in title contention with an up-tempo transition engine.\n\n• Wyatt Zimmerman (Golden State Enterprise): Named head coach in the East Bay, Zimmerman brings modern pace-and-space philosophies designed to unlock sniper Howie Carney and interior stopper Andre Creek.\n\n• Carson Goodwin (Oakland Renegades): Taking over in Oakland, Goodwin looks to unleash scoring machine Alonzo Reece and transition wizard Dakoulas Alexandris in a high-octane offensive attack.\n\n• Zack Randle (San Francisco Knights): Charged with guiding the tactical Knights, Randle brings refined motion schemes tailored to clutch maestro Munir Kassa and former #1 pick Gheorghe Stefan.'
+    ],
+    quotes: [
+      {
+        speaker: 'Ray Lenearl',
+        title: 'CCH Commissioner',
+        quote: 'Coaching in Cali Championship Hoops requires supreme tactical adaptability and mental fortitude. With four tenured legends and eight dynamic new leaders, Season 4 will showcase masterclasses on every sideline.'
+      },
+      {
+        speaker: 'William Walker',
+        title: 'Head Coach • California Reds (2x Coach of the Year)',
+        quote: 'Continuity is our greatest weapon, but complacency is the ultimate trap. Every team in this league upgraded their sideline brainpower this offseason. We are ready for the challenge.'
+      },
+      {
+        speaker: 'Jacob Underwood',
+        title: 'Head Coach • San Diego Sabrewolves',
+        quote: 'A new chapter, a new city-wide standard. The Sabrewolves have all the pieces to hang banners, and we are going to dictate terms every single night.'
+      }
+    ],
+    coachesList: [
+      {
+        name: 'Steve Porter',
+        team: 'Anaheim Admirals',
+        teamId: 'anaheim-admirals',
+        status: 'Returning',
+        tenure: '4th Season\n(Inaugural Head Coach)',
+        tenureYears: '4th Season',
+        tenureNote: '(Inaugural Head Coach)',
+        photo: sPorterImg,
+        background: 'Continuous sideline anchor for Anaheim since Day 1. Specialist in perimeter execution, free-throw efficiency (.804 FT%), and unlocking dynamic scorer Keith Tinsley.',
+        philosophy: 'Disciplined ball movement, spacing, and perimeter precision.'
+      },
+      {
+        name: 'William Walker',
+        team: 'California Reds',
+        teamId: 'california-reds',
+        status: 'Returning',
+        tenure: '4th Season\n(Season 2 & 3 Coach of the Year)',
+        tenureYears: '4th Season',
+        tenureNote: '(Season 2 & 3 Coach of the Year)',
+        photo: wWalkerImg,
+        background: 'Architect of California’s historic Season 2 Championship and back-to-back 1st-place regular season finishes (18-4 in S2, 16-6 in S3). Master tactician alongside MVP Lamar Anderson.',
+        philosophy: 'Unrelenting tempo, elite conditioning, and two-way dominance.'
+      },
+      {
+        name: 'Benjamin Nelson',
+        team: 'Sacramento Stallions',
+        teamId: 'sacramento-stallions',
+        status: 'Returning',
+        tenure: '4th Season\n(2-Time CCH Champion: S1 & S3)',
+        tenureYears: '4th Season',
+        tenureNote: '(2-Time Champion: S1 & S3)',
+        photo: bNelsonImg,
+        background: 'The league’s most decorated coach, leading Sacramento to three straight CCH Finals and two titles. Now re-tooling the Stallions around George Madsen in the post-Kabal era.',
+        philosophy: 'Championship culture, defensive poise, and situational clutch execution.'
+      },
+      {
+        name: 'Michael Stauffer',
+        team: 'San Jose Tigersharks',
+        teamId: 'san-jose-tigersharks',
+        status: 'Returning',
+        tenure: '3rd Season\n(Took over in Season 2)',
+        tenureYears: '3rd Season',
+        tenureNote: '(Took over in Season 2)',
+        photo: mStaufferImg,
+        background: 'Enters his 3rd year steering San Jose after transforming the team’s interior grit. Captured the Platinum Cup and molded J.C. McMillan into the league’s premier rebounder.',
+        philosophy: 'Physical interior defense, dominant rebounding, and high-effort transition.'
+      },
+      {
+        name: 'Ronnie Flores',
+        team: 'Fresno Mad Dogs',
+        teamId: 'fresno-mad-dogs',
+        status: 'Newcomer',
+        tenure: '1st Season in Fresno\n(New Head Coach)',
+        tenureYears: '1st Season in Fresno',
+        tenureNote: '(New Head Coach)',
+        photo: rFloresImg,
+        background: 'Takes the reins in Fresno following the Mad Dogs’ historic Season 3 Cinderella Finals run. Brings intense defensive pressure and fast-break schemes to empower Josh Parks and Damon Stephens.',
+        philosophy: 'Relentless underdog energy, full-court pressure, and aggressive paint attacking.'
+      },
+      {
+        name: 'Wyatt Zimmerman',
+        team: 'Golden State Enterprise',
+        teamId: 'golden-state-enterprise',
+        status: 'Newcomer',
+        tenure: '1st Season in Golden State\n(New Head Coach)',
+        tenureYears: '1st Season in Golden State',
+        tenureNote: '(New Head Coach)',
+        photo: wZimmermanImg,
+        background: 'Appointed to re-energize Golden State. Focuses on modern pace-and-space sets, capitalizing on Howie Carney’s lethal 3-point stroke and the defensive prowess of Andre Creek.',
+        philosophy: 'Five-out spacing, rapid ball rotation, and analytical shot selection.'
+      },
+      {
+        name: 'Stretch Roberts',
+        team: 'Long Beach Vipers',
+        teamId: 'long-beach-vipers',
+        status: 'Newcomer',
+        tenure: '4th Season\n(Returned after S3 leave / S1 Coach of the Year)',
+        tenureYears: '4th Season in Long Beach',
+        tenureNote: '(Returned after S3 leave / S1 COTY)',
+        photo: sRobertsImg,
+        background: 'The charismatic Season 1 Coach of the Year triumphantly returns to the Vipers bench after taking a personal leave in Season 3. Reunited with rising stars Phil Martin Jr. and Coby Spencer.',
+        philosophy: 'Empowering player confidence, high-octane tempo, and aggressive perimeter drives.'
+      },
+      {
+        name: 'Pooh Splitter',
+        team: 'Los Angeles Dynamics',
+        teamId: 'los-angeles-dynamics',
+        status: 'Newcomer',
+        tenure: '1st Season in LA\n(Former Fresno HC, S1-S3)',
+        tenureYears: '1st Season in LA',
+        tenureNote: '(Former Fresno HC, S1-S3)',
+        photo: pSplitterImg,
+        background: 'The respected veteran makes a blockbuster move south to Los Angeles after three iconic seasons in Fresno. Pooh brings playoff grit to a star-studded Dynamics roster featuring Mo Alexander.',
+        philosophy: 'Suffocating half-court defense, interior toughness, and disciplined execution.'
+      },
+      {
+        name: 'Carson Goodwin',
+        team: 'Oakland Renegades',
+        teamId: 'oakland-renegades',
+        status: 'Newcomer',
+        tenure: '1st Season in Oakland\n(New Head Coach)',
+        tenureYears: '1st Season in Oakland',
+        tenureNote: '(New Head Coach)',
+        photo: cGoodwinImg,
+        background: 'Hired to steer Oakland’s explosive offense. Goodwin aims to unleash Alonzo Reece (Season 1 43-pt game record) and floor general Dakoulas Alexandris into the league’s top scoring attack.',
+        philosophy: 'Fast-break transition, creative guard action, and perimeter aggression.'
+      },
+      {
+        name: 'Zack Randle',
+        team: 'San Francisco Knights',
+        teamId: 'san-francisco-knights',
+        status: 'Newcomer',
+        tenure: '1st Season in San Francisco\n(New Head Coach)',
+        tenureYears: '1st Season in San Francisco',
+        tenureNote: '(New Head Coach)',
+        photo: zRandleImg,
+        background: 'Stepping in to lead the Knights, Randle brings a refined motion offense tailored around clutch sniper Munir Kassa and former #1 overall pick Gheorghe Stefan.',
+        philosophy: 'Motion basketball, pinpoint screening, and late-game tactical precision.'
+      },
+      {
+        name: 'Jacob Underwood',
+        team: 'San Diego Sabrewolves',
+        teamId: 'san-diego-sabrewolves',
+        status: 'Newcomer',
+        tenure: '1st Season with Sabrewolves\n(Former Strykers HC, S2-S3)',
+        tenureYears: '1st Season in San Diego (Wolves)',
+        tenureNote: '(Former Strykers HC, S2-S3)',
+        photo: jUnderwoodPhoto,
+        background: 'Signed a record 4-year, $29.11M contract to jump across town to the Sabrewolves. Underwood pairs his offensive wizardry with scoring champion Kirk Barnes (56 pts) and DPOY Wes Taylor.',
+        philosophy: 'Championship-level intensity, tailored isolation schemes, and elite defensive switching.'
+      },
+      {
+        name: 'Adam Saunders',
+        team: 'San Diego Strykers',
+        teamId: 'san-diego-strykers',
+        status: 'Newcomer',
+        tenure: '1st Season with Strykers\n(New Head Coach)',
+        tenureYears: '1st Season in San Diego (Strykers)',
+        tenureNote: '(New Head Coach)',
+        photo: aSaundersImg,
+        background: 'Selected to lead the Strykers into a new era following Underwood’s departure. Entrusted with reigning MVP A.J. Hinton and All-Star point guard Ray Gambino to capture San Diego’s first crown.',
+        philosophy: 'Up-tempo firepower, seamless backcourt synergy, and defensive resilience.'
+      }
+    ]
+  },
   {
     id: 's4-underwood-defection',
     title: 'SHOCKWAVES IN SAN DIEGO: Underwood Defects to Arch-Rival Sabrewolves',
@@ -35,10 +244,11 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     date: 'Season 4 Offseason',
     season: 4,
     category: 'offseason',
-    featured: true,
+    featured: false,
     author: 'League Wire • San Diego Beat',
     readTime: '3 min read',
     imageUrl: jacobUnderwoodImg,
+    imageCaption: 'Head Coach Jacob Underwood Signs 4-Year, $29.11M Deal With San Diego Sabrewolves',
     teams: {
       team1: 'San Diego Sabrewolves',
       team1Id: 'san-diego-sabrewolves',

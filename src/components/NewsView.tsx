@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CCH_NEWS_ARTICLES, CCHNewsArticle } from '../data/newsData';
+import { CCH_NEWS_ARTICLES, CCHNewsArticle, CoachProfileCard } from '../data/newsData';
 import { TeamBadge } from './TeamBadge';
 import {
   Newspaper,
@@ -18,7 +18,9 @@ import {
   Filter,
   Layers,
   Radio,
-  BookOpen
+  BookOpen,
+  Users,
+  Zap,
 } from 'lucide-react';
 
 interface NewsViewProps {
@@ -29,6 +31,7 @@ interface NewsViewProps {
 export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialArticleId }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedSeasonFilter, setSelectedSeasonFilter] = useState<number>(0); // 0 = all seasons
+  const [coachFilter, setCoachFilter] = useState<'all' | 'Returning' | 'Newcomer'>('all');
   const [selectedArticle, setSelectedArticle] = useState<CCHNewsArticle | null>(() => {
     if (initialArticleId) {
       return CCH_NEWS_ARTICLES.find((a) => a.id === initialArticleId) || null;
@@ -93,6 +96,17 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
           >
             <Layers size={14} />
             All Stories
+          </button>
+          <button
+            onClick={() => setSelectedCategory('offseason')}
+            className={`px-3 py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
+              selectedCategory === 'offseason'
+                ? 'bg-amber-500 text-slate-950 font-black shadow-md'
+                : 'text-slate-400 hover:text-white hover:bg-slate-900/60'
+            }`}
+          >
+            <Sparkles size={14} />
+            Offseason & Coaches
           </button>
           <button
             onClick={() => setSelectedCategory('championship')}
@@ -210,7 +224,26 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-4">
-              {featuredStory.imageUrl && (
+              {featuredStory.coachesList && featuredStory.coachesList.length > 0 ? (
+                <div className="bg-slate-950/90 border border-amber-500/30 rounded-2xl p-4 shadow-xl space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-mono font-bold text-amber-400 flex items-center gap-1.5">
+                      <Users size={14} /> 12 HEAD COACHES • SEASON 4 ROSTER
+                    </span>
+                    <span className="text-[11px] font-mono text-slate-400">4 Returning • 8 Newcomers</span>
+                  </div>
+                  <div className="grid grid-cols-6 gap-2">
+                    {featuredStory.coachesList.slice(0, 6).map((c, i) => (
+                      <div key={i} className="relative group/thumb overflow-hidden rounded-xl border border-slate-800 bg-slate-900 aspect-square">
+                        <img src={c.photo} alt={c.name} className="w-full h-full object-cover" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 to-transparent flex items-end p-1">
+                          <span className="text-[9px] font-bold text-white truncate">{c.name.split(' ').pop()}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : featuredStory.imageUrl ? (
                 <div className="relative overflow-hidden rounded-2xl border border-slate-800 shadow-xl bg-slate-950 group/hero flex flex-col items-center">
                   <img
                     src={featuredStory.imageUrl}
@@ -219,12 +252,11 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                   />
                   <div className="w-full bg-slate-950/95 border-t border-amber-500/20 px-4 py-2 flex items-center justify-between text-xs font-mono font-bold text-amber-300">
                     <span className="flex items-center gap-1.5">
-                      <Sparkles size={14} className="text-amber-400" /> BREAKING FRONT OFFICE PHOTO
+                      <Sparkles size={14} className="text-amber-400" /> {featuredStory.imageCaption || 'Official Press Photo'}
                     </span>
-                    <span className="text-slate-200">Head Coach Jacob Underwood</span>
                   </div>
                 </div>
-              )}
+              ) : null}
 
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white leading-tight tracking-tight">
                 {featuredStory.title}
@@ -319,7 +351,21 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
               className="bg-slate-900 border border-slate-800 hover:border-amber-500/40 rounded-3xl p-5 space-y-4 shadow-xl flex flex-col justify-between transition-all hover:-translate-y-1 cursor-pointer group"
             >
               <div className="space-y-3">
-                {article.imageUrl && (
+                {article.coachesList && article.coachesList.length > 0 ? (
+                  <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 p-2.5 -mx-1 -mt-1 shadow-md space-y-2">
+                    <div className="grid grid-cols-4 gap-1.5">
+                      {article.coachesList.slice(0, 4).map((c, i) => (
+                        <div key={i} className="aspect-square rounded-lg overflow-hidden border border-slate-800 bg-slate-900">
+                          <img src={c.photo} alt={c.name} className="w-full h-full object-cover" />
+                        </div>
+                      ))}
+                    </div>
+                    <div className="text-[10px] font-mono font-bold text-amber-300 bg-slate-900/90 px-2 py-1 rounded-md border border-amber-500/20 flex items-center justify-between">
+                      <span>👥 12 Head Coaches</span>
+                      <span className="text-slate-400">View Profiles →</span>
+                    </div>
+                  </div>
+                ) : article.imageUrl ? (
                   <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 h-52 -mx-1 -mt-1 shadow-md flex flex-col items-center justify-center">
                     <img
                       src={article.imageUrl}
@@ -327,10 +373,10 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                       className="w-full h-full object-contain p-2 transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute bottom-2 left-2.5 right-2.5 text-[10px] font-mono font-bold text-amber-300 bg-slate-950/85 backdrop-blur-sm px-2.5 py-1 rounded-lg border border-amber-500/20 truncate">
-                      Breaking News Photo
+                      {article.imageCaption || 'Breaking News Photo'}
                     </div>
                   </div>
-                )}
+                ) : null}
 
                 {/* Category & Date Header */}
                 <div className="flex items-center justify-between text-xs">
@@ -418,12 +464,12 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
 
               <div className="flex items-center gap-2 text-xs text-slate-400 pt-1">
                 <User size={14} className="text-amber-400" />
-                <span>By {selectedArticle.author}</span>
+                <span>{selectedArticle.author}</span>
               </div>
             </div>
 
-            {/* Article Image Banner if available */}
-            {selectedArticle.imageUrl && (
+            {/* Article Image Banner if available (when no coachesList) */}
+            {selectedArticle.imageUrl && !selectedArticle.coachesList && (
               <div className="relative overflow-hidden rounded-2xl border border-slate-800 shadow-xl max-h-96">
                 <img
                   src={selectedArticle.imageUrl}
@@ -432,8 +478,137 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                 />
                 <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent p-4">
                   <p className="text-xs text-amber-300 font-mono font-bold flex items-center gap-1.5">
-                    <Sparkles size={14} className="text-amber-400" /> Press Photo: Head Coach Jacob Underwood
+                    <Sparkles size={14} className="text-amber-400" /> {selectedArticle.imageCaption || 'Official Press Photo'}
                   </p>
+                </div>
+              </div>
+            )}
+
+            {/* Interactive Coaches Showcase Gallery if coachesList is present */}
+            {selectedArticle.coachesList && selectedArticle.coachesList.length > 0 && (
+              <div className="space-y-4 pt-2">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                  <div className="flex items-center gap-2">
+                    <Users className="text-amber-400" size={18} />
+                    <h3 className="text-sm sm:text-base font-black text-white uppercase tracking-wider">
+                      Season 4 Head Coaching Directory
+                    </h3>
+                  </div>
+
+                  {/* Coach Filter Controls */}
+                  <div className="flex items-center gap-1 bg-slate-900 p-1 rounded-xl border border-slate-800 text-xs">
+                    <button
+                      onClick={() => setCoachFilter('all')}
+                      className={`px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer ${
+                        coachFilter === 'all'
+                          ? 'bg-amber-500 text-slate-950'
+                          : 'text-slate-400 hover:text-white'
+                      }`}
+                    >
+                      All (12)
+                    </button>
+                    <button
+                      onClick={() => setCoachFilter('Returning')}
+                      className={`px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer ${
+                        coachFilter === 'Returning'
+                          ? 'bg-emerald-500 text-slate-950'
+                          : 'text-slate-400 hover:text-white'
+                      }`}
+                    >
+                      Returning (4)
+                    </button>
+                    <button
+                      onClick={() => setCoachFilter('Newcomer')}
+                      className={`px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer ${
+                        coachFilter === 'Newcomer'
+                          ? 'bg-blue-500 text-slate-950'
+                          : 'text-slate-400 hover:text-white'
+                      }`}
+                    >
+                      Newcomers (8)
+                    </button>
+                  </div>
+                </div>
+
+                {/* Coach Cards Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {selectedArticle.coachesList
+                    .filter((c) => coachFilter === 'all' || c.status === coachFilter)
+                    .map((coach, idx) => {
+                      const seasonLine = coach.tenureYears || coach.tenure.split('\n')[0];
+                      const detailLine = coach.tenureNote || coach.tenure.split('\n')[1] || '';
+
+                      return (
+                        <div
+                          key={idx}
+                          className="bg-slate-950 border border-slate-800 hover:border-amber-500/40 rounded-2xl p-4 space-y-3 transition-all group/coach shadow-md text-left"
+                        >
+                          <div className="flex items-start gap-4">
+                            {/* Coach Photo */}
+                            <div className="w-20 h-24 sm:w-24 sm:h-28 rounded-xl overflow-hidden border-2 border-slate-700 group-hover/coach:border-amber-400/80 shrink-0 shadow-lg bg-slate-900 relative">
+                              <img
+                                src={coach.photo}
+                                alt={coach.name}
+                                className="w-full h-full object-cover group-hover/coach:scale-105 transition-transform duration-500"
+                              />
+                            </div>
+
+                            {/* Coach Details (All Left Aligned) */}
+                            <div className="space-y-1 flex-1 min-w-0 text-left">
+                              <div className="flex items-center gap-2">
+                                <span
+                                  className={`text-[10px] font-mono font-black uppercase tracking-wider px-2 py-0.5 rounded border inline-block ${
+                                    coach.status === 'Returning'
+                                      ? 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30'
+                                      : 'bg-blue-500/15 text-blue-400 border-blue-500/30'
+                                  }`}
+                                >
+                                  {coach.status === 'Returning' ? 'Returning' : 'New HC'}
+                                </span>
+                              </div>
+
+                              <h4 className="text-base font-black text-white group-hover/coach:text-amber-300 transition-colors truncate text-left pt-0.5">
+                                {coach.name}
+                              </h4>
+
+                              <div className="flex items-center gap-2 text-left">
+                                <TeamBadge teamId={coach.teamId} size="sm" />
+                                <span className="text-xs font-bold text-slate-300 truncate">
+                                  {coach.team}
+                                </span>
+                              </div>
+
+                              {/* 2-Line Left-Aligned Tenure */}
+                              <div className="pt-1 text-left leading-tight">
+                                <div className="text-xs font-mono font-black text-amber-400">
+                                  {seasonLine}
+                                </div>
+                                {detailLine && (
+                                  <div className="text-[10px] font-mono text-slate-400">
+                                    {detailLine}
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Background & Tactical Notes */}
+                          <div className="bg-slate-900/90 rounded-xl p-3 border border-slate-800/80 space-y-1.5 text-xs text-left">
+                            <p className="text-slate-300 leading-relaxed text-left">
+                              {coach.background}
+                            </p>
+                            {coach.philosophy && (
+                              <div className="pt-1.5 border-t border-slate-800/60 flex items-start gap-1.5 text-[11px] text-amber-300/90 font-medium text-left">
+                                <Zap size={13} className="text-amber-400 shrink-0 mt-0.5" />
+                                <span className="text-left">
+                                  <strong className="text-amber-400 font-mono">Philosophy:</strong> {coach.philosophy}
+                                </span>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })}
                 </div>
               </div>
             )}

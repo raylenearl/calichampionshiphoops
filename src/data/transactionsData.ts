@@ -1,6 +1,6 @@
 export interface Transaction {
   id: string;
-  season: 1 | 2 | 3;
+  season: 1 | 2 | 3 | 4;
   type: 'trade' | 'signing' | 'waiver' | 'resigning' | 'coaching';
   title: string;
   teams: { id: string; name: string }[];
@@ -294,5 +294,83 @@ export const TRANSACTIONS_DATA: Transaction[] = [
     title: 'Wally Phillips Signs with Fresno',
     teams: [{ id: 'fresno-mad-dogs', name: 'Fresno Mad Dogs' }],
     description: 'Fresno Mad Dogs signed guard Wally Phillips (formerly of San Francisco).',
+  },
+  // --- SEASON 4 TRANSACTIONS & COACHING CAROUSEL ---
+  {
+    id: 's4-coach-underwood',
+    season: 4,
+    type: 'coaching',
+    title: 'Jacob Underwood Defects to San Diego Sabrewolves',
+    teams: [
+      { id: 'san-diego-sabrewolves', name: 'San Diego Sabrewolves' },
+      { id: 'san-diego-strykers', name: 'San Diego Strykers' },
+    ],
+    description: 'Head Coach Jacob Underwood signs a historic 4-year, $29.11M contract with the San Diego Sabrewolves after departing the cross-town rival San Diego Strykers.',
+    impact: 'The biggest coaching defection in CCH history, instantly escalating the Battle of San Diego.',
+    highlight: true,
+  },
+  {
+    id: 's4-coach-saunders',
+    season: 4,
+    type: 'coaching',
+    title: 'Adam Saunders Named Head Coach of SD Strykers',
+    teams: [{ id: 'san-diego-strykers', name: 'San Diego Strykers' }],
+    description: 'San Diego Strykers name Adam Saunders as their new Head Coach, taking over a contender led by reigning MVP A.J. Hinton and All-Star Ray Gambino.',
+    impact: 'Charged with keeping the Strykers in championship contention following Underwood\'s exit.',
+  },
+  {
+    id: 's4-coach-splitter',
+    season: 4,
+    type: 'coaching',
+    title: 'Pooh Splitter Hired as Head Coach of Los Angeles Dynamics',
+    teams: [
+      { id: 'los-angeles-dynamics', name: 'Los Angeles Dynamics' },
+      { id: 'fresno-mad-dogs', name: 'Fresno Mad Dogs' },
+    ],
+    description: 'Veteran tactician Pooh Splitter moves to Southern California to take over the Los Angeles Dynamics after three seasons and a Finals appearance in Fresno.',
+    impact: 'Brings playoff poise and defensive discipline to Mo Alexander and Jack McMichael Jr.',
+    highlight: true,
+  },
+  {
+    id: 's4-coach-roberts',
+    season: 4,
+    type: 'coaching',
+    title: 'Stretch Roberts Returns as Long Beach Vipers Head Coach',
+    teams: [{ id: 'long-beach-vipers', name: 'Long Beach Vipers' }],
+    description: 'Season 1 Coach of the Year Stretch Roberts returns to the Long Beach bench after taking a personal leave in Season 3.',
+    impact: 'Reunites Roberts with young talents Phil Martin Jr. and Coby Spencer for his 4th season with the franchise.',
+  },
+  {
+    id: 's4-coach-flores',
+    season: 4,
+    type: 'coaching',
+    title: 'Ronnie Flores Named Head Coach of Fresno Mad Dogs',
+    teams: [{ id: 'fresno-mad-dogs', name: 'Fresno Mad Dogs' }],
+    description: 'Fresno Mad Dogs hire Ronnie Flores to succeed Pooh Splitter as Head Coach.',
+    impact: 'Maintains Fresno\'s fast-paced, high-intensity transition identity.',
+  },
+  {
+    id: 's4-coach-zimmerman',
+    season: 4,
+    type: 'coaching',
+    title: 'Wyatt Zimmerman Hired by Golden State Enterprise',
+    teams: [{ id: 'golden-state-enterprise', name: 'Golden State Enterprise' }],
+    description: 'Golden State Enterprise hire Wyatt Zimmerman as new Head Coach to introduce dynamic pace-and-space sets for Howie Carney and Andre Creek.',
+  },
+  {
+    id: 's4-coach-goodwin',
+    season: 4,
+    type: 'coaching',
+    title: 'Carson Goodwin Named Head Coach of Oakland Renegades',
+    teams: [{ id: 'oakland-renegades', name: 'Oakland Renegades' }],
+    description: 'Oakland Renegades name Carson Goodwin as Head Coach to lead a high-scoring offense anchored by Alonzo Reece and Dakoulas Alexandris.',
+  },
+  {
+    id: 's4-coach-randle',
+    season: 4,
+    type: 'coaching',
+    title: 'Zack Randle Hired by San Francisco Knights',
+    teams: [{ id: 'san-francisco-knights', name: 'San Francisco Knights' }],
+    description: 'San Francisco Knights hire Zack Randle as Head Coach, bringing disciplined motion offenses tailored to Munir Kassa and Gheorghe Stefan.',
   },
 ];
