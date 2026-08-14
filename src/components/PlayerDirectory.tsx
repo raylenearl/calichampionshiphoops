@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { PLAYERS } from '../data/playersData';
 import { Player } from '../types';
-import { Search, Users, Award, Star, Zap, Activity, X } from 'lucide-react';
+import { Search, Users, Award, Star, Zap, Activity, X, ArrowLeftRight } from 'lucide-react';
 
-export const PlayerDirectory: React.FC = () => {
+interface PlayerDirectoryProps {
+  onComparePlayer?: (playerId: string) => void;
+}
+
+export const PlayerDirectory: React.FC<PlayerDirectoryProps> = ({ onComparePlayer }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedPos, setSelectedPos] = useState<string>('All');
 
@@ -74,76 +78,98 @@ export const PlayerDirectory: React.FC = () => {
         {filteredPlayers.map((player) => (
           <div
             key={player.id}
-            className="bg-slate-900 border border-slate-800 hover:border-amber-500/50 rounded-3xl p-5 space-y-4 shadow-lg transition-all hover:-translate-y-1"
+            className="bg-slate-900 border border-slate-800 hover:border-amber-500/50 rounded-3xl p-5 space-y-4 shadow-lg transition-all hover:-translate-y-1 flex flex-col justify-between"
           >
-            <div className="flex items-start justify-between gap-2 border-b border-slate-800 pb-3">
-              <div>
-                <h3 className="text-lg font-black text-white flex items-center gap-1.5">
-                  {player.name}
-                </h3>
-                <span className="text-xs text-amber-400 font-semibold">{player.teamName}</span>
+            <div className="space-y-4">
+              <div className="flex items-start justify-between gap-2 border-b border-slate-800 pb-3">
+                <div>
+                  <h3 className="text-lg font-black text-white flex items-center gap-1.5">
+                    {player.name}
+                  </h3>
+                  <span className="text-xs text-amber-400 font-semibold">{player.teamName}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  {player.ovr && (
+                    <span className="text-xs font-black text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded-lg">
+                      {player.ovr} OVR
+                    </span>
+                  )}
+                  <span className="text-[10px] font-extrabold uppercase bg-slate-950 text-slate-300 border border-slate-800 px-2.5 py-1 rounded-full">
+                    {player.position}
+                  </span>
+                </div>
               </div>
-              <span className="text-[10px] font-extrabold uppercase bg-slate-950 text-slate-300 border border-slate-800 px-2.5 py-1 rounded-full">
-                {player.position}
-              </span>
+
+              {/* Quick Stats Pill */}
+              {(player.ppg || player.rpg || player.apg || player.bpg || player.spg) && (
+                <div className="grid grid-cols-3 gap-2 bg-slate-950 p-2.5 rounded-2xl border border-slate-800 text-center font-mono">
+                  {player.ppg !== undefined && (
+                    <div>
+                      <span className="block text-[10px] text-slate-500 uppercase font-bold">PPG</span>
+                      <span className="text-xs font-black text-amber-400">{player.ppg}</span>
+                    </div>
+                  )}
+                  {player.rpg !== undefined && (
+                    <div>
+                      <span className="block text-[10px] text-slate-500 uppercase font-bold">RPG</span>
+                      <span className="text-xs font-bold text-slate-200">{player.rpg}</span>
+                    </div>
+                  )}
+                  {player.apg !== undefined && (
+                    <div>
+                      <span className="block text-[10px] text-slate-500 uppercase font-bold">APG</span>
+                      <span className="text-xs font-bold text-slate-200">{player.apg}</span>
+                    </div>
+                  )}
+                  {player.bpg !== undefined && (
+                    <div>
+                      <span className="block text-[10px] text-slate-500 uppercase font-bold">BPG</span>
+                      <span className="text-xs font-bold text-slate-200">{player.bpg}</span>
+                    </div>
+                  )}
+                  {player.spg !== undefined && (
+                    <div>
+                      <span className="block text-[10px] text-slate-500 uppercase font-bold">SPG</span>
+                      <span className="text-xs font-bold text-slate-200">{player.spg}</span>
+                    </div>
+                  )}
+                  {player.fgPct !== undefined && (
+                    <div>
+                      <span className="block text-[10px] text-slate-500 uppercase font-bold">FG%</span>
+                      <span className="text-xs font-bold text-slate-200">{(player.fgPct * 100).toFixed(1)}%</span>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              <p className="text-xs text-slate-300 leading-relaxed">
+                {player.bio}
+              </p>
+
+              {player.accolades.length > 0 && (
+                <div className="space-y-1 pt-2 border-t border-slate-800">
+                  <span className="text-[10px] font-bold text-slate-500 uppercase block">Accolades & Honors:</span>
+                  <div className="flex flex-wrap gap-1">
+                    {player.accolades.map((acc, idx) => (
+                      <span key={idx} className="text-[10px] bg-amber-500/10 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-md font-semibold">
+                        🏆 {acc}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
-            {/* Quick Stats Pill */}
-            {(player.ppg || player.rpg || player.apg || player.bpg || player.spg) && (
-              <div className="grid grid-cols-3 gap-2 bg-slate-950 p-2.5 rounded-2xl border border-slate-800 text-center font-mono">
-                {player.ppg !== undefined && (
-                  <div>
-                    <span className="block text-[10px] text-slate-500 uppercase font-bold">PPG</span>
-                    <span className="text-xs font-black text-amber-400">{player.ppg}</span>
-                  </div>
-                )}
-                {player.rpg !== undefined && (
-                  <div>
-                    <span className="block text-[10px] text-slate-500 uppercase font-bold">RPG</span>
-                    <span className="text-xs font-bold text-slate-200">{player.rpg}</span>
-                  </div>
-                )}
-                {player.apg !== undefined && (
-                  <div>
-                    <span className="block text-[10px] text-slate-500 uppercase font-bold">APG</span>
-                    <span className="text-xs font-bold text-slate-200">{player.apg}</span>
-                  </div>
-                )}
-                {player.bpg !== undefined && (
-                  <div>
-                    <span className="block text-[10px] text-slate-500 uppercase font-bold">BPG</span>
-                    <span className="text-xs font-bold text-slate-200">{player.bpg}</span>
-                  </div>
-                )}
-                {player.spg !== undefined && (
-                  <div>
-                    <span className="block text-[10px] text-slate-500 uppercase font-bold">SPG</span>
-                    <span className="text-xs font-bold text-slate-200">{player.spg}</span>
-                  </div>
-                )}
-                {player.fgPct !== undefined && (
-                  <div>
-                    <span className="block text-[10px] text-slate-500 uppercase font-bold">FG%</span>
-                    <span className="text-xs font-bold text-slate-200">{(player.fgPct * 100).toFixed(1)}%</span>
-                  </div>
-                )}
-              </div>
-            )}
-
-            <p className="text-xs text-slate-300 leading-relaxed">
-              {player.bio}
-            </p>
-
-            {player.accolades.length > 0 && (
-              <div className="space-y-1 pt-2 border-t border-slate-800">
-                <span className="text-[10px] font-bold text-slate-500 uppercase block">Accolades & Honors:</span>
-                <div className="flex flex-wrap gap-1">
-                  {player.accolades.map((acc, idx) => (
-                    <span key={idx} className="text-[10px] bg-amber-500/10 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-md font-semibold">
-                      🏆 {acc}
-                    </span>
-                  ))}
-                </div>
+            {onComparePlayer && (
+              <div className="pt-3 border-t border-slate-800/80">
+                <button
+                  type="button"
+                  onClick={() => onComparePlayer(player.id)}
+                  className="w-full py-2 bg-slate-950 hover:bg-amber-500/10 text-amber-400 hover:text-amber-300 border border-amber-500/30 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2"
+                >
+                  <ArrowLeftRight size={14} />
+                  <span>Compare with Another Star</span>
+                </button>
               </div>
             )}
           </div>

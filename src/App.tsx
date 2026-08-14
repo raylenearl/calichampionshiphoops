@@ -10,6 +10,7 @@ import { TeamDirectory } from './components/TeamDirectory';
 import { RecordBookView } from './components/RecordBookView';
 import { HallOfFameView } from './components/HallOfFameView';
 import { PlayerDirectory } from './components/PlayerDirectory';
+import { PlayerComparisonView } from './components/PlayerComparisonView';
 import { HeadToHeadView } from './components/HeadToHeadView';
 import { AllStarGameView } from './components/AllStarGameView';
 import { TransactionsView } from './components/TransactionsView';
@@ -26,6 +27,18 @@ export default function App() {
   const [searchModalOpen, setSearchModalOpen] = useState<boolean>(false);
   const [teamRecapModal, setTeamRecapModal] = useState<{ teamId: string; season: 1 | 2 | 3 } | null>(null);
   const [selectedNewsArticleId, setSelectedNewsArticleId] = useState<string | null>(null);
+  const [comparisonPlayers, setComparisonPlayers] = useState<{ player1Id: string; player2Id: string }>({
+    player1Id: 'p-lamar-anderson',
+    player2Id: 'p-aj-hinton',
+  });
+
+  const handleComparePlayer = (playerId: string, targetPlayerId?: string) => {
+    setComparisonPlayers((prev) => ({
+      player1Id: playerId,
+      player2Id: targetPlayerId || (prev.player1Id === playerId ? prev.player2Id : 'p-aj-hinton'),
+    }));
+    setActiveTab('compare');
+  };
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     const saved = localStorage.getItem('cch_theme');
     return saved === 'light' || saved === 'dark' ? saved : 'dark';
@@ -224,7 +237,15 @@ export default function App() {
 
         {activeTab === 'records' && <RecordBookView />}
 
-        {activeTab === 'players' && <PlayerDirectory />}
+        {activeTab === 'players' && <PlayerDirectory onComparePlayer={handleComparePlayer} />}
+
+        {activeTab === 'compare' && (
+          <PlayerComparisonView
+            initialPlayer1Id={comparisonPlayers.player1Id}
+            initialPlayer2Id={comparisonPlayers.player2Id}
+            onSelectTeam={handleSelectTeamRecap}
+          />
+        )}
 
         {activeTab === 'h2h' && <HeadToHeadView onSelectTeamRecap={handleSelectTeamRecap} />}
       </main>
@@ -235,6 +256,7 @@ export default function App() {
         onClose={() => setSearchModalOpen(false)}
         onNavigateTab={(tab) => setActiveTab(tab)}
         onSelectTeamRecap={handleSelectTeamRecap}
+        onComparePlayer={handleComparePlayer}
       />
 
       {/* Team Season Recap Modal */}

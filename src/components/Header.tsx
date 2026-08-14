@@ -51,6 +51,7 @@ export const Header: React.FC<HeaderProps> = ({
     { id: 'halloffame', label: 'Hall of Achievements', icon: Award },
     { id: 'records', label: 'Record Book', icon: BookOpen },
     { id: 'players', label: 'Star Players', icon: Users },
+    { id: 'compare', label: 'Player Compare', icon: ArrowLeftRight },
     { id: 'h2h', label: 'Head to Head', icon: GitCompare },
   ];
 

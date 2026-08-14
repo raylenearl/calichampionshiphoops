@@ -21,12 +21,41 @@ export interface Team {
   s3Record: string;
 }
 
+export interface PlayerSeasonStat {
+  season: 1 | 2 | 3;
+  team: string;
+  teamId?: string;
+  ppg: number;
+  rpg: number;
+  apg: number;
+  spg?: number;
+  bpg?: number;
+  fgPct?: number;
+  threePct?: number;
+  ftPct?: number;
+  mpg?: number;
+  gamesPlayed?: number;
+}
+
+export interface PlayerAwardItem {
+  season: 1 | 2 | 3;
+  title: string;
+  type: 'championship' | 'mvp' | 'major_award' | 'all_cali' | 'all_defensive' | 'all_rookie' | 'all_star' | 'stat_leader' | 'record';
+  description?: string;
+}
+
 export interface Player {
   id: string;
   name: string;
   teamId: string;
   teamName: string;
   position: string;
+  jersey?: string;
+  height?: string;
+  weight?: string;
+  college?: string;
+  ovr?: number;
+  archetype?: string;
   ppg?: number;
   rpg?: number;
   apg?: number;
@@ -35,7 +64,28 @@ export interface Player {
   fgPct?: number;
   ftPct?: number;
   threePct?: number;
+  mpg?: number;
   accolades: string[];
+  awardsList?: PlayerAwardItem[];
+  seasonStats?: PlayerSeasonStat[];
+  careerHighs?: {
+    points?: number;
+    rebounds?: number;
+    assists?: number;
+    steals?: number;
+    blocks?: number;
+    threePointers?: number;
+  };
+  attributes?: {
+    scoring: number;
+    shooting: number;
+    playmaking: number;
+    rebounding: number;
+    interiorDef: number;
+    perimeterDef: number;
+    clutch: number;
+    athleticism: number;
+  };
   signaturePerformance?: string;
   bio: string;
 }

@@ -13,6 +13,7 @@ interface SearchModalProps {
   onClose: () => void;
   onNavigateTab: (tab: string) => void;
   onSelectTeamRecap?: (teamId: string, season?: 1 | 2 | 3) => void;
+  onComparePlayer?: (playerId: string) => void;
 }
 
 export const SearchModal: React.FC<SearchModalProps> = ({
@@ -20,6 +21,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
   onClose,
   onNavigateTab,
   onSelectTeamRecap,
+  onComparePlayer,
 }) => {
   const [query, setQuery] = useState('');
 
