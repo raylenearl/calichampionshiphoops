@@ -303,51 +303,13 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
             </div>
 
             {/* Audio / Visual Spotlight */}
-            <div className="lg:col-span-4 bg-slate-950/90 border border-slate-800 rounded-2xl p-5 space-y-3.5 text-center shadow-inner flex flex-col justify-between">
-              <div className="space-y-2">
-                <div className="p-2.5 bg-amber-500/10 border border-amber-500/20 rounded-2xl w-11 h-11 flex items-center justify-center mx-auto text-amber-400">
-                  <Radio size={22} className="animate-pulse" />
-                </div>
-                <div>
-                  <span className="text-[10px] font-mono text-amber-400 uppercase font-bold tracking-wider block">
-                    {featuredStory.podcastInfo ? 'Official CCH Podcast Episode' : 'Official CCH Dynasty Podcast'}
-                  </span>
-                  <h4 className="text-sm font-black text-white mt-1">
-                    {featuredStory.podcastInfo?.episodeTitle || 'Season 3 Postseason Recap'}
-                  </h4>
-                  <p className="text-[11px] text-slate-400 mt-0.5">
-                    {featuredStory.podcastInfo?.broadcastBy || 'Kabal’s Final Ring & Underwood’s Defection'}
-                  </p>
-                </div>
-              </div>
-
-              {featuredStory.podcastInfo?.notableErrors && (
-                <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-2.5 text-left text-[11px] text-amber-300 font-mono space-y-1">
-                  <div className="flex items-center gap-1 font-bold text-amber-400 uppercase text-[10px]">
-                    <AlertTriangle size={12} /> Editorial Correction Attached
-                  </div>
-                  <p className="text-slate-300 text-[10px] line-clamp-2">
-                    {featuredStory.podcastInfo.notableErrors[0]}
-                  </p>
-                </div>
-              )}
-
-              <div className="space-y-2">
-                <audio
-                  controls
-                  style={{ width: '100%' }}
-                  className="w-full h-9 accent-amber-500 rounded-xl bg-slate-900 border border-slate-800 focus:outline-none"
-                >
-                  <source src={featuredStory.audioUrl || "https://dn601201.us.archive.org/0/items/cchoops2k/Kabal_s_Final_Ring_and_Underwood_s_Defection.m4a"} type="audio/mp4" />
-                </audio>
-                <button
-                  onClick={() => setSelectedArticle(featuredStory)}
-                  className="w-full py-1.5 bg-slate-900 hover:bg-slate-800 text-amber-400 font-mono text-[11px] font-bold rounded-xl border border-slate-800 transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
-                >
-                  <Headphones size={13} />
-                  <span>Open Full Podcast Player & Notes</span>
-                </button>
-              </div>
+            <div className="lg:col-span-4">
+              <PodcastPlayerCard
+                audioUrl={featuredStory.audioUrl || "https://dn601201.us.archive.org/0/items/cchoops2k/Cali_Hoops_Season_4_Coaching_Shakeups.m4a"}
+                podcastInfo={featuredStory.podcastInfo}
+                title={featuredStory.podcastInfo?.episodeTitle || 'Season 4 Coaching Shakeups Special'}
+                compact={true}
+              />
             </div>
           </div>
         </div>

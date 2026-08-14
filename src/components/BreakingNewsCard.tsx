@@ -1,6 +1,5 @@
 import React from 'react';
-import { Newspaper, ChevronRight, Sparkles, Quote, BookOpen, Users, ArrowRight, Radio, Headphones, AlertTriangle } from 'lucide-react';
-import { TeamBadge } from './TeamBadge';
+import { Newspaper, ChevronRight, Sparkles, Quote, BookOpen, Users, ArrowRight, Headphones } from 'lucide-react';
 import { PodcastPlayerCard } from './PodcastPlayerCard';
 import { CCH_NEWS_ARTICLES } from '../data/newsData';
 
@@ -56,15 +55,15 @@ export const BreakingNewsCard: React.FC<BreakingNewsCardProps> = ({ onNavigateTo
             SEASON 4 OFFSEASON
           </span>
           <span className="text-[10px] font-mono font-bold bg-amber-500/25 text-amber-300 px-2.5 py-0.5 rounded-full border border-amber-500/40 flex items-center gap-1">
-            <Headphones size={11} /> 18 MIN PODCAST
+            <Headphones size={11} /> PODCAST ATTACHED
           </span>
         </div>
         <span className="text-xs font-mono text-slate-300 font-bold">Front-Office Insider</span>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Left Side: 12 Coaches Visual Mosaic */}
-        <div className="lg:col-span-5 space-y-2.5">
+        <div className="lg:col-span-5 space-y-3">
           <div
             onClick={() => onNavigateToNews('s4-head-coaches-introduction')}
             className="cursor-pointer bg-slate-950 border border-slate-800 hover:border-amber-500/50 rounded-2xl p-3.5 shadow-xl transition-all group/mosaic"
@@ -105,13 +104,13 @@ export const BreakingNewsCard: React.FC<BreakingNewsCardProps> = ({ onNavigateTo
           </div>
         </div>
 
-        {/* Right Side: Headline, Summary, Quote & Link */}
+        {/* Right Side: Headline, Summary, Quote, CTA & Attached Podcast Player */}
         <div className="lg:col-span-7 space-y-4">
           <div
             className="cursor-pointer"
             onClick={() => onNavigateToNews('s4-head-coaches-introduction')}
           >
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-tight tracking-tight group-hover:text-amber-300 transition-colors">
+            <h2 className="text-xl sm:text-2xl font-black text-white leading-tight tracking-tight group-hover:text-amber-300 transition-colors">
               Season 4 Head Coaches Unveiled: Continuity Meets High-Stakes Sideline Shakeups
             </h2>
             <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed font-medium">
@@ -127,6 +126,14 @@ export const BreakingNewsCard: React.FC<BreakingNewsCardProps> = ({ onNavigateTo
             </span>
           </div>
 
+          {/* Attached Single-Control Audio Podcast Player */}
+          <PodcastPlayerCard
+            audioUrl={coachesArticle.audioUrl}
+            podcastInfo={coachesArticle.podcastInfo}
+            title="Season 4 Coaching Shakeups Special"
+            compact={true}
+          />
+
           {/* Navigation CTA Buttons */}
           <div className="flex flex-wrap items-center gap-3 pt-1">
             <button
@@ -134,11 +141,10 @@ export const BreakingNewsCard: React.FC<BreakingNewsCardProps> = ({ onNavigateTo
               className="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs sm:text-sm rounded-2xl shadow-lg shadow-amber-500/20 flex items-center gap-2 transition-all cursor-pointer"
             >
               <BookOpen size={16} />
-              <span>Read Coaches Story</span>
+              <span>Read Full Article</span>
               <ChevronRight size={16} />
             </button>
 
-            {/* Direct Link to Underwood Story as well */}
             <button
               onClick={() => onNavigateToNews('s4-underwood-defection')}
               className="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 rounded-2xl text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer"
@@ -149,16 +155,6 @@ export const BreakingNewsCard: React.FC<BreakingNewsCardProps> = ({ onNavigateTo
             </button>
           </div>
         </div>
-      </div>
-
-      {/* Front-Page Embedded Podcast Player with On-Air Corrections */}
-      <div className="pt-2">
-        <PodcastPlayerCard
-          audioUrl={coachesArticle.audioUrl}
-          podcastInfo={coachesArticle.podcastInfo}
-          title={coachesArticle.podcastInfo?.episodeTitle || 'Season 4 Head Coaches Class & Sideline Carousel Special'}
-          subtitle={coachesArticle.subtitle}
-        />
       </div>
     </div>
   );

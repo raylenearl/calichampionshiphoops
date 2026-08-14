@@ -31,7 +31,6 @@ export interface PodcastInfo {
   broadcastBy?: string;
   duration?: string;
   description?: string;
-  notableErrors?: string[];
 }
 
 export interface CCHNewsArticle {
@@ -73,17 +72,13 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     category: 'offseason',
     featured: true,
     author: 'Front-Office Insider',
-    readTime: '5 min read • 18 min podcast',
-    audioUrl: 'https://dn601201.us.archive.org/0/items/cchoops2k/Kabal_s_Final_Ring_and_Underwood_s_Defection.m4a',
+    readTime: '5 min read • Audio Podcast',
+    audioUrl: 'https://dn601201.us.archive.org/0/items/cchoops2k/Cali_Hoops_Season_4_Coaching_Shakeups.m4a',
     podcastInfo: {
-      episodeTitle: 'Season 4 Head Coaches Class & Sideline Carousel Special',
+      episodeTitle: 'Season 4 Coaching Shakeups & Sideline Carousel Special',
       broadcastBy: 'CCH Media Network • Front-Office Insider',
-      duration: '18 min podcast broadcast',
+      duration: 'Season 4 Coaching Special • CCH Media',
       description: 'Official audio breakdown discussing all 12 head coaches, tactical identities, the Underwood defection to the Sabrewolves, and coaching storylines entering Season 4.',
-      notableErrors: [
-        'Andre Creek plays for the San Diego Sabrewolves, not the Oakland Renegades.',
-        'Anaheim Admirals sharpshooter Kirk Tinsley was mistakenly called "Keith" (or "Keith Tinsley") on air (not Kirk Barnes).'
-      ]
     },
     imageUrl: jacobUnderwoodImg,
     imageCaption: 'The Season 4 Head Coaching Class: 12 Leaders Setting the Course for Championship Glory',
