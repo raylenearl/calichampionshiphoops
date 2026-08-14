@@ -26,6 +26,14 @@ export interface CoachProfileCard {
   philosophy?: string;
 }
 
+export interface PodcastInfo {
+  episodeTitle: string;
+  broadcastBy?: string;
+  duration?: string;
+  description?: string;
+  notableErrors?: string[];
+}
+
 export interface CCHNewsArticle {
   id: string;
   title: string;
@@ -52,6 +60,7 @@ export interface CCHNewsArticle {
   playerStats?: { player: string; team: string; stat: string }[];
   coachesList?: CoachProfileCard[];
   audioUrl?: string;
+  podcastInfo?: PodcastInfo;
 }
 
 export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
@@ -64,7 +73,18 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     category: 'offseason',
     featured: true,
     author: 'Front-Office Insider',
-    readTime: '5 min read',
+    readTime: '5 min read • 18 min podcast',
+    audioUrl: 'https://dn601201.us.archive.org/0/items/cchoops2k/Kabal_s_Final_Ring_and_Underwood_s_Defection.m4a',
+    podcastInfo: {
+      episodeTitle: 'Season 4 Head Coaches Class & Sideline Carousel Special',
+      broadcastBy: 'CCH Media Network • Front-Office Insider',
+      duration: '18 min podcast broadcast',
+      description: 'Official audio breakdown discussing all 12 head coaches, tactical identities, the Underwood defection to the Sabrewolves, and coaching storylines entering Season 4.',
+      notableErrors: [
+        'Andre Creek plays for the San Diego Sabrewolves, not the Oakland Renegades.',
+        'Anaheim Admirals sharpshooter Kirk Tinsley was mistakenly called "Keith" (or "Keith Tinsley") on air (not Kirk Barnes).'
+      ]
+    },
     imageUrl: jacobUnderwoodImg,
     imageCaption: 'The Season 4 Head Coaching Class: 12 Leaders Setting the Course for Championship Glory',
     headlineQuote: 'The sideline chess match in Season 4 will be the fiercest in league history. Four enduring pillars defend their culture against eight fresh tacticians determined to reshape the championship hierarchy.',
@@ -100,7 +120,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
         tenureYears: '4th Season',
         tenureNote: '(Inaugural Head Coach)',
         photo: sPorterImg,
-        background: 'Continuous sideline anchor for Anaheim since Day 1. Specialist in perimeter execution, free-throw efficiency (.804 FT%), and unlocking dynamic scorer Keith Tinsley.',
+        background: 'Continuous sideline anchor for Anaheim since Day 1. Specialist in perimeter execution, free-throw efficiency (.804 FT%), and unlocking dynamic scorer Kirk Tinsley.',
         philosophy: 'Disciplined ball movement, spacing, and perimeter precision.'
       },
       {

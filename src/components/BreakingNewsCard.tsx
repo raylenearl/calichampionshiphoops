@@ -1,6 +1,8 @@
 import React from 'react';
-import { Newspaper, ChevronRight, Sparkles, Quote, BookOpen, Users, ArrowRight } from 'lucide-react';
+import { Newspaper, ChevronRight, Sparkles, Quote, BookOpen, Users, ArrowRight, Radio, Headphones, AlertTriangle } from 'lucide-react';
 import { TeamBadge } from './TeamBadge';
+import { PodcastPlayerCard } from './PodcastPlayerCard';
+import { CCH_NEWS_ARTICLES } from '../data/newsData';
 
 // Coach images
 import aSaundersImg from '../assets/images/ASaunders.jpg';
@@ -36,20 +38,25 @@ const COACHES_PREVIEW = [
 ];
 
 export const BreakingNewsCard: React.FC<BreakingNewsCardProps> = ({ onNavigateToNews }) => {
+  const coachesArticle = CCH_NEWS_ARTICLES.find(a => a.id === 's4-head-coaches-introduction') || CCH_NEWS_ARTICLES[0];
+
   return (
-    <div className="bg-gradient-to-br from-slate-900 via-slate-950 to-amber-950/30 border-2 border-amber-500/40 rounded-3xl p-5 sm:p-7 shadow-2xl relative overflow-hidden group">
+    <div className="bg-gradient-to-br from-slate-900 via-slate-950 to-amber-950/30 border-2 border-amber-500/40 rounded-3xl p-5 sm:p-7 shadow-2xl relative overflow-hidden group space-y-6">
       {/* Ambient background glow */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
 
       {/* Header Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-amber-500/20 pb-3 mb-5">
-        <div className="flex items-center gap-2">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-amber-500/20 pb-3">
+        <div className="flex items-center gap-2 flex-wrap">
           <span className="animate-pulse flex h-2.5 w-2.5 rounded-full bg-red-500" />
           <span className="text-xs font-black uppercase tracking-wider text-amber-400 font-mono flex items-center gap-1.5">
             <Newspaper size={14} className="text-amber-400" /> FEATURED FRONT OFFICE STORY
           </span>
           <span className="text-[10px] font-mono font-bold bg-amber-500/15 text-amber-300 px-2.5 py-0.5 rounded-full border border-amber-500/30">
             SEASON 4 OFFSEASON
+          </span>
+          <span className="text-[10px] font-mono font-bold bg-amber-500/25 text-amber-300 px-2.5 py-0.5 rounded-full border border-amber-500/40 flex items-center gap-1">
+            <Headphones size={11} /> 18 MIN PODCAST
           </span>
         </div>
         <span className="text-xs font-mono text-slate-300 font-bold">Front-Office Insider</span>
@@ -127,7 +134,7 @@ export const BreakingNewsCard: React.FC<BreakingNewsCardProps> = ({ onNavigateTo
               className="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs sm:text-sm rounded-2xl shadow-lg shadow-amber-500/20 flex items-center gap-2 transition-all cursor-pointer"
             >
               <BookOpen size={16} />
-              <span>Read Full Season 4 Head Coaches Story</span>
+              <span>Read Coaches Story</span>
               <ChevronRight size={16} />
             </button>
 
@@ -142,6 +149,16 @@ export const BreakingNewsCard: React.FC<BreakingNewsCardProps> = ({ onNavigateTo
             </button>
           </div>
         </div>
+      </div>
+
+      {/* Front-Page Embedded Podcast Player with On-Air Corrections */}
+      <div className="pt-2">
+        <PodcastPlayerCard
+          audioUrl={coachesArticle.audioUrl}
+          podcastInfo={coachesArticle.podcastInfo}
+          title={coachesArticle.podcastInfo?.episodeTitle || 'Season 4 Head Coaches Class & Sideline Carousel Special'}
+          subtitle={coachesArticle.subtitle}
+        />
       </div>
     </div>
   );
