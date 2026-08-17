@@ -130,6 +130,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
       { label: '3PT Shooting', grade: 'B+', color: 'blue' },
       { label: 'Overall Tier', grade: '81 OVR', color: 'gold' },
     ],
+    isTopFiveWatch: true,
   },
   {
     rank: 6,
@@ -415,13 +416,12 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     weight: '260 lbs',
     proComparison: 'Andre Drummond / Mitchell Robinson',
     scoutingNotes:
-      'Top 5 Player to Watch! An absolute monster on the interior with rare double A+ ratings in Post Defense and Rebounding. Wilkens will immediately erase second-chance points and anchor any defensive unit.',
+      'A dominant interior monster with rare double A+ ratings in Post Defense and Rebounding. Wilkens immediately erases second-chance points and serves as an elite defensive rim anchor.',
     gradeBadges: [
       { label: 'Post Defense', grade: 'A+', color: 'emerald' },
       { label: 'Rebounding', grade: 'A+', color: 'emerald' },
       { label: 'Overall Tier', grade: '75 OVR', color: 'blue' },
     ],
-    isTopFiveWatch: true,
   },
   {
     rank: 18,
@@ -998,12 +998,12 @@ export const TOP_FIVE_PLAYERS_TO_WATCH = [
     highlight: 'High-motor two-way wing from Stockton with lockdown perimeter defense and explosive slashing.',
   },
   {
-    rank: 17,
-    name: 'Grog Wilkens',
-    position: 'C',
-    school: 'Kentucky',
-    ovr: 75,
-    summary: 'Dominant post presence + rebounding',
-    highlight: 'Mid-round juggernaut with twin A+ grades in Post Defense and Rebounding.',
+    rank: 5,
+    name: 'Carl Marks',
+    position: 'PF/C',
+    school: 'Pacific',
+    ovr: 81,
+    summary: 'Inside dominance & rebounding',
+    highlight: 'Blue-chip frontcourt force from Pacific with A+ Inside Scoring, A+ Rebounding, and trail 3PT range.',
   },
 ];
