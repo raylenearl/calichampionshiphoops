@@ -170,3 +170,26 @@ export interface TeamSeasonRecap {
   keyWins?: string[];
 }
 
+export type DraftTier = 'Top Prospects' | 'Lottery Prospects' | 'Mid-Round Prospects' | 'Late Round / Two-Way';
+
+export interface DraftProspect {
+  rank: number;
+  name: string;
+  position: string;
+  primaryPosition: 'PG' | 'SG' | 'SF' | 'PF' | 'C';
+  secondaryPosition?: 'PG' | 'SG' | 'SF' | 'PF' | 'C';
+  school: string;
+  schoolType: 'California College' | 'NCAA / University' | 'International' | 'High School / JUCO';
+  ovr: number;
+  notableAttributes: string;
+  keyStrength: string;
+  archetype: string;
+  tier: DraftTier;
+  scoutingNotes: string;
+  height?: string;
+  weight?: string;
+  proComparison?: string;
+  gradeBadges: { label: string; grade: string; color: 'gold' | 'emerald' | 'blue' | 'purple' | 'amber' }[];
+  isTopFiveWatch?: boolean;
+}
+

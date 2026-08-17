@@ -15,6 +15,7 @@ import { HeadToHeadView } from './components/HeadToHeadView';
 import { AllStarGameView } from './components/AllStarGameView';
 import { TransactionsView } from './components/TransactionsView';
 import { NewsView } from './components/NewsView';
+import { DraftView } from './components/DraftView';
 import { SearchModal } from './components/SearchModal';
 import { TeamSeasonModal } from './components/TeamSeasonModal';
 import { CCHLeagueLogo } from './components/TeamLogos';
@@ -99,6 +100,99 @@ export default function App() {
           <div className="space-y-8">
             {/* Hero Showcase */}
             <HeroBanner onNavigate={(tab) => setActiveTab(tab)} selectedSeason={selectedSeason} />
+
+            {/* Upcoming Season 4 Draft Featured Showcase — TOP OF STORIES */}
+            <div
+              onClick={() => setActiveTab('draft')}
+              className="bg-gradient-to-br from-amber-950/70 via-slate-900 to-slate-950 border-2 border-amber-500/50 hover:border-amber-400 p-6 sm:p-7 rounded-3xl space-y-5 cursor-pointer transition-all hover:scale-[1.008] shadow-2xl relative overflow-hidden group"
+            >
+              <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/15 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20 group-hover:bg-amber-500/25 transition-all" />
+
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 relative z-10">
+                <div className="flex items-start gap-4">
+                  <div className="w-14 h-14 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 shrink-0 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-slate-950 transition-all shadow-lg">
+                    <Trophy size={28} />
+                  </div>
+                  <div className="space-y-1.5">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="text-[10px] font-mono font-black uppercase tracking-wider bg-amber-500 text-slate-950 px-2.5 py-0.5 rounded-md font-bold shadow-sm">
+                        LATEST OFFSEASON RELEASE
+                      </span>
+                      <span className="text-[10px] font-mono font-black uppercase tracking-wider bg-amber-500/20 text-amber-300 px-2.5 py-0.5 rounded-md border border-amber-500/30">
+                        SEASON 4 DRAFT
+                      </span>
+                      <span className="text-[10px] font-mono font-bold text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded border border-sky-500/20">
+                        8 California Standouts
+                      </span>
+                      <span className="text-[10px] font-mono font-bold text-slate-400 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">
+                        39 Verified Prospects
+                      </span>
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-black text-white group-hover:text-amber-400 transition-colors leading-tight">
+                      Season 4 Draft Central: Official 39-Prospect Big Board & Scouting Profiles
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-300 max-w-3xl font-medium leading-relaxed">
+                      Scouting evaluations are live for the generational Season 4 draft pool, headlined by Carlton Daugherty (SF, UC San Diego, 85 OVR), international sniper Stephan Sirven (SG, France, 84 OVR), and Minnesota stretch big Dell Gooden (PF/C, 84 OVR).
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3 shrink-0 self-start lg:self-center">
+                  <button className="px-6 py-3 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs sm:text-sm shadow-xl shadow-amber-500/25 flex items-center gap-2 transition-all cursor-pointer">
+                    <span>Enter Draft Central</span>
+                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Top 5 Draft Prospect Highlights Strip */}
+              <div className="pt-4 border-t border-slate-800/80 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5 relative z-10">
+                <div className="bg-slate-950/80 border border-slate-800 group-hover:border-amber-500/30 p-2.5 rounded-2xl flex items-center justify-between">
+                  <div>
+                    <span className="text-[10px] font-mono font-black text-amber-400">#1 SF</span>
+                    <h4 className="text-xs font-bold text-white truncate max-w-[100px]">C. Daugherty</h4>
+                    <span className="text-[10px] font-mono text-sky-400 truncate block">UC San Diego</span>
+                  </div>
+                  <span className="text-xs font-mono font-black bg-amber-500 text-slate-950 px-2 py-1 rounded-lg">85</span>
+                </div>
+
+                <div className="bg-slate-950/80 border border-slate-800 group-hover:border-amber-500/30 p-2.5 rounded-2xl flex items-center justify-between">
+                  <div>
+                    <span className="text-[10px] font-mono font-black text-amber-400">#2 SG</span>
+                    <h4 className="text-xs font-bold text-white truncate max-w-[100px]">S. Sirven</h4>
+                    <span className="text-[10px] font-mono text-purple-400 truncate block">France</span>
+                  </div>
+                  <span className="text-xs font-mono font-black bg-amber-500 text-slate-950 px-2 py-1 rounded-lg">84</span>
+                </div>
+
+                <div className="bg-slate-950/80 border border-slate-800 group-hover:border-amber-500/30 p-2.5 rounded-2xl flex items-center justify-between">
+                  <div>
+                    <span className="text-[10px] font-mono font-black text-amber-400">#3 PF/C</span>
+                    <h4 className="text-xs font-bold text-white truncate max-w-[100px]">D. Gooden</h4>
+                    <span className="text-[10px] font-mono text-slate-400 truncate block">Minnesota</span>
+                  </div>
+                  <span className="text-xs font-mono font-black bg-amber-500 text-slate-950 px-2 py-1 rounded-lg">84</span>
+                </div>
+
+                <div className="bg-slate-950/80 border border-slate-800 group-hover:border-amber-500/30 p-2.5 rounded-2xl flex items-center justify-between">
+                  <div>
+                    <span className="text-[10px] font-mono font-black text-amber-400">#4 SF/SG</span>
+                    <h4 className="text-xs font-bold text-white truncate max-w-[100px]">D. Gilmore</h4>
+                    <span className="text-[10px] font-mono text-sky-400 truncate block">Pacific</span>
+                  </div>
+                  <span className="text-xs font-mono font-black bg-amber-500 text-slate-950 px-2 py-1 rounded-lg">83</span>
+                </div>
+
+                <div className="bg-slate-950/80 border border-slate-800 group-hover:border-amber-500/30 p-2.5 rounded-2xl flex items-center justify-between col-span-2 sm:col-span-1">
+                  <div>
+                    <span className="text-[10px] font-mono font-black text-amber-400">#5 PF/C</span>
+                    <h4 className="text-xs font-bold text-white truncate max-w-[100px]">C. Marks</h4>
+                    <span className="text-[10px] font-mono text-sky-400 truncate block">Pacific</span>
+                  </div>
+                  <span className="text-xs font-mono font-black bg-amber-500 text-slate-950 px-2 py-1 rounded-lg">81</span>
+                </div>
+              </div>
+            </div>
 
             {/* Breaking Offseason News Card */}
             <BreakingNewsCard onNavigateToNews={handleNavigateToNews} />
@@ -198,6 +292,12 @@ export default function App() {
           <NewsView
             onSelectTeamRecap={handleSelectTeamRecap}
             initialArticleId={selectedNewsArticleId}
+          />
+        )}
+
+        {activeTab === 'draft' && (
+          <DraftView
+            onSelectTeamRecap={handleSelectTeamRecap}
           />
         )}
 

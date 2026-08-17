@@ -64,6 +64,43 @@ export interface CCHNewsArticle {
 
 export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
   {
+    id: 's4-draft-big-board-unveiled',
+    title: 'Season 4 Draft Central: 39 Verified Prospects Unveiled on Official Big Board',
+    subtitle: 'From UC San Diego scoring phenom Carlton Daugherty (#1) to EuroLeague sensation Stephan Sirven (#2) and Minnesota powerhouse Dell Gooden (#3), front offices prepare for a generational draft class with 8 California collegiate stars.',
+    date: 'Season 4 Offseason • Latest Release',
+    season: 4,
+    category: 'offseason',
+    featured: true,
+    author: 'CCH Scouting Department',
+    readTime: '6 min read • Full Scouting Profiles',
+    headlineQuote: 'This is the deepest draft pool in Cali Championship Hoops history. With eight California collegiate programs represented and game-changing talent across all five positions, franchise fortunes will pivot on draft night.',
+    contentParagraphs: [
+      'CALIFORNIA — The official Big Board for the upcoming Season 4 Cali Championship Hoops Draft has been finalized, featuring 39 verified prospects scouted across collegiate tournaments, international leagues, and high school circuits.',
+      'THE TIER 1 TITANS: DAUGHERTY, SIRVEN, & GOODEN HEADLINE TOP BOARD\nAt the peak of the 2026 class sits Carlton Daugherty (SF, UC San Diego, 85 OVR), a three-level scoring wing with elite A+ playmaking vision and clamp-down on-ball defense. Daugherty is joined by French sharpshooter Stephan Sirven (SG, France, 84 OVR), whose lethal off-screen perimeter touch drew rave reviews in European leagues, and Dell Gooden (PF/C, Minnesota, 84 OVR), a dynamic modern stretch big boasting A+ interior defense and perimeter shooting range.',
+      'CALIFORNIA COLLEGIATE PIPELINE STANDS TALL\nEight local programs feature premier draft talent ready to make immediate professional impacts:\n• Carlton Daugherty (UC San Diego, #1 Rank, 85 OVR SF)\n• Damian Gilmore (Pacific, #4 Rank, 83 OVR SF/SG)\n• Carl Marks (Pacific, #5 Rank, 81 OVR PF/C)\n• Leo Bass (San Jose State, #6 Rank, 80 OVR C)\n• Robert Riley (Loyola Marymount, #10 Rank, 78 OVR PF)\n• Isaac Levingson (Santa Clara, #21 Rank, 75 OVR PF)\n• Rod Hammonds (San Francisco, #22 Rank, 75 OVR C)\n• Nelson Battle (Mt. San Jacinto JUCO, #32 Rank, 72 OVR SG)\n• Frederick Lloyd (UC Davis, #34 Rank, 72 OVR SG)',
+      'FRANCHISE BUILDING BLOCKS ACROSS ALL TIERS\nFrom lottery rim-protectors like Carl Marshall (Georgia, 80 OVR) and Latvian stretch big Tingus Atgusanas (Latvia, 79 OVR), down to sleeper playmakers and defensive stoppers throughout the mid and late rounds, every organization holds ammunition to transform their franchise trajectory.'
+    ],
+    quotes: [
+      {
+        speaker: 'Ray Lenearl',
+        title: 'CCH Commissioner',
+        quote: 'The talent pipeline coming into Season 4 is unprecedented. Fans and general managers will see players who can step onto the floor in Week 1 and alter the championship landscape.'
+      },
+      {
+        speaker: 'Carlton Daugherty',
+        title: '#1 Ranked Prospect • UC San Diego (85 OVR)',
+        quote: 'Staying in California and competing against the best players in the world is the ultimate dream. Whatever team calls my name is getting a competitor ready to win on day one.'
+      }
+    ],
+    playerStats: [
+      { player: 'Carlton Daugherty', team: 'UC San Diego', stat: '85 OVR • #1 Overall SF' },
+      { player: 'Stephan Sirven', team: 'France', stat: '84 OVR • #2 Overall SG' },
+      { player: 'Dell Gooden', team: 'Minnesota', stat: '84 OVR • #3 Overall PF/C' },
+      { player: 'Damian Gilmore', team: 'Pacific', stat: '83 OVR • #4 Overall SF/SG' },
+      { player: 'Carl Marks', team: 'Pacific', stat: '81 OVR • #5 Overall PF/C' },
+    ]
+  },
+  {
     id: 's4-head-coaches-introduction',
     title: 'Season 4 Head Coaches Unveiled: Continuity Meets High-Stakes Sideline Shakeups',
     subtitle: 'With four battle-tested championship tacticians returning and eight franchises debuting new sideline leadership, Cali Championship Hoops enters Season 4 with unprecedented tactical intrigue across all 12 franchises.',

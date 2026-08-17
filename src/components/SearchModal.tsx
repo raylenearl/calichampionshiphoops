@@ -5,8 +5,9 @@ import { SINGLE_GAME_RECORDS, ABSOLUTE_SEASON_LEADERS } from '../data/recordsDat
 import { SEASON_3_SCHEDULE } from '../data/s3ScheduleData';
 import { ALL_AWARDS } from '../data/awardsData';
 import { TRANSACTIONS_DATA } from '../data/transactionsData';
+import { DRAFT_PROSPECTS } from '../data/draftData';
 import { TeamBadge } from './TeamBadge';
-import { Search, X, Trophy, Users, Calendar, BookOpen, ChevronRight, Star, ArrowLeftRight } from 'lucide-react';
+import { Search, X, Trophy, Users, Calendar, BookOpen, ChevronRight, Star, ArrowLeftRight, Sparkles } from 'lucide-react';
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -49,9 +50,10 @@ export const SearchModal: React.FC<SearchModalProps> = ({
   const matchedGames = q ? SEASON_3_SCHEDULE.filter((g) => g.team1.toLowerCase().includes(q) || g.team2.toLowerCase().includes(q) || (g.highScorer && g.highScorer.toLowerCase().includes(q))).slice(0, 5) : [];
   const matchedAwards = q ? ALL_AWARDS.filter((a) => a.player.toLowerCase().includes(q) || a.category.toLowerCase().includes(q) || a.team.toLowerCase().includes(q)) : [];
   const matchedTransactions = q ? TRANSACTIONS_DATA.filter((tx) => tx.title.toLowerCase().includes(q) || tx.description.toLowerCase().includes(q) || tx.teams.some(t => t.name.toLowerCase().includes(q))).slice(0, 4) : [];
+  const matchedProspects = q ? DRAFT_PROSPECTS.filter((p) => p.name.toLowerCase().includes(q) || p.school.toLowerCase().includes(q) || p.position.toLowerCase().includes(q) || p.notableAttributes.toLowerCase().includes(q) || (q.includes('draft') || q.includes('prospect'))).slice(0, 6) : [];
   const isAllStarMatch = q && ('all star'.includes(q) || 'allstar'.includes(q) || 'elam'.includes(q) || '36-23'.includes(q) || 'target'.includes(q) || 'dunk'.includes(q));
 
-  const hasResults = matchedTeams.length > 0 || matchedPlayers.length > 0 || matchedRecords.length > 0 || matchedGames.length > 0 || matchedAwards.length > 0 || matchedTransactions.length > 0 || isAllStarMatch;
+  const hasResults = matchedTeams.length > 0 || matchedPlayers.length > 0 || matchedProspects.length > 0 || matchedRecords.length > 0 || matchedGames.length > 0 || matchedAwards.length > 0 || matchedTransactions.length > 0 || isAllStarMatch;
 
   return (
     <div
@@ -156,6 +158,46 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                         <div className="text-[10px] text-amber-400">{player.teamName} • {player.position}</div>
                       </div>
                       <ChevronRight size={16} className="text-slate-500" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Season 4 Draft Prospects */}
+            {matchedProspects.length > 0 && (
+              <div className="space-y-2">
+                <span className="text-[10px] font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+                  <Sparkles size={12} className="text-amber-400" /> S4 Draft Prospects ({matchedProspects.length})
+                </span>
+                <div className="space-y-1">
+                  {matchedProspects.map((p) => (
+                    <div
+                      key={p.rank}
+                      onClick={() => {
+                        onNavigateTab('draft');
+                        onClose();
+                      }}
+                      className="flex items-center justify-between p-3 bg-slate-950 hover:bg-slate-800/80 rounded-2xl border border-slate-800 hover:border-amber-500/40 cursor-pointer transition-all"
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <span className="text-xs font-mono font-black text-amber-400 bg-slate-900 border border-slate-800 px-2 py-0.5 rounded-lg">
+                          #{p.rank}
+                        </span>
+                        <div>
+                          <div className="text-xs font-bold text-white flex items-center gap-2">
+                            <span>{p.name}</span>
+                            <span className="text-[10px] font-mono text-slate-400 font-normal">({p.position}, {p.school})</span>
+                          </div>
+                          <div className="text-[10px] text-amber-300 font-mono">{p.notableAttributes}</div>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-black px-2 py-0.5 rounded bg-amber-500 text-slate-950">
+                          {p.ovr} OVR
+                        </span>
+                        <ChevronRight size={16} className="text-slate-500" />
+                      </div>
                     </div>
                   ))}
                 </div>
