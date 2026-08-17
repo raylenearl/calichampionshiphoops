@@ -128,7 +128,7 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
                 SEASON 4 DRAFT CENTRAL
               </span>
               <span className="bg-slate-800 text-slate-300 text-xs font-mono font-bold px-3 py-1 rounded-full border border-slate-700">
-                39 Verified Prospects
+                40 Verified Prospects
               </span>
             </div>
 
@@ -136,7 +136,7 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
               Season 4 Draft Prospects Big Board
             </h1>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-medium">
-              Complete scouting profiles, physical measurements, skill grades, and attribute breakdowns for all 39 draft candidates entering Cali Championship Hoops. From UC San Diego’s consensus #1 wing Carlton Daugherty to international snipers and California collegiate pipeline stars.
+              Complete scouting profiles, physical measurements, skill grades, and attribute breakdowns for all 40 draft candidates entering Cali Championship Hoops. From UC San Diego’s consensus #1 wing Carlton Daugherty to jumbo floor-general R.J. Rush, international snipers, and California collegiate pipeline stars.
             </p>
           </div>
 

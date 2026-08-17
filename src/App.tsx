@@ -125,14 +125,14 @@ export default function App() {
                         8 California Standouts
                       </span>
                       <span className="text-[10px] font-mono font-bold text-slate-400 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">
-                        39 Verified Prospects
+                        40 Verified Prospects
                       </span>
                     </div>
                     <h3 className="text-xl sm:text-2xl font-black text-white group-hover:text-amber-400 transition-colors leading-tight">
-                      Season 4 Draft Central: Official 39-Prospect Big Board & Scouting Profiles
+                      Season 4 Draft Central: Official 40-Prospect Big Board & Scouting Profiles
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-300 max-w-3xl font-medium leading-relaxed">
-                      Scouting evaluations are live for the generational Season 4 draft pool, headlined by Carlton Daugherty (SF, UC San Diego, 85 OVR), international sniper Stephan Sirven (SG, France, 84 OVR), and Minnesota stretch big Dell Gooden (PF/C, 84 OVR).
+                      Scouting evaluations are live for the generational Season 4 draft pool, headlined by Carlton Daugherty (SF, UC San Diego, 85 OVR), international sniper Stephan Sirven (SG, France, 84 OVR), Minnesota stretch big Dell Gooden (PF/C, 84 OVR), Pacific stopper Damian Gilmore (SF/SG, 83 OVR), and jumbo floor general R.J. Rush (PG, Louisiana-Monroe, 83 OVR).
                     </p>
                   </div>
                 </div>
@@ -185,11 +185,11 @@ export default function App() {
 
                 <div className="bg-slate-950/80 border border-slate-800 group-hover:border-amber-500/30 p-2.5 rounded-2xl flex items-center justify-between col-span-2 sm:col-span-1">
                   <div>
-                    <span className="text-[10px] font-mono font-black text-amber-400">#5 PF/C</span>
-                    <h4 className="text-xs font-bold text-white truncate max-w-[100px]">C. Marks</h4>
-                    <span className="text-[10px] font-mono text-sky-400 truncate block">Pacific</span>
+                    <span className="text-[10px] font-mono font-black text-amber-400">#5 PG</span>
+                    <h4 className="text-xs font-bold text-white truncate max-w-[100px]">R.J. Rush</h4>
+                    <span className="text-[10px] font-mono text-amber-400 truncate block">UL-Monroe</span>
                   </div>
-                  <span className="text-xs font-mono font-black bg-amber-500 text-slate-950 px-2 py-1 rounded-lg">81</span>
+                  <span className="text-xs font-mono font-black bg-amber-500 text-slate-950 px-2 py-1 rounded-lg">83</span>
                 </div>
               </div>
             </div>

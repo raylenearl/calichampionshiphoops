@@ -63,19 +63,19 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     school: 'Minnesota',
     schoolType: 'NCAA / University',
     ovr: 84,
-    notableAttributes: 'A+ Post D, A 3PT, B+ Playmaking',
+    notableAttributes: 'A+ Post D, A- Inside/3PT/Playmaking',
     keyStrength: 'Versatile big with 3PT range & elite post defense',
-    archetype: 'Stretch Rim Protector & Hub',
+    archetype: 'Stretch Big & Rim Anchor',
     tier: 'Top Prospects',
     height: "6'11\"",
-    weight: '246 lbs',
-    proComparison: 'Brook Lopez / Jaren Jackson Jr. blend',
+    weight: '248 lbs',
+    proComparison: 'Brook Lopez / Karl-Anthony Towns lite',
     scoutingNotes:
-      'A rare archetype of defensive anchor and modern floor-spacer. Gooden locks down the paint against opposing post scoring while stretching opposing centers out past the arc with smooth stroke mechanics. His vision from the high post makes him an exceptional offensive release valve.',
+      'A prototype modern center-forward hybrid. Gooden anchors the paint with elite A+ post defense while stepping out beyond the arc as a legitimate 3-point threat (A- 3PT). His refined passing out of high-low sets makes him a coach’s dream in modern offensive spacing.',
     gradeBadges: [
       { label: 'Post Defense', grade: 'A+', color: 'emerald' },
-      { label: '3PT Shooting', grade: 'A', color: 'gold' },
-      { label: 'Playmaking', grade: 'B+', color: 'purple' },
+      { label: '3PT Shooting', grade: 'A-', color: 'blue' },
+      { label: 'Inside Scoring', grade: 'A-', color: 'blue' },
       { label: 'Overall Tier', grade: '84 OVR', color: 'gold' },
     ],
     isTopFiveWatch: true,
@@ -108,6 +108,32 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
   },
   {
     rank: 5,
+    name: 'R.J. Rush',
+    position: 'PG',
+    primaryPosition: 'PG',
+    school: 'Louisiana-Monroe',
+    schoolType: 'NCAA / University',
+    ovr: 83,
+    notableAttributes: 'A+ Inside, A+ 3PT, A+ Playmaking, A Mid-Range',
+    keyStrength: 'Jumbo playmaker & three-level offensive engine',
+    archetype: 'Three-Level Jumbo Point Guard',
+    tier: 'Top Prospects',
+    height: "6'6\"",
+    weight: '219 lbs',
+    proComparison: 'Luka Dončić / Cade Cunningham / James Harden',
+    scoutingNotes:
+      'A 6’6" jumbo point guard powerhouse from Louisiana-Monroe. Rush is an offensive engine with elite A+ inside finishing, lethal A+ 3-point marksmanship, textbook A mid-range scoring, and transcendent A+ playmaking vision. He can orchestrate pick-and-rolls, post up smaller guards, and punish any defensive coverage.',
+    gradeBadges: [
+      { label: 'Inside Scoring', grade: 'A+', color: 'gold' },
+      { label: '3PT Shooting', grade: 'A+', color: 'gold' },
+      { label: 'Playmaking', grade: 'A+', color: 'purple' },
+      { label: 'Mid-Range', grade: 'A', color: 'blue' },
+      { label: 'Overall Tier', grade: '83 OVR', color: 'gold' },
+    ],
+    isTopFiveWatch: true,
+  },
+  {
+    rank: 6,
     name: 'Carl Marks',
     position: 'PF/C',
     primaryPosition: 'PF',
@@ -130,10 +156,9 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
       { label: '3PT Shooting', grade: 'B+', color: 'blue' },
       { label: 'Overall Tier', grade: '81 OVR', color: 'gold' },
     ],
-    isTopFiveWatch: true,
   },
   {
-    rank: 6,
+    rank: 7,
     name: 'Leo Bass',
     position: 'C',
     primaryPosition: 'C',
@@ -157,7 +182,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 7,
+    rank: 8,
     name: 'Carl Marshall',
     position: 'C',
     primaryPosition: 'C',
@@ -185,7 +210,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
   // LOTTERY PROSPECTS (OVR 79-76)
   // ==========================================
   {
-    rank: 8,
+    rank: 9,
     name: 'Tingus Atgusanas',
     position: 'PF',
     primaryPosition: 'PF',
@@ -208,7 +233,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 9,
+    rank: 10,
     name: 'Jesse Wingate',
     position: 'C',
     primaryPosition: 'C',
@@ -231,7 +256,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 10,
+    rank: 11,
     name: 'Robert Riley',
     position: 'SF',
     primaryPosition: 'SF',
@@ -254,7 +279,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 11,
+    rank: 12,
     name: 'Ricky Dunleavy',
     position: 'SG/PG',
     primaryPosition: 'SG',
@@ -278,7 +303,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 12,
+    rank: 13,
     name: 'Jud Thompson',
     position: 'PG/SG',
     primaryPosition: 'PG',
@@ -302,7 +327,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 13,
+    rank: 14,
     name: 'Carson Graham',
     position: 'SF/PF',
     primaryPosition: 'SF',
@@ -326,7 +351,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 14,
+    rank: 15,
     name: 'Tracy Howard',
     position: 'PF/SF',
     primaryPosition: 'PF',
@@ -350,7 +375,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 15,
+    rank: 16,
     name: 'Erik Higgins',
     position: 'PF',
     primaryPosition: 'PF',
@@ -373,7 +398,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 16,
+    rank: 17,
     name: 'Stan Roberts',
     position: 'SG/PG',
     primaryPosition: 'SG',
@@ -401,8 +426,8 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
   // MID-ROUND PROSPECTS (OVR 75-73)
   // ==========================================
   {
-    rank: 17,
-    name: 'Grog Wilkens',
+    rank: 18,
+    name: 'Grok Wilkens',
     position: 'C',
     primaryPosition: 'C',
     school: 'Kentucky',
@@ -424,7 +449,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 18,
+    rank: 19,
     name: 'Steven Booker',
     position: 'PF/SF',
     primaryPosition: 'PF',
@@ -448,7 +473,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 19,
+    rank: 20,
     name: 'Lynnwood Washington Jr.',
     position: 'SG/SF',
     primaryPosition: 'SG',
@@ -471,7 +496,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 20,
+    rank: 21,
     name: 'Malique Pierce',
     position: 'PF/SF',
     primaryPosition: 'PF',
@@ -495,7 +520,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 21,
+    rank: 22,
     name: 'Isaac Levingson',
     position: 'PF/C',
     primaryPosition: 'PF',
@@ -519,7 +544,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 22,
+    rank: 23,
     name: 'Rod Hammonds',
     position: 'PF/SF',
     primaryPosition: 'PF',
@@ -543,7 +568,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 23,
+    rank: 24,
     name: 'Sean McMahon',
     position: 'PG',
     primaryPosition: 'PG',
@@ -566,7 +591,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 24,
+    rank: 25,
     name: 'Malik Holman',
     position: 'SF/SG',
     primaryPosition: 'SF',
@@ -590,7 +615,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 25,
+    rank: 26,
     name: 'Zaire Thompson',
     position: 'C/PF',
     primaryPosition: 'C',
@@ -613,7 +638,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 26,
+    rank: 27,
     name: 'Joe Grantham',
     position: 'PF',
     primaryPosition: 'PF',
@@ -636,7 +661,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 27,
+    rank: 28,
     name: 'Dell Butler',
     position: 'SG/PG',
     primaryPosition: 'SG',
@@ -659,7 +684,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 28,
+    rank: 29,
     name: 'Ralph Gilyard',
     position: 'PF/SF',
     primaryPosition: 'PF',
@@ -682,7 +707,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 29,
+    rank: 30,
     name: 'Raymond Brewer',
     position: 'PF/SF',
     primaryPosition: 'PF',
@@ -706,7 +731,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 30,
+    rank: 31,
     name: 'Chuck Sloan',
     position: 'SG/PG',
     primaryPosition: 'SG',
@@ -730,7 +755,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 31,
+    rank: 32,
     name: 'Gemini Jackson',
     position: 'PG',
     primaryPosition: 'PG',
@@ -757,7 +782,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
   // LATE ROUND / TWO-WAY PROSPECTS (OVR 72-70)
   // ==========================================
   {
-    rank: 32,
+    rank: 33,
     name: 'Nelson Battle',
     position: 'PG/SG',
     primaryPosition: 'PG',
@@ -781,7 +806,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 33,
+    rank: 34,
     name: 'Dean Paxson',
     position: 'SF',
     primaryPosition: 'SF',
@@ -803,7 +828,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 34,
+    rank: 35,
     name: 'Frederick Lloyd',
     position: 'PF/C',
     primaryPosition: 'PF',
@@ -826,7 +851,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 35,
+    rank: 36,
     name: 'Tienchung Lee',
     position: 'PG',
     primaryPosition: 'PG',
@@ -848,7 +873,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 36,
+    rank: 37,
     name: 'Bruno Popovic',
     position: 'C/PF',
     primaryPosition: 'C',
@@ -872,7 +897,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 37,
+    rank: 38,
     name: 'Johnathan Griffith',
     position: 'PF',
     primaryPosition: 'PF',
@@ -894,7 +919,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 38,
+    rank: 39,
     name: 'Eric Ferguson',
     position: 'PG/SG',
     primaryPosition: 'PG',
@@ -918,7 +943,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 39,
+    rank: 40,
     name: 'Gerald Jones',
     position: 'PF/C',
     primaryPosition: 'PF',
@@ -944,12 +969,12 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
 ];
 
 export const DRAFT_QUICK_STATS = {
-  totalProspects: 39,
-  topTierCount: 7, // 80-85
+  totalProspects: 40,
+  topTierCount: 8, // 80-85
   lotteryCount: 20, // 75-79
   midLateCount: 12, // 70-74
   positions: {
-    PG: 7,
+    PG: 8,
     SG: 5,
     SF: 6,
     PF: 12,
@@ -999,11 +1024,11 @@ export const TOP_FIVE_PLAYERS_TO_WATCH = [
   },
   {
     rank: 5,
-    name: 'Carl Marks',
-    position: 'PF/C',
-    school: 'Pacific',
-    ovr: 81,
-    summary: 'Inside dominance & rebounding',
-    highlight: 'Blue-chip frontcourt force from Pacific with A+ Inside Scoring, A+ Rebounding, and trail 3PT range.',
+    name: 'R.J. Rush',
+    position: 'PG',
+    school: 'Louisiana-Monroe',
+    ovr: 83,
+    summary: 'Jumbo playmaker & offensive engine',
+    highlight: '6’6" point guard engine with A+ Inside, A+ 3PT, A+ Playmaking, and A Mid-Range scoring mastery.',
   },
 ];
