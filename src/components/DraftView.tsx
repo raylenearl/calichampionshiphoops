@@ -128,7 +128,7 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
                 SEASON 4 DRAFT CENTRAL
               </span>
               <span className="bg-slate-800 text-slate-300 text-xs font-mono font-bold px-3 py-1 rounded-full border border-slate-700">
-                40 Verified Prospects
+                {DRAFT_PROSPECTS.length} Verified Prospects
               </span>
             </div>
 
@@ -136,7 +136,7 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
               Season 4 Draft Prospects Big Board
             </h1>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-medium">
-              Complete scouting profiles, physical measurements, skill grades, and attribute breakdowns for all 40 draft candidates entering Cali Championship Hoops. From UC San Diego’s consensus #1 wing Carlton Daugherty to jumbo floor-general R.J. Rush, international snipers, and California collegiate pipeline stars.
+              Complete scouting profiles, physical measurements, skill grades, and attribute breakdowns for all {DRAFT_PROSPECTS.length} draft candidates entering Cali Championship Hoops. From UC San Diego’s consensus #1 wing Carlton Daugherty to jumbo floor-general R.J. Rush, sharpshooter Lloyd Boomer, international snipers, and California collegiate pipeline stars.
             </p>
           </div>
 
@@ -207,9 +207,15 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
                 onClick={() => setActiveProspectModal(prospect)}
                 className="bg-gradient-to-b from-slate-900 to-slate-950 border border-amber-500/30 hover:border-amber-400 p-4 rounded-2xl shadow-xl hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between relative overflow-hidden"
               >
+                {/* Top 5 Tag */}
+                <div className="absolute top-0 right-0 bg-amber-500 text-slate-950 text-[8px] font-mono font-black uppercase px-2 py-0.5 rounded-bl-lg shadow-sm flex items-center gap-0.5">
+                  <Star size={9} className="fill-slate-950" />
+                  TOP 5
+                </div>
+
                 <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-full blur-2xl group-hover:bg-amber-500/15 transition-all" />
 
-                <div className="space-y-3">
+                <div className="space-y-3 pt-1">
                   <div className="flex items-center justify-between">
                     <span className="font-mono text-xs font-black px-2 py-0.5 rounded bg-slate-800 border border-slate-700 text-amber-400">
                       #{prospect.rank}
@@ -436,9 +442,10 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
               className="bg-slate-900/90 border border-slate-800 hover:border-amber-500/50 p-5 rounded-3xl space-y-4 cursor-pointer transition-all hover:-translate-y-1 shadow-lg group relative overflow-hidden flex flex-col justify-between"
             >
               {/* Subtle accent tag based on tier */}
-              {p.isTopFiveWatch && (
-                <div className="absolute top-0 right-0 bg-amber-500 text-slate-950 text-[9px] font-mono font-black uppercase tracking-wider px-3 py-0.5 rounded-bl-xl shadow">
-                  Top 5 Watch
+              {(p.isTopFiveWatch || p.rank <= 5) && (
+                <div className="absolute top-0 right-0 bg-amber-500 text-slate-950 text-[9px] font-mono font-black uppercase tracking-wider px-2.5 py-0.5 rounded-bl-xl shadow flex items-center gap-1">
+                  <Star size={10} className="fill-slate-950" />
+                  TOP 5
                 </div>
               )}
 
@@ -556,8 +563,9 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
                         <span className="font-bold text-white group-hover:text-amber-400 transition-colors">
                           {p.name}
                         </span>
-                        {p.isTopFiveWatch && (
-                          <span className="text-[9px] font-mono font-black bg-amber-500/20 text-amber-400 px-1.5 py-0.5 rounded border border-amber-500/30">
+                        {(p.isTopFiveWatch || p.rank <= 5) && (
+                          <span className="text-[9px] font-mono font-black bg-amber-500 text-slate-950 px-1.5 py-0.5 rounded shadow-sm flex items-center gap-0.5">
+                            <Star size={9} className="fill-slate-950" />
                             TOP 5
                           </span>
                         )}
@@ -696,6 +704,12 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
                   <span className="font-mono text-xs font-black px-2.5 py-0.5 rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/30">
                     DRAFT BOARD RANK #{activeProspectModal.rank}
                   </span>
+                  {(activeProspectModal.isTopFiveWatch || activeProspectModal.rank <= 5) && (
+                    <span className="font-mono text-xs font-black px-2.5 py-0.5 rounded-lg bg-amber-500 text-slate-950 shadow-sm flex items-center gap-1">
+                      <Star size={12} className="fill-slate-950" />
+                      TOP 5 PROSPECT
+                    </span>
+                  )}
                   <span className={`px-2.5 py-0.5 rounded-lg text-xs font-bold border ${getPosBadgeClass(activeProspectModal.position)}`}>
                     {activeProspectModal.position}
                   </span>

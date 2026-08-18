@@ -65,19 +65,19 @@ export interface CCHNewsArticle {
 export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
   {
     id: 's4-draft-big-board-unveiled',
-    title: 'Season 4 Draft Central: 40 Verified Prospects Unveiled on Official Big Board',
-    subtitle: 'From UC San Diego scoring phenom Carlton Daugherty (#1) and Euro sniper Stephan Sirven (#2) to Minnesota powerhouse Dell Gooden (#3), Pacific stopper Damian Gilmore (#4), and Louisiana-Monroe jumbo floor general R.J. Rush (#5), front offices prepare for a generational draft class.',
+    title: 'Season 4 Draft Central: 44 Verified Prospects Unveiled on Official Big Board',
+    subtitle: 'From UC San Diego scoring phenom Carlton Daugherty (#1) and Euro sniper Stephan Sirven (#2) to Minnesota powerhouse Dell Gooden (#3), Kentucky rim anchor Grok Wilkens (#4), jumbo floor general R.J. Rush (#5), and Wyoming sharpshooter Lloyd Boomer (#6), front offices prepare for a generational draft class.',
     date: 'Season 4 Offseason • Latest Release',
     season: 4,
     category: 'offseason',
     featured: true,
     author: 'CCH Scouting Department',
     readTime: '6 min read • Full Scouting Profiles',
-    headlineQuote: 'This is the deepest draft pool in Cali Championship Hoops history. With eight California collegiate programs represented and game-changing talent across all five positions, franchise fortunes will pivot on draft night.',
+    headlineQuote: 'This is the deepest draft pool in Cali Championship Hoops history. With nine California collegiate programs represented and game-changing talent across all five positions, franchise fortunes will pivot on draft night.',
     contentParagraphs: [
-      'CALIFORNIA — The official Big Board for the upcoming Season 4 Cali Championship Hoops Draft has been finalized, featuring 40 verified prospects scouted across collegiate tournaments, international leagues, and high school circuits.',
-      'THE TIER 1 TITANS: DAUGHERTY, SIRVEN, GOODEN, GILMORE, & RUSH HEADLINE TOP BOARD\nAt the peak of the 2026 class sits Carlton Daugherty (SF, UC San Diego, 85 OVR), a three-level scoring wing with elite A+ playmaking vision and clamp-down on-ball defense. Daugherty is joined by French sharpshooter Stephan Sirven (SG, France, 84 OVR), Minnesota dynamic stretch big Dell Gooden (PF/C, 84 OVR), Pacific lock Damian Gilmore (SF/SG, 83 OVR), and Louisiana-Monroe 6’6" jumbo point guard engine R.J. Rush (PG, 83 OVR), who brings A+ Inside Scoring, A+ 3PT marksmanship, and A+ Playmaking.',
-      'CALIFORNIA COLLEGIATE PIPELINE STANDS TALL\nEight local programs feature premier draft talent ready to make immediate professional impacts:\n• Carlton Daugherty (UC San Diego, #1 Rank, 85 OVR SF)\n• Damian Gilmore (Pacific, #4 Rank, 83 OVR SF/SG)\n• Carl Marks (Pacific, #6 Rank, 81 OVR PF/C)\n• Leo Bass (San Jose State, #7 Rank, 80 OVR C)\n• Robert Riley (Loyola Marymount, #11 Rank, 78 OVR SF)\n• Isaac Levingson (Santa Clara, #22 Rank, 75 OVR PF)\n• Rod Hammonds (San Francisco, #23 Rank, 75 OVR PF)\n• Nelson Battle (Mt. San Jacinto JUCO, #33 Rank, 72 OVR PG/SG)\n• Frederick Lloyd (UC Davis, #35 Rank, 70 OVR PF/C)',
+      'CALIFORNIA — The official Big Board for the upcoming Season 4 Cali Championship Hoops Draft has been finalized, featuring 44 verified prospects scouted across collegiate tournaments, international leagues, and high school circuits.',
+      'THE TIER 1 TITANS: DAUGHERTY, SIRVEN, GOODEN, WILKENS, RUSH, BOOMER & GILMORE HEADLINE TOP BOARD\nAt the peak of the 2026 class sits Carlton Daugherty (SF, UC San Diego, 85 OVR), a three-level scoring wing with elite A+ perimeter shooting and lockdown on-ball defense. Daugherty is joined by French sharpshooter Stephan Sirven (SG, France, 84 OVR), Minnesota dynamic stretch big Dell Gooden (PF/C, 84 OVR), Kentucky 7-foot defensive powerhouse Grok Wilkens (C, 84 OVR), Louisiana-Monroe 6’6" jumbo point guard engine R.J. Rush (PG, 83 OVR), Wyoming high-octane offensive guard Lloyd Boomer (PG, 83 OVR), and Pacific stopper Damian Gilmore (SF/SG, 83 OVR).',
+      'CALIFORNIA COLLEGIATE PIPELINE STANDS TALL\nNine local programs feature premier draft talent ready to make immediate professional impacts:\n• Carlton Daugherty (UC San Diego, #1 Rank, 85 OVR SF)\n• Damian Gilmore (Pacific, #7 Rank, 83 OVR SF/SG)\n• Carl Marks (Pacific, #8 Rank, 81 OVR PF/C)\n• Leo Bass (San Jose State, #10 Rank, 80 OVR C)\n• Robert Riley (Loyola Marymount, #13 Rank, 78 OVR SF)\n• Isaac Levingson (Santa Clara, #23 Rank, 75 OVR PF/C)\n• Rod Hammonds (San Francisco, #24 Rank, 75 OVR PF/SF)\n• Nelson Battle (Mt. San Jacinto JUCO, #34 Rank, 72 OVR PG/SG)\n• Frederick Lloyd (UC Davis, #38 Rank, 70 OVR PF/C)',
       'FRANCHISE BUILDING BLOCKS ACROSS ALL TIERS\nFrom lottery rim-protectors like Carl Marshall (Georgia, 80 OVR) and Latvian stretch big Tingus Atgusanas (Latvia, 79 OVR), down to sleeper playmakers and defensive stoppers throughout the mid and late rounds, every organization holds ammunition to transform their franchise trajectory.'
     ],
     quotes: [
@@ -93,7 +93,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
       },
       {
         speaker: 'Carlton Daugherty',
-        title: '#1 Ranked Prospect • UC San Diego (85 OVR)',
+        title: '#1 Ranked Prospect • UC San Diego (85 OVR SF)',
         quote: 'Staying in California and competing against the best players in the world is the ultimate dream. Whatever team calls my name is getting a competitor ready to win on day one.'
       }
     ],
@@ -101,9 +101,9 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
       { player: 'Carlton Daugherty', team: 'UC San Diego', stat: '85 OVR • #1 Overall SF' },
       { player: 'Stephan Sirven', team: 'France', stat: '84 OVR • #2 Overall SG' },
       { player: 'Dell Gooden', team: 'Minnesota', stat: '84 OVR • #3 Overall PF/C' },
-      { player: 'Damian Gilmore', team: 'Pacific', stat: '83 OVR • #4 Overall SF/SG' },
+      { player: 'Grok Wilkens', team: 'Kentucky', stat: '84 OVR • #4 Overall C' },
       { player: 'R.J. Rush', team: 'Louisiana-Monroe', stat: '83 OVR • #5 Overall PG' },
-      { player: 'Carl Marks', team: 'Pacific', stat: '81 OVR • #6 Overall PF/C' },
+      { player: 'Lloyd Boomer', team: 'Wyoming', stat: '83 OVR • #6 Overall PG' },
     ]
   },
   {
