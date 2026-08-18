@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Search, Menu, X, Trophy, Calendar, Users, Award, BookOpen, Activity, GitCompare, ExternalLink, Star, ArrowLeftRight, ChevronLeft, ChevronRight, Newspaper, Sun, Moon, Sparkles } from 'lucide-react';
+import { Search, Menu, X, Trophy, Calendar, Users, Award, BookOpen, Activity, GitCompare, ExternalLink, Star, ArrowLeftRight, Newspaper, Sun, Moon, Sparkles, Share2, Check } from 'lucide-react';
 import { CCHLeagueLogo } from './TeamLogos';
 import { SocialHeaderButtons, SOCIAL_PLATFORMS } from './SocialLinks';
 
@@ -11,6 +11,7 @@ interface HeaderProps {
   onOpenSearch: () => void;
   theme: 'dark' | 'light';
   onToggleTheme: () => void;
+  onShareLink?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -21,15 +22,20 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenSearch,
   theme,
   onToggleTheme,
+  onShareLink,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [copiedRecently, setCopiedRecently] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const scrollNav = (direction: 'left' | 'right') => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = direction === 'left' ? -260 : 260;
-      scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  const handleCopyLink = () => {
+    if (onShareLink) {
+      onShareLink();
+    } else {
+      navigator.clipboard?.writeText(window.location.href);
     }
+    setCopiedRecently(true);
+    setTimeout(() => setCopiedRecently(false), 2000);
   };
 
   interface NavItem {
@@ -61,9 +67,13 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between min-h-[64px] py-2 gap-3 flex-wrap lg:flex-nowrap">
           {/* Logo & Branding */}
-          <div
-            className="flex items-center gap-2.5 cursor-pointer shrink-0 hover:opacity-90 transition-opacity"
-            onClick={() => setActiveTab('hub')}
+          <a
+            href="#hub"
+            className="flex items-center gap-2.5 cursor-pointer shrink-0 hover:opacity-90 transition-opacity no-underline"
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveTab('hub');
+            }}
           >
             <CCHLeagueLogo size={40} />
             <div>
@@ -76,7 +86,7 @@ export const Header: React.FC<HeaderProps> = ({
                 Official Encyclopedia
               </p>
             </div>
-          </div>
+          </a>
 
           {/* Desktop Season Switcher & Search & External Links */}
           <div className="hidden lg:flex items-center gap-2.5 shrink-0 flex-wrap xl:flex-nowrap">
@@ -125,6 +135,25 @@ export const Header: React.FC<HeaderProps> = ({
               <kbd className="bg-slate-800 text-slate-400 text-[10px] px-1.5 py-0.5 rounded font-mono">⌘K</kbd>
             </button>
 
+            {/* Share / Copy Section Link Button */}
+            <button
+              onClick={handleCopyLink}
+              className="flex items-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-amber-300 border border-slate-800 px-2.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer shrink-0 shadow-sm"
+              title="Copy direct link to this section"
+            >
+              {copiedRecently ? (
+                <>
+                  <Check size={13} className="text-emerald-400 shrink-0" />
+                  <span className="text-[11px] text-emerald-400 font-bold">Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Share2 size={13} className="text-amber-400 shrink-0" />
+                  <span className="text-[11px] font-bold hidden xl:inline">Share Link</span>
+                </>
+              )}
+            </button>
+
             {/* Social Media Links (@CCHoops2k) */}
             <SocialHeaderButtons />
 
@@ -163,6 +192,13 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Mobile Hamburger & Controls */}
           <div className="flex items-center gap-2 lg:hidden">
             <button
+              onClick={handleCopyLink}
+              className="p-2 bg-slate-900 border border-slate-800 rounded-xl text-amber-400 cursor-pointer"
+              title="Copy direct link to section"
+            >
+              {copiedRecently ? <Check size={18} className="text-emerald-400" /> : <Share2 size={18} />}
+            </button>
+            <button
               onClick={onToggleTheme}
               className="p-2 bg-slate-900 border border-slate-800 rounded-xl text-amber-400 cursor-pointer"
               title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
@@ -187,16 +223,20 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Desktop Navigation Sub-bar - Responsive & Dynamic */}
-        <div className="hidden lg:flex items-center border-t border-slate-800/60 py-2">
+        <nav aria-label="Main Navigation" className="hidden lg:flex items-center border-t border-slate-800/60 py-2">
           <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 w-full justify-start">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = activeTab === item.id;
               return (
-                <button
+                <a
                   key={item.id}
-                  onClick={() => setActiveTab(item.id)}
-                  className={`flex items-center gap-1.5 px-3 sm:px-3.5 xl:px-4 py-1.5 rounded-xl text-[11px] xl:text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+                  href={`#${item.id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setActiveTab(item.id);
+                  }}
+                  className={`flex items-center gap-1.5 px-3 sm:px-3.5 xl:px-4 py-1.5 rounded-xl text-[11px] xl:text-xs font-bold transition-all cursor-pointer whitespace-nowrap no-underline ${
                     isActive
                       ? 'bg-amber-500 text-slate-950 shadow-md font-black ring-1 ring-amber-400'
                       : item.highlight
@@ -206,11 +246,11 @@ export const Header: React.FC<HeaderProps> = ({
                 >
                   <Icon size={14} className={isActive ? 'text-slate-950' : item.highlight ? 'text-amber-400' : 'text-slate-400'} />
                   <span>{item.label}</span>
-                </button>
+                </a>
               );
             })}
           </div>
-        </div>
+        </nav>
 
         {/* Mobile Navigation Dropdown */}
         {mobileMenuOpen && (
@@ -252,13 +292,15 @@ export const Header: React.FC<HeaderProps> = ({
                 const Icon = item.icon;
                 const isActive = activeTab === item.id;
                 return (
-                  <button
+                  <a
                     key={item.id}
-                    onClick={() => {
+                    href={`#${item.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
                       setActiveTab(item.id);
                       setMobileMenuOpen(false);
                     }}
-                    className={`flex items-center gap-2 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                    className={`flex items-center gap-2 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer no-underline ${
                       isActive
                         ? 'bg-amber-500 text-slate-950 font-black shadow-md'
                         : item.highlight
@@ -268,7 +310,7 @@ export const Header: React.FC<HeaderProps> = ({
                   >
                     <Icon size={15} className={isActive ? 'text-slate-950' : 'text-amber-400'} />
                     <span className="truncate">{item.label}</span>
-                  </button>
+                  </a>
                 );
               })}
             </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Header } from './components/Header';
 import { HeroBanner } from './components/HeroBanner';
 import { BreakingNewsCard } from './components/BreakingNewsCard';
@@ -21,18 +21,150 @@ import { SearchModal } from './components/SearchModal';
 import { TeamSeasonModal } from './components/TeamSeasonModal';
 import { CCHLeagueLogo } from './components/TeamLogos';
 import { SocialFooterGrid } from './components/SocialLinks';
-import { Trophy, Shield, Calendar, Award, BookOpen, Users, Activity, ExternalLink, Tv, Heart, Star } from 'lucide-react';
+import { Trophy, Shield, Calendar, Award, BookOpen, Users, Activity, ExternalLink, Tv, Heart, Star, Link2, Check } from 'lucide-react';
+
+const VALID_TABS = [
+  'hub',
+  'news',
+  'draft',
+  'standings',
+  'playoffs',
+  'schedule',
+  'teams',
+  'transactions',
+  'allstar',
+  'halloffame',
+  'records',
+  'players',
+  'compare',
+  'h2h',
+];
+
+interface ParsedHashState {
+  tab: string;
+  season?: 1 | 2 | 3;
+  articleId?: string | null;
+  teamId?: string | null;
+  teamSeason?: 1 | 2 | 3;
+  p1?: string;
+  p2?: string;
+}
+
+function parseUrlHash(): ParsedHashState {
+  if (typeof window === 'undefined') return { tab: 'hub' };
+  const rawHash = window.location.hash.replace(/^#\/?/, '').trim();
+  if (!rawHash) return { tab: 'hub' };
+
+  const [tabPart, queryPart] = rawHash.split('?');
+  const tab = VALID_TABS.includes(tabPart.toLowerCase()) ? tabPart.toLowerCase() : 'hub';
+
+  const params = new URLSearchParams(queryPart || '');
+  const seasonParam = params.get('season');
+  const season: (1 | 2 | 3) | undefined =
+    seasonParam === '1' ? 1 : seasonParam === '2' ? 2 : seasonParam === '3' ? 3 : undefined;
+
+  const articleId = params.get('article') || null;
+  const teamId = params.get('team') || null;
+  const p1 = params.get('p1') || undefined;
+  const p2 = params.get('p2') || undefined;
+
+  return {
+    tab,
+    season,
+    articleId,
+    teamId,
+    teamSeason: season,
+    p1,
+    p2,
+  };
+}
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<string>('hub');
-  const [selectedSeason, setSelectedSeason] = useState<1 | 2 | 3>(3);
+  const initialHash = parseUrlHash();
+
+  const [activeTab, setActiveTab] = useState<string>(initialHash.tab);
+  const [selectedSeason, setSelectedSeason] = useState<1 | 2 | 3>(initialHash.season || 3);
   const [searchModalOpen, setSearchModalOpen] = useState<boolean>(false);
-  const [teamRecapModal, setTeamRecapModal] = useState<{ teamId: string; season: 1 | 2 | 3 } | null>(null);
-  const [selectedNewsArticleId, setSelectedNewsArticleId] = useState<string | null>(null);
+  const [teamRecapModal, setTeamRecapModal] = useState<{ teamId: string; season: 1 | 2 | 3 } | null>(
+    initialHash.teamId ? { teamId: initialHash.teamId, season: initialHash.teamSeason || 3 } : null
+  );
+  const [selectedNewsArticleId, setSelectedNewsArticleId] = useState<string | null>(initialHash.articleId || null);
   const [comparisonPlayers, setComparisonPlayers] = useState<{ player1Id: string; player2Id: string }>({
-    player1Id: 'p-lamar-anderson',
-    player2Id: 'p-aj-hinton',
+    player1Id: initialHash.p1 || 'p-lamar-anderson',
+    player2Id: initialHash.p2 || 'p-aj-hinton',
   });
+  const [copyToast, setCopyToast] = useState<{ visible: boolean; url: string }>({ visible: false, url: '' });
+
+  // Handle URL updates when active state changes
+  useEffect(() => {
+    const params = new URLSearchParams();
+
+    // Include season param if not default or on season-sensitive tabs
+    if (selectedSeason !== 3 || ['standings', 'playoffs', 'schedule'].includes(activeTab)) {
+      params.set('season', selectedSeason.toString());
+    }
+
+    if (activeTab === 'news' && selectedNewsArticleId) {
+      params.set('article', selectedNewsArticleId);
+    }
+
+    if (teamRecapModal) {
+      params.set('team', teamRecapModal.teamId);
+      params.set('season', teamRecapModal.season.toString());
+    }
+
+    if (activeTab === 'compare') {
+      if (comparisonPlayers.player1Id) params.set('p1', comparisonPlayers.player1Id);
+      if (comparisonPlayers.player2Id) params.set('p2', comparisonPlayers.player2Id);
+    }
+
+    const queryString = params.toString();
+    const targetHash = `#${activeTab}${queryString ? `?${queryString}` : ''}`;
+
+    if (window.location.hash !== targetHash) {
+      window.history.replaceState(null, '', targetHash);
+    }
+  }, [activeTab, selectedSeason, selectedNewsArticleId, teamRecapModal, comparisonPlayers]);
+
+  // Listen for browser Back/Forward or direct hash changes
+  useEffect(() => {
+    const handleHashChange = () => {
+      const parsed = parseUrlHash();
+      setActiveTab(parsed.tab);
+      if (parsed.season) {
+        setSelectedSeason(parsed.season);
+      }
+      if (parsed.articleId !== undefined) {
+        setSelectedNewsArticleId(parsed.articleId);
+      }
+      if (parsed.teamId) {
+        setTeamRecapModal({ teamId: parsed.teamId, season: parsed.teamSeason || 3 });
+      } else {
+        setTeamRecapModal(null);
+      }
+      if (parsed.p1 && parsed.p2) {
+        setComparisonPlayers({ player1Id: parsed.p1, player2Id: parsed.p2 });
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    window.addEventListener('popstate', handleHashChange);
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('popstate', handleHashChange);
+    };
+  }, []);
+
+  const handleShareCurrentLink = useCallback(() => {
+    const currentUrl = window.location.href;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(currentUrl).catch(() => {});
+    }
+    setCopyToast({ visible: true, url: currentUrl });
+    setTimeout(() => {
+      setCopyToast((prev) => ({ ...prev, visible: false }));
+    }, 3000);
+  }, []);
 
   const handleComparePlayer = (playerId: string, targetPlayerId?: string) => {
     setComparisonPlayers((prev) => ({
@@ -41,6 +173,7 @@ export default function App() {
     }));
     setActiveTab('compare');
   };
+
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     const saved = localStorage.getItem('cch_theme');
     return saved === 'light' || saved === 'dark' ? saved : 'dark';
@@ -83,7 +216,26 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-amber-500 selection:text-slate-950 flex flex-col transition-colors duration-200">
+    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-amber-500 selection:text-slate-950 flex flex-col transition-colors duration-200 relative">
+      {/* Link Copied Notification Toast */}
+      {copyToast.visible && (
+        <div className="fixed bottom-6 right-6 z-50 animate-in fade-in slide-in-from-bottom-4 duration-200">
+          <div className="bg-slate-900 border-2 border-amber-500 text-white px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-3 max-w-md">
+            <div className="w-8 h-8 rounded-xl bg-amber-500 text-slate-950 flex items-center justify-center font-bold shrink-0">
+              <Check size={18} />
+            </div>
+            <div className="min-w-0 flex-1">
+              <div className="text-xs font-black text-amber-400 uppercase tracking-wider">
+                Direct Link Copied!
+              </div>
+              <p className="text-[11px] text-slate-300 truncate font-mono mt-0.5">
+                {copyToast.url}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Main App Navigation Header */}
       <Header
         activeTab={activeTab}
@@ -93,6 +245,7 @@ export default function App() {
         onOpenSearch={() => setSearchModalOpen(true)}
         theme={theme}
         onToggleTheme={toggleTheme}
+        onShareLink={handleShareCurrentLink}
       />
 
       {/* Main Content Area */}
