@@ -99,8 +99,12 @@ export default function App() {
   useEffect(() => {
     const params = new URLSearchParams();
 
-    // Include season param if not default or on season-sensitive tabs
-    if (selectedSeason !== 3 || ['standings', 'playoffs', 'schedule'].includes(activeTab)) {
+    // Keep clean short URLs for tabs that don't need query parameters
+    if (['standings', 'playoffs', 'schedule'].includes(activeTab)) {
+      if (selectedSeason !== 3) {
+        params.set('season', selectedSeason.toString());
+      }
+    } else if (activeTab === 'hub' && selectedSeason !== 3) {
       params.set('season', selectedSeason.toString());
     }
 
@@ -111,11 +115,6 @@ export default function App() {
     if (teamRecapModal) {
       params.set('team', teamRecapModal.teamId);
       params.set('season', teamRecapModal.season.toString());
-    }
-
-    if (activeTab === 'compare') {
-      if (comparisonPlayers.player1Id) params.set('p1', comparisonPlayers.player1Id);
-      if (comparisonPlayers.player2Id) params.set('p2', comparisonPlayers.player2Id);
     }
 
     const queryString = params.toString();
