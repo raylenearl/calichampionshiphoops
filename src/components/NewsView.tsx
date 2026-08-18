@@ -53,7 +53,11 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
 
   // Filter articles
   const filteredArticles = CCH_NEWS_ARTICLES.filter((article) => {
-    const categoryMatches = selectedCategory === 'all' || article.category === selectedCategory;
+    const categoryMatches =
+      selectedCategory === 'all' ||
+      (selectedCategory === 'feature'
+        ? article.category === 'feature' || Boolean(article.audioUrl)
+        : article.category === selectedCategory);
     const seasonMatches = selectedSeasonFilter === 0 || article.season === selectedSeasonFilter;
     return categoryMatches && seasonMatches;
   });
@@ -305,7 +309,7 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
             {/* Audio / Visual Spotlight */}
             <div className="lg:col-span-4">
               <PodcastPlayerCard
-                audioUrl={featuredStory.audioUrl || "https://dn601201.us.archive.org/0/items/cchoops2k/Cali_Hoops_Season_4_Coaching_Shakeups.m4a"}
+                audioUrl={featuredStory.audioUrl || "https://archive.org/download/cchoops2k/Cali_Hoops_Season_4_Coaching_Shakeups.m4a"}
                 podcastInfo={featuredStory.podcastInfo}
                 title={featuredStory.podcastInfo?.episodeTitle || 'Season 4 Coaching Shakeups Special'}
                 compact={true}

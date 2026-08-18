@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import {
   Play,
   Pause,
@@ -8,6 +8,10 @@ import {
   VolumeX,
   Radio,
   Headphones,
+  Download,
+  ExternalLink,
+  AlertCircle,
+  RefreshCw,
 } from 'lucide-react';
 import { PodcastInfo } from '../data/newsData';
 
@@ -19,12 +23,13 @@ interface PodcastPlayerCardProps {
   compact?: boolean;
 }
 
-const DEFAULT_AUDIO_URL = 'https://dn601201.us.archive.org/0/items/cchoops2k/Cali_Hoops_Season_4_Coaching_Shakeups.m4a';
+const DEFAULT_AUDIO_URL = 'https://archive.org/download/cchoops2k/Cali_Hoops_Season_4_Coaching_Shakeups.m4a';
 
 export const PodcastPlayerCard: React.FC<PodcastPlayerCardProps> = ({
   audioUrl,
   podcastInfo,
   title = 'Season 4 Coaching Shakeups & Sideline Carousel Special',
+  subtitle,
   compact = false,
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -32,9 +37,33 @@ export const PodcastPlayerCard: React.FC<PodcastPlayerCardProps> = ({
   const [duration, setDuration] = useState(0);
   const [playbackRate, setPlaybackRate] = useState(1);
   const [isMuted, setIsMuted] = useState(false);
+  const [hasError, setHasError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const activeSrc = audioUrl || DEFAULT_AUDIO_URL;
+
+  // Normalized primary audio source URL
+  const primaryUrl = audioUrl || DEFAULT_AUDIO_URL;
+
+  // Alternate direct URL fallback if CDN mirror is blocked
+  const alternateUrl = React.useMemo(() => {
+    if (primaryUrl.includes('dn601201.us.archive.org/0/items/')) {
+      return primaryUrl.replace('dn601201.us.archive.org/0/items/', 'archive.org/download/');
+    }
+    if (primaryUrl.includes('archive.org/download/')) {
+      return primaryUrl.replace('archive.org/download/', 'dn601201.us.archive.org/0/items/');
+    }
+    return primaryUrl;
+  }, [primaryUrl]);
+
+  const [activeSrc, setActiveSrc] = useState(primaryUrl);
+
+  useEffect(() => {
+    setActiveSrc(primaryUrl);
+    setHasError(false);
+    setIsPlaying(false);
+    setCurrentTime(0);
+  }, [primaryUrl]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -45,19 +74,27 @@ export const PodcastPlayerCard: React.FC<PodcastPlayerCardProps> = ({
     };
 
     const handleLoadedMetadata = () => {
-      if (audio.duration && !isNaN(audio.duration)) {
+      if (audio.duration && !isNaN(audio.duration) && isFinite(audio.duration)) {
+        setDuration(audio.duration);
+        setHasError(false);
+      }
+    };
+
+    const handleCanPlay = () => {
+      setIsLoading(false);
+      if (audio.duration && !isNaN(audio.duration) && isFinite(audio.duration)) {
         setDuration(audio.duration);
       }
     };
 
-    const handleDurationChange = () => {
-      if (audio.duration && !isNaN(audio.duration)) {
-        setDuration(audio.duration);
-      }
+    const handleWaiting = () => {
+      setIsLoading(true);
     };
 
-    const handlePlay = () => {
+    const handlePlaying = () => {
       setIsPlaying(true);
+      setIsLoading(false);
+      setHasError(false);
     };
 
     const handlePause = () => {
@@ -69,41 +106,75 @@ export const PodcastPlayerCard: React.FC<PodcastPlayerCardProps> = ({
       setCurrentTime(0);
     };
 
+    const handleError = () => {
+      setIsLoading(false);
+      // Try switching to alternate mirror once if not already using it
+      if (activeSrc !== alternateUrl) {
+        setActiveSrc(alternateUrl);
+      } else {
+        setHasError(true);
+        setIsPlaying(false);
+      }
+    };
+
     audio.addEventListener('timeupdate', handleTimeUpdate);
     audio.addEventListener('loadedmetadata', handleLoadedMetadata);
-    audio.addEventListener('durationchange', handleDurationChange);
-    audio.addEventListener('play', handlePlay);
+    audio.addEventListener('canplay', handleCanPlay);
+    audio.addEventListener('waiting', handleWaiting);
+    audio.addEventListener('playing', handlePlaying);
     audio.addEventListener('pause', handlePause);
     audio.addEventListener('ended', handleEnded);
+    audio.addEventListener('error', handleError);
 
     return () => {
       audio.removeEventListener('timeupdate', handleTimeUpdate);
       audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
-      audio.removeEventListener('durationchange', handleDurationChange);
-      audio.removeEventListener('play', handlePlay);
+      audio.removeEventListener('canplay', handleCanPlay);
+      audio.removeEventListener('waiting', handleWaiting);
+      audio.removeEventListener('playing', handlePlaying);
       audio.removeEventListener('pause', handlePause);
       audio.removeEventListener('ended', handleEnded);
+      audio.removeEventListener('error', handleError);
     };
-  }, [activeSrc]);
+  }, [activeSrc, alternateUrl]);
 
-  const togglePlay = () => {
-    if (!audioRef.current) return;
+  const togglePlay = useCallback(async () => {
     const audio = audioRef.current;
+    if (!audio) return;
 
-    if (!audio.paused) {
+    if (isPlaying) {
       audio.pause();
       setIsPlaying(false);
     } else {
-      audio.play().then(() => {
+      setIsLoading(true);
+      setHasError(false);
+      try {
+        await audio.play();
         setIsPlaying(true);
-      }).catch((err) => {
-        console.warn('Playback triggered error:', err);
-        // Fallback retry
-        audio.load();
-        audio.play().catch((e) => console.error('Audio play error:', e));
-      });
+        setIsLoading(false);
+      } catch {
+        // If initial play fails on primary, switch mirror and retry
+        if (activeSrc !== alternateUrl) {
+          setActiveSrc(alternateUrl);
+          setTimeout(async () => {
+            if (audioRef.current) {
+              try {
+                await audioRef.current.play();
+                setIsPlaying(true);
+              } catch {
+                setHasError(true);
+              } finally {
+                setIsLoading(false);
+              }
+            }
+          }, 300);
+        } else {
+          setIsLoading(false);
+          setHasError(true);
+        }
+      }
     }
-  };
+  }, [isPlaying, activeSrc, alternateUrl]);
 
   const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
     const time = Number(e.target.value);
@@ -115,9 +186,10 @@ export const PodcastPlayerCard: React.FC<PodcastPlayerCardProps> = ({
 
   const jump = (seconds: number) => {
     if (!audioRef.current) return;
-    const nextTime = Math.max(0, Math.min(duration || 9999, audioRef.current.currentTime + seconds));
-    audioRef.current.currentTime = nextTime;
+    const maxTime = duration || 1000;
+    const nextTime = Math.max(0, Math.min(maxTime, currentTime + seconds));
     setCurrentTime(nextTime);
+    audioRef.current.currentTime = nextTime;
   };
 
   const cyclePlaybackRate = () => {
@@ -138,10 +210,21 @@ export const PodcastPlayerCard: React.FC<PodcastPlayerCardProps> = ({
   };
 
   const formatTime = (secs: number) => {
-    if (isNaN(secs) || secs === 0) return '0:00';
+    if (isNaN(secs) || secs === 0 || !isFinite(secs)) return '0:00';
     const m = Math.floor(secs / 60);
     const s = Math.floor(secs % 60);
     return `${m}:${s < 10 ? '0' : ''}${s}`;
+  };
+
+  const retryPlayback = () => {
+    setHasError(false);
+    setActiveSrc(activeSrc === primaryUrl ? alternateUrl : primaryUrl);
+    setTimeout(() => {
+      if (audioRef.current) {
+        audioRef.current.load();
+        togglePlay();
+      }
+    }, 200);
   };
 
   if (compact) {
@@ -155,21 +238,21 @@ export const PodcastPlayerCard: React.FC<PodcastPlayerCardProps> = ({
         />
 
         <div className="flex items-center justify-between gap-2 border-b border-slate-800 pb-2">
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center">
+          <div className="flex items-center gap-2 min-w-0">
+            <div className="w-7 h-7 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
               <Radio size={14} className={isPlaying ? 'animate-pulse' : ''} />
             </div>
-            <div>
-              <span className="text-[10px] font-mono text-amber-400 font-bold uppercase tracking-wider block">
+            <div className="min-w-0">
+              <span className="text-[10px] font-mono text-amber-400 font-bold uppercase tracking-wider block truncate">
                 Attached Podcast Audio
               </span>
-              <h4 className="text-xs font-bold text-white leading-tight">
+              <h4 className="text-xs font-bold text-white leading-tight truncate">
                 {podcastInfo?.episodeTitle || title}
               </h4>
             </div>
           </div>
-          <span className="text-[10px] font-mono text-slate-400">
-            {formatTime(currentTime)} / {formatTime(duration || 1190)}
+          <span className="text-[10px] font-mono text-slate-400 shrink-0">
+            {formatTime(currentTime)} / {duration > 0 ? formatTime(duration) : '--:--'}
           </span>
         </div>
 
@@ -177,14 +260,31 @@ export const PodcastPlayerCard: React.FC<PodcastPlayerCardProps> = ({
         <input
           type="range"
           min={0}
-          max={duration || 1190}
+          max={duration || 100}
           step={0.5}
           value={currentTime}
           onChange={handleSeek}
+          disabled={duration === 0 && !isPlaying}
           className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-500 focus:outline-none"
         />
 
-        {/* Controls - Single Play Button */}
+        {/* Error notification if audio blocked */}
+        {hasError && (
+          <div className="flex items-center justify-between gap-2 p-2 rounded-xl bg-amber-950/60 border border-amber-500/40 text-[11px] text-amber-300">
+            <div className="flex items-center gap-1.5 truncate">
+              <AlertCircle size={13} className="shrink-0 text-amber-400" />
+              <span className="truncate">Audio streaming reconnecting...</span>
+            </div>
+            <button
+              onClick={retryPlayback}
+              className="px-2 py-0.5 rounded bg-amber-500 text-slate-950 font-bold text-[10px] hover:bg-amber-400 cursor-pointer shrink-0 flex items-center gap-1"
+            >
+              <RefreshCw size={10} /> Retry
+            </button>
+          </div>
+        )}
+
+        {/* Controls */}
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <button
@@ -195,13 +295,12 @@ export const PodcastPlayerCard: React.FC<PodcastPlayerCardProps> = ({
               <RotateCcw size={13} />
             </button>
 
-            {/* SINGLE PLAYBACK BUTTON */}
             <button
               onClick={togglePlay}
               className="px-4 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black flex items-center gap-1.5 shadow-md shadow-amber-500/20 text-xs transition-transform active:scale-95 cursor-pointer"
             >
               {isPlaying ? <Pause size={14} /> : <Play size={14} className="fill-current" />}
-              <span>{isPlaying ? 'Pause' : 'Play Podcast'}</span>
+              <span>{isLoading ? 'Loading...' : isPlaying ? 'Pause' : 'Play Podcast'}</span>
             </button>
 
             <button
@@ -226,6 +325,16 @@ export const PodcastPlayerCard: React.FC<PodcastPlayerCardProps> = ({
             >
               {isMuted ? <VolumeX size={13} /> : <Volume2 size={13} />}
             </button>
+            <a
+              href={activeSrc}
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+              className="p-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-amber-400 border border-slate-800 transition-colors cursor-pointer"
+              title="Download or Stream Directly (.m4a)"
+            >
+              <Download size={13} />
+            </a>
           </div>
         </div>
       </div>
@@ -243,43 +352,95 @@ export const PodcastPlayerCard: React.FC<PodcastPlayerCardProps> = ({
 
       {/* Header */}
       <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2.5 min-w-0">
           <div className="w-8 h-8 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 shrink-0">
             <Radio size={16} className={isPlaying ? 'animate-pulse' : ''} />
           </div>
-          <div>
-            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-400 block">
+          <div className="min-w-0">
+            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-400 block truncate">
               Official Podcast Broadcast
             </span>
-            <h3 className="text-sm sm:text-base font-black text-white leading-snug">
+            <h3 className="text-sm sm:text-base font-black text-white leading-snug truncate">
               {podcastInfo?.episodeTitle || title}
             </h3>
+            {subtitle && (
+              <p className="text-xs text-slate-400 font-normal mt-0.5 line-clamp-1">
+                {subtitle}
+              </p>
+            )}
           </div>
         </div>
-        <span className="bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-800 text-amber-300 font-mono text-[11px] font-bold flex items-center gap-1.5">
-          <Headphones size={12} className="text-amber-400" />
-          {podcastInfo?.duration || 'Season 4 Coaching Special'}
-        </span>
+        <div className="flex items-center gap-2 shrink-0">
+          <span className="bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-800 text-amber-300 font-mono text-[11px] font-bold flex items-center gap-1.5">
+            <Headphones size={12} className="text-amber-400" />
+            {podcastInfo?.duration || 'CCH Audio Broadcast'}
+          </span>
+          <a
+            href={activeSrc}
+            target="_blank"
+            rel="noopener noreferrer"
+            download
+            className="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-amber-300 border border-slate-800 font-mono text-[11px] font-bold flex items-center gap-1.5 transition-colors"
+            title="Download Audio (.m4a)"
+          >
+            <Download size={12} />
+            <span className="hidden sm:inline">Download</span>
+          </a>
+        </div>
       </div>
+
+      {/* Description */}
+      {podcastInfo?.description && (
+        <p className="text-xs text-slate-300 leading-relaxed font-normal bg-slate-900/50 p-2.5 rounded-xl border border-slate-800/60">
+          {podcastInfo.description}
+        </p>
+      )}
+
+      {/* Error notification if direct streaming fails */}
+      {hasError && (
+        <div className="flex items-center justify-between gap-3 p-3 rounded-xl bg-amber-950/60 border border-amber-500/40 text-xs text-amber-200">
+          <div className="flex items-center gap-2">
+            <AlertCircle size={15} className="text-amber-400 shrink-0" />
+            <span>Streaming connection interrupted. Retry audio or open direct stream.</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={retryPlayback}
+              className="px-2.5 py-1 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs flex items-center gap-1 cursor-pointer"
+            >
+              <RefreshCw size={12} /> Retry
+            </button>
+            <a
+              href={activeSrc}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700 text-xs flex items-center gap-1 cursor-pointer"
+            >
+              <ExternalLink size={12} /> Open
+            </a>
+          </div>
+        </div>
+      )}
 
       {/* Scrubber & Time */}
       <div className="space-y-1.5">
         <div className="flex items-center justify-between text-[11px] font-mono text-slate-400 font-bold">
           <span className="text-amber-400">{formatTime(currentTime)}</span>
-          <span>{formatTime(duration || 1190)}</span>
+          <span>{duration > 0 ? formatTime(duration) : '--:--'}</span>
         </div>
         <input
           type="range"
           min={0}
-          max={duration || 1190}
+          max={duration || 100}
           step={0.5}
           value={currentTime}
           onChange={handleSeek}
+          disabled={duration === 0 && !isPlaying}
           className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-500 focus:outline-none"
         />
       </div>
 
-      {/* Playback Controls - EXACTLY ONE PLAY BUTTON */}
+      {/* Playback Controls */}
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2 sm:gap-3">
           <button
@@ -290,14 +451,13 @@ export const PodcastPlayerCard: React.FC<PodcastPlayerCardProps> = ({
             <RotateCcw size={15} />
           </button>
 
-          {/* SINGLE PLAY BUTTON */}
           <button
             onClick={togglePlay}
             className="px-5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black flex items-center gap-2 shadow-lg shadow-amber-500/20 transition-all active:scale-95 cursor-pointer"
           >
             {isPlaying ? <Pause size={16} /> : <Play size={16} className="fill-current" />}
             <span className="text-xs uppercase tracking-wider">
-              {isPlaying ? 'Pause Podcast' : 'Play Podcast'}
+              {isLoading ? 'Loading...' : isPlaying ? 'Pause Podcast' : 'Play Podcast'}
             </span>
           </button>
 
@@ -323,6 +483,16 @@ export const PodcastPlayerCard: React.FC<PodcastPlayerCardProps> = ({
           >
             {isMuted ? <VolumeX size={15} /> : <Volume2 size={15} />}
           </button>
+          <a
+            href={activeSrc}
+            target="_blank"
+            rel="noopener noreferrer"
+            download
+            className="p-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-amber-400 border border-slate-800 transition-colors cursor-pointer"
+            title="Download Audio File (.m4a)"
+          >
+            <Download size={15} />
+          </a>
         </div>
       </div>
     </div>

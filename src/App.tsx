@@ -171,7 +171,7 @@ export default function App() {
                         TOP 5
                       </div>
 
-                      <div className="pr-1 pt-1.5">
+                      <div className="pr-1 pt-1.5 min-w-0 flex-1">
                         <div className="flex items-center gap-1">
                           <span className="text-[10px] font-mono font-black text-amber-400">
                             #{prospect.rank}
@@ -180,15 +180,15 @@ export default function App() {
                             {prospect.position}
                           </span>
                         </div>
-                        <h4 className="text-xs font-bold text-white truncate max-w-[95px] mt-0.5">
+                        <h4 className="text-xs font-bold text-white leading-tight mt-0.5 break-words">
                           {prospect.name}
                         </h4>
-                        <span className="text-[10px] font-mono text-slate-400 truncate block">
+                        <span className="text-[10px] font-mono text-slate-400 block truncate mt-0.5">
                           {prospect.school}
                         </span>
                       </div>
 
-                      <div className="flex flex-col items-end shrink-0 pl-1 pt-2">
+                      <div className="flex flex-col items-end shrink-0 pl-2 pt-2">
                         <span className="text-xs font-mono font-black bg-amber-500 text-slate-950 px-2 py-1 rounded-lg shadow">
                           {prospect.ovr}
                         </span>

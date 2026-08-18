@@ -1,5 +1,6 @@
 import React from 'react';
-import { Sparkles, Trophy, Radio, Download } from 'lucide-react';
+import { Sparkles, Trophy } from 'lucide-react';
+import { PodcastPlayerCard } from './PodcastPlayerCard';
 
 export const ChampionshipVideoCard: React.FC = () => {
   return (
@@ -44,40 +45,19 @@ export const ChampionshipVideoCard: React.FC = () => {
             </p>
           </div>
 
-          {/* Podcast Audio Player */}
-          <div className="bg-slate-950/90 border border-amber-500/30 p-3.5 rounded-2xl space-y-2 mt-2 shadow-inner">
-            <div className="flex items-center justify-between text-xs text-amber-400 font-extrabold font-mono">
-              <span className="flex items-center gap-1.5">
-                <Radio size={15} className="animate-pulse text-amber-400" /> Championship Podcast
-              </span>
-              <span className="text-[10px] text-slate-400 font-normal hidden sm:inline">
-                Kabal&apos;s Final Ring &amp; Underwood&apos;s Defection
-              </span>
-            </div>
-
-            <audio
-              controls
-              style={{ width: '100%' }}
-              className="w-full h-10 accent-amber-500 rounded-xl bg-slate-900 border border-slate-800 focus:outline-none"
-            >
-              <source
-                src="https://dn601201.us.archive.org/0/items/cchoops2k/Kabal_s_Final_Ring_and_Underwood_s_Defection.m4a"
-                type="audio/mp4"
-              />
-              Your browser does not support the audio element.
-            </audio>
-
-            <div className="flex items-center justify-between text-xs pt-0.5">
-              <a
-                href="https://dn601201.us.archive.org/0/items/cchoops2k/Kabal_s_Final_Ring_and_Underwood_s_Defection.m4a"
-                download
-                className="inline-flex items-center gap-1 text-amber-400 hover:text-amber-300 font-bold hover:underline transition-colors text-[11px]"
-              >
-                <Download size={13} />
-                <span>📥 Download Podcast Episode</span>
-              </a>
-              <span className="text-[10px] text-slate-500 font-mono">m4a • CCH Archive</span>
-            </div>
+          {/* Interactive Podcast Audio Player */}
+          <div className="mt-2">
+            <PodcastPlayerCard
+              audioUrl="https://archive.org/download/cchoops2k/Kabal_s_Final_Ring_and_Underwood_s_Defection.m4a"
+              podcastInfo={{
+                episodeTitle: "Kabal's Final Ring & Underwood's Defection",
+                broadcastBy: 'CCH Dynasty Podcast • Sactown Media',
+                duration: 'Championship Special • Official Audio',
+                description: "Official postgame audio recap breaking down Dorell Kabal's Finals MVP retirement sendoff and the coaching seismic shift.",
+              }}
+              title="Kabal's Final Ring & Underwood's Defection"
+              compact={true}
+            />
           </div>
         </div>
       </div>
