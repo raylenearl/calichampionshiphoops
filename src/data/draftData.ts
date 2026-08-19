@@ -472,10 +472,39 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
   },
 
   // ==========================================
-  // MID-ROUND PROSPECTS (OVR 75-73) - 14 Prospects
+  // MID-ROUND PROSPECTS (OVR 75-73) - 15 Prospects
   // ==========================================
   {
     rank: 20,
+    name: 'King Jordan',
+    position: 'SG/PG',
+    primaryPosition: 'SG',
+    secondaryPosition: 'PG',
+    school: 'Duke',
+    schoolType: 'NCAA / University',
+    ovr: 75,
+    notableAttributes: 'A+ Perimeter D, A 3PT, B+ Mid, B Playmaking',
+    keyStrength: 'Elite A+ perimeter lockdown & A 3PT marksmanship with 6\'5" combo size',
+    archetype: 'Two-Way 3-and-D Combo Guard',
+    tier: 'Mid-Round Prospects',
+    height: `6'5"`,
+    weight: '205 lbs',
+    proComparison: 'Mikal Bridges / Derrick White / Malcolm Brogdon',
+    scoutingNotes:
+      'Duke Blue Devils product with prototypical 6\'5", 205 lb physical measurements for a modern combo guard. Jordan is a lockdown stopper at the point of attack boasting Grade A+ Perimeter Defense, paired with a lethal outside stroke (Grade A 3PT Shooting) and polished mid-range touch (B+). His steady secondary playmaking (Grade B) and switchability make him an immediate high-impact two-way rotation star.',
+    gradeBadges: [
+      { label: 'Perimeter Defense', grade: 'A+', color: 'emerald' },
+      { label: '3PT Shooting', grade: 'A', color: 'gold' },
+      { label: 'Mid-Range Shooting', grade: 'B+', color: 'gold' },
+      { label: 'Inside Scoring', grade: 'B', color: 'blue' },
+      { label: 'Playmaking', grade: 'B', color: 'purple' },
+      { label: 'Post Defense', grade: 'B', color: 'emerald' },
+      { label: 'Rebounding', grade: 'B-', color: 'amber' },
+      { label: 'Overall Tier', grade: '75 OVR', color: 'blue' },
+    ],
+  },
+  {
+    rank: 21,
     name: 'Lynnwood Washington Jr.',
     position: 'SG/SF',
     primaryPosition: 'SG',
@@ -499,7 +528,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 21,
+    rank: 22,
     name: 'Malique Pierce',
     position: 'PF/SF',
     primaryPosition: 'PF',
@@ -523,7 +552,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 22,
+    rank: 23,
     name: 'Steven Booker',
     position: 'PF/SF',
     primaryPosition: 'PF',
@@ -547,7 +576,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 23,
+    rank: 24,
     name: 'Isaac Levingson',
     position: 'PF/C',
     primaryPosition: 'PF',
@@ -571,7 +600,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 24,
+    rank: 25,
     name: 'Rod Hammonds',
     position: 'PF/SF',
     primaryPosition: 'PF',
@@ -595,7 +624,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 25,
+    rank: 26,
     name: 'Sean McMahon',
     position: 'PG',
     primaryPosition: 'PG',
@@ -618,7 +647,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 26,
+    rank: 27,
     name: 'Malik Holman',
     position: 'SF/SG',
     primaryPosition: 'SF',
@@ -642,7 +671,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 27,
+    rank: 28,
     name: 'Zaire Thompson',
     position: 'C/PF',
     primaryPosition: 'C',
@@ -666,7 +695,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 28,
+    rank: 29,
     name: 'Joe Grantham',
     position: 'PF',
     primaryPosition: 'PF',
@@ -689,7 +718,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 29,
+    rank: 30,
     name: 'Dell Butler',
     position: 'SG/PG',
     primaryPosition: 'SG',
@@ -712,7 +741,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 30,
+    rank: 31,
     name: 'Ralph Gilyard',
     position: 'PF/SF',
     primaryPosition: 'PF',
@@ -736,7 +765,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 31,
+    rank: 32,
     name: 'Raymond Brewer',
     position: 'PF/SF',
     primaryPosition: 'PF',
@@ -760,7 +789,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 32,
+    rank: 33,
     name: 'Chuck Sloan',
     position: 'SG/PG',
     primaryPosition: 'SG',
@@ -784,7 +813,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 33,
+    rank: 34,
     name: 'Gemini Jackson',
     position: 'PG',
     primaryPosition: 'PG',
@@ -811,7 +840,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
   // LATE ROUND / TWO-WAY (OVR 72-70) - 11 Prospects
   // ==========================================
   {
-    rank: 34,
+    rank: 35,
     name: 'Nelson Battle',
     position: 'PG/SG',
     primaryPosition: 'PG',
@@ -835,7 +864,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 35,
+    rank: 36,
     name: 'Gerald Jones',
     position: 'PF/C',
     primaryPosition: 'PF',
@@ -859,7 +888,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 36,
+    rank: 37,
     name: 'Eric Ferguson',
     position: 'PG/SG',
     primaryPosition: 'PG',
@@ -883,7 +912,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 37,
+    rank: 38,
     name: 'Dean Paxson',
     position: 'SF',
     primaryPosition: 'SF',
@@ -905,7 +934,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 38,
+    rank: 39,
     name: 'Frederick Lloyd',
     position: 'PF/C',
     primaryPosition: 'PF',
@@ -929,7 +958,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 39,
+    rank: 40,
     name: 'Tienchung Lee',
     position: 'PG',
     primaryPosition: 'PG',
@@ -951,7 +980,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 40,
+    rank: 41,
     name: 'Bruno Popovic',
     position: 'C/PF',
     primaryPosition: 'C',
@@ -975,7 +1004,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 41,
+    rank: 42,
     name: 'Johnathan Griffith',
     position: 'PF',
     primaryPosition: 'PF',
@@ -997,7 +1026,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 42,
+    rank: 43,
     name: 'Charlie Simms',
     position: 'SF/PF',
     primaryPosition: 'SF',
@@ -1020,7 +1049,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 43,
+    rank: 44,
     name: 'Marc Cannady',
     position: 'C',
     primaryPosition: 'C',
@@ -1042,7 +1071,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     ],
   },
   {
-    rank: 44,
+    rank: 45,
     name: 'Ronnie George',
     position: 'PF',
     primaryPosition: 'PF',
@@ -1067,17 +1096,17 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
 ];
 
 export const DRAFT_QUICK_STATS = {
-  totalProspects: 44,
+  totalProspects: 45,
   tier80Plus: 10,
-  tier75to79: 18,
+  tier75to79: 19,
   tier70to74: 16,
   topTierCount: 10,
   lotteryCount: 9,
-  midRoundCount: 14,
+  midRoundCount: 15,
   lateRoundCount: 11,
   californiaCollegesCount: 9,
   pointGuards: 9,
-  shootingGuards: 6,
+  shootingGuards: 7,
   smallForwards: 6,
   powerForwards: 12,
   centers: 11,
