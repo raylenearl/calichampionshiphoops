@@ -4,6 +4,7 @@ import { PlayoffGame } from '../types';
 import { TEAMS } from '../data/teamsData';
 import { SEASON_ROSTERS } from '../data/rostersData';
 import { TeamBadge } from './TeamBadge';
+import { PodcastPlayerCard } from './PodcastPlayerCard';
 import {
   Trophy,
   Flame,
@@ -228,6 +229,21 @@ export const PlayoffsView: React.FC<PlayoffsViewProps> = ({
             <p className="text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed">
               {playoffInfo.narrative}
             </p>
+            {selectedSeason === 3 && (
+              <div className="max-w-xl mt-3">
+                <PodcastPlayerCard
+                  audioUrl="https://archive.org/download/nba-2-k-24-2024-05-12-02-07-45/Kabal_s_Final_Ring_and_Underwood_s_Defection.m4a"
+                  podcastInfo={{
+                    episodeTitle: "Kabal's Final Ring & Underwood's Defection",
+                    broadcastBy: 'CCH Dynasty Podcast • Sactown Media',
+                    duration: 'Championship Special • Official Audio',
+                    description: "Official postgame audio recap breaking down Dorell Kabal's Finals MVP retirement sendoff and the coaching seismic shift.",
+                  }}
+                  title="Season 3 Championship Podcast: Kabal's Final Ring"
+                  compact={true}
+                />
+              </div>
+            )}
           </div>
 
           <div className="bg-slate-950 border border-slate-800 p-4 rounded-2xl space-y-2 min-w-[260px] shrink-0">

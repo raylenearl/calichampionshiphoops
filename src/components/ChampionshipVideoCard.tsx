@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sparkles, Trophy } from 'lucide-react';
+import { PodcastPlayerCard } from './PodcastPlayerCard';
 
 export const ChampionshipVideoCard: React.FC = () => {
   return (
@@ -25,7 +26,7 @@ export const ChampionshipVideoCard: React.FC = () => {
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 pb-2">
             <div className="flex items-center gap-2">
               <span className="text-[10px] font-black uppercase tracking-wider text-amber-400 bg-amber-950/80 border border-amber-800/80 px-2.5 py-0.5 rounded-full flex items-center gap-1">
-                <Trophy size={12} className="text-amber-400" /> Finals Broadcast & Highlights
+                <Trophy size={12} className="text-amber-400" /> Finals Replay & Audio Special
               </span>
               <span className="text-[11px] text-slate-400 font-mono font-bold">SAC TOWN ARENA</span>
             </div>
@@ -35,16 +36,28 @@ export const ChampionshipVideoCard: React.FC = () => {
           </div>
 
           <h3 className="text-lg sm:text-xl font-black text-white tracking-tight leading-snug">
-            STALLIONS REIGN SUPREME: Season 3 Finals Game Broadcast
+            STALLIONS REIGN SUPREME: Season 3 Finals Broadcast & Championship Special
           </h3>
 
-          <div className="space-y-2 text-xs text-slate-300 leading-relaxed font-normal">
+          <div className="space-y-1 text-xs text-slate-300 leading-relaxed font-normal">
             <p className="line-clamp-2 sm:line-clamp-none font-medium text-slate-200">
               Behind a masterclass from Finals MVP Dorell Kabal (25 PTS, 11 REB, 3 BLK on 78.6% FG) in his final career game and 29 points from George Madsen (5-7 3PT), the Sacramento Stallions captured their 2nd CCH Title!
             </p>
-            <p className="text-slate-400 hidden sm:block">
-              Watch full fourth-quarter highlights and the championship trophy presentation above.
-            </p>
+          </div>
+
+          {/* Attached Podcast Player */}
+          <div className="mt-2">
+            <PodcastPlayerCard
+              audioUrl="https://archive.org/download/nba-2-k-24-2024-05-12-02-07-45/Kabal_s_Final_Ring_and_Underwood_s_Defection.m4a"
+              podcastInfo={{
+                episodeTitle: "Kabal's Final Ring & Underwood's Defection",
+                broadcastBy: 'CCH Dynasty Podcast • Sactown Media',
+                duration: 'Championship Special • Official Audio',
+                description: "Official postgame audio recap breaking down Dorell Kabal's Finals MVP retirement sendoff, Sacramento's second banner, and Jacob Underwood's cross-town move.",
+              }}
+              title="Kabal's Final Ring & Underwood's Defection"
+              compact={true}
+            />
           </div>
         </div>
       </div>

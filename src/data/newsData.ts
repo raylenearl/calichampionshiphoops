@@ -26,6 +26,13 @@ export interface CoachProfileCard {
   philosophy?: string;
 }
 
+export interface PodcastInfo {
+  episodeTitle: string;
+  broadcastBy?: string;
+  duration?: string;
+  description?: string;
+}
+
 export interface CCHNewsArticle {
   id: string;
   title: string;
@@ -51,6 +58,8 @@ export interface CCHNewsArticle {
   quotes?: { speaker: string; title: string; quote: string }[];
   playerStats?: { player: string; team: string; stat: string }[];
   coachesList?: CoachProfileCard[];
+  audioUrl?: string;
+  podcastInfo?: PodcastInfo;
 }
 
 export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
@@ -63,7 +72,14 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     category: 'offseason',
     featured: true,
     author: 'CCH Scouting Department',
-    readTime: '6 min read • Full Scouting Profiles',
+    readTime: '6 min read • Audio Special Included',
+    audioUrl: 'https://archive.org/download/nba-2-k-24-2024-05-12-02-07-45/Daugherty_versus_Wilkens_for_Franchise_Foundation.m4a',
+    podcastInfo: {
+      episodeTitle: 'Draft Special: Daugherty vs. Wilkens for Franchise Foundation',
+      broadcastBy: 'CCH Draft War Room • Official Scouting Podcast',
+      duration: 'Official Audio Breakdown',
+      description: 'Exclusive scouting debate analyzing whether front offices should target perimeter scoring superstar Carlton Daugherty (#1) or defensive anchor Grok Wilkens (#4) at the top of the Season 4 Draft.',
+    },
     headlineQuote: 'This is the deepest draft pool in Cali Championship Hoops history. With nine California collegiate programs represented and game-changing talent across all five positions, franchise fortunes will pivot on draft night.',
     contentParagraphs: [
       'CALIFORNIA — The official Big Board for the upcoming Season 4 Cali Championship Hoops Draft has been finalized, featuring 44 verified prospects scouted across collegiate tournaments, international leagues, and high school circuits.',
@@ -106,7 +122,14 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     category: 'offseason',
     featured: true,
     author: 'Front-Office Insider',
-    readTime: '5 min read • Full Coaching Profiles',
+    readTime: '5 min read • Audio Podcast Included',
+    audioUrl: 'https://archive.org/download/nba-2-k-24-2024-05-12-02-07-45/Cali_Hoops_Season_4_Coaching_Shakeups.m4a',
+    podcastInfo: {
+      episodeTitle: 'Season 4 Coaching Shakeups & Sideline Carousel Special',
+      broadcastBy: 'CCH Media Network • Front-Office Insider',
+      duration: 'Official Audio Broadcast',
+      description: 'Official audio breakdown discussing all 12 head coaches, tactical identities, the Underwood defection to the Sabrewolves, and coaching storylines entering Season 4.',
+    },
     imageUrl: jacobUnderwoodImg,
     imageCaption: 'The Season 4 Head Coaching Class: 12 Leaders Setting the Course for Championship Glory',
     headlineQuote: 'The sideline chess match in Season 4 will be the fiercest in league history. Four enduring pillars defend their culture against eight fresh tacticians determined to reshape the championship hierarchy.',
@@ -374,19 +397,26 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
   },
   {
     id: 's3-podcast-special',
-    title: 'SPECIAL FEATURE: Kabal’s Final Ring & Underwood’s Defection Insider Analysis',
-    subtitle: 'An in-depth written retrospective breaking down the Season 3 Championship, Dorell Kabal’s Hall-of-Fame retirement sendoff, and the seismic coaching shakeups heading into Season 4.',
+    title: 'SPECIAL BROADCAST: Kabal’s Final Ring & Underwood’s Defection Podcast Breakdown',
+    subtitle: 'Listen to the official audio retrospective covering the Season 3 Championship, Dorell Kabal’s Hall-of-Fame retirement sendoff, and the seismic coaching shakeups heading into Season 4.',
     date: 'Season 3 Postseason Retrospective',
     season: 3,
     category: 'feature',
     featured: false,
     author: 'CCH Official Media Network',
-    readTime: '4 min read • Editorial',
+    readTime: 'Audio Podcast • 4 min listen',
+    audioUrl: 'https://archive.org/download/nba-2-k-24-2024-05-12-02-07-45/Kabal_s_Final_Ring_and_Underwood_s_Defection.m4a',
+    podcastInfo: {
+      episodeTitle: "Kabal's Final Ring & Underwood's Defection Breakdown",
+      broadcastBy: 'CCH Dynasty Podcast • Sactown Media',
+      duration: 'Championship Special • Official Audio',
+      description: "Official postgame audio recap breaking down Dorell Kabal's Finals MVP retirement sendoff, Sacramento's second banner, and Jacob Underwood's cross-town coaching move.",
+    },
     headlineQuote: "Inside the locker room moments, strategic adjustments, and offseason rumors that define the transition to Season 4.",
     contentParagraphs: [
       "In one of the most dramatic conclusions to a Cali Championship Hoops campaign, Season 3 closed with the Sacramento Stallions hoisting their second franchise title behind a 25-point, 11-rebound retirement masterpiece from Finals MVP Dorell Kabal.",
       "Beyond the on-court celebration, the aftermath unleashed an unprecedented coaching carousel. Former California Reds architect Jacob Underwood completed a shock defection to the San Diego Sabrewolves, setting off ripple effects that saw eight head coaching seats turn over.",
-      "As franchises prepare for the Season 4 campaign, tactical blueprints are being completely reimagined across all 12 organizations."
+      "Stream the official audio podcast above to hear in-depth commentary on the tactical blueprints being completely reimagined across all 12 organizations."
     ]
   },
   {

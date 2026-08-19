@@ -16,6 +16,7 @@ import { AllStarGameView } from './components/AllStarGameView';
 import { TransactionsView } from './components/TransactionsView';
 import { NewsView } from './components/NewsView';
 import { DraftView } from './components/DraftView';
+import { PodcastPlayerCard } from './components/PodcastPlayerCard';
 import { DRAFT_PROSPECTS } from './data/draftData';
 import { SearchModal } from './components/SearchModal';
 import { TeamSeasonModal } from './components/TeamSeasonModal';
@@ -348,6 +349,18 @@ export default function App() {
                     </div>
                   ))}
                 </div>
+              </div>
+
+              {/* Embedded Front Page Hub Draft Prospects Podcast Player */}
+              <div
+                onClick={(e) => e.stopPropagation()}
+                className="relative z-10 pt-2"
+              >
+                <PodcastPlayerCard
+                  audioUrl="https://archive.org/download/nba-2-k-24-2024-05-12-02-07-45/Daugherty_versus_Wilkens_for_Franchise_Foundation.m4a"
+                  title="Draft Debate: Carlton Daugherty vs. Grok Wilkens for Franchise Foundation"
+                  subtitle="Official CCH Draft Breakdown • UC San Diego vs. Kentucky Cornerstone Analysis"
+                />
               </div>
             </div>
 

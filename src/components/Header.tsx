@@ -173,14 +173,14 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Light / Dark Mode Theme Toggle */}
             <button
               onClick={onToggleTheme}
-              className="flex items-center justify-center p-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 transition-all cursor-pointer shrink-0 shadow-sm"
+              className="flex items-center justify-center w-8 h-8 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 transition-all cursor-pointer shrink-0 shadow-sm overflow-hidden"
               title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
               aria-label={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
             >
               {theme === 'dark' ? (
                 <Sun size={15} className="text-amber-400 shrink-0" />
               ) : (
-                <Moon size={15} className="text-amber-600 shrink-0" />
+                <Moon size={15} className="text-amber-500 shrink-0" />
               )}
             </button>
           </div>
@@ -189,32 +189,32 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="flex items-center gap-1.5 lg:hidden shrink-0">
             <button
               onClick={handleCopyLink}
-              className="p-2 bg-slate-900 border border-slate-800 rounded-xl text-amber-400 cursor-pointer shrink-0"
+              className="w-8 h-8 flex items-center justify-center bg-slate-900 border border-slate-800 rounded-xl text-amber-400 cursor-pointer shrink-0"
               title="Copy direct link to section"
             >
-              {copiedRecently ? <Check size={16} className="text-emerald-400" /> : <Share2 size={16} />}
+              {copiedRecently ? <Check size={15} className="text-emerald-400" /> : <Share2 size={15} />}
             </button>
             <button
               onClick={onToggleTheme}
-              className="p-2 bg-slate-900 border border-slate-800 rounded-xl text-amber-400 cursor-pointer shrink-0"
+              className="w-8 h-8 flex items-center justify-center bg-slate-900 border border-slate-800 rounded-xl text-amber-400 cursor-pointer shrink-0 overflow-hidden"
               title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
               aria-label={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
             >
-              {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+              {theme === 'dark' ? <Sun size={15} className="text-amber-400" /> : <Moon size={15} className="text-amber-500" />}
             </button>
             <button
               onClick={onOpenSearch}
-              className="p-2 bg-slate-900 border border-slate-800 rounded-xl text-amber-400 cursor-pointer shrink-0"
+              className="w-8 h-8 flex items-center justify-center bg-slate-900 border border-slate-800 rounded-xl text-amber-400 cursor-pointer shrink-0"
               title="Search"
             >
-              <Search size={16} />
+              <Search size={15} />
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 bg-slate-900 border border-slate-800 rounded-xl text-slate-300 hover:text-white cursor-pointer shrink-0"
+              className="w-8 h-8 flex items-center justify-center bg-slate-900 border border-slate-800 rounded-xl text-slate-300 hover:text-white cursor-pointer shrink-0"
               aria-label="Toggle navigation menu"
             >
-              {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+              {mobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
             </button>
           </div>
         </div>

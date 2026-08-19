@@ -1,5 +1,6 @@
 import React from 'react';
-import { Newspaper, ChevronRight, Sparkles, Quote, BookOpen, Users, ArrowRight } from 'lucide-react';
+import { Newspaper, ChevronRight, Sparkles, Quote, BookOpen, Users, ArrowRight, Headphones } from 'lucide-react';
+import { PodcastPlayerCard } from './PodcastPlayerCard';
 import { CCH_NEWS_ARTICLES } from '../data/newsData';
 
 // Coach images
@@ -36,6 +37,8 @@ const COACHES_PREVIEW = [
 ];
 
 export const BreakingNewsCard: React.FC<BreakingNewsCardProps> = ({ onNavigateToNews }) => {
+  const coachesArticle = CCH_NEWS_ARTICLES.find(a => a.id === 's4-head-coaches-introduction') || CCH_NEWS_ARTICLES[0];
+
   return (
     <div className="bg-gradient-to-br from-slate-900 via-slate-950 to-amber-950/30 border-2 border-amber-500/40 rounded-3xl p-5 sm:p-7 shadow-2xl relative overflow-hidden group space-y-6">
       {/* Ambient background glow */}
@@ -51,8 +54,8 @@ export const BreakingNewsCard: React.FC<BreakingNewsCardProps> = ({ onNavigateTo
           <span className="text-[10px] font-mono font-bold bg-amber-500/15 text-amber-300 px-2.5 py-0.5 rounded-full border border-amber-500/30">
             SEASON 4 OFFSEASON
           </span>
-          <span className="text-[10px] font-mono font-bold bg-emerald-500/15 text-emerald-300 px-2.5 py-0.5 rounded-full border border-emerald-500/30">
-            12 COACHES VERIFIED
+          <span className="text-[10px] font-mono font-bold bg-amber-500/25 text-amber-300 px-2.5 py-0.5 rounded-full border border-amber-500/40 flex items-center gap-1">
+            <Headphones size={11} /> PODCAST ATTACHED
           </span>
         </div>
         <span className="text-xs font-mono text-slate-300 font-bold">Front-Office Insider</span>
@@ -101,7 +104,7 @@ export const BreakingNewsCard: React.FC<BreakingNewsCardProps> = ({ onNavigateTo
           </div>
         </div>
 
-        {/* Right Side: Headline, Summary, Quote, CTA */}
+        {/* Right Side: Headline, Summary, Attached Podcast Player & Action CTAs */}
         <div className="lg:col-span-7 space-y-4">
           <div
             className="cursor-pointer"
@@ -115,16 +118,26 @@ export const BreakingNewsCard: React.FC<BreakingNewsCardProps> = ({ onNavigateTo
             </p>
           </div>
 
+          {/* Attached Single-Control Audio Podcast Player */}
+          {coachesArticle.audioUrl && (
+            <PodcastPlayerCard
+              audioUrl={coachesArticle.audioUrl}
+              podcastInfo={coachesArticle.podcastInfo}
+              title="Season 4 Coaching Shakeups Special"
+              compact={true}
+            />
+          )}
+
           {/* Quote Banner */}
-          <div className="bg-slate-950/70 border-l-4 border-amber-500 p-3.5 rounded-r-2xl italic text-xs text-slate-200 flex items-start gap-2.5 shadow-inner">
-            <Quote size={15} className="text-amber-400 shrink-0 mt-0.5" />
+          <div className="bg-slate-950/70 border-l-4 border-amber-500 p-3 rounded-r-2xl italic text-xs text-slate-200 flex items-start gap-2 shadow-inner">
+            <Quote size={14} className="text-amber-400 shrink-0 mt-0.5" />
             <span className="leading-relaxed">
               &quot;The sideline chess match in Season 4 will be the fiercest in league history. Four enduring pillars defend their culture against eight fresh tacticians determined to reshape the championship hierarchy.&quot;
             </span>
           </div>
 
           {/* Navigation CTA Buttons */}
-          <div className="flex flex-wrap items-center gap-3 pt-2">
+          <div className="flex flex-wrap items-center gap-3 pt-1">
             <button
               onClick={() => onNavigateToNews('s4-head-coaches-introduction')}
               className="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs sm:text-sm rounded-2xl shadow-lg shadow-amber-500/20 flex items-center gap-2 transition-all cursor-pointer"

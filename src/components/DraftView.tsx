@@ -21,19 +21,23 @@ import {
   ListFilter,
   Layers,
   Star,
+  RotateCcw,
+  Headphones,
 } from 'lucide-react';
 import {
   DRAFT_PROSPECTS,
   DRAFT_QUICK_STATS,
   TOP_FIVE_PLAYERS_TO_WATCH,
 } from '../data/draftData';
-import { DraftProspect, DraftTier } from '../types';
+import { DraftProspect } from '../types';
+import { PodcastPlayerCard } from './PodcastPlayerCard';
 
 interface DraftViewProps {
   onSelectTeamRecap?: (teamId: string, season?: 1 | 2 | 3) => void;
 }
 
 export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSelectTeamRecap }) => {
+  // Search & Filter state
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTier, setSelectedTier] = useState<string>('All');
   const [selectedPosition, setSelectedPosition] = useState<string>('All');
@@ -61,10 +65,9 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
     return 'bg-gradient-to-br from-slate-700 to-slate-800 text-slate-200 font-bold';
   };
 
-  // Filtered & Sorted prospects
+  // Filtered & Sorted prospects for Season 4
   const filteredProspects = useMemo(() => {
     return DRAFT_PROSPECTS.filter((p) => {
-      // Search matching
       const q = searchQuery.toLowerCase().trim();
       const matchesSearch =
         !q ||
@@ -74,7 +77,6 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
         p.notableAttributes.toLowerCase().includes(q) ||
         p.archetype.toLowerCase().includes(q);
 
-      // Tier matching
       const matchesTier =
         selectedTier === 'All' ||
         (selectedTier === 'Top' && p.tier === 'Top Prospects') ||
@@ -82,14 +84,12 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
         (selectedTier === 'Mid' && p.tier === 'Mid-Round Prospects') ||
         (selectedTier === 'Late' && p.tier === 'Late Round / Two-Way');
 
-      // Position matching
       const matchesPosition =
         selectedPosition === 'All' ||
         p.primaryPosition === selectedPosition ||
         p.secondaryPosition === selectedPosition ||
         p.position.includes(selectedPosition);
 
-      // Origin matching
       const matchesOrigin =
         selectedOrigin === 'All' ||
         (selectedOrigin === 'California' && p.schoolType === 'California College') ||
@@ -97,7 +97,6 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
         (selectedOrigin === 'International' && p.schoolType === 'International') ||
         (selectedOrigin === 'HighSchool' && p.schoolType === 'High School / JUCO');
 
-      // California view mode constraint
       if (viewMode === 'california' && p.schoolType !== 'California College') {
         return false;
       }
@@ -174,6 +173,13 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
           </div>
         </div>
       </div>
+
+      {/* Featured Podcast Episode inside Draft Central */}
+      <PodcastPlayerCard
+        audioUrl="https://archive.org/download/nba-2-k-24-2024-05-12-02-07-45/Daugherty_versus_Wilkens_for_Franchise_Foundation.m4a"
+        title="Draft Debate: Carlton Daugherty vs. Grok Wilkens for Franchise Foundation"
+        subtitle="CCH Insider Roundtable • UC San Diego two-way maestro vs. Kentucky interior titan"
+      />
 
       {/* Top 5 Players to Watch Spotlight */}
       <div className="space-y-4">
@@ -305,7 +311,7 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
                 }`}
               >
                 <ListFilter size={14} />
-                <span>Big Board Table</span>
+                <span>Table</span>
               </button>
               <button
                 onClick={() => setViewMode('california')}
@@ -316,66 +322,60 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
                 }`}
               >
                 <MapPin size={14} />
-                <span>California Pipeline (8)</span>
+                <span>Cali Pipeline</span>
               </button>
             </div>
 
             {/* Sort Selector */}
-            <div className="flex items-center gap-1.5 bg-slate-950 border border-slate-800 px-3 py-1.5 rounded-2xl text-xs">
-              <ArrowUpDown size={14} className="text-amber-400 shrink-0" />
+            <div className="flex items-center gap-1 bg-slate-950 border border-slate-800 p-1 rounded-2xl text-xs">
+              <span className="text-[11px] font-mono text-slate-500 px-2 font-bold flex items-center gap-1">
+                <ArrowUpDown size={12} /> Sort:
+              </span>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
-                className="bg-transparent text-slate-300 font-semibold focus:outline-none cursor-pointer pr-2"
+                className="bg-transparent text-slate-200 text-xs font-bold focus:outline-none pr-2 cursor-pointer"
               >
-                <option value="rank" className="bg-slate-900 text-white">Sort: Big Board Rank (#1-39)</option>
-                <option value="ovr-desc" className="bg-slate-900 text-white">Sort: Highest OVR First</option>
-                <option value="name-asc" className="bg-slate-900 text-white">Sort: Name (A-Z)</option>
-                <option value="position" className="bg-slate-900 text-white">Sort: Position</option>
+                <option value="rank" className="bg-slate-900 text-white">Rank (#1-44)</option>
+                <option value="ovr-desc" className="bg-slate-900 text-white">Overall Rating (High-Low)</option>
+                <option value="name-asc" className="bg-slate-900 text-white">Name (A-Z)</option>
+                <option value="position" className="bg-slate-900 text-white">Position (PG-C)</option>
               </select>
             </div>
           </div>
         </div>
 
-        {/* Filter Pills Rows */}
-        <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-slate-800/80">
-          {/* Tier Filters */}
-          <div className="flex flex-wrap items-center gap-1.5">
-            <span className="text-[11px] font-mono font-bold text-slate-400 mr-1 flex items-center gap-1">
-              <Layers size={13} /> Tier:
-            </span>
-            {[
-              { id: 'All', label: 'All Tiers (39)' },
-              { id: 'Top', label: 'Top Tier 80-85 (7)' },
-              { id: 'Lottery', label: 'Lottery 76-79 (9)' },
-              { id: 'Mid', label: 'Mid-Round 73-75 (15)' },
-              { id: 'Late', label: 'Late/Two-Way 70-72 (8)' },
-            ].map((tier) => (
+        {/* Filter Pills: Tiers, Positions, Origins */}
+        <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-800 text-xs">
+          {/* Tiers */}
+          <div className="flex items-center gap-1.5 flex-wrap">
+            <span className="text-[10px] font-mono text-slate-500 font-bold uppercase tracking-wider">Tier:</span>
+            {['All', 'Top', 'Lottery', 'Mid', 'Late'].map((tier) => (
               <button
-                key={tier.id}
-                onClick={() => setSelectedTier(tier.id)}
-                className={`px-3 py-1 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                  selectedTier === tier.id
-                    ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-                    : 'bg-slate-950 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-800'
+                key={tier}
+                onClick={() => setSelectedTier(tier)}
+                className={`px-3 py-1 rounded-xl font-mono text-xs font-bold transition-all cursor-pointer ${
+                  selectedTier === tier
+                    ? 'bg-amber-500 text-slate-950 shadow-sm'
+                    : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'
                 }`}
               >
-                {tier.label}
+                {tier === 'All' ? 'All Tiers' : tier === 'Top' ? 'Top (80+)' : tier === 'Lottery' ? 'Lottery (76-79)' : tier === 'Mid' ? 'Mid (73-75)' : 'Late (70-72)'}
               </button>
             ))}
           </div>
 
-          {/* Position Filters */}
-          <div className="flex flex-wrap items-center gap-1.5">
-            <span className="text-[11px] font-mono font-bold text-slate-400 mr-1">Position:</span>
+          {/* Positions */}
+          <div className="flex items-center gap-1.5 flex-wrap">
+            <span className="text-[10px] font-mono text-slate-500 font-bold uppercase tracking-wider">Pos:</span>
             {['All', 'PG', 'SG', 'SF', 'PF', 'C'].map((pos) => (
               <button
                 key={pos}
                 onClick={() => setSelectedPosition(pos)}
-                className={`px-2.5 py-1 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                className={`px-2.5 py-1 rounded-xl font-mono text-xs font-bold transition-all cursor-pointer ${
                   selectedPosition === pos
-                    ? 'bg-sky-500 text-slate-950 font-black shadow-md'
-                    : 'bg-slate-950 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-800'
+                    ? 'bg-amber-500 text-slate-950'
+                    : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'
                 }`}
               >
                 {pos}
@@ -383,230 +383,170 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
             ))}
           </div>
 
-          {/* Origin Filters */}
-          <div className="flex flex-wrap items-center gap-1.5">
-            <span className="text-[11px] font-mono font-bold text-slate-400 mr-1 flex items-center gap-1">
-              <Globe size={13} /> Origin:
-            </span>
-            {[
-              { id: 'All', label: 'All' },
-              { id: 'California', label: 'California Colleges (8)' },
-              { id: 'NCAA', label: 'NCAA (24)' },
-              { id: 'International', label: 'International (5)' },
-              { id: 'HighSchool', label: 'HS / JUCO (2)' },
-            ].map((orig) => (
+          {/* Origin Filter */}
+          <div className="flex items-center gap-1.5 flex-wrap">
+            <span className="text-[10px] font-mono text-slate-500 font-bold uppercase tracking-wider">Origin:</span>
+            {['All', 'California', 'NCAA', 'International'].map((origin) => (
               <button
-                key={orig.id}
-                onClick={() => setSelectedOrigin(orig.id)}
-                className={`px-2.5 py-1 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                  selectedOrigin === orig.id
-                    ? 'bg-emerald-500 text-slate-950 font-black shadow-md'
-                    : 'bg-slate-950 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-800'
+                key={origin}
+                onClick={() => setSelectedOrigin(origin)}
+                className={`px-2.5 py-1 rounded-xl font-mono text-xs font-bold transition-all cursor-pointer ${
+                  selectedOrigin === origin
+                    ? 'bg-sky-500 text-slate-950'
+                    : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'
                 }`}
               >
-                {orig.label}
+                {origin === 'California' ? '🌴 California College' : origin}
               </button>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Results Header Count */}
-      <div className="flex items-center justify-between px-1">
-        <span className="text-xs font-mono text-slate-400 font-bold">
-          Showing <span className="text-amber-400 font-black">{filteredProspects.length}</span> of {DRAFT_PROSPECTS.length} prospects
-          {viewMode === 'california' && ' (California Collegiate Pipeline)'}
+      {/* Results Summary Bar */}
+      <div className="flex items-center justify-between text-xs font-mono text-slate-400 px-1">
+        <span>
+          Showing <strong className="text-amber-400 font-bold">{filteredProspects.length}</strong> of {DRAFT_PROSPECTS.length} prospects
         </span>
-        {(searchQuery || selectedTier !== 'All' || selectedPosition !== 'All' || selectedOrigin !== 'All') && (
+        {(searchQuery || selectedTier !== 'All' || selectedPosition !== 'All' || selectedOrigin !== 'All' || viewMode === 'california') && (
           <button
             onClick={() => {
               setSearchQuery('');
               setSelectedTier('All');
               setSelectedPosition('All');
               setSelectedOrigin('All');
+              setViewMode('cards');
             }}
-            className="text-xs font-mono text-amber-400 hover:text-amber-300 underline cursor-pointer"
+            className="text-amber-400 hover:underline flex items-center gap-1 cursor-pointer font-bold"
           >
-            Reset Filters
+            <RotateCcw size={12} /> Reset Filters
           </button>
         )}
       </div>
 
-      {/* VIEW MODE 1: CARDS VIEW */}
-      {viewMode === 'cards' && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {filteredProspects.map((p) => (
+      {/* CARDS VIEW */}
+      {viewMode !== 'table' && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          {filteredProspects.map((prospect) => (
             <div
-              key={p.rank}
-              onClick={() => setActiveProspectModal(p)}
-              className="bg-slate-900/90 border border-slate-800 hover:border-amber-500/50 p-5 rounded-3xl space-y-4 cursor-pointer transition-all hover:-translate-y-1 shadow-lg group relative overflow-hidden flex flex-col justify-between"
+              key={prospect.rank}
+              onClick={() => setActiveProspectModal(prospect)}
+              className="bg-slate-900 border border-slate-800 hover:border-amber-500/50 p-5 rounded-3xl space-y-4 shadow-xl hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between relative overflow-hidden"
             >
-              {/* Subtle accent tag based on tier */}
-              {(p.isTopFiveWatch || p.rank <= 5) && (
-                <div className="absolute top-0 right-0 bg-amber-500 text-slate-950 text-[9px] font-mono font-black uppercase tracking-wider px-2.5 py-0.5 rounded-bl-xl shadow flex items-center gap-1">
-                  <Star size={10} className="fill-slate-950" />
-                  TOP 5
-                </div>
-              )}
-
               <div className="space-y-3">
-                {/* Top Rank + Rating + Position Row */}
+                {/* Header Rank + Position + OVR */}
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <span className="font-mono text-xs font-black px-2.5 py-1 rounded-xl bg-slate-950 border border-slate-800 text-amber-400 shadow-inner">
-                      #{p.rank}
+                    <span className="font-mono text-xs font-black px-2 py-0.5 rounded-lg bg-slate-950 border border-slate-800 text-amber-400">
+                      #{prospect.rank}
                     </span>
-                    <span className={`px-2.5 py-0.5 rounded-xl text-xs font-black border ${getPosBadgeClass(p.position)}`}>
-                      {p.position}
+                    <span className={`px-2 py-0.5 rounded-lg text-xs font-bold border ${getPosBadgeClass(prospect.position)}`}>
+                      {prospect.position}
                     </span>
                   </div>
-                  <span className={`px-3 py-1 rounded-xl text-sm font-black shadow-lg ${getOvrBadgeClass(p.ovr)}`}>
-                    {p.ovr} OVR
+                  <span className={`px-2.5 py-0.5 rounded-xl text-xs font-black ${getOvrBadgeClass(prospect.ovr)}`}>
+                    {prospect.ovr} OVR
                   </span>
                 </div>
 
-                {/* Prospect Name & Origin */}
+                {/* Prospect Name & School */}
                 <div>
                   <h3 className="text-lg font-black text-white group-hover:text-amber-400 transition-colors leading-tight">
-                    {p.name}
+                    {prospect.name}
                   </h3>
                   <div className="flex items-center gap-1.5 text-xs text-slate-400 font-medium mt-1">
-                    {p.schoolType === 'California College' ? (
-                      <span className="text-sky-400 flex items-center gap-1 font-bold">
-                        <MapPin size={12} /> {p.school} (CA)
-                      </span>
-                    ) : p.schoolType === 'International' ? (
-                      <span className="text-purple-400 flex items-center gap-1 font-bold">
-                        <Globe size={12} /> {p.school} (Intl)
-                      </span>
-                    ) : p.schoolType === 'High School / JUCO' ? (
-                      <span className="text-emerald-400 flex items-center gap-1 font-bold">
-                        <GraduationCap size={12} /> {p.school}
-                      </span>
-                    ) : (
-                      <span className="flex items-center gap-1">
-                        <GraduationCap size={12} /> {p.school}
+                    <GraduationCap size={13} className="text-amber-400 shrink-0" />
+                    <span className="truncate">{prospect.school}</span>
+                    {prospect.schoolType === 'California College' && (
+                      <span className="text-[10px] font-mono text-sky-400 bg-sky-500/10 px-1.5 py-0.2 rounded border border-sky-500/20 shrink-0">
+                        Cali
                       </span>
                     )}
                   </div>
                 </div>
 
-                {/* Archetype & Notable Attributes Pill Box */}
-                <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-3 space-y-2">
+                {/* Archetype & Key Strength */}
+                <div className="space-y-1.5 bg-slate-950/80 p-3 rounded-2xl border border-slate-800/80">
                   <div className="flex items-center justify-between text-[11px] font-mono">
-                    <span className="text-slate-400">Archetype:</span>
-                    <span className="text-amber-300 font-bold">{p.archetype}</span>
+                    <span className="text-amber-400 font-bold">{prospect.archetype}</span>
+                    <span className="text-slate-500">{prospect.height || ''}</span>
                   </div>
-                  <div className="pt-2 border-t border-slate-800/80">
-                    <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider block mb-1">
-                      Notable Attributes
-                    </span>
-                    <div className="flex flex-wrap gap-1">
-                      {p.notableAttributes.split(',').map((attr, i) => (
-                        <span
-                          key={i}
-                          className="text-[11px] font-mono font-bold bg-slate-900 border border-slate-700/80 text-slate-200 px-2 py-0.5 rounded-lg"
-                        >
-                          {attr.trim()}
-                        </span>
-                      ))}
+                  <p className="text-xs text-slate-300 font-medium leading-snug">
+                    {prospect.keyStrength}
+                  </p>
+                </div>
+
+                {/* Grade Badges Grid */}
+                <div className="grid grid-cols-2 gap-1.5">
+                  {prospect.gradeBadges.slice(0, 2).map((badge, i) => (
+                    <div key={i} className="bg-slate-950 p-2 rounded-xl border border-slate-800/60 text-center">
+                      <span className="text-[10px] font-mono text-slate-400 block truncate">{badge.label}</span>
+                      <span className="text-xs font-black text-amber-400 mt-0.5 block">{badge.grade}</span>
                     </div>
-                  </div>
+                  ))}
                 </div>
               </div>
 
-              {/* Card Footer CTA */}
+              {/* Footer Card */}
               <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400 group-hover:text-amber-300">
-                <span className="text-[11px] text-slate-500 font-bold">{p.tier}</span>
-                <div className="flex items-center gap-1 font-bold">
-                  <span>Scouting Report</span>
-                  <ChevronRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
-                </div>
+                <span className="truncate text-[11px]">Comp: {prospect.proComparison?.split('/')[0] || 'Starter'}</span>
+                <span className="flex items-center gap-0.5 font-bold shrink-0">
+                  Report <ChevronRight size={13} />
+                </span>
               </div>
             </div>
           ))}
         </div>
       )}
 
-      {/* VIEW MODE 2: BIG BOARD TABLE VIEW */}
-      {(viewMode === 'table' || viewMode === 'california') && (
-        <div className="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl">
+      {/* TABLE VIEW */}
+      {viewMode === 'table' && (
+        <div className="bg-slate-900 border border-slate-800 rounded-3xl shadow-xl overflow-hidden">
           <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
+            <table className="w-full text-left border-collapse text-xs">
               <thead>
-                <tr className="bg-slate-950/90 text-slate-400 font-mono text-xs uppercase tracking-wider border-b border-slate-800">
-                  <th className="py-3.5 px-4 font-bold">Rank</th>
-                  <th className="py-3.5 px-4 font-bold">Prospect</th>
-                  <th className="py-3.5 px-3 font-bold">Pos</th>
-                  <th className="py-3.5 px-4 font-bold">School / Origin</th>
-                  <th className="py-3.5 px-3 font-bold text-center">OVR</th>
-                  <th className="py-3.5 px-4 font-bold hidden md:table-cell">Archetype & Strengths</th>
-                  <th className="py-3.5 px-4 font-bold">Notable Attributes</th>
-                  <th className="py-3.5 px-4 font-bold text-right">Action</th>
+                <tr className="bg-slate-950 text-slate-400 font-mono font-bold border-b border-slate-800">
+                  <th className="py-3 px-4">Rank</th>
+                  <th className="py-3 px-4">Prospect</th>
+                  <th className="py-3 px-4">Pos</th>
+                  <th className="py-3 px-4">School / Origin</th>
+                  <th className="py-3 px-4 text-center">OVR</th>
+                  <th className="py-3 px-4 hidden md:table-cell">Archetype</th>
+                  <th className="py-3 px-4">Notable Strengths</th>
+                  <th className="py-3 px-4 text-right">Scouting</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60 text-xs sm:text-sm">
+              <tbody className="divide-y divide-slate-800/60">
                 {filteredProspects.map((p) => (
                   <tr
                     key={p.rank}
                     onClick={() => setActiveProspectModal(p)}
-                    className="hover:bg-slate-800/60 transition-colors cursor-pointer group"
+                    className="hover:bg-slate-800/40 transition-colors cursor-pointer"
                   >
-                    {/* Rank */}
-                    <td className="py-3.5 px-4 font-mono font-black text-amber-400 whitespace-nowrap">
+                    <td className="py-3.5 px-4 font-mono font-black text-amber-400">
                       #{p.rank}
                     </td>
-
-                    {/* Prospect Name */}
                     <td className="py-3.5 px-4">
-                      <div className="flex items-center gap-2">
-                        <span className="font-bold text-white group-hover:text-amber-400 transition-colors">
-                          {p.name}
-                        </span>
-                        {(p.isTopFiveWatch || p.rank <= 5) && (
-                          <span className="text-[9px] font-mono font-black bg-amber-500 text-slate-950 px-1.5 py-0.5 rounded shadow-sm flex items-center gap-0.5">
-                            <Star size={9} className="fill-slate-950" />
-                            TOP 5
-                          </span>
-                        )}
-                      </div>
+                      <div className="font-black text-white text-sm">{p.name}</div>
+                      <div className="text-[11px] text-slate-400 font-mono">{p.height} • {p.weight}</div>
                     </td>
-
-                    {/* Position */}
-                    <td className="py-3.5 px-3 whitespace-nowrap">
+                    <td className="py-3.5 px-4">
                       <span className={`px-2 py-0.5 rounded-md text-xs font-bold border ${getPosBadgeClass(p.position)}`}>
                         {p.position}
                       </span>
                     </td>
-
-                    {/* School / Origin */}
-                    <td className="py-3.5 px-4 whitespace-nowrap font-medium text-slate-300">
-                      {p.schoolType === 'California College' ? (
-                        <span className="text-sky-400 font-bold flex items-center gap-1">
-                          <MapPin size={13} /> {p.school}
-                        </span>
-                      ) : p.schoolType === 'International' ? (
-                        <span className="text-purple-400 font-bold flex items-center gap-1">
-                          <Globe size={13} /> {p.school}
-                        </span>
-                      ) : (
-                        p.school
-                      )}
+                    <td className="py-3.5 px-4">
+                      <div className="text-slate-200 font-semibold">{p.school}</div>
+                      <div className="text-[10px] text-slate-400 font-mono">{p.schoolType}</div>
                     </td>
-
-                    {/* OVR */}
-                    <td className="py-3.5 px-3 text-center whitespace-nowrap">
+                    <td className="py-3.5 px-4 text-center">
                       <span className={`px-2.5 py-1 rounded-xl text-xs font-black ${getOvrBadgeClass(p.ovr)}`}>
                         {p.ovr}
                       </span>
                     </td>
-
-                    {/* Archetype */}
                     <td className="py-3.5 px-4 hidden md:table-cell text-slate-300">
                       <span className="text-slate-200 font-semibold">{p.archetype}</span>
                     </td>
-
-                    {/* Notable Attributes */}
                     <td className="py-3.5 px-4">
                       <div className="flex flex-wrap gap-1">
                         {p.notableAttributes.split(',').map((attr, i) => (
@@ -619,8 +559,6 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
                         ))}
                       </div>
                     </td>
-
-                    {/* Action */}
                     <td className="py-3.5 px-4 text-right whitespace-nowrap">
                       <button
                         onClick={(e) => {

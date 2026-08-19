@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { CCH_NEWS_ARTICLES, CCHNewsArticle, CoachProfileCard } from '../data/newsData';
 import { TeamBadge } from './TeamBadge';
+import { PodcastPlayerCard } from './PodcastPlayerCard';
 import {
   Newspaper,
   Sparkles,
@@ -17,9 +18,11 @@ import {
   Quote,
   Filter,
   Layers,
+  Radio,
   BookOpen,
   Users,
   Zap,
+  Headphones,
   AlertTriangle,
 } from 'lucide-react';
 
@@ -50,7 +53,11 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
 
   // Filter articles
   const filteredArticles = CCH_NEWS_ARTICLES.filter((article) => {
-    const categoryMatches = selectedCategory === 'all' || article.category === selectedCategory;
+    const categoryMatches =
+      selectedCategory === 'all' ||
+      (selectedCategory === 'feature'
+        ? article.category === 'feature' || Boolean(article.audioUrl)
+        : article.category === selectedCategory);
     const seasonMatches = selectedSeasonFilter === 0 || article.season === selectedSeasonFilter;
     return categoryMatches && seasonMatches;
   });
@@ -70,7 +77,7 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
             League News & Historical Gazette
           </h1>
           <p className="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed">
-            Latest postseason recaps, breaking offseason rumors, draft prospect scouting boards, and archival stories spanning Seasons 1 through 4.
+            Latest postseason recaps, breaking offseason rumors, official podcast broadcasts, draft prospect scouting boards, and archival stories spanning Seasons 1 through 4.
           </p>
         </div>
 
@@ -138,8 +145,8 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                 : 'text-slate-400 hover:text-white hover:bg-slate-900/60'
             }`}
           >
-            <Sparkles size={14} />
-            Features & Editorials
+            <Headphones size={14} />
+            Features & Podcasts
           </button>
           <button
             onClick={() => setSelectedCategory('milestone')}
@@ -253,6 +260,18 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                 </div>
               )}
 
+              {/* Embedded Podcast in Featured Story */}
+              {featuredStory.audioUrl && (
+                <div className="pt-1">
+                  <PodcastPlayerCard
+                    audioUrl={featuredStory.audioUrl}
+                    podcastInfo={featuredStory.podcastInfo}
+                    title={featuredStory.podcastInfo?.episodeTitle || featuredStory.title}
+                    compact={true}
+                  />
+                </div>
+              )}
+
               <div className="pt-2">
                 <button
                   onClick={() => setSelectedArticle(featuredStory)}
@@ -318,7 +337,7 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                 : selectedCategory === 'recap'
                 ? 'Game Recaps & Scores'
                 : selectedCategory === 'feature'
-                ? 'Features & Editorials'
+                ? 'Features & Audio Podcasts'
                 : selectedCategory === 'offseason'
                 ? 'Offseason & Scouting Releases'
                 : 'League Milestones'}
@@ -370,6 +389,11 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                     <span className="px-2.5 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 font-mono font-bold rounded-full text-[10px] uppercase">
                       {article.category} • Season {article.season}
                     </span>
+                    {article.audioUrl && (
+                      <span className="px-2 py-0.5 bg-amber-500/20 border border-amber-500/40 text-amber-300 font-mono font-bold rounded-full text-[9px] uppercase flex items-center gap-1">
+                        <Headphones size={10} /> Podcast
+                      </span>
+                    )}
                   </div>
                   <span className="text-slate-400 text-[11px] font-mono flex items-center gap-1 shrink-0">
                     <Clock size={12} /> {article.readTime}
@@ -630,6 +654,16 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                   )}
                 </div>
               </div>
+            )}
+
+            {/* Audio Broadcast / Podcast if available */}
+            {selectedArticle.audioUrl && (
+              <PodcastPlayerCard
+                audioUrl={selectedArticle.audioUrl}
+                podcastInfo={selectedArticle.podcastInfo}
+                title={selectedArticle.podcastInfo?.episodeTitle || selectedArticle.title}
+                subtitle={selectedArticle.subtitle}
+              />
             )}
 
             {/* Article Content Paragraphs */}
