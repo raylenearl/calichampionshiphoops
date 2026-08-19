@@ -17,7 +17,7 @@ import { TransactionsView } from './components/TransactionsView';
 import { NewsView } from './components/NewsView';
 import { DraftView } from './components/DraftView';
 import { PodcastPlayerCard } from './components/PodcastPlayerCard';
-import { DRAFT_PROSPECTS } from './data/draftData';
+import { DRAFT_PROSPECTS, DRAFT_RESULTS_S4 } from './data/draftData';
 import { SearchModal } from './components/SearchModal';
 import { TeamSeasonModal } from './components/TeamSeasonModal';
 import { CCHLeagueLogo } from './components/TeamLogos';
@@ -270,80 +270,80 @@ export default function App() {
                   <div className="space-y-1.5">
                     <div className="flex flex-wrap items-center gap-2">
                       <span className="text-[10px] font-mono font-black uppercase tracking-wider bg-amber-500 text-slate-950 px-2.5 py-0.5 rounded-md font-bold shadow-sm">
-                        LATEST OFFSEASON RELEASE
+                        OFFICIAL DRAFT RESULTS
                       </span>
                       <span className="text-[10px] font-mono font-black uppercase tracking-wider bg-amber-500/20 text-amber-300 px-2.5 py-0.5 rounded-md border border-amber-500/30">
-                        SEASON 4 DRAFT
+                        SEASON 4 COMPLETE
                       </span>
                       <span className="text-[10px] font-mono font-bold text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded border border-sky-500/20">
-                        9 California Standouts
+                        {DRAFT_RESULTS_S4.length} Draft Picks
                       </span>
                       <span className="text-[10px] font-mono font-bold text-slate-400 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">
-                        {DRAFT_PROSPECTS.length} Verified Prospects
+                        {DRAFT_PROSPECTS.length} Big Board Prospects
                       </span>
                     </div>
                     <h3 className="text-xl sm:text-2xl font-black text-white group-hover:text-amber-400 transition-colors leading-tight">
-                      Season 4 Draft Central: Official {DRAFT_PROSPECTS.length}-Prospect Big Board & Scouting Profiles
+                      Season 4 CCH Draft Headquarters: Official 3-Round Selections & Scouting Profiles
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-300 max-w-3xl font-medium leading-relaxed">
-                      Scouting evaluations are live for the generational Season 4 draft pool, headlined by Carlton Daugherty (SF, UC San Diego, 85 OVR), international sniper Stephan Sirven (SG, France, 84 OVR), Minnesota stretch big Dell Gooden (PF/C, 84 OVR), Kentucky rim anchor Grok Wilkens (C, 84 OVR), and jumbo floor general R.J. Rush (PG, Louisiana-Monroe, 83 OVR).
+                      The Season 4 CCH Draft is officially in the books! Golden State Enterprise captured #1 consensus superstar Carlton Daugherty (SF, 85 OVR) and Round 3 steal King Jordan (Duke, 75 OVR). Anaheim selected European sniper Stephan Sirven (SG, 84 OVR), Long Beach locked in 7-foot titan Grok Wilkens (C, 84 OVR), and San Jose grabbed stretch anchor Dell Gooden (PF, 84 OVR).
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3 shrink-0 self-start lg:self-center">
                   <button className="px-6 py-3 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs sm:text-sm shadow-xl shadow-amber-500/25 flex items-center gap-2 transition-all cursor-pointer">
-                    <span>Enter Draft Central</span>
+                    <span>View All Draft Results & Board</span>
                     <span className="group-hover:translate-x-1 transition-transform">→</span>
                   </button>
                 </div>
               </div>
 
-              {/* Top 5 Draft Prospect Highlights Strip with TOP 5 Tags */}
+              {/* Top Picks Showcase Strip */}
               <div className="space-y-2 relative z-10 pt-2 border-t border-slate-800/80">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="text-[10px] font-mono font-black uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
                       <Star size={12} className="text-amber-400 fill-amber-400" />
-                      Top 5 Draft Prospects Spotlight
+                      Round 1 Top Selections
                     </span>
                   </div>
                   <span className="text-[10px] font-mono font-bold text-slate-400 hover:text-amber-300 flex items-center gap-1">
-                    View All {DRAFT_PROSPECTS.length} Prospects →
+                    View All {DRAFT_RESULTS_S4.length} Draft Picks →
                   </span>
                 </div>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5">
-                  {DRAFT_PROSPECTS.slice(0, 5).map((prospect) => (
+                  {DRAFT_RESULTS_S4.slice(0, 5).map((pick) => (
                     <div
-                      key={prospect.rank}
+                      key={pick.overallPick}
                       className="bg-slate-950/80 border border-slate-800 group-hover:border-amber-500/40 p-3 rounded-2xl flex items-center justify-between relative overflow-hidden transition-all hover:bg-slate-900"
                     >
-                      {/* Top 5 Tag */}
+                      {/* Pick Badge */}
                       <div className="absolute top-0 right-0 bg-amber-500 text-slate-950 text-[8px] font-mono font-black uppercase px-2 py-0.5 rounded-bl-lg shadow-sm">
-                        TOP 5
+                        PICK #{pick.overallPick}
                       </div>
 
                       <div className="pr-1 pt-1.5 min-w-0 flex-1">
                         <div className="flex items-center gap-1">
                           <span className="text-[10px] font-mono font-black text-amber-400">
-                            #{prospect.rank}
+                            {pick.teamAbbr}
                           </span>
                           <span className="text-[10px] font-mono text-slate-400 font-bold">
-                            {prospect.position}
+                            {pick.position}
                           </span>
                         </div>
                         <h4 className="text-xs font-bold text-white leading-tight mt-0.5 break-words">
-                          {prospect.name}
+                          {pick.shortName}
                         </h4>
                         <span className="text-[10px] font-mono text-slate-400 block truncate mt-0.5">
-                          {prospect.school}
+                          {pick.school}
                         </span>
                       </div>
 
                       <div className="flex flex-col items-end shrink-0 pl-2 pt-2">
                         <span className="text-xs font-mono font-black bg-amber-500 text-slate-950 px-2 py-1 rounded-lg shadow">
-                          {prospect.ovr}
+                          {pick.ovr}
                         </span>
                       </div>
                     </div>

@@ -176,3 +176,22 @@ export const TEAM_LOGOS_MAP: Record<string, React.FC<TeamLogoProps>> = {
   'anaheim-admirals': AdmiralsLogo,
   'long-beach-vipers': VipersLogo,
 };
+
+export const TeamLogo: React.FC<{ teamId: string; size?: number; className?: string }> = ({
+  teamId,
+  size = 36,
+  className = '',
+}) => {
+  const Component = TEAM_LOGOS_MAP[teamId];
+  if (Component) {
+    return <Component size={size} className={className} />;
+  }
+  return (
+    <div
+      className={`rounded bg-slate-800 flex items-center justify-center text-[10px] font-mono font-bold text-amber-400 ${className}`}
+      style={{ width: size, height: size }}
+    >
+      CCH
+    </div>
+  );
+};

@@ -172,6 +172,24 @@ export interface TeamSeasonRecap {
 
 export type DraftTier = 'Top Prospects' | 'Lottery Prospects' | 'Mid-Round Prospects' | 'Late Round / Two-Way';
 
+export interface DraftPickResult {
+  round: number;
+  pickInRound: number;
+  overallPick: number;
+  teamId: string;
+  teamName: string;
+  teamAbbr?: string;
+  playerName: string;
+  shortName: string;
+  position: string;
+  ovr: number;
+  school: string;
+  notes?: string;
+  prospectRank?: number;
+  keyStrength?: string;
+  archetype?: string;
+}
+
 export interface DraftProspect {
   rank: number;
   name: string;
