@@ -63,39 +63,39 @@ export const Header: React.FC<HeaderProps> = ({
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-slate-950/95 backdrop-blur-md border-b border-slate-800/80 text-slate-100 shadow-2xl">
+    <header className="sticky top-0 z-40 bg-slate-950/95 backdrop-blur-md border-b border-slate-800/80 text-slate-100 shadow-2xl w-full">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between min-h-[64px] py-2 gap-3 flex-wrap lg:flex-nowrap">
+        <div className="flex items-center justify-between min-h-[64px] py-2 gap-2 sm:gap-4 flex-nowrap w-full">
           {/* Logo & Branding */}
           <a
             href="#hub"
-            className="flex items-center gap-2.5 cursor-pointer shrink-0 hover:opacity-90 transition-opacity no-underline"
+            className="flex items-center gap-2 sm:gap-2.5 cursor-pointer shrink-0 hover:opacity-90 transition-opacity no-underline min-w-0"
             onClick={(e) => {
               e.preventDefault();
               setActiveTab('hub');
             }}
           >
-            <CCHLeagueLogo size={40} />
-            <div>
-              <div className="flex items-center gap-2">
-                <h1 className="text-base sm:text-lg font-black tracking-tight text-white flex items-center gap-1.5 whitespace-nowrap">
+            <CCHLeagueLogo size={38} />
+            <div className="min-w-0">
+              <div className="flex items-center gap-1.5">
+                <h1 className="text-sm sm:text-base lg:text-lg font-black tracking-tight text-white flex items-center gap-1 whitespace-nowrap">
                   CALI <span className="text-amber-400">CHAMPIONSHIP</span> HOOPS
                 </h1>
               </div>
-              <p className="text-[10px] text-slate-400 font-medium tracking-wider uppercase">
+              <p className="text-[9px] sm:text-[10px] text-slate-400 font-medium tracking-wider uppercase truncate">
                 Official Encyclopedia
               </p>
             </div>
           </a>
 
           {/* Desktop Season Switcher & Search & External Links */}
-          <div className="hidden lg:flex items-center gap-2.5 shrink-0 flex-wrap xl:flex-nowrap">
+          <div className="hidden lg:flex items-center gap-1.5 xl:gap-2 shrink-0 flex-nowrap">
             {/* Season Switcher */}
-            <div className="bg-slate-900 border border-slate-800 rounded-xl p-1 flex items-center text-xs font-semibold shadow-inner">
-              <span className="text-slate-400 px-2 text-[10px] uppercase tracking-wider font-bold">Season:</span>
+            <div className="bg-slate-900 border border-slate-800 rounded-xl p-1 flex items-center text-xs font-semibold shadow-inner shrink-0">
+              <span className="text-slate-400 px-1.5 text-[10px] uppercase tracking-wider font-bold">Season:</span>
               <button
                 onClick={() => setSelectedSeason(1)}
-                className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
+                className={`px-2 py-1 rounded-lg transition-all cursor-pointer ${
                   selectedSeason === 1
                     ? 'bg-amber-500 text-slate-950 font-black shadow-sm'
                     : 'text-slate-400 hover:text-white'
@@ -105,7 +105,7 @@ export const Header: React.FC<HeaderProps> = ({
               </button>
               <button
                 onClick={() => setSelectedSeason(2)}
-                className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
+                className={`px-2 py-1 rounded-lg transition-all cursor-pointer ${
                   selectedSeason === 2
                     ? 'bg-amber-500 text-slate-950 font-black shadow-sm'
                     : 'text-slate-400 hover:text-white'
@@ -115,7 +115,7 @@ export const Header: React.FC<HeaderProps> = ({
               </button>
               <button
                 onClick={() => setSelectedSeason(3)}
-                className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
+                className={`px-2 py-1 rounded-lg transition-all cursor-pointer ${
                   selectedSeason === 3
                     ? 'bg-amber-500 text-slate-950 font-black shadow-sm'
                     : 'text-slate-400 hover:text-white'
@@ -128,10 +128,11 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Live Search Trigger */}
             <button
               onClick={onOpenSearch}
-              className="flex items-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 px-3 py-1.5 rounded-xl text-xs font-medium transition-all cursor-pointer"
+              className="flex items-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 px-2.5 py-1.5 rounded-xl text-xs font-medium transition-all cursor-pointer shrink-0"
+              title="Search Records & Games (⌘K)"
             >
               <Search size={14} className="text-amber-400 shrink-0" />
-              <span>Search <span className="hidden xl:inline">Records & Games</span></span>
+              <span className="hidden xl:inline">Search</span>
               <kbd className="bg-slate-800 text-slate-400 text-[10px] px-1.5 py-0.5 rounded font-mono">⌘K</kbd>
             </button>
 
@@ -144,12 +145,12 @@ export const Header: React.FC<HeaderProps> = ({
               {copiedRecently ? (
                 <>
                   <Check size={13} className="text-emerald-400 shrink-0" />
-                  <span className="text-[11px] text-emerald-400 font-bold">Copied!</span>
+                  <span className="text-[11px] text-emerald-400 font-bold hidden xl:inline">Copied!</span>
                 </>
               ) : (
                 <>
                   <Share2 size={13} className="text-amber-400 shrink-0" />
-                  <span className="text-[11px] font-bold hidden xl:inline">Share Link</span>
+                  <span className="text-[11px] font-bold hidden xl:inline">Share</span>
                 </>
               )}
             </button>
@@ -162,7 +163,7 @@ export const Header: React.FC<HeaderProps> = ({
               href="https://forums.operationsports.com/forums/forum/dynasty-headquarters/basketball-dynasties/941879-cali-championship-hoops-nba2k-custom-league"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 bg-amber-950/40 border border-amber-700/50 px-2.5 py-1.5 rounded-xl text-xs text-amber-300 font-semibold hover:bg-amber-900/60 transition-all cursor-pointer shrink-0"
+              className="hidden xl:flex items-center gap-1.5 bg-amber-950/40 border border-amber-700/50 px-2.5 py-1.5 rounded-xl text-xs text-amber-300 font-semibold hover:bg-amber-900/60 transition-all cursor-pointer shrink-0"
               title="View original OS Dynasty Thread"
             >
               <ExternalLink size={13} className="text-amber-400" />
@@ -172,52 +173,48 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Light / Dark Mode Theme Toggle */}
             <button
               onClick={onToggleTheme}
-              className="flex items-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer shrink-0 shadow-sm"
+              className="flex items-center justify-center p-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 transition-all cursor-pointer shrink-0 shadow-sm"
               title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+              aria-label={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
             >
               {theme === 'dark' ? (
-                <>
-                  <Sun size={14} className="text-amber-400 shrink-0" />
-                  <span className="text-[11px] font-bold">Light Mode</span>
-                </>
+                <Sun size={15} className="text-amber-400 shrink-0" />
               ) : (
-                <>
-                  <Moon size={14} className="text-amber-600 shrink-0" />
-                  <span className="text-[11px] font-bold">Dark Mode</span>
-                </>
+                <Moon size={15} className="text-amber-600 shrink-0" />
               )}
             </button>
           </div>
 
           {/* Mobile Hamburger & Controls */}
-          <div className="flex items-center gap-2 lg:hidden">
+          <div className="flex items-center gap-1.5 lg:hidden shrink-0">
             <button
               onClick={handleCopyLink}
-              className="p-2 bg-slate-900 border border-slate-800 rounded-xl text-amber-400 cursor-pointer"
+              className="p-2 bg-slate-900 border border-slate-800 rounded-xl text-amber-400 cursor-pointer shrink-0"
               title="Copy direct link to section"
             >
-              {copiedRecently ? <Check size={18} className="text-emerald-400" /> : <Share2 size={18} />}
+              {copiedRecently ? <Check size={16} className="text-emerald-400" /> : <Share2 size={16} />}
             </button>
             <button
               onClick={onToggleTheme}
-              className="p-2 bg-slate-900 border border-slate-800 rounded-xl text-amber-400 cursor-pointer"
+              className="p-2 bg-slate-900 border border-slate-800 rounded-xl text-amber-400 cursor-pointer shrink-0"
               title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+              aria-label={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
             >
-              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+              {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
             </button>
             <button
               onClick={onOpenSearch}
-              className="p-2 bg-slate-900 border border-slate-800 rounded-xl text-amber-400 cursor-pointer"
+              className="p-2 bg-slate-900 border border-slate-800 rounded-xl text-amber-400 cursor-pointer shrink-0"
               title="Search"
             >
-              <Search size={18} />
+              <Search size={16} />
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 bg-slate-900 border border-slate-800 rounded-xl text-slate-300 hover:text-white cursor-pointer"
+              className="p-2 bg-slate-900 border border-slate-800 rounded-xl text-slate-300 hover:text-white cursor-pointer shrink-0"
               aria-label="Toggle navigation menu"
             >
-              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
           </div>
         </div>

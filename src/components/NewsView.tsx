@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CCH_NEWS_ARTICLES, CCHNewsArticle, CoachProfileCard } from '../data/newsData';
 import { TeamBadge } from './TeamBadge';
-import { PodcastPlayerCard } from './PodcastPlayerCard';
 import {
   Newspaper,
   Sparkles,
@@ -18,11 +17,9 @@ import {
   Quote,
   Filter,
   Layers,
-  Radio,
   BookOpen,
   Users,
   Zap,
-  Headphones,
   AlertTriangle,
 } from 'lucide-react';
 
@@ -53,11 +50,7 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
 
   // Filter articles
   const filteredArticles = CCH_NEWS_ARTICLES.filter((article) => {
-    const categoryMatches =
-      selectedCategory === 'all' ||
-      (selectedCategory === 'feature'
-        ? article.category === 'feature' || Boolean(article.audioUrl)
-        : article.category === selectedCategory);
+    const categoryMatches = selectedCategory === 'all' || article.category === selectedCategory;
     const seasonMatches = selectedSeasonFilter === 0 || article.season === selectedSeasonFilter;
     return categoryMatches && seasonMatches;
   });
@@ -77,7 +70,7 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
             League News & Historical Gazette
           </h1>
           <p className="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed">
-            Latest postseason recaps, breaking offseason rumors, championship podcast broadcasts, and archival stories spanning Seasons 1 through 3.
+            Latest postseason recaps, breaking offseason rumors, draft prospect scouting boards, and archival stories spanning Seasons 1 through 4.
           </p>
         </div>
 
@@ -146,7 +139,7 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
             }`}
           >
             <Sparkles size={14} />
-            Features & Podcasts
+            Features & Editorials
           </button>
           <button
             onClick={() => setSelectedCategory('milestone')}
@@ -231,40 +224,6 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-4">
-              {featuredStory.coachesList && featuredStory.coachesList.length > 0 ? (
-                <div className="bg-slate-950/90 border border-amber-500/30 rounded-2xl p-4 shadow-xl space-y-3">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold text-amber-400 flex items-center gap-1.5">
-                      <Users size={14} /> 12 HEAD COACHES • SEASON 4 ROSTER
-                    </span>
-                    <span className="text-[11px] font-mono text-slate-400">4 Returning • 8 Newcomers</span>
-                  </div>
-                  <div className="grid grid-cols-6 gap-2">
-                    {featuredStory.coachesList.slice(0, 6).map((c, i) => (
-                      <div key={i} className="relative group/thumb overflow-hidden rounded-xl border border-slate-800 bg-slate-900 aspect-square">
-                        <img src={c.photo} alt={c.name} className="w-full h-full object-cover" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 to-transparent flex items-end p-1">
-                          <span className="text-[9px] font-bold text-white truncate">{c.name.split(' ').pop()}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ) : featuredStory.imageUrl ? (
-                <div className="relative overflow-hidden rounded-2xl border border-slate-800 shadow-xl bg-slate-950 group/hero flex flex-col items-center">
-                  <img
-                    src={featuredStory.imageUrl}
-                    alt={featuredStory.title}
-                    className="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover/hero:scale-105 p-2"
-                  />
-                  <div className="w-full bg-slate-950/95 border-t border-amber-500/20 px-4 py-2 flex items-center justify-between text-xs font-mono font-bold text-amber-300">
-                    <span className="flex items-center gap-1.5">
-                      <Sparkles size={14} className="text-amber-400" /> {featuredStory.imageCaption || 'Official Press Photo'}
-                    </span>
-                  </div>
-                </div>
-              ) : null}
-
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white leading-tight tracking-tight">
                 {featuredStory.title}
               </h2>
@@ -306,14 +265,41 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
               </div>
             </div>
 
-            {/* Audio / Visual Spotlight */}
+            {/* Visual Mosaic / Image Showcase */}
             <div className="lg:col-span-4">
-              <PodcastPlayerCard
-                audioUrl={featuredStory.audioUrl || "https://archive.org/download/cchoops2k/Cali_Hoops_Season_4_Coaching_Shakeups.m4a"}
-                podcastInfo={featuredStory.podcastInfo}
-                title={featuredStory.podcastInfo?.episodeTitle || 'Season 4 Coaching Shakeups Special'}
-                compact={true}
-              />
+              {featuredStory.coachesList && featuredStory.coachesList.length > 0 ? (
+                <div className="bg-slate-950/90 border border-amber-500/30 rounded-2xl p-4 shadow-xl space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-mono font-bold text-amber-400 flex items-center gap-1.5">
+                      <Users size={14} /> 12 HEAD COACHES • S4
+                    </span>
+                    <span className="text-[11px] font-mono text-slate-400">4 Returning • 8 New</span>
+                  </div>
+                  <div className="grid grid-cols-3 gap-2">
+                    {featuredStory.coachesList.slice(0, 6).map((c, i) => (
+                      <div key={i} className="relative group/thumb overflow-hidden rounded-xl border border-slate-800 bg-slate-900 aspect-square">
+                        <img src={c.photo} alt={c.name} className="w-full h-full object-cover" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 to-transparent flex items-end p-1">
+                          <span className="text-[9px] font-bold text-white truncate">{c.name.split(' ').pop()}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : featuredStory.imageUrl ? (
+                <div className="relative overflow-hidden rounded-2xl border border-slate-800 shadow-xl bg-slate-950 group/hero flex flex-col items-center">
+                  <img
+                    src={featuredStory.imageUrl}
+                    alt={featuredStory.title}
+                    className="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover/hero:scale-105 p-2"
+                  />
+                  <div className="w-full bg-slate-950/95 border-t border-amber-500/20 px-4 py-2 flex items-center justify-between text-xs font-mono font-bold text-amber-300">
+                    <span className="flex items-center gap-1.5">
+                      <Sparkles size={14} className="text-amber-400" /> {featuredStory.imageCaption || 'Official Press Photo'}
+                    </span>
+                  </div>
+                </div>
+              ) : null}
             </div>
           </div>
         </div>
@@ -332,7 +318,9 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                 : selectedCategory === 'recap'
                 ? 'Game Recaps & Scores'
                 : selectedCategory === 'feature'
-                ? 'Features & Audio Podcasts'
+                ? 'Features & Editorials'
+                : selectedCategory === 'offseason'
+                ? 'Offseason & Scouting Releases'
                 : 'League Milestones'}
             </span>
           </h3>
@@ -382,11 +370,6 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                     <span className="px-2.5 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 font-mono font-bold rounded-full text-[10px] uppercase">
                       {article.category} • Season {article.season}
                     </span>
-                    {article.audioUrl && (
-                      <span className="px-2 py-0.5 bg-amber-500/20 border border-amber-500/40 text-amber-300 font-mono font-bold rounded-full text-[9px] uppercase flex items-center gap-1">
-                        <Headphones size={10} /> Podcast
-                      </span>
-                    )}
                   </div>
                   <span className="text-slate-400 text-[11px] font-mono flex items-center gap-1 shrink-0">
                     <Clock size={12} /> {article.readTime}
@@ -647,16 +630,6 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                   )}
                 </div>
               </div>
-            )}
-
-            {/* Audio Broadcast / Podcast if available */}
-            {selectedArticle.audioUrl && (
-              <PodcastPlayerCard
-                audioUrl={selectedArticle.audioUrl}
-                podcastInfo={selectedArticle.podcastInfo}
-                title={selectedArticle.podcastInfo?.episodeTitle || selectedArticle.title}
-                subtitle={selectedArticle.subtitle}
-              />
             )}
 
             {/* Article Content Paragraphs */}

@@ -26,13 +26,6 @@ export interface CoachProfileCard {
   philosophy?: string;
 }
 
-export interface PodcastInfo {
-  episodeTitle: string;
-  broadcastBy?: string;
-  duration?: string;
-  description?: string;
-}
-
 export interface CCHNewsArticle {
   id: string;
   title: string;
@@ -58,8 +51,6 @@ export interface CCHNewsArticle {
   quotes?: { speaker: string; title: string; quote: string }[];
   playerStats?: { player: string; team: string; stat: string }[];
   coachesList?: CoachProfileCard[];
-  audioUrl?: string;
-  podcastInfo?: PodcastInfo;
 }
 
 export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
@@ -115,14 +106,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     category: 'offseason',
     featured: true,
     author: 'Front-Office Insider',
-    readTime: '5 min read • Audio Podcast',
-    audioUrl: 'https://archive.org/download/cchoops2k/Cali_Hoops_Season_4_Coaching_Shakeups.m4a',
-    podcastInfo: {
-      episodeTitle: 'Season 4 Coaching Shakeups & Sideline Carousel Special',
-      broadcastBy: 'CCH Media Network • Front-Office Insider',
-      duration: 'Official Audio Broadcast',
-      description: 'Official audio breakdown discussing all 12 head coaches, tactical identities, the Underwood defection to the Sabrewolves, and coaching storylines entering Season 4.',
-    },
+    readTime: '5 min read • Full Coaching Profiles',
     imageUrl: jacobUnderwoodImg,
     imageCaption: 'The Season 4 Head Coaching Class: 12 Leaders Setting the Course for Championship Glory',
     headlineQuote: 'The sideline chess match in Season 4 will be the fiercest in league history. Four enduring pillars defend their culture against eight fresh tacticians determined to reshape the championship hierarchy.',
@@ -390,26 +374,19 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
   },
   {
     id: 's3-podcast-special',
-    title: 'SPECIAL REPORT: Kabal’s Final Ring & Underwood’s Defection Podcast Breakdown',
-    subtitle: 'Listen to the official audio analysis covering the Season 3 Championship, Dorell Kabal’s hall-of-fame retirement, and coaching shockwaves.',
-    date: 'Season 3 Postseason Special',
+    title: 'SPECIAL FEATURE: Kabal’s Final Ring & Underwood’s Defection Insider Analysis',
+    subtitle: 'An in-depth written retrospective breaking down the Season 3 Championship, Dorell Kabal’s Hall-of-Fame retirement sendoff, and the seismic coaching shakeups heading into Season 4.',
+    date: 'Season 3 Postseason Retrospective',
     season: 3,
     category: 'feature',
     featured: false,
     author: 'CCH Official Media Network',
-    readTime: 'Audio Broadcast',
-    audioUrl: 'https://archive.org/download/cchoops2k/Kabal_s_Final_Ring_and_Underwood_s_Defection.m4a',
-    podcastInfo: {
-      episodeTitle: 'Kabal’s Final Ring & Underwood’s Defection Breakdown',
-      broadcastBy: 'CCH Dynasty Podcast • Official Audio',
-      duration: 'Championship Special • Official Audio',
-      description: "In-depth breakdown of Sacramento's Game 4 championship triumph, Dorell Kabal's Finals MVP retirement sendoff, and the cross-town coaching earthquake as Jacob Underwood moves to the Sabrewolves.",
-    },
-    headlineQuote: "Inside the locker room moments, strategic adjustments, and offseason rumors that will define Season 4.",
+    readTime: '4 min read • Editorial',
+    headlineQuote: "Inside the locker room moments, strategic adjustments, and offseason rumors that define the transition to Season 4.",
     contentParagraphs: [
-      "Catch up on the official CCH Dynasty Podcast breaking down all the drama from Season 3 Postseason action.",
-      "Topics include: Dorell Kabal's flawless farewell game, the key defensive schemes Sacramento used to neutralize Fresno's offense, and exclusive insider analysis regarding Jacob Underwood's coaching staff in San Diego.",
-      "Stream the audio above or download the episode from the official CCH Archives."
+      "In one of the most dramatic conclusions to a Cali Championship Hoops campaign, Season 3 closed with the Sacramento Stallions hoisting their second franchise title behind a 25-point, 11-rebound retirement masterpiece from Finals MVP Dorell Kabal.",
+      "Beyond the on-court celebration, the aftermath unleashed an unprecedented coaching carousel. Former California Reds architect Jacob Underwood completed a shock defection to the San Diego Sabrewolves, setting off ripple effects that saw eight head coaching seats turn over.",
+      "As franchises prepare for the Season 4 campaign, tactical blueprints are being completely reimagined across all 12 organizations."
     ]
   },
   {

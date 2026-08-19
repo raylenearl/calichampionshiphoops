@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+html,
+body,
+#root {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 /* LIGHT MODE THEME OVERRIDES */
 html.light {
   color-scheme: light;
