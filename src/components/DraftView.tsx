@@ -25,6 +25,8 @@ import {
   Trophy,
   Shield,
   Filter,
+  Radio,
+  Headphones,
 } from 'lucide-react';
 import {
   DRAFT_PROSPECTS,
@@ -58,6 +60,23 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
   const [sortBy, setSortBy] = useState<'rank' | 'ovr-desc' | 'name-asc' | 'position'>('rank');
   const [viewMode, setViewMode] = useState<'cards' | 'table' | 'california'>('cards');
   const [activeProspectModal, setActiveProspectModal] = useState<DraftProspect | null>(null);
+
+  const [selectedPodcastEpisode, setSelectedPodcastEpisode] = useState<'recap' | 'debate'>('recap');
+
+  const podcastEpisodes = {
+    recap: {
+      audioUrl: 'https://archive.org/download/nba-2-k-24-2024-05-12-02-07-45/CCH_Season_Four_Draft_steals_and_reaches.m4a',
+      title: 'CCH Season 4 Draft Recap: Steals, Reaches & Franchise Hauls',
+      subtitle: 'Official CCH Draft Breakdown • In-depth analysis of all 36 picks, biggest steals (King Jordan, Isaac Levingston), reaches, and team grades',
+      tag: 'NEW • OFFICIAL DRAFT RECAP',
+    },
+    debate: {
+      audioUrl: 'https://archive.org/download/nba-2-k-24-2024-05-12-02-07-45/Daugherty_versus_Wilkens_for_Franchise_Foundation.m4a',
+      title: 'Draft Debate: Carlton Daugherty vs. Grok Wilkens for Franchise Foundation',
+      subtitle: 'CCH Insider Roundtable • UC San Diego two-way maestro vs. Kentucky interior titan',
+      tag: 'PROSPECT SPECIAL',
+    },
+  };
 
   // Position colors
   const getPosBadgeClass = (pos: string) => {
@@ -244,11 +263,47 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
       </div>
 
       {/* Featured Podcast Episode inside Draft Central */}
-      <PodcastPlayerCard
-        audioUrl="https://archive.org/download/nba-2-k-24-2024-05-12-02-07-45/Daugherty_versus_Wilkens_for_Franchise_Foundation.m4a"
-        title="Draft Debate: Carlton Daugherty vs. Grok Wilkens for Franchise Foundation"
-        subtitle="CCH Insider Roundtable • UC San Diego two-way maestro vs. Kentucky interior titan"
-      />
+      <div className="space-y-2">
+        {/* Episode Selector Tabs */}
+        <div className="flex flex-wrap items-center justify-between gap-2 bg-slate-950 p-2.5 rounded-2xl border border-slate-800 text-xs">
+          <div className="flex items-center gap-1.5 font-mono text-amber-400 font-bold">
+            <Radio size={14} className="animate-pulse text-amber-400" />
+            <span className="uppercase text-[11px]">CCH Draft Audio Coverage</span>
+          </div>
+          <div className="flex items-center gap-1.5 flex-wrap">
+            <button
+              onClick={() => setSelectedPodcastEpisode('recap')}
+              className={`px-3 py-1.5 rounded-xl font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                selectedPodcastEpisode === 'recap'
+                  ? 'bg-amber-500 text-slate-950 font-black shadow-md'
+                  : 'text-slate-400 hover:text-white bg-slate-900 border border-slate-800'
+              }`}
+            >
+              <Headphones size={13} />
+              <span>Draft Recap: Steals & Reaches</span>
+              <span className="text-[9px] bg-slate-950/40 text-amber-300 px-1.5 py-0.5 rounded font-mono">NEW</span>
+            </button>
+            <button
+              onClick={() => setSelectedPodcastEpisode('debate')}
+              className={`px-3 py-1.5 rounded-xl font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                selectedPodcastEpisode === 'debate'
+                  ? 'bg-amber-500 text-slate-950 font-black shadow-md'
+                  : 'text-slate-400 hover:text-white bg-slate-900 border border-slate-800'
+              }`}
+            >
+              <Headphones size={13} />
+              <span>Prospect Debate: Daugherty vs Wilkens</span>
+            </button>
+          </div>
+        </div>
+
+        <PodcastPlayerCard
+          key={selectedPodcastEpisode}
+          audioUrl={podcastEpisodes[selectedPodcastEpisode].audioUrl}
+          title={podcastEpisodes[selectedPodcastEpisode].title}
+          subtitle={podcastEpisodes[selectedPodcastEpisode].subtitle}
+        />
+      </div>
 
       {/* Primary Section Switcher Tabs: Draft Results vs Scouting Big Board */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-slate-900 border border-slate-800 p-2 rounded-2xl shadow-lg">
@@ -1028,8 +1083,8 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
 
             {/* Modal Header */}
             <div className="flex flex-wrap items-start justify-between gap-4 border-b border-slate-800 pb-5">
-              <div className="space-y-1.5">
-                <div className="flex items-center gap-2">
+              <div className="space-y-1.5 flex-1 min-w-[240px]">
+                <div className="flex items-center gap-2 flex-wrap">
                   <span className="font-mono text-xs font-black px-2.5 py-0.5 rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/30">
                     DRAFT BOARD RANK #{activeProspectModal.rank}
                   </span>

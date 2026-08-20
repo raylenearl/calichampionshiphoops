@@ -482,13 +482,15 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
 
             {/* Article Image Banner if available (when no coachesList) */}
             {selectedArticle.imageUrl && !selectedArticle.coachesList && (
-              <div className="relative overflow-hidden rounded-2xl border border-slate-800 shadow-xl max-h-96">
-                <img
-                  src={selectedArticle.imageUrl}
-                  alt={selectedArticle.title}
-                  className="w-full h-64 sm:h-80 object-cover object-top"
-                />
-                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent p-4">
+              <div className="relative overflow-hidden rounded-2xl border border-amber-500/30 shadow-2xl bg-slate-950 flex flex-col items-center">
+                <div className="w-full flex items-center justify-center p-2 sm:p-4 bg-black/40">
+                  <img
+                    src={selectedArticle.imageUrl}
+                    alt={selectedArticle.title}
+                    className="w-full h-auto max-h-[600px] object-contain rounded-xl shadow-lg"
+                  />
+                </div>
+                <div className="w-full bg-slate-950 border-t border-slate-800 p-3 text-left">
                   <p className="text-xs text-amber-300 font-mono font-bold flex items-center gap-1.5">
                     <Sparkles size={14} className="text-amber-400" /> {selectedArticle.imageCaption || 'Official Press Photo'}
                   </p>

@@ -1,4 +1,5 @@
 import { INAUGURAL_GAME_ARTICLE } from './leagueMilestonesData';
+import carltonDaughertyImg from '../assets/images/S4 Draft/Carlton Daugherty.png';
 import jacobUnderwoodImg from '../assets/images/JacobUnderwood.png';
 import aSaundersImg from '../assets/images/ASaunders.jpg';
 import bNelsonImg from '../assets/images/BNelson.jpeg';
@@ -63,6 +64,94 @@ export interface CCHNewsArticle {
 }
 
 export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
+  {
+    id: 's4-draft-recap-steals-and-reaches',
+    title: 'Season 4 Draft Recap: Steals, Reaches & Franchise Hauls Audio Special',
+    subtitle: 'From Golden State landing consensus #1 Carlton Daugherty to Duke steal King Jordan, French sharpshooter Stephan Sirven, and Santa Clara value pick Isaac Levingston—listen to the official 3-round draft recap and team grades breakdown.',
+    date: 'Season 4 Draft • Official Audio Podcast',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Draft War Room & Analytics Desk',
+    readTime: '6 min read • Official Podcast Episode',
+    audioUrl: 'https://archive.org/download/nba-2-k-24-2024-05-12-02-07-45/CCH_Season_Four_Draft_steals_and_reaches.m4a',
+    podcastInfo: {
+      episodeTitle: 'CCH Season Four Draft: Steals, Reaches & Franchise Hauls',
+      broadcastBy: 'CCH Draft War Room • Official Recap Podcast',
+      duration: 'Official Audio Broadcast',
+      description: 'Comprehensive 3-round draft breakdown covering all 36 selections: Golden State\'s dream haul with Carlton Daugherty & King Jordan, the biggest draft steals, surprise reaches, and immediate franchise outlooks.',
+    },
+    headlineQuote: 'Draft night transformed the entire competitive landscape of Season 4. From franchise-altering cornerstones to late-round steals that will define playoff rotations, every general manager made their mark.',
+    contentParagraphs: [
+      'CALIFORNIA — The Season 4 Cali Championship Hoops Draft is officially in the books, delivering 36 new selections across 3 historic rounds. The CCH Media Network presents the official Draft Recap Special, breaking down every team\'s draft strategy, notable steals, controversial reaches, and rookie projections.',
+      'THE CONSENSUS #1 & LOTTERY FIREWORKS\nGolden State Enterprise capitalized on the top overall pick by drafting UC San Diego standout Carlton Daugherty (SF, 85 OVR), pairing the consensus top player with head coach Wyatt Zimmerman. Anaheim secured French perimeter sniper Stephan Sirven (SG, 84 OVR) at #2, San Jose nabbed versatile stretch forward Dell Gooden (PF/C, 84 OVR) at #3, Long Beach anchored their defense with 7-foot Kentucky titan Grok Wilkens (C, 84 OVR) at #4, and Fresno acquired Louisiana-Monroe jumbo playmaker R.J. Rush (PG, 83 OVR) at #5.',
+      'BIGGEST DRAFT STEALS\n• King Jordan (Round 3, Pick 1 • Golden State Enterprise • Duke, 75 OVR): Projected as a high 2nd-round talent, Duke scoring guard King Jordan slid into Round 3, giving Golden State a dynamic bench scoring punch.\n• Isaac Levingston (Round 3, Pick 12 • Sacramento Stallions • Santa Clara, 75 OVR): The final pick of the draft proved to be an absolute coup for Sacramento, adding a 6\'11" low-post master with Grade A interior scoring touch.\n• Carl Marks (Round 1, Pick 8 • Long Beach Vipers • Pacific, 81 OVR): Pacific big man provides instant rim-protection and paint authority.\n• Tingus Atgusanas (Round 1, Pick 12 • California Reds • Latvia, 79 OVR): 7\'3" Latvian stretch center who brings elite pick-and-pop spacing to the defending regular season champions.',
+      'SURPRISE REACHES & BOLD STRATEGIES\nSeveral front offices drafted for immediate tactical necessity rather than consensus board ranking. Oakland made a decisive move for Arizona State floor general Rodger Green (PG, 78 OVR) at Pick 9, while San Francisco prioritized Texas perimeter sharpshooter Donald Jones (SG, 77 OVR) at Pick 11 to bolster their backcourt spacing.',
+      'LISTEN TO THE FULL PODCAST\nStream the complete audio recap above for in-depth team-by-team draft grades, player fit analysis, and rookie season predictions.'
+    ],
+    quotes: [
+      {
+        speaker: 'CCH Draft War Room',
+        title: 'Lead Draft Analyst',
+        quote: 'Golden State Enterprise walked away with the single most impactful draft class in league history: an 85 OVR superstar in Carlton Daugherty and two ready-to-play rotation pieces in Jud Thompson and King Jordan.'
+      },
+      {
+        speaker: 'Ray Lenearl',
+        title: 'CCH Commissioner',
+        quote: 'The depth of this Season 4 class is unprecedented. The players selected in Rounds 2 and 3 will be competing in high-leverage playoff minutes this season.'
+      }
+    ],
+    playerStats: [
+      { player: 'Top Overall Pick', team: 'Carlton Daugherty (Golden State)', stat: '85 OVR SF • UC San Diego' },
+      { player: 'Biggest Steal', team: 'King Jordan (Golden State)', stat: '75 OVR SG • Round 3 Pick 1 (Duke)' },
+      { player: 'Mr. Irrelevant Value', team: 'Isaac Levingston (Sacramento)', stat: '75 OVR PF • Round 3 Pick 12 (Santa Clara)' },
+      { player: 'International Jewel', team: 'Stephan Sirven (Anaheim)', stat: '84 OVR SG • Pick 2 (France)' },
+    ]
+  },
+  {
+    id: 's4-carlton-daugherty-profile',
+    title: 'Franchise Transformed: Carlton Daugherty Drafted #1 Overall by Golden State Enterprise',
+    subtitle: 'Official Draft Profile & Scouting Deep-Dive on UC San Diego\'s 85 OVR two-way superstar wing—plus how Enterprise GM and coach Wyatt Zimmerman landed the ultimate cornerstone alongside Jud Thompson and King Jordan.',
+    date: 'Season 4 Draft Special • Top Story',
+    season: 4,
+    category: 'feature',
+    featured: true,
+    author: 'CCH Scouting & Analytics Desk',
+    readTime: '5 min read • Official Profile',
+    imageUrl: carltonDaughertyImg,
+    imageCaption: 'Official CCH Draft Profile Card • Carlton Daugherty (SF, UC San Diego • #1 Pick to Golden State Enterprise • 85 OVR)',
+    audioUrl: 'https://archive.org/download/nba-2-k-24-2024-05-12-02-07-45/Daugherty_versus_Wilkens_for_Franchise_Foundation.m4a',
+    podcastInfo: {
+      episodeTitle: 'Draft Special: Daugherty vs. Wilkens for Franchise Foundation',
+      broadcastBy: 'CCH Draft War Room • Official Scouting Podcast',
+      duration: 'Official Audio Breakdown',
+      description: 'Scouting breakdown examining how Carlton Daugherty\'s lethal 3-level scoring and A+ perimeter defense make him the premier franchise-altering prospect of Season 4.',
+    },
+    headlineQuote: 'Carlton Daugherty possesses the rarest combination in modern basketball: lethal 40%+ three-point accuracy off the catch or bounce, relentless downhill finishing, and true lockdown perimeter defense against premier scorers.',
+    contentParagraphs: [
+      'SAN FRANCISCO — With the first overall pick in the Season 4 Cali Championship Hoops Draft, Golden State Enterprise selected small forward Carlton Daugherty out of UC San Diego, locking in the consensus #1 prospect and most anticipated rookie in league history.',
+      'A GENERATIONAL TWO-WAY THREE-LEVEL CORNERSTONE\nStanding 6\'7" and boasting an immaculate 85 overall rating, Daugherty earned unanimous top-tier grades across all scouting departments. His attribute breakdown represents the archetype of a modern championship wing: Grade A+ Three-Point Marksmanship, Grade A+ Lockdown Perimeter Defense, Grade A Inside Finishing, and Grade A- Mid-Range Pull-Up touch.',
+      'THE UC SAN DIEGO LEGACY TO ENTERPRISE SYSTEM\nDaugherty dominated collegiate basketball with effortless scoring bursts and an unyielding defensive motor. For new Enterprise head coach Wyatt Zimmerman, Daugherty provides an immediate centerpiece to construct both an explosive fastbreak transition attack and a half-court defensive fortress in the Bay Area.',
+      'A HISTORIC DRAFT CLASS FOR GOLDEN STATE\nGolden State did not stop with Daugherty. The Enterprise assembled a masterclass draft haul by grabbing sharpshooting point guard Jud Thompson (St. Peter\'s, 77 OVR) in Round 2, and scoring steal King Jordan (Duke, 75 OVR) in Round 3. With Daugherty leading the wing, Thompson setting the table, and Jordan providing defensive bite, the Enterprise have accelerated from rebuilding hopefuls straight into title contention.'
+    ],
+    quotes: [
+      {
+        speaker: 'Carlton Daugherty',
+        title: '#1 Overall Pick • Golden State Enterprise (85 OVR SF)',
+        quote: 'Putting on the Golden State jersey is an honor. I take pride in guarding the opposing team\'s best scorer every single night and making winning plays on both ends of the floor. We are building something special here.'
+      },
+      {
+        speaker: 'Wyatt Zimmerman',
+        title: 'Head Coach • Golden State Enterprise',
+        quote: 'Carlton was our target from the very beginning. His work ethic, maturity, and complete two-way skillset make him the ideal leader for our franchise culture.'
+      }
+    ],
+    playerStats: [
+      { player: 'Carlton Daugherty', team: 'Golden State Enterprise', stat: '85 OVR • #1 Overall Pick • SF' },
+      { player: 'Key Attributes', team: 'Scouting Grades', stat: 'A+ 3PT • A+ Perimeter D • A Inside' },
+      { player: 'Pro Comparison', team: 'Style Blueprint', stat: 'Kawhi Leonard / Jayson Tatum hybrid' },
+    ]
+  },
   {
     id: 's4-draft-big-board-unveiled',
     title: 'Season 4 Draft Central: 44 Verified Prospects Unveiled on Official Big Board',
