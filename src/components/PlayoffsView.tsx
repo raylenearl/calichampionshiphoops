@@ -187,7 +187,7 @@ export const PlayoffsView: React.FC<PlayoffsViewProps> = ({
 
       {/* Primary Section Switcher (Bracket vs Playoff Stats) */}
       <div className="flex flex-wrap items-center justify-between gap-3 bg-slate-950/90 border border-slate-800 p-1.5 rounded-2xl">
-        <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none">
+        <div className="flex flex-wrap items-center gap-1.5">
           <button
             onClick={() => setActiveTab('bracket')}
             className={`px-3 py-2 rounded-xl text-xs font-black uppercase tracking-wider flex items-center gap-1.5 transition-all cursor-pointer whitespace-nowrap ${

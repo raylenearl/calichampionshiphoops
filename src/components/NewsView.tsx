@@ -92,7 +92,7 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
       {/* Category & Season Filter Toolbar */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-slate-950/90 border border-slate-800/90 p-2 sm:p-2.5 rounded-2xl shadow-inner">
         {/* Category Tabs */}
-        <div className="flex items-center overflow-x-auto scrollbar-none gap-1 sm:gap-1.5 text-xs font-extrabold">
+        <div className="flex flex-wrap items-center gap-1 sm:gap-1.5 text-xs font-extrabold">
           <button
             onClick={() => setSelectedCategory('all')}
             className={`px-3 py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${

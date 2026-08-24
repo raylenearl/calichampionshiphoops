@@ -58,7 +58,7 @@ export const RecordBookView: React.FC<RecordBookViewProps> = ({ onSelectTeamReca
       </div>
 
       {/* Navigation Tabs - Clean, Dedicated Segmented Control Bar */}
-      <div className="bg-slate-950/90 border border-slate-800/90 p-1.5 rounded-2xl flex items-center overflow-x-auto scrollbar-none gap-1 sm:gap-1.5 text-xs font-extrabold shadow-md">
+      <div className="bg-slate-950/90 border border-slate-800/90 p-1.5 rounded-2xl flex flex-wrap items-center gap-1 sm:gap-1.5 text-xs font-extrabold shadow-md">
         <button
           onClick={() => setActiveTab('all')}
           className={`px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${

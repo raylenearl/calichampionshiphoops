@@ -440,31 +440,47 @@ export const OpeningDayRostersView: React.FC<OpeningDayRostersViewProps> = ({
       </div>
 
       {/* QUICK TEAM SELECT CHIP BAR */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
-        <button
-          onClick={() => setSelectedTeamFilter('all')}
-          className={`px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all cursor-pointer shrink-0 border ${
-            selectedTeamFilter === 'all'
-              ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 border-slate-800 hover:border-slate-700'
-          }`}
-        >
-          All 12 Teams
-        </button>
-        {TEAMS.map((team) => (
+      <div className="bg-slate-900/60 border border-slate-800/80 p-3 sm:p-4 rounded-2xl space-y-2.5">
+        <div className="flex items-center justify-between gap-2">
+          <span className="text-[11px] font-extrabold uppercase text-slate-400 tracking-wider flex items-center gap-1.5">
+            <Users size={13} className="text-amber-400" /> Filter By Team ({TEAMS.length} Franchises):
+          </span>
+          {selectedTeamFilter !== 'all' && (
+            <button
+              onClick={() => setSelectedTeamFilter('all')}
+              className="text-[11px] text-amber-400 hover:text-amber-300 font-bold cursor-pointer transition-colors"
+            >
+              Show All Teams
+            </button>
+          )}
+        </div>
+
+        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
           <button
-            key={team.id}
-            onClick={() => setSelectedTeamFilter(team.id)}
-            className={`px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all cursor-pointer shrink-0 flex items-center gap-1.5 border ${
-              selectedTeamFilter === team.id
-                ? 'bg-slate-800 text-white border-amber-500 shadow-md font-black'
-                : 'bg-slate-900 text-slate-400 border-slate-800 hover:text-slate-200'
+            onClick={() => setSelectedTeamFilter('all')}
+            className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer border shrink-0 ${
+              selectedTeamFilter === 'all'
+                ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-md font-black ring-2 ring-amber-400/30'
+                : 'bg-slate-950 text-slate-300 border-slate-800 hover:border-slate-700 hover:text-white'
             }`}
           >
-            <div className="w-2 h-2 rounded-full" style={{ backgroundColor: team.primaryColor }} />
-            {team.shortName}
+            All 12 Teams
           </button>
-        ))}
+          {TEAMS.map((team) => (
+            <button
+              key={team.id}
+              onClick={() => setSelectedTeamFilter(team.id)}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer flex items-center gap-1.5 border shrink-0 ${
+                selectedTeamFilter === team.id
+                  ? 'bg-slate-800 text-white border-amber-500 shadow-md font-black ring-2 ring-amber-500/30'
+                  : 'bg-slate-950 text-slate-400 border-slate-800 hover:border-slate-700 hover:text-slate-200'
+              }`}
+            >
+              <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: team.primaryColor }} />
+              <span>{team.shortName}</span>
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* ========================================================================= */}
@@ -590,11 +606,11 @@ export const OpeningDayRostersView: React.FC<OpeningDayRostersViewProps> = ({
                     {onOpenTeamModal && (
                       <button
                         onClick={() => onOpenTeamModal(team.id, 4)}
-                        className="px-3 py-2 bg-amber-500/10 hover:bg-amber-500 text-amber-400 hover:text-slate-950 border border-amber-500/30 rounded-xl text-xs font-bold transition-all flex items-center gap-1 cursor-pointer"
-                        title="View Team Franchise Hub"
+                        className="px-3.5 py-2 bg-amber-500/10 hover:bg-amber-500 text-amber-400 hover:text-slate-950 border border-amber-500/30 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap shrink-0 shadow-sm"
+                        title={`View ${team.name} Franchise Hub & History`}
                       >
                         <span>Team Details</span>
-                        <ExternalLink size={12} />
+                        <ExternalLink size={13} className="shrink-0" />
                       </button>
                     )}
                   </div>

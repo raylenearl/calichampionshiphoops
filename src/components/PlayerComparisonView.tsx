@@ -179,7 +179,7 @@ export const PlayerComparisonView: React.FC<PlayerComparisonViewProps> = ({
             <Flame className="w-3.5 h-3.5 text-amber-400" />
             Marquee Matchup Presets:
           </div>
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-slate-700">
+          <div className="flex flex-wrap items-center gap-2 pt-1">
             {COMPARISON_PRESETS.map((preset) => {
               const isActive =
                 (player1Id === preset.player1Id && player2Id === preset.player2Id) ||
