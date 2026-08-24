@@ -10,9 +10,9 @@ import { InauguralGameModal } from './InauguralGameModal';
 import { Calendar, Search, Flame, User, Trophy, Layers, X, Sparkles, BookOpen, FileText } from 'lucide-react';
 
 interface ScheduleBrowserProps {
-  selectedSeason: 1 | 2 | 3;
-  setSelectedSeason: (s: 1 | 2 | 3) => void;
-  onSelectTeamRecap?: (teamId: string, season?: 1 | 2 | 3) => void;
+  selectedSeason: 1 | 2 | 3 | 4;
+  setSelectedSeason: (s: 1 | 2 | 3 | 4) => void;
+  onSelectTeamRecap?: (teamId: string, season?: 1 | 2 | 3 | 4) => void;
   onNavigateToNews?: (articleId?: string) => void;
 }
 
@@ -22,6 +22,7 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
   onSelectTeamRecap,
   onNavigateToNews,
 }) => {
+  const scheduleSeasonKey = (selectedSeason <= 3 ? selectedSeason : 3) as 1 | 2 | 3;
   const [selectedMonth, setSelectedMonth] = useState<string>('All');
   const [selectedTeam, setSelectedTeam] = useState<string>('All');
   const [gameStage, setGameStage] = useState<'all' | 'regular' | 'playoffs'>('all');

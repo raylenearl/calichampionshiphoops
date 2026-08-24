@@ -28,9 +28,9 @@ import {
 } from 'lucide-react';
 
 interface PlayoffsViewProps {
-  selectedSeason: 1 | 2 | 3;
-  setSelectedSeason: (s: 1 | 2 | 3) => void;
-  onSelectTeamRecap?: (teamId: string, season?: 1 | 2 | 3) => void;
+  selectedSeason: 1 | 2 | 3 | 4;
+  setSelectedSeason: (s: 1 | 2 | 3 | 4) => void;
+  onSelectTeamRecap?: (teamId: string, season?: 1 | 2 | 3 | 4) => void;
   onNavigateToNews?: (articleId: string) => void;
 }
 
@@ -47,8 +47,9 @@ export const PlayoffsView: React.FC<PlayoffsViewProps> = ({
     detail?: PlayoffGameDetail;
   } | null>(null);
 
-  const playoffInfo = PLAYOFF_HISTORY.find((p) => p.season === selectedSeason) || PLAYOFF_HISTORY[2];
-  const currentPlayoffStats = PLAYOFF_STATS_BY_SEASON[selectedSeason];
+  const playoffSeasonKey = (selectedSeason <= 3 ? selectedSeason : 3) as 1 | 2 | 3;
+  const playoffInfo = PLAYOFF_HISTORY.find((p) => p.season === playoffSeasonKey) || PLAYOFF_HISTORY[2];
+  const currentPlayoffStats = PLAYOFF_STATS_BY_SEASON[playoffSeasonKey];
 
   const getTeamIdByName = (name: string): string => {
     if (!name) return '';

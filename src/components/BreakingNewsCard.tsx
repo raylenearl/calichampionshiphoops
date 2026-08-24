@@ -7,7 +7,7 @@ import { CCH_NEWS_ARTICLES } from '../data/newsData';
 import aSaundersImg from '../assets/images/ASaunders.jpg';
 import bNelsonImg from '../assets/images/BNelson.jpeg';
 import cGoodwinImg from '../assets/images/CGoodwin.jpg';
-import jUnderwoodPhoto from '../assets/images/JUnderwood.jpg';
+import jUnderwoodPhoto from '../assets/images/JUnderwood.png';
 import mStaufferImg from '../assets/images/MStauffer.jpeg';
 import pSplitterImg from '../assets/images/PSplitter.jpg';
 import rFloresImg from '../assets/images/RFlores.jpg';

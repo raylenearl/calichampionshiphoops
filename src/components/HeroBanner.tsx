@@ -4,7 +4,7 @@ import { TeamBadge } from './TeamBadge';
 
 interface HeroBannerProps {
   onNavigate: (tab: string) => void;
-  selectedSeason: 1 | 2 | 3;
+  selectedSeason: 1 | 2 | 3 | 4;
 }
 
 export const HeroBanner: React.FC<HeroBannerProps> = ({ onNavigate, selectedSeason }) => {

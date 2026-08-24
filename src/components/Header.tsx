@@ -6,8 +6,8 @@ import { SocialHeaderButtons, SOCIAL_PLATFORMS } from './SocialLinks';
 interface HeaderProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
-  selectedSeason: 1 | 2 | 3;
-  setSelectedSeason: (season: 1 | 2 | 3) => void;
+  selectedSeason: 1 | 2 | 3 | 4;
+  setSelectedSeason: (season: 1 | 2 | 3 | 4) => void;
   onOpenSearch: () => void;
   theme: 'dark' | 'light';
   onToggleTheme: () => void;
@@ -123,6 +123,16 @@ export const Header: React.FC<HeaderProps> = ({
                 }`}
               >
                 S3
+              </button>
+              <button
+                onClick={() => setSelectedSeason(4)}
+                className={`px-2 py-1 rounded-lg transition-all cursor-pointer font-bold ${
+                  selectedSeason === 4
+                    ? 'bg-amber-500 text-slate-950 font-black shadow-sm'
+                    : 'text-amber-400 hover:text-white'
+                }`}
+              >
+                S4
               </button>
             </div>
 
@@ -280,6 +290,14 @@ export const Header: React.FC<HeaderProps> = ({
                   }`}
                 >
                   Season 3
+                </button>
+                <button
+                  onClick={() => { setSelectedSeason(4); setMobileMenuOpen(false); }}
+                  className={`px-3 py-1.5 rounded-xl font-black text-xs transition-all ${
+                    selectedSeason === 4 ? 'bg-amber-500 text-slate-950 shadow-md' : 'bg-slate-950 text-amber-400 border border-slate-800'
+                  }`}
+                >
+                  Season 4
                 </button>
               </div>
             </div>

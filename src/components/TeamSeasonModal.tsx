@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { TEAMS } from '../data/teamsData';
-import { STANDINGS_S1, STANDINGS_S2, STANDINGS_S3 } from '../data/standingsData';
+import { STANDINGS_S1, STANDINGS_S2, STANDINGS_S3, STANDINGS_S4 } from '../data/standingsData';
 import { getTeamSeasonRecap } from '../data/teamRecapsData';
 import { SEASON_ROSTERS } from '../data/rostersData';
 import { TeamBadge } from './TeamBadge';
@@ -45,7 +45,14 @@ export const TeamSeasonModal: React.FC<TeamSeasonModalProps> = ({
 
   const recap = selectedSeason <= 3 ? getTeamSeasonRecap(teamId, selectedSeason as 1 | 2 | 3) : null;
 
-  const standingsData = selectedSeason === 1 ? STANDINGS_S1 : selectedSeason === 2 ? STANDINGS_S2 : selectedSeason === 3 ? STANDINGS_S3 : null;
+  const standingsData =
+    selectedSeason === 1
+      ? STANDINGS_S1
+      : selectedSeason === 2
+      ? STANDINGS_S2
+      : selectedSeason === 3
+      ? STANDINGS_S3
+      : STANDINGS_S4;
 
   const standingsRow = standingsData ? standingsData.find((s) => s.teamId === teamId) : null;
 

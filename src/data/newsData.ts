@@ -1,11 +1,11 @@
 import { INAUGURAL_GAME_ARTICLE } from './leagueMilestonesData';
 import ajHinton99Img from '../assets/images/AJHinton99.png';
 import carltonDaughertyImg from '../assets/images/S4 Draft/Carlton Daugherty.png';
-import jacobUnderwoodImg from '../assets/images/JacobUnderwood.png';
+import jacobUnderwoodImg from '../assets/images/JUnderwood.png';
 import aSaundersImg from '../assets/images/ASaunders.jpg';
 import bNelsonImg from '../assets/images/BNelson.jpeg';
 import cGoodwinImg from '../assets/images/CGoodwin.jpg';
-import jUnderwoodPhoto from '../assets/images/JUnderwood.jpg';
+import jUnderwoodPhoto from '../assets/images/JUnderwood.png';
 import mStaufferImg from '../assets/images/MStauffer.jpeg';
 import pSplitterImg from '../assets/images/PSplitter.jpg';
 import rFloresImg from '../assets/images/RFlores.jpg';
@@ -74,9 +74,16 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     category: 'feature',
     featured: true,
     author: 'CCH League Office & Operations Desk',
-    readTime: '6 min read • Official Rosters & Analytics',
+    readTime: '6 min read • Official Podcast & Analytics',
     imageUrl: ajHinton99Img,
     imageCaption: 'First 99 rated player in CCH History',
+    audioUrl: 'https://archive.org/download/nba-2-k-24-2024-05-12-02-07-45/The_New_Architecture_of_CCH_Season_4.m4a',
+    podcastInfo: {
+      episodeTitle: 'The New Architecture of CCH Season 4: Roster Construction, 99 OVR Hinton & Complete Roster Breakdown',
+      broadcastBy: 'CCH Media Network • Official Roster Breakdown Podcast',
+      duration: 'Official Audio Podcast',
+      description: 'Comprehensive Season 4 opening day breakdown: 132 active players, super-team constructions, 99 OVR A.J. Hinton, Oakland\'s explosive 96-92 tandem, rookie impacts, and 12-team rotation architecture.',
+    },
     headlineQuote: 'We have the talent, but individual ratings do not win championships. Our singular focus is getting to the Finals and finishing the job.',
     contentParagraphs: [
       'CALIFORNIA — The Cali Championship Hoops front office has formally certified and published the complete 11-man Opening Day Rosters for all 12 franchises ahead of the Season 4 tip-off. With 132 players under active contract, the league enters its most fiercely contested regular season campaign.',

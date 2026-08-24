@@ -91,8 +91,8 @@ export default function App() {
   const initialHash = parseUrlHash();
 
   const [activeTab, setActiveTab] = useState<string>(initialHash.tab);
-  const [selectedSeason, setSelectedSeason] = useState<1 | 2 | 3>(
-    initialHash.season && initialHash.season <= 3 ? (initialHash.season as 1 | 2 | 3) : 3
+  const [selectedSeason, setSelectedSeason] = useState<1 | 2 | 3 | 4>(
+    initialHash.season ? (initialHash.season as 1 | 2 | 3 | 4) : 4
   );
   const [searchModalOpen, setSearchModalOpen] = useState<boolean>(false);
   const [teamRecapModal, setTeamRecapModal] = useState<{ teamId: string; season: 1 | 2 | 3 | 4 } | null>(
@@ -320,6 +320,16 @@ export default function App() {
                     <span>Read Full Story</span>
                   </button>
                 </div>
+              </div>
+
+              {/* Front Page Official Roster Breakdown Podcast Feature */}
+              <div onClick={(e) => e.stopPropagation()} className="relative z-10 pt-1">
+                <PodcastPlayerCard
+                  audioUrl="https://archive.org/download/nba-2-k-24-2024-05-12-02-07-45/The_New_Architecture_of_CCH_Season_4.m4a"
+                  title="Official Podcast: The New Architecture of CCH Season 4"
+                  subtitle="CCH Media Network • In-depth roster breakdowns, 99 OVR A.J. Hinton, 10 superstars, rookie impacts & rotation analysis"
+                  compact={false}
+                />
               </div>
 
               {/* 90+ OVR Superstars Spotlight Strip */}

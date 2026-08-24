@@ -91,7 +91,7 @@ export interface Player {
 }
 
 export interface Award {
-  season: 1 | 2 | 3;
+  season: 1 | 2 | 3 | 4;
   category: string;
   player: string;
   team: string;
@@ -110,6 +110,17 @@ export interface StandingsRow {
   streak: string;
   clinchedPlayoffs: boolean;
   clinchedTopSeed?: boolean;
+  homeRecord?: string;
+  awayRecord?: string;
+  confRecord?: string;
+  oppPpg?: number;
+  diff?: number;
+  l10?: string;
+  teamOvr?: number;
+  keyStars?: string;
+  headCoach?: string;
+  powerRank?: number;
+  notes?: string;
 }
 
 export interface GameRecord {
