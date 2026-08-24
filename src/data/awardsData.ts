@@ -123,7 +123,7 @@ export const ALL_AWARDS: Award[] = [
   {
     season: 2,
     category: 'Offensive Player of the Year (OPOY)',
-    player: 'Ray Gambino',
+    player: 'Ray Gambino Gamble',
     team: 'San Diego Strykers',
     statDetails: '4.6 APG (League Assists Leader)',
     description: 'Orchestrated the league’s fastest-paced offense, leading all guards in assist average (4.6 APG) and perimeter creation.',
@@ -184,7 +184,7 @@ export const ALL_AWARDS: Award[] = [
     player: 'A.J. Hinton',
     team: 'San Diego Strykers',
     statDetails: '21.1 PPG | 5.3 RPG | 3.1 APG | 1.1 SPG | 0.3 BPG',
-    description: 'Led the league in scoring efficiency and explosive perimeter scoring (21.1 PPG). Voting: 1st A.J. Hinton, 2nd Ray Gambino (18.1 PPG, 4.3 APG), 3rd Lamar Anderson (15.9 PPG, 4.8 APG).',
+    description: 'Led the league in scoring efficiency and explosive perimeter scoring (21.1 PPG). Voting: 1st A.J. Hinton, 2nd Ray Gambino Gamble (18.1 PPG, 4.3 APG), 3rd Lamar Anderson (15.9 PPG, 4.8 APG).',
   },
   {
     season: 3,
@@ -367,7 +367,7 @@ export const SEASON_LEADERS: SeasonLeader[] = [
   {
     season: 2,
     statCategory: 'Assists',
-    player: 'Ray Gambino',
+    player: 'Ray Gambino Gamble',
     position: 'PG',
     team: 'San Diego Strykers',
     teamId: 'san-diego-strykers',
@@ -559,7 +559,7 @@ export const ALL_CALI_TEAMS: AllCaliTeam[] = [
     tier: '1st Team',
     players: [
       { name: 'Lamar Anderson', position: 'G', team: 'California Reds', teamId: 'california-reds' },
-      { name: 'Ray Gambino', position: 'G', team: 'San Diego Strykers', teamId: 'san-diego-strykers' },
+      { name: 'Ray Gambino Gamble', position: 'G', team: 'San Diego Strykers', teamId: 'san-diego-strykers' },
       { name: 'DeAnte Gray', position: 'F', team: 'San Diego Strykers', teamId: 'san-diego-strykers' },
       { name: 'Jaydan Moody', position: 'F', team: 'San Diego Sabrewolves', teamId: 'san-diego-sabrewolves' },
       { name: 'Dorell Kabal', position: 'C', team: 'Sacramento Stallions', teamId: 'sacramento-stallions' },
@@ -656,7 +656,7 @@ export const ALL_CALI_TEAMS: AllCaliTeam[] = [
     teamCategory: 'All-Cali',
     tier: '2nd Team',
     players: [
-      { name: 'Ray Gambino', position: 'G', team: 'San Diego Strykers', teamId: 'san-diego-strykers' },
+      { name: 'Ray Gambino Gamble', position: 'G', team: 'San Diego Strykers', teamId: 'san-diego-strykers' },
       { name: 'George Madsen', position: 'G', team: 'Sacramento Stallions', teamId: 'sacramento-stallions' },
       { name: 'Shelden Humphries', position: 'F', team: 'Anaheim Admirals', teamId: 'anaheim-admirals' },
       { name: 'DeAnte Gray', position: 'F', team: 'San Diego Strykers', teamId: 'san-diego-strykers' },

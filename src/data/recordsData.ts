@@ -65,7 +65,7 @@ export const SINGLE_GAME_INDIVIDUAL: SingleGameRecord[] = [
     opponent: 'vs SDS',
     date: '2/16',
     season: 'Season 3',
-    previousRecord: 'Ray Gambino (46 pts, S2) / Lamar Anderson (45 pts, S2)',
+    previousRecord: 'Ray Gambino Gamble (46 pts, S2) / Lamar Anderson (45 pts, S2)',
   },
   {
     category: 'Most Rebounds',
@@ -405,7 +405,7 @@ export const REGULAR_SEASON_CAREER_TOTALS: CareerTotalRecord[] = [
   },
   {
     category: 'Career Regular Season Assists',
-    player: 'Ray Gambino',
+    player: 'Ray Gambino Gamble',
     team: 'San Diego Strykers',
     teamId: 'san-diego-strykers',
     stat: '294 AST',
@@ -528,7 +528,7 @@ export const RECORD_BREAKERS: RecordBreaker[] = [
 export const SEASON_2_RECORD_BREAKERS: Season2RecordBreaker[] = [
   {
     record: 'Most Points in a Game',
-    newHolder: 'Ray Gambino (SDS)',
+    newHolder: 'Ray Gambino Gamble (SDS)',
     newMark: '46 (vs. CAL)',
     previousRecord: 'Lamar Anderson (CAL) 45 (Season 2 @ OAK)',
   },
@@ -615,11 +615,11 @@ export const PLAYOFF_SINGLE_GAME_RECORDS: PlayoffRecordItem[] = [
   },
   {
     category: 'Most Assists',
-    player: 'Ray Gambino / Lamar Anderson',
+    player: 'Ray Gambino Gamble / Lamar Anderson',
     team: 'San Diego Strykers / California Reds',
     teamId: 'san-diego-strykers',
     stat: '9 AST',
-    details: 'Ray Gambino (23 PTS, 9 AST vs. Sabrewolves) & Lamar Anderson (28 PTS, 9 AST vs. Dynamics)',
+    details: 'Ray Gambino Gamble (23 PTS, 9 AST vs. Sabrewolves) & Lamar Anderson (28 PTS, 9 AST vs. Dynamics)',
     seasonOrSpan: 'Season 2 & Season 1 Quarterfinals',
     previousRecord: 'Munir Kassa & Jack McMichael Jr. (8 AST)',
   },
@@ -679,7 +679,7 @@ export const PLAYOFF_SINGLE_POSTSEASON_RECORDS: PlayoffRecordItem[] = [
   },
   {
     category: 'Most Assists (Single Run)',
-    player: 'Ray Gambino',
+    player: 'Ray Gambino Gamble',
     team: 'San Diego Strykers',
     teamId: 'san-diego-strykers',
     stat: '18 AST',
@@ -743,7 +743,7 @@ export const PLAYOFF_CAREER_TOTALS_RECORDS: PlayoffRecordItem[] = [
   },
   {
     category: 'Career Playoff Assists',
-    player: 'Ray Gambino',
+    player: 'Ray Gambino Gamble',
     team: 'San Diego Strykers',
     teamId: 'san-diego-strykers',
     stat: '35 AST',

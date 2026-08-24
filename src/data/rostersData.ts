@@ -85,7 +85,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
       coachTenure: '4th Season',
       players: [
         { number: '25', name: 'Kirk Tinsley', position: 'PG', ovr: 87, seasonYear: '4th Season', schoolOrNote: 'Houston', age: 22, height: '6-0', weight: 200 },
-        { number: '8', name: 'Steffan Sirven', position: 'SG', ovr: 84, seasonYear: 'Rookie', schoolOrNote: 'France', age: 21, height: '6-2', weight: 206 },
+        { number: '8', name: 'Stephan Sirven', position: 'SG', ovr: 84, seasonYear: 'Rookie', schoolOrNote: 'France', age: 21, height: '6-2', weight: 206 },
         { number: '21', name: 'Pete Dantley', position: 'PF/SF', ovr: 79, seasonYear: 'Rookie', schoolOrNote: 'St. Bonaventure', age: 21, height: '6-9', weight: 212 },
         { number: '38', name: 'Tracy Howard', position: 'SF', ovr: 77, seasonYear: 'Rookie', schoolOrNote: 'Jacksonville', age: 21, height: '6-5', weight: 193 },
         { number: '24', name: 'Jesse Wingate', position: 'C', ovr: 77, seasonYear: 'Rookie', schoolOrNote: 'Furman', age: 21, height: '7-0', weight: 268 },
@@ -236,7 +236,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
         { number: '29', name: 'Joshua Bowen', position: 'C', ovr: 86, seasonYear: '4th Season', schoolOrNote: 'Mt. Miguel High', age: 22, height: '7-2', weight: 240 },
         { number: '23', name: 'Carl Marks', position: 'PF/C', ovr: 81, seasonYear: 'Rookie', schoolOrNote: 'Pacific', age: 18, height: '6-10', weight: 205 },
         { number: '27', name: 'Kenneth Mcleod', position: 'SF', ovr: 79, seasonYear: 'Rookie', schoolOrNote: 'Nebraska', age: 19, height: '6-7', weight: 229 },
-        { number: '7', name: 'Zajeb Despesek Thompson', position: 'C/PF', ovr: 75, seasonYear: 'Rookie', schoolOrNote: 'High Tech High', age: 18, height: '6-10', weight: 245 },
+        { number: '7', name: 'Zaire Deepseek Thompson', position: 'C/PF', ovr: 75, seasonYear: 'Rookie', schoolOrNote: 'High Tech High', age: 18, height: '6-10', weight: 245 },
         { number: '37', name: 'Raymond Brewer', position: 'PF/SF', ovr: 74, seasonYear: 'Rookie', schoolOrNote: 'Texas A&M', age: 21, height: '6-8', weight: 235 },
         { number: '44', name: 'Bo Park', position: 'C', ovr: 73, seasonYear: 'Rookie', schoolOrNote: 'Gonzaga', age: 20, height: '6-10', weight: 261 },
         { number: '50', name: 'Nate Ferguson', position: 'SF/PF', ovr: 72, seasonYear: 'Rookie', schoolOrNote: 'DePaul', age: 23, height: '6-8', weight: 208 },
@@ -790,7 +790,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
         { number: '35', name: 'Doug Bonner', position: 'F', schoolOrNote: 'San Jose State' },
         { number: '42', name: 'Jalen Jeffries', position: 'F/C', schoolOrNote: 'USC' },
         { number: '44', name: 'Allen Hunter', position: 'F', schoolOrNote: 'Savannah State' },
-        { number: '84', name: 'Ray Gambino', position: 'PG', schoolOrNote: 'Miami (S2 OPOY)' },
+        { number: '84', name: 'Ray Gambino Gamble', position: 'PG', schoolOrNote: 'Miami (S2 OPOY)' },
       ],
     },
     s3: {
@@ -798,7 +798,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
       coachTenure: '2nd Season',
       players: [
         { name: 'A.J. Hinton', position: 'SG', ovr: 97, schoolOrNote: 'S3 League MVP (21.1 PPG)' },
-        { name: 'Ray Gambino', position: 'PG', ovr: 92, schoolOrNote: 'S2 OPOY' },
+        { name: 'Ray Gambino Gamble', position: 'PG', ovr: 92, schoolOrNote: 'S2 OPOY' },
         { name: 'DeAnte Gray', position: 'SF', ovr: 91, schoolOrNote: 'All-Cali 1st Team' },
         { name: 'Johnny Galloway', position: 'PF', ovr: 88 },
         { name: 'Rodney Jamison', position: 'SF', ovr: 86 },
@@ -818,7 +818,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
       players: [
         { number: '21', name: 'A.J. Hinton', position: 'SG/PG', ovr: 99, seasonYear: '4th Season', schoolOrNote: 'Crawford High', age: 22, height: '6-3', weight: 200 },
         { number: '34', name: 'DeAnte Gray', position: 'SF/PF', ovr: 96, seasonYear: '4th Season', schoolOrNote: 'San Diego High', age: 22, height: '6-4', weight: 275 },
-        { number: '84', name: 'Ray Gamble', position: 'PG', ovr: 94, seasonYear: '4th Season', schoolOrNote: 'Miami (FL)', age: 24, height: '6-6', weight: 210 },
+        { number: '84', name: 'Ray Gambino Gamble', position: 'PG', ovr: 94, seasonYear: '4th Season', schoolOrNote: 'Miami (FL)', age: 24, height: '6-6', weight: 210 },
         { number: '44', name: 'Carl Marshall', position: 'C/PF', ovr: 81, seasonYear: 'Rookie', schoolOrNote: 'Georgia', age: 21, height: '6-11', weight: 247 },
         { number: '22', name: 'Joe Grantham', position: 'PF', ovr: 75, seasonYear: 'Rookie', schoolOrNote: 'Chattanooga', age: 21, height: '6-6', weight: 201 },
         { number: '30', name: 'Rod Hammonds', position: 'PF/SF', ovr: 75, seasonYear: 'Rookie', schoolOrNote: 'San Francisco', age: 21, height: '6-7', weight: 250 },

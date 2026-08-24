@@ -225,7 +225,7 @@ export const StandingsView: React.FC<StandingsViewProps> = ({
                 San Diego Strykers (92.5 OVR)
               </p>
               <span className="text-[11px] text-amber-400 font-semibold">
-                MVP A.J. Hinton • DeAnte Gray • Ray Gamble
+                MVP A.J. Hinton • DeAnte Gray • Ray Gambino Gamble
               </span>
             </div>
           </div>

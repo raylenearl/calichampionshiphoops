@@ -44,7 +44,7 @@ export const PLAYOFF_HISTORY: SeasonPlayoffInfo[] = [
     narrative: 'Following a trade for Lamar Anderson, the California Reds established a league-best 18-4 record and defeated the defending champion Stallions 77-71 in the Finals.',
     quarterfinals: [
       { round: 'Quarterfinals (South)', team1: 'California Reds', seed1: 1, score1: 83, team2: 'Anaheim Admirals', seed2: 4, score2: 63, winner: 'California Reds', notes: 'Dennis Rodman dominated with 17 PTS, 8 REB, 3 BLK on 6-7 FG. K. Tinsley scored 30 for Anaheim.' },
-      { round: 'Quarterfinals (South)', team1: 'San Diego Strykers', seed1: 2, score1: 86, team2: 'San Diego Sabrewolves', seed2: 3, score2: 79, winner: 'San Diego Strykers', notes: 'Ray Gambino dished out 9 AST with 23 PTS, while Kirk Barnes dropped 29 for Sabrewolves.' },
+      { round: 'Quarterfinals (South)', team1: 'San Diego Strykers', seed1: 2, score1: 86, team2: 'San Diego Sabrewolves', seed2: 3, score2: 79, winner: 'San Diego Strykers', notes: 'Ray Gambino Gamble dished out 9 AST with 23 PTS, while Kirk Barnes dropped 29 for Sabrewolves.' },
       { round: 'Quarterfinals (North)', team1: 'Sacramento Stallions', seed1: 1, score1: 69, team2: 'San Francisco Knights', seed2: 4, score2: 57, winner: 'Sacramento Stallions', notes: 'George Madsen hit 7 three-pointers for 27 PTS as Sacramento forced 12 turnovers.' },
       { round: 'Quarterfinals (North)', team1: 'Oakland Renegades', seed1: 2, score1: 65, team2: 'San Jose Tigersharks', seed2: 3, score2: 51, winner: 'Oakland Renegades', notes: 'Defensive battle where Oakland recorded 11 steals and 7 blocks as a team.' },
     ],
@@ -65,7 +65,7 @@ export const PLAYOFF_HISTORY: SeasonPlayoffInfo[] = [
     quarterfinals: [
       { round: 'Quarterfinals', team1: 'Fresno Mad Dogs', seed1: 8, score1: 90, team2: 'California Reds', seed2: 1, score2: 86, winner: 'Fresno Mad Dogs', notes: 'Fresno physically dominated the interior, outscoring the Reds 50-40 in the paint.' },
       { round: 'Quarterfinals', team1: 'Sacramento Stallions', seed1: 2, score1: 80, team2: 'San Francisco Knights', seed2: 7, score2: 79, winner: 'Sacramento Stallions', notes: 'Sacramento rallied from a 10-point first-half deficit to survive.' },
-      { round: 'Quarterfinals', team1: 'San Diego Strykers', seed1: 4, score1: 80, team2: 'Oakland Renegades', seed2: 5, score2: 79, winner: 'San Diego Strykers', notes: 'Ray Gambino erupted for 33 PTS, and a clutch free throw with under a minute left sealed the win.' },
+      { round: 'Quarterfinals', team1: 'San Diego Strykers', seed1: 4, score1: 80, team2: 'Oakland Renegades', seed2: 5, score2: 79, winner: 'San Diego Strykers', notes: 'Ray Gambino Gamble erupted for 33 PTS, and a clutch free throw with under a minute left sealed the win.' },
       { round: 'Quarterfinals', team1: 'San Diego Sabrewolves', seed1: 6, score1: 86, team2: 'Los Angeles Dynamics', seed2: 3, score2: 79, winner: 'San Diego Sabrewolves', notes: 'Kirk Barnes scored 25 PTS in a wire-to-wire victory.' },
     ],
     semifinals: [
@@ -131,7 +131,7 @@ export const S1_PLAYOFF_STATS: PlayoffSeasonStats = {
   averagesLeaders: [
     { category: 'Points per Game', player: 'Munir Kassa', team: 'San Francisco Knights', stat: '32.5 PPG', details: '33 PTS vs SAC, 32 PTS vs SAB (65.0% FG)' },
     { category: 'Rebounds per Game', player: 'DeAnte Gray', team: 'Golden State Enterprise', stat: '10.5 RPG', details: '13 REB vs LA Dynamics in Semifinals' },
-    { category: 'Assists per Game', player: 'Munir Kassa / Ray Gambino', team: 'San Francisco Knights / San Diego Strykers', stat: '8.0 APG', details: 'Orchestrated Knights offense with only 1 team TO vs SAC' },
+    { category: 'Assists per Game', player: 'Munir Kassa / Ray Gambino Gamble', team: 'San Francisco Knights / San Diego Strykers', stat: '8.0 APG', details: 'Orchestrated Knights offense with only 1 team TO vs SAC' },
     { category: 'Steals per Game', player: 'DeAnte Gray', team: 'Golden State Enterprise', stat: '3.0 SPG', details: 'Perimeter pressure specialist' },
     { category: 'Blocks per Game', player: 'Dorell Kabal', team: 'Sacramento Stallions', stat: '2.0 BPG', details: 'Anchor of Stallions Season 1 Championship defense' },
     { category: 'Field Goal %', player: 'Coty Barry Carroll', team: 'Sacramento Stallions', stat: '75.0% FG', details: '9-11 FG (27 PTS) in Finals vs Enterprise' },
@@ -324,7 +324,7 @@ export const S2_PLAYOFF_STATS: PlayoffSeasonStats = {
   totalsLeaders: [
     { category: 'Points', player: 'Lamar Anderson', team: 'California Reds', stat: '73 PTS', details: '3 GP (26 PTS in Finals, 27 PTS in Semis)' },
     { category: 'Rebounds', player: 'Dorell Kabal', team: 'Sacramento Stallions', stat: '25 REB', details: '3 GP, 8.3 RPG average' },
-    { category: 'Assists', player: 'Ray Gambino', team: 'San Diego Strykers', stat: '18 AST', details: '2 GP, 9.0 APG average' },
+    { category: 'Assists', player: 'Ray Gambino Gamble', team: 'San Diego Strykers', stat: '18 AST', details: '2 GP, 9.0 APG average' },
     { category: 'Blocks', player: 'Dorell Kabal / Dennis Rodman', team: 'Sacramento Stallions / California Reds', stat: '6 BLK', details: 'Interior defensive anchors' },
     { category: 'Steals', player: 'C. Cook / Lamar Anderson', team: 'Sacramento Stallions / California Reds', stat: '7 STL', details: 'Perimeter pressure leaders' },
     { category: '3-Pointers Made', player: 'George Madsen', team: 'Sacramento Stallions', stat: '13 3PM', details: '7 3PM in Quarterfinals vs SF' },
@@ -334,7 +334,7 @@ export const S2_PLAYOFF_STATS: PlayoffSeasonStats = {
   averagesLeaders: [
     { category: 'Points per Game', player: 'K. Tinsley', team: 'Anaheim Admirals', stat: '30.0 PPG', details: '30 PTS on 10-15 FG (4-4 3PT) vs CAL' },
     { category: 'Rebounds per Game', player: 'Dorell Kabal', team: 'Sacramento Stallions', stat: '8.3 RPG', details: 'Interior rebounding force' },
-    { category: 'Assists per Game', player: 'Ray Gambino', team: 'San Diego Strykers', stat: '9.0 APG', details: 'Dished out 9 AST vs Sabrewolves' },
+    { category: 'Assists per Game', player: 'Ray Gambino Gamble', team: 'San Diego Strykers', stat: '9.0 APG', details: 'Dished out 9 AST vs Sabrewolves' },
     { category: 'Steals per Game', player: 'C. Cook', team: 'Sacramento Stallions', stat: '2.3 SPG', details: '5 steals vs Reds in Finals' },
     { category: 'Blocks per Game', player: 'Dennis Rodman', team: 'California Reds', stat: '2.0 BPG', details: '3 BLK vs Anaheim Admirals' },
     { category: 'Field Goal %', player: 'Dennis Rodman', team: 'California Reds', stat: '85.7% FG', details: '6-7 FG in Quarterfinals' },
@@ -361,13 +361,13 @@ export const S2_PLAYOFF_STATS: PlayoffSeasonStats = {
         { stat: '8 REB', player: 'Dennis Rodman (CAL)', matchup: 'vs. Anaheim Admirals' },
         { stat: '8 REB', player: 'J.C. McMillan (OAK)', matchup: 'vs. Sacramento Stallions' },
         { stat: '7 REB', player: 'Adrian Pognotti (SF)', matchup: 'vs. Sacramento Stallions' },
-        { stat: '7 REB', player: 'Ray Gambino (SD STRY)', matchup: 'vs. San Diego Sabrewolves' },
+        { stat: '7 REB', player: 'Ray Gambino Gamble (SD STRY)', matchup: 'vs. San Diego Sabrewolves' },
       ],
     },
     {
       category: 'Top Playmakers & Defenders',
       performances: [
-        { stat: '9 AST', player: 'Ray Gambino (SD STRY)', matchup: 'vs. San Diego Sabrewolves' },
+        { stat: '9 AST', player: 'Ray Gambino Gamble (SD STRY)', matchup: 'vs. San Diego Sabrewolves' },
         { stat: '6 AST', player: 'Lamar Anderson (CAL)', matchup: 'vs. San Diego Strykers' },
         { stat: '5 AST', player: 'George Madsen (SAC)', matchup: 'vs. Oakland Renegades' },
         { stat: '5 STL', player: 'C. Cook (SAC)', matchup: 'vs. California Reds (Finals)' },
@@ -445,11 +445,11 @@ export const S2_PLAYOFF_STATS: PlayoffSeasonStats = {
       round: 'Quarterfinals',
       score: '86 - 79',
       winner: 'San Diego Strykers',
-      summary: 'The Strykers won a physical battle by converting 16-22 FTs and scoring 40 points in the paint. Ray Gambino dished out 9 assists with 23 points, while Kirk Barnes dropped 29 for Sabrewolves.',
+      summary: 'The Strykers won a physical battle by converting 16-22 FTs and scoring 40 points in the paint. Ray Gambino Gamble dished out 9 assists with 23 points, while Kirk Barnes dropped 29 for Sabrewolves.',
       topPerformers: [
         { name: 'Kirk Barnes (SD Sabrewolves)', stat: '29 PTS (12-20 FG)' },
         { name: 'A.J. Hinton (SD Strykers)', stat: '27 PTS' },
-        { name: 'Ray Gambino (SD Strykers)', stat: '23 PTS, 9 AST, 7 REB' },
+        { name: 'Ray Gambino Gamble (SD Strykers)', stat: '23 PTS, 9 AST, 7 REB' },
       ],
     },
     {
@@ -487,7 +487,7 @@ export const S2_PLAYOFF_STATS: PlayoffSeasonStats = {
       description: 'Madsen exploded onto the postseason scene with consecutive 27-point games, hitting 7 three-pointers in the Quarterfinals alone.',
     },
     {
-      name: 'Ray Gambino',
+      name: 'Ray Gambino Gamble',
       team: 'San Diego Strykers',
       teamId: 'san-diego-strykers',
       position: 'Point Guard (PG)',
@@ -546,7 +546,7 @@ export const S3_PLAYOFF_STATS: PlayoffSeasonStats = {
       category: 'Leading Scorers',
       performances: [
         { stat: '34 PTS', player: 'Lamar Anderson (CAL)', matchup: 'vs. Fresno Mad Dogs' },
-        { stat: '30 PTS', player: 'Ray Gambino (SD Strykers)', matchup: 'vs. Fresno Mad Dogs' },
+        { stat: '30 PTS', player: 'Ray Gambino Gamble (SD Strykers)', matchup: 'vs. Fresno Mad Dogs' },
         { stat: '29 PTS', player: 'Stephen Cook (SF)', matchup: 'vs. Sacramento Stallions' },
         { stat: '29 PTS', player: 'George Madsen (SAC)', matchup: 'vs. Fresno Mad Dogs (Finals)' },
         { stat: '28 PTS', player: 'Douglas Bradley (FRE)', matchup: 'vs. SD Strykers & vs. Sacramento' },
@@ -605,10 +605,10 @@ export const S3_PLAYOFF_STATS: PlayoffSeasonStats = {
       round: 'Semifinals',
       score: '80 - 75',
       winner: 'Fresno Mad Dogs',
-      summary: 'Fresno shot an incredible 63% from the field (31-49) to overcome the Strykers. D. Bradley led Fresno with 28 points while Ray Gambino scored 30 in a losing effort.',
+      summary: 'Fresno shot an incredible 63% from the field (31-49) to overcome the Strykers. D. Bradley led Fresno with 28 points while Ray Gambino Gamble scored 30 in a losing effort.',
       topPerformers: [
         { name: 'Douglas Bradley (FRE)', stat: '28 PTS' },
-        { name: 'Ray Gambino (SD Strykers)', stat: '30 PTS, 3 REB, 3 AST' },
+        { name: 'Ray Gambino Gamble (SD Strykers)', stat: '30 PTS, 3 REB, 3 AST' },
         { name: 'Josh Parks (FRE)', stat: '27 PTS' },
       ],
     },
@@ -644,9 +644,9 @@ export const S3_PLAYOFF_STATS: PlayoffSeasonStats = {
       round: 'Quarterfinals',
       score: '80 - 79',
       winner: 'San Diego Strykers',
-      summary: 'The Strykers pulled off a thriller over the Renegades by 1 point behind Ray Gambino’s 25 points and A.J. Hinton’s 17 points and 6 assists. Alonzo Reece scored 26 for Oakland.',
+      summary: 'The Strykers pulled off a thriller over the Renegades by 1 point behind Ray Gambino Gamble’s 25 points and A.J. Hinton’s 17 points and 6 assists. Alonzo Reece scored 26 for Oakland.',
       topPerformers: [
-        { name: 'Ray Gambino (SD Strykers)', stat: '25 PTS' },
+        { name: 'Ray Gambino Gamble (SD Strykers)', stat: '25 PTS' },
         { name: 'Alonzo Reece (OAK)', stat: '26 PTS' },
         { name: 'A.J. Hinton (SD Strykers)', stat: '17 PTS, 6 AST' },
       ],

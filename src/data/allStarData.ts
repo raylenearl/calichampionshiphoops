@@ -260,7 +260,7 @@ export const ALL_STAR_GAMES: AllStarGame[] = [
     ],
     soCalRoster: [
       { name: 'Mo Alexander', team: 'Los Angeles Dynamics', teamId: 'los-angeles-dynamics', pts: 20, reb: 8 },
-      { name: 'Ray Gambino', team: 'San Diego Strykers', teamId: 'san-diego-strykers', pts: 18, ast: 4 },
+      { name: 'Ray Gambino Gamble', team: 'San Diego Strykers', teamId: 'san-diego-strykers', pts: 18, ast: 4 },
       { name: 'Jack McMichael Jr.', team: 'Los Angeles Dynamics', teamId: 'los-angeles-dynamics', pts: 15, fg3: '3-6' },
       { name: 'Kirk Barnes', team: 'San Diego Sabrewolves', teamId: 'san-diego-sabrewolves', pts: 12, reb: 6 },
       { name: 'DeAnte Gray', team: 'Golden State Enterprise', teamId: 'golden-state-enterprise', pts: 8, ast: 3 },

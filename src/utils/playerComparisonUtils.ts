@@ -73,7 +73,7 @@ export const COMPARISON_PRESETS: ComparisonPreset[] = [
   {
     id: 'floor-generals',
     title: 'Ice-Cold Floor Generals',
-    tagline: 'Munir Kassa vs. Ray Gambino',
+    tagline: 'Munir Kassa vs. Ray Gambino Gamble',
     player1Id: 'p-munir-kassa',
     player2Id: 'p-ray-gambino',
     badge: '🧊 Clutch Playmakers',

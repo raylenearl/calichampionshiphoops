@@ -202,8 +202,8 @@ export const TEAMS: Team[] = [
     secondaryColor: '#2b2e13', // Combat Green
     accentColor: '#f97316',
     iconName: 'Target',
-    description: 'The highest-rated roster in CCH history, featuring a breathtaking trio of superstars: 99 OVR MVP A.J. Hinton, 96 OVR forward DeAnte Gray, and 94 OVR floor general Ray Gamble.',
-    keyPlayers: ['A.J. Hinton (SG/PG, 99 OVR • 4th Season)', 'DeAnte Gray (SF/PF, 96 OVR • 4th Season)', 'Ray Gamble (PG, 94 OVR • 4th Season)', 'Carl Marshall (C/PF, 81 OVR • Rookie)'],
+    description: 'The highest-rated roster in CCH history, featuring a breathtaking trio of superstars: 99 OVR MVP A.J. Hinton, 96 OVR forward DeAnte Gray, and 94 OVR floor general Ray Gambino Gamble.',
+    keyPlayers: ['A.J. Hinton (SG/PG, 99 OVR • 4th Season)', 'DeAnte Gray (SF/PF, 96 OVR • 4th Season)', 'Ray Gambino Gamble (PG, 94 OVR • 4th Season)', 'Carl Marshall (C/PF, 81 OVR • Rookie)'],
     coach: 'Adam Saunders (1st Season)',
     titles: ['Season 3 MVP (A.J. Hinton)', 'Only Team with 99 OVR & Multiple 95+ Stars'],
     s1Record: '9-13 (9th)',
@@ -221,8 +221,8 @@ export const TEAMS: Team[] = [
     secondaryColor: '#458f8a', // Brass Blue
     accentColor: '#000000',
     iconName: 'Anchor',
-    description: 'Perimeter sharpshooting squad guided by 4th-year head coach Steve Porter, led by franchise sharpshooter Kirk Tinsley (87) and French phenom Steffan Sirven (84).',
-    keyPlayers: ['Kirk Tinsley (PG, 87 OVR • 4th Season)', 'Steffan Sirven (SG, 84 OVR • Rookie)', 'Pete Dantley (PF/SF, 79 OVR • Rookie)', 'Jesse Wingate (C, 77 OVR • Rookie)'],
+    description: 'Perimeter sharpshooting squad guided by 4th-year head coach Steve Porter, led by franchise sharpshooter Kirk Tinsley (87) and French phenom Stephan Sirven (84).',
+    keyPlayers: ['Kirk Tinsley (PG, 87 OVR • 4th Season)', 'Stephan Sirven (SG, 84 OVR • Rookie)', 'Pete Dantley (PF/SF, 79 OVR • Rookie)', 'Jesse Wingate (C, 77 OVR • Rookie)'],
     coach: 'Steve Porter (4th Season)',
     titles: ['Highest Free Throw % Team (.804 FT%)', 'Most Bench Points (549 pts)'],
     s1Record: '9-13 (8th)',

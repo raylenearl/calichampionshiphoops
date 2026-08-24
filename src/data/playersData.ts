@@ -391,7 +391,7 @@ export const PLAYERS: Player[] = [
   },
   {
     id: 'p-ray-gambino',
-    name: 'Ray Gambino',
+    name: 'Ray Gambino Gamble',
     teamId: 'san-diego-strykers',
     teamName: 'San Diego Strykers',
     position: 'Point Guard (PG)',
