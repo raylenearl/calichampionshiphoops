@@ -4,20 +4,20 @@ import { STANDINGS_S1, STANDINGS_S2, STANDINGS_S3 } from '../data/standingsData'
 import { getTeamSeasonRecap } from '../data/teamRecapsData';
 import { SEASON_ROSTERS } from '../data/rostersData';
 import { TeamBadge } from './TeamBadge';
-import { X, Trophy, Award, Star, Calendar, Users, CheckCircle2, TrendingUp, Zap, Shield, Sparkles } from 'lucide-react';
+import { X, Trophy, Award, Calendar, Users, CheckCircle2, Shield, Sparkles, UserCheck } from 'lucide-react';
 
 interface TeamSeasonModalProps {
   teamId: string | null;
-  initialSeason?: 1 | 2 | 3;
+  initialSeason?: 1 | 2 | 3 | 4;
   onClose: () => void;
 }
 
 export const TeamSeasonModal: React.FC<TeamSeasonModalProps> = ({
   teamId,
-  initialSeason = 3,
+  initialSeason = 4,
   onClose,
 }) => {
-  const [selectedSeason, setSelectedSeason] = useState<1 | 2 | 3>(initialSeason);
+  const [selectedSeason, setSelectedSeason] = useState<1 | 2 | 3 | 4>(initialSeason);
 
   useEffect(() => {
     setSelectedSeason(initialSeason);
@@ -42,19 +42,33 @@ export const TeamSeasonModal: React.FC<TeamSeasonModalProps> = ({
   const team = TEAMS.find((t) => t.id === teamId);
   if (!team) return null;
 
-  const recap = getTeamSeasonRecap(teamId, selectedSeason);
+  const recap = selectedSeason <= 3 ? getTeamSeasonRecap(teamId, selectedSeason as 1 | 2 | 3) : null;
 
-  const standingsData = {
-    1: STANDINGS_S1,
-    2: STANDINGS_S2,
-    3: STANDINGS_S3,
-  }[selectedSeason];
+  const standingsData = selectedSeason === 1 ? STANDINGS_S1 : selectedSeason === 2 ? STANDINGS_S2 : selectedSeason === 3 ? STANDINGS_S3 : null;
 
-  const standingsRow = standingsData.find((s) => s.teamId === teamId);
+  const standingsRow = standingsData ? standingsData.find((s) => s.teamId === teamId) : null;
 
   const winPct = standingsRow
     ? ((standingsRow.wins / (standingsRow.wins + standingsRow.losses)) * 100).toFixed(1)
     : '0.0';
+
+  const seasonKey = (`s${selectedSeason}`) as 's1' | 's2' | 's3' | 's4';
+  const rosterData = SEASON_ROSTERS[teamId]?.[seasonKey];
+
+  // Calculate S4 Roster stats
+  const avgOvr = rosterData?.players.length
+    ? Math.round(
+        rosterData.players.reduce((acc, p) => acc + (p.ovr || 70), 0) / rosterData.players.length
+      )
+    : null;
+
+  const rookieCount = rosterData?.players.filter(
+    (p) => p.seasonYear?.toLowerCase().includes('rookie')
+  ).length || 0;
+
+  const highestOvrPlayer = rosterData?.players
+    ? [...rosterData.players].sort((a, b) => (b.ovr || 0) - (a.ovr || 0))[0]
+    : null;
 
   return (
     <div
@@ -117,22 +131,33 @@ export const TeamSeasonModal: React.FC<TeamSeasonModalProps> = ({
           {/* Season Selector Bar inside Modal */}
           <div className="mt-6 flex items-center justify-between gap-2 flex-wrap border-t border-white/10 pt-4">
             <span className="text-xs font-extrabold uppercase text-amber-400 flex items-center gap-1">
-              <Calendar size={14} /> Select Season Recap:
+              <Calendar size={14} /> Select Season:
             </span>
-            <div className="bg-slate-950/90 border border-slate-800 p-1 rounded-xl flex text-xs font-extrabold shadow-inner">
+            <div className="bg-slate-950/90 border border-slate-800 p-1 rounded-xl flex text-xs font-extrabold shadow-inner gap-1">
               <button
-                onClick={() => setSelectedSeason(1)}
-                className={`px-3.5 py-1.5 rounded-lg transition-all ${
-                  selectedSeason === 1
+                onClick={() => setSelectedSeason(4)}
+                className={`px-3.5 py-1.5 rounded-lg transition-all flex items-center gap-1 cursor-pointer ${
+                  selectedSeason === 4
                     ? 'bg-amber-500 text-slate-950 font-black shadow'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
-                Season 1
+                <Sparkles size={12} />
+                Season 4 (Current)
+              </button>
+              <button
+                onClick={() => setSelectedSeason(3)}
+                className={`px-3.5 py-1.5 rounded-lg transition-all cursor-pointer ${
+                  selectedSeason === 3
+                    ? 'bg-amber-500 text-slate-950 font-black shadow'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                Season 3
               </button>
               <button
                 onClick={() => setSelectedSeason(2)}
-                className={`px-3.5 py-1.5 rounded-lg transition-all ${
+                className={`px-3.5 py-1.5 rounded-lg transition-all cursor-pointer ${
                   selectedSeason === 2
                     ? 'bg-amber-500 text-slate-950 font-black shadow'
                     : 'text-slate-400 hover:text-white'
@@ -141,14 +166,14 @@ export const TeamSeasonModal: React.FC<TeamSeasonModalProps> = ({
                 Season 2
               </button>
               <button
-                onClick={() => setSelectedSeason(3)}
-                className={`px-3.5 py-1.5 rounded-lg transition-all ${
-                  selectedSeason === 3
+                onClick={() => setSelectedSeason(1)}
+                className={`px-3.5 py-1.5 rounded-lg transition-all cursor-pointer ${
+                  selectedSeason === 1
                     ? 'bg-amber-500 text-slate-950 font-black shadow'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
-                Season 3
+                Season 1
               </button>
             </div>
           </div>
@@ -156,8 +181,76 @@ export const TeamSeasonModal: React.FC<TeamSeasonModalProps> = ({
 
         {/* Modal Body Content (Scrollable) */}
         <div className="p-5 sm:p-6 space-y-6 overflow-y-auto flex-1 custom-scrollbar">
-          {/* Quick Season Metrics Row */}
-          {standingsRow && (
+          {/* Season 4 Opening Day Overview Card */}
+          {selectedSeason === 4 && (
+            <div className="space-y-4">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <div className="bg-slate-950 border border-slate-800 p-3.5 rounded-2xl text-center space-y-1">
+                  <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
+                    Head Coach
+                  </span>
+                  <p className="text-sm font-black text-amber-400 truncate">
+                    {rosterData?.coach || team.coach}
+                  </p>
+                  <span className="text-[10px] text-slate-500 font-mono">
+                    {rosterData?.coachTenure || 'Season 4'}
+                  </span>
+                </div>
+
+                <div className="bg-slate-950 border border-slate-800 p-3.5 rounded-2xl text-center space-y-1">
+                  <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
+                    Team Avg Rating
+                  </span>
+                  <p className="text-xl font-black text-white font-mono">
+                    {avgOvr ? `${avgOvr} OVR` : '78 OVR'}
+                  </p>
+                  <span className="text-[10px] text-slate-400 font-semibold">
+                    11-Man Opening Roster
+                  </span>
+                </div>
+
+                <div className="bg-slate-950 border border-slate-800 p-3.5 rounded-2xl text-center space-y-1">
+                  <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
+                    Top Rated Star
+                  </span>
+                  <p className="text-sm font-black text-amber-300 truncate">
+                    {highestOvrPlayer?.name || 'N/A'}
+                  </p>
+                  <span className="text-[10px] text-amber-400 font-mono font-bold">
+                    {highestOvrPlayer?.ovr} OVR ({highestOvrPlayer?.position})
+                  </span>
+                </div>
+
+                <div className="bg-slate-950 border border-slate-800 p-3.5 rounded-2xl text-center space-y-1">
+                  <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
+                    Rookie Influx
+                  </span>
+                  <p className="text-xl font-black text-cyan-400 font-mono">
+                    {rookieCount} <span className="text-xs text-slate-400">/ 11</span>
+                  </p>
+                  <span className="text-[10px] text-slate-500 font-mono">
+                    {Math.round((rookieCount / 11) * 100)}% Roster Turnover
+                  </span>
+                </div>
+              </div>
+
+              {/* S4 Narrative Box */}
+              <div className="bg-slate-950/90 border border-amber-500/20 p-4 sm:p-5 rounded-2xl space-y-2 relative overflow-hidden">
+                <div className="flex items-center gap-2 text-amber-400">
+                  <Sparkles size={16} />
+                  <h4 className="text-xs font-black uppercase tracking-wider text-amber-400">
+                    Season 4 Opening Day Outlook & Roster Architecture
+                  </h4>
+                </div>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  The {team.name} enter Season 4 under {rosterData?.coach} ({rosterData?.coachTenure}) with an overhauled 11-man opening day roster. Featuring key franchise anchors and an influx of drafted rookie talent, the team is primed for the new 22-game regular season campaign in the {team.conference} Conference.
+                </p>
+              </div>
+            </div>
+          )}
+
+          {/* Quick Season Metrics Row for S1-S3 */}
+          {selectedSeason <= 3 && standingsRow && (
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               <div className="bg-slate-950 border border-slate-800 p-3.5 rounded-2xl text-center space-y-1">
                 <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
@@ -208,8 +301,8 @@ export const TeamSeasonModal: React.FC<TeamSeasonModalProps> = ({
             </div>
           )}
 
-          {/* Season Narrative Headline & Summary */}
-          {recap && (
+          {/* Season Narrative Headline & Summary for S1-S3 */}
+          {selectedSeason <= 3 && recap && (
             <div className="bg-slate-950/80 border border-slate-800/80 p-5 rounded-2xl space-y-3">
               <div className="flex items-center gap-2 text-amber-400">
                 <Sparkles size={18} />
@@ -226,8 +319,8 @@ export const TeamSeasonModal: React.FC<TeamSeasonModalProps> = ({
             </div>
           )}
 
-          {/* Key Accomplishments & Individual Season Awards */}
-          {recap && (
+          {/* Key Accomplishments & Individual Season Awards for S1-S3 */}
+          {selectedSeason <= 3 && recap && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Accomplishments */}
               <div className="bg-slate-950 border border-slate-800 p-4 rounded-2xl space-y-2.5">
@@ -274,127 +367,95 @@ export const TeamSeasonModal: React.FC<TeamSeasonModalProps> = ({
           )}
 
           {/* Official Full Season Roster */}
-          {(() => {
-            const seasonKey = (`s${selectedSeason}`) as 's1' | 's2' | 's3';
-            const rosterData = SEASON_ROSTERS[teamId]?.[seasonKey];
-            if (!rosterData || !rosterData.players.length) return null;
-
-            return (
-              <div className="bg-slate-950 border border-slate-800 p-4 sm:p-5 rounded-2xl space-y-3">
-                <div className="flex items-center justify-between border-b border-slate-800 pb-2.5">
-                  <div className="flex items-center gap-2 text-amber-400">
-                    <Users size={16} />
-                    <h4 className="text-xs font-extrabold uppercase text-white tracking-wider">
-                      Official Season {selectedSeason} Full Roster
-                    </h4>
-                  </div>
-                  {rosterData.coach && (
-                    <span className="text-[11px] text-slate-400 font-medium">
-                      Coach: <strong className="text-amber-300">{rosterData.coach}</strong>
-                    </span>
-                  )}
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-                  {rosterData.players.map((p, idx) => (
-                    <div
-                      key={idx}
-                      className="bg-slate-900/90 border border-slate-800/80 p-2.5 rounded-xl flex items-center justify-between gap-2 text-xs"
-                    >
-                      <div className="flex items-center gap-2 min-w-0">
-                        {p.number && (
-                          <span className="px-1.5 py-0.5 bg-slate-800 text-amber-400 font-mono font-bold rounded text-[10px] shrink-0">
-                            #{p.number}
-                          </span>
-                        )}
-                        <div className="min-w-0 flex-1">
-                          <div className="flex items-center justify-between gap-1">
-                            <p className="font-bold text-slate-200 truncate">{p.name}</p>
-                            {p.ovr && (
-                              <span className="text-[10px] font-mono font-bold px-1.5 py-0.2 bg-amber-500/10 text-amber-400 border border-amber-500/20 rounded">
-                                OVR {p.ovr}
-                              </span>
-                            )}
-                          </div>
-                          <p className="text-[10px] text-slate-400 font-medium truncate">
-                            {p.position} {p.schoolOrNote ? `• ${p.schoolOrNote}` : ''}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            );
-          })()}
-
-          {/* Top Players for the Season Highlights */}
-          {recap && recap.topPlayers && (
-            <div className="bg-slate-950 border border-slate-800 p-4 sm:p-5 rounded-2xl space-y-3">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2 text-blue-400">
+          {rosterData && rosterData.players.length > 0 && (
+            <div className="bg-slate-950 border border-slate-800 p-4 sm:p-5 rounded-2xl space-y-4">
+              <div className="flex items-center justify-between border-b border-slate-800 pb-3 flex-wrap gap-2">
+                <div className="flex items-center gap-2 text-amber-400">
                   <Users size={16} />
                   <h4 className="text-xs font-extrabold uppercase text-white tracking-wider">
-                    Season {selectedSeason} Key Contributors
+                    Official Season {selectedSeason} Opening Day Roster ({rosterData.players.length} Players)
                   </h4>
                 </div>
-                <span className="text-[10px] text-slate-500 font-mono">ROSTER HIGHLIGHTS</span>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                {recap.topPlayers.map((player, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-slate-900/90 border border-slate-800/80 p-3 rounded-xl flex items-center justify-between gap-3"
-                  >
-                    <div>
-                      <p className="text-xs font-bold text-white">{player.name}</p>
-                      <p className="text-[10px] text-slate-400 font-medium">{player.role}</p>
-                    </div>
-                    {player.statLine && (
-                      <span className="px-2 py-1 bg-amber-500/10 border border-amber-500/20 rounded-lg text-[10px] font-mono text-amber-300 font-bold shrink-0">
-                        {player.statLine}
-                      </span>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Key Wins / Matches */}
-          {recap && recap.keyWins && (
-            <div className="bg-slate-950 border border-slate-800 p-4 rounded-2xl space-y-2">
-              <div className="flex items-center gap-2 text-amber-400">
-                <Zap size={15} />
-                <h4 className="text-xs font-extrabold uppercase text-white tracking-wider">
-                  Notable Season {selectedSeason} Matchups
-                </h4>
-              </div>
-              <div className="flex flex-wrap gap-2 pt-1">
-                {recap.keyWins.map((win, i) => (
-                  <span
-                    key={i}
-                    className="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded-lg text-xs font-mono text-slate-300 font-medium"
-                  >
-                    {win}
+                {rosterData.coach && (
+                  <span className="text-xs text-slate-300 bg-slate-900 border border-slate-800 px-3 py-1 rounded-xl">
+                    Head Coach: <strong className="text-amber-300">{rosterData.coach}</strong> {rosterData.coachTenure ? `(${rosterData.coachTenure})` : ''}
                   </span>
-                ))}
+                )}
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+                {rosterData.players.map((p, idx) => {
+                  const isRookie = p.seasonYear?.toLowerCase().includes('rookie');
+                  const isStar = (p.ovr || 0) >= 90;
+                  const isHighOvr = (p.ovr || 0) >= 80 && (p.ovr || 0) < 90;
+
+                  return (
+                    <div
+                      key={idx}
+                      className={`p-3 rounded-2xl border transition-all flex flex-col justify-between gap-2 shadow-sm ${
+                        isStar
+                          ? 'bg-gradient-to-br from-amber-950/40 via-slate-900 to-slate-900 border-amber-500/40 shadow-amber-500/5'
+                          : isHighOvr
+                          ? 'bg-gradient-to-br from-emerald-950/30 via-slate-900 to-slate-900 border-emerald-500/30'
+                          : 'bg-slate-900/90 border-slate-800/80 hover:border-slate-700'
+                      }`}
+                    >
+                      <div className="flex items-start justify-between gap-2">
+                        <div className="flex items-center gap-2 min-w-0">
+                          {p.number && (
+                            <span className="px-2 py-0.5 bg-slate-950 text-amber-400 font-mono font-black rounded-lg text-xs border border-slate-800 shrink-0">
+                              #{p.number}
+                            </span>
+                          )}
+                          <div className="min-w-0">
+                            <p className="font-black text-slate-100 text-xs truncate flex items-center gap-1.5">
+                              {p.name}
+                            </p>
+                            <p className="text-[10px] text-slate-400 font-semibold truncate">
+                              {p.position}
+                              {p.seasonYear ? ` • ${p.seasonYear}` : ''}
+                            </p>
+                          </div>
+                        </div>
+
+                        {p.ovr && (
+                          <span
+                            className={`text-xs font-mono font-black px-2 py-0.5 rounded-lg shrink-0 border ${
+                              isStar
+                                ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
+                                : isHighOvr
+                                ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
+                                : 'bg-slate-800 text-slate-300 border-slate-700'
+                            }`}
+                          >
+                            {p.ovr} OVR
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Bio & Details Footer */}
+                      <div className="flex items-center justify-between text-[10px] text-slate-400 border-t border-slate-800/80 pt-2 mt-1">
+                        <span className="truncate font-medium text-slate-300">
+                          {p.schoolOrNote || '—'}
+                        </span>
+                        {(p.age || p.height || p.weight) && (
+                          <span className="font-mono text-[10px] text-slate-400 shrink-0">
+                            {[
+                              p.age ? `${p.age}y` : null,
+                              p.height,
+                              p.weight ? `${p.weight} lbs` : null,
+                            ]
+                              .filter(Boolean)
+                              .join(' • ')}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}
-        </div>
-
-        {/* Footer with Close Button */}
-        <div className="p-4 bg-slate-950 border-t border-slate-800 flex items-center justify-between">
-          <p className="text-[11px] text-slate-500 font-medium">
-            Cali Championship Hoops Official Season Archive
-          </p>
-          <button
-            onClick={onClose}
-            className="px-4 py-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black rounded-xl text-xs transition-colors cursor-pointer shadow-md"
-          >
-            Close Recap
-          </button>
         </div>
       </div>
     </div>

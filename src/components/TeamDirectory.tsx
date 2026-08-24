@@ -7,7 +7,7 @@ import { Search, Trophy, UserCheck, Shield, ChevronRight, X, Sparkles, MapPin, A
 
 interface TeamDirectoryProps {
   onSelectTeam?: (teamId: string) => void;
-  onSelectTeamRecap?: (teamId: string, season?: 1 | 2 | 3) => void;
+  onSelectTeamRecap?: (teamId: string, season?: 1 | 2 | 3 | 4) => void;
 }
 
 interface TeamPlayoffGameRecord {

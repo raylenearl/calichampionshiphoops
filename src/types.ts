@@ -22,7 +22,7 @@ export interface Team {
 }
 
 export interface PlayerSeasonStat {
-  season: 1 | 2 | 3;
+  season: 1 | 2 | 3 | 4;
   team: string;
   teamId?: string;
   ppg: number;
@@ -38,7 +38,7 @@ export interface PlayerSeasonStat {
 }
 
 export interface PlayerAwardItem {
-  season: 1 | 2 | 3;
+  season: 1 | 2 | 3 | 4;
   title: string;
   type: 'championship' | 'mvp' | 'major_award' | 'all_cali' | 'all_defensive' | 'all_rookie' | 'all_star' | 'stat_leader' | 'record';
   description?: string;
@@ -156,7 +156,7 @@ export interface StatRecord {
 
 export interface TeamSeasonRecap {
   teamId: string;
-  season: 1 | 2 | 3;
+  season: 1 | 2 | 3 | 4;
   headline: string;
   summary: string;
   keyAccomplishments: string[];

@@ -65,6 +65,48 @@ export interface CCHNewsArticle {
 
 export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
   {
+    id: 's4-opening-day-rosters-unveiled',
+    title: 'Season 4 Official Opening Day Rosters Unveiled: 132 Players, Elite Ratings & Complete Rotations',
+    subtitle: 'From 99 OVR MVP A.J. Hinton and the Strykers super-team to Oakland\'s 96-92 backcourt tandem, Carlton Daugherty\'s arrival in Golden State, and 12 revamped coaching staffs—the official 11-man rosters for all 12 franchises are finalized.',
+    date: 'Season 4 Official Release • Top Story',
+    season: 4,
+    category: 'feature',
+    featured: true,
+    author: 'CCH League Office & Operations Desk',
+    readTime: '6 min read • Official Rosters & Analytics',
+    headlineQuote: 'Season 4 represents the highest concentration of superstar talent in league history. With 10 players rated 90+ OVR and 36 dynamic rookies stepping onto the floor, the championship chase is wide open.',
+    contentParagraphs: [
+      'CALIFORNIA — The Cali Championship Hoops front office has formally certified and published the complete 11-man Opening Day Rosters for all 12 franchises ahead of the Season 4 tip-off. With 132 players under active contract, the league enters its most fiercely contested regular season campaign.',
+      'THE 90+ SUPERSTAR POWER RANKINGS & FRANCHISE ICONS\nThe top tier of the league is anchored by reigning MVP A.J. Hinton (San Diego Strykers), who stands alone at 99 OVR as the premier offensive force in basketball. He is joined in San Diego by All-Cali forward Dante Gray (96 OVR) and floor general Ray Gamble (94 OVR) to form the highest-rated trio in CCH history.\n\nIn Oakland, superstar Jamar Dean (96 OVR) and All-Star Alonzo Reece (92 OVR) lead a thunderous offensive backcourt. Los Angeles Dynamics field a menacing inside-out duo in Jack McMichael Jr. (96 OVR) and 7\'2" defensive titan Mo Alexander (94 OVR). Arch-rival San Diego Sabrewolves counter with 56-point scoring king Kirk Barnes (93 OVR) and 7\'4" rim protector Andre Creek (92 OVR). Defending regular season top seed California Reds feature Hungarian center Andor Marai (93 OVR) alongside Donald Rodman (88 OVR).',
+      'ROOKIE INFLUX & NEW ROTATION CORNERSTONES\nAll 36 draft selections have claimed their active roster spots across the 12 teams. #1 overall pick Carlton Daugherty (85 OVR SF) steps into Golden State\'s starting lineup alongside Jud Thompson and veteran center Cameron Barkley. French phenom Steffan Sirven (84 OVR SG) pairs with Kirk Tinsley in Anaheim, while Dell Gooden (84 OVR PF/C) anchors San Jose alongside reigning ROTY Donald Hardy. In Long Beach, 7-foot Kentucky powerhouse Grok Wilkens (83 OVR C) unites with veteran forward J.C. McMillan.',
+      'COACHING STAFFS & SIDELINE DIRECTION\nFour head coaches return to defend their established culture (Steve Porter in Anaheim, William Walker in California, Benjamin Nelson in Sacramento, and Michael Stauffer in San Jose), while eight franchises debut new tacticians, including Jacob Underwood taking over the Sabrewolves, Adam Saunders with the Strykers, Pooh Splitter with the Dynamics, Stretch Roberts returning to Long Beach, Ronnie Flores in Fresno, Wyatt Zimmerman in Golden State, Carson Goodwin in Oakland, and Zack Randle in San Francisco.',
+      'HOW TO EXPLORE\nFans and analysts can view every single player\'s ratings, jersey numbers, college origins, physical measurables, and team rosters through the official Season 4 Rosters Hub tab or by clicking on any franchise in the directory.'
+    ],
+    quotes: [
+      {
+        speaker: 'Ray Lenearl',
+        title: 'CCH Commissioner',
+        quote: 'Every roster has been constructed to compete for the championship. The depth of talent across all 12 teams ensures that every regular season matchup will have postseason intensity.'
+      },
+      {
+        speaker: 'A.J. Hinton',
+        title: 'Reigning MVP • San Diego Strykers (99 OVR)',
+        quote: 'We have the talent, but individual ratings do not win championships. Our singular focus is getting back to the Finals and finishing the job.'
+      },
+      {
+        speaker: 'Wyatt Zimmerman',
+        title: 'Head Coach • Golden State Enterprise',
+        quote: 'With Carlton Daugherty, Cameron Barkley, and our young core, we have built a roster that can compete with anyone in the Northern Cali Conference.'
+      }
+    ],
+    playerStats: [
+      { player: 'Highest Rated Player', team: 'A.J. Hinton (Strykers)', stat: '99 OVR SG • Reigning MVP' },
+      { player: 'Highest Rated Duo', team: 'Jamar Dean & Alonzo Reece (Renegades)', stat: '96 & 92 OVR Backcourt' },
+      { player: 'Highest Rated Rookie', team: 'Carlton Daugherty (Enterprise)', stat: '85 OVR SF • #1 Pick' },
+      { player: 'Total Active Players', team: 'League-Wide', stat: '132 Players across 12 Teams' }
+    ]
+  },
+  {
     id: 's4-draft-recap-steals-and-reaches',
     title: 'Season 4 Draft Recap: Steals, Reaches & Franchise Hauls Audio Special',
     subtitle: 'From Golden State landing consensus #1 Carlton Daugherty to Duke steal King Jordan, French sharpshooter Stephan Sirven, and Santa Clara value pick Isaac Levingston—listen to the official 3-round draft recap and team grades breakdown.',
