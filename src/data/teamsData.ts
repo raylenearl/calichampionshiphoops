@@ -202,8 +202,8 @@ export const TEAMS: Team[] = [
     secondaryColor: '#2b2e13', // Combat Green
     accentColor: '#f97316',
     iconName: 'Target',
-    description: 'The highest-rated roster in CCH history, featuring a breathtaking trio of superstars: 99 OVR MVP A.J. Hinton, 96 OVR forward Dante Gray, and 94 OVR floor general Ray Gamble.',
-    keyPlayers: ['A.J. Hinton (SG/PG, 99 OVR • 4th Season)', 'Dante Gray (SF/PF, 96 OVR • 4th Season)', 'Ray Gamble (PG, 94 OVR • 4th Season)', 'Carl Marshall (C/PF, 81 OVR • Rookie)'],
+    description: 'The highest-rated roster in CCH history, featuring a breathtaking trio of superstars: 99 OVR MVP A.J. Hinton, 96 OVR forward DeAnte Gray, and 94 OVR floor general Ray Gamble.',
+    keyPlayers: ['A.J. Hinton (SG/PG, 99 OVR • 4th Season)', 'DeAnte Gray (SF/PF, 96 OVR • 4th Season)', 'Ray Gamble (PG, 94 OVR • 4th Season)', 'Carl Marshall (C/PF, 81 OVR • Rookie)'],
     coach: 'Adam Saunders (1st Season)',
     titles: ['Season 3 MVP (A.J. Hinton)', 'Only Team with 99 OVR & Multiple 95+ Stars'],
     s1Record: '9-13 (9th)',

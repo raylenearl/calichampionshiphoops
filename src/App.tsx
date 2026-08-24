@@ -344,7 +344,7 @@ export default function App() {
                     { name: 'A.J. Hinton', team: 'Strykers', teamId: 'san-diego-strykers', pos: 'SG', ovr: 99, badge: 'MVP' },
                     { name: 'Jamar Dean', team: 'Renegades', teamId: 'oakland-renegades', pos: 'SG', ovr: 96, badge: 'Scoring King' },
                     { name: 'Jack McMichael Jr.', team: 'Dynamics', teamId: 'los-angeles-dynamics', pos: 'SG', ovr: 96, badge: 'All-Cali 1st' },
-                    { name: 'Dante Gray', team: 'Strykers', teamId: 'san-diego-strykers', pos: 'PF', ovr: 96, badge: 'All-Star' },
+                    { name: 'DeAnte Gray', team: 'Strykers', teamId: 'san-diego-strykers', pos: 'PF', ovr: 96, badge: 'All-Star' },
                     { name: 'Kirk Barnes', team: 'Sabrewolves', teamId: 'san-diego-sabrewolves', pos: 'SG', ovr: 93, badge: '56-Pt Record' },
                   ].map((star) => (
                     <div
