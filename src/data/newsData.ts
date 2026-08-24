@@ -99,7 +99,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
       {
         speaker: 'Wyatt Zimmerman',
         title: 'Head Coach • Golden State Enterprise',
-        quote: 'With Carlton Daugherty, Cameron Barkley, and our young core, we have built a roster that can compete with anyone in the Northern Cali Conference.'
+        quote: 'With Carlton Daugherty, Cameron Barkley, and our young core, we have built a roster that can compete with anyone in the league.'
       }
     ],
     playerStats: [
