@@ -305,20 +305,22 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                     ))}
                   </div>
                 </div>
-              ) : featuredStory.imageUrl ? (
-                <div className="relative overflow-hidden rounded-2xl border border-slate-800 shadow-xl bg-slate-950 group/hero flex flex-col items-center">
-                  <img
-                    src={featuredStory.imageUrl}
-                    alt={featuredStory.title}
-                    className="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover/hero:scale-105 p-2"
-                  />
-                  <div className="w-full bg-slate-950/95 border-t border-amber-500/20 px-4 py-2 flex items-center justify-between text-xs font-mono font-bold text-amber-300">
-                    <span className="flex items-center gap-1.5">
-                      <Sparkles size={14} className="text-amber-400" /> {featuredStory.imageCaption || 'Official Press Photo'}
+              ) : (
+                <div className="relative overflow-hidden rounded-2xl border border-slate-800 shadow-xl bg-slate-950 group/hero flex flex-col items-center justify-center p-3">
+                  <div className="w-full flex items-center justify-center py-2">
+                    <img
+                      src={featuredStory.imageUrl || '/logos/cch_league_logo.png'}
+                      alt={featuredStory.title}
+                      className="h-auto max-h-[220px] max-w-[220px] object-contain transition-transform duration-700 group-hover/hero:scale-105"
+                    />
+                  </div>
+                  <div className="w-full bg-slate-950/95 border-t border-amber-500/20 px-3 py-1.5 rounded-b-xl flex items-center justify-between text-[11px] font-mono font-bold text-amber-300">
+                    <span className="flex items-center gap-1.5 truncate">
+                      <Sparkles size={13} className="text-amber-400 shrink-0" /> {featuredStory.imageCaption || 'Official CCH Media Photo'}
                     </span>
                   </div>
                 </div>
-              ) : null}
+              )}
             </div>
           </div>
         </div>
@@ -370,18 +372,18 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                       <span className="text-slate-400">View Profiles →</span>
                     </div>
                   </div>
-                ) : article.imageUrl ? (
-                  <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 h-52 -mx-1 -mt-1 shadow-md flex flex-col items-center justify-center">
+                ) : (
+                  <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 h-44 -mx-1 -mt-1 shadow-md flex flex-col items-center justify-center p-2">
                     <img
-                      src={article.imageUrl}
+                      src={article.imageUrl || '/logos/cch_league_logo.png'}
                       alt={article.title}
-                      className="w-full h-full object-contain p-2 transition-transform duration-500 group-hover:scale-105"
+                      className="max-h-[120px] max-w-[150px] object-contain transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute bottom-2 left-2.5 right-2.5 text-[10px] font-mono font-bold text-amber-300 bg-slate-950/85 backdrop-blur-sm px-2.5 py-1 rounded-lg border border-amber-500/20 truncate">
-                      {article.imageCaption || 'Breaking News Photo'}
+                    <div className="absolute bottom-2 left-2.5 right-2.5 text-[10px] font-mono font-bold text-amber-300 bg-slate-950/90 backdrop-blur-sm px-2.5 py-1 rounded-lg border border-amber-500/20 truncate text-center">
+                      {article.imageCaption || (article.imageUrl ? 'Breaking News Photo' : 'Official CCH League Release')}
                     </div>
                   </div>
-                ) : null}
+                )}
 
                 {/* Category & Date Header */}
                 <div className="flex items-center justify-between text-xs gap-2">
@@ -480,19 +482,19 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
               </div>
             </div>
 
-            {/* Article Image Banner if available (when no coachesList) */}
-            {selectedArticle.imageUrl && !selectedArticle.coachesList && (
+            {/* Article Image Banner (always shown unless interactive coachesList is present) */}
+            {!selectedArticle.coachesList && (
               <div className="relative overflow-hidden rounded-2xl border border-amber-500/30 shadow-2xl bg-slate-950 flex flex-col items-center">
-                <div className="w-full flex items-center justify-center p-2 sm:p-4 bg-black/40">
+                <div className="w-full flex items-center justify-center p-3 sm:p-5 bg-black/40">
                   <img
-                    src={selectedArticle.imageUrl}
+                    src={selectedArticle.imageUrl || '/logos/cch_league_logo.png'}
                     alt={selectedArticle.title}
-                    className="w-full h-auto max-h-[600px] object-contain rounded-xl shadow-lg"
+                    className="w-auto h-auto max-h-[260px] max-w-[280px] object-contain rounded-xl shadow-lg"
                   />
                 </div>
                 <div className="w-full bg-slate-950 border-t border-slate-800 p-3 text-left">
                   <p className="text-xs text-amber-300 font-mono font-bold flex items-center gap-1.5">
-                    <Sparkles size={14} className="text-amber-400" /> {selectedArticle.imageCaption || 'Official Press Photo'}
+                    <Sparkles size={14} className="text-amber-400" /> {selectedArticle.imageCaption || (selectedArticle.imageUrl ? 'Official Press Photo' : 'Official Cali Championship Hoops League Record')}
                   </p>
                 </div>
               </div>

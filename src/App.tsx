@@ -23,6 +23,7 @@ import { TEAMS } from './data/teamsData';
 import { SEASON_ROSTERS } from './data/rostersData';
 import { TeamBadge } from './components/TeamBadge';
 import carltonDaughertyImg from './assets/images/S4 Draft/Carlton Daugherty.png';
+import ajHinton99Img from './assets/images/AJHinton99.png';
 import { SearchModal } from './components/SearchModal';
 import { TeamSeasonModal } from './components/TeamSeasonModal';
 import { CCHLeagueLogo } from './components/TeamLogos';
@@ -271,8 +272,12 @@ export default function App() {
               {/* Main Headline & Status Bar */}
               <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 relative z-10">
                 <div className="flex items-start gap-4">
-                  <div className="w-14 h-14 rounded-2xl bg-amber-500/20 border border-amber-500/50 flex items-center justify-center text-amber-400 shrink-0 shadow-lg group-hover:scale-105 transition-transform">
-                    <Users size={30} />
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-slate-950/90 border-2 border-amber-500/50 flex items-center justify-center p-1.5 shrink-0 shadow-xl overflow-hidden group-hover:scale-105 transition-transform">
+                    <img
+                      src={ajHinton99Img}
+                      alt="A.J. Hinton 99 OVR"
+                      className="w-full h-full object-contain drop-shadow-md"
+                    />
                   </div>
                   <div className="space-y-1.5">
                     <div className="flex flex-wrap items-center gap-2">

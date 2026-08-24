@@ -1,4 +1,5 @@
 import { INAUGURAL_GAME_ARTICLE } from './leagueMilestonesData';
+import ajHinton99Img from '../assets/images/AJHinton99.png';
 import carltonDaughertyImg from '../assets/images/S4 Draft/Carlton Daugherty.png';
 import jacobUnderwoodImg from '../assets/images/JacobUnderwood.png';
 import aSaundersImg from '../assets/images/ASaunders.jpg';
@@ -74,6 +75,8 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     featured: true,
     author: 'CCH League Office & Operations Desk',
     readTime: '6 min read • Official Rosters & Analytics',
+    imageUrl: ajHinton99Img,
+    imageCaption: 'First 99 rated player in CCH History',
     headlineQuote: 'Season 4 represents the highest concentration of superstar talent in league history. With 10 players rated 90+ OVR and 36 dynamic rookies stepping onto the floor, the championship chase is wide open.',
     contentParagraphs: [
       'CALIFORNIA — The Cali Championship Hoops front office has formally certified and published the complete 11-man Opening Day Rosters for all 12 franchises ahead of the Season 4 tip-off. With 132 players under active contract, the league enters its most fiercely contested regular season campaign.',
@@ -116,6 +119,8 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     featured: true,
     author: 'CCH Draft War Room & Analytics Desk',
     readTime: '6 min read • Official Podcast Episode',
+    imageUrl: '/logos/cch_league_logo.png',
+    imageCaption: 'Official Cali Championship Hoops League Crest • Season 4 Draft Class Recap',
     audioUrl: 'https://archive.org/download/nba-2-k-24-2024-05-12-02-07-45/CCH_Season_Four_Draft_steals_and_reaches.m4a',
     podcastInfo: {
       episodeTitle: 'CCH Season Four Draft: Steals, Reaches & Franchise Hauls',
