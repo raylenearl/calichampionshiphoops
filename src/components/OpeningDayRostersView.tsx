@@ -139,7 +139,9 @@ export const OpeningDayRostersView: React.FC<OpeningDayRostersViewProps> = ({
       } else if (sortField === 'age') {
         comparison = (a.age || 0) - (b.age || 0);
       } else if (sortField === 'number') {
-        comparison = parseInt(a.number || '999', 10) - parseInt(b.number || '999', 10);
+        const numA = parseInt(a.number || '999', 10);
+        const numB = parseInt(b.number || '999', 10);
+        comparison = (isNaN(numA) ? 999 : numA) - (isNaN(numB) ? 999 : numB);
       }
       return sortAsc ? -comparison : comparison;
     });
@@ -297,7 +299,7 @@ export const OpeningDayRostersView: React.FC<OpeningDayRostersViewProps> = ({
         </div>
 
         {/* Dropdown Filters Row */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 pt-2 border-t border-slate-800/80">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 pt-2 border-t border-slate-800/80">
           {/* Team Filter */}
           <div>
             <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1 block">
@@ -372,7 +374,7 @@ export const OpeningDayRostersView: React.FC<OpeningDayRostersViewProps> = ({
           </div>
 
           {/* Rating Tier Filter */}
-          <div className="col-span-2 sm:col-span-1">
+          <div>
             <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1 block">
               Rating Tier
             </label>
@@ -386,6 +388,37 @@ export const OpeningDayRostersView: React.FC<OpeningDayRostersViewProps> = ({
               <option value="80plus">80-89 High Tier</option>
               <option value="75plus">75-79 Starters</option>
               <option value="under75">70-74 Depth / Role</option>
+            </select>
+          </div>
+
+          {/* Sort By Filter */}
+          <div>
+            <label className="text-[10px] font-bold text-amber-400 uppercase tracking-wider mb-1 block flex items-center gap-1">
+              <ArrowUpDown size={11} /> Sort Order
+            </label>
+            <select
+              value={`${sortField}-${sortAsc ? 'asc' : 'desc'}`}
+              onChange={(e) => {
+                const val = e.target.value;
+                if (val === 'ovr-desc') { setSortField('ovr'); setSortAsc(false); }
+                else if (val === 'ovr-asc') { setSortField('ovr'); setSortAsc(true); }
+                else if (val === 'number-asc') { setSortField('number'); setSortAsc(true); }
+                else if (val === 'number-desc') { setSortField('number'); setSortAsc(false); }
+                else if (val === 'name-asc') { setSortField('name'); setSortAsc(false); }
+                else if (val === 'name-desc') { setSortField('name'); setSortAsc(true); }
+                else if (val === 'age-asc') { setSortField('age'); setSortAsc(false); }
+                else if (val === 'age-desc') { setSortField('age'); setSortAsc(true); }
+              }}
+              className="w-full bg-slate-950 border border-amber-500/40 rounded-xl px-2.5 py-1.5 text-xs text-amber-300 focus:outline-none focus:border-amber-400 font-semibold"
+            >
+              <option value="ovr-desc">Rating: High to Low</option>
+              <option value="ovr-asc">Rating: Low to High</option>
+              <option value="number-asc">Jersey #: Low to High (#0 → #99)</option>
+              <option value="number-desc">Jersey #: High to Low (#99 → #0)</option>
+              <option value="name-asc">Name: A to Z</option>
+              <option value="name-desc">Name: Z to A</option>
+              <option value="age-asc">Age: Youngest First</option>
+              <option value="age-desc">Age: Oldest First</option>
             </select>
           </div>
         </div>
@@ -443,35 +476,51 @@ export const OpeningDayRostersView: React.FC<OpeningDayRostersViewProps> = ({
             const roster = SEASON_ROSTERS[team.id]?.s4;
             if (!roster) return null;
 
-            // Filter players within this team card based on search/position/etc
-            const matchingPlayers = roster.players.filter((p) => {
-              if (selectedPosition !== 'all') {
-                if (selectedPosition === 'Guard' && !p.position.includes('G')) return false;
-                if (selectedPosition === 'Forward' && !p.position.includes('F')) return false;
-                if (selectedPosition === 'Center' && !p.position.includes('C')) return false;
-                if (['PG', 'SG', 'SF', 'PF', 'C'].includes(selectedPosition) && !p.position.includes(selectedPosition)) {
-                  return false;
+            // Filter and sort players within this team card based on search/position/sort
+            const matchingPlayers = roster.players
+              .filter((p) => {
+                if (selectedPosition !== 'all') {
+                  if (selectedPosition === 'Guard' && !p.position.includes('G')) return false;
+                  if (selectedPosition === 'Forward' && !p.position.includes('F')) return false;
+                  if (selectedPosition === 'Center' && !p.position.includes('C')) return false;
+                  if (['PG', 'SG', 'SF', 'PF', 'C'].includes(selectedPosition) && !p.position.includes(selectedPosition)) {
+                    return false;
+                  }
                 }
-              }
-              if (selectedExperience === 'rookie' && !p.seasonYear?.toLowerCase().includes('rookie')) return false;
-              if (selectedExperience === 'veteran' && p.seasonYear?.toLowerCase().includes('rookie')) return false;
+                if (selectedExperience === 'rookie' && !p.seasonYear?.toLowerCase().includes('rookie')) return false;
+                if (selectedExperience === 'veteran' && p.seasonYear?.toLowerCase().includes('rookie')) return false;
 
-              const ovr = p.ovr || 70;
-              if (selectedRatingTier === '90plus' && ovr < 90) return false;
-              if (selectedRatingTier === '80plus' && (ovr < 80 || ovr >= 90)) return false;
-              if (selectedRatingTier === '75plus' && (ovr < 75 || ovr >= 80)) return false;
-              if (selectedRatingTier === 'under75' && ovr >= 75) return false;
+                const ovr = p.ovr || 70;
+                if (selectedRatingTier === '90plus' && ovr < 90) return false;
+                if (selectedRatingTier === '80plus' && (ovr < 80 || ovr >= 90)) return false;
+                if (selectedRatingTier === '75plus' && (ovr < 75 || ovr >= 80)) return false;
+                if (selectedRatingTier === 'under75' && ovr >= 75) return false;
 
-              if (searchQuery.trim()) {
-                const q = searchQuery.toLowerCase();
-                const matchesName = p.name.toLowerCase().includes(q);
-                const matchesSchool = (p.schoolOrNote || '').toLowerCase().includes(q);
-                const matchesPos = p.position.toLowerCase().includes(q);
-                const matchesNum = (p.number || '').toLowerCase().includes(q);
-                if (!matchesName && !matchesSchool && !matchesPos && !matchesNum) return false;
-              }
-              return true;
-            });
+                if (searchQuery.trim()) {
+                  const q = searchQuery.toLowerCase();
+                  const matchesName = p.name.toLowerCase().includes(q);
+                  const matchesSchool = (p.schoolOrNote || '').toLowerCase().includes(q);
+                  const matchesPos = p.position.toLowerCase().includes(q);
+                  const matchesNum = (p.number || '').toLowerCase().includes(q);
+                  if (!matchesName && !matchesSchool && !matchesPos && !matchesNum) return false;
+                }
+                return true;
+              })
+              .sort((a, b) => {
+                let comparison = 0;
+                if (sortField === 'ovr') {
+                  comparison = (b.ovr || 0) - (a.ovr || 0);
+                } else if (sortField === 'name') {
+                  comparison = a.name.localeCompare(b.name);
+                } else if (sortField === 'age') {
+                  comparison = (a.age || 0) - (b.age || 0);
+                } else if (sortField === 'number') {
+                  const numA = parseInt(a.number || '999', 10);
+                  const numB = parseInt(b.number || '999', 10);
+                  comparison = (isNaN(numA) ? 999 : numA) - (isNaN(numB) ? 999 : numB);
+                }
+                return sortAsc ? -comparison : comparison;
+              });
 
             if (hasActiveFilters && matchingPlayers.length === 0) return null;
 
@@ -648,8 +697,25 @@ export const OpeningDayRostersView: React.FC<OpeningDayRostersViewProps> = ({
                 Master League Roster Table ({sortedPlayers.length} Players)
               </h3>
             </div>
-            <div className="flex items-center gap-2 text-xs text-slate-400">
+            <div className="flex items-center gap-2 text-xs text-slate-400 flex-wrap">
               <span>Sort by:</span>
+              <button
+                onClick={() => {
+                  if (sortField === 'number') setSortAsc(!sortAsc);
+                  else {
+                    setSortField('number');
+                    setSortAsc(true);
+                  }
+                }}
+                className={`px-2.5 py-1 rounded-lg border font-bold cursor-pointer transition-all flex items-center gap-1 ${
+                  sortField === 'number'
+                    ? 'bg-amber-500 text-slate-950 border-amber-400'
+                    : 'bg-slate-950 text-slate-300 border-slate-800 hover:border-slate-700'
+                }`}
+              >
+                <Hash size={12} />
+                <span>Jersey #{sortField === 'number' ? (sortAsc ? ' ↑' : ' ↓') : ''}</span>
+              </button>
               <button
                 onClick={() => {
                   if (sortField === 'ovr') setSortAsc(!sortAsc);
@@ -661,10 +727,10 @@ export const OpeningDayRostersView: React.FC<OpeningDayRostersViewProps> = ({
                 className={`px-2.5 py-1 rounded-lg border font-bold cursor-pointer transition-all ${
                   sortField === 'ovr'
                     ? 'bg-amber-500 text-slate-950 border-amber-400'
-                    : 'bg-slate-950 text-slate-300 border-slate-800'
+                    : 'bg-slate-950 text-slate-300 border-slate-800 hover:border-slate-700'
                 }`}
               >
-                OVR {sortField === 'ovr' && (sortAsc ? '↑' : '↓')}
+                OVR {sortField === 'ovr' ? (sortAsc ? '↑' : '↓') : ''}
               </button>
               <button
                 onClick={() => {
@@ -677,10 +743,10 @@ export const OpeningDayRostersView: React.FC<OpeningDayRostersViewProps> = ({
                 className={`px-2.5 py-1 rounded-lg border font-bold cursor-pointer transition-all ${
                   sortField === 'name'
                     ? 'bg-amber-500 text-slate-950 border-amber-400'
-                    : 'bg-slate-950 text-slate-300 border-slate-800'
+                    : 'bg-slate-950 text-slate-300 border-slate-800 hover:border-slate-700'
                 }`}
               >
-                Name {sortField === 'name' && (sortAsc ? '↑' : '↓')}
+                Name {sortField === 'name' ? (sortAsc ? '↑' : '↓') : ''}
               </button>
               <button
                 onClick={() => {
@@ -693,10 +759,10 @@ export const OpeningDayRostersView: React.FC<OpeningDayRostersViewProps> = ({
                 className={`px-2.5 py-1 rounded-lg border font-bold cursor-pointer transition-all ${
                   sortField === 'age'
                     ? 'bg-amber-500 text-slate-950 border-amber-400'
-                    : 'bg-slate-950 text-slate-300 border-slate-800'
+                    : 'bg-slate-950 text-slate-300 border-slate-800 hover:border-slate-700'
                 }`}
               >
-                Age {sortField === 'age' && (sortAsc ? '↑' : '↓')}
+                Age {sortField === 'age' ? (sortAsc ? '↑' : '↓') : ''}
               </button>
             </div>
           </div>
@@ -705,14 +771,70 @@ export const OpeningDayRostersView: React.FC<OpeningDayRostersViewProps> = ({
             <table className="w-full text-left border-collapse text-xs">
               <thead>
                 <tr className="bg-slate-950 border-b border-slate-800 text-[11px] font-black uppercase tracking-wider text-slate-400">
-                  <th className="py-3 px-3.5 text-center">#</th>
-                  <th className="py-3 px-3.5">Player</th>
+                  <th
+                    onClick={() => {
+                      if (sortField === 'number') setSortAsc(!sortAsc);
+                      else {
+                        setSortField('number');
+                        setSortAsc(true);
+                      }
+                    }}
+                    className="py-3 px-3.5 text-center cursor-pointer hover:text-amber-300 transition-colors select-none"
+                    title="Sort by Jersey Number"
+                  >
+                    <span className="inline-flex items-center gap-1">
+                      # {sortField === 'number' && <span className="text-amber-400">{sortAsc ? '▲' : '▼'}</span>}
+                    </span>
+                  </th>
+                  <th
+                    onClick={() => {
+                      if (sortField === 'name') setSortAsc(!sortAsc);
+                      else {
+                        setSortField('name');
+                        setSortAsc(false);
+                      }
+                    }}
+                    className="py-3 px-3.5 cursor-pointer hover:text-amber-300 transition-colors select-none"
+                    title="Sort by Name"
+                  >
+                    <span className="inline-flex items-center gap-1">
+                      Player {sortField === 'name' && <span className="text-amber-400">{sortAsc ? '▲' : '▼'}</span>}
+                    </span>
+                  </th>
                   <th className="py-3 px-3.5">Team</th>
                   <th className="py-3 px-3.5">Pos</th>
-                  <th className="py-3 px-3.5 text-center">Rating</th>
+                  <th
+                    onClick={() => {
+                      if (sortField === 'ovr') setSortAsc(!sortAsc);
+                      else {
+                        setSortField('ovr');
+                        setSortAsc(false);
+                      }
+                    }}
+                    className="py-3 px-3.5 text-center cursor-pointer hover:text-amber-300 transition-colors select-none"
+                    title="Sort by Overall Rating"
+                  >
+                    <span className="inline-flex items-center gap-1">
+                      Rating {sortField === 'ovr' && <span className="text-amber-400">{sortAsc ? '▲' : '▼'}</span>}
+                    </span>
+                  </th>
                   <th className="py-3 px-3.5">Experience</th>
                   <th className="py-3 px-3.5">College / Origin</th>
-                  <th className="py-3 px-3.5 text-center">Age</th>
+                  <th
+                    onClick={() => {
+                      if (sortField === 'age') setSortAsc(!sortAsc);
+                      else {
+                        setSortField('age');
+                        setSortAsc(false);
+                      }
+                    }}
+                    className="py-3 px-3.5 text-center cursor-pointer hover:text-amber-300 transition-colors select-none"
+                    title="Sort by Age"
+                  >
+                    <span className="inline-flex items-center gap-1">
+                      Age {sortField === 'age' && <span className="text-amber-400">{sortAsc ? '▲' : '▼'}</span>}
+                    </span>
+                  </th>
                   <th className="py-3 px-3.5 text-center">Height</th>
                   <th className="py-3 px-3.5 text-center">Weight</th>
                 </tr>

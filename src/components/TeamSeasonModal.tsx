@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { TEAMS } from '../data/teamsData';
 import { STANDINGS_S1, STANDINGS_S2, STANDINGS_S3 } from '../data/standingsData';
 import { getTeamSeasonRecap } from '../data/teamRecapsData';
 import { SEASON_ROSTERS } from '../data/rostersData';
 import { TeamBadge } from './TeamBadge';
-import { X, Trophy, Award, Calendar, Users, CheckCircle2, Shield, Sparkles, UserCheck } from 'lucide-react';
+import { X, Trophy, Award, Calendar, Users, CheckCircle2, Shield, Sparkles, UserCheck, Hash, ArrowUpDown } from 'lucide-react';
 
 interface TeamSeasonModalProps {
   teamId: string | null;
@@ -18,6 +18,7 @@ export const TeamSeasonModal: React.FC<TeamSeasonModalProps> = ({
   onClose,
 }) => {
   const [selectedSeason, setSelectedSeason] = useState<1 | 2 | 3 | 4>(initialSeason);
+  const [rosterSort, setRosterSort] = useState<'ovr' | 'jersey-asc' | 'jersey-desc' | 'name'>('ovr');
 
   useEffect(() => {
     setSelectedSeason(initialSeason);
@@ -69,6 +70,26 @@ export const TeamSeasonModal: React.FC<TeamSeasonModalProps> = ({
   const highestOvrPlayer = rosterData?.players
     ? [...rosterData.players].sort((a, b) => (b.ovr || 0) - (a.ovr || 0))[0]
     : null;
+
+  const sortedRosterPlayers = useMemo(() => {
+    if (!rosterData?.players) return [];
+    return [...rosterData.players].sort((a, b) => {
+      if (rosterSort === 'ovr') {
+        return (b.ovr || 0) - (a.ovr || 0);
+      } else if (rosterSort === 'jersey-asc') {
+        const numA = parseInt(a.number || '999', 10);
+        const numB = parseInt(b.number || '999', 10);
+        return (isNaN(numA) ? 999 : numA) - (isNaN(numB) ? 999 : numB);
+      } else if (rosterSort === 'jersey-desc') {
+        const numA = parseInt(a.number || '999', 10);
+        const numB = parseInt(b.number || '999', 10);
+        return (isNaN(numB) ? 999 : numB) - (isNaN(numA) ? 999 : numA);
+      } else if (rosterSort === 'name') {
+        return a.name.localeCompare(b.name);
+      }
+      return 0;
+    });
+  }, [rosterData?.players, rosterSort]);
 
   return (
     <div
@@ -376,15 +397,35 @@ export const TeamSeasonModal: React.FC<TeamSeasonModalProps> = ({
                     Official Season {selectedSeason} Opening Day Roster ({rosterData.players.length} Players)
                   </h4>
                 </div>
-                {rosterData.coach && (
-                  <span className="text-xs text-slate-300 bg-slate-900 border border-slate-800 px-3 py-1 rounded-xl">
-                    Head Coach: <strong className="text-amber-300">{rosterData.coach}</strong> {rosterData.coachTenure ? `(${rosterData.coachTenure})` : ''}
-                  </span>
-                )}
+
+                <div className="flex items-center gap-2 flex-wrap">
+                  {/* Sort selector */}
+                  <div className="flex items-center gap-1 bg-slate-900 border border-slate-800 rounded-xl px-2 py-1">
+                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1">
+                      <ArrowUpDown size={10} /> Sort:
+                    </span>
+                    <select
+                      value={rosterSort}
+                      onChange={(e) => setRosterSort(e.target.value as any)}
+                      className="bg-transparent text-xs font-bold text-amber-300 focus:outline-none cursor-pointer"
+                    >
+                      <option value="ovr" className="bg-slate-900 text-slate-200">Overall Rating (High → Low)</option>
+                      <option value="jersey-asc" className="bg-slate-900 text-slate-200">Jersey # (Low → High)</option>
+                      <option value="jersey-desc" className="bg-slate-900 text-slate-200">Jersey # (High → Low)</option>
+                      <option value="name" className="bg-slate-900 text-slate-200">Player Name (A → Z)</option>
+                    </select>
+                  </div>
+
+                  {rosterData.coach && (
+                    <span className="text-xs text-slate-300 bg-slate-900 border border-slate-800 px-3 py-1 rounded-xl">
+                      Head Coach: <strong className="text-amber-300">{rosterData.coach}</strong> {rosterData.coachTenure ? `(${rosterData.coachTenure})` : ''}
+                    </span>
+                  )}
+                </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
-                {rosterData.players.map((p, idx) => {
+                {sortedRosterPlayers.map((p, idx) => {
                   const isRookie = p.seasonYear?.toLowerCase().includes('rookie');
                   const isStar = (p.ovr || 0) >= 90;
                   const isHighOvr = (p.ovr || 0) >= 80 && (p.ovr || 0) < 90;

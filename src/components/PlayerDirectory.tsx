@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { PLAYERS } from '../data/playersData';
 import { Player } from '../types';
-import { Search, Users, Award, Star, Zap, Activity, X, ArrowLeftRight } from 'lucide-react';
+import { Search, Users, Award, Star, Zap, Activity, X, ArrowLeftRight, ArrowUpDown, Hash } from 'lucide-react';
 
 interface PlayerDirectoryProps {
   onComparePlayer?: (playerId: string) => void;
@@ -10,15 +10,38 @@ interface PlayerDirectoryProps {
 export const PlayerDirectory: React.FC<PlayerDirectoryProps> = ({ onComparePlayer }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedPos, setSelectedPos] = useState<string>('All');
+  const [sortBy, setSortBy] = useState<'ovr' | 'jersey-asc' | 'jersey-desc' | 'name' | 'ppg'>('ovr');
 
-  const filteredPlayers = PLAYERS.filter((p) => {
-    const matchesSearch =
-      p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      p.teamName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      p.bio.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesPos = selectedPos === 'All' || p.position.includes(selectedPos);
-    return matchesSearch && matchesPos;
-  });
+  const filteredPlayers = useMemo(() => {
+    const filtered = PLAYERS.filter((p) => {
+      const matchesSearch =
+        p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        p.teamName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        p.bio.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (p.jersey && p.jersey.includes(searchTerm));
+      const matchesPos = selectedPos === 'All' || p.position.includes(selectedPos);
+      return matchesSearch && matchesPos;
+    });
+
+    return filtered.sort((a, b) => {
+      if (sortBy === 'ovr') {
+        return (b.ovr || 0) - (a.ovr || 0);
+      } else if (sortBy === 'jersey-asc') {
+        const numA = parseInt(a.jersey || '999', 10);
+        const numB = parseInt(b.jersey || '999', 10);
+        return (isNaN(numA) ? 999 : numA) - (isNaN(numB) ? 999 : numB);
+      } else if (sortBy === 'jersey-desc') {
+        const numA = parseInt(a.jersey || '999', 10);
+        const numB = parseInt(b.jersey || '999', 10);
+        return (isNaN(numB) ? 999 : numB) - (isNaN(numA) ? 999 : numA);
+      } else if (sortBy === 'name') {
+        return a.name.localeCompare(b.name);
+      } else if (sortBy === 'ppg') {
+        return (b.ppg || 0) - (a.ppg || 0);
+      }
+      return 0;
+    });
+  }, [searchTerm, selectedPos, sortBy]);
 
   return (
     <div className="space-y-6">
@@ -42,7 +65,7 @@ export const PlayerDirectory: React.FC<PlayerDirectoryProps> = ({ onComparePlaye
             <Search className="absolute left-3 top-2.5 text-slate-500" size={16} />
             <input
               type="text"
-              placeholder="Search player or team..."
+              placeholder="Search player, team, or jersey #..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-8 py-2 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-500"
@@ -70,6 +93,19 @@ export const PlayerDirectory: React.FC<PlayerDirectoryProps> = ({ onComparePlaye
             <option value="Forward">Forwards (SF/PF)</option>
             <option value="Center">Centers (C)</option>
           </select>
+
+          {/* Sort By Dropdown */}
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value as any)}
+            className="bg-slate-950 border border-amber-500/40 rounded-xl px-3 py-2 text-xs text-amber-300 focus:outline-none focus:border-amber-400 font-semibold"
+          >
+            <option value="ovr">Sort: Overall Rating (Highest)</option>
+            <option value="jersey-asc">Sort: Jersey # (Low to High)</option>
+            <option value="jersey-desc">Sort: Jersey # (High to Low)</option>
+            <option value="name">Sort: Name (A-Z)</option>
+            <option value="ppg">Sort: Scoring (PPG)</option>
+          </select>
         </div>
       </div>
 
@@ -82,11 +118,18 @@ export const PlayerDirectory: React.FC<PlayerDirectoryProps> = ({ onComparePlaye
           >
             <div className="space-y-4">
               <div className="flex items-start justify-between gap-2 border-b border-slate-800 pb-3">
-                <div>
-                  <h3 className="text-lg font-black text-white flex items-center gap-1.5">
-                    {player.name}
-                  </h3>
-                  <span className="text-xs text-amber-400 font-semibold">{player.teamName}</span>
+                <div className="flex items-start gap-2.5">
+                  {player.jersey && (
+                    <span className="px-2 py-1 bg-slate-950 text-amber-400 font-mono font-black rounded-lg text-xs border border-slate-800 shrink-0">
+                      #{player.jersey}
+                    </span>
+                  )}
+                  <div>
+                    <h3 className="text-lg font-black text-white flex items-center gap-1.5">
+                      {player.name}
+                    </h3>
+                    <span className="text-xs text-amber-400 font-semibold">{player.teamName}</span>
+                  </div>
                 </div>
                 <div className="flex items-center gap-2">
                   {player.ovr && (

@@ -402,6 +402,8 @@ export default function App() {
                   {TEAMS.map((team) => {
                     const s4Roster = SEASON_ROSTERS[4]?.[team.id];
                     const topPlayer = s4Roster?.players?.[0];
+                    // Team's first name (location / first part of the franchise name, e.g. "Sacramento", "San Francisco", "Golden State")
+                    const teamFirstName = team.name.replace(` ${team.shortName}`, '');
                     return (
                       <div
                         key={team.id}
@@ -415,7 +417,7 @@ export default function App() {
                               {team.shortName}
                             </span>
                             <span className="text-[9px] font-mono text-slate-400 block truncate">
-                              {s4Roster?.coach ? `Coach ${s4Roster.coach.split(' ').pop()}` : team.conference}
+                              {teamFirstName}
                             </span>
                           </div>
                         </div>
