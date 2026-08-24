@@ -21,6 +21,7 @@ import {
   ChevronDown,
   Award,
   Hash,
+  Quote,
 } from 'lucide-react';
 
 interface OpeningDayRostersViewProps {
@@ -230,6 +231,19 @@ export const OpeningDayRostersView: React.FC<OpeningDayRostersViewProps> = ({
               <span className="text-[10px] text-slate-400 font-semibold">Franchise Icons</span>
             </div>
           </div>
+        </div>
+
+        {/* Season 4 MVP Quote Callout */}
+        <div className="relative z-10 mt-6 pt-5 border-t border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-950/50 p-4 rounded-2xl border border-slate-800/60">
+          <div className="flex items-start gap-3">
+            <Quote className="text-amber-400 shrink-0 mt-0.5" size={20} />
+            <p className="text-xs sm:text-sm italic text-slate-200 font-medium leading-snug">
+              &quot;We have the talent, but individual ratings do not win championships. Our singular focus is getting to the Finals and finishing the job.&quot;
+            </p>
+          </div>
+          <span className="text-[11px] font-black text-amber-400 whitespace-nowrap sm:text-right shrink-0">
+            — A.J. Hinton <span className="text-slate-400 font-normal">(Reigning MVP • 99 OVR)</span>
+          </span>
         </div>
       </div>
 

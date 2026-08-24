@@ -77,7 +77,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     readTime: '6 min read • Official Rosters & Analytics',
     imageUrl: ajHinton99Img,
     imageCaption: 'First 99 rated player in CCH History',
-    headlineQuote: 'Season 4 represents the highest concentration of superstar talent in league history. With 10 players rated 90+ OVR and 36 dynamic rookies stepping onto the floor, the championship chase is wide open.',
+    headlineQuote: 'We have the talent, but individual ratings do not win championships. Our singular focus is getting to the Finals and finishing the job.',
     contentParagraphs: [
       'CALIFORNIA — The Cali Championship Hoops front office has formally certified and published the complete 11-man Opening Day Rosters for all 12 franchises ahead of the Season 4 tip-off. With 132 players under active contract, the league enters its most fiercely contested regular season campaign.',
       'THE 90+ SUPERSTAR POWER RANKINGS & FRANCHISE ICONS\nThe top tier of the league is anchored by reigning MVP A.J. Hinton (San Diego Strykers), who stands alone at 99 OVR as the premier offensive force in basketball. He is joined in San Diego by All-Cali forward DeAnte Gray (96 OVR) and floor general Ray Gamble (94 OVR) to form the highest-rated trio in CCH history.\n\nIn Oakland, superstar Jamar Dean (96 OVR) and All-Star Alonzo Reece (92 OVR) lead a thunderous offensive backcourt. Los Angeles Dynamics field a menacing inside-out duo in Jack McMichael Jr. (96 OVR) and 7\'2" defensive titan Mo Alexander (94 OVR). Arch-rival San Diego Sabrewolves counter with 56-point scoring king Kirk Barnes (93 OVR) and 7\'4" rim protector Andre Creek (92 OVR). Defending regular season top seed California Reds feature Hungarian center Andor Marai (93 OVR) alongside Donald Rodman (88 OVR).',
@@ -87,14 +87,14 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     ],
     quotes: [
       {
+        speaker: 'A.J. Hinton',
+        title: 'Reigning MVP • San Diego Strykers (99 OVR)',
+        quote: 'We have the talent, but individual ratings do not win championships. Our singular focus is getting to the Finals and finishing the job.'
+      },
+      {
         speaker: 'Ray Lenearl',
         title: 'CCH Commissioner',
         quote: 'Every roster has been constructed to compete for the championship. The depth of talent across all 12 teams ensures that every regular season matchup will have postseason intensity.'
-      },
-      {
-        speaker: 'A.J. Hinton',
-        title: 'Reigning MVP • San Diego Strykers (99 OVR)',
-        quote: 'We have the talent, but individual ratings do not win championships. Our singular focus is getting back to the Finals and finishing the job.'
       },
       {
         speaker: 'Wyatt Zimmerman',
