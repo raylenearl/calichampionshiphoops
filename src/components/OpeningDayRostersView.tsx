@@ -214,9 +214,9 @@ export const OpeningDayRostersView: React.FC<OpeningDayRostersViewProps> = ({
           {/* Quick Metrics Cluster */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 shrink-0">
             <div className="bg-slate-950/80 border border-slate-800 p-3 rounded-2xl text-center">
-              <span className="text-[10px] uppercase font-bold text-slate-400 block">Top Player</span>
+              <span className="text-[10px] uppercase font-bold text-slate-400 block whitespace-nowrap">Top Player</span>
               <p className="text-lg font-black text-amber-400 font-mono">99 OVR</p>
-              <span className="text-[10px] text-slate-300 font-semibold truncate block">A.J. Hinton (SDS)</span>
+              <span className="text-[10px] text-slate-300 font-semibold whitespace-nowrap block">A.J. Hinton (SDS)</span>
             </div>
 
             <div className="bg-slate-950/80 border border-slate-800 p-3 rounded-2xl text-center">
@@ -610,9 +610,9 @@ export const OpeningDayRostersView: React.FC<OpeningDayRostersViewProps> = ({
                       <span className="text-xs font-black text-emerald-400 font-mono">{rookieCount}</span>
                     </div>
 
-                    <div className="bg-slate-950/90 border border-slate-800 px-3 py-1.5 rounded-xl text-center">
-                      <span className="text-[9px] uppercase font-bold text-slate-400 block">Top Star</span>
-                      <span className="text-xs font-black text-amber-300 font-mono truncate max-w-[90px] block">
+                    <div className="bg-slate-950/90 border border-slate-800 px-3.5 py-1.5 rounded-xl text-center min-w-[100px] shrink-0">
+                      <span className="text-[9px] uppercase font-bold text-slate-400 block whitespace-nowrap">Top Star</span>
+                      <span className="text-xs font-black text-amber-300 font-mono whitespace-nowrap block">
                         {topPlayer.name.split(' ').pop()} ({topPlayer.ovr})
                       </span>
                     </div>

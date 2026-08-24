@@ -447,7 +447,7 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
       {/* Full Article Modal */}
       {selectedArticle && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl space-y-6 relative max-h-[90vh] overflow-y-auto my-auto animate-in fade-in zoom-in-95 duration-200">
+          <div className="bg-slate-900 border border-slate-800 rounded-3xl max-w-4xl lg:max-w-5xl w-full p-6 sm:p-8 shadow-2xl space-y-6 relative max-h-[90vh] overflow-y-auto my-auto animate-in fade-in zoom-in-95 duration-200">
             {/* Close Button */}
             <button
               onClick={() => setSelectedArticle(null)}
@@ -458,15 +458,15 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
 
             {/* Article Meta Header */}
             <div className="space-y-3 border-b border-slate-800 pb-5">
-              <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
-                <span className="px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 font-bold rounded-full text-xs uppercase">
+              <div className="flex flex-wrap items-center gap-2.5 text-xs font-mono">
+                <span className="px-3.5 py-1.5 bg-amber-500/10 border border-amber-500/30 text-amber-400 font-bold rounded-full text-xs uppercase whitespace-nowrap shrink-0">
                   {selectedArticle.category} • Season {selectedArticle.season}
                 </span>
-                <span className="text-slate-400 flex items-center gap-1">
+                <span className="text-slate-400 flex items-center gap-1.5 whitespace-nowrap shrink-0">
                   <Calendar size={13} /> {selectedArticle.date}
                 </span>
-                <span className="text-slate-500">•</span>
-                <span className="text-slate-400">{selectedArticle.readTime}</span>
+                <span className="text-slate-500 shrink-0">•</span>
+                <span className="text-slate-400 whitespace-nowrap shrink-0">{selectedArticle.readTime}</span>
               </div>
 
               <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
@@ -478,7 +478,7 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
 
               <div className="flex items-center gap-2 text-xs text-slate-400 pt-1">
                 <User size={14} className="text-amber-400" />
-                <span>{selectedArticle.author}</span>
+                <span className="whitespace-nowrap">{selectedArticle.author}</span>
               </div>
             </div>
 
@@ -489,7 +489,7 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                   <img
                     src={selectedArticle.imageUrl || '/logos/cch_league_logo.png'}
                     alt={selectedArticle.title}
-                    className="w-auto h-auto max-h-[260px] max-w-[280px] object-contain rounded-xl shadow-lg"
+                    className="w-auto h-auto max-h-[280px] max-w-[300px] object-contain rounded-xl shadow-lg"
                   />
                 </div>
                 <div className="w-full bg-slate-950 border-t border-slate-800 p-3 text-left">
@@ -506,18 +506,18 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-950 p-4 rounded-2xl border border-slate-800">
                   <div className="flex items-center gap-2">
                     <Users className="text-amber-400" size={18} />
-                    <h3 className="text-sm sm:text-base font-black text-white uppercase tracking-wider">
+                    <h3 className="text-sm sm:text-base font-black text-white uppercase tracking-wider whitespace-nowrap">
                       Season 4 Head Coaching Directory
                     </h3>
                   </div>
 
                   {/* Coach Filter Controls */}
-                  <div className="flex items-center gap-1 bg-slate-900 p-1 rounded-xl border border-slate-800 text-xs">
+                  <div className="flex items-center gap-1.5 bg-slate-900 p-1.5 rounded-xl border border-slate-800 text-xs shrink-0 flex-wrap">
                     <button
                       onClick={() => setCoachFilter('all')}
-                      className={`px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer ${
+                      className={`px-3.5 py-1.5 rounded-lg font-bold transition-all cursor-pointer whitespace-nowrap shrink-0 ${
                         coachFilter === 'all'
-                          ? 'bg-amber-500 text-slate-950'
+                          ? 'bg-amber-500 text-slate-950 font-black shadow-sm'
                           : 'text-slate-400 hover:text-white'
                       }`}
                     >
@@ -525,9 +525,9 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                     </button>
                     <button
                       onClick={() => setCoachFilter('Returning')}
-                      className={`px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer ${
+                      className={`px-3.5 py-1.5 rounded-lg font-bold transition-all cursor-pointer whitespace-nowrap shrink-0 ${
                         coachFilter === 'Returning'
-                          ? 'bg-emerald-500 text-slate-950'
+                          ? 'bg-emerald-500 text-slate-950 font-black shadow-sm'
                           : 'text-slate-400 hover:text-white'
                       }`}
                     >
@@ -535,9 +535,9 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                     </button>
                     <button
                       onClick={() => setCoachFilter('Newcomer')}
-                      className={`px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer ${
+                      className={`px-3.5 py-1.5 rounded-lg font-bold transition-all cursor-pointer whitespace-nowrap shrink-0 ${
                         coachFilter === 'Newcomer'
-                          ? 'bg-blue-500 text-slate-950'
+                          ? 'bg-blue-500 text-slate-950 font-black shadow-sm'
                           : 'text-slate-400 hover:text-white'
                       }`}
                     >
@@ -573,7 +573,7 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                             <div className="space-y-1 flex-1 min-w-0 text-left">
                               <div className="flex items-center gap-2">
                                 <span
-                                  className={`text-[10px] font-mono font-black uppercase tracking-wider px-2 py-0.5 rounded border inline-block ${
+                                  className={`text-[10px] font-mono font-black uppercase tracking-wider px-2 py-0.5 rounded border inline-block whitespace-nowrap shrink-0 ${
                                     coach.status === 'Returning'
                                       ? 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30'
                                       : 'bg-blue-500/15 text-blue-400 border-blue-500/30'
@@ -583,20 +583,20 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                                 </span>
                               </div>
 
-                              <h4 className="text-base font-black text-white group-hover/coach:text-amber-300 transition-colors truncate text-left pt-0.5">
+                              <h4 className="text-base font-black text-white group-hover/coach:text-amber-300 transition-colors text-left pt-0.5 whitespace-nowrap">
                                 {coach.name}
                               </h4>
 
                               <div className="flex items-center gap-2 text-left">
                                 <TeamBadge teamId={coach.teamId} size="sm" />
-                                <span className="text-xs font-bold text-slate-300 truncate">
+                                <span className="text-xs font-bold text-slate-300 whitespace-nowrap">
                                   {coach.team}
                                 </span>
                               </div>
 
                               {/* 2-Line Left-Aligned Tenure */}
                               <div className="pt-1 text-left leading-tight">
-                                <div className="text-xs font-mono font-black text-amber-400">
+                                <div className="text-xs font-mono font-black text-amber-400 whitespace-nowrap">
                                   {seasonLine}
                                 </div>
                                 {detailLine && (

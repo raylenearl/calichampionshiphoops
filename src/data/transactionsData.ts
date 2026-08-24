@@ -181,6 +181,19 @@ export const TRANSACTIONS_DATA: Transaction[] = [
     description: 'Re-signed SF Chase Baker (1 year, $2.05M) and C Ronald Glover (1 year, $2.00M).',
   },
   {
+    id: 's2-signing-hinton',
+    season: 2,
+    type: 'signing',
+    title: 'A.J. Hinton Signs with San Diego Strykers',
+    teams: [
+      { id: 'long-beach-vipers', name: 'Long Beach Vipers' },
+      { id: 'san-diego-strykers', name: 'San Diego Strykers' },
+    ],
+    description: 'Following a stellar rookie campaign with the Long Beach Vipers (18.5 PPG, leading LB to the #3 seed), star guard A.J. Hinton signed with the San Diego Strykers.',
+    impact: 'Formed the offensive centerpiece for new head coach Jacob Underwood, culminating in Hinton capturing the Season 3 CCH League MVP.',
+    highlight: true,
+  },
+  {
     id: 's2-signing-gambino',
     season: 2,
     type: 'signing',

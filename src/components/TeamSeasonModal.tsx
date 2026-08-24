@@ -217,7 +217,7 @@ export const TeamSeasonModal: React.FC<TeamSeasonModalProps> = ({
                   <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
                     Head Coach
                   </span>
-                  <p className="text-sm font-black text-amber-400 truncate">
+                  <p className="text-sm font-black text-amber-400 whitespace-nowrap">
                     {rosterData?.coach || team.coach}
                   </p>
                   <span className="text-[10px] text-slate-500 font-mono">
@@ -241,7 +241,7 @@ export const TeamSeasonModal: React.FC<TeamSeasonModalProps> = ({
                   <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
                     Top Rated Star
                   </span>
-                  <p className="text-sm font-black text-amber-300 truncate">
+                  <p className="text-sm font-black text-amber-300 whitespace-nowrap">
                     {highestOvrPlayer?.name || 'N/A'}
                   </p>
                   <span className="text-[10px] text-amber-400 font-mono font-bold">

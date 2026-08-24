@@ -241,7 +241,7 @@ export const TEAM_SEASON_RECAPS: Record<string, Record<number, TeamSeasonRecap>>
       teamId: 'san-diego-strykers',
       season: 1,
       headline: 'Fast-Paced Foundations & 10-Block Historic Night',
-      summary: 'The Strykers introduced an energetic, fast-break brand of basketball to San Diego in Season 1, finishing 9-13. The season was highlighted by center Adrian Pognotti setting the all-time CCH single-game record with 10 blocks against Oakland on 2/24/S1. Wing scorer A.J. Hinton and guard Jamar Dean provided consistent offensive firepower.',
+      summary: 'The Strykers introduced an energetic, fast-break brand of basketball to San Diego in Season 1, finishing 9-13. The season was highlighted by center Adrian Pognotti setting the all-time CCH single-game record with 10 blocks against Oakland on 2/24/S1. Guard Jamar Dean and playmaker Caron Lowe provided consistent offensive firepower.',
       keyAccomplishments: [
         '9-13 Regular Season Record',
         'Adrian Pognotti set all-time single-game block record (10 BLK vs Oakland)',
@@ -252,9 +252,9 @@ export const TEAM_SEASON_RECAPS: Record<string, Record<number, TeamSeasonRecap>>
       ],
       playoffFinish: 'Missed Postseason (9th Rank - 9-13)',
       topPlayers: [
-        { name: 'A.J. Hinton', role: 'Shooting Guard (SG)', statLine: '18.5 PPG, 5.2 RPG' },
-        { name: 'Adrian Pognotti', role: 'Center (C)', statLine: 'Single-Game Record: 10 BLK vs OAK' },
         { name: 'Jamar Dean', role: 'Guard (G)', statLine: '16.2 PPG, 4.0 RPG' },
+        { name: 'Adrian Pognotti', role: 'Center (C)', statLine: 'Single-Game Record: 10 BLK vs OAK' },
+        { name: 'Caron Lowe', role: 'Guard (G)', statLine: '14.1 PPG, 3.8 APG' },
         { name: 'Coby Spencer', role: 'Guard (G)', statLine: '12.8 PPG, 3.5 APG' },
       ],
       keyWins: ['85-78 vs. Sacramento Stallions', '82-74 vs. Anaheim Admirals'],
@@ -397,7 +397,7 @@ export const TEAM_SEASON_RECAPS: Record<string, Record<number, TeamSeasonRecap>>
       teamId: 'long-beach-vipers',
       season: 1,
       headline: 'Award-Winning Leadership & #3 Seed Regular Season Finish',
-      summary: 'Long Beach enjoyed a terrific inaugural regular season, going 13-9 (#3 seed) behind Head Coach Stretch Roberts (Co-Coach of the Year) and General Manager Anthony Nance (Executive of the Year). Forward Hal Vincent and guard Eugene Simon anchored a disciplined, high-scoring squad before falling in a 90-94 Quarterfinal shootout against Golden State Enterprise.',
+      summary: 'Long Beach enjoyed a terrific inaugural regular season, going 13-9 (#3 seed) behind Head Coach Stretch Roberts (Co-Coach of the Year) and General Manager Anthony Nance (Executive of the Year). Leading rookie scorer A.J. Hinton (18.5 PPG), forward Hal Vincent, and guard Eugene Simon anchored a disciplined, high-scoring squad before falling in a 90-94 Quarterfinal shootout against Golden State Enterprise.',
       keyAccomplishments: [
         '13-9 Regular Season Record (#3 Seed in CCH)',
         'Stretch Roberts named Season 1 Co-Coach of the Year',
@@ -410,10 +410,10 @@ export const TEAM_SEASON_RECAPS: Record<string, Record<number, TeamSeasonRecap>>
       ],
       playoffFinish: 'Quarterfinals Exit (Lost 90-94 vs Golden State Enterprise)',
       topPlayers: [
+        { name: 'A.J. Hinton', role: 'Shooting Guard (SG)', statLine: '18.5 PPG, 5.2 RPG (#3 Seed Leading Scorer)' },
         { name: 'Hal Vincent', role: 'Forward (F)', statLine: '16.2 PPG, 8.5 RPG (#3 Seed Leader)' },
         { name: 'Eugene Simon', role: 'Guard (G)', statLine: '14.8 PPG, 4.2 APG' },
         { name: 'Kirk Barnes', role: 'Guard (G)', statLine: '14.0 PPG, 3.8 APG' },
-        { name: 'Marcel Sonnet', role: 'Guard (G)', statLine: '12.5 PPG, 3.2 APG' },
       ],
       keyWins: ['82-75 vs. Sacramento Stallions', '89-80 vs. California Reds'],
     },

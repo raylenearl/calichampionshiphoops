@@ -761,10 +761,10 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
       coach: 'Jake Thomas',
       coachTenure: '1st Season',
       players: [
-        { name: 'A.J. Hinton', position: 'Shooting Guard (SG)', ovr: 83 },
         { name: 'Jamar Dean', position: 'Guard (G)', ovr: 81 },
         { name: 'Adrian Pognotti', position: 'Center (C)', ovr: 78, schoolOrNote: 'Single Game 10 Blocks Record' },
-        { name: 'Coby Spencer', position: 'Guard (G)', ovr: 73 },
+        { name: 'Earl Jenkins', position: 'Forward (F)', ovr: 77, schoolOrNote: 'Acquired via trade from Long Beach' },
+        { name: 'Coby Spencer', position: 'Guard (G)', ovr: 73, schoolOrNote: 'Traded to Long Beach' },
         { name: 'Harry Bennett', position: 'Forward (F)', ovr: 72 },
         { name: 'Caron Lowe', position: 'Guard (G)', ovr: 72 },
         { name: 'Benjamin Bowen', position: 'Guard (G)', ovr: 71 },
