@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { SEASON_4_SCHEDULE } from '../data/s4ScheduleData';
 import { SEASON_3_SCHEDULE } from '../data/s3ScheduleData';
 import { SEASON_2_SCHEDULE } from '../data/s2ScheduleData';
 import { SEASON_1_SCHEDULE } from '../data/s1ScheduleData';
@@ -44,7 +45,8 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
     let regSchedule: GameRecord[] = [];
     if (selectedSeason === 1) regSchedule = SEASON_1_SCHEDULE;
     else if (selectedSeason === 2) regSchedule = SEASON_2_SCHEDULE;
-    else regSchedule = SEASON_3_SCHEDULE;
+    else if (selectedSeason === 3) regSchedule = SEASON_3_SCHEDULE;
+    else regSchedule = SEASON_4_SCHEDULE;
 
     if (gameStage === 'regular') return regSchedule;
 
@@ -165,11 +167,13 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
             <div className="flex items-center gap-2">
               <Calendar className="text-amber-400" size={24} />
               <h2 className="text-2xl font-black text-white tracking-tight">
-                Complete CCH Game History
+                Complete CCH Game Schedule & History
               </h2>
             </div>
             <p className="text-xs text-slate-400 font-medium mt-1">
-              Every single regular season and playoff game in Cali Championship Hoops history (Seasons 1–3).
+              {selectedSeason === 4
+                ? 'Official 132-game Season 4 regular season schedule for all 12 franchises (Oct 17 – Apr 9).'
+                : `Every single regular season and playoff game in Cali Championship Hoops history (Season ${selectedSeason}).`}
             </p>
           </div>
 
@@ -235,6 +239,14 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
                 }`}
               >
                 Season 3
+              </button>
+              <button
+                onClick={() => setSelectedSeason(4)}
+                className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer ${
+                  selectedSeason === 4 ? 'bg-amber-500 text-slate-950 font-black' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                Season 4
               </button>
             </div>
           </div>
@@ -309,6 +321,40 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
           </button>
         </div>
       </div>
+
+      {/* CCH Season 4 Schedule Banner (Shows for Season 4) */}
+      {selectedSeason === 4 && (
+        <div className="bg-gradient-to-r from-blue-950/70 via-slate-900 to-amber-950/50 border border-blue-500/40 p-5 rounded-3xl shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="space-y-1.5 max-w-2xl">
+            <div className="flex items-center gap-2 text-blue-400 font-extrabold text-xs uppercase tracking-wider">
+              <Sparkles size={15} />
+              Official Schedule • 132-Game Regular Season Slate
+            </div>
+            <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+              Season 4 Full Schedule Released
+            </h3>
+            <p className="text-xs text-slate-300 leading-relaxed font-medium">
+              All 12 franchises compete in a 22-game regular-season schedule spanning from Opening Night on October 17 through April 9. Filter games by month, franchise, or matchup below.
+            </p>
+          </div>
+          <div className="bg-slate-950/90 border border-blue-500/30 px-4 py-2.5 rounded-2xl flex items-center gap-3 shrink-0 self-start md:self-center">
+            <div className="text-center">
+              <span className="text-[9px] uppercase font-bold text-slate-400 block whitespace-nowrap">Total Games</span>
+              <span className="text-sm font-black text-amber-400 font-mono">132</span>
+            </div>
+            <div className="h-6 w-px bg-slate-800" />
+            <div className="text-center">
+              <span className="text-[9px] uppercase font-bold text-slate-400 block whitespace-nowrap">Per Franchise</span>
+              <span className="text-sm font-black text-blue-400 font-mono">22</span>
+            </div>
+            <div className="h-6 w-px bg-slate-800" />
+            <div className="text-center">
+              <span className="text-[9px] uppercase font-bold text-slate-400 block whitespace-nowrap">Opening Tip</span>
+              <span className="text-sm font-black text-emerald-400 font-mono">Oct 17</span>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* CCH Inaugural Game Spotlight Banner (Shows for Season 1) */}
       {selectedSeason === 1 && (

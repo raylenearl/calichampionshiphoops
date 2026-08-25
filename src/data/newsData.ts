@@ -66,6 +66,44 @@ export interface CCHNewsArticle {
 
 export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
   {
+    id: 's4-schedule-announcement',
+    title: 'Official Season 4 Schedule Released: 132 Regular-Season Games, Opening Night Slate & Key Rivalries',
+    subtitle: 'The CCH League Office reveals the complete 22-game calendar for all 12 franchises from Oct 17 through Apr 9—highlighted by an explosive 5-game Opening Night, holiday doubleheaders, and Underwood’s first derby against the Strykers.',
+    date: 'Season 4 Official Schedule Release',
+    season: 4,
+    category: 'feature',
+    featured: true,
+    author: 'CCH League Operations & Scheduling Desk',
+    readTime: '4 min read',
+    imageUrl: '/logos/cch_league_logo.png',
+    imageCaption: 'Official CCH Season 4 Schedule Release • 132 Games Across 12 Franchises',
+    headlineQuote: 'Season 4 brings the most balanced and fiercely competitive schedule in league history. Every single game matters with 12 loaded rosters fighting for playoff seeding.',
+    contentParagraphs: [
+      'CALIFORNIA — The Cali Championship Hoops League Office has officially ratified and published the complete 132-game regular-season schedule for Season 4. All 12 franchises will contest a grueling 22-game slate spanning seven months from Opening Night on October 17 through the regular season finale on April 9.',
+      'OPENING NIGHT BLOCKBUSTER SLATE (OCTOBER 17)\nSeason 4 tips off with five marquee matchups across California:\n• Anaheim Admirals at Oakland Renegades\n• San Diego Strykers at Long Beach Vipers\n• Sacramento Stallions at California Reds\n• San Jose Tigersharks at Fresno Mad Dogs\n• San Diego Sabrewolves at Los Angeles Dynamics',
+      'MARQUEE RIVALRIES & KEY DATES\n• San Diego Cross-Town Derby: Former Strykers coach Jacob Underwood leads the Sabrewolves into battle against his former squad on Jan 16 (at Strykers) and Feb 6 (at Sabrewolves).\n• Christmas Day Showcase (Dec 25): San Diego Sabrewolves visit the Oakland Coliseum to take on the Oakland Renegades.\n• Rematch of the Season 3 Finals: Sacramento Stallions meet the Fresno Mad Dogs on Oct 31 (at Fresno) and Nov 26 (at Sacramento).\n• Regular Season Finale (April 9): Anaheim Admirals travel to face the California Reds in the final regular season clash before the playoffs.',
+      'BROWSE THE FULL SCHEDULE\nFans can explore the complete schedule in the Schedule tab, filtering by month, team, conference, and matchup.'
+    ],
+    quotes: [
+      {
+        speaker: 'Ray Lenearl',
+        title: 'CCH Commissioner',
+        quote: 'Season 4 brings the most balanced and fiercely competitive schedule in league history. Every single game matters with 12 loaded rosters fighting for playoff seeding.'
+      },
+      {
+        speaker: 'Jacob Underwood',
+        title: 'Head Coach • San Diego Sabrewolves',
+        quote: 'Opening on the road against Los Angeles on Oct 17 will test our chemistry immediately. We are locked in for a 22-game war.'
+      }
+    ],
+    playerStats: [
+      { player: 'Total Games', team: 'League Slate', stat: '132 Regular Season Games' },
+      { player: 'Games Per Team', team: 'All 12 Teams', stat: '22 Regular Season Games' },
+      { player: 'Opening Night', team: 'League-Wide', stat: 'October 17 (5 Games)' },
+      { player: 'Regular Season Finale', team: 'Admirals @ Reds', stat: 'April 9' }
+    ]
+  },
+  {
     id: 's4-opening-day-rosters-unveiled',
     title: 'Season 4 Official Opening Day Rosters Unveiled: 132 Players, Elite Ratings & Complete Rotations',
     subtitle: 'From 99 OVR MVP A.J. Hinton and the Strykers super-team to Oakland\'s 96-92 backcourt tandem, Carlton Daugherty\'s arrival in Golden State, and 12 revamped coaching staffs—the official 11-man rosters for all 12 franchises are finalized.',

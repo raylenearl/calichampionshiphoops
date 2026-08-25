@@ -125,7 +125,7 @@ export interface StandingsRow {
 
 export interface GameRecord {
   id: string;
-  season: 1 | 2 | 3;
+  season: 1 | 2 | 3 | 4;
   date: string; // e.g. "Oct 17", "Nov 5"
   month: string; // "October", "November", etc.
   team1: string;

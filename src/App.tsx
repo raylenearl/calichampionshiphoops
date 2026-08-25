@@ -264,7 +264,187 @@ export default function App() {
             {/* Hero Showcase */}
             <HeroBanner onNavigate={(tab) => setActiveTab(tab)} selectedSeason={selectedSeason} />
 
-            {/* TOP STORY ON FRONT PAGE: Season 4 Official Opening Day Rosters Featured Showcase */}
+            {/* TOP STORY ON FRONT PAGE: Season 4 Official Schedule Release */}
+            <div className="bg-gradient-to-br from-blue-950/80 via-slate-900 to-slate-950 border-2 border-blue-500/50 p-6 sm:p-8 rounded-3xl space-y-6 shadow-2xl relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/15 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20 group-hover:bg-blue-500/25 transition-all" />
+              <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -ml-20 -mb-20" />
+
+              {/* Main Headline & Action Bar */}
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 relative z-10">
+                <div className="flex items-start gap-4">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-slate-950/90 border-2 border-blue-500/50 flex flex-col items-center justify-center p-2 shrink-0 shadow-xl overflow-hidden group-hover:scale-105 transition-transform text-center">
+                    <Calendar className="text-amber-400 mb-1" size={28} />
+                    <span className="text-[10px] font-mono font-black uppercase text-blue-400 tracking-wider">OCT 17</span>
+                    <span className="text-[8px] font-mono text-slate-400 font-bold">TIP-OFF</span>
+                  </div>
+                  <div className="space-y-1.5">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="text-[10px] font-mono font-black uppercase tracking-wider bg-blue-500 text-slate-950 px-2.5 py-0.5 rounded-md font-bold shadow-sm whitespace-nowrap shrink-0">
+                        TOP STORY
+                      </span>
+                      <span className="text-[10px] font-mono font-black uppercase tracking-wider bg-amber-500/20 text-amber-300 px-2.5 py-0.5 rounded-md border border-amber-500/30 whitespace-nowrap shrink-0">
+                        OFFICIAL SCHEDULE RELEASE
+                      </span>
+                      <span className="text-[10px] font-mono font-bold text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded border border-sky-500/20 whitespace-nowrap shrink-0">
+                        132 Regular Season Games
+                      </span>
+                      <span className="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 whitespace-nowrap shrink-0">
+                        22 Games Per Franchise
+                      </span>
+                    </div>
+                    <h2 className="text-2xl sm:text-3xl font-black text-white leading-tight">
+                      Official Season 4 Schedule Released: 132-Game Regular Season Calendar
+                    </h2>
+                    <p className="text-xs sm:text-sm text-slate-300 max-w-3xl font-medium leading-relaxed">
+                      The CCH League Office has officially published the complete 22-game regular-season schedule for all 12 franchises from October 17 through April 9. Features a blockbuster 5-game Opening Night slate, Christmas Day showcase, and Underwood&apos;s rivalry clashes against the Strykers.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-3 shrink-0 self-start lg:self-center">
+                  <button
+                    onClick={() => {
+                      setSelectedSeason(4);
+                      setActiveTab('schedule');
+                    }}
+                    className="px-6 py-3 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs sm:text-sm shadow-xl shadow-amber-500/25 flex items-center gap-2 transition-all cursor-pointer whitespace-nowrap shrink-0"
+                  >
+                    <Calendar size={16} />
+                    <span>Browse Full S4 Schedule</span>
+                    <ChevronRight size={16} />
+                  </button>
+                  <button
+                    onClick={() => handleNavigateToNews('s4-schedule-announcement')}
+                    className="px-5 py-3 rounded-2xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-bold text-xs sm:text-sm flex items-center gap-2 transition-all cursor-pointer whitespace-nowrap shrink-0"
+                  >
+                    <BookOpen size={16} />
+                    <span>Read Schedule Release</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Opening Night (Oct 17) 5-Game Marquee Showcase */}
+              <div className="relative z-10 space-y-2.5 pt-2 border-t border-slate-800/80">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-mono font-black uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
+                      <Sparkles size={12} className="text-amber-400" />
+                      Opening Night Blockbusters • Thursday, October 17 (5 Games)
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => {
+                      setSelectedSeason(4);
+                      setActiveTab('schedule');
+                    }}
+                    className="text-[10px] font-mono font-bold text-slate-400 hover:text-amber-300 flex items-center gap-1 cursor-pointer bg-transparent border-0"
+                  >
+                    View All Months (Oct – Apr) →
+                  </button>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2.5">
+                  {[
+                    { away: 'Anaheim Admirals', awayId: 'anaheim-admirals', home: 'Oakland Renegades', homeId: 'oakland-renegades', tag: 'NorCal vs SoCal' },
+                    { away: 'San Diego Strykers', awayId: 'san-diego-strykers', home: 'Long Beach Vipers', homeId: 'long-beach-vipers', tag: 'MVP Hinton Debut' },
+                    { away: 'Sacramento Stallions', awayId: 'sacramento-stallions', home: 'California Reds', homeId: 'california-reds', tag: 'Champs vs S2 Champs' },
+                    { away: 'San Jose Tigersharks', awayId: 'san-jose-tigersharks', home: 'Fresno Mad Dogs', homeId: 'fresno-mad-dogs', tag: 'Platinum Cup' },
+                    { away: 'San Diego Sabrewolves', awayId: 'san-diego-sabrewolves', home: 'Los Angeles Dynamics', homeId: 'los-angeles-dynamics', tag: 'Underwood Debut' },
+                  ].map((m, idx) => (
+                    <div
+                      key={idx}
+                      onClick={() => {
+                        setSelectedSeason(4);
+                        setActiveTab('schedule');
+                      }}
+                      className="bg-slate-950/85 border border-slate-800 hover:border-blue-500/60 p-3 rounded-2xl flex flex-col justify-between transition-all hover:bg-slate-900 cursor-pointer group/game hover:-translate-y-0.5 space-y-2 shadow-sm"
+                    >
+                      <div className="flex items-center justify-between text-[10px] font-mono text-slate-400 border-b border-slate-800/80 pb-1.5">
+                        <span className="text-amber-400 font-bold">Oct 17</span>
+                        <span className="text-[9px] text-blue-400 bg-blue-500/10 px-1.5 py-0.5 rounded border border-blue-500/20 truncate">
+                          {m.tag}
+                        </span>
+                      </div>
+
+                      <div className="space-y-1.5">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-1.5 min-w-0">
+                            <TeamBadge teamId={m.awayId} size="xs" />
+                            <span className="text-xs font-bold text-slate-300 truncate">
+                              {m.away.replace(/^(San Diego |San Francisco |Golden State |Long Beach |Los Angeles |San Jose |California |Sacramento |Oakland |Anaheim |Fresno )/, '')}
+                            </span>
+                          </div>
+                          <span className="text-[10px] font-mono font-bold text-slate-400">AWAY</span>
+                        </div>
+
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-1.5 min-w-0">
+                            <TeamBadge teamId={m.homeId} size="xs" />
+                            <span className="text-xs font-black text-white group-hover/game:text-amber-300 transition-colors truncate">
+                              {m.home.replace(/^(San Diego |San Francisco |Golden State |Long Beach |Los Angeles |San Jose |California |Sacramento |Oakland |Anaheim |Fresno )/, '')}
+                            </span>
+                          </div>
+                          <span className="text-[10px] font-mono font-bold text-amber-400">HOME</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Key Calendar Milestones Strip */}
+              <div className="relative z-10 grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2 border-t border-slate-800/80">
+                <div
+                  onClick={() => {
+                    setSelectedSeason(4);
+                    setActiveTab('schedule');
+                  }}
+                  className="bg-slate-950/70 border border-slate-800/80 p-2.5 rounded-xl hover:border-amber-500/40 cursor-pointer transition-all"
+                >
+                  <span className="text-[9px] font-mono uppercase text-slate-400 font-bold block">Christmas Showcase</span>
+                  <p className="text-xs font-black text-white truncate">Sabrewolves @ Renegades</p>
+                  <span className="text-[10px] font-mono text-amber-400 font-bold">Dec 25</span>
+                </div>
+
+                <div
+                  onClick={() => {
+                    setSelectedSeason(4);
+                    setActiveTab('schedule');
+                  }}
+                  className="bg-slate-950/70 border border-slate-800/80 p-2.5 rounded-xl hover:border-amber-500/40 cursor-pointer transition-all"
+                >
+                  <span className="text-[9px] font-mono uppercase text-slate-400 font-bold block">San Diego Derby</span>
+                  <p className="text-xs font-black text-white truncate">Sabrewolves vs. Strykers</p>
+                  <span className="text-[10px] font-mono text-emerald-400 font-bold">Jan 16 & Feb 6</span>
+                </div>
+
+                <div
+                  onClick={() => {
+                    setSelectedSeason(4);
+                    setActiveTab('schedule');
+                  }}
+                  className="bg-slate-950/70 border border-slate-800/80 p-2.5 rounded-xl hover:border-amber-500/40 cursor-pointer transition-all"
+                >
+                  <span className="text-[9px] font-mono uppercase text-slate-400 font-bold block">Finals Rematch</span>
+                  <p className="text-xs font-black text-white truncate">Stallions vs. Mad Dogs</p>
+                  <span className="text-[10px] font-mono text-blue-400 font-bold">Oct 31 & Nov 26</span>
+                </div>
+
+                <div
+                  onClick={() => {
+                    setSelectedSeason(4);
+                    setActiveTab('schedule');
+                  }}
+                  className="bg-slate-950/70 border border-slate-800/80 p-2.5 rounded-xl hover:border-amber-500/40 cursor-pointer transition-all"
+                >
+                  <span className="text-[9px] font-mono uppercase text-slate-400 font-bold block">Regular Season Finale</span>
+                  <p className="text-xs font-black text-white truncate">Admirals @ Reds</p>
+                  <span className="text-[10px] font-mono text-amber-400 font-bold">April 9</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Season 4 Official Opening Day Rosters Featured Showcase */}
             <div className="bg-gradient-to-br from-amber-950/80 via-slate-900 to-slate-950 border-2 border-amber-500/60 p-6 sm:p-8 rounded-3xl space-y-6 shadow-2xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20 group-hover:bg-amber-500/30 transition-all" />
               <div className="absolute bottom-0 left-0 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl pointer-events-none -ml-20 -mb-20" />

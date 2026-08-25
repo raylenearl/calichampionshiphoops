@@ -43,11 +43,11 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onNavigate, selectedSeas
           {/* Action Buttons */}
           <div className="flex flex-wrap items-center gap-3 pt-2">
             <button
-              onClick={() => onNavigate('playoffs')}
+              onClick={() => onNavigate(selectedSeason <= 3 ? 'playoffs' : 'schedule')}
               className="px-5 py-2.5 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs sm:text-sm shadow-lg shadow-amber-500/20 flex items-center gap-2 transition-all cursor-pointer"
             >
               <Trophy size={16} />
-              <span>Explore Season {selectedSeason} Postseason</span>
+              <span>{selectedSeason <= 3 ? `Explore Season ${selectedSeason} Postseason` : 'Explore Season 4 Schedule'}</span>
               <ChevronRight size={16} />
             </button>
             <button
