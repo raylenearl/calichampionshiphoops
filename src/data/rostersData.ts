@@ -743,6 +743,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
       players: [
         { number: '38', name: 'Frank Hackett', position: 'PF', ovr: 89, seasonYear: '4th Season', schoolOrNote: 'Pepperdine', age: 22, height: '6-8', weight: 220 },
         { number: '12', name: 'George Madsen', position: 'SG/SF', ovr: 88, seasonYear: '3rd Season', schoolOrNote: 'Michigan State', age: 21, height: '6-3', weight: 209 },
+        { number: '44', name: 'Adrian Pognotti', position: 'C', ovr: 87, seasonYear: '4th Season', schoolOrNote: 'La Costa Canyon HS', age: 22, height: '7-2', weight: 280 },
         { number: '10', name: 'Leo Bass', position: 'C', ovr: 80, seasonYear: 'Rookie', schoolOrNote: 'San Jose State', age: 21, height: '7-0', weight: 263 },
         { number: '47', name: 'Joey Wilcox', position: 'C', ovr: 76, seasonYear: 'Rookie', schoolOrNote: 'Oakland', age: 21, height: '7-2', weight: 268 },
         { number: '25', name: 'Isaac Livingston', position: 'PF/C', ovr: 76, seasonYear: 'Rookie', schoolOrNote: 'Santa Clara', age: 21, height: '6-11', weight: 241 },
@@ -819,6 +820,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
         { number: '21', name: 'A.J. Hinton', position: 'SG/PG', ovr: 99, seasonYear: '4th Season', schoolOrNote: 'Crawford High', age: 22, height: '6-3', weight: 200 },
         { number: '34', name: 'DeAnte Gray', position: 'SF/PF', ovr: 96, seasonYear: '4th Season', schoolOrNote: 'San Diego High', age: 22, height: '6-4', weight: 275 },
         { number: '84', name: 'Ray Gambino Gamble', position: 'PG', ovr: 94, seasonYear: '4th Season', schoolOrNote: 'Miami (FL)', age: 24, height: '6-6', weight: 210 },
+        { number: '13', name: 'Johnny Galloway', position: 'PF/SF', ovr: 88, seasonYear: '4th Season', schoolOrNote: 'Portland State', age: 20, height: '6-5', weight: 240 },
         { number: '44', name: 'Carl Marshall', position: 'C/PF', ovr: 81, seasonYear: 'Rookie', schoolOrNote: 'Georgia', age: 21, height: '6-11', weight: 247 },
         { number: '22', name: 'Joe Grantham', position: 'PF', ovr: 75, seasonYear: 'Rookie', schoolOrNote: 'Chattanooga', age: 21, height: '6-6', weight: 201 },
         { number: '30', name: 'Rod Hammonds', position: 'PF/SF', ovr: 75, seasonYear: 'Rookie', schoolOrNote: 'San Francisco', age: 21, height: '6-7', weight: 250 },

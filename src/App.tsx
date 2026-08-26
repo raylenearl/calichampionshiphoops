@@ -24,6 +24,8 @@ import { SEASON_ROSTERS } from './data/rostersData';
 import { TeamBadge } from './components/TeamBadge';
 import carltonDaughertyImg from './assets/images/S4 Draft/Carlton Daugherty.png';
 import ajHinton99Img from './assets/images/AJHinton99.png';
+import pognottiImg from './assets/images/Pognotti.png';
+import jGallowayImg from './assets/images/JGalloway.png';
 import { SearchModal } from './components/SearchModal';
 import { TeamSeasonModal } from './components/TeamSeasonModal';
 import { CCHLeagueLogo } from './components/TeamLogos';
@@ -263,6 +265,217 @@ export default function App() {
           <div className="space-y-8">
             {/* Hero Showcase */}
             <HeroBanner onNavigate={(tab) => setActiveTab(tab)} selectedSeason={selectedSeason} />
+
+            {/* BREAKING NEWS HEADLINE: Pognotti Joins Sacramento, Galloway Returns to Strykers */}
+            <div className="bg-gradient-to-br from-red-950/80 via-slate-900 to-amber-950/40 border-2 border-red-500/60 p-6 sm:p-8 rounded-3xl space-y-6 shadow-2xl relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-96 h-96 bg-red-500/15 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20 group-hover:bg-red-500/25 transition-all" />
+              <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-500/15 rounded-full blur-3xl pointer-events-none -ml-20 -mb-20" />
+
+              {/* Breaking Header Bar */}
+              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-red-500/30 pb-4 relative z-10">
+                <div className="flex items-center gap-2.5 flex-wrap">
+                  <span className="animate-pulse flex h-3 w-3 rounded-full bg-red-500 shadow-lg shadow-red-500/50" />
+                  <span className="text-xs font-black uppercase tracking-widest bg-red-600 text-white px-3 py-1 rounded-md font-mono flex items-center gap-1.5 shadow-sm">
+                    🚨 BREAKING NEWS
+                  </span>
+                  <span className="text-[10px] font-mono font-black uppercase tracking-wider bg-amber-500/20 text-amber-300 px-2.5 py-1 rounded-md border border-amber-500/40">
+                    SEASON 4 MEGA CONTRACT SIGNINGS
+                  </span>
+                  <span className="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-500/15 px-2.5 py-1 rounded-md border border-emerald-500/30">
+                    4 YR / $171.87M DEALS
+                  </span>
+                </div>
+                <button
+                  onClick={() => handleNavigateToNews('s4-blockbuster-signings-pognotti-galloway')}
+                  className="text-xs font-mono font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1 cursor-pointer bg-transparent border-0"
+                >
+                  Read Full Article & Analysis →
+                </button>
+              </div>
+
+              {/* Main Headline & Intro */}
+              <div className="relative z-10 space-y-2">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white leading-tight tracking-tight">
+                  POGNOTTI JOINS SACRAMENTO • GALLOWAY RETURNS TO SAN DIEGO STRYKERS
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-300 max-w-4xl font-medium leading-relaxed">
+                  Two seismic four-year, $171.87 million contracts have officially been executed. All-time single-game block record holder <strong className="text-amber-300">Adrian Pognotti (87 OVR)</strong> heads north to anchor the defending champion Sacramento Stallions, while two-way powerhouse <strong className="text-amber-300">Johnny Galloway (88 OVR)</strong> rejoins reigning MVP A.J. Hinton on the San Diego Strykers.
+                </p>
+              </div>
+
+              {/* Dual Player Signing Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 relative z-10">
+                {/* Card 1: Adrian Pognotti to Sacramento Stallions */}
+                <div
+                  onClick={() => handleSelectTeamRecap('sacramento-stallions', 4)}
+                  className="bg-slate-950/90 border-2 border-purple-500/40 hover:border-amber-400 p-5 rounded-3xl space-y-4 shadow-xl cursor-pointer group/pognotti transition-all hover:scale-[1.01]"
+                >
+                  <div className="flex items-center justify-between border-b border-purple-500/20 pb-3">
+                    <div className="flex items-center gap-2">
+                      <TeamBadge teamId="sacramento-stallions" size="sm" />
+                      <div>
+                        <span className="text-[10px] font-mono font-black uppercase text-purple-400">SACRAMENTO STALLIONS</span>
+                        <h3 className="text-sm font-black text-white group-hover/pognotti:text-amber-300 transition-colors">Defending Champions Anchor</h3>
+                      </div>
+                    </div>
+                    <span className="text-xs font-mono font-black bg-amber-500 text-slate-950 px-2.5 py-1 rounded-xl shadow">
+                      87 OVR
+                    </span>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-slate-900 border-2 border-purple-500/50 overflow-hidden shrink-0 shadow-lg group-hover/pognotti:border-amber-400 transition-colors">
+                      <img
+                        src={pognottiImg}
+                        alt="Adrian Pognotti - Sacramento Stallions"
+                        className="w-full h-full object-cover object-top"
+                      />
+                    </div>
+                    <div className="space-y-1.5 min-w-0 flex-1">
+                      <div className="flex items-baseline justify-between gap-1">
+                        <h4 className="text-lg sm:text-xl font-black text-white truncate">
+                          Adrian Pognotti
+                        </h4>
+                        <span className="text-xs font-mono font-bold text-amber-400">#44 • C</span>
+                      </div>
+                      <div className="text-[11px] font-mono text-slate-300 space-y-0.5">
+                        <div className="flex items-center justify-between">
+                          <span className="text-slate-400">Height / Weight:</span>
+                          <span className="font-bold text-white">7&apos;2&quot; • 280 lbs</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-slate-400">Experience / Age:</span>
+                          <span className="font-bold text-white">4th Season • Age 22</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-slate-400">Origin / Origin:</span>
+                          <span className="font-bold text-white">La Costa Canyon HS</span>
+                        </div>
+                        <div className="flex items-center justify-between pt-1 border-t border-slate-800">
+                          <span className="text-emerald-400 font-bold">Contract Terms:</span>
+                          <span className="font-black text-emerald-300 font-mono">4 Yr / $171.87M</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Social Buzz / Quotes */}
+                  <div className="space-y-2 text-[11px] bg-slate-900/80 p-3 rounded-2xl border border-slate-800 font-sans">
+                    <p className="text-amber-300 font-medium">
+                      <strong className="text-white font-bold">Nate Duncan:</strong> &ldquo;Several news outlets reporting that Adrian Pognotti will join the Stallions on a 4yr/$171.87M contract.&rdquo;
+                    </p>
+                    <p className="text-purple-300 font-medium border-t border-slate-800/80 pt-1.5">
+                      <strong className="text-purple-400 font-bold">Sacramento Stallions:</strong> &ldquo;The dotted line has been signed. Adrian Pognotti is now a part of StallionsNation. Here we go!&rdquo;
+                    </p>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-1 text-[11px] font-mono text-amber-400 font-bold">
+                    <span>Single-Game Record Holder (10 BLK)</span>
+                    <span className="flex items-center gap-1 group-hover/pognotti:translate-x-1 transition-transform">
+                      View Stallions Roster →
+                    </span>
+                  </div>
+                </div>
+
+                {/* Card 2: Johnny Galloway Returns to San Diego Strykers */}
+                <div
+                  onClick={() => handleSelectTeamRecap('san-diego-strykers', 4)}
+                  className="bg-slate-950/90 border-2 border-amber-500/40 hover:border-amber-400 p-5 rounded-3xl space-y-4 shadow-xl cursor-pointer group/galloway transition-all hover:scale-[1.01]"
+                >
+                  <div className="flex items-center justify-between border-b border-amber-500/20 pb-3">
+                    <div className="flex items-center gap-2">
+                      <TeamBadge teamId="san-diego-strykers" size="sm" />
+                      <div>
+                        <span className="text-[10px] font-mono font-black uppercase text-amber-400">SAN DIEGO STRYKERS</span>
+                        <h3 className="text-sm font-black text-white group-hover/galloway:text-amber-300 transition-colors">Lockdown Two-Way Core</h3>
+                      </div>
+                    </div>
+                    <span className="text-xs font-mono font-black bg-amber-500 text-slate-950 px-2.5 py-1 rounded-xl shadow">
+                      88 OVR
+                    </span>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-slate-900 border-2 border-amber-500/50 overflow-hidden shrink-0 shadow-lg group-hover/galloway:border-amber-400 transition-colors">
+                      <img
+                        src={jGallowayImg}
+                        alt="Johnny Galloway - San Diego Strykers"
+                        className="w-full h-full object-cover object-top"
+                      />
+                    </div>
+                    <div className="space-y-1.5 min-w-0 flex-1">
+                      <div className="flex items-baseline justify-between gap-1">
+                        <h4 className="text-lg sm:text-xl font-black text-white truncate">
+                          Johnny Galloway
+                        </h4>
+                        <span className="text-xs font-mono font-bold text-amber-400">#13 • PF / SF</span>
+                      </div>
+                      <div className="text-[11px] font-mono text-slate-300 space-y-0.5">
+                        <div className="flex items-center justify-between">
+                          <span className="text-slate-400">Height / Weight:</span>
+                          <span className="font-bold text-white">6&apos;5&quot; • 240 lbs</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-slate-400">Experience / Age:</span>
+                          <span className="font-bold text-white">4th Season • Age 20</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-slate-400">College / Origin:</span>
+                          <span className="font-bold text-white">Portland State</span>
+                        </div>
+                        <div className="flex items-center justify-between pt-1 border-t border-slate-800">
+                          <span className="text-emerald-400 font-bold">Contract Terms:</span>
+                          <span className="font-black text-emerald-300 font-mono">4 Yr / $171.87M</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Social Buzz / Quotes */}
+                  <div className="space-y-2 text-[11px] bg-slate-900/80 p-3 rounded-2xl border border-slate-800 font-sans">
+                    <p className="text-amber-300 font-medium">
+                      <strong className="text-white font-bold">Nabil Karim:</strong> &ldquo;Strykers secure the services of Johnny Galloway with a 4yr/$171.87M contract.&rdquo;
+                    </p>
+                    <p className="text-amber-300 font-medium border-t border-slate-800/80 pt-1.5">
+                      <strong className="text-amber-400 font-bold">San Diego Strykers:</strong> &ldquo;It&apos;s a done deal, folks! Johnny Galloway is joining us on a 4yr/$171.87M deal. Welcome!&rdquo;
+                    </p>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-1 text-[11px] font-mono text-amber-400 font-bold">
+                    <span>Rejoins MVP A.J. Hinton (99 OVR) &amp; Gray (96 OVR)</span>
+                    <span className="flex items-center gap-1 group-hover/galloway:translate-x-1 transition-transform">
+                      View Strykers Roster →
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Quick Navigation Actions */}
+              <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-red-500/20 relative z-10">
+                <button
+                  onClick={() => handleNavigateToNews('s4-blockbuster-signings-pognotti-galloway')}
+                  className="px-5 py-2.5 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs sm:text-sm shadow-lg shadow-amber-500/20 flex items-center gap-2 transition-all cursor-pointer"
+                >
+                  <BookOpen size={16} />
+                  <span>Read Free Agency Deep-Dive</span>
+                  <ChevronRight size={16} />
+                </button>
+                <button
+                  onClick={() => setActiveTab('rosters')}
+                  className="px-4 py-2.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 font-bold text-xs sm:text-sm flex items-center gap-2 transition-all cursor-pointer"
+                >
+                  <Users size={16} className="text-amber-400" />
+                  <span>View All Season 4 Rosters</span>
+                </button>
+                <button
+                  onClick={() => setActiveTab('transactions')}
+                  className="px-4 py-2.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 font-bold text-xs sm:text-sm flex items-center gap-2 transition-all cursor-pointer"
+                >
+                  <Sparkles size={16} className="text-amber-400" />
+                  <span>Transaction Ledger</span>
+                </button>
+              </div>
+            </div>
 
             {/* TOP STORY ON FRONT PAGE: Season 4 Official Schedule Release */}
             <div className="bg-gradient-to-br from-blue-950/80 via-slate-900 to-slate-950 border-2 border-blue-500/50 p-6 sm:p-8 rounded-3xl space-y-6 shadow-2xl relative overflow-hidden group">

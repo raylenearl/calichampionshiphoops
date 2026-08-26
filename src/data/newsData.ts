@@ -2,6 +2,8 @@ import { INAUGURAL_GAME_ARTICLE } from './leagueMilestonesData';
 import ajHinton99Img from '../assets/images/AJHinton99.png';
 import carltonDaughertyImg from '../assets/images/S4 Draft/Carlton Daugherty.png';
 import jacobUnderwoodImg from '../assets/images/JUnderwood.png';
+import pognottiImg from '../assets/images/Pognotti.png';
+import jGallowayImg from '../assets/images/JGalloway.png';
 import aSaundersImg from '../assets/images/ASaunders.jpg';
 import bNelsonImg from '../assets/images/BNelson.jpeg';
 import cGoodwinImg from '../assets/images/CGoodwin.jpg';
@@ -65,6 +67,54 @@ export interface CCHNewsArticle {
 }
 
 export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
+  {
+    id: 's4-blockbuster-signings-pognotti-galloway',
+    title: 'BREAKING: Adrian Pognotti Inks 4-Year Mega Deal with Sacramento Stallions; Johnny Galloway Re-Signs with Strykers on $171.87M Contract',
+    subtitle: 'The CCH landscape trembles as the reigning champion Stallions secure 7\'2" defensive titan Adrian Pognotti (87 OVR), while the San Diego Strykers lock down two-way phenom Johnny Galloway (88 OVR) with matching 4-year, $171.87M contracts.',
+    date: 'Breaking News • Season 4 Blockbuster Deals',
+    season: 4,
+    category: 'offseason',
+    featured: true,
+    author: 'CCH League Operations & Free Agency Desk',
+    readTime: '4 min read',
+    imageUrl: pognottiImg,
+    imageCaption: 'Adrian Pognotti joins StallionsNation on a 4-year, $171.87M contract; Johnny Galloway recommits to Strykers on matching terms.',
+    headlineQuote: 'The dotted line has been signed. Two franchise anchors secure massive 4-year commitments ahead of an electrifying Season 4 tip-off.',
+    contentParagraphs: [
+      'SACRAMENTO & SAN DIEGO — In a pair of seismic roster moves sending shockwaves across Cali Championship Hoops, two of the league\'s most dominant frontcourt forces have officially put pen to paper on blockbuster 4-year, $171.87 million contracts.',
+      'POGNOTTI HEADS TO THE CAPITAL TO ANCHOR THE DEFENDING CHAMPS\nAdrian Pognotti, the 7\'2", 280-pound center who holds the all-time CCH single-game record with 10 blocked shots, has officially signed with the reigning champion Sacramento Stallions. Rated at 87 OVR with an imposing interior presence, Pognotti gives head coach Benjamin Nelson a devastating defensive centerpiece to pair alongside All-Cali power forward Frank Hackett (89 OVR) and dynamic wing George Madsen (88 OVR). Stallions Nation erupted on social media following the announcement as Sacramento bolsters its frontcourt in pursuit of a back-to-back title defense.',
+      'GALLOWAY SECURES $171.87M EXTENSION TO STAY IN SAN DIEGO\nMeanwhile in Southern California, the San Diego Strykers finalized terms to bring back versatile two-way forward Johnny Galloway on an identical 4-year, $171.87 million pact. Galloway, rated 88 OVR with elite positional versatility across both forward spots (6\'5", 240 lbs, Portland State), rejoins reigning MVP A.J. Hinton (99 OVR), scoring dynamo DeAnte Gray (96 OVR), and playmaker Ray Gambino Gamble (94 OVR). Under new head coach Adam Saunders, Galloway\'s lockdown perimeter and interior defense solidifies the Strykers as top-tier championship favorites heading into Opening Night against Long Beach on October 17.',
+      'IMPACT ON THE TITLE RACE\nWith both players locked into long-term contracts, Sacramento and San Diego have solidified their rosters with prime All-Defensive caliber talent. Both franchises will square off twice during the Season 4 regular season in what promises to be two of the most heavily anticipated cross-conference battles of the year.'
+    ],
+    quotes: [
+      {
+        speaker: 'Nate Duncan',
+        title: 'NBA / CCH Analyst',
+        quote: 'Several news outlets reporting that Adrian Pognotti will join the Stallions on a 4yr/$171.87M contract.'
+      },
+      {
+        speaker: 'Sacramento Stallions',
+        title: 'Official Team Statement',
+        quote: 'The dotted line has been signed. Adrian Pognotti is now a part of StallionsNation. Here we go!'
+      },
+      {
+        speaker: 'Nabil Karim',
+        title: 'CCH Insider',
+        quote: 'Strykers secure the services of Johnny Galloway with a 4yr/$171.87M contract.'
+      },
+      {
+        speaker: 'San Diego Strykers',
+        title: 'Official Team Statement',
+        quote: 'It\'s a done deal, folks! Johnny Galloway is joining us on a 4yr/$171.87M deal. Welcome!'
+      }
+    ],
+    playerStats: [
+      { player: 'Adrian Pognotti', team: 'Sacramento Stallions', stat: '87 OVR • 7\'2", 280 lbs (4yr/$171.87M)' },
+      { player: 'Johnny Galloway', team: 'San Diego Strykers', stat: '88 OVR • 6\'5", 240 lbs (4yr/$171.87M)' },
+      { player: 'Pognotti Record', team: 'CCH All-Time', stat: '10 BLK in a Single Game' },
+      { player: 'Galloway Accolades', team: 'San Diego Strykers', stat: 'All-Defensive 1st Team' }
+    ]
+  },
   {
     id: 's4-schedule-announcement',
     title: 'Official Season 4 Schedule Released: 132 Regular-Season Games, Opening Night Slate & Key Rivalries',

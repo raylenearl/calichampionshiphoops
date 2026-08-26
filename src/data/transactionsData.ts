@@ -308,7 +308,30 @@ export const TRANSACTIONS_DATA: Transaction[] = [
     teams: [{ id: 'fresno-mad-dogs', name: 'Fresno Mad Dogs' }],
     description: 'Fresno Mad Dogs signed guard Wally Phillips (formerly of San Francisco).',
   },
-  // --- SEASON 4 TRANSACTIONS & COACHING CAROUSEL ---
+  // --- SEASON 4 TRANSACTIONS & SIGNINGS ---
+  {
+    id: 's4-signing-pognotti',
+    season: 4,
+    type: 'signing',
+    title: 'Adrian Pognotti Signs 4-Year, $171.87M Mega-Deal with Sacramento Stallions',
+    teams: [
+      { id: 'sacramento-stallions', name: 'Sacramento Stallions' },
+      { id: 'san-francisco-knights', name: 'San Francisco Knights' },
+    ],
+    description: 'The reigning champion Sacramento Stallions have officially signed elite 7\'2" defensive anchor Adrian Pognotti (87 OVR) to a massive 4-year, $171.87 million contract. The league record-holder for single-game blocks (10 BLK) joins Frank Hackett and George Madsen to solidify the Stallions\' championship frontcourt.',
+    impact: 'Gives Sacramento an impenetrable paint protector and replaces interior defense with an All-Defensive superstar.',
+    highlight: true,
+  },
+  {
+    id: 's4-signing-galloway',
+    season: 4,
+    type: 'signing',
+    title: 'Johnny Galloway Returns to San Diego Strykers on 4-Year, $171.87M Contract',
+    teams: [{ id: 'san-diego-strykers', name: 'San Diego Strykers' }],
+    description: 'The San Diego Strykers secure the services of two-way forward Johnny Galloway (88 OVR) with a 4-year, $171.87 million deal. Galloway rejoins 99 OVR MVP A.J. Hinton, 96 OVR DeAnte Gray, and 94 OVR Ray Gambino Gamble in new Head Coach Adam Saunders\' championship rotation.',
+    impact: 'Locks down an elite two-way cornerstone for the Strykers in the high-stakes Battle of San Diego.',
+    highlight: true,
+  },
   {
     id: 's4-coach-underwood',
     season: 4,
