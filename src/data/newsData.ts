@@ -1,9 +1,11 @@
 import { INAUGURAL_GAME_ARTICLE } from './leagueMilestonesData';
+import rjRush1Img from '../assets/images/RJRush1.png';
 import ajHinton99Img from '../assets/images/AJHinton99.png';
 import carltonDaughertyImg from '../assets/images/S4 Draft/Carlton Daugherty.png';
 import jacobUnderwoodImg from '../assets/images/JUnderwood.png';
 import pognottiImg from '../assets/images/Pognotti.png';
 import jGallowayImg from '../assets/images/JGalloway.png';
+import hintonS4G1Img from '../assets/images/HintonS4G1.png';
 import aSaundersImg from '../assets/images/ASaunders.jpg';
 import bNelsonImg from '../assets/images/BNelson.jpeg';
 import cGoodwinImg from '../assets/images/CGoodwin.jpg';
@@ -37,6 +39,12 @@ export interface PodcastInfo {
   description?: string;
 }
 
+export interface QuarterScore {
+  period: string;
+  team1: number;
+  team2: number;
+}
+
 export interface CCHNewsArticle {
   id: string;
   title: string;
@@ -49,6 +57,7 @@ export interface CCHNewsArticle {
   readTime: string;
   imageUrl?: string;
   imageCaption?: string;
+  youtubeUrl?: string;
   teams?: {
     team1: string;
     team1Id: string;
@@ -57,6 +66,7 @@ export interface CCHNewsArticle {
     team2Id: string;
     score2?: number;
   };
+  quarterScores?: QuarterScore[];
   headlineQuote?: string;
   contentParagraphs: string[];
   quotes?: { speaker: string; title: string; quote: string }[];
@@ -67,6 +77,145 @@ export interface CCHNewsArticle {
 }
 
 export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
+  {
+    id: 's4-g2-rush-dynamics-cruise-sabrewolves',
+    title: 'Rookie R.J. Rush Sets CCH Record with 14-of-14 Free Throws, Drops 33 as Dynamics Cruise',
+    subtitle: 'A historic, record-breaking shooting performance propelled the Los Angeles Dynamics to a resounding 77-55 victory over the San Diego Sabrewolves as rookie R.J. Rush broke the all-time single-game free throws record.',
+    date: 'Season 4 Opening Night • Game 2 Recap',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • Los Angeles Beat',
+    readTime: '3 min read',
+    imageUrl: rjRush1Img,
+    youtubeUrl: 'https://www.youtube.com/embed/vrro7eyGMMk?si=UrCRkjRO9DNCVVeh',
+    imageCaption: 'Rookie R.J. Rush set a new Cali Championship Hoops all-time single-game record with 14 made free throws on a perfect 14-for-14 shooting, finishing with 33 PTS, 2 BLK, alongside Mo Alexander (20 PTS, 9-9 FG, 9 REB) in the Dynamics\' 77-55 blowout victory.',
+    teams: {
+      team1: 'San Diego Sabrewolves',
+      team1Id: 'san-diego-sabrewolves',
+      score1: 55,
+      team2: 'Los Angeles Dynamics',
+      team2Id: 'los-angeles-dynamics',
+      score2: 77,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 15, team2: 19 },
+      { period: 'Q2', team1: 5, team2: 22 },
+      { period: 'Q3', team1: 16, team2: 23 },
+      { period: 'Q4', team1: 19, team2: 13 },
+    ],
+    headlineQuote: 'The star of the night was undeniably rookie R.J. Rush, who delivered a scoring masterclass for the Dynamics with 33 points on 9-for-14 shooting and a new league-record 14-for-14 performance from the free-throw line.',
+    contentParagraphs: [
+      'Los Angeles, CA – A historic and scorching-hot shooting performance propelled the Los Angeles Dynamics to a resounding 77-55 victory over the San Diego Sabrewolves on Opening Night.',
+      'The Dynamics set the tone early with efficient offense, taking a 19-15 lead after the first quarter. However, the game was completely decided in the second period. Los Angeles put together a dominant 22-5 run, shooting a blistering 80% from the field to take a commanding 41-20 lead into the halftime break.',
+      'The third quarter saw the Dynamics extend their advantage further, outscoring the Sabrewolves 23-16 to push the lead to a game-high 31 points. San Diego managed to "win" the final frame 19-13 in garbage time, but the 22-point final margin was a true reflection of the LA dominance.',
+      'HISTORIC RECORD-BREAKING PERFORMANCE:\nThe star of the night was undeniably rookie sensation R.J. Rush, who etched his name into the Cali Championship Hoops record books in his very first regular season game. Rush broke the CCH single-game record for most free throws made in a single game, converting an immaculate 14-of-14 from the charity stripe. Rush finished with a game-high 33 points on 9-for-14 shooting from the field. He was ably supported by veteran center Mo Alexander, who was also perfect from the floor, contributing 20 points and grabbing 9 rebounds on 9-for-9 shooting.',
+      'SABREWOLVES KEY PERFORMERS:\nThe Sabrewolves were led by Kirk Barnes, who dropped 17 points on 6-for-12 shooting, while Andre Creek contributed 13 points and 5 rebounds.',
+      'STATISTICAL BREAKDOWN:\nThe numbers highlight just how efficient the Los Angeles offense was. The Dynamics shot a staggering 60% (28/47) from the field compared to the Sabrewolves\' 43% (23/53). Los Angeles also dominated the interior, racking up 46 points in the paint and consistently getting to the charity stripe, converting 19-of-22 free throws (86%)—led by Rush\'s record-breaking 14-of-14.\n\nThe rebounding battle was also a decisive factor, with LA controlling the glass 33-23, including a 27-17 advantage on the defensive end. Turnovers were relatively even (8 for LA, 9 for SD), but LA\'s superior shooting and foul discipline (only 6 team fouls compared to SD\'s 14) ensured the Sabrewolves never had a chance to claw back into the game.'
+    ],
+    quotes: [
+      {
+        speaker: 'R.J. Rush',
+        title: 'Point Guard • Los Angeles Dynamics (33 PTS, CCH Record 14-14 FT)',
+        quote: 'Breaking the league free throw record in my very first game is an honor, but the win is what matters most. We wanted to set a ferocious tone on our home floor from the opening tip. When I attacked the lane and got to the line, I just locked in and knocked them down.'
+      },
+      {
+        speaker: 'Pooh Splitter',
+        title: 'Head Coach • Los Angeles Dynamics (1st Season)',
+        quote: 'R.J. Rush showed poise beyond his years tonight. Going 14-for-14 from the stripe against a physical Sabrewolves defense to set the all-time CCH single-game record is sensational. That 22-5 second quarter was clinic basketball.'
+      },
+      {
+        speaker: 'Jacob Underwood',
+        title: 'Head Coach • San Diego Sabrewolves (1st Season)',
+        quote: 'The second quarter blitz put us in a hole we couldn\'t recover from. Rush was unstoppable getting downhill and we couldn\'t stop fouling him. When a guy goes 14-of-14 from the line and Alexander goes 9-of-9 inside, you\'re in for a long night.'
+      }
+    ],
+    playerStats: [
+      { player: 'R.J. Rush', team: 'Los Angeles Dynamics', stat: '33 PTS, 1 REB, 2 BLK (9-14 FG, 1-2 3PT, 14-14 FT • CCH Single-Game Record)' },
+      { player: 'Mo Alexander', team: 'Los Angeles Dynamics', stat: '20 PTS, 9 REB, 2 AST, 2 STL (9-9 FG, 2-2 FT)' },
+      { player: 'Kirk Barnes', team: 'San Diego Sabrewolves', stat: '17 PTS, 1 REB, 1 AST, 1 BLK (6-12 FG, 4-4 FT)' },
+      { player: 'Andre Creek', team: 'San Diego Sabrewolves', stat: '13 PTS, 5 REB, 2 AST, 4 STL, 1 BLK (6-8 FG)' },
+      { player: 'Alan Perben', team: 'San Diego Sabrewolves', stat: '9 PTS (4-8 FG, 1-1 3PT)' },
+      { player: 'Robert Riley', team: 'Los Angeles Dynamics', stat: '6 PTS, 2 REB, 1 AST (3-5 FG)' },
+      { player: 'Josh Mullin', team: 'Los Angeles Dynamics', stat: '6 PTS, 2 REB, 1 STL (3-4 FG)' },
+      { player: 'Tingus Atgusanas', team: 'San Diego Sabrewolves', stat: '6 PTS, 1 REB, 1 AST (3-3 FG)' },
+      { player: 'Matt Holland', team: 'San Diego Sabrewolves', stat: '6 PTS, 4 REB, 1 STL (3-7 FG)' },
+      { player: 'Lynwood Washington Jr.', team: 'San Diego Sabrewolves', stat: '4 PTS, 2 REB, 1 AST, 1 STL' },
+      { player: 'Bryant Humphries', team: 'Los Angeles Dynamics', stat: '4 PTS, 2 REB, 1 AST, 1 STL (1-5 3PT)' },
+      { player: 'R.J. Rush Record Mark', team: 'CCH All-Time Record', stat: '14 Free Throws Made (14/14, 100%) in a Single Game' },
+      { player: 'Dynamics Interior & Efficiency', team: 'Team Stats', stat: '60% FG (28/47) • 46 PTS in Paint • 19/22 FT (86%)' },
+      { player: 'Rebounding Battle', team: 'Team Stats', stat: 'LA Dynamics 33 (27 DEF) - SD Sabrewolves 23 (17 DEF)' }
+    ]
+  },
+  {
+    id: 's4-g1-strykers-crush-vipers',
+    title: 'Strykers Crush Vipers Behind Dominant 3rd Quarter, Win 53-35',
+    subtitle: 'A suffocating defensive performance and a monumental 25-6 third-quarter blitz propel the Strykers to a resounding 53-35 victory over the Vipers at The LBC Pit.',
+    date: 'Season 4 Opening Night • Game 1 Recap',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • Long Beach Beat',
+    readTime: '3 min read',
+    imageUrl: hintonS4G1Img,
+    imageCaption: 'A.J. Hinton (15 PTS, 6 REB, 4 STL, 2 BLK) powers San Diego to a 53-35 Opening Day victory over Long Beach.',
+    youtubeUrl: 'https://www.youtube.com/embed/LqS71EzeFUc?si=NlaEW8hZMWHBcE8v',
+    audioUrl: 'https://archive.org/download/nba-2-k-24-2024-05-12-02-07-45/Why_the_Strykers_box_score_lies.m4a',
+    podcastInfo: {
+      episodeTitle: 'Why the Strykers Box Score Lies: Opening Night Breakdown & Season 4 Film Review',
+      broadcastBy: 'CCH Media Network • Official Game 1 Recap Podcast',
+      duration: 'Official Audio Podcast',
+      description: 'Deep dive into Season 4 Game 1: Why the 53-35 final score masks a 33-point blowout, A.J. Hinton\'s lockdown defense, the explosive 25-6 third-quarter blitz, and what the Vipers must adjust going forward.',
+    },
+    teams: {
+      team1: 'San Diego Strykers',
+      team1Id: 'san-diego-strykers',
+      score1: 53,
+      team2: 'Long Beach Vipers',
+      team2Id: 'long-beach-vipers',
+      score2: 35,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 8, team2: 5 },
+      { period: 'Q2', team1: 17, team2: 7 },
+      { period: 'Q3', team1: 25, team2: 6 },
+      { period: 'Q4', team1: 3, team2: 17 },
+    ],
+    headlineQuote: 'The Strykers came into The LBC Pit and set the tone defensively from the opening tip, holding the Vipers to a dismal 29% shooting from the field and an abysmal 1-for-19 from three-point range.',
+    contentParagraphs: [
+      'The LBC Pit – A suffocating defensive performance and a monumental third-quarter run propelled the Strykers to a resounding 53-35 victory over the Vipers.',
+      'The Strykers came into The LBC Pit and set the tone defensively from the opening tip, holding the Vipers to a dismal 29% shooting from the field and an abysmal 1-for-19 (5%) from three-point range on their way to a blowout victory.',
+      'FIRST HALF: SLOW START, STRYKERS PULL AHEAD\nThe game started as a grind-it-out affair. The Strykers struggled to find their rhythm early, taking an 8-5 lead after the first quarter on just 29% shooting. The offense began to click in the second period, with the Strykers outscoring the Vipers 17-7, taking a 25-12 lead into the halftime break. A.J. Hinton and Maxwell Mayo were tied as the top performers at the half with 7 points each.',
+      'THE TURNING POINT: A THIRD-QUARTER BLITZ\nWhatever Strykers head coach said in the locker room worked to perfection. The game was completely blown open in the third quarter. The Strykers exploded for 25 points while holding the Vipers to just 6, outscoring them by 19 points in the frame. Strykers shot a blistering 56% from the field and 50% from beyond the arc during this run. The massive surge stretched their lead to a game-high 33 points, effectively putting the game out of reach.',
+      'GARBAGE TIME SURGE\nWith the outcome firmly decided, the Vipers put forth a desperate late surge, actually winning the fourth quarter 17-3 to make the final score look slightly more respectable than the game actually was.',
+      'KEY PERFORMERS:\n\n• Strykers: The offense was led by A.J. Hinton, who finished with a game-high 15 points and stuffed the stat sheet with 6 rebounds, 4 steals, and 2 blocks. DeAnte Gray provided an efficient scoring punch off the bench, adding 13 points on 5-of-7 shooting. As a team, the Strykers controlled the glass with 37 rebounds and dished out 13 assists.\n\n• Vipers: Maxwell Mayo led the way for the home team with 11 points and 2 rebounds on 5-of-11 shooting. Floyd Elliott was a bright spot on the boards, logging 9 points and grabbing 8 rebounds. However, the Vipers were their own worst enemy, committing 11 turnovers that led to 8 Strykers points and failing to take care of the ball in the half-court set.\n\nThe Strykers walk away with a dominant 18-point road win, while the Vipers will head back to the drawing board to try and fix their shooting woes.'
+    ],
+    quotes: [
+      {
+        speaker: 'A.J. Hinton',
+        title: 'Reigning MVP • San Diego Strykers (99 OVR)',
+        quote: 'We set the tone on defense from the jump. When we came out of halftime and executed in that third quarter, the floor just opened up.'
+      },
+      {
+        speaker: 'Adam Saunders',
+        title: 'Head Coach • San Diego Strykers',
+        quote: 'Holding an explosive offensive team to 29% from the field and 1-of-19 from deep shows the defensive dedication this team brought tonight.'
+      },
+      {
+        speaker: 'Stretch Roberts',
+        title: 'Head Coach • Long Beach Vipers',
+        quote: 'You can\'t shoot 5% from three and give up a 25-6 third quarter against the best team in the conference. We will head back to the film room.'
+      }
+    ],
+    playerStats: [
+      { player: 'A.J. Hinton', team: 'San Diego Strykers', stat: '15 PTS, 6 REB, 4 STL, 2 BLK' },
+      { player: 'DeAnte Gray', team: 'San Diego Strykers', stat: '13 PTS, 5-7 FG (Bench Spark)' },
+      { player: 'Maxwell Mayo', team: 'Long Beach Vipers', stat: '11 PTS, 2 REB (5-11 FG)' },
+      { player: 'Floyd Elliott', team: 'Long Beach Vipers', stat: '9 PTS, 8 REB' },
+      { player: 'Strykers Defense', team: 'Team Defense', stat: 'Held Vipers to 29% FG & 1-19 3PT (5.3%)' },
+      { player: 'Strykers Glass & Ball Movement', team: 'Team Stats', stat: '37 Rebounds & 13 Assists' }
+    ]
+  },
   {
     id: 's4-blockbuster-signings-pognotti-galloway',
     title: 'BREAKING: Adrian Pognotti Inks 4-Year Mega Deal with Sacramento Stallions; Johnny Galloway Re-Signs with Strykers on $171.87M Contract',
@@ -162,7 +311,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     category: 'feature',
     featured: true,
     author: 'CCH League Office & Operations Desk',
-    readTime: '6 min read • Official Podcast & Analytics',
+    readTime: '6 min read',
     imageUrl: ajHinton99Img,
     imageCaption: 'First 99 rated player in CCH History',
     audioUrl: 'https://archive.org/download/nba-2-k-24-2024-05-12-02-07-45/The_New_Architecture_of_CCH_Season_4.m4a',
@@ -213,7 +362,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     category: 'recap',
     featured: true,
     author: 'CCH Draft War Room & Analytics Desk',
-    readTime: '6 min read • Official Podcast Episode',
+    readTime: '6 min read',
     imageUrl: '/logos/cch_league_logo.png',
     imageCaption: 'Official Cali Championship Hoops League Crest • Season 4 Draft Class Recap',
     audioUrl: 'https://archive.org/download/nba-2-k-24-2024-05-12-02-07-45/CCH_Season_Four_Draft_steals_and_reaches.m4a',
@@ -227,7 +376,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     contentParagraphs: [
       'CALIFORNIA — The Season 4 Cali Championship Hoops Draft is officially in the books, delivering 36 new selections across 3 historic rounds. The CCH Media Network presents the official Draft Recap Special, breaking down every team\'s draft strategy, notable steals, controversial reaches, and rookie projections.',
       'THE CONSENSUS #1 & LOTTERY FIREWORKS\nGolden State Enterprise capitalized on the top overall pick by drafting UC San Diego standout Carlton Daugherty (SF, 85 OVR), pairing the consensus top player with head coach Wyatt Zimmerman. Anaheim secured French perimeter sniper Stephan Sirven (SG, 84 OVR) at #2, San Jose nabbed versatile stretch forward Dell Gooden (PF/C, 84 OVR) at #3, Long Beach anchored their defense with 7-foot Kentucky titan Grok Wilkens (C, 84 OVR) at #4, and Fresno acquired Louisiana-Monroe jumbo playmaker R.J. Rush (PG, 83 OVR) at #5.',
-      'BIGGEST DRAFT STEALS\n• King Jordan (Round 3, Pick 1 • Golden State Enterprise • Duke, 75 OVR): Projected as a high 2nd-round talent, Duke scoring guard King Jordan slid into Round 3, giving Golden State a dynamic bench scoring punch.\n• Isaac Levingston (Round 3, Pick 12 • Sacramento Stallions • Santa Clara, 75 OVR): The final pick of the draft proved to be an absolute coup for Sacramento, adding a 6\'11" low-post master with Grade A interior scoring touch.\n• Carl Marks (Round 1, Pick 8 • Long Beach Vipers • Pacific, 81 OVR): Pacific big man provides instant rim-protection and paint authority.\n• Tingus Atgusanas (Round 1, Pick 12 • California Reds • Latvia, 79 OVR): 7\'3" Latvian stretch center who brings elite pick-and-pop spacing to the defending regular season champions.',
+      'BIGGEST DRAFT STEALS\n• King Jordan (Round 3, Pick 1 • Golden State Enterprise • Duke, 75 OVR): Projected as a high 2nd-round talent, Duke scoring guard King Jordan slid into Round 3, giving Golden State a dynamic bench scoring punch.\n• Isaac Levingston (Round 3, Pick 12 • Sacramento Stallions • Santa Clara, 75 OVR): The final pick of the draft proved to be an absolute coup for Sacramento, adding a 6\'11" low-post master with Grade A interior scoring touch.\n• Carl Marks (Round 1, Pick 8 • Long Beach Vipers • Pacific, 81 OVR): Pacific big man provides instant rim-protection and paint authority.\n• Tingus Atgusanas (Round 1, Pick 9 • San Diego Sabrewolves • Latvia, 80 OVR): 6\'10" Latvian stretch forward who brings elite glass-cleaning and inside scoring touch.',
       'SURPRISE REACHES & BOLD STRATEGIES\nSeveral front offices drafted for immediate tactical necessity rather than consensus board ranking. Oakland made a decisive move for Arizona State floor general Rodger Green (PG, 78 OVR) at Pick 9, while San Francisco prioritized Texas perimeter sharpshooter Donald Jones (SG, 77 OVR) at Pick 11 to bolster their backcourt spacing.',
       'LISTEN TO THE FULL PODCAST\nStream the complete audio recap above for in-depth team-by-team draft grades, player fit analysis, and rookie season predictions.'
     ],
@@ -259,7 +408,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     category: 'feature',
     featured: true,
     author: 'CCH Scouting & Analytics Desk',
-    readTime: '5 min read • Official Profile',
+    readTime: '5 min read',
     imageUrl: carltonDaughertyImg,
     imageCaption: 'Official CCH Draft Profile Card • Carlton Daugherty (SF, UC San Diego • #1 Pick to Golden State Enterprise • 85 OVR)',
     audioUrl: 'https://archive.org/download/nba-2-k-24-2024-05-12-02-07-45/Daugherty_versus_Wilkens_for_Franchise_Foundation.m4a',
@@ -303,7 +452,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     category: 'offseason',
     featured: true,
     author: 'CCH Scouting Department',
-    readTime: '6 min read • Audio Special Included',
+    readTime: '6 min read',
     audioUrl: 'https://archive.org/download/nba-2-k-24-2024-05-12-02-07-45/Daugherty_versus_Wilkens_for_Franchise_Foundation.m4a',
     podcastInfo: {
       episodeTitle: 'Draft Special: Daugherty vs. Wilkens for Franchise Foundation',
@@ -316,7 +465,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
       'CALIFORNIA — The official Big Board for the upcoming Season 4 Cali Championship Hoops Draft has been finalized, featuring 44 verified prospects scouted across collegiate tournaments, international leagues, and high school circuits.',
       'THE TIER 1 TITANS: DAUGHERTY, SIRVEN, GOODEN, WILKENS, RUSH, BOOMER & GILMORE HEADLINE TOP BOARD\nAt the peak of the 2026 class sits Carlton Daugherty (SF, UC San Diego, 85 OVR), a three-level scoring wing with elite A+ perimeter shooting and lockdown on-ball defense. Daugherty is joined by French sharpshooter Stephan Sirven (SG, France, 84 OVR), Minnesota dynamic stretch big Dell Gooden (PF/C, 84 OVR), Kentucky 7-foot defensive powerhouse Grok Wilkens (C, 84 OVR), Louisiana-Monroe 6’6" jumbo point guard engine R.J. Rush (PG, 83 OVR), Wyoming high-octane offensive guard Lloyd Boomer (PG, 83 OVR), and Pacific stopper Damian Gilmore (SF/SG, 83 OVR).',
       'CALIFORNIA COLLEGIATE PIPELINE STANDS TALL\nNine local programs feature premier draft talent ready to make immediate professional impacts:\n• Carlton Daugherty (UC San Diego, #1 Rank, 85 OVR SF)\n• Damian Gilmore (Pacific, #7 Rank, 83 OVR SF/SG)\n• Carl Marks (Pacific, #8 Rank, 81 OVR PF/C)\n• Leo Bass (San Jose State, #10 Rank, 80 OVR C)\n• Robert Riley (Loyola Marymount, #13 Rank, 78 OVR SF)\n• Isaac Levingson (Santa Clara, #23 Rank, 75 OVR PF/C)\n• Rod Hammonds (San Francisco, #24 Rank, 75 OVR PF/SF)\n• Nelson Battle (Mt. San Jacinto JUCO, #34 Rank, 72 OVR PG/SG)\n• Frederick Lloyd (UC Davis, #38 Rank, 70 OVR PF/C)',
-      'FRANCHISE BUILDING BLOCKS ACROSS ALL TIERS\nFrom lottery rim-protectors like Carl Marshall (Georgia, 80 OVR) and Latvian stretch big Tingus Atgusanas (Latvia, 79 OVR), down to sleeper playmakers and defensive stoppers throughout the mid and late rounds, every organization holds ammunition to transform their franchise trajectory.'
+      'FRANCHISE BUILDING BLOCKS ACROSS ALL TIERS\nFrom lottery rim-protectors like Carl Marshall (Georgia, 80 OVR) and Latvian stretch big Tingus Atgusanas (Latvia, 80 OVR), down to sleeper playmakers and defensive stoppers throughout the mid and late rounds, every organization holds ammunition to transform their franchise trajectory.'
     ],
     quotes: [
       {
@@ -353,7 +502,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     category: 'offseason',
     featured: true,
     author: 'Front-Office Insider',
-    readTime: '5 min read • Audio Podcast Included',
+    readTime: '5 min read',
     audioUrl: 'https://archive.org/download/nba-2-k-24-2024-05-12-02-07-45/Cali_Hoops_Season_4_Coaching_Shakeups.m4a',
     podcastInfo: {
       episodeTitle: 'Season 4 Coaching Shakeups & Sideline Carousel Special',
@@ -586,6 +735,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     featured: false,
     author: 'League Wire • Operations Sports Dynasty Beat',
     readTime: '4 min read',
+    youtubeUrl: 'https://www.youtube.com/embed/3CFkc5G6EHM?si=0k2qFHmh1Z2vTP2Z',
     teams: {
       team1: 'Sacramento Stallions',
       team1Id: 'sacramento-stallions',

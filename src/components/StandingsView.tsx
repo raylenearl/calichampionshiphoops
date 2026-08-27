@@ -509,7 +509,7 @@ export const StandingsView: React.FC<StandingsViewProps> = ({
 
                   <div className="text-right shrink-0">
                     <span className="text-xs font-black font-mono text-amber-400 block">
-                      {selectedSeason === 4 && team.teamOvr ? `${team.teamOvr} OVR` : `${team.wins}-${team.losses}`}
+                      {selectedSeason === 4 && team.teamOvr ? `${team.wins}-${team.losses} • ${team.teamOvr} OVR` : `${team.wins}-${team.losses}`}
                     </span>
                     <span className={`text-[10px] font-bold uppercase ${idx < 4 ? 'text-emerald-400' : 'text-slate-500'}`}>
                       {idx < 4 ? 'Playoff Seed' : 'Outside Cut'}
@@ -568,7 +568,7 @@ export const StandingsView: React.FC<StandingsViewProps> = ({
 
                   <div className="text-right shrink-0">
                     <span className="text-xs font-black font-mono text-amber-400 block">
-                      {selectedSeason === 4 && team.teamOvr ? `${team.teamOvr} OVR` : `${team.wins}-${team.losses}`}
+                      {selectedSeason === 4 && team.teamOvr ? `${team.wins}-${team.losses} • ${team.teamOvr} OVR` : `${team.wins}-${team.losses}`}
                     </span>
                     <span className={`text-[10px] font-bold uppercase ${idx < 4 ? 'text-emerald-400' : 'text-slate-500'}`}>
                       {idx < 4 ? 'Playoff Seed' : 'Outside Cut'}

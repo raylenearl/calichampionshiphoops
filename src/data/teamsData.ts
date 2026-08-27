@@ -183,8 +183,8 @@ export const TEAMS: Team[] = [
     secondaryColor: '#8c8c8c', // Sky Gray
     accentColor: '#000000',
     iconName: 'Swords',
-    description: 'A ferocious powerhouse featuring 56-point scoring king Kirk Barnes (93), 7\'4" rim protector Andre Creek (92), and reigning DPOY Wes Taylor (85) under Coach Jacob Underwood.',
-    keyPlayers: ['Kirk Barnes (PG/SG, 93 OVR • 4th Season)', 'Andre Creek (C, 92 OVR • 4th Season)', 'Wes Taylor (SG/SF, 85 OVR • 2nd Season)', 'Tanguis Atgusanas (PF, 78 OVR • Rookie)'],
+    description: 'A ferocious powerhouse featuring 56-point scoring king Kirk Barnes (93), 7\'4" rim protector Andre Creek (92), DPOY Wes Taylor (85), and rookie Tingus Atgusanas (80) alongside returning forward Garrison Iverson (78) under Coach Jacob Underwood.',
+    keyPlayers: ['Kirk Barnes (PG/SG, 93 OVR • 4th Season)', 'Andre Creek (C, 92 OVR • 4th Season)', 'Wes Taylor (SG/SF, 85 OVR • 2nd Season)', 'Tingus Atgusanas (PF, 80 OVR • Rookie)', 'Garrison Iverson (SF, 78 OVR • 2nd Season)'],
     coach: 'Jacob Underwood (1st Season)',
     titles: ['Season 3 DPOY (Wes Taylor)', 'All-Time Single Game Scoring Record (56 pts)'],
     s1Record: '12-10 (5th)',

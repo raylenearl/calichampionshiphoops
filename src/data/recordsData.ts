@@ -122,6 +122,17 @@ export const SINGLE_GAME_INDIVIDUAL: SingleGameRecord[] = [
     season: 'Season 1',
     previousRecord: 'Inaugural Season Benchmark',
   },
+  {
+    category: 'Most Free Throws Made',
+    player: 'R.J. Rush',
+    team: 'Los Angeles Dynamics',
+    teamId: 'los-angeles-dynamics',
+    stat: '14 (14-14)',
+    opponent: 'vs SD',
+    date: '10/17',
+    season: 'Season 4',
+    previousRecord: 'Kirk Barnes (13 FTM, Season 2) / Lamar Anderson (12 FTM, Season 1)',
+  },
 ];
 
 // 2. SINGLE-SEASON RECORDS (Individual)
@@ -487,6 +498,12 @@ export const REGULAR_SEASON_CAREER_TOTALS: CareerTotalRecord[] = [
 
 // Legacy exports preserved for backwards compatibility
 export const RECORD_BREAKERS: RecordBreaker[] = [
+  {
+    brokenRecord: 'Single‑Game Free Throws Made',
+    oldMark: 'Kirk Barnes / Lamar Anderson (13)',
+    newMark: 'R.J. Rush (14-of-14)',
+    season: 'Season 4',
+  },
   {
     brokenRecord: 'Single‑Game Points',
     oldMark: 'Lamar Anderson (45)',

@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Header } from './components/Header';
 import { HeroBanner } from './components/HeroBanner';
-import { BreakingNewsCard } from './components/BreakingNewsCard';
-import { ChampionshipVideoCard } from './components/ChampionshipVideoCard';
+import { OpeningDayRecapCard } from './components/OpeningDayRecapCard';
 import { StandingsView } from './components/StandingsView';
 import { PlayoffsView } from './components/PlayoffsView';
 import { ScheduleBrowser } from './components/ScheduleBrowser';
@@ -18,11 +17,9 @@ import { NewsView } from './components/NewsView';
 import { DraftView } from './components/DraftView';
 import { OpeningDayRostersView } from './components/OpeningDayRostersView';
 import { PodcastPlayerCard } from './components/PodcastPlayerCard';
-import { DRAFT_PROSPECTS, DRAFT_RESULTS_S4 } from './data/draftData';
 import { TEAMS } from './data/teamsData';
 import { SEASON_ROSTERS } from './data/rostersData';
 import { TeamBadge } from './components/TeamBadge';
-import carltonDaughertyImg from './assets/images/S4 Draft/Carlton Daugherty.png';
 import ajHinton99Img from './assets/images/AJHinton99.png';
 import pognottiImg from './assets/images/Pognotti.png';
 import jGallowayImg from './assets/images/JGalloway.png';
@@ -266,6 +263,12 @@ export default function App() {
             {/* Hero Showcase */}
             <HeroBanner onNavigate={(tab) => setActiveTab(tab)} selectedSeason={selectedSeason} />
 
+            {/* LATEST STORY / TOP ARTICLE ON FRONT PAGE: Latest Game Recap & Highlights */}
+            <OpeningDayRecapCard
+              onNavigateToNews={handleNavigateToNews}
+              onSelectTeam={(teamId) => handleSelectTeamRecap(teamId, 4)}
+            />
+
             {/* BREAKING NEWS HEADLINE: Pognotti Joins Sacramento, Galloway Returns to Strykers */}
             <div className="bg-gradient-to-br from-red-950/80 via-slate-900 to-amber-950/40 border-2 border-red-500/60 p-6 sm:p-8 rounded-3xl space-y-6 shadow-2xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-96 h-96 bg-red-500/15 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20 group-hover:bg-red-500/25 transition-all" />
@@ -417,7 +420,7 @@ export default function App() {
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-slate-400">Experience / Age:</span>
-                          <span className="font-bold text-white">4th Season • Age 20</span>
+                          <span className="font-bold text-white">3rd Season • Age 20</span>
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-slate-400">College / Origin:</span>
@@ -841,235 +844,6 @@ export default function App() {
                 </div>
               </div>
             </div>
-
-            {/* Season 4 Draft Featured Showcase */}
-            <div
-              className="bg-gradient-to-br from-amber-950/70 via-slate-900 to-slate-950 border-2 border-amber-500/50 p-6 sm:p-7 rounded-3xl space-y-6 shadow-2xl relative overflow-hidden group"
-            >
-              <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/15 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20 group-hover:bg-amber-500/25 transition-all" />
-
-              {/* Main Headline & Draft Status Bar */}
-              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 relative z-10">
-                <div className="flex items-start gap-4">
-                  <div className="w-14 h-14 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 shrink-0 shadow-lg">
-                    <Trophy size={28} />
-                  </div>
-                  <div className="space-y-1.5">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="text-[10px] font-mono font-black uppercase tracking-wider bg-amber-500 text-slate-950 px-2.5 py-0.5 rounded-md font-bold shadow-sm">
-                        OFFICIAL DRAFT RESULTS
-                      </span>
-                      <span className="text-[10px] font-mono font-black uppercase tracking-wider bg-amber-500/20 text-amber-300 px-2.5 py-0.5 rounded-md border border-amber-500/30">
-                        SEASON 4 COMPLETE
-                      </span>
-                      <span className="text-[10px] font-mono font-bold text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded border border-sky-500/20">
-                        {DRAFT_RESULTS_S4.length} Draft Picks
-                      </span>
-                      <span className="text-[10px] font-mono font-bold text-slate-400 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">
-                        {DRAFT_PROSPECTS.length} Big Board Prospects
-                      </span>
-                    </div>
-                    <h3 className="text-xl sm:text-2xl font-black text-white leading-tight">
-                      Season 4 CCH Draft Headquarters: Official 3-Round Selections & Scouting Profiles
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-300 max-w-3xl font-medium leading-relaxed">
-                      The Season 4 CCH Draft is officially complete! Golden State Enterprise selected #1 consensus superstar Carlton Daugherty (SF, 85 OVR) and Round 3 steal King Jordan (Duke, 75 OVR). Explore full scouting breakdowns, player ratings, and podcast analysis below.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 shrink-0 self-start lg:self-center">
-                  <button
-                    onClick={() => setActiveTab('draft')}
-                    className="px-6 py-3 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs sm:text-sm shadow-xl shadow-amber-500/25 flex items-center gap-2 transition-all cursor-pointer"
-                  >
-                    <span>View All Draft Results & Board</span>
-                    <span className="group-hover:translate-x-1 transition-transform">→</span>
-                  </button>
-                </div>
-              </div>
-
-              {/* #1 Overall Pick Spotlight: Carlton Daugherty Profile Feature */}
-              <div className="relative z-10 bg-slate-950/90 border border-amber-500/40 hover:border-amber-400/80 rounded-3xl p-5 sm:p-6 shadow-2xl transition-all">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                  {/* Player Profile Image - Compact Full Uncropped Showcase */}
-                  <div className="lg:col-span-4 xl:col-span-3 flex justify-center">
-                    <div className="relative w-full max-w-[230px] sm:max-w-[260px] rounded-2xl overflow-hidden border-2 border-amber-500/60 shadow-2xl bg-slate-950 flex flex-col items-center group/img">
-                      {/* Top Bar for Card */}
-                      <div className="w-full bg-slate-900 border-b border-amber-500/30 px-3 py-1.5 flex items-center justify-between">
-                        <span className="text-[10px] font-mono font-black text-amber-400 uppercase tracking-wider flex items-center gap-1">
-                          <Star size={11} className="text-amber-400 fill-amber-400" /> #1 Pick
-                        </span>
-                        <span className="text-[10px] font-mono font-black bg-amber-500 text-slate-950 px-1.5 py-0.5 rounded">
-                          85 OVR
-                        </span>
-                      </div>
-
-                      {/* Full Natural Image */}
-                      <div className="w-full bg-black/40 flex items-center justify-center p-1.5">
-                        <img
-                          src={carltonDaughertyImg}
-                          alt="Carlton Daugherty - #1 Overall Pick Profile"
-                          className="w-full h-auto object-contain rounded-lg shadow-md transition-transform duration-300 group-hover/img:scale-[1.02]"
-                        />
-                      </div>
-
-                      {/* Bottom Caption Bar */}
-                      <div className="w-full bg-slate-900/90 border-t border-slate-800 px-2.5 py-1.5 flex items-center justify-between text-[10px] font-mono text-slate-300">
-                        <span className="font-bold text-white truncate">Carlton Daugherty</span>
-                        <span className="text-amber-400 font-bold shrink-0">SF • UCSD</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Profile Details & Story Summary */}
-                  <div className="lg:col-span-8 xl:col-span-9 space-y-3.5">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="text-[10px] font-mono font-black uppercase tracking-wider bg-amber-500 text-slate-950 px-2.5 py-0.5 rounded">
-                        TOP STORY • DRAFT PROFILE
-                      </span>
-                      <span className="text-[10px] font-mono font-bold text-amber-300 bg-amber-500/10 px-2.5 py-0.5 rounded border border-amber-500/20">
-                        Golden State Enterprise
-                      </span>
-                      <span className="text-[10px] font-mono font-bold text-slate-400 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">
-                        UC San Diego • SF • 6&apos;7&quot;, 220 lbs
-                      </span>
-                    </div>
-
-                    <div>
-                      <h4 className="text-xl sm:text-2xl font-black text-white leading-tight">
-                        Carlton Daugherty: Generational Two-Way Superstar Arrives in the Bay Area
-                      </h4>
-                      <p className="text-xs sm:text-sm text-slate-300 mt-1.5 leading-relaxed font-medium">
-                        Unanimous consensus #1 prospect Carlton Daugherty heads to Golden State Enterprise with an elite 85 overall rating. Armed with Grade A+ 3-point marksmanship, Grade A+ lockdown perimeter defense, and Grade A interior scoring touch, Daugherty joins head coach Wyatt Zimmerman to form an immediate championship contender.
-                      </p>
-                    </div>
-
-                    {/* Skill Badges Bar */}
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
-                      <div className="bg-slate-900 border border-amber-500/30 p-2 rounded-xl text-center">
-                        <span className="text-[10px] font-mono text-slate-400 block">Overall</span>
-                        <span className="text-sm font-black text-amber-400 font-mono">85 OVR</span>
-                      </div>
-                      <div className="bg-slate-900 border border-emerald-500/30 p-2 rounded-xl text-center">
-                        <span className="text-[10px] font-mono text-slate-400 block">3PT Shooting</span>
-                        <span className="text-sm font-black text-emerald-400 font-mono">Grade A+</span>
-                      </div>
-                      <div className="bg-slate-900 border border-sky-500/30 p-2 rounded-xl text-center">
-                        <span className="text-[10px] font-mono text-slate-400 block">Perimeter D</span>
-                        <span className="text-sm font-black text-sky-400 font-mono">Grade A+</span>
-                      </div>
-                      <div className="bg-slate-900 border border-purple-500/30 p-2 rounded-xl text-center">
-                        <span className="text-[10px] font-mono text-slate-400 block">Inside Scoring</span>
-                        <span className="text-sm font-black text-purple-400 font-mono">Grade A</span>
-                      </div>
-                    </div>
-
-                    {/* CTAs */}
-                    <div className="flex flex-wrap items-center gap-3 pt-1">
-                      <button
-                        onClick={() => handleNavigateToNews('s4-carlton-daugherty-profile')}
-                        className="px-5 py-2.5 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs sm:text-sm flex items-center gap-2 shadow-lg shadow-amber-500/20 transition-all cursor-pointer"
-                      >
-                        <BookOpen size={15} />
-                        <span>Read Full Profile Article</span>
-                      </button>
-                      <button
-                        onClick={() => setActiveTab('draft')}
-                        className="px-5 py-2.5 rounded-2xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-bold text-xs sm:text-sm flex items-center gap-2 transition-all cursor-pointer"
-                      >
-                        <span>View All 36 Draft Picks</span>
-                        <ChevronRight size={15} />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Front Page Draft Recap Podcast Feature */}
-              <div className="relative z-10">
-                <PodcastPlayerCard
-                  audioUrl="https://archive.org/download/nba-2-k-24-2024-05-12-02-07-45/CCH_Season_Four_Draft_steals_and_reaches.m4a"
-                  title="Official Season 4 Draft Recap: Steals, Reaches & Grades"
-                  subtitle="CCH Draft War Room Podcast • In-depth breakdown of all 36 selections, big steals, reaches, and team haul grades"
-                  compact={true}
-                />
-              </div>
-
-              {/* Top Picks Showcase Strip */}
-              <div className="space-y-2 relative z-10 pt-2 border-t border-slate-800/80">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-mono font-black uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
-                      <Star size={12} className="text-amber-400 fill-amber-400" />
-                      Round 1 Top Selections
-                    </span>
-                  </div>
-                  <button
-                    onClick={() => setActiveTab('draft')}
-                    className="text-[10px] font-mono font-bold text-slate-400 hover:text-amber-300 flex items-center gap-1 cursor-pointer bg-transparent border-0"
-                  >
-                    View All {DRAFT_RESULTS_S4.length} Draft Picks →
-                  </button>
-                </div>
-
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5">
-                  {DRAFT_RESULTS_S4.slice(0, 5).map((pick) => (
-                    <div
-                      key={pick.overallPick}
-                      onClick={() => setActiveTab('draft')}
-                      className="bg-slate-950/80 border border-slate-800 hover:border-amber-500/40 p-3 rounded-2xl flex items-center justify-between relative overflow-hidden transition-all hover:bg-slate-900 cursor-pointer"
-                    >
-                      {/* Pick Badge */}
-                      <div className="absolute top-0 right-0 bg-amber-500 text-slate-950 text-[8px] font-mono font-black uppercase px-2 py-0.5 rounded-bl-lg shadow-sm">
-                        PICK #{pick.overallPick}
-                      </div>
-
-                      <div className="pr-1 pt-1.5 min-w-0 flex-1">
-                        <div className="flex items-center gap-1">
-                          <span className="text-[10px] font-mono font-black text-amber-400">
-                            {pick.teamAbbr}
-                          </span>
-                          <span className="text-[10px] font-mono text-slate-400 font-bold">
-                            {pick.position}
-                          </span>
-                        </div>
-                        <h4 className="text-xs font-bold text-white leading-tight mt-0.5 break-words">
-                          {pick.shortName}
-                        </h4>
-                        <span className="text-[10px] font-mono text-slate-400 block truncate mt-0.5">
-                          {pick.school}
-                        </span>
-                      </div>
-
-                      <div className="flex flex-col items-end shrink-0 pl-2 pt-2">
-                        <span className="text-xs font-mono font-black bg-amber-500 text-slate-950 px-2 py-1 rounded-lg shadow">
-                          {pick.ovr}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Embedded Front Page Hub Draft Prospects Podcast Player */}
-              <div
-                onClick={(e) => e.stopPropagation()}
-                className="relative z-10 pt-2"
-              >
-                <PodcastPlayerCard
-                  audioUrl="https://archive.org/download/nba-2-k-24-2024-05-12-02-07-45/Daugherty_versus_Wilkens_for_Franchise_Foundation.m4a"
-                  title="Draft Debate: Carlton Daugherty vs. Grok Wilkens for Franchise Foundation"
-                  subtitle="Official CCH Draft Breakdown • UC San Diego vs. Kentucky Cornerstone Analysis"
-                />
-              </div>
-            </div>
-
-            {/* Breaking Offseason News Card */}
-            <BreakingNewsCard onNavigateToNews={handleNavigateToNews} />
-
-            {/* Championship Game Video Broadcast */}
-            <ChampionshipVideoCard />
 
             {/* Quick Access Sections */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

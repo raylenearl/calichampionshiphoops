@@ -263,7 +263,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     primaryPosition: 'PF',
     school: 'Latvia',
     schoolType: 'International',
-    ovr: 79,
+    ovr: 80,
     notableAttributes: 'A+ Rebounding, A- Inside',
     keyStrength: 'European frontcourt finesse & monster rebounding',
     archetype: 'High-Motor Stretch 4',
@@ -276,7 +276,7 @@ export const DRAFT_PROSPECTS: DraftProspect[] = [
     gradeBadges: [
       { label: 'Rebounding', grade: 'A+', color: 'emerald' },
       { label: 'Inside Scoring', grade: 'A-', color: 'blue' },
-      { label: 'Overall Tier', grade: '79 OVR', color: 'blue' },
+      { label: 'Overall Tier', grade: '80 OVR', color: 'gold' },
     ],
   },
   {
@@ -1325,7 +1325,7 @@ export const DRAFT_RESULTS_S4: DraftPickResult[] = [
     playerName: 'Tingus Atgusanas',
     shortName: 'T. Atgusanas',
     position: 'PF',
-    ovr: 79,
+    ovr: 80,
     school: 'Latvia',
     prospectRank: 11,
     keyStrength: 'A+ Rebounding, A- Inside',

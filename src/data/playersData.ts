@@ -944,7 +944,6 @@ export const PLAYERS: Player[] = [
     ftPct: 0.690,
     mpg: 23.5,
     accolades: [
-      'Signed 4yr/$171.87M Contract with Sacramento (S4)',
       'All-Time Single Game Block Record (10 Blocks)',
       'Season 2 All-Defensive 1st Team',
       'Season 3 All-Defensive 2nd Team',
@@ -980,7 +979,7 @@ export const PLAYERS: Player[] = [
       athleticism: 80,
     },
     signaturePerformance: '10 blocks vs. Oakland on Feb 24, Season 1.',
-    bio: 'Defensive wall who registered the only 10-block triple-double threat game in CCH history. Joined the reigning champion Sacramento Stallions on a 4-year, $171.87M contract for Season 4.',
+    bio: 'Defensive wall who registered the only 10-block triple-double threat game in CCH history. Joined the reigning champion Sacramento Stallions for Season 4.',
   },
   {
     id: 'p-johnny-galloway',
@@ -1003,7 +1002,6 @@ export const PLAYERS: Player[] = [
     ftPct: 0.785,
     mpg: 24.2,
     accolades: [
-      'Signed 4yr/$171.87M Extension with Strykers (S4)',
       'Season 2 All-Defensive 1st Team',
       'Season 3 All-Star Selection',
     ],
@@ -1034,7 +1032,7 @@ export const PLAYERS: Player[] = [
       athleticism: 88,
     },
     signaturePerformance: '18 points, 9 rebounds, 4 steals in S2 Playoff clincher.',
-    bio: 'Dynamic two-way forward who pairs elite perimeter lockdown defense with explosive athletic finishing. Signed a 4-year, $171.87M contract to remain in San Diego.',
+    bio: 'Dynamic two-way forward who pairs elite perimeter lockdown defense with explosive athletic finishing. Serves as a primary cornerstone in San Diego.',
   },
   {
     id: 'p-josh-parks',

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { CCH_NEWS_ARTICLES, CCHNewsArticle, CoachProfileCard } from '../data/newsData';
 import { TeamBadge } from './TeamBadge';
 import { PodcastPlayerCard } from './PodcastPlayerCard';
+import { ChampionshipVideoCard } from './ChampionshipVideoCard';
 import {
   Newspaper,
   Sparkles,
@@ -24,6 +25,8 @@ import {
   Zap,
   Headphones,
   AlertTriangle,
+  Play,
+  Tv,
 } from 'lucide-react';
 
 interface NewsViewProps {
@@ -89,94 +92,94 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
         </div>
       </div>
 
-      {/* Category & Season Filter Toolbar */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-slate-950/90 border border-slate-800/90 p-2 sm:p-2.5 rounded-2xl shadow-inner">
-        {/* Category Tabs */}
-        <div className="flex flex-wrap items-center gap-1 sm:gap-1.5 text-xs font-extrabold">
+      {/* Category & Season Filter Toolbar - Clean single-line layout with horizontal scrolling */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 bg-slate-950/90 border border-slate-800/90 p-2 sm:p-2.5 rounded-2xl shadow-inner overflow-x-auto no-scrollbar">
+        {/* Category Badges on One Line */}
+        <div className="flex items-center gap-1.5 text-xs font-extrabold overflow-x-auto no-scrollbar py-0.5 whitespace-nowrap shrink-0">
           <button
             onClick={() => setSelectedCategory('all')}
-            className={`px-3 py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
+            className={`px-3 py-1.5 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
               selectedCategory === 'all'
                 ? 'bg-amber-500 text-slate-950 font-black shadow-md'
                 : 'text-slate-400 hover:text-white hover:bg-slate-900/60'
             }`}
           >
-            <Layers size={14} />
+            <Layers size={13} />
             All Stories
           </button>
           <button
             onClick={() => setSelectedCategory('offseason')}
-            className={`px-3 py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
+            className={`px-3 py-1.5 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
               selectedCategory === 'offseason'
                 ? 'bg-amber-500 text-slate-950 font-black shadow-md'
                 : 'text-slate-400 hover:text-white hover:bg-slate-900/60'
             }`}
           >
-            <Sparkles size={14} />
+            <Sparkles size={13} />
             Offseason & Coaches
           </button>
           <button
             onClick={() => setSelectedCategory('championship')}
-            className={`px-3 py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
+            className={`px-3 py-1.5 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
               selectedCategory === 'championship'
                 ? 'bg-amber-500 text-slate-950 font-black shadow-md'
                 : 'text-slate-400 hover:text-white hover:bg-slate-900/60'
             }`}
           >
-            <Trophy size={14} />
+            <Trophy size={13} />
             Championships
           </button>
           <button
             onClick={() => setSelectedCategory('recap')}
-            className={`px-3 py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
+            className={`px-3 py-1.5 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
               selectedCategory === 'recap'
                 ? 'bg-amber-500 text-slate-950 font-black shadow-md'
                 : 'text-slate-400 hover:text-white hover:bg-slate-900/60'
             }`}
           >
-            <Flame size={14} />
-            Game Recaps
+            <Flame size={13} />
+            Recaps
           </button>
           <button
             onClick={() => setSelectedCategory('feature')}
-            className={`px-3 py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
+            className={`px-3 py-1.5 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
               selectedCategory === 'feature'
                 ? 'bg-amber-500 text-slate-950 font-black shadow-md'
                 : 'text-slate-400 hover:text-white hover:bg-slate-900/60'
             }`}
           >
-            <Headphones size={14} />
-            Features & Podcasts
+            <Headphones size={13} />
+            Podcasts & Features
           </button>
           <button
             onClick={() => setSelectedCategory('milestone')}
-            className={`px-3 py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
+            className={`px-3 py-1.5 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
               selectedCategory === 'milestone'
                 ? 'bg-amber-500 text-slate-950 font-black shadow-md'
                 : 'text-slate-400 hover:text-white hover:bg-slate-900/60'
             }`}
           >
-            <BookOpen size={14} />
+            <BookOpen size={13} />
             Milestones
           </button>
         </div>
 
-        {/* Season Selector Pills */}
-        <div className="flex items-center gap-1 bg-slate-900 border border-slate-800 p-1 rounded-xl text-xs font-semibold shrink-0 self-start lg:self-auto">
-          <span className="text-[10px] text-slate-400 px-2 font-bold uppercase tracking-wider">Era:</span>
+        {/* Archives / Season Badges on One Line */}
+        <div className="flex items-center gap-1 bg-slate-900/90 border border-slate-800 p-1 rounded-xl text-xs font-semibold overflow-x-auto no-scrollbar whitespace-nowrap shrink-0">
+          <span className="text-[10px] text-slate-400 px-1.5 font-bold uppercase tracking-wider shrink-0">Archives:</span>
           <button
             onClick={() => setSelectedSeasonFilter(0)}
-            className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
+            className={`px-2 py-1 rounded-lg transition-all cursor-pointer whitespace-nowrap shrink-0 ${
               selectedSeasonFilter === 0
                 ? 'bg-amber-500 text-slate-950 font-black shadow-sm'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
-            All Eras
+            All
           </button>
           <button
             onClick={() => setSelectedSeasonFilter(4)}
-            className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
+            className={`px-2 py-1 rounded-lg transition-all cursor-pointer whitespace-nowrap shrink-0 ${
               selectedSeasonFilter === 4
                 ? 'bg-amber-500 text-slate-950 font-black shadow-sm'
                 : 'text-slate-400 hover:text-white'
@@ -186,33 +189,33 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
           </button>
           <button
             onClick={() => setSelectedSeasonFilter(3)}
-            className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
+            className={`px-2 py-1 rounded-lg transition-all cursor-pointer whitespace-nowrap shrink-0 ${
               selectedSeasonFilter === 3
                 ? 'bg-amber-500 text-slate-950 font-black shadow-sm'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
-            Season 3
+            S3 Archive
           </button>
           <button
             onClick={() => setSelectedSeasonFilter(2)}
-            className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
+            className={`px-2 py-1 rounded-lg transition-all cursor-pointer whitespace-nowrap shrink-0 ${
               selectedSeasonFilter === 2
                 ? 'bg-amber-500 text-slate-950 font-black shadow-sm'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
-            Season 2
+            S2 Archive
           </button>
           <button
             onClick={() => setSelectedSeasonFilter(1)}
-            className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
+            className={`px-2 py-1 rounded-lg transition-all cursor-pointer whitespace-nowrap shrink-0 ${
               selectedSeasonFilter === 1
                 ? 'bg-amber-500 text-slate-950 font-black shadow-sm'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
-            Season 1
+            S1 Archive
           </button>
         </div>
       </div>
@@ -220,11 +223,11 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
       {/* Featured Lead Story Showcase */}
       {selectedCategory === 'all' && selectedSeasonFilter === 0 && (
         <div className="bg-gradient-to-br from-slate-900 via-amber-950/40 to-slate-950 border border-amber-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden space-y-6">
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-amber-500/20 pb-4">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-mono font-bold rounded-full">
+          <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-3 border-b border-amber-500/20 pb-4">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-mono font-bold rounded-full whitespace-nowrap shrink-0">
               <Sparkles size={13} /> FEATURED CCH HEADLINE STORY
             </span>
-            <span className="text-xs font-mono text-slate-400">
+            <span className="text-xs font-mono text-slate-400 whitespace-nowrap shrink-0">
               {featuredStory.date} • {featuredStory.readTime}
             </span>
           </div>
@@ -306,15 +309,15 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                   </div>
                 </div>
               ) : (
-                <div className="relative overflow-hidden rounded-2xl border border-slate-800 shadow-xl bg-slate-950 group/hero flex flex-col items-center justify-center p-3">
-                  <div className="w-full flex items-center justify-center py-2">
+                <div className="relative overflow-hidden rounded-2xl border-2 border-amber-500/40 shadow-2xl bg-slate-950 group/hero flex flex-col items-center justify-center p-2">
+                  <div className="w-full flex items-center justify-center py-2 bg-black/40 rounded-xl overflow-hidden">
                     <img
                       src={featuredStory.imageUrl || '/logos/cch_league_logo.png'}
                       alt={featuredStory.title}
-                      className="h-auto max-h-[220px] max-w-[220px] object-contain transition-transform duration-700 group-hover/hero:scale-105"
+                      className="w-full h-auto max-h-[300px] object-contain transition-transform duration-700 group-hover/hero:scale-105"
                     />
                   </div>
-                  <div className="w-full bg-slate-950/95 border-t border-amber-500/20 px-3 py-1.5 rounded-b-xl flex items-center justify-between text-[11px] font-mono font-bold text-amber-300">
+                  <div className="w-full bg-slate-950/95 border-t border-amber-500/20 px-3 py-2 rounded-b-xl flex items-center justify-between text-[11px] font-mono font-bold text-amber-300">
                     <span className="flex items-center gap-1.5 truncate">
                       <Sparkles size={13} className="text-amber-400 shrink-0" /> {featuredStory.imageCaption || 'Official CCH Media Photo'}
                     </span>
@@ -326,13 +329,78 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
         </div>
       )}
 
+      {/* Season 3 Championship Special Video & Audio Showcase in Season 3 Archives */}
+      {selectedSeasonFilter === 3 && (
+        <div className="space-y-3 bg-gradient-to-r from-amber-950/20 via-slate-900 to-slate-950 p-4 sm:p-5 rounded-3xl border border-amber-500/30 shadow-xl">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-amber-500/20 pb-3">
+            <div className="flex items-center gap-2">
+              <div className="p-1.5 bg-amber-500/10 rounded-lg text-amber-400 border border-amber-500/20">
+                <Trophy size={18} />
+              </div>
+              <div>
+                <h3 className="text-sm sm:text-base font-black text-white tracking-tight">
+                  Season 3 Championship Archives • Finals Game Broadcast & Audio Special
+                </h3>
+                <p className="text-xs text-slate-400">
+                  Relive Sacramento&apos;s second franchise title and Finals MVP Dorell Kabal&apos;s retirement sendoff
+                </p>
+              </div>
+            </div>
+            <span className="text-[11px] font-mono font-bold bg-amber-500/10 text-amber-300 border border-amber-500/30 px-2.5 py-1 rounded-full shrink-0">
+              Stallions 87, Mad Dogs 72
+            </span>
+          </div>
+          <ChampionshipVideoCard />
+        </div>
+      )}
+
+      {/* Season 2 Historical Banner */}
+      {selectedSeasonFilter === 2 && (
+        <div className="bg-gradient-to-r from-slate-900 via-amber-950/20 to-slate-900 p-4 rounded-2xl border border-amber-500/20 flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2.5">
+            <Trophy size={18} className="text-amber-400" />
+            <div>
+              <h3 className="text-sm font-black text-white">Season 2 Historical Archives</h3>
+              <p className="text-xs text-slate-400">California Reds 18-4 title run, Lamar Anderson MVP campaign, and Coach William Walker dynasty.</p>
+            </div>
+          </div>
+          <span className="text-xs font-mono font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/20">
+            Season 2
+          </span>
+        </div>
+      )}
+
+      {/* Season 1 Historical Banner */}
+      {selectedSeasonFilter === 1 && (
+        <div className="bg-gradient-to-r from-slate-900 via-amber-950/20 to-slate-900 p-4 rounded-2xl border border-amber-500/20 flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2.5">
+            <Trophy size={18} className="text-amber-400" />
+            <div>
+              <h3 className="text-sm font-black text-white">Season 1 Historical Archives</h3>
+              <p className="text-xs text-slate-400">Inaugural CCH season, Dorell Kabal&apos;s .810 FG% MVP masterpiece, and Sacramento Stallions banner #1.</p>
+            </div>
+          </div>
+          <span className="text-xs font-mono font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/20">
+            Season 1
+          </span>
+        </div>
+      )}
+
       {/* Main Articles Grid */}
       <div className="space-y-4">
         <div className="flex items-center justify-between border-b border-slate-800 pb-3">
           <h3 className="text-lg font-black text-white flex items-center gap-2">
             <Newspaper size={18} className="text-amber-400" />
             <span>
-              {selectedCategory === 'all'
+              {selectedSeasonFilter === 3
+                ? 'Season 3 Historical Archives'
+                : selectedSeasonFilter === 2
+                ? 'Season 2 Historical Archives'
+                : selectedSeasonFilter === 1
+                ? 'Season 1 Historical Archives'
+                : selectedSeasonFilter === 4
+                ? 'Season 4 News & Coverage'
+                : selectedCategory === 'all'
                 ? 'All News & Media Releases'
                 : selectedCategory === 'championship'
                 ? 'Championship Game Reports'
@@ -388,16 +456,21 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                 {/* Category & Date Header */}
                 <div className="flex items-center justify-between text-xs gap-2">
                   <div className="flex items-center gap-1.5 flex-wrap">
-                    <span className="px-2.5 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 font-mono font-bold rounded-full text-[10px] uppercase">
-                      {article.category} • Season {article.season}
+                    <span className="px-2.5 py-0.5 bg-amber-500/10 border border-amber-500/30 text-amber-400 font-mono font-bold rounded-full text-[10px] uppercase shrink-0">
+                      {article.category} • S{article.season}
                     </span>
+                    {article.youtubeUrl && (
+                      <span className="px-2 py-0.5 bg-red-500/20 border border-red-500/40 text-red-400 font-mono font-bold rounded-full text-[9px] uppercase flex items-center gap-1 shrink-0">
+                        <Play size={9} className="fill-red-400" /> Video
+                      </span>
+                    )}
                     {article.audioUrl && (
-                      <span className="px-2 py-0.5 bg-amber-500/20 border border-amber-500/40 text-amber-300 font-mono font-bold rounded-full text-[9px] uppercase flex items-center gap-1">
+                      <span className="px-2 py-0.5 bg-amber-500/20 border border-amber-500/40 text-amber-300 font-mono font-bold rounded-full text-[9px] uppercase flex items-center gap-1 shrink-0">
                         <Headphones size={10} /> Podcast
                       </span>
                     )}
                   </div>
-                  <span className="text-slate-400 text-[11px] font-mono flex items-center gap-1 shrink-0">
+                  <span className="text-slate-400 text-[11px] font-mono flex items-center gap-1 shrink-0 whitespace-nowrap ml-auto">
                     <Clock size={12} /> {article.readTime}
                   </span>
                 </div>
@@ -458,7 +531,7 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
 
             {/* Article Meta Header */}
             <div className="space-y-3 border-b border-slate-800 pb-5">
-              <div className="flex flex-wrap items-center gap-2.5 text-xs font-mono">
+              <div className="flex items-center gap-2.5 text-xs font-mono overflow-x-auto no-scrollbar whitespace-nowrap">
                 <span className="px-3.5 py-1.5 bg-amber-500/10 border border-amber-500/30 text-amber-400 font-bold rounded-full text-xs uppercase whitespace-nowrap shrink-0">
                   {selectedArticle.category} • Season {selectedArticle.season}
                 </span>
@@ -482,19 +555,20 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
               </div>
             </div>
 
-            {/* Article Image Banner (always shown unless interactive coachesList is present) */}
+            {/* Article Main Standout Photo Banner (always shown unless interactive coachesList is present) */}
             {!selectedArticle.coachesList && (
-              <div className="relative overflow-hidden rounded-2xl border border-amber-500/30 shadow-2xl bg-slate-950 flex flex-col items-center">
-                <div className="w-full flex items-center justify-center p-3 sm:p-5 bg-black/40">
+              <div className="relative overflow-hidden rounded-2xl border-2 border-amber-500/40 shadow-2xl bg-slate-950 flex flex-col items-center">
+                <div className="w-full flex items-center justify-center p-2 sm:p-4 bg-black/60 relative overflow-hidden">
                   <img
                     src={selectedArticle.imageUrl || '/logos/cch_league_logo.png'}
                     alt={selectedArticle.title}
-                    className="w-auto h-auto max-h-[280px] max-w-[300px] object-contain rounded-xl shadow-lg"
+                    className="w-full max-h-[420px] sm:max-h-[480px] object-contain rounded-xl shadow-2xl transition-transform duration-300"
                   />
                 </div>
-                <div className="w-full bg-slate-950 border-t border-slate-800 p-3 text-left">
-                  <p className="text-xs text-amber-300 font-mono font-bold flex items-center gap-1.5">
-                    <Sparkles size={14} className="text-amber-400" /> {selectedArticle.imageCaption || (selectedArticle.imageUrl ? 'Official Press Photo' : 'Official Cali Championship Hoops League Record')}
+                <div className="w-full bg-slate-950 border-t border-slate-800 p-3 sm:p-3.5 text-left">
+                  <p className="text-xs sm:text-sm text-amber-300 font-mono font-bold flex items-center gap-1.5">
+                    <Sparkles size={15} className="text-amber-400 shrink-0" />
+                    <span>{selectedArticle.imageCaption || (selectedArticle.imageUrl ? 'Official Press Photo' : 'Official Cali Championship Hoops League Record')}</span>
                   </p>
                 </div>
               </div>
@@ -631,31 +705,97 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
 
             {/* Teams Matchup Boxscore if available */}
             {selectedArticle.teams && (
-              <div className="bg-slate-950 border border-amber-500/30 p-4 rounded-2xl flex items-center justify-around gap-4 text-center">
-                <div className="flex flex-col items-center gap-1.5">
-                  <TeamBadge teamId={selectedArticle.teams.team1Id} size="lg" />
-                  <span className="font-black text-sm text-white">{selectedArticle.teams.team1}</span>
-                  {selectedArticle.teams.score1 !== undefined && (
-                    <span className="text-xl font-mono font-black text-amber-400">
-                      {selectedArticle.teams.score1}
-                    </span>
-                  )}
-                </div>
+              <div className="bg-slate-950 border border-amber-500/30 p-4 rounded-2xl space-y-3">
+                <div className="flex items-center justify-around gap-4 text-center">
+                  <div className="flex flex-col items-center gap-1.5">
+                    <TeamBadge teamId={selectedArticle.teams.team1Id} size="lg" />
+                    <span className="font-black text-sm text-white">{selectedArticle.teams.team1}</span>
+                    {selectedArticle.teams.score1 !== undefined && (
+                      <span className="text-xl font-mono font-black text-amber-400">
+                        {selectedArticle.teams.score1}
+                      </span>
+                    )}
+                  </div>
 
-                <div className="flex flex-col items-center gap-1">
-                  <div className="text-xs font-black font-mono text-amber-400 bg-amber-500/10 px-3.5 py-1 rounded-full border border-amber-500/20">
-                    {selectedArticle.teams.score1 !== undefined && selectedArticle.teams.score2 !== undefined ? 'FINAL' : 'VS'}
+                  <div className="flex flex-col items-center gap-1">
+                    <div className="text-xs font-black font-mono text-amber-400 bg-amber-500/10 px-3.5 py-1 rounded-full border border-amber-500/20">
+                      {selectedArticle.teams.score1 !== undefined && selectedArticle.teams.score2 !== undefined ? 'FINAL' : 'VS'}
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col items-center gap-1.5">
+                    <TeamBadge teamId={selectedArticle.teams.team2Id} size="lg" />
+                    <span className="font-black text-sm text-white">{selectedArticle.teams.team2}</span>
+                    {selectedArticle.teams.score2 !== undefined && (
+                      <span className="text-xl font-mono font-black text-slate-300">
+                        {selectedArticle.teams.score2}
+                      </span>
+                    )}
                   </div>
                 </div>
 
-                <div className="flex flex-col items-center gap-1.5">
-                  <TeamBadge teamId={selectedArticle.teams.team2Id} size="lg" />
-                  <span className="font-black text-sm text-white">{selectedArticle.teams.team2}</span>
-                  {selectedArticle.teams.score2 !== undefined && (
-                    <span className="text-xl font-mono font-black text-slate-300">
-                      {selectedArticle.teams.score2}
-                    </span>
-                  )}
+                {/* Quarter-by-Quarter Line Score Table if available */}
+                {selectedArticle.quarterScores && selectedArticle.quarterScores.length > 0 && (
+                  <div className="pt-2 border-t border-slate-800">
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-center text-xs font-mono">
+                        <thead>
+                          <tr className="text-slate-400 border-b border-slate-800/80">
+                            <th className="py-1 px-2 text-left font-sans text-[11px] font-bold">Team</th>
+                            {selectedArticle.quarterScores.map((qs, i) => (
+                              <th key={i} className="py-1 px-2 font-bold text-amber-400">{qs.period}</th>
+                            ))}
+                            <th className="py-1 px-2 font-black text-white">T</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-800/60">
+                          <tr>
+                            <td className="py-1.5 px-2 text-left font-sans font-bold text-slate-200">
+                              {selectedArticle.teams.team1}
+                            </td>
+                            {selectedArticle.quarterScores.map((qs, i) => (
+                              <td key={i} className="py-1.5 px-2 font-medium text-slate-300">{qs.team1}</td>
+                            ))}
+                            <td className="py-1.5 px-2 font-black text-amber-400">{selectedArticle.teams.score1}</td>
+                          </tr>
+                          <tr>
+                            <td className="py-1.5 px-2 text-left font-sans font-bold text-slate-200">
+                              {selectedArticle.teams.team2}
+                            </td>
+                            {selectedArticle.quarterScores.map((qs, i) => (
+                              <td key={i} className="py-1.5 px-2 font-medium text-slate-300">{qs.team2}</td>
+                            ))}
+                            <td className="py-1.5 px-2 font-black text-slate-300">{selectedArticle.teams.score2}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Embedded YouTube Video Player if available */}
+            {selectedArticle.youtubeUrl && (
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-mono font-black uppercase tracking-wider text-red-400 flex items-center gap-1.5">
+                    <Tv size={14} className="text-red-400" /> Official Video Broadcast & Highlights
+                  </span>
+                  <span className="text-[10px] font-mono text-slate-400">1080p High-Definition</span>
+                </div>
+                <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-red-500/30 bg-slate-950">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src={selectedArticle.youtubeUrl}
+                    title={selectedArticle.title}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
             )}
