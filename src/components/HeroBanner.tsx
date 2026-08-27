@@ -1,6 +1,5 @@
-import React from 'react';
-import { Trophy, Flame, ChevronRight, Zap, Award } from 'lucide-react';
-import { TeamBadge } from './TeamBadge';
+import React, { useState, useEffect } from 'react';
+import { Trophy, ChevronRight, Zap, ExternalLink, Radio } from 'lucide-react';
 
 interface HeroBannerProps {
   onNavigate: (tab: string) => void;
@@ -8,11 +7,33 @@ interface HeroBannerProps {
 }
 
 export const HeroBanner: React.FC<HeroBannerProps> = ({ onNavigate, selectedSeason }) => {
+  const [embedSrc, setEmbedSrc] = useState<string>('');
+  const [loadError, setLoadError] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const hostname = window.location.hostname || 'localhost';
+      const parents = Array.from(
+        new Set([
+          hostname,
+          'localhost',
+          'ai.studio',
+          'aistudio.google.com',
+          'google.com',
+          'run.app',
+        ].filter(Boolean))
+      );
+      
+      const parentParams = parents.map((p) => `parent=${encodeURIComponent(p)}`).join('&');
+      setEmbedSrc(`https://player.twitch.tv/?channel=cchoops2k&${parentParams}&autoplay=false&muted=true`);
+    }
+  }, []);
+
   return (
     <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 border border-slate-800 shadow-2xl p-6 sm:p-8 lg:p-10 mb-8">
       {/* Background Ambient Glow */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-600/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none" />
 
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         {/* Left Headline Section */}
@@ -60,52 +81,70 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onNavigate, selectedSeas
           </div>
         </div>
 
-        {/* Right Spotlight Card: Cinderella Finals Drama / Featured Story */}
+        {/* Right Spotlight Card: Twitch Stream Embed */}
         <div className="lg:col-span-5">
-          <div className="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-6 relative shadow-xl space-y-4">
-            <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
-              <span className="text-xs font-black uppercase text-amber-400 tracking-wider flex items-center gap-1.5">
-                <Flame size={15} className="text-amber-500" />
-                Season 3 Champions
-              </span>
-              <span className="text-[10px] bg-amber-950 text-amber-400 font-bold px-2 py-0.5 rounded-full border border-amber-800 flex items-center gap-1">
-                <Trophy size={12} /> CCH CHAMPIONS
-              </span>
+          <div className="bg-slate-950/90 border border-purple-500/30 rounded-3xl p-4 sm:p-5 relative shadow-2xl space-y-3.5 group">
+            {/* Ambient Twitch Glow */}
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-purple-600/20 rounded-full blur-2xl pointer-events-none" />
+
+            <div className="flex items-center justify-between border-b border-slate-800/90 pb-3 relative z-10">
+              <div className="flex items-center gap-2">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500"></span>
+                </span>
+                <span className="text-xs font-black uppercase text-purple-400 tracking-wider flex items-center gap-1.5 font-mono">
+                  <Radio size={14} className="text-purple-400" />
+                  CCH LIVE STREAM
+                </span>
+              </div>
+              <a
+                href="https://www.twitch.tv/cchoops2k"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[11px] bg-purple-950/80 hover:bg-purple-900 text-purple-300 hover:text-white font-bold px-2.5 py-1 rounded-xl border border-purple-700/50 flex items-center gap-1.5 transition-all shadow-sm"
+              >
+                <span>twitch.tv/cchoops2k</span>
+                <ExternalLink size={12} />
+              </a>
             </div>
 
-            <div className="text-center space-y-3 py-2">
-              <div className="text-xs text-slate-400 font-semibold uppercase tracking-wider">
-                Season 3 Championship Game Final
-              </div>
-
-              <div className="flex items-center justify-around gap-2 bg-slate-900/90 p-4 rounded-2xl border border-slate-800">
-                {/* Team 1: Sacramento Stallions (#2 Dynasty) */}
-                <div className="flex flex-col items-center space-y-1">
-                  <TeamBadge teamId="sacramento-stallions" size="lg" />
-                  <span className="text-xs font-bold text-slate-200 mt-1">Sacramento</span>
-                  <span className="text-[10px] text-amber-400 font-black bg-amber-950/60 px-2 py-0.5 rounded-full border border-amber-800/50">
-                    87 (CHAMPS)
-                  </span>
+            {/* Twitch Player iFrame Container */}
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 shadow-inner flex items-center justify-center">
+              {embedSrc ? (
+                <iframe
+                  src={embedSrc}
+                  frameBorder="0"
+                  allowFullScreen={true}
+                  scrolling="no"
+                  allow="autoplay; fullscreen"
+                  sandbox="allow-modals allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+                  className="w-full h-full"
+                  title="Cali Championship Hoops Live Stream"
+                  onError={() => setLoadError(true)}
+                />
+              ) : (
+                <div className="flex flex-col items-center justify-center p-6 text-center space-y-2">
+                  <Radio size={24} className="text-purple-400 animate-pulse" />
+                  <span className="text-xs text-slate-400">Loading CCH stream player...</span>
                 </div>
+              )}
+            </div>
 
-                <div className="flex flex-col items-center">
-                  <span className="text-lg font-black text-amber-400">FINAL</span>
-                  <span className="text-[10px] text-slate-400 uppercase font-mono font-bold">87 - 72</span>
-                </div>
-
-                {/* Team 2: Fresno Mad Dogs (#8 Seed Cinderella) */}
-                <div className="flex flex-col items-center space-y-1">
-                  <TeamBadge teamId="fresno-mad-dogs" size="lg" />
-                  <span className="text-xs font-bold text-slate-200 mt-1">Fresno</span>
-                  <span className="text-[10px] text-slate-400 font-bold bg-slate-950/80 px-2 py-0.5 rounded-full border border-slate-800">
-                    72 (Runner-Up)
-                  </span>
-                </div>
-              </div>
-
-              <p className="text-xs text-slate-300 leading-relaxed italic bg-slate-900/50 p-3 rounded-xl border border-slate-800/50">
-                &quot;STALLIONS REIGN SUPREME! Sacramento captured their 2nd CCH title with an 87-72 victory over Fresno behind Finals MVP Dorell Kabal&apos;s 25 PTS, 11 REB retirement masterpiece and 29 PTS from George Madsen!&quot;
-              </p>
+            {/* Bottom Stream Info & Direct Watch Link */}
+            <div className="flex items-center justify-between pt-1 text-[11px] text-slate-400 relative z-10 font-sans">
+              <span className="truncate max-w-[190px] sm:max-w-[240px] text-slate-300 font-medium">
+                Official CCH 2K Broadcasts & Archives
+              </span>
+              <a
+                href="https://www.twitch.tv/cchoops2k"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-purple-900/60 hover:bg-purple-800 text-purple-200 hover:text-white px-2.5 py-1 rounded-lg border border-purple-700/50 font-bold transition-all shrink-0 flex items-center gap-1 shadow-sm"
+              >
+                <span>Watch on Twitch</span>
+                <ExternalLink size={11} />
+              </a>
             </div>
           </div>
         </div>
@@ -113,3 +152,4 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onNavigate, selectedSeas
     </div>
   );
 };
+

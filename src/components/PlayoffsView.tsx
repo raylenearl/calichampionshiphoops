@@ -218,18 +218,26 @@ export const PlayoffsView: React.FC<PlayoffsViewProps> = ({
 
       {/* Season Narrative & Finals Spotlight Header */}
       <div className="bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 relative shadow-2xl space-y-6">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 border-b border-slate-800 pb-6">
-          <div className="space-y-2">
-            <span className="text-xs font-black uppercase text-amber-400 tracking-wider flex items-center gap-1.5">
-              <Sparkles size={14} />
-              {playoffInfo.title}
-            </span>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start border-b border-slate-800 pb-6">
+          <div className="lg:col-span-7 space-y-3">
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-black uppercase text-amber-400 tracking-wider flex items-center gap-1.5 font-mono">
+                <Sparkles size={14} />
+                {playoffInfo.title}
+              </span>
+              <span className="text-[10px] bg-amber-950/80 text-amber-300 font-bold px-2 py-0.5 rounded-full border border-amber-700/50 flex items-center gap-1">
+                <Trophy size={11} /> CCH CHAMPIONS
+              </span>
+            </div>
+
             <h3 className="text-2xl sm:text-3xl font-black text-white">
               Champion: <span className="text-amber-400">{playoffInfo.champion}</span>
             </h3>
+
             <p className="text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed">
               {playoffInfo.narrative}
             </p>
+
             {selectedSeason === 3 && (
               <div className="max-w-xl mt-3">
                 <PodcastPlayerCard
@@ -247,14 +255,77 @@ export const PlayoffsView: React.FC<PlayoffsViewProps> = ({
             )}
           </div>
 
-          <div className="bg-slate-950 border border-slate-800 p-4 rounded-2xl space-y-2 min-w-[260px] shrink-0">
-            <div className="flex items-center gap-2 text-xs font-bold text-amber-400 uppercase">
-              <Award size={16} />
-              Finals MVP & Result
-            </div>
-            <div className="text-xs text-slate-200 font-semibold">{playoffInfo.finalsMvp}</div>
-            <div className="text-xs text-slate-400 font-mono font-bold bg-slate-900 p-2 rounded-xl border border-slate-800">
-              {playoffInfo.finalsScore}
+          {/* Championship Game Finals Spotlight Box */}
+          <div className="lg:col-span-5">
+            <div className="bg-slate-950/90 border border-amber-500/30 rounded-3xl p-5 relative shadow-xl space-y-3">
+              <div className="flex items-center justify-between border-b border-slate-800 pb-2.5">
+                <span className="text-xs font-black uppercase text-amber-400 tracking-wider flex items-center gap-1.5 font-mono">
+                  <Flame size={14} className="text-amber-500" />
+                  Season {selectedSeason} Champions
+                </span>
+                <span className="text-[10px] bg-amber-950 text-amber-400 font-bold px-2 py-0.5 rounded-full border border-amber-800 flex items-center gap-1">
+                  <Trophy size={11} /> FINALS
+                </span>
+              </div>
+
+              <div className="text-center space-y-2.5">
+                <div className="text-[11px] text-slate-400 font-semibold uppercase tracking-wider">
+                  Season {selectedSeason} Championship Game Final
+                </div>
+
+                <div className="flex items-center justify-around gap-2 bg-slate-900/90 p-3.5 rounded-2xl border border-slate-800">
+                  {/* Winner / Champion */}
+                  <div
+                    onClick={() => handleTeamClick(playoffInfo.champion)}
+                    className="flex flex-col items-center space-y-1 cursor-pointer group/champ transition-transform hover:scale-105"
+                  >
+                    <TeamBadge teamId={getTeamIdByName(playoffInfo.champion)} size="lg" />
+                    <span className="text-xs font-bold text-slate-200 mt-1 group-hover/champ:text-amber-400">
+                      {playoffInfo.champion.replace('California ', '').replace('Sacramento ', '').replace('Golden State ', '').replace('San Francisco ', '')}
+                    </span>
+                    <span className="text-[10px] text-amber-400 font-black bg-amber-950/70 px-2 py-0.5 rounded-full border border-amber-800/50">
+                      CHAMPS
+                    </span>
+                  </div>
+
+                  <div className="flex flex-col items-center">
+                    <span className="text-base font-black text-amber-400">FINAL</span>
+                    <span className="text-[10px] text-slate-400 uppercase font-mono font-bold">
+                      {playoffInfo.finals.score1 && playoffInfo.finals.score2 ? `${playoffInfo.finals.score1} - ${playoffInfo.finals.score2}` : 'Finals'}
+                    </span>
+                  </div>
+
+                  {/* Runner-Up */}
+                  <div
+                    onClick={() => handleTeamClick(playoffInfo.runnerUp)}
+                    className="flex flex-col items-center space-y-1 cursor-pointer group/runner transition-transform hover:scale-105"
+                  >
+                    <TeamBadge teamId={getTeamIdByName(playoffInfo.runnerUp)} size="lg" />
+                    <span className="text-xs font-bold text-slate-200 mt-1 group-hover/runner:text-slate-300">
+                      {playoffInfo.runnerUp.replace('California ', '').replace('Sacramento ', '').replace('Golden State ', '').replace('Fresno ', '')}
+                    </span>
+                    <span className="text-[10px] text-slate-400 font-bold bg-slate-950/80 px-2 py-0.5 rounded-full border border-slate-800">
+                      Runner-Up
+                    </span>
+                  </div>
+                </div>
+
+                <div className="space-y-1 bg-slate-900/60 p-3 rounded-xl border border-slate-800/60 text-left">
+                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-amber-400">
+                    <Award size={13} />
+                    <span>Finals MVP: {playoffInfo.finalsMvp}</span>
+                  </div>
+                  {selectedSeason === 3 ? (
+                    <p className="text-[11px] text-slate-300 italic leading-relaxed">
+                      &quot;STALLIONS REIGN SUPREME! Sacramento captured their 2nd CCH title with an 87-72 victory over Fresno behind Finals MVP Dorell Kabal&apos;s 25 PTS, 11 REB retirement masterpiece and 29 PTS from George Madsen!&quot;
+                    </p>
+                  ) : (
+                    <p className="text-[11px] text-slate-400 leading-relaxed">
+                      {playoffInfo.finals.notes}
+                    </p>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         </div>

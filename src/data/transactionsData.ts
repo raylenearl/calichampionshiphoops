@@ -391,7 +391,7 @@ export const TRANSACTIONS_DATA: Transaction[] = [
     type: 'coaching',
     title: 'Wyatt Zimmerman Hired by Golden State Enterprise',
     teams: [{ id: 'golden-state-enterprise', name: 'Golden State Enterprise' }],
-    description: 'Golden State Enterprise hire Wyatt Zimmerman as new Head Coach to introduce dynamic pace-and-space sets for Howie Carney and Andre Creek.',
+    description: 'Golden State Enterprise hire Wyatt Zimmerman as new Head Coach to introduce dynamic pace-and-space sets for #1 overall pick Carlton Daugherty and center Cameron Barkley.',
   },
   {
     id: 's4-coach-goodwin',
@@ -399,7 +399,7 @@ export const TRANSACTIONS_DATA: Transaction[] = [
     type: 'coaching',
     title: 'Carson Goodwin Named Head Coach of Oakland Renegades',
     teams: [{ id: 'oakland-renegades', name: 'Oakland Renegades' }],
-    description: 'Oakland Renegades name Carson Goodwin as Head Coach to lead a high-scoring offense anchored by Alonzo Reece and Dakoulas Alexandris.',
+    description: 'Oakland Renegades name Carson Goodwin as Head Coach to lead a high-scoring offense anchored by superstar Jamar Dean and Alonzo Reece.',
   },
   {
     id: 's4-coach-randle',
@@ -407,6 +407,6 @@ export const TRANSACTIONS_DATA: Transaction[] = [
     type: 'coaching',
     title: 'Zack Randle Hired by San Francisco Knights',
     teams: [{ id: 'san-francisco-knights', name: 'San Francisco Knights' }],
-    description: 'San Francisco Knights hire Zack Randle as Head Coach, bringing disciplined motion offenses tailored to Munir Kassa and Gheorghe Stefan.',
+    description: 'San Francisco Knights hire Zack Randle as Head Coach, bringing disciplined motion offenses tailored to rookie sensation Damian Gilmore and Gheorghe Stefan.',
   },
 ];

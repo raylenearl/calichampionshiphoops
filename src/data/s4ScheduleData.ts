@@ -2,10 +2,10 @@ import { GameRecord } from '../types';
 
 export const SEASON_4_SCHEDULE: GameRecord[] = [
   // OCTOBER (13 Games)
-  { id: 's4-1', season: 4, date: 'Oct 17', month: 'October', team1: 'Anaheim Admirals', score1: 0, team2: 'Oakland Renegades', score2: 0, notes: 'Admirals @ Renegades' },
+  { id: 's4-1', season: 4, date: 'Oct 17', month: 'October', team1: 'Anaheim Admirals', score1: 49, team2: 'Oakland Renegades', score2: 71, highScorer: 'Jamar Dean (OAK)', points: 26, recapArticleId: 's4-g3-renegades-blitz-admirals', notes: 'Admirals @ Renegades • 21-7 3rd Qtr Blitz • Dean 26 PTS (8-12 FG)' },
   { id: 's4-2', season: 4, date: 'Oct 17', month: 'October', team1: 'San Diego Strykers', score1: 53, team2: 'Long Beach Vipers', score2: 35, highScorer: 'A.J. Hinton (SD)', points: 15, recapArticleId: 's4-g1-strykers-crush-vipers', notes: 'Strykers @ Vipers • 25-6 3rd Qtr Blitz' },
   { id: 's4-3', season: 4, date: 'Oct 17', month: 'October', team1: 'California Reds', score1: 0, team2: 'Sacramento Stallions', score2: 0, notes: 'Reds vs Stallions' },
-  { id: 's4-4', season: 4, date: 'Oct 17', month: 'October', team1: 'San Jose Tigersharks', score1: 0, team2: 'Fresno Mad Dogs', score2: 0, notes: 'Tigersharks @ Mad Dogs' },
+  { id: 's4-4', season: 4, date: 'Oct 17', month: 'October', team1: 'San Jose Tigersharks', score1: 64, team2: 'Fresno Mad Dogs', score2: 58, highScorer: 'Donald Hardy (SJ)', points: 18, recapArticleId: 's4-g4-tigersharks-mad-dogs-s4', notes: 'Tigersharks @ Mad Dogs • Gooden Double-Double (14 PTS, 10 REB)' },
   { id: 's4-5', season: 4, date: 'Oct 17', month: 'October', team1: 'San Diego Sabrewolves', score1: 55, team2: 'Los Angeles Dynamics', score2: 77, highScorer: 'R.J. Rush (LA)', points: 33, recapArticleId: 's4-g2-rush-dynamics-cruise-sabrewolves', notes: 'Sabrewolves @ Dynamics • Rush 33 PTS (14-14 FT)' },
   { id: 's4-6', season: 4, date: 'Oct 20', month: 'October', team1: 'San Diego Strykers', score1: 0, team2: 'Anaheim Admirals', score2: 0, notes: 'Strykers @ Admirals' },
   { id: 's4-7', season: 4, date: 'Oct 22', month: 'October', team1: 'California Reds', score1: 0, team2: 'San Diego Strykers', score2: 0, notes: 'Reds @ Strykers' },

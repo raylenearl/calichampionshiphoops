@@ -6,6 +6,9 @@ import jacobUnderwoodImg from '../assets/images/JUnderwood.png';
 import pognottiImg from '../assets/images/Pognotti.png';
 import jGallowayImg from '../assets/images/JGalloway.png';
 import hintonS4G1Img from '../assets/images/HintonS4G1.png';
+import jamarDean1Img from '../assets/images/JamarDean1.png';
+import sjVsFreImg from '../assets/images/SJvsFREseason4.png';
+import sjAtFre1Img from '../assets/images/SJatFREs4_1.png';
 import aSaundersImg from '../assets/images/ASaunders.jpg';
 import bNelsonImg from '../assets/images/BNelson.jpeg';
 import cGoodwinImg from '../assets/images/CGoodwin.jpg';
@@ -77,6 +80,127 @@ export interface CCHNewsArticle {
 }
 
 export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
+  {
+    id: 's4-g3-renegades-blitz-admirals',
+    title: "Renegades' Third-Quarter Blitz Sinks Admirals, 71-49 Behind Jamar Dean's 26 Points",
+    subtitle: 'A 21-7 third-quarter surge powers the Oakland Renegades to a convincing 71-49 victory over the Anaheim Admirals in front of a sold-out Oakland Arena.',
+    date: 'Season 4 Opening Night • Game 3 Recap',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • Oakland Beat',
+    readTime: '3 min read',
+    imageUrl: jamarDean1Img,
+    imageCaption: 'Jamar Dean erupted for a game-high 26 points on an efficient 8-of-12 shooting (7-8 FT) as the Oakland Renegades pulled away for a 71-49 victory over Anaheim.',
+    teams: {
+      team1: 'Anaheim Admirals',
+      team1Id: 'anaheim-admirals',
+      score1: 49,
+      team2: 'Oakland Renegades',
+      team2Id: 'oakland-renegades',
+      score2: 71,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 14, team2: 18 },
+      { period: 'Q2', team1: 13, team2: 19 },
+      { period: 'Q3', team1: 7, team2: 21 },
+      { period: 'Q4', team1: 15, team2: 13 },
+    ],
+    headlineQuote: 'The game was decided in the third quarter. Oakland came out of the locker room on a mission, suffocating the Admirals on defense and erupting for 21 points while holding Anaheim to just 7.',
+    contentParagraphs: [
+      'Oakland, CA – The Oakland Renegades used a massive second-half surge to pull away from a stubborn Anaheim Admirals squad, securing a convincing 71-49 victory in front of a sold-out crowd at Oakland Arena.',
+      'The Renegades set the tone early, taking a 37-27 lead into the halftime break behind sharp ball movement and active perimeter pressure. However, the game was completely decided in the third quarter. Oakland came out of the locker room on a mission, suffocating the Admirals on defense and erupting for 21 points while holding Anaheim to just 7, effectively breaking the game wide open and building a lead that reached as high as 28 points.',
+      'PLAYER OF THE GAME:\nJamar Dean was unstoppable for the Renegades, dropping a game-high 26 points on an incredibly efficient 8-of-12 shooting from the field, including a lethal 7-for-8 performance from the free-throw line. Dean attacked downhill relentlessly, drawing fouls and orchestrating Oakland\'s offense with surgical precision.',
+      'SUPPORTING CAST & DEFENSIVE REBOUNDING:\nDean was ably supported by big man Joshua Bowen, who contributed 11 points, 6 rebounds, and 2 blocks in the paint, while franchise scoring icon Alonzo Reece chipped in 10 points and dished out 4 assists with 2 steals. Oakland dominated the boards and held Anaheim to just 36% shooting from the floor.',
+      'ADMIRALS PERSPECTIVE:\nFor Anaheim, veteran guard Kirk Tinsley led the offense with 14 points, connecting on 4-of-7 from beyond the arc. French rookie sensation Stephan Sirven showed flashes of brilliance with 12 points in his regular-season debut, but the Admirals were unable to sustain offense against Oakland\'s aggressive 2-3 matchup zone in the second half.'
+    ],
+    quotes: [
+      {
+        speaker: 'Jamar Dean',
+        title: 'Shooting Guard • Oakland Renegades (26 PTS, 8-12 FG, 7-8 FT)',
+        quote: 'We knew Anaheim would come out swinging, but Coach told us at halftime to clamp down on the perimeter and run in transition. Once our defense got stops in that third quarter, the basket looked like an ocean.'
+      },
+      {
+        speaker: 'Carson Goodwin',
+        title: 'Head Coach • Oakland Renegades (1st Season)',
+        quote: 'Holding a talented team like Anaheim to 7 points in the third quarter while scoring 21 is championship-level execution. Jamar Dean played with poise and Joshua Bowen owned the paint.'
+      },
+      {
+        speaker: 'Steve Porter',
+        title: 'Head Coach • Anaheim Admirals (4th Season)',
+        quote: 'That third quarter got away from us completely. We had unforced turnovers and gave up easy run-outs. We have to be much tougher with the ball.'
+      }
+    ],
+    playerStats: [
+      { player: 'Jamar Dean', team: 'Oakland Renegades', stat: '26 PTS, 3 REB, 2 STL (8-12 FG, 7-8 FT)' },
+      { player: 'Joshua Bowen', team: 'Oakland Renegades', stat: '11 PTS, 6 REB, 2 BLK (5-8 FG)' },
+      { player: 'Alonzo Reece', team: 'Oakland Renegades', stat: '10 PTS, 4 AST, 2 STL (4-9 FG)' },
+      { player: 'Kirk Tinsley', team: 'Anaheim Admirals', stat: '14 PTS, 2 AST (4-7 3PT)' },
+      { player: 'Stephan Sirven', team: 'Anaheim Admirals', stat: '12 PTS, 3 REB, 1 STL (Rookie Debut)' },
+      { player: 'George Brooks', team: 'Anaheim Admirals', stat: '7 PTS, 7 REB, 1 BLK' },
+      { player: 'Renegades 3rd Quarter Blitz', team: 'Team Defense', stat: 'Outscored Anaheim 21-7 (28-Point Lead Peak)' },
+      { player: 'Oakland Shooting & Defense', team: 'Team Stats', stat: '53.8% FG • Held Admirals to 36.2% FG' }
+    ]
+  },
+  {
+    id: 's4-g4-tigersharks-mad-dogs-s4',
+    title: 'Tigersharks Edge Mad Dogs 64-58 in Physical Opening Night Battle at Selland Arena',
+    subtitle: 'San Jose outlasts the Fresno Mad Dogs in a defensive war as rookie #3 pick Dell Gooden and Donald Hardy anchor the paint in a hard-fought Season 4 opener.',
+    date: 'Season 4 Opening Night • Game 4 Recap',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • Central Valley Beat',
+    readTime: '3 min read',
+    imageUrl: sjVsFreImg,
+    imageCaption: 'San Jose Tigersharks square off against the Fresno Mad Dogs on Season 4 Opening Night at Selland Arena in Fresno.',
+    teams: {
+      team1: 'San Jose Tigersharks',
+      team1Id: 'san-jose-tigersharks',
+      score1: 64,
+      team2: 'Fresno Mad Dogs',
+      team2Id: 'fresno-mad-dogs',
+      score2: 58,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 16, team2: 14 },
+      { period: 'Q2', team1: 15, team2: 17 },
+      { period: 'Q3', team1: 18, team2: 12 },
+      { period: 'Q4', team1: 15, team2: 15 },
+    ],
+    headlineQuote: 'A bruising NorCal rivalry clash came down to fourth-quarter stops and clutch free-throw execution as the Tigersharks secured a crucial road victory.',
+    contentParagraphs: [
+      'Fresno, CA – In a fiercely contested NorCal grudge match on Season 4 Opening Night, the San Jose Tigersharks emerged with a gritty 64-58 victory over the Fresno Mad Dogs in front of a raucous Selland Arena crowd.',
+      'The first half was a back-and-forth slugfest with four lead changes. Fresno held a narrow 31-31 tie going into the intermission behind the high-energy scoring of rookie guard Lloyd Boomer and aggressive rim penetration from Cameron Graham.',
+      'THE DECISIVE THIRD-QUARTER RUN:\nSan Jose took control in the third quarter behind suffocating interior defense from rookie #3 overall pick Dell Gooden (84 OVR) and reigning Rookie of the Year Donald Hardy. The Tigersharks held Fresno to just 12 points in the period while generating second-chance points on the offensive glass to establish a 49-43 cushion.',
+      'CLUTCH FOURTH QUARTER CLOSING:\nFresno mounted a furious fourth-quarter charge, cutting the deficit to two points with under two minutes remaining. However, San Jose guard Donald Hardy delivered ice-cold free throws in the final minute, and Gooden swatted a crucial layup attempt to seal the road victory for head coach Michael Stauffer\'s squad.'
+    ],
+    quotes: [
+      {
+        speaker: 'Donald Hardy',
+        title: 'Power Forward • San Jose Tigersharks',
+        quote: 'Winning on the road in Fresno is never easy. We locked in defensively in the third quarter and communicated on every switch.'
+      },
+      {
+        speaker: 'Dell Gooden',
+        title: 'Rookie Center • San Jose Tigersharks (#3 Pick)',
+        quote: 'My first CCH regular season game felt electric. I wanted to set the tone inside, protect the rim, and secure every defensive rebound.'
+      },
+      {
+        speaker: 'Ronnie Flores',
+        title: 'Head Coach • Fresno Mad Dogs (1st Season)',
+        quote: 'We fought with tremendous heart until the final buzzer, but that 12-point third quarter hurt us. We will clean up our offensive spacing and bounce back.'
+      }
+    ],
+    playerStats: [
+      { player: 'Donald Hardy', team: 'San Jose Tigersharks', stat: '18 PTS, 8 REB, 2 BLK (7-13 FG, Clutch FTs)' },
+      { player: 'Dell Gooden', team: 'San Jose Tigersharks', stat: '14 PTS, 10 REB, 3 BLK (Double-Double)' },
+      { player: 'Lloyd Boomer', team: 'Fresno Mad Dogs', stat: '16 PTS, 5 REB, 4 AST (Rookie Debut)' },
+      { player: 'Cameron Graham', team: 'Fresno Mad Dogs', stat: '13 PTS, 6 REB, 2 STL' },
+      { player: 'Malique Pierce', team: 'San Jose Tigersharks', stat: '10 PTS, 4 REB, 2 AST' },
+      { player: 'Tigersharks Rim Protection', team: 'Team Defense', stat: '7 Total Blocks • 38 Points in Paint' }
+    ]
+  },
   {
     id: 's4-g2-rush-dynamics-cruise-sabrewolves',
     title: 'Rookie R.J. Rush Sets CCH Record with 14-of-14 Free Throws, Drops 33 as Dynamics Cruise',
@@ -515,8 +639,8 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     headlineQuote: 'The sideline chess match in Season 4 will be the fiercest in league history. Four enduring pillars defend their culture against eight fresh tacticians determined to reshape the championship hierarchy.',
     contentParagraphs: [
       'CALIFORNIA — As the dust settles on the wildest offseason in Cali Championship Hoops history, the league officially unveils the 12 head coaches who will command the sidelines for Season 4. Marked by blockbuster cross-town defections, coaching royalty returns, and ambitious new tacticians stepping into high-pressure roles, the tactical landscape has never been more competitive.',
-      'THE RETURNING VANGUARD: FOUR STALWARTS OF CONTINUITY\nWhile the coaching carousel spun at dizzying speeds this summer, four franchises chose to double down on their proven masterminds:\n\n• Steve Porter (Anaheim Admirals, 4th Season): Entering his fourth consecutive season in Anaheim, Porter represents the gold standard of steady player development. Porter has built the Admirals around sharp perimeter ball movement, leading the league in free-throw efficiency and maximizing dead-eye shooter Kirk Tinsley.\n\n• William Walker (California Reds, 4th Season): The reigning 2-Time CCH Coach of the Year (Season 2 & Season 3) and Season 2 Champion. Walker transformed California from a 9-game losing streak in Season 1 into a back-to-back regular season juggernaut, orchestrating the superstar tandem of Lamar Anderson and defensive anchor Andor Marai.\n\n• Benjamin Nelson (Sacramento Stallions, 4th Season): The winningest coach in CCH history. With two championship rings (Season 1 & Season 3) and three consecutive Finals appearances, Nelson remains on the throne. Season 4 will test his tactical genius as he constructs a new offensive identity following the retirement of legendary Finals MVP Dorell Kabal.\n\n• Michael Stauffer (San Jose Tigersharks, 3rd Season): Entering his third year at the helm in San Jose after taking over in Season 2. Stauffer brought home the rivalry Platinum Cup and has established one of the league’s grittiest frontcourts centered around rebounding machine J.C. McMillan.',
-      'THE NEWCOMERS & HIGH-PROFILE SHAKEUPS: EIGHT SIDELINES REBORN\nEight organizations enter Season 4 under new direction, featuring veteran switches, beloved reunions, and high-energy newcomers:\n\n• Jacob Underwood (San Diego Sabrewolves): The biggest coaching defection in league history. After mentoring A.J. Hinton to the Season 3 MVP with the Strykers, Underwood crossed enemy lines to sign a monumental 4-year, $29.11M deal with the arch-rival Sabrewolves. Underwood now commands 56-point scoring king Kirk Barnes and DPOY Wes Taylor.\n\n• Adam Saunders (San Diego Strykers): Stepping directly into the fire in San Diego, Saunders takes the helm of a championship-ready Strykers roster hungry for redemption, boasting MVP A.J. Hinton, floor general Ray Gambino Gamble, and All-Cali forward DeAnte Gray.\n\n• Pooh Splitter (Los Angeles Dynamics): After three seasons guiding the Fresno Mad Dogs to the Season 3 Finals in an iconic Cinderella run, Splitter brings his hard-nosed defensive toughness down south to Los Angeles, taking over a perennial contender headlined by Mo Alexander and Jack McMichael Jr.\n\n• Stretch Roberts (Long Beach Vipers, 4th Season): The Season 1 Coach of the Year returns to the sidelines after taking a personal leave in Season 3. Roberts brings his infectious energy back to Long Beach to accelerate the development of rising stars Phil Martin Jr. and Coby Spencer.\n\n• Ronnie Flores (Fresno Mad Dogs): Handed the keys in Fresno following Splitter’s departure, Flores inherits a passionate underdog culture and looks to keep the Mad Dogs in title contention with an up-tempo transition engine.\n\n• Wyatt Zimmerman (Golden State Enterprise): Named head coach in the East Bay, Zimmerman brings modern pace-and-space philosophies designed to unlock sniper Howie Carney and interior stopper Andre Creek.\n\n• Carson Goodwin (Oakland Renegades): Taking over in Oakland, Goodwin looks to unleash scoring machine Alonzo Reece and transition wizard Dakoulas Alexandris in a high-octane offensive attack.\n\n• Zack Randle (San Francisco Knights): Charged with guiding the tactical Knights, Randle brings refined motion schemes tailored to clutch maestro Munir Kassa and former #1 pick Gheorghe Stefan.'
+      'THE RETURNING VANGUARD: FOUR STALWARTS OF CONTINUITY\nWhile the coaching carousel spun at dizzying speeds this summer, four franchises chose to double down on their proven masterminds:\n\n• Steve Porter (Anaheim Admirals, 4th Season): Entering his fourth consecutive season in Anaheim, Porter represents the gold standard of steady player development. Porter has built the Admirals around sharp perimeter ball movement, leading the league in free-throw efficiency and maximizing dead-eye shooter Kirk Tinsley.\n\n• William Walker (California Reds, 4th Season): The reigning 2-Time CCH Coach of the Year (Season 2 & Season 3) and Season 2 Champion. Walker transformed California from a 9-game losing streak in Season 1 into a back-to-back regular season juggernaut, orchestrating the superstar tandem of Lamar Anderson and defensive anchor Andor Marai.\n\n• Benjamin Nelson (Sacramento Stallions, 4th Season): The winningest coach in CCH history. With two championship rings (Season 1 & Season 3) and three consecutive Finals appearances, Nelson remains on the throne. Season 4 will test his tactical genius as he constructs a new offensive identity following the retirement of legendary Finals MVP Dorell Kabal.\n\n• Michael Stauffer (San Jose Tigersharks, 3rd Season): Entering his third year at the helm in San Jose after taking over in Season 2. Stauffer brought home the rivalry Platinum Cup and has established one of the league’s grittiest frontcourts centered around rookie phenom Dell Gooden and Donald Hardy.',
+      'THE NEWCOMERS & HIGH-PROFILE SHAKEUPS: EIGHT SIDELINES REBORN\nEight organizations enter Season 4 under new direction, featuring veteran switches, beloved reunions, and high-energy newcomers:\n\n• Jacob Underwood (San Diego Sabrewolves): The biggest coaching defection in league history. After mentoring A.J. Hinton to the Season 3 MVP with the Strykers, Underwood crossed enemy lines to sign a monumental 4-year, $29.11M deal with the arch-rival Sabrewolves. Underwood now commands 56-point scoring king Kirk Barnes and DPOY Wes Taylor.\n\n• Adam Saunders (San Diego Strykers): Stepping directly into the fire in San Diego, Saunders takes the helm of a championship-ready Strykers roster hungry for redemption, boasting MVP A.J. Hinton, floor general Ray Gambino Gamble, and All-Cali forward DeAnte Gray.\n\n• Pooh Splitter (Los Angeles Dynamics): After three seasons guiding the Fresno Mad Dogs to the Season 3 Finals in an iconic Cinderella run, Splitter brings his hard-nosed defensive toughness down south to Los Angeles, taking over a perennial contender headlined by Mo Alexander and Jack McMichael Jr.\n\n• Stretch Roberts (Long Beach Vipers, 4th Season): The Season 1 Coach of the Year returns to the sidelines after taking a personal leave in Season 3. Roberts brings his infectious energy back to Long Beach to lead veteran forward J.C. McMillan and 7-foot rookie center Grok Wilkens.\n\n• Ronnie Flores (Fresno Mad Dogs): Handed the keys in Fresno following Splitter’s departure, Flores inherits a passionate underdog culture and looks to keep the Mad Dogs in title contention with an up-tempo transition engine led by rookie Lloyd Boomer.\n\n• Wyatt Zimmerman (Golden State Enterprise): Named head coach in the East Bay, Zimmerman brings modern pace-and-space philosophies designed to unlock #1 overall pick Carlton Daugherty, Jud Thompson, and veteran center Cameron Barkley.\n\n• Carson Goodwin (Oakland Renegades): Taking over in Oakland, Goodwin looks to unleash scoring machines Jamar Dean and Alonzo Reece in a high-octane offensive attack.\n\n• Zack Randle (San Francisco Knights): Charged with guiding the tactical Knights, Randle brings refined motion schemes tailored to dynamic rookie wing Damian Gilmore and former #1 pick Gheorghe Stefan.'
     ],
     quotes: [
       {
@@ -581,7 +705,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
         tenureYears: '3rd Season',
         tenureNote: '(Took over in Season 2)',
         photo: mStaufferImg,
-        background: 'Enters his 3rd year steering San Jose after transforming the team’s interior grit. Captured the Platinum Cup and molded J.C. McMillan into the league’s premier rebounder.',
+        background: 'Enters his 3rd year steering San Jose after transforming the team’s interior grit. Captured the Platinum Cup and pairs rookie #3 pick Dell Gooden alongside Donald Hardy.',
         philosophy: 'Physical interior defense, dominant rebounding, and high-effort transition.'
       },
       {
@@ -593,7 +717,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
         tenureYears: '1st Season in Fresno',
         tenureNote: '(New Head Coach)',
         photo: rFloresImg,
-        background: 'Takes the reins in Fresno following the Mad Dogs’ historic Season 3 Cinderella Finals run. Brings intense defensive pressure and fast-break schemes to empower Josh Parks and Damon Stephens.',
+        background: 'Takes the reins in Fresno following the Mad Dogs’ historic Season 3 Cinderella Finals run. Brings intense defensive pressure and fast-break schemes to empower rookie point guard Lloyd Boomer and forward Cameron Graham.',
         philosophy: 'Relentless underdog energy, full-court pressure, and aggressive paint attacking.'
       },
       {
@@ -605,7 +729,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
         tenureYears: '1st Season in Golden State',
         tenureNote: '(New Head Coach)',
         photo: wZimmermanImg,
-        background: 'Appointed to re-energize Golden State. Focuses on modern pace-and-space sets, capitalizing on Howie Carney’s lethal 3-point stroke and the defensive prowess of Andre Creek.',
+        background: 'Appointed to re-energize Golden State. Focuses on modern pace-and-space sets, capitalizing on #1 overall pick Carlton Daugherty, Jud Thompson, and veteran center Cameron Barkley.',
         philosophy: 'Five-out spacing, rapid ball rotation, and analytical shot selection.'
       },
       {
@@ -617,7 +741,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
         tenureYears: '4th Season in Long Beach',
         tenureNote: '(Returned after S3 leave / S1 COTY)',
         photo: sRobertsImg,
-        background: 'The charismatic Season 1 Coach of the Year triumphantly returns to the Vipers bench after taking a personal leave in Season 3. Reunited with rising stars Phil Martin Jr. and Coby Spencer.',
+        background: 'The charismatic Season 1 Coach of the Year triumphantly returns to the Vipers bench after taking a personal leave in Season 3. Now leads veteran forward J.C. McMillan and 7-foot rookie center Grok Wilkens.',
         philosophy: 'Empowering player confidence, high-octane tempo, and aggressive perimeter drives.'
       },
       {
@@ -641,7 +765,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
         tenureYears: '1st Season in Oakland',
         tenureNote: '(New Head Coach)',
         photo: cGoodwinImg,
-        background: 'Hired to steer Oakland’s explosive offense. Goodwin aims to unleash Alonzo Reece (Season 1 43-pt game record) and floor general Dakoulas Alexandris into the league’s top scoring attack.',
+        background: 'Hired to steer Oakland’s explosive offense. Goodwin aims to unleash Jamar Dean and Alonzo Reece into the league’s top scoring attack.',
         philosophy: 'Fast-break transition, creative guard action, and perimeter aggression.'
       },
       {
@@ -653,7 +777,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
         tenureYears: '1st Season in San Francisco',
         tenureNote: '(New Head Coach)',
         photo: zRandleImg,
-        background: 'Stepping in to lead the Knights, Randle brings a refined motion offense tailored around clutch sniper Munir Kassa and former #1 overall pick Gheorghe Stefan.',
+        background: 'Stepping in to lead the Knights, Randle brings a refined motion offense tailored around explosive rookie wing Damian Gilmore and former #1 overall pick Gheorghe Stefan.',
         philosophy: 'Motion basketball, pinpoint screening, and late-game tactical precision.'
       },
       {
