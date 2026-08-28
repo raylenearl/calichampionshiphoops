@@ -293,7 +293,7 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
               <option value="All">All 12 Teams</option>
               {TEAMS.map((team) => (
                 <option key={team.id} value={team.id}>
-                  {team.name}
+                  {team.id === 'san-diego-sabrewolves' ? 'San Diego Surf' : team.id === 'san-diego-strykers' ? 'San Diego Strykers' : team.city}
                 </option>
               ))}
             </select>
@@ -466,9 +466,9 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
               <div className="space-y-2.5">
                 {/* Team 1 */}
                 <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-2 overflow-hidden">
+                  <div className="flex items-center gap-2 min-w-0">
                     <TeamBadge teamId={findTeamId(game.team1)} size="sm" />
-                    <span className={`text-sm font-extrabold truncate ${!isPending && team1Wins ? 'text-white' : 'text-slate-300'}`}>
+                    <span className={`text-sm font-extrabold ${!isPending && team1Wins ? 'text-white' : 'text-slate-300'}`}>
                       {game.team1}
                     </span>
                   </div>
@@ -489,9 +489,9 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
 
                 {/* Team 2 */}
                 <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-2 overflow-hidden">
+                  <div className="flex items-center gap-2 min-w-0">
                     <TeamBadge teamId={findTeamId(game.team2)} size="sm" />
-                    <span className={`text-sm font-extrabold truncate ${!isPending && !team1Wins ? 'text-white' : 'text-slate-300'}`}>
+                    <span className={`text-sm font-extrabold ${!isPending && !team1Wins ? 'text-white' : 'text-slate-300'}`}>
                       {game.team2}
                     </span>
                   </div>

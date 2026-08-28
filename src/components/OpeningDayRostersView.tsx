@@ -327,7 +327,7 @@ export const OpeningDayRostersView: React.FC<OpeningDayRostersViewProps> = ({
               <option value="all">All 12 Teams</option>
               {TEAMS.map((t) => (
                 <option key={t.id} value={t.id}>
-                  {t.name}
+                  {t.id === 'san-diego-sabrewolves' ? 'San Diego Surf' : t.id === 'san-diego-strykers' ? 'San Diego Strykers' : t.city}
                 </option>
               ))}
             </select>
@@ -491,7 +491,7 @@ export const OpeningDayRostersView: React.FC<OpeningDayRostersViewProps> = ({
               }`}
             >
               <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: team.primaryColor }} />
-              <span>{team.shortName}</span>
+              <span>{team.id === 'san-diego-sabrewolves' ? 'SD Surf' : team.id === 'san-diego-strykers' ? 'SD Strykers' : team.city}</span>
             </button>
           ))}
         </div>
@@ -993,7 +993,7 @@ export const OpeningDayRostersView: React.FC<OpeningDayRostersViewProps> = ({
                       #{p.number}
                     </span>
                     <div className="min-w-0">
-                      <h4 className="text-sm font-black text-white truncate">{p.name}</h4>
+                      <h4 className="text-sm font-black text-white">{p.name}</h4>
                       <p className="text-xs text-slate-400 font-medium">{p.teamName}</p>
                       <p className="text-[10px] text-slate-400 font-mono">
                         {p.position} • {p.seasonYear} • {p.height}
@@ -1043,7 +1043,7 @@ export const OpeningDayRostersView: React.FC<OpeningDayRostersViewProps> = ({
                       #{p.number}
                     </span>
                     <div className="min-w-0">
-                      <h4 className="text-sm font-black text-white truncate">{p.name}</h4>
+                      <h4 className="text-sm font-black text-white">{p.name}</h4>
                       <p className="text-xs text-slate-400 font-medium">{p.teamName}</p>
                       <p className="text-[10px] text-slate-400 font-mono">
                         {p.position} • Rookie • {p.height}

@@ -40,7 +40,7 @@ export const ChampionshipVideoCard: React.FC = () => {
           </h3>
 
           <div className="space-y-1 text-xs text-slate-300 leading-relaxed font-normal">
-            <p className="line-clamp-2 sm:line-clamp-none font-medium text-slate-200">
+            <p className="font-medium text-slate-200">
               Behind a masterclass from Finals MVP Dorell Kabal (25 PTS, 11 REB, 3 BLK on 78.6% FG) in his final career game and 29 points from George Madsen (5-7 3PT), the Sacramento Stallions captured their 2nd CCH Title!
             </p>
           </div>

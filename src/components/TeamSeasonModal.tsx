@@ -472,10 +472,10 @@ export const TeamSeasonModal: React.FC<TeamSeasonModalProps> = ({
                             </span>
                           )}
                           <div className="min-w-0">
-                            <p className="font-black text-slate-100 text-xs truncate flex items-center gap-1.5">
+                            <p className="font-black text-slate-100 text-xs flex items-center gap-1.5">
                               {p.name}
                             </p>
-                            <p className="text-[10px] text-slate-400 font-semibold truncate">
+                            <p className="text-[10px] text-slate-400 font-semibold">
                               {p.position}
                               {p.seasonYear ? ` • ${p.seasonYear}` : ''}
                             </p>
@@ -498,8 +498,8 @@ export const TeamSeasonModal: React.FC<TeamSeasonModalProps> = ({
                       </div>
 
                       {/* Bio & Details Footer */}
-                      <div className="flex items-center justify-between text-[10px] text-slate-400 border-t border-slate-800/80 pt-2 mt-1">
-                        <span className="truncate font-medium text-slate-300">
+                      <div className="flex items-center justify-between text-[10px] text-slate-400 border-t border-slate-800/80 pt-2 mt-1 gap-2 flex-wrap">
+                        <span className="font-medium text-slate-300">
                           {p.schoolOrNote || '—'}
                         </span>
                         {(p.age || p.height || p.weight) && (

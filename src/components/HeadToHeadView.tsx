@@ -154,7 +154,7 @@ export const HeadToHeadView: React.FC = () => {
               >
                 {TEAMS.map((t) => (
                   <option key={t.id} value={t.id}>
-                    {t.name} ({t.conference})
+                    {t.id === 'san-diego-sabrewolves' ? 'San Diego Surf' : t.id === 'san-diego-strykers' ? 'San Diego Strykers' : t.city} ({t.conference === 'Northern Cali' ? 'NorCal' : 'SoCal'})
                   </option>
                 ))}
               </select>
@@ -187,7 +187,7 @@ export const HeadToHeadView: React.FC = () => {
               >
                 {TEAMS.map((t) => (
                   <option key={t.id} value={t.id}>
-                    {t.name} ({t.conference})
+                    {t.id === 'san-diego-sabrewolves' ? 'San Diego Surf' : t.id === 'san-diego-strykers' ? 'San Diego Strykers' : t.city} ({t.conference === 'Northern Cali' ? 'NorCal' : 'SoCal'})
                   </option>
                 ))}
               </select>

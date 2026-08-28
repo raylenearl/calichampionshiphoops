@@ -237,10 +237,10 @@ export const PodcastPlayerCard: React.FC<PodcastPlayerCardProps> = ({
               <Radio size={14} className={isPlaying ? 'animate-pulse text-amber-400' : ''} />
             </div>
             <div className="min-w-0">
-              <span className="text-[10px] font-mono text-amber-400 font-bold uppercase tracking-wider block truncate">
+              <span className="text-[10px] font-mono text-amber-400 font-bold uppercase tracking-wider block">
                 Official Audio Broadcast
               </span>
-              <h4 className="text-xs font-black text-white leading-tight truncate">
+              <h4 className="text-xs font-black text-white leading-tight">
                 {podcastInfo?.episodeTitle || title}
               </h4>
             </div>
@@ -266,9 +266,9 @@ export const PodcastPlayerCard: React.FC<PodcastPlayerCardProps> = ({
         {/* Error notification if audio issue */}
         {hasError && (
           <div className="flex items-center justify-between gap-2 p-2 rounded-xl bg-amber-950/60 border border-amber-500/40 text-[11px] text-amber-300">
-            <div className="flex items-center gap-1.5 truncate">
+            <div className="flex items-center gap-1.5">
               <AlertCircle size={13} className="shrink-0 text-amber-400" />
-              <span className="truncate">Connecting stream...</span>
+              <span>Connecting stream...</span>
             </div>
             <button
               onClick={retryPlayback}
@@ -354,14 +354,14 @@ export const PodcastPlayerCard: React.FC<PodcastPlayerCardProps> = ({
             <Radio size={16} className={isPlaying ? 'animate-pulse text-amber-400' : ''} />
           </div>
           <div className="min-w-0">
-            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-400 block truncate">
+            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-400 block">
               Official Podcast Broadcast
             </span>
-            <h3 className="text-sm sm:text-base font-black text-white leading-snug truncate">
+            <h3 className="text-sm sm:text-base font-black text-white leading-snug">
               {podcastInfo?.episodeTitle || title}
             </h3>
             {subtitle && (
-              <p className="text-xs text-slate-400 font-normal mt-0.5 line-clamp-1">
+              <p className="text-xs text-slate-400 font-normal mt-0.5">
                 {subtitle}
               </p>
             )}

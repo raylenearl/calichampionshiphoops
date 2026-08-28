@@ -248,7 +248,7 @@ export const TeamDirectory: React.FC<TeamDirectoryProps> = ({ onSelectTeamRecap 
                 </div>
               </div>
 
-              <p className="text-xs text-slate-300 line-clamp-2 leading-relaxed">
+              <p className="text-xs text-slate-300 leading-relaxed">
                 {team.description}
               </p>
             </div>

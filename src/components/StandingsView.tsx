@@ -221,7 +221,7 @@ export const StandingsView: React.FC<StandingsViewProps> = ({
               <span className="text-[10px] font-extrabold uppercase text-slate-400 tracking-wider block">
                 #1 Pre-Season Rating
               </span>
-              <p className="text-sm font-black text-white truncate">
+              <p className="text-sm font-black text-white">
                 San Diego Strykers (92.5 OVR)
               </p>
               <span className="text-[11px] text-amber-400 font-semibold">
@@ -238,7 +238,7 @@ export const StandingsView: React.FC<StandingsViewProps> = ({
               <span className="text-[10px] font-extrabold uppercase text-slate-400 tracking-wider block">
                 NorCal Leader
               </span>
-              <p className="text-sm font-black text-white truncate">
+              <p className="text-sm font-black text-white">
                 Oakland Renegades (87.8 OVR)
               </p>
               <span className="text-[11px] text-blue-400 font-semibold">
@@ -255,7 +255,7 @@ export const StandingsView: React.FC<StandingsViewProps> = ({
               <span className="text-[10px] font-extrabold uppercase text-slate-400 tracking-wider block">
                 Defending Champions
               </span>
-              <p className="text-sm font-black text-white truncate">
+              <p className="text-sm font-black text-white">
                 Sacramento Stallions
               </p>
               <span className="text-[11px] text-purple-400 font-semibold">
@@ -519,7 +519,7 @@ export const StandingsView: React.FC<StandingsViewProps> = ({
                     </span>
                     <TeamBadge teamId={team.teamId} size="sm" />
                     <div className="min-w-0">
-                      <p className="text-sm font-black text-white truncate hover:text-amber-400 transition-colors">
+                      <p className="text-sm font-black text-white hover:text-amber-400 transition-colors">
                         {team.teamName}
                       </p>
                       <span className="text-[11px] text-slate-400 font-mono">
@@ -578,7 +578,7 @@ export const StandingsView: React.FC<StandingsViewProps> = ({
                     </span>
                     <TeamBadge teamId={team.teamId} size="sm" />
                     <div className="min-w-0">
-                      <p className="text-sm font-black text-white truncate hover:text-amber-400 transition-colors">
+                      <p className="text-sm font-black text-white hover:text-amber-400 transition-colors">
                         {team.teamName}
                       </p>
                       <span className="text-[11px] text-slate-400 font-mono">

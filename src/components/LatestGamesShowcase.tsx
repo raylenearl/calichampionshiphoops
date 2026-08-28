@@ -253,7 +253,7 @@ export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none -ml-20 -mb-20" />
 
       {/* Top Header Bar with Live Badge & Quick Game Selectors */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 relative z-10 border-b border-slate-800 pb-5">
+      <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4 relative z-10 border-b border-slate-800 pb-5">
         <div className="space-y-1">
           <div className="flex items-center gap-2.5 flex-wrap">
             <span className="flex h-3 w-3 rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/50 animate-pulse" />
@@ -273,30 +273,48 @@ export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
         </div>
 
         {/* Game Switcher Tabs */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
+        <div className="flex flex-wrap items-center gap-2 max-w-full">
           {HIGHLIGHT_GAMES.map((game) => {
             const isSelected = game.id === selectedGameId;
+            const winnerShort =
+              game.winner.id === 'san-diego-strykers'
+                ? 'Strykers'
+                : game.winner.id === 'california-reds'
+                ? 'Reds'
+                : game.winner.id === 'oakland-renegades'
+                ? 'Renegades'
+                : game.winner.name.split(' ').pop();
+            const loserShort =
+              game.loser.id === 'san-diego-strykers'
+                ? 'Strykers'
+                : game.loser.id === 'california-reds'
+                ? 'Reds'
+                : game.loser.id === 'sacramento-stallions'
+                ? 'Stallions'
+                : game.loser.id === 'long-beach-vipers'
+                ? 'Vipers'
+                : game.loser.name.split(' ').pop();
             return (
               <button
                 key={game.id}
                 onClick={() => setSelectedGameId(game.id)}
-                className={`px-3.5 py-2 rounded-2xl font-mono text-xs font-black uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer whitespace-nowrap border shrink-0 ${
+                className={`px-3 py-2 rounded-2xl font-mono text-xs font-black uppercase tracking-wider flex items-center gap-1.5 sm:gap-2 transition-all cursor-pointer whitespace-nowrap border shrink-0 ${
                   isSelected
                     ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-lg shadow-amber-500/25 ring-2 ring-amber-400/40 scale-[1.02]'
                     : 'bg-slate-900/90 text-slate-300 border-slate-700 hover:border-amber-400 hover:text-white hover:bg-slate-800'
                 }`}
               >
                 {game.tagIcon === 'flame' && (
-                  <Flame size={14} className={isSelected ? 'fill-slate-950 text-slate-950' : 'text-orange-400'} />
+                  <Flame size={14} className={isSelected ? 'fill-slate-950 text-slate-950 shrink-0' : 'text-orange-400 shrink-0'} />
                 )}
                 {game.tagIcon === 'shield' && (
-                  <Shield size={14} className={isSelected ? 'fill-slate-950 text-slate-950' : 'text-purple-400'} />
+                  <Shield size={14} className={isSelected ? 'fill-slate-950 text-slate-950 shrink-0' : 'text-purple-400 shrink-0'} />
                 )}
                 {game.tagIcon === 'zap' && (
-                  <Zap size={14} className={isSelected ? 'fill-slate-950 text-slate-950' : 'text-red-400'} />
+                  <Zap size={14} className={isSelected ? 'fill-slate-950 text-slate-950 shrink-0' : 'text-red-400 shrink-0'} />
                 )}
                 <span>
-                  {game.winner.name.split(' ').pop()} {game.winner.score}, {game.loser.name.split(' ').pop()} {game.loser.score}
+                  {winnerShort} {game.winner.score}, {loserShort} {game.loser.score}
                 </span>
               </button>
             );
@@ -365,24 +383,24 @@ export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
             </div>
 
             {/* Teams & Scores Row */}
-            <div className="grid grid-cols-2 gap-4 items-center py-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 items-center py-2">
               {/* Winner Side */}
               <div
                 onClick={() => onSelectTeam && onSelectTeam(activeGame.winner.id)}
-                className="flex items-center gap-3 p-3 rounded-2xl bg-emerald-950/20 border border-emerald-500/30 hover:border-amber-400 cursor-pointer transition-all group/win"
+                className="flex items-center justify-between gap-2.5 p-3 rounded-2xl bg-emerald-950/20 border border-emerald-500/30 hover:border-amber-400 cursor-pointer transition-all group/win overflow-hidden"
               >
-                <TeamBadge teamId={activeGame.winner.id} size="md" />
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-center gap-1.5">
-                    <h4 className="text-base sm:text-lg font-black text-white truncate group-hover/win:text-amber-300 transition-colors">
+                <div className="flex items-center gap-2.5 min-w-0 flex-1">
+                  <TeamBadge teamId={activeGame.winner.id} size="md" />
+                  <div className="min-w-0 flex-1">
+                    <h4 className="text-sm sm:text-base font-black text-white group-hover/win:text-amber-300 transition-colors truncate">
                       {activeGame.winner.name}
                     </h4>
-                  </div>
-                  <div className="text-[11px] font-mono text-emerald-400 font-bold">
-                    {activeGame.winner.record} • {activeGame.winner.isHome ? 'Home' : 'Away'}
+                    <div className="text-[10px] sm:text-[11px] font-mono text-emerald-400 font-bold truncate">
+                      {activeGame.winner.record} • {activeGame.winner.isHome ? 'Home' : 'Away'}
+                    </div>
                   </div>
                 </div>
-                <div className="text-3xl sm:text-4xl font-black text-white font-mono shrink-0 pl-1">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-white font-mono shrink-0 pl-1.5">
                   {activeGame.winner.score}
                 </div>
               </div>
@@ -390,18 +408,20 @@ export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
               {/* Loser Side */}
               <div
                 onClick={() => onSelectTeam && onSelectTeam(activeGame.loser.id)}
-                className="flex items-center gap-3 p-3 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 cursor-pointer transition-all group/lose"
+                className="flex items-center justify-between gap-2.5 p-3 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 cursor-pointer transition-all group/lose overflow-hidden"
               >
-                <TeamBadge teamId={activeGame.loser.id} size="md" />
-                <div className="min-w-0 flex-1">
-                  <h4 className="text-base sm:text-lg font-black text-slate-300 truncate group-hover/lose:text-white transition-colors">
-                    {activeGame.loser.name}
-                  </h4>
-                  <div className="text-[11px] font-mono text-slate-400">
-                    {activeGame.loser.record} • {activeGame.loser.isHome ? 'Home' : 'Away'}
+                <div className="flex items-center gap-2.5 min-w-0 flex-1">
+                  <TeamBadge teamId={activeGame.loser.id} size="md" />
+                  <div className="min-w-0 flex-1">
+                    <h4 className="text-sm sm:text-base font-black text-slate-300 group-hover/lose:text-white transition-colors truncate">
+                      {activeGame.loser.name}
+                    </h4>
+                    <div className="text-[10px] sm:text-[11px] font-mono text-slate-400 truncate">
+                      {activeGame.loser.record} • {activeGame.loser.isHome ? 'Home' : 'Away'}
+                    </div>
                   </div>
                 </div>
-                <div className="text-3xl sm:text-4xl font-black text-slate-400 font-mono shrink-0 pl-1">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-400 font-mono shrink-0 pl-1.5">
                   {activeGame.loser.score}
                 </div>
               </div>
@@ -479,7 +499,7 @@ export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
                 <span className="text-[10px] font-mono font-black uppercase tracking-wider bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded border border-amber-500/30">
                   {activeGame.starPlayer.highlightPill}
                 </span>
-                <h4 className="text-lg sm:text-xl font-black text-white truncate mt-1">
+                <h4 className="text-lg sm:text-xl font-black text-white mt-1">
                   {activeGame.starPlayer.name}
                 </h4>
                 <p className="text-xs font-mono text-amber-300 font-bold">
@@ -497,7 +517,7 @@ export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
                 {activeGame.secondaryPerformers.map((p, idx) => (
                   <div
                     key={idx}
-                    className="bg-slate-900/80 px-2.5 py-1 rounded-lg border border-slate-800 text-slate-200 truncate"
+                    className="bg-slate-900/80 px-2.5 py-1 rounded-lg border border-slate-800 text-slate-200"
                   >
                     <span className="font-bold text-white">{p.name}: </span>
                     <span className="text-slate-300 text-[10px]">{p.stat}</span>
@@ -515,13 +535,13 @@ export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
               key={i}
               className="bg-slate-950/80 border border-slate-800/80 p-3 sm:p-4 rounded-2xl space-y-1 text-center"
             >
-              <span className="text-[10px] font-mono text-slate-400 font-bold uppercase block truncate">
+              <span className="text-[10px] font-mono text-slate-400 font-bold uppercase block">
                 {stat.label}
               </span>
               <div className="text-lg sm:text-2xl font-black text-amber-400 font-mono">
                 {stat.value}
               </div>
-              <span className="text-[10px] text-slate-400 block truncate">
+              <span className="text-[10px] text-slate-400 block">
                 {stat.desc}
               </span>
             </div>
@@ -591,28 +611,46 @@ export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
                 </div>
 
                 <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-2 min-w-0 flex-1">
                       <TeamBadge teamId={game.winner.id} size="xs" />
-                      <span className="text-sm font-black text-white">{game.winner.name}</span>
+                      <span className="text-sm font-black text-white truncate">
+                        {game.winner.id === 'san-diego-strykers'
+                          ? 'SD Strykers'
+                          : game.winner.id === 'california-reds'
+                          ? 'California Reds'
+                          : game.winner.id === 'oakland-renegades'
+                          ? 'Oakland Renegades'
+                          : game.winner.name}
+                      </span>
                     </div>
-                    <span className="text-base font-mono font-black text-amber-400">
+                    <span className="text-base font-mono font-black text-amber-400 shrink-0">
                       {game.winner.score}
                     </span>
                   </div>
 
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-2 min-w-0 flex-1">
                       <TeamBadge teamId={game.loser.id} size="xs" />
-                      <span className="text-sm font-bold text-slate-400">{game.loser.name}</span>
+                      <span className="text-sm font-bold text-slate-400 truncate">
+                        {game.loser.id === 'san-diego-strykers'
+                          ? 'SD Strykers'
+                          : game.loser.id === 'california-reds'
+                          ? 'California Reds'
+                          : game.loser.id === 'sacramento-stallions'
+                          ? 'Sacramento Stallions'
+                          : game.loser.id === 'long-beach-vipers'
+                          ? 'Long Beach Vipers'
+                          : game.loser.name}
+                      </span>
                     </div>
-                    <span className="text-base font-mono font-bold text-slate-400">
+                    <span className="text-base font-mono font-bold text-slate-400 shrink-0">
                       {game.loser.score}
                     </span>
                   </div>
                 </div>
 
-                <p className="text-[11px] text-slate-300 mt-3 line-clamp-2 leading-relaxed">
+                <p className="text-[11px] text-slate-300 mt-3 leading-relaxed">
                   {game.narrative}
                 </p>
 

@@ -320,7 +320,7 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                     />
                   </div>
                   <div className="w-full bg-slate-950/95 border-t border-amber-500/20 px-3 py-2 rounded-b-xl flex items-center justify-between text-[11px] font-mono font-bold text-amber-300">
-                    <span className="flex items-center gap-1.5 truncate">
+                    <span className="flex items-center gap-1.5">
                       <Sparkles size={13} className="text-amber-400 shrink-0" /> {featuredStory.imageCaption || 'Official CCH Media Photo'}
                     </span>
                   </div>
@@ -449,7 +449,7 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                       alt={article.title}
                       className="max-h-[120px] max-w-[150px] object-contain transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute bottom-2 left-2.5 right-2.5 text-[10px] font-mono font-bold text-amber-300 bg-slate-950/90 backdrop-blur-sm px-2.5 py-1 rounded-lg border border-amber-500/20 truncate text-center">
+                    <div className="absolute bottom-2 left-2.5 right-2.5 text-[10px] font-mono font-bold text-amber-300 bg-slate-950/90 backdrop-blur-sm px-2.5 py-1 rounded-lg border border-amber-500/20 text-center">
                       {article.imageCaption || (article.imageUrl ? 'Breaking News Photo' : 'Official CCH League Release')}
                     </div>
                   </div>
@@ -486,7 +486,7 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                 <h3 className="text-base font-black text-white group-hover:text-amber-400 transition-colors leading-snug">
                   {article.title}
                 </h3>
-                <p className="text-xs text-slate-400 line-clamp-3 leading-relaxed font-normal">
+                <p className="text-xs text-slate-400 leading-relaxed font-normal">
                   {article.subtitle}
                 </p>
 
@@ -512,7 +512,7 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
 
               {/* Footer Author & Read Action */}
               <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs">
-                <span className="text-[11px] text-slate-500 font-medium truncate max-w-[160px]">
+                <span className="text-[11px] text-slate-500 font-medium">
                   {article.author}
                 </span>
                 <span className="font-extrabold text-amber-400 text-[11px] flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">

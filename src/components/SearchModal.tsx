@@ -271,7 +271,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                     >
                       <div>
                         <div className="font-bold text-amber-400">{tx.title} (S{tx.season})</div>
-                        <div className="text-[10px] text-slate-300 line-clamp-1">{tx.description}</div>
+                        <div className="text-[10px] text-slate-300">{tx.description}</div>
                       </div>
                       <ChevronRight size={16} className="text-slate-500 shrink-0" />
                     </div>

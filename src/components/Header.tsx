@@ -231,7 +231,7 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Desktop Navigation Sub-bar - Responsive & Dynamic */}
-        <nav aria-label="Main Navigation" className="hidden lg:flex items-center border-t border-slate-800/60 py-2">
+        <nav aria-label="Main Navigation" className="hidden lg:flex items-center border-t border-slate-800/60 py-2 overflow-x-auto scrollbar-none">
           <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 w-full justify-start">
             {navItems.map((item) => {
               const Icon = item.icon;

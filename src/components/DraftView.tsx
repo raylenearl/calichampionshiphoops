@@ -243,7 +243,7 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
               <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider block">
                 #1 Overall Pick
               </span>
-              <span className="text-base sm:text-lg font-black text-emerald-400 truncate block mt-0.5">
+              <span className="text-base sm:text-lg font-black text-emerald-400 block mt-0.5">
                 C. Daugherty
               </span>
               <span className="text-[10px] text-slate-500 block">Golden State (85 OVR)</span>
@@ -253,7 +253,7 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
               <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider block">
                 Draft Steal
               </span>
-              <span className="text-base sm:text-lg font-black text-sky-400 truncate block mt-0.5">
+              <span className="text-base sm:text-lg font-black text-sky-400 block mt-0.5">
                 King Jordan
               </span>
               <span className="text-[10px] text-slate-500 block">R3 Pick 1 (Duke, 75 OVR)</span>
@@ -422,7 +422,7 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
                   <option value="all" className="bg-slate-900 text-white">All 12 Teams</option>
                   {TEAMS.map((t) => (
                     <option key={t.id} value={t.id} className="bg-slate-900 text-white">
-                      {t.name}
+                      {t.id === 'san-diego-sabrewolves' ? 'San Diego Surf' : t.id === 'san-diego-strykers' ? 'San Diego Strykers' : t.city}
                     </option>
                   ))}
                 </select>
@@ -500,7 +500,7 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
                           </div>
                           <div className="min-w-0 flex-1">
                             <span className="text-[10px] font-mono text-slate-400 block uppercase font-bold">Selected By</span>
-                            <h4 className="text-xs font-bold text-amber-300 truncate">
+                            <h4 className="text-xs font-bold text-amber-300">
                               {pick.teamName}
                             </h4>
                           </div>
@@ -508,13 +508,13 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
 
                         {/* Player Info */}
                         <div className="space-y-1">
-                          <div className="flex items-center justify-between">
+                          <div className="flex items-center justify-between gap-1">
                             <span className={`px-1.5 py-0.5 rounded text-[11px] font-bold border ${getPosBadgeClass(pick.position)}`}>
                               {pick.position}
                             </span>
                             <span className="text-[11px] font-mono text-slate-400 flex items-center gap-1">
                               <GraduationCap size={12} className="text-amber-400" />
-                              <span className="truncate">{pick.school}</span>
+                              <span>{pick.school}</span>
                             </span>
                           </div>
 
@@ -523,7 +523,7 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
                           </h3>
 
                           {pick.notes && (
-                            <p className="text-xs text-slate-300 font-medium leading-snug line-clamp-2 pt-1">
+                            <p className="text-xs text-slate-300 font-medium leading-snug pt-1">
                               {pick.notes}
                             </p>
                           )}
@@ -576,7 +576,7 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
                       <TeamLogo teamId={haul.teamId} size={24} />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h4 className="text-xs font-black text-white truncate">
+                      <h4 className="text-xs font-black text-white">
                         {haul.teamName}
                       </h4>
                       <span className="text-[10px] font-mono text-amber-400 font-bold">
@@ -597,11 +597,11 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
                             <span className="text-[10px] font-mono font-black text-amber-400">
                               #{p.overallPick}
                             </span>
-                            <span className="text-xs font-bold text-white truncate">
+                            <span className="text-xs font-bold text-white">
                               {p.playerName}
                             </span>
                           </div>
-                          <span className="text-[10px] font-mono text-slate-400 block truncate">
+                          <span className="text-[10px] font-mono text-slate-400 block">
                             {p.position} • {p.school}
                           </span>
                         </div>
@@ -682,7 +682,7 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
                             {prospect.position}
                           </span>
                           <span>•</span>
-                          <span className="truncate">{prospect.school}</span>
+                          <span>{prospect.school}</span>
                         </div>
                       </div>
 
@@ -896,9 +896,9 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
                       <h3 className="text-lg font-black text-white group-hover:text-amber-400 transition-colors leading-tight">
                         {prospect.name}
                       </h3>
-                      <div className="flex items-center gap-1.5 text-xs text-slate-400 font-medium mt-1">
+                      <div className="flex items-center gap-1.5 text-xs text-slate-400 font-medium mt-1 flex-wrap">
                         <GraduationCap size={13} className="text-amber-400 shrink-0" />
-                        <span className="truncate">{prospect.school}</span>
+                        <span>{prospect.school}</span>
                         {prospect.schoolType === 'California College' && (
                           <span className="text-[10px] font-mono text-sky-400 bg-sky-500/10 px-1.5 py-0.2 rounded border border-sky-500/20 shrink-0">
                             Cali
@@ -922,7 +922,7 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
                     <div className="grid grid-cols-2 gap-1.5">
                       {prospect.gradeBadges.slice(0, 2).map((badge, i) => (
                         <div key={i} className="bg-slate-950 p-2 rounded-xl border border-slate-800/60 text-center">
-                          <span className="text-[10px] font-mono text-slate-400 block truncate">{badge.label}</span>
+                          <span className="text-[10px] font-mono text-slate-400 block">{badge.label}</span>
                           <span className="text-xs font-black text-amber-400 mt-0.5 block">{badge.grade}</span>
                         </div>
                       ))}
@@ -931,7 +931,7 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
 
                   {/* Footer Card */}
                   <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400 group-hover:text-amber-300">
-                    <span className="truncate text-[11px]">Comp: {prospect.proComparison?.split('/')[0] || 'Starter'}</span>
+                    <span className="text-[11px]">Comp: {prospect.proComparison?.split('/')[0] || 'Starter'}</span>
                     <span className="flex items-center gap-0.5 font-bold shrink-0">
                       Report <ChevronRight size={13} />
                     </span>
@@ -1049,8 +1049,8 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
                   className="bg-slate-950/80 border border-slate-800 hover:border-sky-400 p-3 rounded-2xl text-center space-y-1.5 cursor-pointer transition-all hover:scale-105"
                 >
                   <span className="text-[10px] font-mono font-black text-amber-400 block">#{p.rank}</span>
-                  <h4 className="text-xs font-black text-white truncate">{p.name}</h4>
-                  <span className="text-[10px] font-mono text-sky-400 truncate block font-bold">{p.school}</span>
+                  <h4 className="text-xs font-black text-white">{p.name}</h4>
+                  <span className="text-[10px] font-mono text-sky-400 block font-bold">{p.school}</span>
                   <span className={`inline-block text-[10px] px-2 py-0.5 rounded-lg ${getOvrBadgeClass(p.ovr)}`}>
                     {p.ovr} OVR
                   </span>
@@ -1156,7 +1156,7 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {activeProspectModal.gradeBadges.map((badge, i) => (
                   <div key={i} className="bg-slate-950 border border-slate-800 p-2.5 rounded-xl text-center">
-                    <span className="text-[10px] font-mono text-slate-400 block truncate">{badge.label}</span>
+                    <span className="text-[10px] font-mono text-slate-400 block">{badge.label}</span>
                     <span className="text-sm font-black text-amber-400 mt-0.5 block">{badge.grade}</span>
                   </div>
                 ))}
