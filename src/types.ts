@@ -15,6 +15,7 @@ export interface Team {
   keyPlayers: string[];
   coach?: string;
   executive?: string;
+  arena?: string;
   titles: string[];
   s1Record: string;
   s2Record: string;

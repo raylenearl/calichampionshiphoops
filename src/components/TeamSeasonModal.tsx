@@ -4,7 +4,7 @@ import { STANDINGS_S1, STANDINGS_S2, STANDINGS_S3, STANDINGS_S4 } from '../data/
 import { getTeamSeasonRecap } from '../data/teamRecapsData';
 import { SEASON_ROSTERS } from '../data/rostersData';
 import { TeamBadge } from './TeamBadge';
-import { X, Trophy, Award, Calendar, Users, CheckCircle2, Shield, Sparkles, UserCheck, Hash, ArrowUpDown } from 'lucide-react';
+import { X, Trophy, Award, Calendar, Users, CheckCircle2, Shield, Sparkles, UserCheck, Hash, ArrowUpDown, MapPin } from 'lucide-react';
 
 interface TeamSeasonModalProps {
   teamId: string | null;
@@ -146,8 +146,24 @@ export const TeamSeasonModal: React.FC<TeamSeasonModalProps> = ({
               <TeamBadge teamId={team.id} size="lg" />
             </div>
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-slate-300">{team.city}</p>
-              <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight drop-shadow-md">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="text-xs font-bold uppercase tracking-widest text-slate-300">{team.city}</span>
+                {team.arena && (
+                  <>
+                    <span className="text-slate-400 text-xs">•</span>
+                    <span className="text-xs font-bold text-amber-300 flex items-center gap-1">
+                      <MapPin size={12} className="text-amber-400" />
+                      {team.arena}
+                    </span>
+                  </>
+                )}
+                {(team.id === 'california-reds' || team.id === 'los-angeles-dynamics') && (
+                  <span className="text-[10px] font-mono font-bold bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full border border-amber-500/40">
+                    Co-tenant with {team.id === 'california-reds' ? 'LA Dynamics' : 'California Reds'}
+                  </span>
+                )}
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight drop-shadow-md mt-0.5">
                 {team.name}
               </h2>
               <p className="text-xs text-slate-300 font-medium mt-1 max-w-2xl">

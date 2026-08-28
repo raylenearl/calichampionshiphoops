@@ -236,9 +236,15 @@ export const TeamDirectory: React.FC<TeamDirectoryProps> = ({ onSelectTeamRecap 
                   <span>{team.name}</span>
                   <ChevronRight size={18} className="text-slate-600 group-hover:text-amber-400 transition-colors" />
                 </h3>
-                <div className="flex items-center gap-1 text-xs text-slate-400 font-medium mt-0.5">
-                  <MapPin size={12} className="text-amber-500" />
+                <div className="flex items-center gap-1.5 text-xs text-slate-400 font-medium mt-0.5">
+                  <MapPin size={12} className="text-amber-500 shrink-0" />
                   <span>{team.city}, CA</span>
+                  {team.arena && (
+                    <>
+                      <span>•</span>
+                      <span className="text-amber-300 font-bold">{team.arena}</span>
+                    </>
+                  )}
                 </div>
               </div>
 
@@ -338,7 +344,18 @@ export const TeamDirectory: React.FC<TeamDirectoryProps> = ({ onSelectTeamRecap 
                   <h2 className="text-xl sm:text-2xl font-black text-white mt-0.5">
                     {activeTeamModal.name}
                   </h2>
-                  <p className="text-[11px] text-slate-400 font-medium">Home City: {activeTeamModal.city}, California</p>
+                  <p className="text-[11px] text-slate-400 font-medium flex items-center gap-1.5 flex-wrap">
+                    <span>Home City: {activeTeamModal.city}, California</span>
+                    {activeTeamModal.arena && (
+                      <>
+                        <span>•</span>
+                        <span className="text-amber-300 font-bold flex items-center gap-1">
+                          <MapPin size={11} className="text-amber-400" />
+                          Home Arena: {activeTeamModal.arena}
+                        </span>
+                      </>
+                    )}
+                  </p>
                 </div>
               </div>
               <button
@@ -352,6 +369,30 @@ export const TeamDirectory: React.FC<TeamDirectoryProps> = ({ onSelectTeamRecap 
 
             {/* Scrollable Modal Content Body */}
             <div className="p-4 sm:p-6 space-y-6 overflow-y-auto flex-1">
+              {/* Shared Arena Spotlight Callout for Reds & Dynamics */}
+              {(activeTeamModal.id === 'california-reds' || activeTeamModal.id === 'los-angeles-dynamics') && (
+                <div className="bg-gradient-to-r from-blue-950/40 via-purple-950/30 to-red-950/40 border border-amber-500/30 rounded-2xl p-3.5 flex items-center justify-between gap-3 text-xs">
+                  <div className="flex items-center gap-2.5">
+                    <div className="p-2 bg-amber-500/20 text-amber-400 rounded-xl">
+                      <MapPin size={18} />
+                    </div>
+                    <div>
+                      <span className="font-mono font-black text-amber-400 uppercase text-[11px] block">
+                        LA Arena Co-Tenancy
+                      </span>
+                      <p className="text-slate-300 text-xs">
+                        The <span className="font-bold text-white">California Reds</span> and <span className="font-bold text-white">Los Angeles Dynamics</span> both play their home games at the <span className="text-amber-300 font-bold">LA Arena</span> in Los Angeles.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-1 shrink-0">
+                    <TeamBadge teamId="california-reds" size="sm" />
+                    <span className="text-xs font-mono font-bold text-slate-500">✕</span>
+                    <TeamBadge teamId="los-angeles-dynamics" size="sm" />
+                  </div>
+                </div>
+              )}
+
               {/* Overview & Bio */}
               <div className="space-y-2">
                 <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">

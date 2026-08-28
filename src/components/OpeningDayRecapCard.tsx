@@ -125,10 +125,10 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
           <span className="text-slate-400 font-mono text-xs hidden md:flex items-center gap-1">
             <MapPin size={13} className="text-amber-400" />
             {selectedGame === 'game1' && 'The LBC Pit • Long Beach, CA'}
-            {selectedGame === 'game2' && 'Dynamics Arena • Los Angeles, CA'}
+            {selectedGame === 'game2' && 'LA Arena • Los Angeles, CA'}
             {selectedGame === 'game3' && 'Oakland Arena • Oakland, CA'}
-            {selectedGame === 'game4' && 'Fresno Center • Fresno, CA'}
-            {selectedGame === 'game5' && 'Reds Pavilion • California'}
+            {selectedGame === 'game4' && 'Fresno Arena • Fresno, CA'}
+            {selectedGame === 'game5' && 'LA Arena • Los Angeles, CA'}
             {selectedGame === 'game6' && 'Anaheim Arena • Anaheim, CA'}
           </span>
 
