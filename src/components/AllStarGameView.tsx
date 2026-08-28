@@ -581,7 +581,7 @@ export const AllStarGameView: React.FC = () => {
               Understanding the 4th Quarter Target Score Format
             </h2>
             <p className="text-sm text-slate-300 leading-relaxed max-w-3xl">
-              Introduced in CCH Season 3 for the All-Star Game at SacTown Arena, the target score format replaces the standard 4th-quarter countdown clock with a fixed target score, ensuring every game finishes with a made bucket.
+              Introduced in CCH Season 3 for the All-Star Game at Sac Town Center, the target score format replaces the standard 4th-quarter countdown clock with a fixed target score, ensuring every game finishes with a made bucket.
             </p>
           </div>
 
@@ -623,7 +623,7 @@ export const AllStarGameView: React.FC = () => {
               Season 3 All-Star Game Historical Impact
             </h3>
             <p className="text-xs text-slate-300 leading-relaxed">
-              In a thrilling Season 3 showdown at SacTown Arena, Northern Cali edged Southern Cali 79-77. San Jose star Donald Hardy capped off an unforgettable All-Star Weekend—after winning the Slam Dunk Contest, he hit the walk-off game-winner to secure MVP honors and a 79-77 victory for NorCal.
+              In a thrilling Season 3 showdown at Sac Town Center, Northern Cali edged Southern Cali 79-77. San Jose star Donald Hardy capped off an unforgettable All-Star Weekend—after winning the Slam Dunk Contest, he hit the walk-off game-winner to secure MVP honors and a 79-77 victory for NorCal.
             </p>
           </div>
         </div>

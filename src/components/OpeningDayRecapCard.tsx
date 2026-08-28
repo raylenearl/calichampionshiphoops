@@ -127,7 +127,7 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
             {selectedGame === 'game1' && 'The LBC Pit • Long Beach, CA'}
             {selectedGame === 'game2' && 'LA Arena • Los Angeles, CA'}
             {selectedGame === 'game3' && 'Oakland Arena • Oakland, CA'}
-            {selectedGame === 'game4' && 'Fresno Arena • Fresno, CA'}
+            {selectedGame === 'game4' && 'Fresno Center • Fresno, CA'}
             {selectedGame === 'game5' && 'LA Arena • Los Angeles, CA'}
             {selectedGame === 'game6' && 'Anaheim Arena • Anaheim, CA'}
           </span>

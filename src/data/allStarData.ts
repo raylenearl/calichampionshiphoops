@@ -72,7 +72,7 @@ export const ALL_STAR_GAMES: AllStarGame[] = [
   {
     season: 3,
     title: 'Season 3 CCH All-Star Game & Skill Showcase',
-    location: 'SacTown Arena – Sacramento, CA',
+    location: 'Sac Town Center – Sacramento, CA',
     format: 'Target Score Format (NorCal vs SoCal)',
     winner: 'Northern Cali All-Stars',
     winningScore: 79,
@@ -103,7 +103,7 @@ export const ALL_STAR_GAMES: AllStarGame[] = [
       gameWinnerPlayer: 'Donald Hardy',
       gameWinnerTeam: 'San Jose Tigersharks',
       description:
-        'In a game that lived up to the hype, the Northern Cali All-Stars held off Southern Cali to claim a 79-77 victory in the Season 3 CCH All-Star Game at SacTown Arena. Playing under a target score format in the 4th quarter for the first time, Donald Hardy hit the game-winner to earn MVP honors.',
+        'In a game that lived up to the hype, the Northern Cali All-Stars held off Southern Cali to claim a 79-77 victory in the Season 3 CCH All-Star Game at Sac Town Center. Playing under a target score format in the 4th quarter for the first time, Donald Hardy hit the game-winner to earn MVP honors.',
     },
     norCalRoster: [
       { name: 'Donald Hardy', team: 'San Jose Tigersharks', teamId: 'san-jose-tigersharks', pts: 19, min: 31, reb: 7, ast: 3, stl: 1, blk: 0, fg: '7-12', fg3: '0-1' },
@@ -124,12 +124,12 @@ export const ALL_STAR_GAMES: AllStarGame[] = [
       { name: 'Kirk Tinsley', team: 'Anaheim Admirals', teamId: 'anaheim-admirals', pts: 4, min: 14, reb: 1, ast: 3, fg: '1-5', fg3: '1-4' },
     ],
     recap:
-      'Northern Cali edged Southern Cali 79-77 in a thrilling Season 3 All-Star Game at SacTown Arena in Sacramento. Playing with a target score finish in the 4th quarter, San Jose phenom Donald Hardy capped a legendary weekend by winning both the Dunk Contest and All-Star MVP, sinking the game-winner for the 79-77 victory.',
+      'Northern Cali edged Southern Cali 79-77 in a thrilling Season 3 All-Star Game at Sac Town Center in Sacramento. Playing with a target score finish in the 4th quarter, San Jose phenom Donald Hardy capped a legendary weekend by winning both the Dunk Contest and All-Star MVP, sinking the game-winner for the 79-77 victory.',
   },
   {
     season: 2,
     title: 'Season 2 All-Star Week',
-    location: 'Fresno Arena – Fresno, CA',
+    location: 'Fresno Center – Fresno, CA',
     format: 'Traditional 4-Quarter Showcase',
     winner: 'Southern Cali All-Stars',
     winningScore: 78,

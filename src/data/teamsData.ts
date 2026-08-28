@@ -24,12 +24,12 @@ export const TEAMS: Team[] = [
     abbreviation: 'SAC',
     city: 'Sacramento',
     conference: 'Northern Cali',
-    arena: 'SacTown Arena',
+    arena: 'Sac Town Center',
     primaryColor: '#4a03a9', // Purple
     secondaryColor: '#000000', // Gold
     accentColor: '#ffffff',
     iconName: 'Crown',
-    description: 'The league’s premier dynasty and 2-Time CCH Champions (Season 1 & Season 3). Veteran frontcourt anchored by All-Star Frank Hackett (89) and Finals standout George Madsen (88). Home venue: SacTown Arena.',
+    description: 'The league’s premier dynasty and 2-Time CCH Champions (Season 1 & Season 3). Veteran frontcourt anchored by All-Star Frank Hackett (89) and Finals standout George Madsen (88). Home venue: Sac Town Center.',
     keyPlayers: ['Frank Hackett (PF, 89 OVR • 4th Season)', 'George Madsen (SG/SF, 88 OVR • 4th Season)', 'Leo Bass (C, 80 OVR • Rookie)', 'Isaac Livingston (PF/C, 76 OVR • Rookie)'],
     coach: 'Benjamin Nelson (4th Season)',
     titles: ['2-Time CCH Champions (Season 1 & Season 3)', '3 Consecutive CCH Finals Appearances', 'Season 1 Regular Season Champions (17-5)'],
@@ -104,12 +104,12 @@ export const TEAMS: Team[] = [
     abbreviation: 'GS',
     city: 'San Francisco',
     conference: 'Northern Cali',
-    arena: 'Golden State Arena',
+    arena: 'Enterprise Headquarters',
     primaryColor: '#000000', // Black
     secondaryColor: '#f59e0b', // Gold
     accentColor: '#60a5fa',
     iconName: 'Activity',
-    description: 'Franchise revitalized with the #1 overall pick Carlton Daugherty (85 OVR), veteran center Cameron Barkley (88 OVR), and sharp-shooting forward Chad Bryant (83 OVR).',
+    description: 'Franchise revitalized with the #1 overall pick Carlton Daugherty (85 OVR), veteran center Cameron Barkley (88 OVR), and sharp-shooting forward Chad Bryant (83 OVR). Home venue: Enterprise Headquarters.',
     keyPlayers: ['Cameron Barkley (C, 88 OVR • 5th Season)', 'Carlton Daugherty (SF, 85 OVR • Rookie)', 'Chad Bryant (SF/SG, 83 OVR • 2nd Season)', 'Jud Thompson (PG/SG, 78 OVR • Rookie)'],
     coach: 'Wyatt Zimmerman (1st Season)',
     titles: ['Season 1 Finals Runner-Up', 'Drafted #1 Overall Pick Carlton Daugherty'],
@@ -124,12 +124,12 @@ export const TEAMS: Team[] = [
     abbreviation: 'FRE',
     city: 'Fresno',
     conference: 'Northern Cali',
-    arena: 'Fresno Arena',
+    arena: 'Fresno Center',
     primaryColor: '#b41927', // Mad Dog Red
     secondaryColor: '#f66d23', // Orange
     accentColor: '#000000',
     iconName: 'Dog',
-    description: 'Season 3 Cinderella finalist turns the page with new head coach Ronnie Flores and an all-rookie starting core headlined by 6\'5" jumbo playmaker Lloyd Boomer (83 OVR). Home venue: Fresno Arena.',
+    description: 'Season 3 Cinderella finalist turns the page with new head coach Ronnie Flores and an all-rookie starting core headlined by 6\'5" jumbo playmaker Lloyd Boomer (83 OVR). Home venue: Fresno Center.',
     keyPlayers: ['Lloyd Boomer (PG, 83 OVR • Rookie)', 'Cameron Graham (SF/PF, 78 OVR • Rookie)', 'Geraldo Jones (PF/C, 78 OVR • Rookie)', 'Charlie Simms (SF/PF, 76 OVR • Rookie)'],
     coach: 'Ronnie Flores (1st Season)',
     titles: ['Season 3 CCH Finals Runner-Up (#8 Seed Cinderella Run)', 'Defeated #1 Seed CA Reds 90-86 in S3 QF'],
