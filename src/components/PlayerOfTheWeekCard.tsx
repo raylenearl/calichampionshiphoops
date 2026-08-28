@@ -98,7 +98,7 @@ export const PlayerOfTheWeekCard: React.FC<PlayerOfTheWeekCardProps> = ({
               <div className="sm:col-span-7 space-y-2 text-left">
                 <div className="flex items-baseline justify-between">
                   <h4 className="text-xl font-black text-white">Jamar Dean</h4>
-                  <span className="text-xs font-mono font-bold text-amber-400">#1 • SG</span>
+                  <span className="text-xs font-mono font-bold text-amber-400">#10 • SG</span>
                 </div>
 
                 <div className="text-[11px] font-mono text-slate-300 space-y-1 bg-slate-900/90 p-2.5 rounded-xl border border-slate-800">
@@ -197,7 +197,7 @@ export const PlayerOfTheWeekCard: React.FC<PlayerOfTheWeekCardProps> = ({
               <div className="sm:col-span-7 space-y-2 text-left">
                 <div className="flex items-baseline justify-between">
                   <h4 className="text-xl font-black text-white">Andor Marai</h4>
-                  <span className="text-xs font-mono font-bold text-red-400">#33 • C</span>
+                  <span className="text-xs font-mono font-bold text-red-400">#44 • C</span>
                 </div>
 
                 <div className="text-[11px] font-mono text-slate-300 space-y-1 bg-slate-900/90 p-2.5 rounded-xl border border-slate-800">

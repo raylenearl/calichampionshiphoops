@@ -129,7 +129,7 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
             {selectedGame === 'game3' && 'Oakland Arena • Oakland, CA'}
             {selectedGame === 'game4' && 'Fresno Center • Fresno, CA'}
             {selectedGame === 'game5' && 'Reds Pavilion • California'}
-            {selectedGame === 'game6' && 'Honda Center • Anaheim, CA'}
+            {selectedGame === 'game6' && 'Anaheim Arena • Anaheim, CA'}
           </span>
 
           <button
@@ -1324,7 +1324,7 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
               Hinton Erupts for 30 as Strykers Demolish Admirals, 85-43
             </h2>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-medium">
-              A 24-4 third-quarter blitz powers the San Diego Strykers to an 85-43 demolition of Anaheim at the Honda Center as reigning MVP A.J. Hinton sinks 8 three-pointers.
+              A 24-4 third-quarter blitz powers the San Diego Strykers to an 85-43 demolition of Anaheim at Anaheim Arena as reigning MVP A.J. Hinton sinks 8 three-pointers.
             </p>
           </div>
 

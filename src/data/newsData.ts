@@ -129,7 +129,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
   {
     id: 's4-g6-hinton-strykers-rout-admirals',
     title: 'Hinton Erupts for 30 as Strykers Demolish Admirals, 85-43',
-    subtitle: 'A 24-4 third-quarter blitz powers the San Diego Strykers to an 85-43 demolition of the Anaheim Admirals at the Honda Center as A.J. Hinton sinks 8 three-pointers.',
+    subtitle: 'A 24-4 third-quarter blitz powers the San Diego Strykers to an 85-43 demolition of the Anaheim Admirals at Anaheim Arena as A.J. Hinton sinks 8 three-pointers.',
     date: 'Season 4 • Game 6 Recap (Oct 20)',
     season: 4,
     category: 'recap',
@@ -154,7 +154,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     ],
     headlineQuote: 'After taking a 43-26 lead into the locker room, the Strykers blew the game completely open in the third quarter, outscoring Anaheim 24-4 and holding the Admirals to just one made field goal.',
     contentParagraphs: [
-      'Anaheim, CA – The San Diego Strykers put on an absolute clinic on Sunday evening, dismantling the Anaheim Admirals 85-43 at the Honda Center.',
+      'Anaheim, CA – The San Diego Strykers put on an absolute clinic on Sunday evening, dismantling the Anaheim Admirals 85-43 at Anaheim Arena.',
       'After a competitive first half that saw San Diego take a 43-26 lead into the locker room, the Strykers blew the game completely open in the third quarter. San Diego opened the frame on a back-breaking run, outscoring Anaheim 24-4 and holding the Admirals to just one made field goal to turn the contest into an all-out rout.',
       'PLAYER OF THE GAME:\nThe story of the night was the scorching perimeter shooting of reigning league MVP A.J. Hinton. Hinton was virtually unguardable, exploding for a game-high 30 points on 11-of-16 shooting from the floor, including an absurd 8-of-11 from beyond the arc. Hinton scored from everywhere—pulling up from deep in transition, working off ball screens, and knifing through passing lanes to rack up 4 steals.',
       'SUPPORTING CAST & BALL MOVEMENT:\nSan Diego’s balance was on full display as well. DeAnte Gray poured in 15 points, 6 rebounds, and 6 assists, while Johnny Galloway provided his usual do-it-all glue work with 4 points, 11 rebounds, 4 assists, and 2 steals. Carl Marshall chipped in 8 points and 5 rebounds off the bench. The Strykers shot a blistering 55% from the field (32/58) and 56% (15-of-27) from three-point range as a team while dishing out 24 assists on 32 made field goals.',
