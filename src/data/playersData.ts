@@ -1002,14 +1002,17 @@ export const PLAYERS: Player[] = [
     ftPct: 0.785,
     mpg: 24.2,
     accolades: [
+      'Season 1 Miracle Half-Court Buzzer-Beater vs SD Sabrewolves (83-81)',
       'Season 2 All-Defensive 1st Team',
       'Season 3 All-Star Selection',
     ],
     awardsList: [
+      { season: 1, title: 'Historic Buzzer-Beater Game-Winner', type: 'milestone', description: 'Beyond-half-court miracle buzzer-beater to defeat Sabrewolves 83-81' },
       { season: 2, title: 'All-Defensive 1st Team', type: 'all_defensive', description: 'First Team All-Defensive Forward' },
       { season: 3, title: 'All-Star Selection', type: 'all_star', description: 'South All-Stars selection' },
     ],
     seasonStats: [
+      { season: 1, team: 'San Francisco Knights', ppg: 9.8, rpg: 5.4, apg: 1.4, spg: 1.1, bpg: 0.9, fgPct: 0.495, threePct: 0.320, ftPct: 0.740, mpg: 19.5, gamesPlayed: 20 },
       { season: 2, team: 'San Diego Strykers', ppg: 12.4, rpg: 6.8, apg: 1.8, spg: 1.5, bpg: 1.3, fgPct: 0.535, threePct: 0.355, ftPct: 0.770, mpg: 23.8, gamesPlayed: 22 },
       { season: 3, team: 'San Diego Strykers', ppg: 14.2, rpg: 6.8, apg: 2.3, spg: 1.4, bpg: 1.1, fgPct: 0.548, threePct: 0.372, ftPct: 0.795, mpg: 24.6, gamesPlayed: 22 },
     ],
@@ -1031,8 +1034,8 @@ export const PLAYERS: Player[] = [
       clutch: 85,
       athleticism: 88,
     },
-    signaturePerformance: '18 points, 9 rebounds, 4 steals in S2 Playoff clincher.',
-    bio: 'Dynamic two-way forward who pairs elite perimeter lockdown defense with explosive athletic finishing. Serves as a primary cornerstone in San Diego.',
+    signaturePerformance: 'Season 1 beyond-half-court buzzer-beater to stun SD Sabrewolves 83-81; 18 pts, 9 reb, 4 stl in S2 Playoff clincher.',
+    bio: 'Dynamic two-way forward who began his career with the San Francisco Knights in Season 1 — where he authored the iconic beyond-half-court buzzer-beater to stun San Diego 83-81 — before establishing himself as an elite lockdown cornerstone for the San Diego Strykers. Now entering his 4th CCH season.',
   },
   {
     id: 'p-josh-parks',

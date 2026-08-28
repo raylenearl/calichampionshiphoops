@@ -27,7 +27,9 @@ import {
   AlertTriangle,
   Play,
   Tv,
+  ExternalLink,
 } from 'lucide-react';
+import { InstagramIcon } from './SocialLinks';
 
 interface NewsViewProps {
   onSelectTeamRecap?: (teamId: string, season?: 1 | 2 | 3) => void;
@@ -464,6 +466,11 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                         <Play size={9} className="fill-red-400" /> Video
                       </span>
                     )}
+                    {article.instagramUrl && (
+                      <span className="px-2 py-0.5 bg-pink-500/20 border border-pink-500/40 text-pink-400 font-mono font-bold rounded-full text-[9px] uppercase flex items-center gap-1 shrink-0">
+                        <InstagramIcon size={10} /> Reel
+                      </span>
+                    )}
                     {article.audioUrl && (
                       <span className="px-2 py-0.5 bg-amber-500/20 border border-amber-500/40 text-amber-300 font-mono font-bold rounded-full text-[9px] uppercase flex items-center gap-1 shrink-0">
                         <Headphones size={10} /> Podcast
@@ -796,6 +803,39 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                     allowFullScreen
                     className="w-full h-full object-cover"
                   />
+                </div>
+              </div>
+            )}
+
+            {/* Embedded Instagram Reel Player if available */}
+            {selectedArticle.instagramUrl && (
+              <div className="space-y-3 bg-gradient-to-b from-slate-900 via-pink-950/20 to-slate-950 p-4 sm:p-5 rounded-2xl border border-pink-500/30 shadow-xl">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-mono font-black uppercase tracking-wider text-pink-400 flex items-center gap-1.5">
+                    <InstagramIcon size={15} className="text-pink-400" /> Official Instagram Highlight Reel
+                  </span>
+                  <a
+                    href={selectedArticle.instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[11px] font-mono font-bold text-pink-300 hover:text-pink-100 flex items-center gap-1 bg-pink-500/20 hover:bg-pink-500/30 px-3 py-1 rounded-xl border border-pink-500/30 transition-all cursor-pointer shadow-sm"
+                  >
+                    Open on Instagram <ExternalLink size={12} />
+                  </a>
+                </div>
+
+                <div className="flex justify-center w-full py-2">
+                  <div className="w-full max-w-[400px] aspect-[9/14] sm:aspect-[9/15] rounded-2xl overflow-hidden shadow-2xl border-2 border-pink-500/40 bg-black">
+                    <iframe
+                      src={selectedArticle.instagramEmbedUrl || `${selectedArticle.instagramUrl.replace(/\/+$/, '')}/embed/`}
+                      title={selectedArticle.title}
+                      frameBorder="0"
+                      scrolling="no"
+                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                      allowFullScreen
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
               </div>
             )}

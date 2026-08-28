@@ -9,6 +9,7 @@ import { GameRecord } from '../types';
 import { TeamBadge } from './TeamBadge';
 import { InauguralGameModal } from './InauguralGameModal';
 import { Calendar, Search, Flame, User, Trophy, Layers, X, Sparkles, BookOpen, FileText, Play, Tv } from 'lucide-react';
+import { InstagramIcon } from './SocialLinks';
 
 interface ScheduleBrowserProps {
   selectedSeason: 1 | 2 | 3 | 4;
@@ -555,6 +556,16 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
                             <Play size={13} className="fill-white" /> Watch Replay
                           </a>
                         )}
+                        {game.instagramUrl && (
+                          <a
+                            href={game.instagramUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="py-2 px-2 bg-pink-600/90 hover:bg-pink-500 text-white font-black rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-md text-center"
+                          >
+                            <InstagramIcon size={13} /> Instagram Reel
+                          </a>
+                        )}
                       </div>
                     </div>
                   ) : (
@@ -572,6 +583,16 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
                           className="w-full py-2 bg-red-600/90 hover:bg-red-500 text-white font-black rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-md text-center"
                         >
                           <Play size={13} className="fill-white" /> Watch Full Replay
+                        </a>
+                      )}
+                      {game.instagramUrl && (
+                        <a
+                          href={game.instagramUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full py-2 bg-pink-600/90 hover:bg-pink-500 text-white font-black rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-md text-center"
+                        >
+                          <InstagramIcon size={13} /> Watch on Instagram
                         </a>
                       )}
                     </div>

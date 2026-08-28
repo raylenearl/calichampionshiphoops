@@ -39,7 +39,7 @@ export const SEASON_1_SCHEDULE: GameRecord[] = [
   // DECEMBER
   { id: 's1-32', season: 1, date: 'Dec 1', month: 'December', team1: 'Los Angeles Dynamics', score1: 80, team2: 'Fresno Mad Dogs', score2: 72, highScorer: 'L. Anderson (31 pts)' },
   { id: 's1-33', season: 1, date: 'Dec 1', month: 'December', team1: 'Sacramento Stallions', score1: 98, team2: 'Golden State Enterprise', score2: 95, highScorer: 'C. Barry Carroll (22 pts)' },
-  { id: 's1-34', season: 1, date: 'Dec 1', month: 'December', team1: 'San Francisco Knights', score1: 83, team2: 'San Diego Sabrewolves', score2: 81, highScorer: 'Munir Kassa (29 pts)' },
+  { id: 's1-34', season: 1, date: 'Dec 1', month: 'December', team1: 'San Francisco Knights', score1: 83, team2: 'San Diego Sabrewolves', score2: 81, highScorer: 'Munir Kassa (29 pts)', recapArticleId: 's1-galloway-miracle-buzzer-beater', instagramUrl: 'https://www.instagram.com/reel/C3lhWjKPTa3/', notes: 'Johnny Galloway beyond-half-court buzzer-beater stuns Sabrewolves 83-81' },
   { id: 's1-35', season: 1, date: 'Dec 3', month: 'December', team1: 'California Reds', score1: 87, team2: 'Golden State Enterprise', score2: 81, highScorer: 'A. Durmanenko (17 pts)' },
   { id: 's1-36', season: 1, date: 'Dec 4', month: 'December', team1: 'San Jose Tigersharks', score1: 90, team2: 'Fresno Mad Dogs', score2: 87, highScorer: 'L. Anderson (36 pts)' },
   { id: 's1-37', season: 1, date: 'Dec 5', month: 'December', team1: 'California Reds', score1: 86, team2: 'San Francisco Knights', score2: 65, highScorer: 'M. McCloud (21 pts)' },

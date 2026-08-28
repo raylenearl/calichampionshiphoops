@@ -821,7 +821,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
         { number: '21', name: 'A.J. Hinton', position: 'SG/PG', ovr: 99, seasonYear: '4th Season', schoolOrNote: 'Crawford High', age: 22, height: '6-3', weight: 200 },
         { number: '34', name: 'DeAnte Gray', position: 'SF/PF', ovr: 96, seasonYear: '4th Season', schoolOrNote: 'San Diego High', age: 22, height: '6-4', weight: 275 },
         { number: '84', name: 'Ray Gambino Gamble', position: 'PG', ovr: 94, seasonYear: '4th Season', schoolOrNote: 'Miami (FL)', age: 24, height: '6-6', weight: 210 },
-        { number: '13', name: 'Johnny Galloway', position: 'PF/SF', ovr: 88, seasonYear: '3rd Season', schoolOrNote: 'Portland State', age: 20, height: '6-5', weight: 240 },
+        { number: '13', name: 'Johnny Galloway', position: 'PF/SF', ovr: 88, seasonYear: '4th Season', schoolOrNote: 'Portland State', age: 20, height: '6-5', weight: 240 },
         { number: '44', name: 'Carl Marshall', position: 'C/PF', ovr: 81, seasonYear: 'Rookie', schoolOrNote: 'Georgia', age: 21, height: '6-11', weight: 247 },
         { number: '22', name: 'Joe Grantham', position: 'PF', ovr: 75, seasonYear: 'Rookie', schoolOrNote: 'Chattanooga', age: 21, height: '6-6', weight: 201 },
         { number: '30', name: 'Rod Hammonds', position: 'PF/SF', ovr: 75, seasonYear: 'Rookie', schoolOrNote: 'San Francisco', age: 21, height: '6-7', weight: 250 },

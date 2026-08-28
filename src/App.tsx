@@ -423,7 +423,7 @@ export default function App() {
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-slate-400">Experience / Age:</span>
-                          <span className="font-bold text-white">3rd Season • Age 20</span>
+                          <span className="font-bold text-white">4th Season • Age 20</span>
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-slate-400">College / Origin:</span>

@@ -3,7 +3,8 @@ import { ALL_AWARDS, FAMOUS_QUOTES, SEASON_LEADERS, ALL_CALI_TEAMS, SEASON_1_SIN
 import { Trophy, Award as AwardIcon, Quote, Sparkles, Star, Users, Flame, Shield, Award, Zap, BookOpen, Calendar } from 'lucide-react';
 import { TeamBadge } from './TeamBadge';
 import { InauguralGameModal } from './InauguralGameModal';
-import { INAUGURAL_GAME_ARTICLE } from '../data/leagueMilestonesData';
+import { INAUGURAL_GAME_ARTICLE, GALLOWAY_BUZZER_BEATER_ARTICLE, CCHMilestoneArticle } from '../data/leagueMilestonesData';
+import { InstagramIcon } from './SocialLinks';
 
 interface HallOfFameViewProps {
   onSelectTeamRecap?: (teamId: string) => void;
@@ -13,7 +14,7 @@ export const HallOfFameView: React.FC<HallOfFameViewProps> = ({ onSelectTeamReca
   const [selectedSeasonFilter, setSelectedSeasonFilter] = useState<0 | 1 | 2 | 3>(0);
   const [activeTab, setActiveTab] = useState<'awards' | 'milestones' | 'leaders' | 'allcali'>('awards');
   const [allCaliCategoryFilter, setAllCaliCategoryFilter] = useState<'All' | 'All-Cali' | 'All-Defensive' | 'All-Rookie'>('All');
-  const [isInauguralModalOpen, setIsInauguralModalOpen] = useState<boolean>(false);
+  const [selectedMilestoneArticle, setSelectedMilestoneArticle] = useState<CCHMilestoneArticle | null>(null);
 
   const filteredAwards = ALL_AWARDS.filter((a) => {
     if (selectedSeasonFilter === 0) return true;
@@ -154,6 +155,7 @@ export const HallOfFameView: React.FC<HallOfFameViewProps> = ({ onSelectTeamReca
             </span>
           </div>
 
+          {/* Milestone 1: Inaugural Game */}
           <div className="bg-gradient-to-r from-slate-900 via-amber-950/30 to-slate-900 border border-amber-500/30 rounded-3xl p-5 sm:p-7 shadow-xl space-y-5">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="space-y-3 max-w-2xl">
@@ -182,12 +184,66 @@ export const HallOfFameView: React.FC<HallOfFameViewProps> = ({ onSelectTeamReca
 
               <div className="flex flex-col gap-3 shrink-0">
                 <button
-                  onClick={() => setIsInauguralModalOpen(true)}
+                  onClick={() => setSelectedMilestoneArticle(INAUGURAL_GAME_ARTICLE)}
                   className="px-5 py-2.5 sm:px-6 sm:py-3 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs rounded-2xl shadow-lg flex items-center justify-center gap-2 transition-all cursor-pointer"
                 >
                   <BookOpen size={16} />
-                  Read Full Inaugural Game Article
+                  Read Inaugural Game Story
                 </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Milestone 2: Johnny Galloway Beyond-Half-Court Buzzer-Beater */}
+          <div className="bg-gradient-to-r from-slate-900 via-pink-950/20 to-slate-900 border border-pink-500/40 rounded-3xl p-5 sm:p-7 shadow-xl space-y-5">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div className="space-y-3 max-w-2xl">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-pink-500/10 border border-pink-500/30 text-pink-400 text-xs font-mono font-bold rounded-full">
+                    <Calendar size={13} /> {GALLOWAY_BUZZER_BEATER_ARTICLE.date}
+                  </div>
+                  <span className="px-2.5 py-0.5 bg-pink-500/20 text-pink-300 font-mono font-bold text-[11px] rounded-full flex items-center gap-1 border border-pink-500/30">
+                    <InstagramIcon size={12} /> Viral Instagram Reel
+                  </span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+                  {GALLOWAY_BUZZER_BEATER_ARTICLE.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed">
+                  San Francisco Knights (83) vs. San Diego Sabrewolves (81) — Rookie forward Johnny Galloway sinks an unbelievable 65-foot buzzer-beater beyond half court as the horn sounds to break an 81-81 deadlock in Season 1!
+                </p>
+
+                <div className="flex flex-wrap gap-2 text-xs font-mono font-bold text-slate-300 pt-1">
+                  <span className="bg-slate-950 px-2.5 py-1 rounded-lg border border-slate-800 text-pink-400">
+                    Game-Winner: Johnny Galloway (65 Ft)
+                  </span>
+                  <span className="bg-slate-950 px-2.5 py-1 rounded-lg border border-slate-800 text-amber-400">
+                    High Scorer: Munir Kassa (29 PTS)
+                  </span>
+                  <span className="bg-slate-950 px-2.5 py-1 rounded-lg border border-slate-800 text-emerald-400">
+                    Final: SF Knights 83, SD Sabrewolves 81
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row md:flex-col gap-2.5 shrink-0">
+                <button
+                  onClick={() => setSelectedMilestoneArticle(GALLOWAY_BUZZER_BEATER_ARTICLE)}
+                  className="px-5 py-2.5 sm:px-6 sm:py-3 bg-pink-600 hover:bg-pink-500 text-white font-black text-xs rounded-2xl shadow-lg flex items-center justify-center gap-2 transition-all cursor-pointer"
+                >
+                  <BookOpen size={16} />
+                  Read Story & Watch Reel
+                </button>
+                {GALLOWAY_BUZZER_BEATER_ARTICLE.instagramUrl && (
+                  <a
+                    href={GALLOWAY_BUZZER_BEATER_ARTICLE.instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2.5 bg-slate-950 hover:bg-slate-800 text-pink-300 border border-pink-500/30 font-bold text-xs rounded-2xl flex items-center justify-center gap-1.5 transition-all text-center"
+                  >
+                    <InstagramIcon size={14} /> Instagram Post
+                  </a>
+                )}
               </div>
             </div>
           </div>
@@ -476,10 +532,11 @@ export const HallOfFameView: React.FC<HallOfFameViewProps> = ({ onSelectTeamReca
         </div>
       )}
 
-      {/* Inaugural Game Modal */}
+      {/* Milestone Modal */}
       <InauguralGameModal
-        isOpen={isInauguralModalOpen}
-        onClose={() => setIsInauguralModalOpen(false)}
+        isOpen={Boolean(selectedMilestoneArticle)}
+        onClose={() => setSelectedMilestoneArticle(null)}
+        article={selectedMilestoneArticle || undefined}
         onSelectTeamRecap={onSelectTeamRecap}
       />
     </div>

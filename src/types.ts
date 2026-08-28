@@ -40,7 +40,7 @@ export interface PlayerSeasonStat {
 export interface PlayerAwardItem {
   season: 1 | 2 | 3 | 4;
   title: string;
-  type: 'championship' | 'mvp' | 'major_award' | 'all_cali' | 'all_defensive' | 'all_rookie' | 'all_star' | 'stat_leader' | 'record';
+  type: 'championship' | 'mvp' | 'major_award' | 'all_cali' | 'all_defensive' | 'all_rookie' | 'all_star' | 'stat_leader' | 'record' | 'milestone';
   description?: string;
 }
 
@@ -138,6 +138,7 @@ export interface GameRecord {
   isPlayoff?: boolean;
   recapArticleId?: string;
   youtubeUrl?: string;
+  instagramUrl?: string;
 }
 
 export interface PlayoffGame {

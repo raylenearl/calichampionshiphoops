@@ -1,4 +1,4 @@
-import { INAUGURAL_GAME_ARTICLE } from './leagueMilestonesData';
+import { INAUGURAL_GAME_ARTICLE, GALLOWAY_BUZZER_BEATER_ARTICLE } from './leagueMilestonesData';
 import rjRush1Img from '../assets/images/RJRush1.png';
 import ajHinton99Img from '../assets/images/AJHinton99.png';
 import ajHintonS4_1Img from '../assets/images/AJHintonS4_1.png';
@@ -63,6 +63,8 @@ export interface CCHNewsArticle {
   imageUrl?: string;
   imageCaption?: string;
   youtubeUrl?: string;
+  instagramUrl?: string;
+  instagramEmbedUrl?: string;
   teams?: {
     team1: string;
     team1Id: string;
@@ -1435,5 +1437,32 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     contentParagraphs: INAUGURAL_GAME_ARTICLE.contentParagraphs,
     quotes: INAUGURAL_GAME_ARTICLE.quotes,
     playerStats: INAUGURAL_GAME_ARTICLE.playerStats
+  },
+  {
+    id: GALLOWAY_BUZZER_BEATER_ARTICLE.id,
+    title: GALLOWAY_BUZZER_BEATER_ARTICLE.title,
+    subtitle: GALLOWAY_BUZZER_BEATER_ARTICLE.subtitle,
+    date: GALLOWAY_BUZZER_BEATER_ARTICLE.date,
+    season: 1,
+    category: 'milestone',
+    featured: false,
+    author: 'CCH League Archives',
+    readTime: '3 min read',
+    imageUrl: jGallowayImg,
+    imageCaption: 'Johnny Galloway (San Francisco Knights) delivers legendary beyond-half-court game-winner in Season 1.',
+    instagramUrl: GALLOWAY_BUZZER_BEATER_ARTICLE.instagramUrl,
+    instagramEmbedUrl: GALLOWAY_BUZZER_BEATER_ARTICLE.instagramEmbedUrl,
+    teams: {
+      team1: GALLOWAY_BUZZER_BEATER_ARTICLE.teams.team1,
+      team1Id: 'san-francisco-knights',
+      score1: GALLOWAY_BUZZER_BEATER_ARTICLE.teams.score1,
+      team2: GALLOWAY_BUZZER_BEATER_ARTICLE.teams.team2,
+      team2Id: 'san-diego-sabrewolves',
+      score2: GALLOWAY_BUZZER_BEATER_ARTICLE.teams.score2
+    },
+    headlineQuote: GALLOWAY_BUZZER_BEATER_ARTICLE.headlineQuote,
+    contentParagraphs: GALLOWAY_BUZZER_BEATER_ARTICLE.contentParagraphs,
+    quotes: GALLOWAY_BUZZER_BEATER_ARTICLE.quotes,
+    playerStats: GALLOWAY_BUZZER_BEATER_ARTICLE.playerStats
   }
 ];
