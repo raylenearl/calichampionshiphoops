@@ -704,6 +704,13 @@ export const OpeningDayRostersView: React.FC<OpeningDayRostersViewProps> = ({
                               <span>Weight: <strong className="text-slate-200">{player.weight ? `${player.weight} lbs` : '—'}</strong></span>
                             </div>
                           )}
+
+                          {(player.contract || player.personality) && (
+                            <div className="flex items-center justify-between text-slate-400 font-mono text-[9px] pt-0.5 border-t border-slate-900">
+                              {player.personality ? <span>Trait: <strong className="text-cyan-300">{player.personality}</strong></span> : <span />}
+                              {player.contract ? <span><strong className="text-amber-300">{player.contract}</strong></span> : <span />}
+                            </div>
+                          )}
                         </div>
                       </div>
                     );

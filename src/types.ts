@@ -111,9 +111,14 @@ export interface StandingsRow {
   streak: string;
   clinchedPlayoffs: boolean;
   clinchedTopSeed?: boolean;
+  pct?: number | string;
+  gb?: string;
   homeRecord?: string;
   awayRecord?: string;
   confRecord?: string;
+  divRecord?: string;
+  confRank?: number;
+  divRank?: number;
   oppPpg?: number;
   diff?: number;
   l10?: string;

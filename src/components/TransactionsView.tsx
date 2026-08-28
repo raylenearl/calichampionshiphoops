@@ -4,7 +4,7 @@ import { TeamBadge } from './TeamBadge';
 import { Search, Filter, ArrowLeftRight, UserPlus, UserMinus, ShieldAlert, Award } from 'lucide-react';
 
 export const TransactionsView: React.FC = () => {
-  const [selectedSeason, setSelectedSeason] = useState<'all' | '3' | '2' | '1'>('all');
+  const [selectedSeason, setSelectedSeason] = useState<'all' | '4' | '3' | '2' | '1'>('all');
   const [selectedType, setSelectedType] = useState<'all' | 'trade' | 'signing' | 'waiver' | 'coaching'>('all');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -39,7 +39,7 @@ export const TransactionsView: React.FC = () => {
     return true;
   });
 
-  const seasonsList = [3, 2, 1];
+  const seasonsList = [4, 3, 2, 1];
 
   const getTypeBadge = (type: Transaction['type']) => {
     switch (type) {
@@ -124,6 +124,7 @@ export const TransactionsView: React.FC = () => {
             <div className="flex flex-wrap gap-1.5">
               {[
                 { id: 'all', label: 'All Seasons' },
+                { id: '4', label: 'Season 4' },
                 { id: '3', label: 'Season 3' },
                 { id: '2', label: 'Season 2' },
                 { id: '1', label: 'Season 1' },
@@ -230,6 +231,11 @@ const TransactionCard: React.FC<TransactionCardProps> = ({ tx, getTypeBadge }) =
       <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/60 pb-2.5">
         <div className="flex flex-wrap items-center gap-2">
           {getTypeBadge(tx.type)}
+          {tx.date && (
+            <span className="text-[11px] font-mono font-semibold text-amber-300 bg-amber-950/50 border border-amber-800/40 px-2 py-0.5 rounded-md">
+              {tx.date}
+            </span>
+          )}
           <span className="text-xs font-mono text-slate-400 font-bold">Season {tx.season}</span>
           <h3 className="text-sm sm:text-base font-extrabold text-white">
             {tx.title}

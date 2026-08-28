@@ -3,6 +3,7 @@ import { Header } from './components/Header';
 import { HeroBanner } from './components/HeroBanner';
 import { OpeningDayRecapCard } from './components/OpeningDayRecapCard';
 import { PlayerOfTheWeekCard } from './components/PlayerOfTheWeekCard';
+import { LatestGamesShowcase } from './components/LatestGamesShowcase';
 import { StandingsView } from './components/StandingsView';
 import { PlayoffsView } from './components/PlayoffsView';
 import { ScheduleBrowser } from './components/ScheduleBrowser';
@@ -260,13 +261,20 @@ export default function App() {
             {/* Hero Showcase */}
             <HeroBanner onNavigate={(tab) => setActiveTab(tab)} selectedSeason={selectedSeason} />
 
-            {/* ARTICLE 1 (TOP STORY): OFFICIAL LEAGUE AWARDS - Player of the Week (Oct 15-21) */}
+            {/* TOP STORY (LATEST GAMES SLATE): Game 9, 8 & 7 Matchup Showcases (Oct 22-25) */}
+            <LatestGamesShowcase
+              onNavigateToNews={handleNavigateToNews}
+              onSelectTeam={(teamId) => handleSelectTeamRecap(teamId, 4)}
+              onNavigateToTab={(tab) => setActiveTab(tab)}
+            />
+
+            {/* ARTICLE 2: OFFICIAL LEAGUE AWARDS - Player of the Week (Oct 15-21) */}
             <PlayerOfTheWeekCard
               onNavigateToNews={handleNavigateToNews}
               onSelectTeam={(teamId) => handleSelectTeamRecap(teamId, 4)}
             />
 
-            {/* ARTICLE 2: Latest Game Recap & Highlights */}
+            {/* ARTICLE 3: Opening Week Game Recap & Highlights */}
             <OpeningDayRecapCard
               onNavigateToNews={handleNavigateToNews}
               onSelectTeam={(teamId) => handleSelectTeamRecap(teamId, 4)}

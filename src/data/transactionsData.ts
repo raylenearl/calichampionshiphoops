@@ -1,6 +1,7 @@
 export interface Transaction {
   id: string;
   season: 1 | 2 | 3 | 4;
+  date?: string;
   type: 'trade' | 'signing' | 'waiver' | 'resigning' | 'coaching';
   title: string;
   teams: { id: string; name: string }[];
@@ -308,10 +309,162 @@ export const TRANSACTIONS_DATA: Transaction[] = [
     teams: [{ id: 'fresno-mad-dogs', name: 'Fresno Mad Dogs' }],
     description: 'Fresno Mad Dogs signed guard Wally Phillips (formerly of San Francisco).',
   },
-  // --- SEASON 4 TRANSACTIONS & SIGNINGS ---
+  // --- SEASON 4 TRANSACTIONS & SIGNINGS (Latest on top) ---
+  {
+    id: 's4-signing-may',
+    season: 4,
+    date: '10/27/2029',
+    type: 'signing',
+    title: 'San Diego Sabrewolves Sign SF Randolph May',
+    teams: [{ id: 'san-diego-sabrewolves', name: 'San Diego Sabrewolves' }],
+    description: 'The San Diego Sabrewolves signed rookie small forward Randolph May (Temple, 68 OVR, 6\'6", 235 lbs) to a 1-year, $1.45M contract.',
+    impact: 'Adds defensive depth and frontcourt physicality to Head Coach Jacob Underwood\'s rotation.',
+  },
+  {
+    id: 's4-signing-mccloud',
+    season: 4,
+    date: '10/26/2029',
+    type: 'signing',
+    title: 'Long Beach Vipers Sign PG Brevin McCloud',
+    teams: [{ id: 'long-beach-vipers', name: 'Long Beach Vipers' }],
+    description: 'The Long Beach Vipers signed rookie point guard Brevin McCloud (Virginia Tech, 64 OVR, 6\'2", 191 lbs) to a 1-year, $1.45M contract.',
+    impact: 'Provides backcourt playmaking and ball-handling depth for Coach Stretch Roberts.',
+  },
+  {
+    id: 's4-signing-lopez',
+    season: 4,
+    date: '10/26/2029',
+    type: 'signing',
+    title: 'Long Beach Vipers Sign SG Felipe Lopez',
+    teams: [{ id: 'long-beach-vipers', name: 'Long Beach Vipers' }],
+    description: 'The Long Beach Vipers signed free agent shooting guard Felipe Lopez (Puerto Rico, 66 OVR, 6\'5", 215 lbs) to a 1-year, $1.45M contract.',
+    impact: 'Bolsters perimeter scoring and wing depth for Coach Stretch Roberts alongside J.C. McMillan and Maxwell Mayo.',
+  },
+  {
+    id: 's4-signing-jefferies',
+    season: 4,
+    date: '10/23/2029',
+    type: 'signing',
+    title: 'San Jose Tigersharks Sign SG Darnell Jefferies',
+    teams: [{ id: 'san-jose-tigersharks', name: 'San Jose Tigersharks' }],
+    description: 'The San Jose Tigersharks signed rookie wing Darnell Jefferies (Brown, 68 OVR, 6\'5", 221 lbs) to a 1-year, $1.45M contract.',
+    impact: 'Enhances shooting and perimeter size for Coach Michael Stauffer\'s wing rotation.',
+  },
+  {
+    id: 's4-signing-moor',
+    season: 4,
+    date: '10/23/2029',
+    type: 'signing',
+    title: 'San Jose Tigersharks Sign PG Cam Moor',
+    teams: [{ id: 'san-jose-tigersharks', name: 'San Jose Tigersharks' }],
+    description: 'The San Jose Tigersharks signed rookie guard Cam Moor (Washington State, 66 OVR, 6\'3", 218 lbs) to a 1-year, $1.45M contract.',
+    impact: 'Provides floor leadership and secondary ball-handling backing up Donald Hardy.',
+  },
+  {
+    id: 's4-signing-felder',
+    season: 4,
+    date: '10/23/2029',
+    type: 'resigning',
+    title: 'San Diego Strykers Re-Sign C Lowell Felder',
+    teams: [{ id: 'san-diego-strykers', name: 'San Diego Strykers' }],
+    description: 'The San Diego Strykers re-signed center Lowell Felder (Clemson, 69 OVR, 6\'10", 244 lbs) to a 1-year, $1.45M contract.',
+    impact: 'Provides interior size and paint protection behind Carl Marshall for Coach Adam Saunders.',
+  },
+  {
+    id: 's4-signing-winston',
+    season: 4,
+    date: '10/23/2029',
+    type: 'signing',
+    title: 'San Diego Strykers Sign SG Alan Winston',
+    teams: [{ id: 'san-diego-strykers', name: 'San Diego Strykers' }],
+    description: 'The San Diego Strykers signed rookie guard Alan Winston (UAB, 68 OVR, 6\'4", 210 lbs) to a 1-year, $1.45M contract.',
+    impact: 'Adds perimeter depth and scoring versatility behind reigning MVP A.J. Hinton and Ray Gambino Gamble.',
+  },
+  {
+    id: 's4-signing-brooks',
+    season: 4,
+    date: '10/22/2029',
+    type: 'signing',
+    title: 'California Reds Sign PG Dan Brooks Jr.',
+    teams: [{ id: 'california-reds', name: 'California Reds' }],
+    description: 'The California Reds signed rookie point guard Dan Brooks Jr. (Loyola IL, 67 OVR, 6\'1", 187 lbs) to a 1-year, $1.45M contract.',
+    impact: 'Brings ball distribution and floor leadership to Coach William Walker\'s second unit.',
+  },
+  {
+    id: 's4-signing-coleman',
+    season: 4,
+    date: '10/21/2029',
+    type: 'signing',
+    title: 'Los Angeles Dynamics Sign SG Rolando Coleman',
+    teams: [{ id: 'los-angeles-dynamics', name: 'Los Angeles Dynamics' }],
+    description: 'The Los Angeles Dynamics signed free agent guard Rolando Coleman (Penn State, 70 OVR, 6\'3", 205 lbs) to a 1-year, $5.88M contract.',
+    impact: 'Provides instant scoring punch and bench firepower for Head Coach Pooh Splitter.',
+  },
+  {
+    id: 's4-signing-morales',
+    season: 4,
+    date: '10/21/2029',
+    type: 'signing',
+    title: 'Los Angeles Dynamics Sign SG Leandro Morales',
+    teams: [{ id: 'los-angeles-dynamics', name: 'Los Angeles Dynamics' }],
+    description: 'The Los Angeles Dynamics signed free agent wing Leandro Morales (Puerto Rico, 68 OVR, 6\'7", 205 lbs) to a 1-year, $5.88M contract.',
+    impact: 'Adds athletic wing defense and perimeter shooting depth alongside Jack McMichael Jr.',
+  },
+  {
+    id: 's4-signing-miller',
+    season: 4,
+    date: '10/21/2029',
+    type: 'signing',
+    title: 'Fresno Mad Dogs Sign PG Chucky Miller',
+    teams: [{ id: 'fresno-mad-dogs', name: 'Fresno Mad Dogs' }],
+    description: 'The Fresno Mad Dogs signed free agent point guard Chucky Miller (Creighton, 68 OVR, 6\'0", 202 lbs) to a 1-year, $5.88M contract.',
+    impact: 'Adds transition playmaking and ball-handling depth for Head Coach Ronnie Flores.',
+  },
+  {
+    id: 's4-signing-chapman',
+    season: 4,
+    date: '10/20/2029',
+    type: 'signing',
+    title: 'Golden State Enterprise Sign PG Benjamin Chapman',
+    teams: [{ id: 'golden-state-enterprise', name: 'Golden State Enterprise' }],
+    description: 'Golden State Enterprise signed free agent point guard Benjamin Chapman (68 OVR, 6\'1", 190 lbs) to a 1-year, $1.45M contract.',
+    impact: 'Bolsters guard rotation and depth for Head Coach Wyatt Zimmerman.',
+  },
+  {
+    id: 's4-signing-dunn',
+    season: 4,
+    date: '10/19/2029',
+    type: 'signing',
+    title: 'San Francisco Knights Sign C Marty Dunn',
+    teams: [{ id: 'san-francisco-knights', name: 'San Francisco Knights' }],
+    description: 'The San Francisco Knights signed free agent center Marty Dunn (72 OVR, 6\'11", 245 lbs) to a 1-year, $3.86M contract.',
+    impact: 'Provides interior size and paint protection for Head Coach Zack Randle.',
+  },
+  {
+    id: 's4-signing-yorke',
+    season: 4,
+    date: '10/18/2029',
+    type: 'signing',
+    title: 'Sacramento Stallions Sign SF Walter Yorke',
+    teams: [{ id: 'sacramento-stallions', name: 'Sacramento Stallions' }],
+    description: 'The Sacramento Stallions signed free agent small forward Walter Yorke (71 OVR, 6\'7", 220 lbs) to a 1-year, $1.45M contract.',
+    impact: 'Provides wing shooting and depth for Coach Benjamin Nelson.',
+  },
+  {
+    id: 's4-signing-iverson',
+    season: 4,
+    date: '10/17/2029',
+    type: 'resigning',
+    title: 'Sabrewolves Lock Up SF Garrison Iverson on 4-Year Deal',
+    teams: [{ id: 'san-diego-sabrewolves', name: 'San Diego Sabrewolves' }],
+    description: 'The San Diego Sabrewolves signed starting forward Garrison Iverson to a 4-year, $171.87M contract extension.',
+    impact: 'Secures Iverson as a cornerstone piece for the Sabrewolves championship window under Jacob Underwood.',
+    highlight: true,
+  },
   {
     id: 's4-signing-pognotti',
     season: 4,
+    date: '10/15/2029',
     type: 'signing',
     title: 'Adrian Pognotti Signs 4-Year, $171.87M Mega-Deal with Sacramento Stallions',
     teams: [
@@ -325,6 +478,7 @@ export const TRANSACTIONS_DATA: Transaction[] = [
   {
     id: 's4-signing-galloway',
     season: 4,
+    date: '10/15/2029',
     type: 'signing',
     title: 'Johnny Galloway Returns to San Diego Strykers on 4-Year, $171.87M Contract',
     teams: [{ id: 'san-diego-strykers', name: 'San Diego Strykers' }],
@@ -335,6 +489,7 @@ export const TRANSACTIONS_DATA: Transaction[] = [
   {
     id: 's4-coach-underwood',
     season: 4,
+    date: '10/10/2029',
     type: 'coaching',
     title: 'Jacob Underwood Defects to San Diego Sabrewolves',
     teams: [
@@ -348,6 +503,7 @@ export const TRANSACTIONS_DATA: Transaction[] = [
   {
     id: 's4-coach-saunders',
     season: 4,
+    date: '10/10/2029',
     type: 'coaching',
     title: 'Adam Saunders Named Head Coach of SD Strykers',
     teams: [{ id: 'san-diego-strykers', name: 'San Diego Strykers' }],
@@ -357,6 +513,7 @@ export const TRANSACTIONS_DATA: Transaction[] = [
   {
     id: 's4-coach-splitter',
     season: 4,
+    date: '10/08/2029',
     type: 'coaching',
     title: 'Pooh Splitter Hired as Head Coach of Los Angeles Dynamics',
     teams: [
@@ -370,6 +527,7 @@ export const TRANSACTIONS_DATA: Transaction[] = [
   {
     id: 's4-coach-roberts',
     season: 4,
+    date: '10/06/2029',
     type: 'coaching',
     title: 'Stretch Roberts Returns as Long Beach Vipers Head Coach',
     teams: [{ id: 'long-beach-vipers', name: 'Long Beach Vipers' }],
@@ -379,6 +537,7 @@ export const TRANSACTIONS_DATA: Transaction[] = [
   {
     id: 's4-coach-flores',
     season: 4,
+    date: '10/05/2029',
     type: 'coaching',
     title: 'Ronnie Flores Named Head Coach of Fresno Mad Dogs',
     teams: [{ id: 'fresno-mad-dogs', name: 'Fresno Mad Dogs' }],
@@ -388,6 +547,7 @@ export const TRANSACTIONS_DATA: Transaction[] = [
   {
     id: 's4-coach-zimmerman',
     season: 4,
+    date: '10/04/2029',
     type: 'coaching',
     title: 'Wyatt Zimmerman Hired by Golden State Enterprise',
     teams: [{ id: 'golden-state-enterprise', name: 'Golden State Enterprise' }],
@@ -396,6 +556,7 @@ export const TRANSACTIONS_DATA: Transaction[] = [
   {
     id: 's4-coach-goodwin',
     season: 4,
+    date: '10/03/2029',
     type: 'coaching',
     title: 'Carson Goodwin Named Head Coach of Oakland Renegades',
     teams: [{ id: 'oakland-renegades', name: 'Oakland Renegades' }],
@@ -404,6 +565,7 @@ export const TRANSACTIONS_DATA: Transaction[] = [
   {
     id: 's4-coach-randle',
     season: 4,
+    date: '10/02/2029',
     type: 'coaching',
     title: 'Zack Randle Hired by San Francisco Knights',
     teams: [{ id: 'san-francisco-knights', name: 'San Francisco Knights' }],

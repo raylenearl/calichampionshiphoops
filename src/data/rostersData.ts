@@ -8,6 +8,8 @@ export interface RosterPlayer {
   age?: number;
   height?: string;
   weight?: number | string;
+  personality?: string;
+  contract?: string;
 }
 
 export interface TeamSeasonRoster {
@@ -169,6 +171,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
         { number: '21', name: 'Alan Perben', position: 'PG/SG', ovr: 72, seasonYear: 'Rookie', schoolOrNote: 'France', age: 23, height: '6-5', weight: 195 },
         { number: '4', name: 'Kurt Beasley', position: 'SG/SF', ovr: 72, seasonYear: 'Rookie', schoolOrNote: 'Colorado', age: 19, height: '6-5', weight: 216 },
         { number: '13', name: 'Frederick Sharp', position: 'SG/SF', ovr: 72, seasonYear: 'Rookie', schoolOrNote: 'Texas', age: 22, height: '6-5', weight: 213 },
+        { number: '41', name: 'Randolph May', position: 'SF/PF', ovr: 68, seasonYear: 'Rookie', schoolOrNote: 'Temple', age: 22, height: '6-6', weight: 235, personality: 'Unpredictable', contract: '1 Yr / $1.45M' },
       ],
     },
   },
@@ -319,6 +322,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
         { number: '47', name: 'Louis Lucas', position: 'C', ovr: 72, seasonYear: 'Rookie', schoolOrNote: 'Stanford', age: 21, height: '6-11', weight: 218 },
         { number: '52', name: 'Jud Drew', position: 'C/PF', ovr: 71, seasonYear: 'Rookie', schoolOrNote: 'Santa Clara', age: 21, height: '6-10', weight: 234 },
         { number: '34', name: 'Edmond Warren', position: 'SF/SG', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'High School', age: 18, height: '6-5', weight: 196 },
+        { number: '43', name: 'Chucky Miller', position: 'PG/SG', ovr: 68, seasonYear: 'Rookie', schoolOrNote: 'Creighton', age: 23, height: '6-0', weight: 202, personality: 'Laid Back', contract: '1 Yr / $5.88M' },
       ],
     },
   },
@@ -396,6 +400,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
         { number: '43', name: 'Rex Swift', position: 'SF', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'Ohio State', age: 21, height: '6-8', weight: 211 },
         { number: '1', name: 'Donald Pittman', position: 'SG/PG', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'Boise State', age: 22, height: '6-7', weight: 226 },
         { number: '41', name: 'Mitch Copeland', position: 'C/PF', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'Maryland', age: 22, height: '6-8', weight: 234 },
+        { number: '20', name: 'Dan Brooks Jr.', position: 'PG/SG', ovr: 67, seasonYear: 'Rookie', schoolOrNote: 'Loyola (IL)', age: 22, height: '6-1', weight: 187, personality: 'Laid Back', contract: '1 Yr / $1.45M' },
       ],
     },
   },
@@ -469,6 +474,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
         { number: '32', name: 'Liviu Bacui', position: 'PF/SF', ovr: 72, seasonYear: 'Rookie', schoolOrNote: 'Romania', age: 20, height: '6-8', weight: 222 },
         { number: '34', name: 'Chuck Beasley', position: 'SF', ovr: 71, seasonYear: 'Rookie', schoolOrNote: 'Vanderbilt', age: 21, height: '6-8', weight: 251 },
         { number: '23', name: 'Damian Brady', position: 'C/PF', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'Xavier (OH)', age: 22, height: '6-11', weight: 218 },
+        { number: '18', name: 'Benjamin Chapman', position: 'PG', ovr: 68, seasonYear: 'Rookie', schoolOrNote: 'Free Agent Signing', age: 22, height: '6-1', weight: 190, contract: '1 Yr / $1.45M' },
       ],
     },
   },
@@ -539,6 +545,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
         { number: '13', name: 'Wesley Gibson', position: 'SG/PG', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'Louisville', age: 21, height: '6-5', weight: 200 },
         { number: '44', name: 'Martin Tinsley', position: 'PF/SF', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'Illinois', age: 22, height: '6-8', weight: 211 },
         { number: '10', name: 'Donnie Anderson', position: 'PG/SG', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'Central Florida', age: 23, height: '6-1', weight: 198 },
+        { number: '34', name: 'Marty Dunn', position: 'C', ovr: 72, seasonYear: 'Rookie', schoolOrNote: 'Free Agent Signing', age: 23, height: '6-11', weight: 245, contract: '1 Yr / $3.86M' },
       ],
     },
   },
@@ -607,6 +614,8 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
         { number: '40', name: 'Bruno Popovic', position: 'C/PF', ovr: 71, seasonYear: 'Rookie', schoolOrNote: 'Croatia', age: 20, height: '6-9', weight: 229 },
         { number: '37', name: "Nicholas O'Bryant", position: 'SF', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'George Washington', age: 21, height: '6-5', weight: 218 },
         { number: '39', name: 'Edmond Bender', position: 'C', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'Houston', age: 23, height: '6-11', weight: 250 },
+        { number: '43', name: 'Felipe Lopez', position: 'SG', ovr: 66, seasonYear: 'Rookie', schoolOrNote: 'Puerto Rico', age: 22, height: '6-5', weight: 215, personality: 'Neutral', contract: '1 Yr / $1.45M' },
+        { number: '18', name: 'Brevin McCloud', position: 'PG', ovr: 64, seasonYear: 'Rookie', schoolOrNote: 'Virginia Tech', age: 20, height: '6-2', weight: 191, personality: 'Neutral', contract: '1 Yr / $1.45M' },
       ],
     },
   },
@@ -680,6 +689,8 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
         { number: '31', name: 'Ronald Braun', position: 'C', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'Texas A&M', age: 22, height: '6-10', weight: 244 },
         { number: '40', name: 'Albert Gill', position: 'SF/PF', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'Illinois State', age: 22, height: '6-5', weight: 238 },
         { number: '48', name: 'Frederick Lloyd', position: 'PF/C', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'UC Davis', age: 20, height: '6-9', weight: 254 },
+        { number: '9', name: 'Darnell Jefferies', position: 'SG/SF', ovr: 68, seasonYear: 'Rookie', schoolOrNote: 'Brown', age: 20, height: '6-5', weight: 221, personality: 'Neutral', contract: '1 Yr / $1.45M' },
+        { number: '16', name: 'Cam Moor', position: 'PG/SG', ovr: 66, seasonYear: 'Rookie', schoolOrNote: 'Washington State', age: 21, height: '6-3', weight: 218, personality: 'Neutral', contract: '1 Yr / $1.45M' },
       ],
     },
   },
@@ -754,6 +765,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
         { number: '39', name: 'Aricinto D\'Angelo', position: 'PF', ovr: 71, seasonYear: 'Rookie', schoolOrNote: 'Italy', age: 21, height: '6-6', weight: 221 },
         { number: '13', name: 'Ifeanyi N\'dour', position: 'SF/SG', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'Nigeria', age: 21, height: '6-4', weight: 223 },
         { number: '4', name: 'Jack Grady', position: 'SG/PG', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'Stanford', age: 23, height: '6-6', weight: 216 },
+        { number: '24', name: 'Walter Yorke', position: 'SF', ovr: 71, seasonYear: 'Rookie', schoolOrNote: 'Free Agent Signing', age: 22, height: '6-7', weight: 220, contract: '1 Yr / $1.45M' },
       ],
     },
   },
@@ -830,6 +842,8 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
         { number: '8', name: 'Lance Nixon', position: 'PG/SG', ovr: 71, seasonYear: 'Rookie', schoolOrNote: 'Washington State', age: 21, height: '6-3', weight: 214 },
         { number: '31', name: 'Ekpe Udoh', position: 'SF/PF', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'Nigeria', age: 23, height: '6-7', weight: 244 },
         { number: '33', name: 'Tienchung Yi', position: 'PF', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'China', age: 22, height: '6-8', weight: 221 },
+        { number: '27', name: 'Lowell Felder', position: 'C/PF', ovr: 69, seasonYear: 'Rookie', schoolOrNote: 'Clemson', age: 22, height: '6-10', weight: 244, personality: 'Neutral', contract: '1 Yr / $1.45M' },
+        { number: '11', name: 'Alan Winston', position: 'SG/PG', ovr: 68, seasonYear: 'Rookie', schoolOrNote: 'UAB', age: 18, height: '6-4', weight: 210, personality: 'Laid Back', contract: '1 Yr / $1.45M' },
       ],
     },
   },
@@ -907,6 +921,8 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
         { number: '45', name: 'Josh Mullin', position: 'PF/C', ovr: 71, seasonYear: 'Rookie', schoolOrNote: 'Iowa', age: 23, height: '6-8', weight: 244 },
         { number: '0', name: 'Johnny C. Terrell', position: 'C', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'Alabama', age: 23, height: '6-9', weight: 251 },
         { number: '47', name: 'D.J. Brooks', position: 'SF/PF', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'Fordham', age: 21, height: '6-9', weight: 263 },
+        { number: '1', name: 'Rolando Coleman', position: 'SG/SF', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'Penn State', age: 22, height: '6-3', weight: 205, personality: 'Wildcard', contract: '1 Yr / $5.88M' },
+        { number: '19', name: 'Leandro Morales', position: 'SG/SF', ovr: 68, seasonYear: 'Rookie', schoolOrNote: 'Puerto Rico', age: 19, height: '6-7', weight: 205, personality: 'Expressive', contract: '1 Yr / $5.88M' },
       ],
     },
   },

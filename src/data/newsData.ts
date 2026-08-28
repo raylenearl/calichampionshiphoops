@@ -3,6 +3,9 @@ import rjRush1Img from '../assets/images/RJRush1.png';
 import ajHinton99Img from '../assets/images/AJHinton99.png';
 import ajHintonS4_1Img from '../assets/images/AJHintonS4_1.png';
 import aMaraiS4_1Img from '../assets/images/AMaraiS4_1.png';
+import hinton42vsCalImg from '../assets/images/Hinton42_s4vsCAL.png';
+import jDeanVsSacImg from '../assets/images/JDean_vs_SACs4.png';
+import maraiVsLbImg from '../assets/images/Marai_vs_LBs4.png';
 import carltonDaughertyImg from '../assets/images/S4 Draft/Carlton Daugherty.png';
 import jacobUnderwoodImg from '../assets/images/JUnderwood.png';
 import pognottiImg from '../assets/images/Pognotti.png';
@@ -84,6 +87,189 @@ export interface CCHNewsArticle {
 }
 
 export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
+  {
+    id: 's4-g9-reds-bounce-back-vipers',
+    title: 'Marai and Rodman Power Reds Past Vipers 68-61 in Bounce-Back Victory',
+    subtitle: 'Andor Marai scores 21 points and Donald Rodman adds 17 as the California Reds rebound to improve to 2-1 on the season, dropping Long Beach to 0-2.',
+    date: 'Season 4 • Game 9 Recap (Oct 25)',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • Long Beach Beat',
+    readTime: '3 min read',
+    imageUrl: maraiVsLbImg,
+    imageCaption: 'Andor Marai scored 21 points and Donald Rodman added 17 as the California Reds (2-1) earned a hard-fought 68-61 road victory over Long Beach.',
+    teams: {
+      team1: 'California Reds',
+      team1Id: 'california-reds',
+      score1: 68,
+      team2: 'Long Beach Vipers',
+      team2Id: 'long-beach-vipers',
+      score2: 61,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 18, team2: 14 },
+      { period: 'Q2', team1: 17, team2: 16 },
+      { period: 'Q3', team1: 16, team2: 15 },
+      { period: 'Q4', team1: 17, team2: 16 },
+    ],
+    headlineQuote: 'Despite a tough loss to the Strykers, the Reds (2-1) bounced back behind 21 points from Andor Marai and 17 points from Donald Rodman.',
+    contentParagraphs: [
+      'The LBC Pit – Despite a tough loss to the San Diego Strykers earlier in the week, the California Reds (2-1) bounced back with authority, securing a hard-fought 68-61 road victory over the Long Beach Vipers.',
+      'Andor Marai was a force in the paint once again, scoring a team-high 21 points while pulling down 10 rebounds and blocking 2 shots. Donald Rodman provided crucial secondary scoring, adding 17 points and 8 rebounds on active cutting and offensive putbacks.',
+      'CONSISTENT EXECUTION:\nThe Reds led at the end of every quarter (18-14, 35-30, 51-45), executing with poise in the closing minutes as point guard Kyle Robinson chipped in 12 points and 6 assists.',
+      'VIPERS STRUGGLES CONTINUE:\nWith the loss, the Vipers fall to 0-2 on the season. Maxwell Mayo led Long Beach with 16 points and 5 rebounds, while Grok Wilkens added 14 points, 9 rebounds, and 2 blocks. J.C. McMillan scored 11 points with 6 boards, but the Vipers were unable to overcome 12 turnovers and California\'s interior efficiency.'
+    ],
+    quotes: [
+      {
+        speaker: 'Andor Marai',
+        title: 'Center • California Reds (21 PTS, 10 REB, 2 BLK)',
+        quote: 'After the tough game in San Diego, we wanted to show our character. We came into The Pit focused on executing our half-court offense and establishing the paint.'
+      },
+      {
+        speaker: 'Donald Rodman',
+        title: 'Power Forward • California Reds (17 PTS, 8 REB)',
+        quote: 'Winning on the road in this building is never easy. We stayed together, made our free throws, and got the stops we needed late.'
+      },
+      {
+        speaker: 'Stretch Roberts',
+        title: 'Head Coach • Long Beach Vipers (0-2 Record)',
+        quote: 'We battled hard for 48 minutes, but Marai and Rodman hurt us on the glass. We have to eliminate the small mistakes that turn into 7-point deficits.'
+      }
+    ],
+    playerStats: [
+      { player: 'Andor Marai', team: 'California Reds', stat: '21 PTS, 10 REB, 2 BLK (9-15 FG)' },
+      { player: 'Donald Rodman', team: 'California Reds', stat: '17 PTS, 8 REB, 3 STL (7-12 FG)' },
+      { player: 'Kyle Robinson', team: 'California Reds', stat: '12 PTS, 6 AST, 2 REB (5-10 FG)' },
+      { player: 'Maxwell Mayo', team: 'Long Beach Vipers', stat: '16 PTS, 5 REB, 2 AST (6-13 FG)' },
+      { player: 'Grok Wilkens', team: 'Long Beach Vipers', stat: '14 PTS, 9 REB, 2 BLK (6-10 FG)' },
+      { player: 'J.C. McMillan', team: 'Long Beach Vipers', stat: '11 PTS, 6 REB, 2 AST (5-9 FG)' },
+      { player: 'Reds Interior Production', team: 'Team Stats', stat: '42 PTS in Paint • 38-31 Rebounding Advantage' },
+      { player: 'Vipers Season Start', team: 'Team Stats', stat: '0-2 Overall Record' }
+    ]
+  },
+  {
+    id: 's4-g8-renegades-edge-stallions',
+    title: 'Renegades Remain Undefeated at 2-0 with Gritty 57-50 Defensive Win Over Stallions',
+    subtitle: 'Jamar Dean scores 16 points and Alonzo Reece racks up 14 points with 5 steals as Oakland clamps down late to send the defending champion Sacramento Stallions to 0-2.',
+    date: 'Season 4 • Game 8 Recap (Oct 25)',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • Oakland Beat',
+    readTime: '3 min read',
+    imageUrl: jDeanVsSacImg,
+    imageCaption: 'Jamar Dean scored 16 points and Alonzo Reece recorded 14 points and 5 steals to lead the undefeated Oakland Renegades (2-0) past Sacramento 57-50.',
+    teams: {
+      team1: 'Sacramento Stallions',
+      team1Id: 'sacramento-stallions',
+      score1: 50,
+      team2: 'Oakland Renegades',
+      team2Id: 'oakland-renegades',
+      score2: 57,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 12, team2: 15 },
+      { period: 'Q2', team1: 14, team2: 13 },
+      { period: 'Q3', team1: 11, team2: 16 },
+      { period: 'Q4', team1: 13, team2: 13 },
+    ],
+    headlineQuote: 'The Renegades remain undefeated at 2-0 thanks to a gritty defensive effort in front of a raucous home crowd at Oakland Arena.',
+    contentParagraphs: [
+      'Oakland, CA – The Renegades remain undefeated at 2-0 thanks to a gritty defensive effort against their Northern California rivals, outlasting the Sacramento Stallions 57-50.',
+      'Jamar Dean paced the Oakland offense with 16 points on disciplined shot selection, while All-Star backcourt partner Alonzo Reece added 14 points and a game-high 5 steals. The Renegades forced 14 Sacramento turnovers and turned defensive stops into critical transition buckets during a pivotal 16-11 third quarter.',
+      'DEFENSIVE BATTLE IN THE PAINT:\nJoshua Bowen provided key rim protection inside with 10 points, 8 rebounds, and 2 blocked shots, neutralizing Sacramento\'s interior post-ups in the final minutes.',
+      'STALLIONS NOTES:\nFor the 0-2 Stallions, Gemini Jackson was a bright spot, stuffing the stat sheet with 13 points, 4 assists, 2 steals, and an impressive 3 blocks. Adrian Pognotti recorded 10 points and 9 rebounds with 3 blocks, while Frank Hackett fought for 11 points and 7 boards. However, Sacramento struggled from the perimeter, hitting just 3-of-18 from long distance as their offensive slump continues.'
+    ],
+    quotes: [
+      {
+        speaker: 'Jamar Dean',
+        title: 'Shooting Guard • Oakland Renegades (16 PTS, 2-0 Record)',
+        quote: 'This was a classic NorCal rivalry battle. It wasn\'t pretty on every possession, but our defense held firm when the game was on the line.'
+      },
+      {
+        speaker: 'Alonzo Reece',
+        title: 'Point Guard • Oakland Renegades (14 PTS, 5 STL)',
+        quote: 'We wanted to create havoc on the perimeter. Getting 5 steals and pushing the pace gave us the cushion we needed down the stretch.'
+      },
+      {
+        speaker: 'Carson Goodwin',
+        title: 'Head Coach • Oakland Renegades',
+        quote: 'Holding Sacramento to 50 points shows the commitment our guys have on the defensive end. 2-0 is a great foundation.'
+      }
+    ],
+    playerStats: [
+      { player: 'Jamar Dean', team: 'Oakland Renegades', stat: '16 PTS, 4 REB, 2 AST (6-12 FG)' },
+      { player: 'Alonzo Reece', team: 'Oakland Renegades', stat: '14 PTS, 3 REB, 4 AST, 5 STL (5-11 FG)' },
+      { player: 'Joshua Bowen', team: 'Oakland Renegades', stat: '10 PTS, 8 REB, 2 BLK (4-7 FG)' },
+      { player: 'Gemini Jackson', team: 'Sacramento Stallions', stat: '13 PTS, 4 AST, 2 STL, 3 BLK (5-10 FG)' },
+      { player: 'Frank Hackett', team: 'Sacramento Stallions', stat: '11 PTS, 7 REB, 1 AST (4-9 FG)' },
+      { player: 'Adrian Pognotti', team: 'Sacramento Stallions', stat: '10 PTS, 9 REB, 3 BLK (5-8 FG)' },
+      { player: 'Renegades Perimeter Pressure', team: 'Team Defense', stat: '11 Steals • Forced 14 Turnovers' },
+      { player: 'Stallions Perimeter Slump', team: 'Team Stats', stat: '3/18 3PT (16.7%) • 0-2 Record' }
+    ]
+  },
+  {
+    id: 's4-g7-strykers-rout-reds-hinton-42',
+    title: 'Hinton Erupts for 42 as Unstoppable Strykers Demolish Reds, 102-64',
+    subtitle: 'A.J. Hinton puts on a shooting clinic for the ages with 42 points (12-14 3PT) on 15-of-17 shooting as San Diego improves to a perfect 3-0 in a 38-point rout over California.',
+    date: 'Season 4 • Game 7 Recap (Oct 22)',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • San Diego Beat',
+    readTime: '3 min read',
+    imageUrl: hinton42vsCalImg,
+    imageCaption: 'A.J. Hinton was virtually unstoppable, erupting for a game-high 42 points on 15-of-17 shooting (12-of-14 from three) as the Strykers dismantled the Reds 102-64.',
+    teams: {
+      team1: 'California Reds',
+      team1Id: 'california-reds',
+      score1: 64,
+      team2: 'San Diego Strykers',
+      team2Id: 'san-diego-strykers',
+      score2: 102,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 18, team2: 28 },
+      { period: 'Q2', team1: 16, team2: 26 },
+      { period: 'Q3', team1: 14, team2: 27 },
+      { period: 'Q4', team1: 16, team2: 21 },
+    ],
+    headlineQuote: 'The Strykers are looking utterly unstoppable, improving to a perfect 3-0 record with a staggering 38-point demolition of the California Reds behind A.J. Hinton\'s 42-point explosion.',
+    contentParagraphs: [
+      'San Diego, CA – The Strykers are looking utterly unstoppable, improving to a perfect 3-0 record with a staggering 38-point demolition of the California Reds.',
+      'Superstar guard A.J. Hinton delivered a performance for the ages, erupting for a game-high 42 points on a blistering 15-of-17 shooting from the field, including a near-perfect 12-for-14 from beyond the arc. Hinton had the home crowd on its feet from the opening quarter, knocking down contested step-backs and pulling up from well behind the arc with effortless precision.',
+      'PLAYMAKING & SUPPORTING CAST:\nRay Gamble contributed 17 points and 5 assists in the blowout, orchestrating the offense with veteran poise and finding open shooters in transition. DeAnte Gray added 14 points, 6 rebounds, and 4 assists, while Johnny Galloway provided relentless defense and grabbed 8 boards. The Strykers shot a scorching 67% from the floor as a team, leading by as many as 40 points in the second half.',
+      'REDS PERSPECTIVE:\nFor the California Reds (1-1), Andor Marai battled inside with 18 points and 8 rebounds, and Donald Rodman fought for 14 points and 6 rebounds. However, California was unable to slow down San Diego\'s perimeter onslaught, as the Strykers poured in 102 points—the highest scoring output of Season 4.'
+    ],
+    quotes: [
+      {
+        speaker: 'A.J. Hinton',
+        title: 'Superstar Guard • San Diego Strykers (42 PTS, 12-14 3PT, 15-17 FG)',
+        quote: 'My teammates found me in rhythm all night. When you hit a couple early and see the ball go through the net cleanly, the hoop looks huge. We came out with high energy on both ends.'
+      },
+      {
+        speaker: 'Adam Saunders',
+        title: 'Head Coach • San Diego Strykers (3-0 Start)',
+        quote: 'A.J. put on one of the greatest shooting displays in CCH history tonight. Shooting 15-of-17 with 12 threes against a quality squad like California is historic.'
+      },
+      {
+        speaker: 'William Walker',
+        title: 'Head Coach • California Reds',
+        quote: 'When Hinton gets going like that and a team shoots 67% from the field, there isn\'t much you can do defensively. We have to flush this one and get ready for Long Beach.'
+      }
+    ],
+    playerStats: [
+      { player: 'A.J. Hinton', team: 'San Diego Strykers', stat: '42 PTS, 3 REB, 4 AST, 3 STL (15-17 FG, 12-14 3PT)' },
+      { player: 'Ray Gamble', team: 'San Diego Strykers', stat: '17 PTS, 5 AST, 3 REB (7-11 FG)' },
+      { player: 'DeAnte Gray', team: 'San Diego Strykers', stat: '14 PTS, 6 REB, 4 AST (6-9 FG)' },
+      { player: 'Johnny Galloway', team: 'San Diego Strykers', stat: '8 PTS, 8 REB, 3 AST, 2 STL' },
+      { player: 'Andor Marai', team: 'California Reds', stat: '18 PTS, 8 REB, 2 BLK (8-14 FG)' },
+      { player: 'Donald Rodman', team: 'California Reds', stat: '14 PTS, 6 REB, 1 STL (6-11 FG)' },
+      { player: 'Strykers Shooting Masterclass', team: 'Team Stats', stat: '67.2% FG (39/58) • 17/24 3PT (70.8%) • 102 PTS' },
+      { player: 'Margin of Victory', team: 'Team Stats', stat: '+38 PTS (Led by as many as 40)' }
+    ]
+  },
   {
     id: 's4-potw-week-1-dean-marai',
     title: 'Players of the Week (Oct 15–21): Jamar Dean & Andor Marai Capture Week 1 Honors',

@@ -273,30 +273,40 @@ export const StandingsView: React.FC<StandingsViewProps> = ({
             <table className="w-full text-left text-sm border-collapse min-w-[720px]">
               <thead>
                 <tr className="bg-slate-950 text-slate-400 text-xs font-extrabold uppercase border-b border-slate-800">
-                  <th className="py-4 px-4 w-16 text-center">Rank</th>
-                  <th className="py-4 px-4">Franchise</th>
-                  <th className="py-4 px-4">Conference</th>
-                  <th className="py-4 px-4 text-center">W - L</th>
-                  <th className="py-4 px-4 text-center">Win %</th>
-                  <th className="py-4 px-4 text-center">GB</th>
-                  <th className="py-4 px-4 text-center">PPG</th>
-                  <th className="py-4 px-4 text-center">Streak / Status</th>
-                  {selectedSeason === 4 && <th className="py-4 px-4 text-center">Roster OVR</th>}
-                  <th className="py-4 px-4 text-center">Playoff Seeding</th>
+                  <th className="py-4 px-3 w-12 text-center">#</th>
+                  <th className="py-4 px-4 min-w-[200px]">Team</th>
+                  <th className="py-4 px-3 text-center">W - L</th>
+                  <th className="py-4 px-3 text-center">PCT</th>
+                  <th className="py-4 px-3 text-center">GB</th>
+                  <th className="py-4 px-3 text-center">Home</th>
+                  <th className="py-4 px-3 text-center">Road</th>
+                  <th className="py-4 px-3 text-center">Conf</th>
+                  <th className="py-4 px-3 text-center">Div</th>
+                  <th className="py-4 px-3 text-center">PPG</th>
+                  <th className="py-4 px-3 text-center">PAPG</th>
+                  <th className="py-4 px-3 text-center">DIFF</th>
+                  <th className="py-4 px-3 text-center">C.STRK</th>
+                  <th className="py-4 px-4 text-center">Status</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/60">
                 {standingsData.map((row: StandingsRow, idx: number) => {
                   const totalGames = row.wins + row.losses;
-                  const winPct = totalGames > 0 ? ((row.wins / totalGames) * 100).toFixed(1) : '0.0';
+                  const winPctFormatted = row.pct
+                    ? String(row.pct)
+                    : totalGames > 0
+                    ? (row.wins / totalGames).toFixed(3).replace(/^0\./, '.')
+                    : '.000';
+                  
                   const topWins = standingsData[0]?.wins || row.wins;
                   const topLosses = standingsData[0]?.losses || row.losses;
-                  const gbValue =
+                  const calculatedGb =
                     totalGames === 0
-                      ? '-'
+                      ? '1.5'
                       : idx === 0
-                      ? '0.0'
+                      ? '--'
                       : (((topWins - row.wins) + (row.losses - topLosses)) / 2).toFixed(1);
+                  const gbDisplay = row.gb || (idx === 0 ? '--' : calculatedGb);
                   const isTop8 = row.rank <= 8;
 
                   return (
@@ -308,9 +318,9 @@ export const StandingsView: React.FC<StandingsViewProps> = ({
                       }`}
                     >
                       {/* Rank */}
-                      <td className="py-3.5 px-4 text-center font-black text-slate-300">
+                      <td className="py-3 px-3 text-center font-black text-slate-300">
                         <span
-                          className={`inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs ${
+                          className={`inline-flex items-center justify-center w-6 h-6 rounded-md text-xs ${
                             row.rank === 1
                               ? 'bg-amber-500 text-slate-950 font-black shadow-md'
                               : row.rank <= 8
@@ -323,9 +333,9 @@ export const StandingsView: React.FC<StandingsViewProps> = ({
                       </td>
 
                       {/* Team Name & Badge */}
-                      <td className="py-3.5 px-4 font-bold text-white">
-                        <div className="flex items-center justify-between gap-3">
-                          <div className="flex items-center gap-3">
+                      <td className="py-3 px-4 font-bold text-white">
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="flex items-center gap-2.5">
                             <TeamBadge teamId={row.teamId} size="sm" />
                             <div>
                               <div className="flex items-center gap-1.5 flex-wrap">
@@ -338,94 +348,105 @@ export const StandingsView: React.FC<StandingsViewProps> = ({
                                   {row.teamName}
                                 </span>
                                 {TEAM_ABBREVIATIONS[row.teamId] && (
-                                  <span className="text-[10px] font-mono font-bold text-amber-400 bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800 shrink-0">
+                                  <span className="text-[10px] font-mono font-bold text-amber-400 bg-slate-950 px-1 py-0.2 rounded border border-slate-800 shrink-0">
                                     {TEAM_ABBREVIATIONS[row.teamId]}
                                   </span>
                                 )}
                               </div>
-                              {row.headCoach && (
-                                <span className="text-[11px] text-slate-400 font-normal block truncate">
-                                  HC: {row.headCoach}
-                                </span>
-                              )}
+                              <div className="flex items-center gap-2 text-[11px] text-slate-400 font-normal">
+                                <span>{row.conference === 'Northern Cali' ? 'NorCal' : 'SoCal'}</span>
+                                {row.headCoach && <span>• HC: {row.headCoach.split(' ')[0]} {row.headCoach.split(' ')[1]}</span>}
+                              </div>
                             </div>
                           </div>
-                          <span className="text-[10px] bg-slate-800 group-hover:bg-amber-500 group-hover:text-slate-950 text-slate-400 px-2.5 py-1 rounded-full font-bold transition-all shrink-0 flex items-center gap-1">
-                            <span>S{selectedSeason} Hub</span>
-                            <ArrowUpRight size={11} />
+                          <span className="text-[9px] bg-slate-800/80 group-hover:bg-amber-500 group-hover:text-slate-950 text-slate-400 px-2 py-0.5 rounded-full font-bold transition-all shrink-0 flex items-center gap-0.5">
+                            <span>Hub</span>
+                            <ArrowUpRight size={10} />
                           </span>
                         </div>
                       </td>
 
-                      {/* Conference */}
-                      <td className="py-3.5 px-4 text-xs">
-                        <span
-                          className={`px-2.5 py-0.5 rounded-full font-bold text-[10px] whitespace-nowrap ${
-                            row.conference === 'Northern Cali'
-                              ? 'bg-blue-950 text-blue-300 border border-blue-800'
-                              : 'bg-amber-950 text-amber-300 border border-amber-800'
-                          }`}
-                        >
-                          {row.conference}
-                        </span>
-                      </td>
-
                       {/* Wins - Losses */}
-                      <td className="py-3.5 px-4 text-center font-bold font-mono text-slate-200">
+                      <td className="py-3 px-3 text-center font-bold font-mono text-slate-200">
                         {row.wins} - {row.losses}
                       </td>
 
-                      {/* Win % */}
-                      <td className="py-3.5 px-4 text-center font-semibold font-mono text-slate-400 text-xs">
-                        {winPct}%
+                      {/* Win PCT */}
+                      <td className="py-3 px-3 text-center font-bold font-mono text-slate-300 text-xs">
+                        {winPctFormatted}
                       </td>
 
                       {/* Games Behind (GB) */}
-                      <td className="py-3.5 px-4 text-center font-bold font-mono text-slate-300 text-xs">
-                        {gbValue === '0.0' ? '-' : gbValue}
+                      <td className="py-3 px-3 text-center font-bold font-mono text-slate-400 text-xs">
+                        {gbDisplay}
+                      </td>
+
+                      {/* Home */}
+                      <td className="py-3 px-3 text-center font-mono text-slate-300 text-xs">
+                        {row.homeRecord || '0-0'}
+                      </td>
+
+                      {/* Road */}
+                      <td className="py-3 px-3 text-center font-mono text-slate-300 text-xs">
+                        {row.awayRecord || '0-0'}
+                      </td>
+
+                      {/* Conf */}
+                      <td className="py-3 px-3 text-center font-mono text-slate-300 text-xs">
+                        {row.confRecord || '0-0'}
+                      </td>
+
+                      {/* Div */}
+                      <td className="py-3 px-3 text-center font-mono text-slate-300 text-xs">
+                        {row.divRecord || row.confRecord || '0-0'}
                       </td>
 
                       {/* PPG */}
-                      <td className="py-3.5 px-4 text-center font-bold font-mono text-amber-400">
+                      <td className="py-3 px-3 text-center font-bold font-mono text-amber-400">
                         {row.ppg.toFixed(1)}
                       </td>
 
-                      {/* Streak / Momentum */}
-                      <td className="py-3.5 px-4 text-center text-xs font-semibold">
+                      {/* PAPG (Opponent PPG) */}
+                      <td className="py-3 px-3 text-center font-semibold font-mono text-slate-400 text-xs">
+                        {row.oppPpg !== undefined ? row.oppPpg.toFixed(1) : '-'}
+                      </td>
+
+                      {/* DIFF */}
+                      <td className="py-3 px-3 text-center font-bold font-mono text-xs">
+                        {row.diff !== undefined ? (
+                          <span className={row.diff > 0 ? 'text-emerald-400' : row.diff < 0 ? 'text-red-400' : 'text-slate-400'}>
+                            {row.diff > 0 ? `+${row.diff.toFixed(1)}` : row.diff.toFixed(1)}
+                          </span>
+                        ) : '-'}
+                      </td>
+
+                      {/* C.STRK */}
+                      <td className="py-3 px-3 text-center text-xs font-semibold">
                         <span
-                          className={`px-2.5 py-0.5 rounded-md font-mono text-[11px] whitespace-nowrap ${
-                            row.streak.startsWith('Won') || row.streak.includes('#1')
-                              ? 'bg-emerald-950 text-emerald-400 border border-emerald-800'
-                              : row.streak.includes('Defending')
-                              ? 'bg-purple-950 text-purple-300 border border-purple-800'
-                              : row.streak.includes('Era') || row.streak.includes('Debut')
-                              ? 'bg-blue-950 text-blue-300 border border-blue-800'
-                              : 'bg-slate-950 text-slate-300 border border-slate-800'
+                          className={`px-2 py-0.5 rounded font-mono text-[10px] whitespace-nowrap font-bold ${
+                            row.streak.startsWith('Won')
+                              ? 'bg-emerald-950/80 text-emerald-400 border border-emerald-800'
+                              : row.streak.startsWith('Lost')
+                              ? 'bg-rose-950/80 text-rose-400 border border-rose-800'
+                              : 'bg-slate-950 text-slate-400 border border-slate-800'
                           }`}
                         >
                           {row.streak}
                         </span>
                       </td>
 
-                      {/* Roster OVR (S4) */}
-                      {selectedSeason === 4 && (
-                        <td className="py-3.5 px-4 text-center font-bold font-mono text-xs text-amber-300">
-                          {row.teamOvr ? `${row.teamOvr} OVR` : '84.0 OVR'}
-                        </td>
-                      )}
-
-                      {/* Playoff Status */}
-                      <td className="py-3.5 px-4 text-center text-xs font-medium">
+                      {/* Status / Playoff Seeding */}
+                      <td className="py-3 px-4 text-center text-xs font-medium">
                         {row.clinchedTopSeed ? (
                           <span className="inline-flex items-center gap-1 text-amber-400 font-extrabold text-[11px] bg-amber-950/60 px-2 py-0.5 rounded-full border border-amber-800 whitespace-nowrap">
-                            <Trophy size={12} /> #1 Seed
+                            <Trophy size={11} /> #1 Seed
                           </span>
                         ) : row.clinchedPlayoffs ? (
                           <span className="inline-flex items-center gap-1 text-emerald-400 font-bold text-[11px] whitespace-nowrap">
-                            <CheckCircle2 size={13} /> Playoffs
+                            <CheckCircle2 size={12} /> Playoffs
                           </span>
                         ) : selectedSeason === 4 ? (
-                          <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full ${
+                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap ${
                             row.rank <= 4
                               ? 'text-amber-400 bg-amber-950/40 border border-amber-800/60'
                               : row.rank <= 8
