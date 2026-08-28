@@ -8,7 +8,7 @@ import { TEAMS } from '../data/teamsData';
 import { GameRecord } from '../types';
 import { TeamBadge } from './TeamBadge';
 import { InauguralGameModal } from './InauguralGameModal';
-import { Calendar, Search, Flame, User, Trophy, Layers, X, Sparkles, BookOpen, FileText } from 'lucide-react';
+import { Calendar, Search, Flame, User, Trophy, Layers, X, Sparkles, BookOpen, FileText, Play, Tv } from 'lucide-react';
 
 interface ScheduleBrowserProps {
   selectedSeason: 1 | 2 | 3 | 4;
@@ -109,6 +109,12 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
     // 'all' stage: Regular season + Playoffs
     return [...regSchedule, ...playoffGames];
   }, [selectedSeason, gameStage]);
+
+  // Compute the latest completed game for highlighting
+  const latestCompletedGameId = useMemo(() => {
+    const completed = activeSchedule.filter((g) => g.score1 > 0 || g.score2 > 0);
+    return completed.length > 0 ? completed[completed.length - 1].id : null;
+  }, [activeSchedule]);
 
   // Months available
   const months = ['All', 'October', 'November', 'December', 'January', 'February', 'March', 'April', 'Playoffs'];
@@ -410,17 +416,20 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
           const isHighScoring = game.score1 + game.score2 >= 150;
           const isPlayoff = game.month === 'Playoffs' || game.date.includes('Finals') || game.date.includes('Quarterfinals') || game.date.includes('Semifinals');
           const isInauguralGame = game.id === 's1-2' || (game.season === 1 && game.date === 'Oct 24' && game.team1.includes('California') && game.team2.includes('San Diego'));
+          const isLatestCompleted = game.id === latestCompletedGameId;
 
           return (
             <div
               key={game.id}
               className={`bg-slate-900 border ${
-                isInauguralGame
+                isLatestCompleted
+                  ? 'border-amber-400/90 shadow-xl shadow-amber-500/15 ring-2 ring-amber-400/30'
+                  : isInauguralGame
                   ? 'border-amber-400 shadow-amber-500/10'
                   : isPlayoff
                   ? 'border-amber-500/40 shadow-amber-950/20'
                   : 'border-slate-800'
-              } hover:border-slate-700 rounded-2xl p-4 space-y-3 transition-all shadow-md hover:-translate-y-0.5`}
+              } hover:border-amber-500/60 rounded-2xl p-4 space-y-3 transition-all shadow-md hover:-translate-y-0.5`}
             >
               {/* Date & Tags */}
               <div className="flex items-center justify-between text-xs border-b border-slate-800/80 pb-2">
@@ -429,6 +438,11 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
                   {game.date}
                 </span>
                 <div className="flex items-center gap-1.5">
+                  {isLatestCompleted && (
+                    <span className="text-[10px] bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 font-black px-2 py-0.5 rounded-full flex items-center gap-1 shadow animate-pulse">
+                      <Flame size={11} className="fill-slate-950" /> LATEST GAME
+                    </span>
+                  )}
                   {isInauguralGame && (
                     <span className="text-[10px] bg-amber-400 text-slate-950 font-black px-2 py-0.5 rounded-full flex items-center gap-1 shadow">
                       <Sparkles size={11} /> INAUGURAL GAME
@@ -439,7 +453,7 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
                       <Trophy size={11} /> POSTSEASON
                     </span>
                   )}
-                  {isHighScoring && !isPlayoff && !isInauguralGame && (
+                  {isHighScoring && !isPlayoff && !isInauguralGame && !isLatestCompleted && (
                     <span className="text-[10px] bg-amber-950 text-amber-400 font-bold px-2 py-0.5 rounded-full border border-amber-800/60 flex items-center gap-1">
                       <Flame size={11} /> High Scoring
                     </span>
@@ -518,25 +532,49 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
                       <BookOpen size={14} /> Read Inaugural Game Article
                     </button>
                   ) : game.recapArticleId && onNavigateToNews ? (
-                    <div className="space-y-1 mt-1">
+                    <div className="space-y-1.5 mt-1">
                       {game.notes && (
                         <p className="text-[11px] text-amber-300/90 bg-amber-950/30 p-2 rounded-xl border border-amber-900/30 font-medium leading-relaxed">
                           💡 {game.notes}
                         </p>
                       )}
-                      <button
-                        onClick={() => onNavigateToNews(game.recapArticleId)}
-                        className="w-full py-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black rounded-xl text-xs flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md"
-                      >
-                        <BookOpen size={14} /> Read Full Game Story
-                      </button>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+                        <button
+                          onClick={() => onNavigateToNews(game.recapArticleId)}
+                          className="py-2 px-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-md"
+                        >
+                          <BookOpen size={13} /> Recap Story
+                        </button>
+                        {game.youtubeUrl && (
+                          <a
+                            href={game.youtubeUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="py-2 px-2 bg-red-600/90 hover:bg-red-500 text-white font-black rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-md text-center"
+                          >
+                            <Play size={13} className="fill-white" /> Watch Replay
+                          </a>
+                        )}
+                      </div>
                     </div>
                   ) : (
-                    game.notes && (
-                      <p className="text-[11px] text-amber-300/90 bg-amber-950/30 p-2 rounded-xl border border-amber-900/30 font-medium leading-relaxed mt-1">
-                        💡 {game.notes}
-                      </p>
-                    )
+                    <div className="space-y-1.5 mt-1">
+                      {game.notes && (
+                        <p className="text-[11px] text-amber-300/90 bg-amber-950/30 p-2 rounded-xl border border-amber-900/30 font-medium leading-relaxed">
+                          💡 {game.notes}
+                        </p>
+                      )}
+                      {game.youtubeUrl && (
+                        <a
+                          href={game.youtubeUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full py-2 bg-red-600/90 hover:bg-red-500 text-white font-black rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-md text-center"
+                        >
+                          <Play size={13} className="fill-white" /> Watch Full Replay
+                        </a>
+                      )}
+                    </div>
                   )}
                 </div>
               )}

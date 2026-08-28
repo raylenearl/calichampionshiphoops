@@ -137,6 +137,7 @@ export interface GameRecord {
   notes?: string;
   isPlayoff?: boolean;
   recapArticleId?: string;
+  youtubeUrl?: string;
 }
 
 export interface PlayoffGame {

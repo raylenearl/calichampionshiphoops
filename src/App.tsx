@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Header } from './components/Header';
 import { HeroBanner } from './components/HeroBanner';
 import { OpeningDayRecapCard } from './components/OpeningDayRecapCard';
+import { PlayerOfTheWeekCard } from './components/PlayerOfTheWeekCard';
 import { StandingsView } from './components/StandingsView';
 import { PlayoffsView } from './components/PlayoffsView';
 import { ScheduleBrowser } from './components/ScheduleBrowser';
@@ -16,11 +17,7 @@ import { TransactionsView } from './components/TransactionsView';
 import { NewsView } from './components/NewsView';
 import { DraftView } from './components/DraftView';
 import { OpeningDayRostersView } from './components/OpeningDayRostersView';
-import { PodcastPlayerCard } from './components/PodcastPlayerCard';
-import { TEAMS } from './data/teamsData';
-import { SEASON_ROSTERS } from './data/rostersData';
 import { TeamBadge } from './components/TeamBadge';
-import ajHinton99Img from './assets/images/AJHinton99.png';
 import pognottiImg from './assets/images/Pognotti.png';
 import jGallowayImg from './assets/images/JGalloway.png';
 import { SearchModal } from './components/SearchModal';
@@ -263,7 +260,13 @@ export default function App() {
             {/* Hero Showcase */}
             <HeroBanner onNavigate={(tab) => setActiveTab(tab)} selectedSeason={selectedSeason} />
 
-            {/* LATEST STORY / TOP ARTICLE ON FRONT PAGE: Latest Game Recap & Highlights */}
+            {/* ARTICLE 1 (TOP STORY): OFFICIAL LEAGUE AWARDS - Player of the Week (Oct 15-21) */}
+            <PlayerOfTheWeekCard
+              onNavigateToNews={handleNavigateToNews}
+              onSelectTeam={(teamId) => handleSelectTeamRecap(teamId, 4)}
+            />
+
+            {/* ARTICLE 2: Latest Game Recap & Highlights */}
             <OpeningDayRecapCard
               onNavigateToNews={handleNavigateToNews}
               onSelectTeam={(teamId) => handleSelectTeamRecap(teamId, 4)}
@@ -656,191 +659,6 @@ export default function App() {
                   <span className="text-[9px] font-mono uppercase text-slate-400 font-bold block">Regular Season Finale</span>
                   <p className="text-xs font-black text-white truncate">Admirals @ Reds</p>
                   <span className="text-[10px] font-mono text-amber-400 font-bold">April 9</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Season 4 Official Opening Day Rosters Featured Showcase */}
-            <div className="bg-gradient-to-br from-amber-950/80 via-slate-900 to-slate-950 border-2 border-amber-500/60 p-6 sm:p-8 rounded-3xl space-y-6 shadow-2xl relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20 group-hover:bg-amber-500/30 transition-all" />
-              <div className="absolute bottom-0 left-0 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl pointer-events-none -ml-20 -mb-20" />
-
-              {/* Main Headline & Status Bar */}
-              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 relative z-10">
-                <div className="flex items-start gap-4">
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-slate-950/90 border-2 border-amber-500/50 flex items-center justify-center p-1.5 shrink-0 shadow-xl overflow-hidden group-hover:scale-105 transition-transform">
-                    <img
-                      src={ajHinton99Img}
-                      alt="A.J. Hinton 99 OVR"
-                      className="w-full h-full object-contain drop-shadow-md"
-                    />
-                  </div>
-                  <div className="space-y-1.5">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="text-[10px] font-mono font-black uppercase tracking-wider bg-amber-500 text-slate-950 px-2.5 py-0.5 rounded-md font-bold shadow-sm">
-                        OFFICIAL LEAGUE RELEASE
-                      </span>
-                      <span className="text-[10px] font-mono font-black uppercase tracking-wider bg-amber-500/20 text-amber-300 px-2.5 py-0.5 rounded-md border border-amber-500/30">
-                        SEASON 4 TIP-OFF
-                      </span>
-                      <span className="text-[10px] font-mono font-bold text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded border border-sky-500/20">
-                        132 Active Players
-                      </span>
-                      <span className="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                        12 Franchises Certified
-                      </span>
-                    </div>
-                    <h2 className="text-2xl sm:text-3xl font-black text-white leading-tight">
-                      Season 4 Official Opening Day Rosters & Depth Charts
-                    </h2>
-                    <p className="text-xs sm:text-sm text-slate-300 max-w-3xl font-medium leading-relaxed">
-                      The Cali Championship Hoops front office has formally published the complete 11-man rosters for all 12 franchises. Explore all 132 player ratings, 10 elite 90+ superstars (led by 99 OVR MVP A.J. Hinton), 36 drafted rookies, and 8 new sideline coaches.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex flex-wrap items-center gap-3 shrink-0 self-start lg:self-center">
-                  <button
-                    onClick={() => setActiveTab('rosters')}
-                    className="px-6 py-3 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs sm:text-sm shadow-xl shadow-amber-500/25 flex items-center gap-2 transition-all cursor-pointer"
-                  >
-                    <Users size={16} />
-                    <span>Browse All 132 Rosters</span>
-                    <ChevronRight size={16} />
-                  </button>
-                  <button
-                    onClick={() => handleNavigateToNews('s4-opening-day-rosters-unveiled')}
-                    className="px-5 py-3 rounded-2xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-bold text-xs sm:text-sm flex items-center gap-2 transition-all cursor-pointer"
-                  >
-                    <BookOpen size={16} />
-                    <span>Read Full Story</span>
-                  </button>
-                </div>
-              </div>
-
-              {/* Front Page Official Roster Breakdown Podcast Feature */}
-              <div onClick={(e) => e.stopPropagation()} className="relative z-10 pt-1">
-                <PodcastPlayerCard
-                  audioUrl="https://archive.org/download/nba-2-k-24-2024-05-12-02-07-45/The_New_Architecture_of_CCH_Season_4.m4a"
-                  title="Official Podcast: The New Architecture of CCH Season 4"
-                  subtitle="CCH Media Network • In-depth roster breakdowns, 99 OVR A.J. Hinton, 10 superstars, rookie impacts & rotation analysis"
-                  compact={false}
-                />
-              </div>
-
-              {/* 90+ OVR Superstars Spotlight Strip */}
-              <div className="relative z-10 space-y-2 pt-2 border-t border-slate-800/80">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-mono font-black uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
-                      <Star size={12} className="text-amber-400 fill-amber-400" />
-                      Season 4 Superstars (90+ OVR Club)
-                    </span>
-                  </div>
-                  <button
-                    onClick={() => setActiveTab('rosters')}
-                    className="text-[10px] font-mono font-bold text-slate-400 hover:text-amber-300 flex items-center gap-1 cursor-pointer bg-transparent border-0"
-                  >
-                    View All Player Ratings →
-                  </button>
-                </div>
-
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5">
-                  {[
-                    { name: 'A.J. Hinton', team: 'Strykers', teamId: 'san-diego-strykers', pos: 'SG', ovr: 99, badge: 'MVP' },
-                    { name: 'Jamar Dean', team: 'Renegades', teamId: 'oakland-renegades', pos: 'SG', ovr: 96, badge: 'Scoring King' },
-                    { name: 'Jack McMichael Jr.', team: 'Dynamics', teamId: 'los-angeles-dynamics', pos: 'SG', ovr: 96, badge: 'All-Cali 1st' },
-                    { name: 'DeAnte Gray', team: 'Strykers', teamId: 'san-diego-strykers', pos: 'PF', ovr: 96, badge: 'All-Star' },
-                    { name: 'Kirk Barnes', team: 'Sabrewolves', teamId: 'san-diego-sabrewolves', pos: 'SG', ovr: 93, badge: '56-Pt Record' },
-                  ].map((star) => (
-                    <div
-                      key={star.name}
-                      onClick={() => handleSelectTeamRecap(star.teamId, 4)}
-                      className="bg-slate-950/80 border border-slate-800 hover:border-amber-500/50 p-3 rounded-2xl flex items-center justify-between relative overflow-hidden transition-all hover:bg-slate-900 cursor-pointer group/star"
-                    >
-                      <div className="min-w-0 flex-1 pr-2">
-                        <div className="flex items-center gap-1">
-                          <span className="text-[10px] font-mono font-black text-amber-400">
-                            {star.team}
-                          </span>
-                          <span className="text-[10px] font-mono text-slate-400 font-bold">
-                            {star.pos}
-                          </span>
-                        </div>
-                        <h4 className="text-xs font-bold text-white leading-tight mt-0.5 truncate group-hover/star:text-amber-300 transition-colors">
-                          {star.name}
-                        </h4>
-                        <span className="text-[9px] font-mono text-slate-400 block truncate mt-0.5">
-                          {star.badge}
-                        </span>
-                      </div>
-                      <div className="flex flex-col items-end shrink-0">
-                        <span className={`text-xs font-mono font-black px-2 py-1 rounded-lg shadow ${
-                          star.ovr >= 99
-                            ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 font-black'
-                            : star.ovr >= 95
-                            ? 'bg-amber-500 text-slate-950'
-                            : 'bg-slate-800 text-amber-300 border border-amber-500/30'
-                        }`}>
-                          {star.ovr}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* 12-Franchise Quick Opening Day Cards Strip */}
-              <div className="relative z-10 space-y-2 pt-2 border-t border-slate-800/80">
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono font-black uppercase tracking-wider text-slate-400">
-                    All 12 Franchise Opening Day Rosters (Click team to view Season 4 Roster)
-                  </span>
-                  <button
-                    onClick={() => setActiveTab('rosters')}
-                    className="text-[10px] font-mono font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1 cursor-pointer bg-transparent border-0"
-                  >
-                    Open Roster Hub →
-                  </button>
-                </div>
-
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
-                  {TEAMS.map((team) => {
-                    const s4Roster = SEASON_ROSTERS[4]?.[team.id];
-                    const topPlayer = s4Roster?.players?.[0];
-                    // Team's first name (location / first part of the franchise name, e.g. "Sacramento", "San Francisco", "Golden State")
-                    const teamFirstName = team.name.replace(` ${team.shortName}`, '');
-                    return (
-                      <div
-                        key={team.id}
-                        onClick={() => handleSelectTeamRecap(team.id, 4)}
-                        className="bg-slate-950/90 border border-slate-800/90 hover:border-amber-500/60 p-2.5 rounded-2xl flex flex-col justify-between space-y-1.5 transition-all hover:bg-slate-900 cursor-pointer hover:-translate-y-0.5 group/teamcard"
-                      >
-                        <div className="flex items-center gap-2">
-                          <TeamBadge teamId={team.id} size="sm" />
-                          <div className="min-w-0 flex-1">
-                            <span className="text-[11px] font-black text-white group-hover/teamcard:text-amber-300 transition-colors block truncate">
-                              {team.shortName}
-                            </span>
-                            <span className="text-[9px] font-mono text-slate-400 block truncate">
-                              {teamFirstName}
-                            </span>
-                          </div>
-                        </div>
-
-                        {topPlayer && (
-                          <div className="flex items-center justify-between pt-1 border-t border-slate-800/60 text-[10px] font-mono">
-                            <span className="text-slate-300 truncate max-w-[80px]">
-                              {topPlayer.name.split(' ').pop()}
-                            </span>
-                            <span className="text-amber-400 font-bold shrink-0">
-                              {topPlayer.ovr} OVR
-                            </span>
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
                 </div>
               </div>
             </div>

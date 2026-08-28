@@ -1,6 +1,8 @@
 import { INAUGURAL_GAME_ARTICLE } from './leagueMilestonesData';
 import rjRush1Img from '../assets/images/RJRush1.png';
 import ajHinton99Img from '../assets/images/AJHinton99.png';
+import ajHintonS4_1Img from '../assets/images/AJHintonS4_1.png';
+import aMaraiS4_1Img from '../assets/images/AMaraiS4_1.png';
 import carltonDaughertyImg from '../assets/images/S4 Draft/Carlton Daugherty.png';
 import jacobUnderwoodImg from '../assets/images/JUnderwood.png';
 import pognottiImg from '../assets/images/Pognotti.png';
@@ -81,6 +83,177 @@ export interface CCHNewsArticle {
 
 export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
   {
+    id: 's4-potw-week-1-dean-marai',
+    title: 'Players of the Week (Oct 15–21): Jamar Dean & Andor Marai Capture Week 1 Honors',
+    subtitle: 'Oakland\'s scoring dynamo Jamar Dean and California\'s paint anchor Andor Marai are named Northern and Southern Conference Players of the Week for explosive Opening Week performances.',
+    date: 'Season 4 Official Awards • Week 1 (Oct 15–21)',
+    season: 4,
+    category: 'feature',
+    featured: true,
+    author: 'CCH League Office & Awards Committee',
+    readTime: '3 min read',
+    imageUrl: jamarDean1Img,
+    imageCaption: 'Jamar Dean (Northern Conference POTW) and Andor Marai (Southern Conference POTW) earned Week 1 Player of the Week accolades.',
+    headlineQuote: 'Jamar Dean\'s 26-point masterclass and Andor Marai\'s 24-point, 11-rebound clinic set the standard for individual excellence in Opening Week.',
+    contentParagraphs: [
+      'CALIFORNIA — The Cali Championship Hoops League Office has officially announced the Players of the Week for Week 1 of Season 4, spanning games played from October 15 through October 21.',
+      'NORTHERN CONFERENCE PLAYER OF THE WEEK: JAMAR DEAN (OAKLAND RENEGADES)\nOakland Renegades superstar shooting guard Jamar Dean takes home Northern Conference honors after igniting Oakland\'s 71-49 Opening Night victory over the Anaheim Admirals. Dean scored a game-high 26 points on an electric 8-of-12 shooting from the floor, adding 3 rebounds and 2 steals while converting 7-of-8 from the free-throw line. Dean spearheaded a 21-7 third-quarter blitz that blew the game open for the Renegades.',
+      'SOUTHERN CONFERENCE PLAYER OF THE WEEK: ANDOR MARAI (CALIFORNIA REDS)\nCalifornia Reds center Andor Marai captured the Southern Conference award following a vintage paint performance in California\'s 59-44 statement win over the defending champion Sacramento Stallions. Marai posted 24 points, 11 rebounds, 2 steals, and 2 blocks on an astounding 10-of-12 shooting (83.3%) from the field, dominating the boards and anchoring California\'s defense to hold Sacramento to just 44 points.',
+      'HONORABLE MENTIONS:\n• A.J. Hinton (San Diego Strykers): Exploded for 30 points (8-11 3PT, 4 STL) against Anaheim in Game 6 and led San Diego to a league-best 2-0 start.\n• R.J. Rush (Los Angeles Dynamics): Smashed the all-time CCH single-game record with 14-of-14 free throws, scoring 33 points in a 77-55 rout of San Diego.\n• Lloyd Boomer (Fresno Mad Dogs): Poured in 25 points (6-6 FT) to guide Fresno\'s 59-53 fourth-quarter comeback over San Jose.'
+    ],
+    quotes: [
+      {
+        speaker: 'Ray Lenearl',
+        title: 'CCH Commissioner',
+        quote: 'Jamar Dean and Andor Marai delivered sensational opening statements. Both displayed elite efficiency and led their respective clubs to commanding victories.'
+      },
+      {
+        speaker: 'Carson Goodwin',
+        title: 'Head Coach • Oakland Renegades',
+        quote: 'Jamar Dean played with total command against Anaheim. He attacked downhill, drew contact, and set the emotional tone for our entire squad.'
+      },
+      {
+        speaker: 'William Walker',
+        title: 'Head Coach • California Reds',
+        quote: 'Andor Marai is the heartbeat of our interior attack. When he controls the paint with 24 and 11 against Sacramento, we are tough to beat.'
+      }
+    ],
+    playerStats: [
+      { player: 'Jamar Dean (Northern POTW)', team: 'Oakland Renegades', stat: '26.0 PPG, 3.0 RPG, 2.0 SPG (66.7% FG, 87.5% FT) • 1-0 Record' },
+      { player: 'Andor Marai (Southern POTW)', team: 'California Reds', stat: '24.0 PPG, 11.0 RPG, 2.0 BPG, 2.0 SPG (83.3% FG, 80.0% FT) • 1-0 Record' },
+      { player: 'A.J. Hinton (Hon. Mention)', team: 'San Diego Strykers', stat: '22.5 PPG, 3.5 RPG, 4.0 SPG, 8 3PM (30 PTS in G6) • 2-0 Record' },
+      { player: 'R.J. Rush (Hon. Mention)', team: 'Los Angeles Dynamics', stat: '33.0 PPG, 2.0 BPG (CCH Record 14-14 FT) • 1-0 Record' },
+      { player: 'Lloyd Boomer (Hon. Mention)', team: 'Fresno Mad Dogs', stat: '25.0 PPG, 4.0 RPG, 1.0 APG (6-6 FT) • 1-0 Record' }
+    ]
+  },
+  {
+    id: 's4-g6-hinton-strykers-rout-admirals',
+    title: 'Hinton Erupts for 30 as Strykers Demolish Admirals, 85-43',
+    subtitle: 'A 24-4 third-quarter blitz powers the San Diego Strykers to an 85-43 demolition of the Anaheim Admirals at the Honda Center as A.J. Hinton sinks 8 three-pointers.',
+    date: 'Season 4 • Game 6 Recap (Oct 20)',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • Anaheim Beat',
+    readTime: '3 min read',
+    imageUrl: ajHintonS4_1Img,
+    imageCaption: 'A.J. Hinton caught fire from downtown, hitting 8 three-pointers on his way to 30 points, 4 steals, and 3 assists in San Diego\'s 85-43 blowout road victory over Anaheim.',
+    teams: {
+      team1: 'San Diego Strykers',
+      team1Id: 'san-diego-strykers',
+      score1: 85,
+      team2: 'Anaheim Admirals',
+      team2Id: 'anaheim-admirals',
+      score2: 43,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 20, team2: 17 },
+      { period: 'Q2', team1: 23, team2: 9 },
+      { period: 'Q3', team1: 24, team2: 4 },
+      { period: 'Q4', team1: 18, team2: 13 },
+    ],
+    headlineQuote: 'After taking a 43-26 lead into the locker room, the Strykers blew the game completely open in the third quarter, outscoring Anaheim 24-4 and holding the Admirals to just one made field goal.',
+    contentParagraphs: [
+      'Anaheim, CA – The San Diego Strykers put on an absolute clinic on Sunday evening, dismantling the Anaheim Admirals 85-43 at the Honda Center.',
+      'After a competitive first half that saw San Diego take a 43-26 lead into the locker room, the Strykers blew the game completely open in the third quarter. San Diego opened the frame on a back-breaking run, outscoring Anaheim 24-4 and holding the Admirals to just one made field goal to turn the contest into an all-out rout.',
+      'PLAYER OF THE GAME:\nThe story of the night was the scorching perimeter shooting of reigning league MVP A.J. Hinton. Hinton was virtually unguardable, exploding for a game-high 30 points on 11-of-16 shooting from the floor, including an absurd 8-of-11 from beyond the arc. Hinton scored from everywhere—pulling up from deep in transition, working off ball screens, and knifing through passing lanes to rack up 4 steals.',
+      'SUPPORTING CAST & BALL MOVEMENT:\nSan Diego’s balance was on full display as well. DeAnte Gray poured in 15 points, 6 rebounds, and 6 assists, while Johnny Galloway provided his usual do-it-all glue work with 4 points, 11 rebounds, 4 assists, and 2 steals. Carl Marshall chipped in 8 points and 5 rebounds off the bench. The Strykers shot a blistering 55% from the field (32/58) and 56% (15-of-27) from three-point range as a team while dishing out 24 assists on 32 made field goals.',
+      'ADMIRALS PERSPECTIVE:\nFor the Admirals, it was an evening to forget offensively. Anaheim was held to just 30% shooting (14-of-46) and an icy 2-of-18 (11%) from three-point territory. Rookie Stephan Sirven led Anaheim with 15 points, and Kirk Tinsley added 11, while Jesse Wingate grabbed 9 rebounds with 6 points. However, the Admirals were thoroughly overwhelmed by San Diego’s length and defensive discipline, committing 13 turnovers that led to 20 Strykers transition points.'
+    ],
+    quotes: [
+      {
+        speaker: 'A.J. Hinton',
+        title: 'Reigning MVP • San Diego Strykers (30 PTS, 8-11 3PT, 4 STL)',
+        quote: 'When the rhythm gets going like that and the ball is popping, the basket feels twice as big. Our team defense in the third quarter holding them to 4 points set the table for everything.'
+      },
+      {
+        speaker: 'Adam Saunders',
+        title: 'Head Coach • San Diego Strykers (2-0 Start)',
+        quote: 'Holding an opponent to one field goal in a 24-4 third quarter is elite execution. A.J. Hinton put on a shooting clinic, and DeAnte and Johnny anchored both ends.'
+      },
+      {
+        speaker: 'Steve Porter',
+        title: 'Head Coach • Anaheim Admirals',
+        quote: 'We couldn\'t get stops, and when you let a 99-rated shooter like Hinton get clean looks from deep, it snowballs fast. We have to regroup and fix our transition defense.'
+      }
+    ],
+    playerStats: [
+      { player: 'A.J. Hinton', team: 'San Diego Strykers', stat: '30 PTS, 1 REB, 3 AST, 4 STL (11-16 FG, 8-11 3PT, 20 MIN)' },
+      { player: 'DeAnte Gray', team: 'San Diego Strykers', stat: '15 PTS, 6 REB, 6 AST, 1 STL, 1 BLK (6-10 FG, 3-5 3PT)' },
+      { player: 'Johnny Galloway', team: 'San Diego Strykers', stat: '4 PTS, 11 REB, 4 AST, 2 STL (30 MIN)' },
+      { player: 'Carl Marshall', team: 'San Diego Strykers', stat: '8 PTS, 5 REB, 1 AST (4-6 FG)' },
+      { player: 'Stephan Sirven', team: 'Anaheim Admirals', stat: '15 PTS, 2 REB, 2 AST, 4-4 FT (5-18 FG)' },
+      { player: 'Kirk Tinsley', team: 'Anaheim Admirals', stat: '11 PTS, 2 REB, 4 AST, 4-4 FT (3-11 FG)' },
+      { player: 'Jesse Wingate', team: 'Anaheim Admirals', stat: '6 PTS, 9 REB, 1 STL, 1 BLK (3-4 FG)' },
+      { player: 'Tracy Howard', team: 'Anaheim Admirals', stat: '6 PTS, 5 REB, 1 AST' },
+      { player: 'Strykers 3-Point Barrage', team: 'Team Stats', stat: '15/27 3PT (55.6%) • 24 Assists on 32 FGs' },
+      { player: 'Strykers 3rd Quarter Blitz', team: 'Team Defense', stat: 'Outscored Admirals 24-4 (Held to 1 Made FG)' }
+    ]
+  },
+  {
+    id: 's4-g5-reds-stallions-s4',
+    title: 'Marai, Rodman Lead Reds Past Stallions in 59-44 Grudge Match',
+    subtitle: 'Andor Marai posts 24 points and 11 rebounds on 10-of-12 shooting as the California Reds stifle the defending champion Sacramento Stallions 59-44.',
+    date: 'Season 4 Opening Night • Game 5 Recap (Oct 17)',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • Southern California Beat',
+    readTime: '3 min read',
+    imageUrl: aMaraiS4_1Img,
+    imageCaption: 'Andor Marai dominated the paint with 24 points (10-12 FG), 11 rebounds, 2 steals, and 2 blocks to lead the California Reds to a 59-44 victory over Sacramento.',
+    teams: {
+      team1: 'California Reds',
+      team1Id: 'california-reds',
+      score1: 59,
+      team2: 'Sacramento Stallions',
+      team2Id: 'sacramento-stallions',
+      score2: 44,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 14, team2: 8 },
+      { period: 'Q2', team1: 16, team2: 10 },
+      { period: 'Q3', team1: 15, team2: 18 },
+      { period: 'Q4', team1: 14, team2: 8 },
+    ],
+    headlineQuote: 'Marai was virtually unstoppable in the paint, posting a monster double-double with 24 points, 11 rebounds, 2 steals, and 2 blocks on an ultra-efficient 10-of-12 shooting from the floor.',
+    contentParagraphs: [
+      'Sacramento, CA – In a fiercely physical rematch between two of the CCH\'s elite heavyweights, big man Andor Marai delivered a masterclass inside to lead the California Reds to a convincing 59-44 victory over the Sacramento Stallions.',
+      'Marai was virtually unstoppable in the paint, posting a monster double-double with 24 points, 11 rebounds, 2 steals, and 2 blocks on an ultra-efficient 10-of-12 shooting from the floor. Whenever the Reds needed a bucket against Sacramento\'s vaunted interior defense, Marai delivered with soft touch around the rim and relentless activity on the offensive glass.',
+      'SUPPORTING CAST & DEFENSIVE REBOUNDING:\nDonald Rodman provided the ideal complementary scoring punch, chipping in 11 points, 7 rebounds, and 2 blocks on 5-of-8 shooting, while Jadon Gordon added 10 points and 3 steals off the bench. The Reds controlled the tempo from the opening tip, establishing a 30-18 halftime advantage with disciplined interior defense and crisp ball movement (18 assists on 26 made field goals). Kyle Robinson orchestrated the offense brilliantly with 9 points and 7 assists.',
+      'DEFENDING CHAMPS STIFLED:\nThe defending champion Stallions struggled to find their offensive rhythm against California\'s physical frontline. Adrian Pognotti paced Sacramento with 14 points, 6 rebounds, and 2 blocks, while Isaiah Levingston added 8 points off the bench and Gemini Jackson distributed 6 assists with 3 steals. However, Sacramento was held to just 35% shooting from the field (20-of-57) and 2-of-15 (13%) from deep, unable to overcome California\'s 35-30 rebounding advantage and 7 blocked shots.'
+    ],
+    quotes: [
+      {
+        speaker: 'Andor Marai',
+        title: 'Center • California Reds (24 PTS, 11 REB, 10-12 FG, 2 BLK)',
+        quote: 'Playing against Sacramento always demands our highest level of physicality. We wanted to set the tone on the glass and finish strong inside against their length.'
+      },
+      {
+        speaker: 'William Walker',
+        title: 'Head Coach • California Reds (4th Season)',
+        quote: 'Holding a championship squad like Sacramento to 44 points and 35% shooting is what Reds basketball is built on. Andor Marai was simply sensational tonight.'
+      },
+      {
+        speaker: 'Benjamin Nelson',
+        title: 'Head Coach • Sacramento Stallions (4th Season)',
+        quote: 'Credit to California, they took away our primary options and Marai dominated the interior. We will learn from this film and tighten up our offensive execution.'
+      }
+    ],
+    playerStats: [
+      { player: 'Andor Marai', team: 'California Reds', stat: '24 PTS, 11 REB, 2 STL, 2 BLK, 4-5 FT (10-12 FG, 27 MIN)' },
+      { player: 'Donald Rodman', team: 'California Reds', stat: '11 PTS, 7 REB, 1 AST, 2 STL, 2 BLK (5-8 FG)' },
+      { player: 'Jadon Gordon', team: 'California Reds', stat: '10 PTS, 1 REB, 3 STL, 1 BLK (5-9 FG)' },
+      { player: 'Kyle Robinson', team: 'California Reds', stat: '9 PTS, 2 REB, 7 AST, 1 BLK (4-12 FG)' },
+      { player: 'Stan Roberts', team: 'California Reds', stat: '5 PTS, 3 REB, 6 AST, 1 STL (2-6 FG)' },
+      { player: 'Adrian Pognotti', team: 'Sacramento Stallions', stat: '14 PTS, 6 REB, 3 STL, 2 BLK (6-13 FG)' },
+      { player: 'Isaiah Levingston', team: 'Sacramento Stallions', stat: '8 PTS, 2 REB, 4 AST, 1 STL (4-7 FG)' },
+      { player: 'Gemini Jackson', team: 'Sacramento Stallions', stat: '6 PTS, 4 REB, 6 AST, 3 STL, 1 BLK' },
+      { player: 'Reds Field Goal Efficiency', team: 'Team Stats', stat: '26/53 FG (49.1%) • 18 Assists • 7 Blocks' },
+      { player: 'Stallions Shooting Struggles', team: 'Team Defense', stat: 'Held to 20/57 FG (35.1%) & 2/15 3PT (13.3%)' }
+    ]
+  },
+  {
     id: 's4-g3-renegades-blitz-admirals',
     title: "Renegades' Third-Quarter Blitz Sinks Admirals, 71-49 Behind Jamar Dean's 26 Points",
     subtitle: 'A 21-7 third-quarter surge powers the Oakland Renegades to a convincing 71-49 victory over the Anaheim Admirals in front of a sold-out Oakland Arena.',
@@ -91,6 +264,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     author: 'CCH Game Recap Desk • Oakland Beat',
     readTime: '3 min read',
     imageUrl: jamarDean1Img,
+    youtubeUrl: 'https://www.youtube.com/embed/dT8Kop4dOxo?si=1cZFfuDOY1FHwffO',
     imageCaption: 'Jamar Dean erupted for a game-high 26 points on an efficient 8-of-12 shooting (7-8 FT) as the Oakland Renegades pulled away for a 71-49 victory over Anaheim.',
     teams: {
       team1: 'Anaheim Admirals',
@@ -144,8 +318,8 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
   },
   {
     id: 's4-g4-tigersharks-mad-dogs-s4',
-    title: 'Tigersharks Edge Mad Dogs 64-58 in Physical Opening Night Battle at Selland Arena',
-    subtitle: 'San Jose outlasts the Fresno Mad Dogs in a defensive war as rookie #3 pick Dell Gooden and Donald Hardy anchor the paint in a hard-fought Season 4 opener.',
+    title: 'Boomer Leads Mad Dogs\' Comeback Over Tigersharks, 59-53',
+    subtitle: 'Fresno clamps down after falling behind 23-8 early, outscoring San Jose 26-16 in the 4th quarter as Lloyd Boomer erupts for 25 points at the Fresno Center.',
     date: 'Season 4 Opening Night • Game 4 Recap',
     season: 4,
     category: 'recap',
@@ -153,52 +327,60 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     author: 'CCH Game Recap Desk • Central Valley Beat',
     readTime: '3 min read',
     imageUrl: sjVsFreImg,
-    imageCaption: 'San Jose Tigersharks square off against the Fresno Mad Dogs on Season 4 Opening Night at Selland Arena in Fresno.',
+    youtubeUrl: 'https://www.youtube.com/embed/jOZHLsv44uw?si=-uW-g7sz9KPYCezp',
+    imageCaption: 'Fresno Mad Dogs celebrate a dramatic 59-53 comeback victory over the San Jose Tigersharks at the Fresno Center on Opening Night.',
     teams: {
       team1: 'San Jose Tigersharks',
       team1Id: 'san-jose-tigersharks',
-      score1: 64,
+      score1: 53,
       team2: 'Fresno Mad Dogs',
       team2Id: 'fresno-mad-dogs',
-      score2: 58,
+      score2: 59,
     },
     quarterScores: [
-      { period: 'Q1', team1: 16, team2: 14 },
-      { period: 'Q2', team1: 15, team2: 17 },
-      { period: 'Q3', team1: 18, team2: 12 },
-      { period: 'Q4', team1: 15, team2: 15 },
+      { period: 'Q1', team1: 23, team2: 8 },
+      { period: 'Q2', team1: 7, team2: 6 },
+      { period: 'Q3', team1: 7, team2: 19 },
+      { period: 'Q4', team1: 16, team2: 26 },
     ],
-    headlineQuote: 'A bruising NorCal rivalry clash came down to fourth-quarter stops and clutch free-throw execution as the Tigersharks secured a crucial road victory.',
+    headlineQuote: 'It was a tale of two halves at the Fresno Center. After a disastrous first quarter, the Fresno Mad Dogs completely clamped down to storm back and stun the San Jose Tigersharks, 59-53.',
     contentParagraphs: [
-      'Fresno, CA – In a fiercely contested NorCal grudge match on Season 4 Opening Night, the San Jose Tigersharks emerged with a gritty 64-58 victory over the Fresno Mad Dogs in front of a raucous Selland Arena crowd.',
-      'The first half was a back-and-forth slugfest with four lead changes. Fresno held a narrow 31-31 tie going into the intermission behind the high-energy scoring of rookie guard Lloyd Boomer and aggressive rim penetration from Cameron Graham.',
-      'THE DECISIVE THIRD-QUARTER RUN:\nSan Jose took control in the third quarter behind suffocating interior defense from rookie #3 overall pick Dell Gooden (84 OVR) and reigning Rookie of the Year Donald Hardy. The Tigersharks held Fresno to just 12 points in the period while generating second-chance points on the offensive glass to establish a 49-43 cushion.',
-      'CLUTCH FOURTH QUARTER CLOSING:\nFresno mounted a furious fourth-quarter charge, cutting the deficit to two points with under two minutes remaining. However, San Jose guard Donald Hardy delivered ice-cold free throws in the final minute, and Gooden swatted a crucial layup attempt to seal the road victory for head coach Michael Stauffer\'s squad.'
+      'Fresno, CA – It was a tale of two halves at the Fresno Center. After a disastrous first quarter, the Fresno Mad Dogs completely clamped down to storm back and stun the San Jose Tigersharks, 59-53.',
+      'The Tigersharks came out absolutely scorching, dropping 23 points in the opening frame while holding the Mad Dogs to just 8. However, the San Jose offense completely vanished over the next two quarters, scoring just 7 points in the second and 7 in the third. The Mad Dogs took advantage, clawing back into the game and finally seizing control in the fourth quarter, where they outscored the Tigersharks 26-16 to steal the win.',
+      'PLAYER OF THE GAME:\nLloyd Boomer was the engine of the comeback for the Mad Dogs. He carried the scoring load with a game-high 25 points on 9-of-22 shooting, doing most of his damage at the charity stripe where he was a perfect 6-for-6.',
+      'TIGERSHARKS NOTES:\nAl Sloan had a phenomenal individual performance for the Tigersharks, scoring 21 points on a blistering 9-of-11 shooting from the field. Unfortunately for San Jose, he received virtually no scoring help, as the team managed just 53 points total on 42% shooting.',
+      'STATISTICAL BREAKDOWN:\nThe most telling stat of the game was the free-throw disparity. Fresno lived at the line, attempting 24 free throws (hitting 19, 79%) compared to San Jose\'s 3 attempts. The Mad Dogs also forced 10 turnovers and won the rebounding battle 33-30. Despite the Tigersharks edging them 28-20 in points in the paint, the sheer volume of points from the stripe and the 19-7 third-quarter run proved to be the deciding factor.'
     ],
     quotes: [
       {
-        speaker: 'Donald Hardy',
-        title: 'Power Forward • San Jose Tigersharks',
-        quote: 'Winning on the road in Fresno is never easy. We locked in defensively in the third quarter and communicated on every switch.'
-      },
-      {
-        speaker: 'Dell Gooden',
-        title: 'Rookie Center • San Jose Tigersharks (#3 Pick)',
-        quote: 'My first CCH regular season game felt electric. I wanted to set the tone inside, protect the rim, and secure every defensive rebound.'
+        speaker: 'Lloyd Boomer',
+        title: 'Point Guard • Fresno Mad Dogs (Player of the Game)',
+        quote: 'We stayed resilient after that tough first quarter. Our defensive intensity turned the game around, and we attacked downhill to get to the free-throw line.'
       },
       {
         speaker: 'Ronnie Flores',
         title: 'Head Coach • Fresno Mad Dogs (1st Season)',
-        quote: 'We fought with tremendous heart until the final buzzer, but that 12-point third quarter hurt us. We will clean up our offensive spacing and bounce back.'
+        quote: 'Down 23-8, our guys never flinched. Clamping down to hold them to 14 points combined across the second and third quarters won us this basketball game.'
+      },
+      {
+        speaker: 'Al Sloan',
+        title: 'Center • San Jose Tigersharks',
+        quote: 'We started fast but let our offensive execution slip. When Fresno got into the penalty and made their run in the second half, we couldn\'t match their momentum.'
       }
     ],
     playerStats: [
-      { player: 'Donald Hardy', team: 'San Jose Tigersharks', stat: '18 PTS, 8 REB, 2 BLK (7-13 FG, Clutch FTs)' },
-      { player: 'Dell Gooden', team: 'San Jose Tigersharks', stat: '14 PTS, 10 REB, 3 BLK (Double-Double)' },
-      { player: 'Lloyd Boomer', team: 'Fresno Mad Dogs', stat: '16 PTS, 5 REB, 4 AST (Rookie Debut)' },
-      { player: 'Cameron Graham', team: 'Fresno Mad Dogs', stat: '13 PTS, 6 REB, 2 STL' },
-      { player: 'Malique Pierce', team: 'San Jose Tigersharks', stat: '10 PTS, 4 REB, 2 AST' },
-      { player: 'Tigersharks Rim Protection', team: 'Team Defense', stat: '7 Total Blocks • 38 Points in Paint' }
+      { player: 'Lloyd Boomer', team: 'Fresno Mad Dogs', stat: '25 PTS, 4 REB, 1 AST, 9-22 FG, 6-6 FT (Player of the Game)' },
+      { player: 'Al Sloan', team: 'San Jose Tigersharks', stat: '21 PTS, 6 REB, 9-11 FG (81.8%), 3-3 FT' },
+      { player: 'Albert Gill', team: 'San Jose Tigersharks', stat: '9 PTS, 3-3 3PT in 10 MIN' },
+      { player: 'Cameron Graham', team: 'Fresno Mad Dogs', stat: '8 PTS, 4 REB, 2 AST, 1 STL, 2-4 FG' },
+      { player: 'Dell Gooden', team: 'San Jose Tigersharks', stat: '8 PTS, 2 REB, 1 AST, 1 STL, 4-8 FG' },
+      { player: 'Donnell Wingate', team: 'Fresno Mad Dogs', stat: '7 PTS, 3 REB, 2 AST, 1 BLK' },
+      { player: 'Jud Drew', team: 'Fresno Mad Dogs', stat: '7 PTS, 5 REB, 1 STL (3-3 FG)' },
+      { player: 'Russell Wilson', team: 'San Jose Tigersharks', stat: '6 PTS, 4 REB, 2 AST (2-4 3PT)' },
+      { player: 'Geraldo Jones', team: 'Fresno Mad Dogs', stat: '6 PTS, 4 REB, 2 STL, 1 BLK' },
+      { player: 'Donald Hardy', team: 'San Jose Tigersharks', stat: '5 PTS, 2 REB, 7 AST, 1 BLK' },
+      { player: 'Free Throw Disparity', team: 'Key Stat', stat: 'Fresno: 19-24 FT (79%) vs. San Jose: 3-3 FT (100%)' },
+      { player: 'Fresno Defense & Glass', team: 'Team Stats', stat: '9 STL, 3 BLK, 33-30 Rebounds (7 Offensive REB)' }
     ]
   },
   {
