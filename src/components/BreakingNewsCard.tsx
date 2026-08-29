@@ -1,5 +1,5 @@
-import React from 'react';
-import { Newspaper, ChevronRight, Sparkles, Quote, BookOpen, Users, ArrowRight, Headphones } from 'lucide-react';
+import React, { useState } from 'react';
+import { Newspaper, ChevronRight, Sparkles, Quote, BookOpen, Users, ArrowRight, Headphones, Share2, Check } from 'lucide-react';
 import { PodcastPlayerCard } from './PodcastPlayerCard';
 import { CCH_NEWS_ARTICLES } from '../data/newsData';
 
@@ -38,6 +38,20 @@ const COACHES_PREVIEW = [
 
 export const BreakingNewsCard: React.FC<BreakingNewsCardProps> = ({ onNavigateToNews }) => {
   const coachesArticle = CCH_NEWS_ARTICLES.find(a => a.id === 's4-head-coaches-introduction') || CCH_NEWS_ARTICLES[0];
+  const [copied, setCopied] = useState(false);
+
+  const handleShare = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const baseUrl = window.location.href.split('#')[0];
+    const directUrl = `${baseUrl}#news?article=s4-head-coaches-introduction`;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(directUrl).catch(() => {});
+    }
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, 2500);
+  };
 
   return (
     <div className="bg-gradient-to-br from-slate-900 via-slate-950 to-amber-950/30 border-2 border-amber-500/40 rounded-3xl p-5 sm:p-7 shadow-2xl relative overflow-hidden group space-y-6">
@@ -58,7 +72,27 @@ export const BreakingNewsCard: React.FC<BreakingNewsCardProps> = ({ onNavigateTo
             <Headphones size={11} /> PODCAST ATTACHED
           </span>
         </div>
-        <span className="text-xs font-mono text-slate-300 font-bold">Front-Office Insider</span>
+        <div className="flex items-center gap-2.5">
+          <button
+            onClick={handleShare}
+            className="px-3 py-1.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 hover:text-white border border-amber-500/30 hover:border-amber-400 text-xs font-mono font-bold flex items-center gap-1.5 transition-all cursor-pointer shadow-md group/share"
+            title="Share Article / Copy Direct Link"
+            aria-label="Share direct link to this breaking announcement"
+          >
+            {copied ? (
+              <>
+                <Check size={14} className="text-emerald-400 shrink-0" />
+                <span className="text-emerald-400 font-black">Copied!</span>
+              </>
+            ) : (
+              <>
+                <Share2 size={14} className="text-amber-400 group-hover/share:text-amber-300 shrink-0" />
+                <span>Share</span>
+              </>
+            )}
+          </button>
+          <span className="text-xs font-mono text-slate-300 font-bold hidden sm:inline">Front-Office Insider</span>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">

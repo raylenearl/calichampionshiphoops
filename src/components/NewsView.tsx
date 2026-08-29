@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CCH_NEWS_ARTICLES, CCHNewsArticle, CoachProfileCard } from '../data/newsData';
+import { CCH_NEWS_ARTICLES, CCHNewsArticle, CoachProfileCard, getArticleById } from '../data/newsData';
 import { TeamBadge } from './TeamBadge';
 import { PodcastPlayerCard } from './PodcastPlayerCard';
 import { ChampionshipVideoCard } from './ChampionshipVideoCard';
@@ -28,6 +28,7 @@ import {
   Play,
   Tv,
   ExternalLink,
+  Check,
 } from 'lucide-react';
 import { InstagramIcon } from './SocialLinks';
 
@@ -40,16 +41,31 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedSeasonFilter, setSelectedSeasonFilter] = useState<number>(0); // 0 = all seasons
   const [coachFilter, setCoachFilter] = useState<'all' | 'Returning' | 'Newcomer'>('all');
+  const [copiedArticleId, setCopiedArticleId] = useState<string | null>(null);
+
+  const handleShareArticle = (articleId: string, e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    const baseUrl = window.location.href.split('#')[0];
+    const directUrl = `${baseUrl}#news?article=${articleId}`;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(directUrl).catch(() => {});
+    }
+    setCopiedArticleId(articleId);
+    setTimeout(() => {
+      setCopiedArticleId((prev) => (prev === articleId ? null : prev));
+    }, 2500);
+  };
+
   const [selectedArticle, setSelectedArticle] = useState<CCHNewsArticle | null>(() => {
     if (initialArticleId) {
-      return CCH_NEWS_ARTICLES.find((a) => a.id === initialArticleId) || null;
+      return getArticleById(initialArticleId) || null;
     }
     return null;
   });
 
   useEffect(() => {
     if (initialArticleId) {
-      const art = CCH_NEWS_ARTICLES.find((a) => a.id === initialArticleId);
+      const art = getArticleById(initialArticleId);
       if (art) {
         setSelectedArticle(art);
       }
@@ -229,9 +245,29 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
             <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-mono font-bold rounded-full whitespace-nowrap shrink-0">
               <Sparkles size={13} /> FEATURED CCH HEADLINE STORY
             </span>
-            <span className="text-xs font-mono text-slate-400 whitespace-nowrap shrink-0">
-              {featuredStory.date} • {featuredStory.readTime}
-            </span>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={(e) => handleShareArticle(featuredStory.id, e)}
+                className="px-3 py-1.5 rounded-xl bg-slate-950/80 hover:bg-slate-800 text-slate-200 hover:text-white border border-amber-500/30 hover:border-amber-400 text-xs font-mono font-bold flex items-center gap-1.5 transition-all cursor-pointer shadow-md group/share"
+                title="Share Article / Copy Direct Link"
+                aria-label="Share direct link to this featured article"
+              >
+                {copiedArticleId === featuredStory.id ? (
+                  <>
+                    <Check size={14} className="text-emerald-400 shrink-0" />
+                    <span className="text-emerald-400 font-black">Copied!</span>
+                  </>
+                ) : (
+                  <>
+                    <Share2 size={14} className="text-amber-400 group-hover/share:text-amber-300 shrink-0" />
+                    <span>Share</span>
+                  </>
+                )}
+              </button>
+              <span className="text-xs font-mono text-slate-400 whitespace-nowrap shrink-0">
+                {featuredStory.date} • {featuredStory.readTime}
+              </span>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -512,12 +548,26 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
 
               {/* Footer Author & Read Action */}
               <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs">
-                <span className="text-[11px] text-slate-500 font-medium">
+                <span className="text-[11px] text-slate-500 font-medium truncate max-w-[120px]">
                   {article.author}
                 </span>
-                <span className="font-extrabold text-amber-400 text-[11px] flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
-                  Read Story <ChevronRight size={14} />
-                </span>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={(e) => handleShareArticle(article.id, e)}
+                    className="p-1.5 rounded-lg bg-slate-950 hover:bg-slate-800 text-slate-400 hover:text-amber-400 border border-slate-800 transition-colors cursor-pointer"
+                    title="Share Article Link"
+                    aria-label={`Share ${article.title}`}
+                  >
+                    {copiedArticleId === article.id ? (
+                      <Check size={13} className="text-emerald-400" />
+                    ) : (
+                      <Share2 size={13} />
+                    )}
+                  </button>
+                  <span className="font-extrabold text-amber-400 text-[11px] flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                    Read Story <ChevronRight size={14} />
+                  </span>
+                </div>
               </div>
             </div>
           ))}
@@ -528,13 +578,35 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
       {selectedArticle && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
           <div className="bg-slate-900 border border-slate-800 rounded-3xl max-w-4xl lg:max-w-5xl w-full p-6 sm:p-8 shadow-2xl space-y-6 relative max-h-[90vh] overflow-y-auto my-auto animate-in fade-in zoom-in-95 duration-200">
-            {/* Close Button */}
-            <button
-              onClick={() => setSelectedArticle(null)}
-              className="absolute top-5 right-5 p-2 bg-slate-950 hover:bg-slate-800 text-slate-400 hover:text-white rounded-full border border-slate-800 transition-colors cursor-pointer"
-            >
-              <X size={20} />
-            </button>
+            {/* Close & Share Buttons */}
+            <div className="absolute top-5 right-5 flex items-center gap-2 z-20">
+              <button
+                onClick={(e) => handleShareArticle(selectedArticle.id, e)}
+                className="px-3 py-1.5 bg-slate-950 hover:bg-slate-800 text-slate-200 hover:text-white rounded-full border border-slate-800 hover:border-amber-500/50 transition-colors cursor-pointer text-xs font-mono font-bold flex items-center gap-1.5 shadow-md"
+                title="Share Article / Copy Direct Link"
+                aria-label="Share direct link to this article"
+              >
+                {copiedArticleId === selectedArticle.id ? (
+                  <>
+                    <Check size={14} className="text-emerald-400 shrink-0" />
+                    <span className="text-emerald-400 font-black">Copied!</span>
+                  </>
+                ) : (
+                  <>
+                    <Share2 size={14} className="text-amber-400 shrink-0" />
+                    <span className="hidden sm:inline">Share</span>
+                  </>
+                )}
+              </button>
+              <button
+                onClick={() => setSelectedArticle(null)}
+                className="p-2 bg-slate-950 hover:bg-slate-800 text-slate-400 hover:text-white rounded-full border border-slate-800 transition-colors cursor-pointer"
+                title="Close article"
+                aria-label="Close article"
+              >
+                <X size={20} />
+              </button>
+            </div>
 
             {/* Article Meta Header */}
             <div className="space-y-3 border-b border-slate-800 pb-5">

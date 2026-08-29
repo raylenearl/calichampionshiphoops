@@ -803,11 +803,11 @@ export const PlayoffsView: React.FC<PlayoffsViewProps> = ({
                     <h4 className="text-xs font-black uppercase text-amber-400 tracking-wider flex items-center gap-1.5">
                       <FileText size={14} /> Official Game Summary & Recap
                     </h4>
-                    {game.recapArticleId && onNavigateToNews && (
+                    {(game.score1 > 0 || game.score2 > 0) && onNavigateToNews && (
                       <button
                         onClick={() => {
                           setSelectedGameModal(null);
-                          onNavigateToNews(game.recapArticleId!);
+                          onNavigateToNews(game.recapArticleId || `po-${selectedSeason}-${game.team1}-${game.team2}`);
                         }}
                         className="inline-flex items-center gap-1 text-xs font-bold text-amber-400 hover:text-amber-300 bg-amber-500/10 hover:bg-amber-500/20 px-2.5 py-1 rounded-lg border border-amber-500/30 transition-all cursor-pointer"
                       >

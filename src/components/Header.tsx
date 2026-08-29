@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { Search, Menu, X, Trophy, Calendar, Users, Award, BookOpen, Activity, GitCompare, ExternalLink, Star, ArrowLeftRight, Newspaper, Sun, Moon, Sparkles, Share2, Check } from 'lucide-react';
 import { CCHLeagueLogo } from './TeamLogos';
 import { SocialHeaderButtons, SOCIAL_PLATFORMS } from './SocialLinks';
+import { ScoreboardTicker } from './ScoreboardTicker';
 
 interface HeaderProps {
   activeTab: string;
@@ -12,6 +13,8 @@ interface HeaderProps {
   theme: 'dark' | 'light';
   onToggleTheme: () => void;
   onShareLink?: () => void;
+  onNavigateToNews?: (articleId?: string) => void;
+  onSelectTeam?: (teamId: string, season?: 1 | 2 | 3 | 4) => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -23,6 +26,8 @@ export const Header: React.FC<HeaderProps> = ({
   theme,
   onToggleTheme,
   onShareLink,
+  onNavigateToNews,
+  onSelectTeam,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [copiedRecently, setCopiedRecently] = useState(false);
@@ -363,6 +368,15 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         )}
       </div>
+
+      {/* ESPN-Style Live Scoreboard Ticker at bottom of Header */}
+      <ScoreboardTicker
+        selectedSeason={selectedSeason}
+        onSelectSeason={setSelectedSeason}
+        onNavigateToNews={onNavigateToNews}
+        onSelectTeam={onSelectTeam}
+        onNavigateToSchedule={() => setActiveTab('schedule')}
+      />
     </header>
   );
 };

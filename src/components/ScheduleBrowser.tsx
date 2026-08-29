@@ -293,7 +293,7 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
               <option value="All">All 12 Teams</option>
               {TEAMS.map((team) => (
                 <option key={team.id} value={team.id}>
-                  {team.id === 'san-diego-sabrewolves' ? 'San Diego Surf' : team.id === 'san-diego-strykers' ? 'San Diego Strykers' : team.city}
+                  {team.name}
                 </option>
               ))}
             </select>
@@ -532,7 +532,7 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
                     >
                       <BookOpen size={14} /> Read Inaugural Game Article
                     </button>
-                  ) : game.recapArticleId && onNavigateToNews ? (
+                  ) : (game.score1 > 0 || game.score2 > 0) && onNavigateToNews ? (
                     <div className="space-y-1.5 mt-1">
                       {game.notes && (
                         <p className="text-[11px] text-amber-300/90 bg-amber-950/30 p-2 rounded-xl border border-amber-900/30 font-medium leading-relaxed">
@@ -541,7 +541,7 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
                       )}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
                         <button
-                          onClick={() => onNavigateToNews(game.recapArticleId)}
+                          onClick={() => onNavigateToNews(game.recapArticleId || game.id)}
                           className="py-2 px-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-md"
                         >
                           <BookOpen size={13} /> Recap Story
@@ -568,35 +568,39 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
                         )}
                       </div>
                     </div>
-                  ) : (
+                  ) : (game.notes || game.youtubeUrl || game.instagramUrl) ? (
                     <div className="space-y-1.5 mt-1">
                       {game.notes && (
                         <p className="text-[11px] text-amber-300/90 bg-amber-950/30 p-2 rounded-xl border border-amber-900/30 font-medium leading-relaxed">
                           💡 {game.notes}
                         </p>
                       )}
-                      {game.youtubeUrl && (
-                        <a
-                          href={game.youtubeUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="w-full py-2 bg-red-600/90 hover:bg-red-500 text-white font-black rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-md text-center"
-                        >
-                          <Play size={13} className="fill-white" /> Watch Full Replay
-                        </a>
-                      )}
-                      {game.instagramUrl && (
-                        <a
-                          href={game.instagramUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="w-full py-2 bg-pink-600/90 hover:bg-pink-500 text-white font-black rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-md text-center"
-                        >
-                          <InstagramIcon size={13} /> Watch on Instagram
-                        </a>
+                      {(game.youtubeUrl || game.instagramUrl) && (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+                          {game.youtubeUrl && (
+                            <a
+                              href={game.youtubeUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="py-2 px-2 bg-red-600/90 hover:bg-red-500 text-white font-black rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-md text-center"
+                            >
+                              <Play size={13} className="fill-white" /> Watch Replay
+                            </a>
+                          )}
+                          {game.instagramUrl && (
+                            <a
+                              href={game.instagramUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="py-2 px-2 bg-pink-600/90 hover:bg-pink-500 text-white font-black rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-md text-center"
+                            >
+                              <InstagramIcon size={13} /> Instagram Reel
+                            </a>
+                          )}
+                        </div>
                       )}
                     </div>
-                  )}
+                  ) : null}
                 </div>
               )}
             </div>

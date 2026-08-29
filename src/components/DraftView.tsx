@@ -422,7 +422,7 @@ export const DraftView: React.FC<DraftViewProps> = ({ onSelectTeamRecap: _onSele
                   <option value="all" className="bg-slate-900 text-white">All 12 Teams</option>
                   {TEAMS.map((t) => (
                     <option key={t.id} value={t.id} className="bg-slate-900 text-white">
-                      {t.id === 'san-diego-sabrewolves' ? 'San Diego Surf' : t.id === 'san-diego-strykers' ? 'San Diego Strykers' : t.city}
+                      {t.name}
                     </option>
                   ))}
                 </select>

@@ -106,7 +106,7 @@ export const PlayerComparisonView: React.FC<PlayerComparisonViewProps> = ({
     const summary = `🏀 CCH Player Comparison: ${player1.name} vs. ${player2.name}\n` +
       `• ${player1.name} (${player1.teamName}): ${player1.ppg ?? 0} PPG | ${player1.rpg ?? 0} RPG | ${player1.apg ?? 0} APG | ${trophies1.championships}x Champion\n` +
       `• ${player2.name} (${player2.teamName}): ${player2.ppg ?? 0} PPG | ${player2.rpg ?? 0} RPG | ${player2.apg ?? 0} APG | ${trophies2.championships}x Champion\n` +
-      `Check out full stats and awards on California Classic Hoops Encyclopedia!`;
+      `Check out full stats and awards on Cali Championship Hoops Encyclopedia!`;
     navigator.clipboard.writeText(summary);
     setCopyToast('Matchup comparison copied to clipboard!');
     setTimeout(() => setCopyToast(null), 3000);
@@ -138,7 +138,7 @@ export const PlayerComparisonView: React.FC<PlayerComparisonViewProps> = ({
               Player Comparison & Tale of the Tape
             </h1>
             <p className="text-sm text-slate-400 max-w-2xl">
-              Compare career averages, seasonal progression, championship pedigree, and individual awards history between any two California Classic Hoops stars.
+              Compare career averages, seasonal progression, championship pedigree, and individual awards history between any two Cali Championship Hoops stars.
             </p>
           </div>
 

@@ -327,7 +327,7 @@ export const OpeningDayRostersView: React.FC<OpeningDayRostersViewProps> = ({
               <option value="all">All 12 Teams</option>
               {TEAMS.map((t) => (
                 <option key={t.id} value={t.id}>
-                  {t.id === 'san-diego-sabrewolves' ? 'San Diego Surf' : t.id === 'san-diego-strykers' ? 'San Diego Strykers' : t.city}
+                  {t.name}
                 </option>
               ))}
             </select>
@@ -491,7 +491,7 @@ export const OpeningDayRostersView: React.FC<OpeningDayRostersViewProps> = ({
               }`}
             >
               <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: team.primaryColor }} />
-              <span>{team.id === 'san-diego-sabrewolves' ? 'SD Surf' : team.id === 'san-diego-strykers' ? 'SD Strykers' : team.city}</span>
+              <span>{team.name}</span>
             </button>
           ))}
         </div>

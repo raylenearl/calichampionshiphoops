@@ -1,4 +1,11 @@
 import { INAUGURAL_GAME_ARTICLE, GALLOWAY_BUZZER_BEATER_ARTICLE } from './leagueMilestonesData';
+import { SEASON_1_SCHEDULE } from './s1ScheduleData';
+import { SEASON_2_SCHEDULE } from './s2ScheduleData';
+import { SEASON_3_SCHEDULE } from './s3ScheduleData';
+import { SEASON_4_SCHEDULE } from './s4ScheduleData';
+import { PLAYOFF_HISTORY } from './playoffsData';
+import { TEAMS } from './teamsData';
+import { GameRecord } from '../types';
 import rjRush1Img from '../assets/images/RJRush1.png';
 import ajHinton99Img from '../assets/images/AJHinton99.png';
 import ajHintonS4_1Img from '../assets/images/AJHintonS4_1.png';
@@ -1652,3 +1659,283 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     playerStats: GALLOWAY_BUZZER_BEATER_ARTICLE.playerStats
   }
 ];
+
+// Helper to look up team by name
+function findTeamByName(name: string) {
+  const lower = name.toLowerCase().trim();
+  return TEAMS.find(
+    (t) =>
+      t.name.toLowerCase() === lower ||
+      t.shortName.toLowerCase() === lower ||
+      lower.includes(t.shortName.toLowerCase()) ||
+      (lower.includes('reds') && t.id === 'california-reds') ||
+      (lower.includes('sabrewolves') && t.id === 'san-diego-sabrewolves') ||
+      (lower.includes('knights') && t.id === 'san-francisco-knights') ||
+      (lower.includes('strykers') && t.id === 'san-diego-strykers') ||
+      (lower.includes('stallions') && t.id === 'sacramento-stallions') ||
+      (lower.includes('dynamics') && t.id === 'los-angeles-dynamics') ||
+      (lower.includes('enterprise') && t.id === 'golden-state-enterprise') ||
+      (lower.includes('renegades') && t.id === 'oakland-renegades') ||
+      (lower.includes('tigersharks') && t.id === 'san-jose-tigersharks') ||
+      (lower.includes('admirals') && t.id === 'anaheim-admirals') ||
+      (lower.includes('vipers') && t.id === 'long-beach-vipers') ||
+      (lower.includes('mad dogs') && t.id === 'fresno-mad-dogs')
+  );
+}
+
+function generateQuarterScoresForGame(s1: number, s2: number): QuarterScore[] {
+  if (s1 === 0 && s2 === 0) return [];
+  const q1_1 = Math.round(s1 * 0.24);
+  const q2_1 = Math.round(s1 * 0.26);
+  const q3_1 = Math.round(s1 * 0.25);
+  const q4_1 = s1 - (q1_1 + q2_1 + q3_1);
+
+  const q1_2 = Math.round(s2 * 0.25);
+  const q2_2 = Math.round(s2 * 0.24);
+  const q3_2 = Math.round(s2 * 0.26);
+  const q4_2 = s2 - (q1_2 + q2_2 + q3_2);
+
+  return [
+    { period: 'Q1', team1: q1_1, team2: q1_2 },
+    { period: 'Q2', team1: q2_1, team2: q2_2 },
+    { period: 'Q3', team1: q3_1, team2: q3_2 },
+    { period: 'Q4', team1: q4_1, team2: q4_2 },
+  ];
+}
+
+// Synthesize a full CCH News Article for any game in the archives
+export function generateArticleForGameRecord(game: GameRecord, isPlayoff = false): CCHNewsArticle {
+  const team1Obj = findTeamByName(game.team1);
+  const team2Obj = findTeamByName(game.team2);
+  const isPlayed = game.score1 > 0 || game.score2 > 0;
+  const isTeam1Winner = isPlayed && game.score1 >= game.score2;
+  const winner = isTeam1Winner ? game.team1 : game.team2;
+  const loser = isTeam1Winner ? game.team2 : game.team1;
+  const winningScore = isTeam1Winner ? game.score1 : game.score2;
+  const losingScore = isTeam1Winner ? game.score2 : game.score1;
+  const margin = winningScore - losingScore;
+
+  const winnerObj = isTeam1Winner ? team1Obj : team2Obj;
+  const loserObj = isTeam1Winner ? team2Obj : team1Obj;
+
+  const isFinals = isPlayoff && (game.date.includes('FINALS') || game.date.includes('Finals'));
+  const isSemifinals = isPlayoff && (game.date.includes('Semis') || game.date.includes('Title') || game.date.includes('Semifinals'));
+
+  // Title calculation
+  let title = '';
+  if (!isPlayed) {
+    title = `Season ${game.season} Matchup Preview: ${game.team1} vs. ${game.team2}`;
+  } else if (isFinals) {
+    title = `${winner} Defeats ${loser} ${winningScore}-${losingScore} to Win Season ${game.season} Championship`;
+  } else if (isPlayoff) {
+    title = `${winner} Advances to Next Round with ${winningScore}-${losingScore} Playoff Victory Over ${loser}`;
+  } else if (margin >= 20) {
+    title = `${winner} Runs Away With ${winningScore}-${losingScore} Blowout Over ${loser}`;
+  } else if (margin <= 3) {
+    title = `${winner} Holds Off ${loser} ${winningScore}-${losingScore} in Thrilling Wire-to-Wire Finish`;
+  } else {
+    title = `${winner} Pulls Away in Second Half for ${winningScore}-${losingScore} Win Over ${loser}`;
+  }
+
+  // Subtitle
+  const subtitle = game.notes
+    ? `${game.notes} — Official game recap and detailed boxscore analysis.`
+    : isPlayed
+    ? `${winner} claimed an important Season ${game.season} victory over ${loser} in front of an electric crowd.`
+    : `Upcoming Season ${game.season} clash between ${game.team1} and ${game.team2} scheduled for ${game.date}.`;
+
+  // Paragraphs
+  const contentParagraphs: string[] = [];
+  if (isPlayed) {
+    contentParagraphs.push(
+      `${winnerObj?.arena || 'The Arena'} – In a high-energy Season ${game.season} battle, the ${winner} earned a ${winningScore}-${losingScore} victory over the ${loser} on ${game.date}.`
+    );
+
+    if (game.notes) {
+      contentParagraphs.push(
+        `KEY MOMENTUM & HIGHLIGHTS:\n${game.notes}`
+      );
+    } else {
+      contentParagraphs.push(
+        `GAME FLOW & EXECUTION:\nThe ${winner} established control with sharp interior ball movement and relentless perimeter pressure. A critical scoring surge during the third and fourth quarters allowed ${winner} to build a commanding cushion that ${loser} could not overcome.`
+      );
+    }
+
+    if (game.highScorer) {
+      contentParagraphs.push(
+        `STAR OF THE GAME:\n${game.highScorer} led all scorers with ${game.points ? `${game.points} points` : 'a game-defining performance'}, dominating the half-court sets and dictating the tempo from the opening tip.`
+      );
+    } else {
+      contentParagraphs.push(
+        `BALANCED SCORING EFFORT:\nThe ${winner} relied on balanced contribution across their roster, punishing defensive lapses and controlling second-chance points in the paint.`
+      );
+    }
+
+    contentParagraphs.push(
+      `LOOKING AHEAD:\nWith this result in the books, the ${winner} build valuable momentum in the CCH standings, while the ${loser} look to regroup and adjust defensive assignments ahead of their next regular season matchup.`
+    );
+  } else {
+    contentParagraphs.push(
+      `The Cali Championship Hoops season continues on ${game.date} with a marquee matchup featuring the ${game.team1} and ${game.team2}.`
+    );
+    contentParagraphs.push(
+      `Both squads enter the contest looking to assert dominance in the conference standings and execute their tactical gameplans in high-leverage minutes.`
+    );
+  }
+
+  // Coach quotes
+  const quotes = isPlayed
+    ? [
+        {
+          speaker: winnerObj?.coach || `${winner} Coaching Staff`,
+          title: `Head Coach, ${winner}`,
+          quote: `“Our guys bought into the defensive gameplan and executed on the break. When we share the basketball and push the pace, we're extremely tough to beat.”`,
+        },
+        {
+          speaker: loserObj?.coach || `${loser} Coaching Staff`,
+          title: `Head Coach, ${loser}`,
+          quote: `“Credit to ${winner}, they capitalized on our mistakes and controlled the tempo. We have to clean up our turnovers and be more physical on the glass next game.”`,
+        },
+      ]
+    : undefined;
+
+  // Player stats
+  const playerStats = game.highScorer
+    ? [
+        {
+          player: game.highScorer,
+          team: winner,
+          stat: game.points ? `${game.points} PTS (Game High)` : 'Top Performer',
+        },
+      ]
+    : undefined;
+
+  return {
+    id: game.recapArticleId || game.id,
+    title,
+    subtitle,
+    date: `Season ${game.season} • ${game.date} ${isPlayoff ? 'Postseason' : 'Matchup'}`,
+    season: (game.season as 1 | 2 | 3 | 4) || 4,
+    category: isPlayoff ? 'championship' : 'recap',
+    featured: false,
+    author: 'CCH Game Recap Desk • Official Match Report',
+    readTime: '2 min read',
+    youtubeUrl: game.youtubeUrl,
+    instagramUrl: game.instagramUrl,
+    teams: {
+      team1: game.team1,
+      team1Id: team1Obj?.id || 'california-reds',
+      score1: game.score1,
+      team2: game.team2,
+      team2Id: team2Obj?.id || 'long-beach-vipers',
+      score2: game.score2,
+    },
+    quarterScores: generateQuarterScoresForGame(game.score1, game.score2),
+    headlineQuote: game.notes || `${winner} claims ${winningScore}-${losingScore} victory over ${loser}.`,
+    contentParagraphs,
+    quotes,
+    playerStats,
+  };
+}
+
+// Master resolver to find any article or synthesize an authentic article for any game
+export function getArticleById(articleId: string): CCHNewsArticle | undefined {
+  if (!articleId) return undefined;
+
+  // 1. Direct match in pre-written articles
+  const exactMatch = CCH_NEWS_ARTICLES.find((a) => a.id === articleId);
+  if (exactMatch) return exactMatch;
+
+  // 2. Match against Season 4 schedule
+  const s4Game = SEASON_4_SCHEDULE.find((g) => g.id === articleId || g.recapArticleId === articleId);
+  if (s4Game) return generateArticleForGameRecord(s4Game, false);
+
+  // 3. Match against Season 3 schedule
+  const s3Game = SEASON_3_SCHEDULE.find((g) => g.id === articleId || g.recapArticleId === articleId);
+  if (s3Game) return generateArticleForGameRecord(s3Game, false);
+
+  // 4. Match against Season 2 schedule
+  const s2Game = SEASON_2_SCHEDULE.find((g) => g.id === articleId || g.recapArticleId === articleId);
+  if (s2Game) return generateArticleForGameRecord(s2Game, false);
+
+  // 5. Match against Season 1 schedule
+  const s1Game = SEASON_1_SCHEDULE.find((g) => g.id === articleId || g.recapArticleId === articleId);
+  if (s1Game) return generateArticleForGameRecord(s1Game, false);
+
+  // 6. Match against Playoff games
+  for (const p of PLAYOFF_HISTORY) {
+    for (let i = 0; i < p.quarterfinals.length; i++) {
+      const qf = p.quarterfinals[i];
+      const qfId = `po-${p.season}-qf-${i}`;
+      if (qfId === articleId || qf.recapArticleId === articleId) {
+        return generateArticleForGameRecord(
+          {
+            id: qfId,
+            season: p.season,
+            date: `S${p.season} QF`,
+            month: 'Playoffs',
+            team1: qf.team1,
+            score1: qf.score1,
+            team2: qf.team2,
+            score2: qf.score2,
+            notes: qf.notes || `Playoff Quarterfinals: ${qf.winner} advances.`,
+            recapArticleId: qf.recapArticleId,
+          },
+          true
+        );
+      }
+    }
+    if (p.semifinals) {
+      for (let i = 0; i < p.semifinals.length; i++) {
+        const sf = p.semifinals[i];
+        const sfId = `po-${p.season}-sf-${i}`;
+        if (sfId === articleId || sf.recapArticleId === articleId) {
+          return generateArticleForGameRecord(
+            {
+              id: sfId,
+              season: p.season,
+              date: `S${p.season} ${sf.round || 'Semis'}`,
+              month: 'Playoffs',
+              team1: sf.team1,
+              score1: sf.score1,
+              team2: sf.team2,
+              score2: sf.score2,
+              notes: sf.notes || `Playoff Semifinals: ${sf.winner} advances.`,
+              recapArticleId: sf.recapArticleId,
+            },
+            true
+          );
+        }
+      }
+    }
+    if (p.finals) {
+      const finalsId = `po-${p.season}-finals`;
+      if (finalsId === articleId || p.finals.recapArticleId === articleId) {
+        return generateArticleForGameRecord(
+          {
+            id: finalsId,
+            season: p.season,
+            date: `S${p.season} FINALS 🏆`,
+            month: 'Playoffs',
+            team1: p.finals.team1,
+            score1: p.finals.score1,
+            team2: p.finals.team2,
+            score2: p.finals.score2,
+            notes: p.finals.notes || `Season ${p.season} CCH Champion: ${p.champion} (Finals MVP: ${p.finalsMvp}).`,
+            recapArticleId: p.finals.recapArticleId,
+          },
+          true
+        );
+      }
+    }
+  }
+
+  // 7. Check if composite ID e.g. game-s4-1 or game-s1-1
+  if (articleId.startsWith('game-')) {
+    const rawGameId = articleId.replace('game-', '');
+    return getArticleById(rawGameId);
+  }
+
+  return undefined;
+}
+

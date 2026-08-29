@@ -25,7 +25,7 @@ import { SearchModal } from './components/SearchModal';
 import { TeamSeasonModal } from './components/TeamSeasonModal';
 import { CCHLeagueLogo } from './components/TeamLogos';
 import { SocialFooterGrid } from './components/SocialLinks';
-import { Trophy, Shield, Calendar, Award, BookOpen, Users, Activity, ExternalLink, Tv, Heart, Star, Link2, Check, ChevronRight, Sparkles } from 'lucide-react';
+import { Trophy, Shield, Calendar, Award, BookOpen, Users, Activity, ExternalLink, Tv, Heart, Star, Link2, Check, ChevronRight, Sparkles, Share2 } from 'lucide-react';
 
 const VALID_TABS = [
   'hub',
@@ -101,6 +101,7 @@ export default function App() {
     player2Id: initialHash.p2 || 'p-aj-hinton',
   });
   const [copyToast, setCopyToast] = useState<{ visible: boolean; url: string }>({ visible: false, url: '' });
+  const [copiedArticleId, setCopiedArticleId] = useState<string | null>(null);
 
   // Handle URL updates when active state changes
   useEffect(() => {
@@ -170,6 +171,22 @@ export default function App() {
     setTimeout(() => {
       setCopyToast((prev) => ({ ...prev, visible: false }));
     }, 3000);
+  }, []);
+
+  const handleShareArticleLink = useCallback((articleId: string) => {
+    const baseUrl = window.location.href.split('#')[0];
+    const directUrl = `${baseUrl}#news?article=${articleId}`;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(directUrl).catch(() => {});
+    }
+    setCopiedArticleId(articleId);
+    setCopyToast({ visible: true, url: directUrl });
+    setTimeout(() => {
+      setCopiedArticleId((prev) => (prev === articleId ? null : prev));
+    }, 2500);
+    setTimeout(() => {
+      setCopyToast((prev) => ({ ...prev, visible: false }));
+    }, 3500);
   }, []);
 
   const handleComparePlayer = (playerId: string, targetPlayerId?: string) => {
@@ -252,6 +269,8 @@ export default function App() {
         theme={theme}
         onToggleTheme={toggleTheme}
         onShareLink={handleShareCurrentLink}
+        onNavigateToNews={handleNavigateToNews}
+        onSelectTeam={(teamId, season) => handleSelectTeamRecap(teamId, season || selectedSeason)}
       />
 
       {/* Main Content Area */}
@@ -299,12 +318,33 @@ export default function App() {
                     4 YR / $171.87M DEALS
                   </span>
                 </div>
-                <button
-                  onClick={() => handleNavigateToNews('s4-blockbuster-signings-pognotti-galloway')}
-                  className="text-xs font-mono font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1 cursor-pointer bg-transparent border-0"
-                >
-                  Read Full Article & Analysis →
-                </button>
+                <div className="flex items-center gap-2.5">
+                  <button
+                    id="share-breaking-news-btn"
+                    onClick={() => handleShareArticleLink('s4-blockbuster-signings-pognotti-galloway')}
+                    className="px-3 py-1.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 hover:text-white border border-red-500/40 hover:border-amber-400 text-xs font-mono font-bold flex items-center gap-1.5 transition-all cursor-pointer shadow-md group/share"
+                    title="Share Article / Copy Direct Link"
+                    aria-label="Share direct link to this breaking news article"
+                  >
+                    {copiedArticleId === 's4-blockbuster-signings-pognotti-galloway' ? (
+                      <>
+                        <Check size={14} className="text-emerald-400 shrink-0" />
+                        <span className="text-emerald-400 font-black">Copied!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Share2 size={14} className="text-amber-400 group-hover/share:text-amber-300 shrink-0" />
+                        <span>Share</span>
+                      </>
+                    )}
+                  </button>
+                  <button
+                    onClick={() => handleNavigateToNews('s4-blockbuster-signings-pognotti-galloway')}
+                    className="text-xs font-mono font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1 cursor-pointer bg-transparent border-0"
+                  >
+                    Read Full Article & Analysis →
+                  </button>
+                </div>
               </div>
 
               {/* Main Headline & Intro */}

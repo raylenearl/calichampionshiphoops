@@ -1,5 +1,5 @@
-import React from 'react';
-import { Award, Flame, Star, ChevronRight, BookOpen, Users, Shield, Zap } from 'lucide-react';
+import React, { useState } from 'react';
+import { Award, Flame, Star, ChevronRight, BookOpen, Users, Shield, Zap, Share2, Check } from 'lucide-react';
 import { TeamBadge } from './TeamBadge';
 import jamarDean1Img from '../assets/images/JamarDean1.png';
 import aMaraiS4_1Img from '../assets/images/AMaraiS4_1.png';
@@ -13,6 +13,20 @@ export const PlayerOfTheWeekCard: React.FC<PlayerOfTheWeekCardProps> = ({
   onNavigateToNews,
   onSelectTeam,
 }) => {
+  const [copied, setCopied] = useState(false);
+
+  const handleShare = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const baseUrl = window.location.href.split('#')[0];
+    const directUrl = `${baseUrl}#news?article=s4-potw-week-1-dean-marai`;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(directUrl).catch(() => {});
+    }
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, 2500);
+  };
   return (
     <div
       id="player-of-the-week-card"
@@ -37,13 +51,33 @@ export const PlayerOfTheWeekCard: React.FC<PlayerOfTheWeekCardProps> = ({
             </span>
           </div>
 
-          <button
-            onClick={() => onNavigateToNews('s4-potw-week-1-dean-marai')}
-            className="text-xs font-mono font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1.5 transition-colors cursor-pointer bg-transparent border-0 self-start sm:self-auto"
-          >
-            <span>Read Official Awards Release</span>
-            <ChevronRight size={14} />
-          </button>
+          <div className="flex items-center gap-2.5 self-start sm:self-auto">
+            <button
+              onClick={handleShare}
+              className="px-3 py-1.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 hover:text-white border border-amber-500/30 hover:border-amber-400 text-xs font-mono font-bold flex items-center gap-1.5 transition-all cursor-pointer shadow-md group/share"
+              title="Share Article / Copy Direct Link"
+              aria-label="Share direct link to Player of the Week awards"
+            >
+              {copied ? (
+                <>
+                  <Check size={14} className="text-emerald-400 shrink-0" />
+                  <span className="text-emerald-400 font-black">Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Share2 size={14} className="text-amber-400 group-hover/share:text-amber-300 shrink-0" />
+                  <span>Share</span>
+                </>
+              )}
+            </button>
+            <button
+              onClick={() => onNavigateToNews('s4-potw-week-1-dean-marai')}
+              className="text-xs font-mono font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1.5 transition-colors cursor-pointer bg-transparent border-0"
+            >
+              <span>Read Official Awards Release</span>
+              <ChevronRight size={14} />
+            </button>
+          </div>
         </div>
 
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white leading-tight">

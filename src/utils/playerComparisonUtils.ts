@@ -319,7 +319,7 @@ export function generateMatchupAnalysis(p1: Player, p2: Player): string {
   const defenseLeader = ((p1.bpg ?? 0) + (p1.spg ?? 0)) >= ((p2.bpg ?? 0) + (p2.spg ?? 0)) ? p1.name : p2.name;
   const trophyLeader = p1Trophies.totalScore >= p2Trophies.totalScore ? p1.name : p2.name;
 
-  return `${p1.name} and ${p2.name} represent two contrasting pillars of California Classic Hoops basketball. ` +
+  return `${p1.name} and ${p2.name} represent two contrasting pillars of Cali Championship Hoops basketball. ` +
     `Offensively, ${scoringLeader} holds the edge in scoring volume, while ${defenseLeader} brings the higher defensive stock impact. ` +
     `In terms of hardware and trophy equity, ${trophyLeader} carries greater historical weight across CCH championships and major honors. ` +
     `Both stars have carved unforgettable legacies into California basketball folklore.`;

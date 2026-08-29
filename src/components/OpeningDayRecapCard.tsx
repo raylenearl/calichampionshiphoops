@@ -14,7 +14,9 @@ import {
   MapPin,
   Users,
   Award,
-  ExternalLink
+  ExternalLink,
+  Share2,
+  Check,
 } from 'lucide-react';
 import { TeamBadge } from './TeamBadge';
 import { PodcastPlayerCard } from './PodcastPlayerCard';
@@ -36,6 +38,32 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
 }) => {
   // Default to game6 (the latest game) or user toggle
   const [selectedGame, setSelectedGame] = useState<'game1' | 'game2' | 'game3' | 'game4' | 'game5' | 'game6'>('game6');
+  const [copied, setCopied] = useState(false);
+
+  const getArticleId = (game: typeof selectedGame) => {
+    switch (game) {
+      case 'game1': return 's4-g1-strykers-crush-vipers';
+      case 'game2': return 's4-g2-rush-dynamics-cruise-sabrewolves';
+      case 'game3': return 's4-g3-renegades-blitz-admirals';
+      case 'game4': return 's4-g4-tigersharks-mad-dogs-s4';
+      case 'game5': return 's4-g5-reds-stallions-s4';
+      case 'game6': return 's4-g6-hinton-strykers-rout-admirals';
+    }
+  };
+
+  const handleShare = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const articleId = getArticleId(selectedGame);
+    const baseUrl = window.location.href.split('#')[0];
+    const directUrl = `${baseUrl}#news?article=${articleId}`;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(directUrl).catch(() => {});
+    }
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, 2500);
+  };
 
   return (
     <div
@@ -132,28 +160,48 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
             {selectedGame === 'game6' && 'Anaheim Arena • Anaheim, CA'}
           </span>
 
-          <button
-            onClick={() =>
-              onNavigateToNews(
-                selectedGame === 'game1'
-                  ? 's4-g1-strykers-crush-vipers'
-                  : selectedGame === 'game2'
-                  ? 's4-g2-rush-dynamics-cruise-sabrewolves'
-                  : selectedGame === 'game3'
-                  ? 's4-g3-renegades-blitz-admirals'
-                  : selectedGame === 'game4'
-                  ? 's4-g4-tigersharks-mad-dogs-s4'
-                  : selectedGame === 'game5'
-                  ? 's4-g5-reds-stallions-s4'
-                  : 's4-g6-hinton-strykers-rout-admirals'
-              )
-            }
-            className="text-xs font-mono font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1.5 transition-colors cursor-pointer bg-transparent border-0 self-start sm:self-auto"
-          >
-            <BookOpen size={14} />
-            <span>Full Article in News</span>
-            <ChevronRight size={14} />
-          </button>
+          <div className="flex items-center gap-2.5 self-start sm:self-auto">
+            <button
+              onClick={handleShare}
+              className="px-3 py-1.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 hover:text-white border border-amber-500/30 hover:border-amber-400 text-xs font-mono font-bold flex items-center gap-1.5 transition-all cursor-pointer shadow-md group/share"
+              title="Share Article / Copy Direct Link"
+              aria-label="Share direct link to this game recap"
+            >
+              {copied ? (
+                <>
+                  <Check size={14} className="text-emerald-400 shrink-0" />
+                  <span className="text-emerald-400 font-black">Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Share2 size={14} className="text-amber-400 group-hover/share:text-amber-300 shrink-0" />
+                  <span>Share</span>
+                </>
+              )}
+            </button>
+            <button
+              onClick={() =>
+                onNavigateToNews(
+                  selectedGame === 'game1'
+                    ? 's4-g1-strykers-crush-vipers'
+                    : selectedGame === 'game2'
+                    ? 's4-g2-rush-dynamics-cruise-sabrewolves'
+                    : selectedGame === 'game3'
+                    ? 's4-g3-renegades-blitz-admirals'
+                    : selectedGame === 'game4'
+                    ? 's4-g4-tigersharks-mad-dogs-s4'
+                    : selectedGame === 'game5'
+                    ? 's4-g5-reds-stallions-s4'
+                    : 's4-g6-hinton-strykers-rout-admirals'
+                )
+              }
+              className="text-xs font-mono font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1.5 transition-colors cursor-pointer bg-transparent border-0"
+            >
+              <BookOpen size={14} />
+              <span>Full Article in News</span>
+              <ChevronRight size={14} />
+            </button>
+          </div>
         </div>
       </div>
 
