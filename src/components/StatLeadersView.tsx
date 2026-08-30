@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Award, Trophy, Star, ChevronRight, TrendingUp, Sparkles, Activity, Search, Shield, Target, Flame, Users, ArrowUpRight, BarChart2 } from 'lucide-react';
 import { PLAYERS } from '../data/playersData';
 import { SEASON_LEADERS, ALL_AWARDS } from '../data/awardsData';
@@ -14,7 +14,28 @@ interface StatLeadersViewProps {
   initialSeason?: 1 | 2 | 3 | 4;
 }
 
-type StatCategory = 'points' | 'rebounds' | 'assists' | 'steals' | 'blocks' | 'threePct' | 'fgPct' | 'ftPct';
+type StatCategory =
+  | 'points'
+  | 'rebounds'
+  | 'assists'
+  | 'steals'
+  | 'blocks'
+  | 'fgPct'
+  | 'threePct'
+  | 'ftPct'
+  | 'fgm'
+  | 'fga'
+  | 'threeMade'
+  | 'threeAtt'
+  | 'ftm'
+  | 'pointsAllowed'
+  | 'oppFgm'
+  | 'oppFga'
+  | 'plusMinus'
+  | 'turnovers'
+  | 'fouls';
+
+type CategoryGroup = 'all' | 'major' | 'offensive' | 'efficiency' | 'defensive' | 'discipline';
 
 interface LeaderEntry {
   rank: number;
@@ -40,12 +61,13 @@ export const StatLeadersView: React.FC<StatLeadersViewProps> = ({
   const [selectedView, setSelectedView] = useState<'season' | 'career'>('season');
   const [selectedSeason, setSelectedSeason] = useState<1 | 2 | 3 | 4>(initialSeason);
   const [activeCategory, setActiveCategory] = useState<StatCategory>('points');
+  const [activeGroup, setActiveGroup] = useState<CategoryGroup>('all');
   const [searchQuery, setSearchQuery] = useState('');
 
   // ----------------------------------------------------
   // SEASON STAT LEADERS COMPUTATION & ARCHIVE MAPPING
   // ----------------------------------------------------
-  const seasonLeadersData: Record<1 | 2 | 3 | 4, Record<StatCategory, LeaderEntry[]>> = useMemo(() => {
+  const seasonLeadersData: Record<1 | 2 | 3 | 4, Partial<Record<StatCategory, LeaderEntry[]>>> = useMemo(() => {
     // Helper to find player ID by name
     const getPlayerId = (name: string): string | undefined => {
       const match = PLAYERS.find((p) => p.name.toLowerCase() === name.toLowerCase());
@@ -233,63 +255,145 @@ export const StatLeadersView: React.FC<StatLeadersViewProps> = ({
         ],
       },
 
-      // SEASON 4 (In-Progress Current Live Leaderboard)
+      // SEASON 4 (Verified Official In-Game Live Leaderboards)
       4: {
         points: [
-          { rank: 1, name: 'A.J. Hinton', team: 'San Diego Strykers', teamId: 'san-diego-strykers', position: 'SG', value: '29.0 PPG', subText: '87 PTS in 3 GP • 42 PTS High (12 3PM)', playerId: getPlayerId('A.J. Hinton'), badge: 'Scoring Leader', isRecord: true },
-          { rank: 2, name: 'Lloyd Boomer', team: 'Fresno Mad Dogs', teamId: 'fresno-mad-dogs', position: 'PG', value: '25.5 PPG', subText: '51 PTS in 2 GP • 26 PTS vs SAC', badge: 'Clutch Maestro' },
-          { rank: 3, name: 'Jamar Dean', team: 'Oakland Renegades', teamId: 'oakland-renegades', position: 'SG', value: '25.0 PPG', subText: '100 PTS in 4 GP • 36 PTS High', playerId: getPlayerId('Jamar Dean'), badge: 'Week 1 POTW' },
-          { rank: 4, name: 'Andor Marai', team: 'California Reds', teamId: 'california-reds', position: 'C', value: '18.4 PPG', subText: '92 PTS in 5 GP • 24 PTS High' },
-          { rank: 5, name: 'Alonzo Reece', team: 'Oakland Renegades', teamId: 'oakland-renegades', position: 'SG', value: '16.5 PPG', subText: '66 PTS in 4 GP' },
+          { rank: 1, name: 'R.J. Rush', team: 'Los Angeles Dynamics', teamId: 'los-angeles-dynamics', position: 'PG', value: '33.0 PPG', subText: 'Season 4 Scoring Leader', playerId: getPlayerId('R.J. Rush'), badge: 'Scoring Leader' },
+          { rank: 2, name: 'A.J. Hinton', team: 'San Diego Strykers', teamId: 'san-diego-strykers', position: 'SG', value: '29.0 PPG', subText: '42 PTS Single-Game High', playerId: getPlayerId('A.J. Hinton') },
+          { rank: 3, name: 'Lloyd Boomer', team: 'Fresno Mad Dogs', teamId: 'fresno-mad-dogs', position: 'PG', value: '25.5 PPG', subText: 'High-Volume Scoring Force', playerId: getPlayerId('Lloyd Boomer') },
+          { rank: 4, name: 'Jamar Dean', team: 'Oakland Renegades', teamId: 'oakland-renegades', position: 'SG', value: '25.0 PPG', subText: 'Week 1 POTW', playerId: getPlayerId('Jamar Dean'), badge: 'Week 1 POTW' },
+          { rank: 5, name: 'Andor Marai', team: 'California Reds', teamId: 'california-reds', position: 'C', value: '23.2 PPG', subText: 'Interior Paint Anchor', playerId: getPlayerId('Andor Marai') },
         ],
         rebounds: [
-          { rank: 1, name: 'Joshua Bowen', team: 'Oakland Renegades', teamId: 'oakland-renegades', position: 'PF / C', value: '11.5 RPG', subText: '46 Total REB in 4 GP • 14 REB High', badge: 'Week 2 POTW' },
-          { rank: 2, name: 'Andor Marai', team: 'California Reds', teamId: 'california-reds', position: 'C', value: '9.2 RPG', subText: '46 Total REB in 5 GP • 11 REB High' },
-          { rank: 3, name: 'Johnny Galloway', team: 'San Diego Strykers', teamId: 'san-diego-strykers', position: 'PF', value: '8.0 RPG', subText: '24 Total REB in 3 GP • 11 vs ANA' },
-          { rank: 4, name: 'DeAnte Gray', team: 'San Diego Strykers', teamId: 'san-diego-strykers', position: 'SF', value: '6.7 RPG', subText: '20 Total REB in 3 GP' },
-          { rank: 5, name: 'Carlton Daugherty', team: 'Golden State Enterprise', teamId: 'golden-state-enterprise', position: 'SG', value: '5.0 RPG', subText: '10 Total REB in 2 GP' },
+          { rank: 1, name: 'J.C. McMillan', team: 'Long Beach Vipers', teamId: 'long-beach-vipers', position: 'C', value: '11.0 RPG', subText: 'Season 4 Rebound Leader', playerId: getPlayerId('J.C. McMillan'), badge: 'Rebound Leader' },
+          { rank: 2, name: 'Jesse Wingate', team: 'Anaheim Admirals', teamId: 'anaheim-admirals', position: 'PF', value: '9.0 RPG', subText: 'Admirals Frontcourt Anchor', playerId: getPlayerId('Jesse Wingate') },
+          { rank: 3, name: 'Andor Marai', team: 'California Reds', teamId: 'california-reds', position: 'C', value: '9.0 RPG', subText: 'Reds Interior Anchor', playerId: getPlayerId('Andor Marai') },
+          { rank: 4, name: 'Mo Alexander', team: 'Los Angeles Dynamics', teamId: 'los-angeles-dynamics', position: 'C', value: '9.0 RPG', subText: 'Dynamics Defensive Anchor', playerId: getPlayerId('Mo Alexander') },
+          { rank: 5, name: 'Joshua Bowen', team: 'Oakland Renegades', teamId: 'oakland-renegades', position: 'PF / C', value: '9.0 RPG', subText: 'Week 2 POTW', playerId: getPlayerId('Joshua Bowen'), badge: 'Week 2 POTW' },
         ],
         assists: [
-          { rank: 1, name: 'Ray Gambino Gamble', team: 'San Diego Strykers', teamId: 'san-diego-strykers', position: 'PG', value: '5.0 APG', subText: '15 Total AST in 3 GP', badge: 'Assist Leader' },
-          { rank: 2, name: 'Joshua Bowen', team: 'Oakland Renegades', teamId: 'oakland-renegades', position: 'PF / C', value: '4.5 APG', subText: '18 Total AST in 4 GP' },
-          { rank: 3, name: 'Jamar Dean', team: 'Oakland Renegades', teamId: 'oakland-renegades', position: 'SG', value: '4.0 APG', subText: '16 Total AST in 4 GP' },
-          { rank: 4, name: 'DeAnte Gray', team: 'San Diego Strykers', teamId: 'san-diego-strykers', position: 'SF', value: '4.0 APG', subText: '12 Total AST in 3 GP' },
-          { rank: 5, name: 'A.J. Hinton', team: 'San Diego Strykers', teamId: 'san-diego-strykers', position: 'SG', value: '3.7 APG', subText: '11 Total AST in 3 GP' },
+          { rank: 1, name: 'Malique Pierce', team: 'San Jose Tigersharks', teamId: 'san-jose-tigersharks', position: 'PG', value: '8.0 APG', subText: 'Season 4 Assist Leader', playerId: getPlayerId('Malique Pierce'), badge: 'Assist Leader' },
+          { rank: 2, name: 'Donald Hardy', team: 'San Jose Tigersharks', teamId: 'san-jose-tigersharks', position: 'PG', value: '7.0 APG', subText: 'Tigersharks Dual Playmaker', playerId: getPlayerId('Donald Hardy') },
+          { rank: 3, name: 'Gemini Jackson', team: 'Sacramento Stallions', teamId: 'sacramento-stallions', position: 'PG', value: '5.7 APG', subText: 'Stallions Floor General', playerId: getPlayerId('Gemini Jackson') },
+          { rank: 4, name: 'J. Thompson', team: 'San Francisco Knights', teamId: 'san-francisco-knights', position: 'PG', value: '5.0 APG', subText: 'Knights Playmaker', playerId: getPlayerId('J. Thompson') },
+          { rank: 5, name: 'Stan Roberts', team: 'California Reds', teamId: 'california-reds', position: 'PG', value: '5.0 APG', subText: 'Reds Primary Distributor', playerId: getPlayerId('Stan Roberts') },
         ],
-        steals: [
-          { rank: 1, name: 'A.J. Hinton', team: 'San Diego Strykers', teamId: 'san-diego-strykers', position: 'SG', value: '4.0 SPG', subText: '12 Total STL in 3 GP • 4 STL vs ANA', badge: 'Steal Leader', isRecord: true },
-          { rank: 2, name: 'Alonzo Reece', team: 'Oakland Renegades', teamId: 'oakland-renegades', position: 'SG', value: '2.5 SPG', subText: '10 Total STL in 4 GP • 5 STL vs SAC' },
-          { rank: 3, name: 'Johnny Galloway', team: 'San Diego Strykers', teamId: 'san-diego-strykers', position: 'PF', value: '2.0 SPG', subText: '6 Total STL in 3 GP' },
-          { rank: 4, name: 'Joshua Bowen', team: 'Oakland Renegades', teamId: 'oakland-renegades', position: 'PF / C', value: '1.5 SPG', subText: '6 Total STL in 4 GP' },
-          { rank: 5, name: 'Andor Marai', team: 'California Reds', teamId: 'california-reds', position: 'C', value: '1.4 SPG', subText: '7 Total STL in 5 GP' },
+        fgm: [
+          { rank: 1, name: 'A.J. Hinton', team: 'San Diego Strykers', teamId: 'san-diego-strykers', position: 'SG', value: '10.7 FGM', subText: '10.7 Made Field Goals/G', playerId: getPlayerId('A.J. Hinton'), badge: 'FGM Leader' },
+          { rank: 2, name: 'Andor Marai', team: 'California Reds', teamId: 'california-reds', position: 'C', value: '9.6 FGM', subText: '9.6 Made Field Goals/G', playerId: getPlayerId('Andor Marai') },
+          { rank: 3, name: 'R.J. Rush', team: 'Los Angeles Dynamics', teamId: 'los-angeles-dynamics', position: 'PG', value: '9.0 FGM', subText: '9.0 Made Field Goals/G', playerId: getPlayerId('R.J. Rush') },
+          { rank: 4, name: 'Mo Alexander', team: 'Los Angeles Dynamics', teamId: 'los-angeles-dynamics', position: 'C', value: '9.0 FGM', subText: '9.0 Made Field Goals/G', playerId: getPlayerId('Mo Alexander') },
+          { rank: 5, name: 'Lloyd Boomer', team: 'Fresno Mad Dogs', teamId: 'fresno-mad-dogs', position: 'PG', value: '9.0 FGM', subText: '9.0 Made Field Goals/G', playerId: getPlayerId('Lloyd Boomer') },
         ],
-        blocks: [
-          { rank: 1, name: 'Mo Alexander', team: 'Los Angeles Dynamics', teamId: 'los-angeles-dynamics', position: 'C', value: '3.0 BPG', subText: '3 Total BLK in 1 GP', badge: 'Block Leader' },
-          { rank: 2, name: 'Johnny Galloway', team: 'San Diego Strykers', teamId: 'san-diego-strykers', position: 'PF', value: '2.0 BPG', subText: '6 Total BLK in 3 GP' },
-          { rank: 3, name: 'Joshua Bowen', team: 'Oakland Renegades', teamId: 'oakland-renegades', position: 'PF / C', value: '1.5 BPG', subText: '6 Total BLK in 4 GP' },
-          { rank: 4, name: 'Andor Marai', team: 'California Reds', teamId: 'california-reds', position: 'C', value: '1.2 BPG', subText: '6 Total BLK in 5 GP' },
-          { rank: 5, name: 'A.J. Hinton', team: 'San Diego Strykers', teamId: 'san-diego-strykers', position: 'SG', value: '1.0 BPG', subText: '3 Total BLK in 3 GP' },
+        fga: [
+          { rank: 1, name: 'Lloyd Boomer', team: 'Fresno Mad Dogs', teamId: 'fresno-mad-dogs', position: 'PG', value: '18.0 FGA', subText: '18.0 Field Goal Attempts/G', playerId: getPlayerId('Lloyd Boomer'), badge: 'FGA Leader' },
+          { rank: 2, name: 'Step Sirven', team: 'Anaheim Admirals', teamId: 'anaheim-admirals', position: 'SG', value: '17.5 FGA', subText: '17.5 Field Goal Attempts/G', playerId: getPlayerId('Step Sirven') },
+          { rank: 3, name: 'A.J. Hinton', team: 'San Diego Strykers', teamId: 'san-diego-strykers', position: 'SG', value: '16.7 FGA', subText: '16.7 Field Goal Attempts/G', playerId: getPlayerId('A.J. Hinton') },
+          { rank: 4, name: 'Jamar Dean', team: 'Oakland Renegades', teamId: 'oakland-renegades', position: 'SG', value: '15.0 FGA', subText: '15.0 Field Goal Attempts/G', playerId: getPlayerId('Jamar Dean') },
+          { rank: 5, name: 'Carlton Daugherty', team: 'Golden State Enterprise', teamId: 'golden-state-enterprise', position: 'SG', value: '15.0 FGA', subText: '15.0 Field Goal Attempts/G', playerId: getPlayerId('Carlton Daugherty') },
         ],
-        threePct: [
-          { rank: 1, name: 'A.J. Hinton', team: 'San Diego Strykers', teamId: 'san-diego-strykers', position: 'SG', value: '.686 3PT%', subText: '24/35 3PT (68.6%) • 12 3PM in 1 Game', isRecord: true, badge: 'All-Time 12 3PM Record' },
-          { rank: 2, name: 'Jamar Dean', team: 'Oakland Renegades', teamId: 'oakland-renegades', position: 'SG', value: '.571 3PT%', subText: '12/21 3PT (57.1%) in 4 GP' },
-          { rank: 3, name: 'Alonzo Reece', team: 'Oakland Renegades', teamId: 'oakland-renegades', position: 'SG', value: '.450 3PT%', subText: '9/20 3PT in 4 GP' },
-          { rank: 4, name: 'Carlton Daugherty', team: 'Golden State Enterprise', teamId: 'golden-state-enterprise', position: 'SG', value: '.444 3PT%', subText: '4/9 3PT in S4 Debut' },
-          { rank: 5, name: 'Lloyd Boomer', team: 'Fresno Mad Dogs', teamId: 'fresno-mad-dogs', position: 'PG', value: '.429 3PT%', subText: '6/14 3PT in 2 GP' },
+        threeMade: [
+          { rank: 1, name: 'A.J. Hinton', team: 'San Diego Strykers', teamId: 'san-diego-strykers', position: 'SG', value: '7.7 3PM', subText: '7.7 Made 3-Pointers/G • 12 3PM Game Record', playerId: getPlayerId('A.J. Hinton'), badge: '3PM Leader', isRecord: true },
+          { rank: 2, name: 'Carlton Daugherty', team: 'Golden State Enterprise', teamId: 'golden-state-enterprise', position: 'SG', value: '4.0 3PM', subText: '4.0 Made 3-Pointers/G', playerId: getPlayerId('Carlton Daugherty') },
+          { rank: 3, name: 'Jamar Dean', team: 'Oakland Renegades', teamId: 'oakland-renegades', position: 'SG', value: '3.3 3PM', subText: '3.3 Made 3-Pointers/G', playerId: getPlayerId('Jamar Dean') },
+          { rank: 4, name: 'Albert Gill', team: 'San Jose Tigersharks', teamId: 'san-jose-tigersharks', position: 'SG', value: '3.0 3PM', subText: '3.0 Made 3-Pointers/G', playerId: getPlayerId('Albert Gill') },
+          { rank: 5, name: 'Step Sirven', team: 'Anaheim Admirals', teamId: 'anaheim-admirals', position: 'SG', value: '2.5 3PM', subText: '2.5 Made 3-Pointers/G', playerId: getPlayerId('Step Sirven') },
+        ],
+        threeAtt: [
+          { rank: 1, name: 'A.J. Hinton', team: 'San Diego Strykers', teamId: 'san-diego-strykers', position: 'SG', value: '11.7 3PA', subText: '11.7 3-Point Attempts/G', playerId: getPlayerId('A.J. Hinton'), badge: '3PA Leader' },
+          { rank: 2, name: 'Carlton Daugherty', team: 'Golden State Enterprise', teamId: 'golden-state-enterprise', position: 'SG', value: '9.0 3PA', subText: '9.0 3-Point Attempts/G', playerId: getPlayerId('Carlton Daugherty') },
+          { rank: 3, name: 'Step Sirven', team: 'Anaheim Admirals', teamId: 'anaheim-admirals', position: 'SG', value: '8.5 3PA', subText: '8.5 3-Point Attempts/G', playerId: getPlayerId('Step Sirven') },
+          { rank: 4, name: 'Ed Burks', team: 'San Francisco Knights', teamId: 'san-francisco-knights', position: 'SG', value: '8.0 3PA', subText: '8.0 3-Point Attempts/G', playerId: getPlayerId('Ed Burks') },
+          { rank: 5, name: 'Gemini Jackson', team: 'Sacramento Stallions', teamId: 'sacramento-stallions', position: 'PG', value: '7.3 3PA', subText: '7.3 3-Point Attempts/G', playerId: getPlayerId('Gemini Jackson') },
+        ],
+        ftm: [
+          { rank: 1, name: 'R.J. Rush', team: 'Los Angeles Dynamics', teamId: 'los-angeles-dynamics', position: 'PG', value: '14.0 FTM', subText: '14.0 Made Free Throws/G (1.000 FT%)', playerId: getPlayerId('R.J. Rush'), badge: 'FTM Leader' },
+          { rank: 2, name: 'Lloyd Boomer', team: 'Fresno Mad Dogs', teamId: 'fresno-mad-dogs', position: 'PG', value: '6.5 FTM', subText: '6.5 Made Free Throws/G', playerId: getPlayerId('Lloyd Boomer') },
+          { rank: 3, name: 'Jamar Dean', team: 'Oakland Renegades', teamId: 'oakland-renegades', position: 'SG', value: '4.7 FTM', subText: '4.7 Made Free Throws/G', playerId: getPlayerId('Jamar Dean') },
+          { rank: 4, name: 'Grok Wilkens', team: 'Long Beach Vipers', teamId: 'long-beach-vipers', position: 'C', value: '4.5 FTM', subText: '4.5 Made Free Throws/G', playerId: getPlayerId('Grok Wilkens') },
+          { rank: 5, name: 'Kirk Barnes', team: 'San Diego Sabrewolves', teamId: 'san-diego-sabrewolves', position: 'PG', value: '4.0 FTM', subText: '4.0 Made Free Throws/G', playerId: getPlayerId('Kirk Barnes') },
         ],
         fgPct: [
-          { rank: 1, name: 'Andor Marai', team: 'California Reds', teamId: 'california-reds', position: 'C', value: '.694 FG%', subText: '34/49 FG (69.4%) in 5 GP', badge: 'Interior Efficiency' },
-          { rank: 2, name: 'A.J. Hinton', team: 'San Diego Strykers', teamId: 'san-diego-strykers', position: 'SG', value: '.667 FG%', subText: '32/48 FG (66.7%) in 3 GP' },
-          { rank: 3, name: 'Jamar Dean', team: 'Oakland Renegades', teamId: 'oakland-renegades', position: 'SG', value: '.625 FG%', subText: '35/56 FG (62.5%) in 4 GP' },
-          { rank: 4, name: 'Joshua Bowen', team: 'Oakland Renegades', teamId: 'oakland-renegades', position: 'PF / C', value: '.583 FG%', subText: '21/36 FG (58.3%) in 4 GP' },
-          { rank: 5, name: 'Lloyd Boomer', team: 'Fresno Mad Dogs', teamId: 'fresno-mad-dogs', position: 'PG', value: '.545 FG%', subText: '18/33 FG in 2 GP' },
+          { rank: 1, name: 'Mo Alexander', team: 'Los Angeles Dynamics', teamId: 'los-angeles-dynamics', position: 'C', value: '1.000 FG%', subText: 'Flawless 1.000 Field Goal Accuracy', playerId: getPlayerId('Mo Alexander'), badge: 'Perfect 1.000 FG%', isRecord: true },
+          { rank: 2, name: 'Al Sloan', team: 'San Jose Tigersharks', teamId: 'san-jose-tigersharks', position: 'C', value: '.818 FG%', subText: '0.818 FG% (81.8% Interior Scoring)', playerId: getPlayerId('Al Sloan') },
+          { rank: 3, name: 'Geraldo Jones', team: 'Fresno Mad Dogs', teamId: 'fresno-mad-dogs', position: 'SG', value: '.800 FG%', subText: '0.800 FG% (80.0% Scoring Efficiency)', playerId: getPlayerId('Geraldo Jones') },
+          { rank: 4, name: 'Andre Creek', team: 'San Diego Sabrewolves', teamId: 'san-diego-sabrewolves', position: 'SF', value: '.750 FG%', subText: '0.750 FG% (75.0% Forward Efficiency)', playerId: getPlayerId('Andre Creek') },
+          { rank: 5, name: 'Joshua Bowen', team: 'Oakland Renegades', teamId: 'oakland-renegades', position: 'PF / C', value: '.724 FG%', subText: '0.724 FG% (72.4% Paint Finishing)', playerId: getPlayerId('Joshua Bowen') },
+        ],
+        threePct: [
+          { rank: 1, name: 'Chad Bryant', team: 'Golden State Enterprise', teamId: 'golden-state-enterprise', position: 'SF', value: '1.000 3PT%', subText: '1.000 3P% (100% Perimeter Accuracy)', playerId: getPlayerId('Chad Bryant'), badge: 'Perfect 1.000 3PT%' },
+          { rank: 2, name: 'Andre Creek', team: 'San Diego Sabrewolves', teamId: 'san-diego-sabrewolves', position: 'SF', value: '1.000 3PT%', subText: '1.000 3P% (100% Perimeter Accuracy)', playerId: getPlayerId('Andre Creek'), badge: 'Perfect 1.000 3PT%' },
+          { rank: 3, name: 'Albert Gill', team: 'San Jose Tigersharks', teamId: 'san-jose-tigersharks', position: 'SG', value: '1.000 3PT%', subText: '1.000 3P% (3.0 3PM/G at 100%)', playerId: getPlayerId('Albert Gill'), badge: 'Perfect 1.000 3PT%' },
+          { rank: 4, name: 'Alan Perben', team: 'San Diego Sabrewolves', teamId: 'san-diego-sabrewolves', position: 'SG', value: '1.000 3PT%', subText: '1.000 3P% (100% Perimeter Accuracy)', playerId: getPlayerId('Alan Perben'), badge: 'Perfect 1.000 3PT%' },
+          { rank: 5, name: 'Vlado Toroman', team: 'Golden State Enterprise', teamId: 'golden-state-enterprise', position: 'C', value: '1.000 3PT%', subText: '1.000 3P% (100% Perimeter Accuracy)', playerId: getPlayerId('Vlado Toroman'), badge: 'Perfect 1.000 3PT%' },
         ],
         ftPct: [
-          { rank: 1, name: 'R.J. Rush', team: 'Los Angeles Dynamics', teamId: 'los-angeles-dynamics', position: 'PG', value: '1.000 FT%', subText: '14-of-14 FT (100%) vs Sabrewolves', badge: 'Flawless 14/14 FT' },
-          { rank: 2, name: 'Lloyd Boomer', team: 'Fresno Mad Dogs', teamId: 'fresno-mad-dogs', position: 'PG', value: '.909 FT%', subText: '10/11 FT in 2 GP' },
-          { rank: 3, name: 'A.J. Hinton', team: 'San Diego Strykers', teamId: 'san-diego-strykers', position: 'SG', value: '.875 FT%', subText: '7/8 FT in 3 GP' },
-          { rank: 4, name: 'Jamar Dean', team: 'Oakland Renegades', teamId: 'oakland-renegades', position: 'SG', value: '.857 FT%', subText: '18/21 FT in 4 GP' },
-          { rank: 5, name: 'Andor Marai', team: 'California Reds', teamId: 'california-reds', position: 'C', value: '.826 FT%', subText: '19/23 FT in 5 GP' },
+          { rank: 1, name: 'R.J. Rush', team: 'Los Angeles Dynamics', teamId: 'los-angeles-dynamics', position: 'PG', value: '1.000 FT%', subText: '1.000 FT% (14/14 FTM/G • Perfect Free Throw Execution)', playerId: getPlayerId('R.J. Rush'), badge: '1.000 FT% Leader', isRecord: true },
+          { rank: 2, name: 'Kirk Barnes', team: 'San Diego Sabrewolves', teamId: 'san-diego-sabrewolves', position: 'PG', value: '1.000 FT%', subText: '1.000 FT% (4.0 FTM/G at 100%)', playerId: getPlayerId('Kirk Barnes'), badge: '1.000 FT%' },
+          { rank: 3, name: 'Mo Alexander', team: 'Los Angeles Dynamics', teamId: 'los-angeles-dynamics', position: 'C', value: '1.000 FT%', subText: '1.000 FT% (100% Free Throw Accuracy)', playerId: getPlayerId('Mo Alexander'), badge: '1.000 FT%' },
+          { rank: 4, name: 'Alonzo Reece', team: 'Oakland Renegades', teamId: 'oakland-renegades', position: 'SG', value: '1.000 FT%', subText: '1.000 FT% (100% Free Throw Accuracy)', playerId: getPlayerId('Alonzo Reece'), badge: '1.000 FT%' },
+          { rank: 5, name: 'Chad Bryant', team: 'Golden State Enterprise', teamId: 'golden-state-enterprise', position: 'SF', value: '1.000 FT%', subText: '1.000 FT% (100% Free Throw Accuracy)', playerId: getPlayerId('Chad Bryant'), badge: '1.000 FT%' },
+        ],
+        steals: [
+          { rank: 1, name: 'Andre Creek', team: 'San Diego Sabrewolves', teamId: 'san-diego-sabrewolves', position: 'SF', value: '4.0 SPG', subText: '4.0 Steals/G • Season 4 Steals Leader', playerId: getPlayerId('Andre Creek'), badge: 'Steals Leader' },
+          { rank: 2, name: 'A.J. Hinton', team: 'San Diego Strykers', teamId: 'san-diego-strykers', position: 'SG', value: '3.0 SPG', subText: '3.0 Steals/G • Two-Way Impact', playerId: getPlayerId('A.J. Hinton') },
+          { rank: 3, name: 'Geraldo Jones', team: 'Fresno Mad Dogs', teamId: 'fresno-mad-dogs', position: 'SG', value: '3.0 SPG', subText: '3.0 Steals/G • Perimeter Disruption', playerId: getPlayerId('Geraldo Jones') },
+          { rank: 4, name: 'Dell Butler', team: 'San Jose Tigersharks', teamId: 'san-jose-tigersharks', position: 'SG', value: '2.0 SPG', subText: '2.0 Steals/G • Defensive Disrupter', playerId: getPlayerId('Dell Butler') },
+          { rank: 5, name: 'Mo Alexander', team: 'Los Angeles Dynamics', teamId: 'los-angeles-dynamics', position: 'C', value: '2.0 SPG', subText: '2.0 Steals/G • All-Time Defensive Anchor', playerId: getPlayerId('Mo Alexander') },
+        ],
+        blocks: [
+          { rank: 1, name: 'R.J. Rush', team: 'Los Angeles Dynamics', teamId: 'los-angeles-dynamics', position: 'PG', value: '2.0 BPG', subText: '2.0 Blocks/G • Season 4 Block Leader', playerId: getPlayerId('R.J. Rush'), badge: 'Blocks Leader' },
+          { rank: 2, name: 'Gemini Jackson', team: 'Sacramento Stallions', teamId: 'sacramento-stallions', position: 'PG', value: '1.7 BPG', subText: '1.7 Blocks/G • Guard Rim Protection', playerId: getPlayerId('Gemini Jackson') },
+          { rank: 3, name: 'Adrian Pognotti', team: 'Sacramento Stallions', teamId: 'sacramento-stallions', position: 'C', value: '1.7 BPG', subText: '1.7 Blocks/G • Paint Rim Protection', playerId: getPlayerId('Adrian Pognotti') },
+          { rank: 4, name: 'Tracy Howard', team: 'Anaheim Admirals', teamId: 'anaheim-admirals', position: 'PF', value: '1.5 BPG', subText: '1.5 Blocks/G • Admirals Interior Shield', playerId: getPlayerId('Tracy Howard') },
+          { rank: 5, name: 'Maxwell Mayo', team: 'Long Beach Vipers', teamId: 'long-beach-vipers', position: 'C', value: '1.5 BPG', subText: '1.5 Blocks/G • Vipers Interior Defense', playerId: getPlayerId('Maxwell Mayo') },
+        ],
+        pointsAllowed: [
+          { rank: 1, name: 'Kirk Barnes', team: 'San Diego Sabrewolves', teamId: 'san-diego-sabrewolves', position: 'PG', value: '20.0 PA', subText: '20.0 Points Allowed/G', playerId: getPlayerId('Kirk Barnes') },
+          { rank: 2, name: 'Kirk Tinsley', team: 'Anaheim Admirals', teamId: 'anaheim-admirals', position: 'SG', value: '19.5 PA', subText: '19.5 Points Allowed/G', playerId: getPlayerId('Kirk Tinsley') },
+          { rank: 3, name: 'Step Sirven', team: 'Anaheim Admirals', teamId: 'anaheim-admirals', position: 'SG', value: '15.5 PA', subText: '15.5 Points Allowed/G', playerId: getPlayerId('Step Sirven') },
+          { rank: 4, name: 'Donnie Anderson', team: 'San Francisco Knights', teamId: 'san-francisco-knights', position: 'SF', value: '14.0 PA', subText: '14.0 Points Allowed/G', playerId: getPlayerId('Donnie Anderson') },
+          { rank: 5, name: 'Jud Drew', team: 'Fresno Mad Dogs', teamId: 'fresno-mad-dogs', position: 'PF', value: '13.5 PA', subText: '13.5 Points Allowed/G', playerId: getPlayerId('Jud Drew') },
+        ],
+        oppFgm: [
+          { rank: 1, name: 'Kirk Barnes', team: 'San Diego Sabrewolves', teamId: 'san-diego-sabrewolves', position: 'PG', value: '9.0 oFGM', subText: '9.0 Opponent FGM/G', playerId: getPlayerId('Kirk Barnes') },
+          { rank: 2, name: 'Kirk Tinsley', team: 'Anaheim Admirals', teamId: 'anaheim-admirals', position: 'SG', value: '8.5 oFGM', subText: '8.5 Opponent FGM/G', playerId: getPlayerId('Kirk Tinsley') },
+          { rank: 3, name: 'Jud Drew', team: 'Fresno Mad Dogs', teamId: 'fresno-mad-dogs', position: 'PF', value: '6.5 oFGM', subText: '6.5 Opponent FGM/G', playerId: getPlayerId('Jud Drew') },
+          { rank: 4, name: 'Step Sirven', team: 'Anaheim Admirals', teamId: 'anaheim-admirals', position: 'SG', value: '6.0 oFGM', subText: '6.0 Opponent FGM/G', playerId: getPlayerId('Step Sirven') },
+          { rank: 5, name: 'Donnie Anderson', team: 'San Francisco Knights', teamId: 'san-francisco-knights', position: 'SF', value: '6.0 oFGM', subText: '6.0 Opponent FGM/G', playerId: getPlayerId('Donnie Anderson') },
+        ],
+        oppFga: [
+          { rank: 1, name: 'Donnie Anderson', team: 'San Francisco Knights', teamId: 'san-francisco-knights', position: 'SF', value: '17.0 oFGA', subText: '17.0 Opponent FGA/G', playerId: getPlayerId('Donnie Anderson') },
+          { rank: 2, name: 'Donald Hardy', team: 'San Jose Tigersharks', teamId: 'san-jose-tigersharks', position: 'PG', value: '16.0 oFGA', subText: '16.0 Opponent FGA/G', playerId: getPlayerId('Donald Hardy') },
+          { rank: 3, name: 'Kirk Tinsley', team: 'Anaheim Admirals', teamId: 'anaheim-admirals', position: 'SG', value: '14.5 oFGA', subText: '14.5 Opponent FGA/G', playerId: getPlayerId('Kirk Tinsley') },
+          { rank: 4, name: 'R.J. Rush', team: 'Los Angeles Dynamics', teamId: 'los-angeles-dynamics', position: 'PG', value: '14.0 oFGA', subText: '14.0 Opponent FGA/G', playerId: getPlayerId('R.J. Rush') },
+          { rank: 5, name: 'J. Thompson', team: 'San Francisco Knights', teamId: 'san-francisco-knights', position: 'PG', value: '13.0 oFGA', subText: '13.0 Opponent FGA/G', playerId: getPlayerId('J. Thompson') },
+        ],
+        plusMinus: [
+          { rank: 1, name: 'A.J. Hinton', team: 'San Diego Strykers', teamId: 'san-diego-strykers', position: 'SG', value: '+30.3 +/-', subText: '+30.3 Net Rating per Game • #1 League High', playerId: getPlayerId('A.J. Hinton'), badge: 'Top Net +/-' },
+          { rank: 2, name: 'Ray Gambino Gamble', team: 'San Diego Strykers', teamId: 'san-diego-strykers', position: 'PG', value: '+28.3 +/-', subText: '+28.3 Net Rating per Game', playerId: getPlayerId('Ray Gambino Gamble') },
+          { rank: 3, name: 'Johnny Galloway', team: 'San Diego Strykers', teamId: 'san-diego-strykers', position: 'PF', value: '+26.3 +/-', subText: '+26.3 Net Rating per Game', playerId: getPlayerId('Johnny Galloway') },
+          { rank: 4, name: 'Mo Alexander', team: 'Los Angeles Dynamics', teamId: 'los-angeles-dynamics', position: 'C', value: '+25.0 +/-', subText: '+25.0 Net Rating per Game', playerId: getPlayerId('Mo Alexander') },
+          { rank: 5, name: 'DeAnte Gray', team: 'San Diego Strykers', teamId: 'san-diego-strykers', position: 'SF', value: '+22.3 +/-', subText: '+22.3 Net Rating per Game', playerId: getPlayerId('DeAnte Gray') },
+          { rank: 6, name: 'Kirk Tinsley', team: 'Anaheim Admirals', teamId: 'anaheim-admirals', position: 'SG', value: '-27.5 +/-', subText: '-27.5 Net Rating per Game • Bottom Negative', playerId: getPlayerId('Kirk Tinsley') },
+          { rank: 7, name: 'Tracy Howard', team: 'Anaheim Admirals', teamId: 'anaheim-admirals', position: 'PF', value: '-27.0 +/-', subText: '-27.0 Net Rating per Game • Bottom Negative', playerId: getPlayerId('Tracy Howard') },
+          { rank: 8, name: 'Pete Dantley', team: 'Anaheim Admirals', teamId: 'anaheim-admirals', position: 'SF', value: '-27.0 +/-', subText: '-27.0 Net Rating per Game • Bottom Negative', playerId: getPlayerId('Pete Dantley') },
+          { rank: 9, name: 'Jesse Wingate', team: 'Anaheim Admirals', teamId: 'anaheim-admirals', position: 'PF', value: '-26.0 +/-', subText: '-26.0 Net Rating per Game • Bottom Negative', playerId: getPlayerId('Jesse Wingate') },
+          { rank: 10, name: 'G. Stefan', team: 'Anaheim Admirals', teamId: 'anaheim-admirals', position: 'PG', value: '-25.0 +/-', subText: '-25.0 Net Rating per Game • Bottom Negative', playerId: getPlayerId('G. Stefan') },
+        ],
+        turnovers: [
+          { rank: 1, name: 'Gemini Jackson', team: 'Sacramento Stallions', teamId: 'sacramento-stallions', position: 'PG', value: '4.3 TO', subText: '4.3 Turnovers/G', playerId: getPlayerId('Gemini Jackson') },
+          { rank: 2, name: 'Cameron Barkley', team: 'Golden State Enterprise', teamId: 'golden-state-enterprise', position: 'C', value: '4.0 TO', subText: '4.0 Turnovers/G', playerId: getPlayerId('Cameron Barkley') },
+          { rank: 3, name: 'Carlton Daugherty', team: 'Golden State Enterprise', teamId: 'golden-state-enterprise', position: 'SG', value: '4.0 TO', subText: '4.0 Turnovers/G', playerId: getPlayerId('Carlton Daugherty') },
+          { rank: 4, name: 'Rickey Dunleavy', team: 'Long Beach Vipers', teamId: 'long-beach-vipers', position: 'SG', value: '3.5 TO', subText: '3.5 Turnovers/G', playerId: getPlayerId('Rickey Dunleavy') },
+          { rank: 5, name: 'J.C. McMillan', team: 'Long Beach Vipers', teamId: 'long-beach-vipers', position: 'C', value: '3.5 TO', subText: '3.5 Turnovers/G', playerId: getPlayerId('J.C. McMillan') },
+        ],
+        fouls: [
+          { rank: 1, name: 'Kirk Barnes', team: 'San Diego Sabrewolves', teamId: 'san-diego-sabrewolves', position: 'PG', value: '6.0 FLS', subText: '6.0 Personal Fouls/G', playerId: getPlayerId('Kirk Barnes') },
+          { rank: 2, name: 'Andre Creek', team: 'San Diego Sabrewolves', teamId: 'san-diego-sabrewolves', position: 'SF', value: '4.0 FLS', subText: '4.0 Personal Fouls/G', playerId: getPlayerId('Andre Creek') },
+          { rank: 3, name: 'Malique Pierce', team: 'San Jose Tigersharks', teamId: 'san-jose-tigersharks', position: 'PG', value: '4.0 FLS', subText: '4.0 Personal Fouls/G', playerId: getPlayerId('Malique Pierce') },
+          { rank: 4, name: 'Jesse Wingate', team: 'Anaheim Admirals', teamId: 'anaheim-admirals', position: 'PF', value: '3.0 FLS', subText: '3.0 Personal Fouls/G', playerId: getPlayerId('Jesse Wingate') },
+          { rank: 5, name: 'Damian Gilmore', team: 'San Francisco Knights', teamId: 'san-francisco-knights', position: 'PF', value: '3.0 FLS', subText: '3.0 Personal Fouls/G', playerId: getPlayerId('Damian Gilmore') },
         ],
       },
     };
@@ -374,16 +478,66 @@ export const StatLeadersView: React.FC<StatLeadersViewProps> = ({
     ];
   }, []);
 
-  const categories: { id: StatCategory; label: string; icon: React.ComponentType<{ size?: number; className?: string }> }[] = [
-    { id: 'points', label: 'Points (PPG)', icon: Flame },
-    { id: 'rebounds', label: 'Rebounds (RPG)', icon: Shield },
-    { id: 'assists', label: 'Assists (APG)', icon: Target },
-    { id: 'steals', label: 'Steals (SPG)', icon: Shield },
-    { id: 'blocks', label: 'Blocks (BPG)', icon: Shield },
-    { id: 'threePct', label: '3-Point %', icon: Sparkles },
-    { id: 'fgPct', label: 'Field Goal %', icon: BarChart2 },
-    { id: 'ftPct', label: 'Free Throw %', icon: Activity },
+  const allCategories: {
+    id: StatCategory;
+    label: string;
+    shortLabel: string;
+    group: CategoryGroup;
+    icon: React.ComponentType<{ size?: number; className?: string }>;
+  }[] = [
+    // Major
+    { id: 'points', label: 'Points (PPG)', shortLabel: 'PTS', group: 'major', icon: Flame },
+    { id: 'rebounds', label: 'Rebounds (RPG)', shortLabel: 'REB', group: 'major', icon: Shield },
+    { id: 'assists', label: 'Assists (APG)', shortLabel: 'AST', group: 'major', icon: Target },
+    { id: 'steals', label: 'Steals (SPG)', shortLabel: 'STL', group: 'major', icon: Shield },
+    { id: 'blocks', label: 'Blocks (BPG)', shortLabel: 'BLK', group: 'major', icon: Shield },
+    { id: 'fgPct', label: 'Field Goal %', shortLabel: 'FG%', group: 'efficiency', icon: BarChart2 },
+    { id: 'threePct', label: '3-Point %', shortLabel: '3P%', group: 'efficiency', icon: Sparkles },
+    { id: 'ftPct', label: 'Free Throw %', shortLabel: 'FT%', group: 'efficiency', icon: Activity },
+
+    // Offensive
+    { id: 'fgm', label: 'Field Goals Made (FGM)', shortLabel: 'FGM', group: 'offensive', icon: Target },
+    { id: 'fga', label: 'Field Goals Attempted (FGA)', shortLabel: 'FGA', group: 'offensive', icon: Target },
+    { id: 'threeMade', label: '3-Pointers Made (3PM)', shortLabel: '3PM', group: 'offensive', icon: Sparkles },
+    { id: 'threeAtt', label: '3-Pointers Attempted (3PA)', shortLabel: '3PA', group: 'offensive', icon: Sparkles },
+    { id: 'ftm', label: 'Free Throws Made (FTM)', shortLabel: 'FTM', group: 'offensive', icon: Activity },
+
+    // Defensive & Opponent
+    { id: 'pointsAllowed', label: 'Points Allowed (PA)', shortLabel: 'PA', group: 'defensive', icon: Shield },
+    { id: 'oppFgm', label: 'Opponent FGM', shortLabel: 'oFGM', group: 'defensive', icon: Shield },
+    { id: 'oppFga', label: 'Opponent FGA', shortLabel: 'oFGA', group: 'defensive', icon: Shield },
+
+    // Discipline & Rating
+    { id: 'plusMinus', label: 'Plus / Minus (+/-)', shortLabel: '+/-', group: 'discipline', icon: TrendingUp },
+    { id: 'turnovers', label: 'Turnovers (TO)', shortLabel: 'TO', group: 'discipline', icon: Activity },
+    { id: 'fouls', label: 'Personal Fouls (FLS)', shortLabel: 'FLS', group: 'discipline', icon: Users },
   ];
+
+  // Available categories for selected season (some categories are Season 4 specific)
+  const availableCategories = useMemo(() => {
+    const seasonData = seasonLeadersData[selectedSeason];
+    if (!seasonData) return allCategories;
+    return allCategories.filter((cat) => {
+      const data = seasonData[cat.id];
+      const hasData = Array.isArray(data) && data.length > 0;
+      if (!hasData) return false;
+      if (activeGroup === 'all') return true;
+      if (activeGroup === 'major') return cat.group === 'major';
+      if (activeGroup === 'offensive') return cat.group === 'offensive';
+      if (activeGroup === 'efficiency') return cat.group === 'efficiency';
+      if (activeGroup === 'defensive') return cat.group === 'defensive';
+      if (activeGroup === 'discipline') return cat.group === 'discipline';
+      return true;
+    });
+  }, [selectedSeason, activeGroup, seasonLeadersData]);
+
+  // Ensure activeCategory exists in current season
+  useEffect(() => {
+    const seasonData = seasonLeadersData[selectedSeason];
+    if (seasonData && (!seasonData[activeCategory] || seasonData[activeCategory]?.length === 0)) {
+      setActiveCategory('points');
+    }
+  }, [selectedSeason, activeCategory, seasonLeadersData]);
 
   const currentCategoryLeaders = seasonLeadersData[selectedSeason]?.[activeCategory] || [];
 
@@ -500,9 +654,33 @@ export const StatLeadersView: React.FC<StatLeadersViewProps> = ({
             </div>
           </div>
 
+          {/* Category Group Filter Tabs (especially useful for rich Season 4 data) */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-1">
+            {[
+              { id: 'all', label: 'All Categories' },
+              { id: 'major', label: 'Traditional (PTS, REB, AST, STL, BLK)' },
+              { id: 'offensive', label: 'Offensive Totals (FGM, FGA, 3PM, 3PA, FTM)' },
+              { id: 'efficiency', label: 'Shooting % (FG%, 3P%, FT%)' },
+              { id: 'defensive', label: 'Defensive & Opponent (PA, oFGM, oFGA)' },
+              { id: 'discipline', label: 'Rating & Discipline (+/-, TO, FLS)' },
+            ].map((grp) => (
+              <button
+                key={grp.id}
+                onClick={() => setActiveGroup(grp.id as CategoryGroup)}
+                className={`px-3 py-1.5 rounded-xl text-xs font-mono font-bold whitespace-nowrap transition-all cursor-pointer ${
+                  activeGroup === grp.id
+                    ? 'bg-amber-500 text-slate-950 shadow-sm'
+                    : 'bg-slate-900/80 text-slate-400 hover:text-white border border-slate-800'
+                }`}
+              >
+                {grp.label}
+              </button>
+            ))}
+          </div>
+
           {/* Stat Category Horizontal Selector */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2">
-            {categories.map((cat) => {
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-2">
+            {availableCategories.map((cat) => {
               const Icon = cat.icon;
               const isSelected = activeCategory === cat.id;
               return (
@@ -536,7 +714,7 @@ export const StatLeadersView: React.FC<StatLeadersViewProps> = ({
                 </span>
                 <h3 className="text-lg sm:text-xl font-black text-white flex items-center gap-2">
                   <Flame size={18} className="text-amber-500" />
-                  Top Performers: {categories.find((c) => c.id === activeCategory)?.label}
+                  Top Performers: {allCategories.find((c) => c.id === activeCategory)?.label || activeCategory}
                 </h3>
               </div>
               <span className="text-xs font-mono text-slate-400">
@@ -647,23 +825,23 @@ export const StatLeadersView: React.FC<StatLeadersViewProps> = ({
               <>
                 <div className="bg-slate-950/80 border border-slate-800 p-4 rounded-2xl space-y-1">
                   <span className="text-[10px] font-mono uppercase text-slate-400 font-bold block">Scoring Leader</span>
-                  <p className="text-base font-black text-white">{seasonLeadersData[selectedSeason].points[0]?.name}</p>
-                  <span className="text-sm font-mono font-black text-amber-400">{seasonLeadersData[selectedSeason].points[0]?.value}</span>
+                  <p className="text-base font-black text-white">{seasonLeadersData[selectedSeason]?.points?.[0]?.name || 'N/A'}</p>
+                  <span className="text-sm font-mono font-black text-amber-400">{seasonLeadersData[selectedSeason]?.points?.[0]?.value || '-'}</span>
                 </div>
                 <div className="bg-slate-950/80 border border-slate-800 p-4 rounded-2xl space-y-1">
                   <span className="text-[10px] font-mono uppercase text-slate-400 font-bold block">Rebounding Leader</span>
-                  <p className="text-base font-black text-white">{seasonLeadersData[selectedSeason].rebounds[0]?.name}</p>
-                  <span className="text-sm font-mono font-black text-emerald-400">{seasonLeadersData[selectedSeason].rebounds[0]?.value}</span>
+                  <p className="text-base font-black text-white">{seasonLeadersData[selectedSeason]?.rebounds?.[0]?.name || 'N/A'}</p>
+                  <span className="text-sm font-mono font-black text-emerald-400">{seasonLeadersData[selectedSeason]?.rebounds?.[0]?.value || '-'}</span>
                 </div>
                 <div className="bg-slate-950/80 border border-slate-800 p-4 rounded-2xl space-y-1">
                   <span className="text-[10px] font-mono uppercase text-slate-400 font-bold block">Playmaking Leader</span>
-                  <p className="text-base font-black text-white">{seasonLeadersData[selectedSeason].assists[0]?.name}</p>
-                  <span className="text-sm font-mono font-black text-sky-400">{seasonLeadersData[selectedSeason].assists[0]?.value}</span>
+                  <p className="text-base font-black text-white">{seasonLeadersData[selectedSeason]?.assists?.[0]?.name || 'N/A'}</p>
+                  <span className="text-sm font-mono font-black text-sky-400">{seasonLeadersData[selectedSeason]?.assists?.[0]?.value || '-'}</span>
                 </div>
                 <div className="bg-slate-950/80 border border-slate-800 p-4 rounded-2xl space-y-1">
                   <span className="text-[10px] font-mono uppercase text-slate-400 font-bold block">Defensive Leader</span>
-                  <p className="text-base font-black text-white">{seasonLeadersData[selectedSeason].blocks[0]?.name}</p>
-                  <span className="text-sm font-mono font-black text-purple-400">{seasonLeadersData[selectedSeason].blocks[0]?.value}</span>
+                  <p className="text-base font-black text-white">{seasonLeadersData[selectedSeason]?.blocks?.[0]?.name || 'N/A'}</p>
+                  <span className="text-sm font-mono font-black text-purple-400">{seasonLeadersData[selectedSeason]?.blocks?.[0]?.value || '-'}</span>
                 </div>
               </>
             )}
