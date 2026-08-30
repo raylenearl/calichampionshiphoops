@@ -52,7 +52,6 @@ export const Header: React.FC<HeaderProps> = ({
 
   const navItems: NavItem[] = [
     { id: 'hub', label: 'League Hub', icon: Trophy },
-    { id: 'potw', label: 'Player of the Week', icon: Award, highlight: true },
     { id: 'rosters', label: 'S4 Rosters', icon: Users, highlight: true },
     { id: 'news', label: 'News', icon: Newspaper },
     { id: 'draft', label: 'S4 Draft', icon: Sparkles, highlight: true },
@@ -61,12 +60,13 @@ export const Header: React.FC<HeaderProps> = ({
     { id: 'schedule', label: 'Schedule', icon: Calendar },
     { id: 'teams', label: 'Teams', icon: Users },
     { id: 'transactions', label: 'Transactions', icon: ArrowLeftRight },
-    { id: 'allstar', label: 'All-Star', icon: Star },
-    { id: 'halloffame', label: 'Hall of Achievements', icon: Award },
-    { id: 'records', label: 'Record Book', icon: BookOpen },
     { id: 'players', label: 'Star Players', icon: Users },
     { id: 'compare', label: 'Player Compare', icon: ArrowLeftRight },
     { id: 'h2h', label: 'Head to Head', icon: GitCompare },
+    { id: 'allstar', label: 'All-Star', icon: Star },
+    { id: 'potw', label: 'POTW Archives', icon: Award },
+    { id: 'halloffame', label: 'Hall of Achievements', icon: Award },
+    { id: 'records', label: 'Record Book', icon: BookOpen },
   ];
 
   return (

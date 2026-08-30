@@ -184,9 +184,6 @@ export const PlayerOfTheWeekCard: React.FC<PlayerOfTheWeekCardProps> = ({
                     <span className="text-[10px] font-mono font-black bg-sky-500/90 text-slate-950 px-2 py-0.5 rounded shadow">
                       NORTHERN CALI POTW
                     </span>
-                    <span className="text-[10px] font-mono text-sky-200 font-bold bg-slate-950/80 px-2 py-0.5 rounded border border-sky-500/30">
-                      Week 2 Cover
-                    </span>
                   </div>
                 </div>
 
@@ -297,9 +294,6 @@ export const PlayerOfTheWeekCard: React.FC<PlayerOfTheWeekCardProps> = ({
                   <div className="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between">
                     <span className="text-[10px] font-mono font-black bg-amber-500 text-slate-950 px-2 py-0.5 rounded shadow">
                       SOUTHERN CALI POTW
-                    </span>
-                    <span className="text-[10px] font-mono text-amber-200 font-bold bg-slate-950/80 px-2 py-0.5 rounded border border-amber-500/30">
-                      Week 2 Cover
                     </span>
                   </div>
                 </div>
