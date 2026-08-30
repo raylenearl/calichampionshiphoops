@@ -23,6 +23,8 @@ import pognottiImg from '../assets/images/Pognotti.png';
 import jGallowayImg from '../assets/images/JGalloway.png';
 import hintonS4G1Img from '../assets/images/HintonS4G1.png';
 import jamarDean1Img from '../assets/images/JamarDean1.png';
+import bowenPOTWImg from '../assets/images/BowenPOTW.png';
+import hintonPOTWImg from '../assets/images/HintonPOTW.png';
 import sjVsFreImg from '../assets/images/SJvsFREseason4.png';
 import sjAtFre1Img from '../assets/images/SJatFREs4_1.png';
 import aSaundersImg from '../assets/images/ASaunders.jpg';
@@ -569,6 +571,50 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
       { player: 'Donald Rodman', team: 'California Reds', stat: '14 PTS, 6 REB, 1 STL (6-11 FG)' },
       { player: 'Strykers Shooting Masterclass', team: 'Team Stats', stat: '67.2% FG (39/58) • 17/24 3PT (70.8%) • 102 PTS' },
       { player: 'Margin of Victory', team: 'Team Stats', stat: '+38 PTS (Led by as many as 40)' }
+    ]
+  },
+  {
+    id: 's4-potw-week-2-bowen-hinton',
+    title: 'Players of the Week (Oct 22–28): Joshua Bowen & A.J. Hinton Capture Week 2 Honors',
+    subtitle: 'Oakland\'s versatile forward Joshua Bowen anchors a 4-0 Renegades start to win the Northern Cali award, while San Diego superstar A.J. Hinton unleashes an historic 42.0 PPG and 12.0 3PMPG barrage for the Southern Cali nod.',
+    date: 'Season 4 Official Awards • Week 2 (Oct 22–28)',
+    season: 4,
+    category: 'feature',
+    featured: true,
+    author: 'CCH League Office & Awards Committee',
+    readTime: '3 min read',
+    imageUrl: hintonPOTWImg || hinton42vsCalImg,
+    imageCaption: 'A.J. Hinton (Southern Cali POTW, 42.0 PPG, 12.0 3PMPG) and Joshua Bowen (Northern Cali POTW, 14.5 PTS, 11.5 REB, 4.5 AST) captured Week 2 Player of the Week honors.',
+    headlineQuote: 'Joshua Bowen\'s interior double-double mastery and A.J. Hinton\'s jaw-dropping 12 three-pointers per game set a thrilling new standard in Week 2.',
+    contentParagraphs: [
+      'CALIFORNIA — The Cali Championship Hoops League Office has officially announced the Players of the Week for Week 2 of Season 4, covering matchups contested from October 22 through October 28.',
+      'NORTHERN CALI PLAYER OF THE WEEK: JOSHUA BOWEN (OAKLAND RENEGADES)\nOakland Renegades forward/center Joshua Bowen captured Northern Cali honors after orchestrating two decisive victories to keep Oakland undefeated at 4-0. Bowen averaged a dominant double-double of 14.5 points, 11.5 rebounds, 4.5 assists, and 1.5 steals per game. In Oakland\'s 74-50 statement rout over the California Reds, Bowen delivered 20 points, 14 rebounds, and 5 assists, anchoring Oakland\'s frontline on both ends of the floor.',
+      'SOUTHERN CALI PLAYER OF THE WEEK: A.J. HINTON (SAN DIEGO STRYKERS)\nSan Diego Strykers superstar and reigning MVP A.J. Hinton took home Southern Cali honors following one of the most blistering three-point shooting clinics in professional basketball history. Hinton averaged a staggering 42.0 points, 4.0 rebounds, 3.0 assists, and an unprecedented 12.0 made three-pointers per game. Hinton punctuated the week with a 42-point explosion against California, sinking 12 three-pointers in a 102-64 triumph.',
+      'HONORABLE MENTIONS:\n• Lloyd Boomer (Fresno Mad Dogs): Poured in 26 points with 5 rebounds and 4 assists to lead Fresno\'s 57-50 triumph over Sacramento.\n• Carlton Daugherty (Golden State Enterprise): #1 overall pick registered 20 points and 4 rebounds in his pro debut to defeat California 65-58.\n• Mo Alexander (Los Angeles Dynamics): Posted 18.5 PPG, 13.0 RPG, and 3.5 BPG in a flawless 2-0 week for Los Angeles.\n• Kirk Barnes (San Diego Sabrewolves): Averaged 28.0 PPG and 6.0 RPG under new head coach Jacob Underwood.'
+    ],
+    quotes: [
+      {
+        speaker: 'Ray Lenearl',
+        title: 'CCH Commissioner',
+        quote: 'Week 2 showcased individual excellence at the highest level. A.J. Hinton\'s 12 triples a game is revolutionary, and Joshua Bowen has established Oakland as the team to beat in California.'
+      },
+      {
+        speaker: 'Carson Goodwin',
+        title: 'Head Coach • Oakland Renegades',
+        quote: 'Joshua Bowen is the glue of our ballclub. He sets screens, cleans the glass with 11.5 rebounds, passes out of the post, and locks down the paint.'
+      },
+      {
+        speaker: 'Adam Saunders',
+        title: 'Head Coach • San Diego Strykers',
+        quote: 'A.J. Hinton is on another planet right now. To average 42 points and 12 threes in competitive league matchups shows why he is the reigning MVP.'
+      }
+    ],
+    playerStats: [
+      { player: 'Joshua Bowen (Northern Cali POTW)', team: 'Oakland Renegades', stat: '14.5 PTS, 11.5 REB, 4.5 AST, 1.5 SPG • 2-0 Week (4-0 Overall)' },
+      { player: 'A.J. Hinton (Southern Cali POTW)', team: 'San Diego Strykers', stat: '42.0 PPG, 4.0 RPG, 3.0 APG, 12.0 3PMPG • 2-0 Week (3-0 Overall)' },
+      { player: 'Lloyd Boomer (Hon. Mention)', team: 'Fresno Mad Dogs', stat: '26.0 PPG, 5.0 RPG, 4.0 APG (57-50 win vs SAC)' },
+      { player: 'Carlton Daugherty (Hon. Mention)', team: 'Golden State Enterprise', stat: '20.0 PPG, 4.0 RPG, 3 3PM (Pro Debut Win)' },
+      { player: 'Mo Alexander (Hon. Mention)', team: 'Los Angeles Dynamics', stat: '18.5 PPG, 13.0 RPG, 3.5 BPG (2-0 Week)' }
     ]
   },
   {

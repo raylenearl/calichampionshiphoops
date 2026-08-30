@@ -52,6 +52,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   const navItems: NavItem[] = [
     { id: 'hub', label: 'League Hub', icon: Trophy },
+    { id: 'potw', label: 'Player of the Week', icon: Award, highlight: true },
     { id: 'rosters', label: 'S4 Rosters', icon: Users, highlight: true },
     { id: 'news', label: 'News', icon: Newspaper },
     { id: 'draft', label: 'S4 Draft', icon: Sparkles, highlight: true },

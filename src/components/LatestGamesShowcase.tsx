@@ -137,7 +137,7 @@ const HIGHLIGHT_GAMES: GameHighlight[] = [
     subheadline: '#1 Pick Carlton Daugherty Drops 20 in Debut; Enterprise Defends Home Floor (1-0)',
     narrative:
       '#1 overall pick Carlton Daugherty scored 20 points in his pro debut, leading Golden State Enterprise to a 65-58 victory over the California Reds. Cameron Barkley controlled the glass with 14 points, 9 rebounds, and 3 blocks.',
-    venue: 'SAP Center',
+    venue: 'San Jose Arena',
     city: 'San Jose, CA',
     winner: {
       id: 'golden-state-enterprise',

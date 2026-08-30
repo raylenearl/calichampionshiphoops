@@ -18,6 +18,7 @@ import { TransactionsView } from './components/TransactionsView';
 import { NewsView } from './components/NewsView';
 import { DraftView } from './components/DraftView';
 import { OpeningDayRostersView } from './components/OpeningDayRostersView';
+import { PlayerOfTheWeekView } from './components/PlayerOfTheWeekView';
 import { TeamBadge } from './components/TeamBadge';
 import pognottiImg from './assets/images/Pognotti.png';
 import jGallowayImg from './assets/images/JGalloway.png';
@@ -29,6 +30,7 @@ import { Trophy, Shield, Calendar, Award, BookOpen, Users, Activity, ExternalLin
 
 const VALID_TABS = [
   'hub',
+  'potw',
   'rosters',
   'news',
   'draft',
@@ -280,17 +282,18 @@ export default function App() {
             {/* Hero Showcase */}
             <HeroBanner onNavigate={(tab) => setActiveTab(tab)} selectedSeason={selectedSeason} />
 
-            {/* TOP STORY (LATEST GAMES SLATE): Game 9, 8 & 7 Matchup Showcases (Oct 22-25) */}
-            <LatestGamesShowcase
+            {/* TOP FRONT PAGE STORY: OFFICIAL LEAGUE AWARDS - Player of the Week */}
+            <PlayerOfTheWeekCard
               onNavigateToNews={handleNavigateToNews}
               onSelectTeam={(teamId) => handleSelectTeamRecap(teamId, 4)}
               onNavigateToTab={(tab) => setActiveTab(tab)}
             />
 
-            {/* ARTICLE 2: OFFICIAL LEAGUE AWARDS - Player of the Week (Oct 15-21) */}
-            <PlayerOfTheWeekCard
+            {/* FEATURED MATCHUPS SHOWCASE: Game 13, 12, 11, 10, 9, 8 & 7 Matchup Showcases */}
+            <LatestGamesShowcase
               onNavigateToNews={handleNavigateToNews}
               onSelectTeam={(teamId) => handleSelectTeamRecap(teamId, 4)}
+              onNavigateToTab={(tab) => setActiveTab(tab)}
             />
 
             {/* ARTICLE 3: Opening Week Game Recap & Highlights */}
@@ -797,6 +800,14 @@ export default function App() {
               onSelectTeamRecap={handleSelectTeamRecap}
             />
           </div>
+        )}
+
+        {activeTab === 'potw' && (
+          <PlayerOfTheWeekView
+            onNavigateToNews={handleNavigateToNews}
+            onSelectTeam={(teamId, season) => handleSelectTeamRecap(teamId, season || selectedSeason)}
+            onNavigateToTab={(tab) => setActiveTab(tab)}
+          />
         )}
 
         {activeTab === 'rosters' && (
