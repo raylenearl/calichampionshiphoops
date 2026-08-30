@@ -514,8 +514,8 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
   },
   {
     id: 's4-g7-strykers-rout-reds-hinton-42',
-    title: 'Hinton Erupts for 42 as Unstoppable Strykers Demolish Reds, 102-64',
-    subtitle: 'A.J. Hinton puts on a shooting clinic for the ages with 42 points (12-14 3PT) on 15-of-17 shooting as San Diego improves to a perfect 3-0 in a 38-point rout over California.',
+    title: 'Hinton Shatters All-Time 3PT Record With 12 Triples, Strykers Demolish Reds 102-64',
+    subtitle: 'A.J. Hinton puts on a shooting clinic for the ages with 42 points, breaking the all-time CCH single-game record with 12 made three-pointers (12-14 3PT) on 15-of-17 shooting in a 38-point rout over California.',
     date: 'Season 4 • Game 7 Recap (Oct 22)',
     season: 4,
     category: 'recap',
@@ -523,7 +523,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     author: 'CCH Game Recap Desk • San Diego Beat',
     readTime: '3 min read',
     imageUrl: hinton42vsCalImg,
-    imageCaption: 'A.J. Hinton was virtually unstoppable, erupting for a game-high 42 points on 15-of-17 shooting (12-of-14 from three) as the Strykers dismantled the Reds 102-64.',
+    imageCaption: 'A.J. Hinton shattered the all-time CCH single-game record with 12 made three-pointers (12-of-14 3PT), erupting for 42 points on 15-of-17 shooting as the Strykers dismantled the Reds 102-64.',
     teams: {
       team1: 'California Reds',
       team1Id: 'california-reds',
@@ -538,32 +538,32 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
       { period: 'Q3', team1: 14, team2: 27 },
       { period: 'Q4', team1: 16, team2: 21 },
     ],
-    headlineQuote: 'The Strykers are looking utterly unstoppable, improving to a perfect 3-0 record with a staggering 38-point demolition of the California Reds behind A.J. Hinton\'s 42-point explosion.',
+    headlineQuote: 'The Strykers improved to 3-0 behind an historic shooting masterclass as A.J. Hinton shattered the all-time CCH single-game record with 12 three-pointers in a 102-64 demolition of the Reds.',
     contentParagraphs: [
-      'San Diego, CA – The Strykers are looking utterly unstoppable, improving to a perfect 3-0 record with a staggering 38-point demolition of the California Reds.',
-      'Superstar guard A.J. Hinton delivered a performance for the ages, erupting for a game-high 42 points on a blistering 15-of-17 shooting from the field, including a near-perfect 12-for-14 from beyond the arc. Hinton had the home crowd on its feet from the opening quarter, knocking down contested step-backs and pulling up from well behind the arc with effortless precision.',
+      'San Diego, CA – The Strykers are looking utterly unstoppable, improving to a perfect 3-0 record with a staggering 38-point demolition of the California Reds, headlined by an historic record-breaking eruption.',
+      'Superstar guard and reigning MVP A.J. Hinton delivered a performance for the history books, shattering the all-time CCH single-game record by sinking 12 three-pointers (12-for-14 from beyond the arc) on a blistering 15-of-17 shooting from the field for 42 points. Hinton eclipsed the previous league marks (Kirk Tinsley\'s 9 3PM in S3 and Jack McMichael Jr.\'s 8 3PM in S1), having the home crowd on its feet from the opening quarter with deep contested step-backs and pull-up triples.',
       'PLAYMAKING & SUPPORTING CAST:\nRay Gamble contributed 17 points and 5 assists in the blowout, orchestrating the offense with veteran poise and finding open shooters in transition. DeAnte Gray added 14 points, 6 rebounds, and 4 assists, while Johnny Galloway provided relentless defense and grabbed 8 boards. The Strykers shot a scorching 67% from the floor as a team, leading by as many as 40 points in the second half.',
       'REDS PERSPECTIVE:\nFor the California Reds (1-1), Andor Marai battled inside with 18 points and 8 rebounds, and Donald Rodman fought for 14 points and 6 rebounds. However, California was unable to slow down San Diego\'s perimeter onslaught, as the Strykers poured in 102 points—the highest scoring output of Season 4.'
     ],
     quotes: [
       {
         speaker: 'A.J. Hinton',
-        title: 'Superstar Guard • San Diego Strykers (42 PTS, 12-14 3PT, 15-17 FG)',
-        quote: 'My teammates found me in rhythm all night. When you hit a couple early and see the ball go through the net cleanly, the hoop looks huge. We came out with high energy on both ends.'
+        title: 'Superstar Guard • San Diego Strykers (42 PTS, 12-14 3PT • All-Time Single-Game 3PT Record)',
+        quote: 'My teammates found me in rhythm all night. When you hit a couple early and see the ball go through the net cleanly, the hoop looks huge. Breaking the all-time record in front of the home crowd makes it even more special.'
       },
       {
         speaker: 'Adam Saunders',
         title: 'Head Coach • San Diego Strykers (3-0 Start)',
-        quote: 'A.J. put on one of the greatest shooting displays in CCH history tonight. Shooting 15-of-17 with 12 threes against a quality squad like California is historic.'
+        quote: 'A.J. put on the greatest shooting display in CCH history tonight. Sinking 12 threes on 14 attempts against a defense like California is a record that might stand for a very long time.'
       },
       {
         speaker: 'William Walker',
         title: 'Head Coach • California Reds',
-        quote: 'When Hinton gets going like that and a team shoots 67% from the field, there isn\'t much you can do defensively. We have to flush this one and get ready for Long Beach.'
+        quote: 'When Hinton gets going like that and drops an all-time record 12 threes, there isn\'t much you can do defensively. We have to flush this one and get ready for Long Beach.'
       }
     ],
     playerStats: [
-      { player: 'A.J. Hinton', team: 'San Diego Strykers', stat: '42 PTS, 3 REB, 4 AST, 3 STL (15-17 FG, 12-14 3PT)' },
+      { player: 'A.J. Hinton', team: 'San Diego Strykers', stat: '42 PTS, 3 REB, 4 AST, 3 STL (15-17 FG, 12-14 3PT • NEW CCH SINGLE-GAME 3PM RECORD)' },
       { player: 'Ray Gamble', team: 'San Diego Strykers', stat: '17 PTS, 5 AST, 3 REB (7-11 FG)' },
       { player: 'DeAnte Gray', team: 'San Diego Strykers', stat: '14 PTS, 6 REB, 4 AST (6-9 FG)' },
       { player: 'Johnny Galloway', team: 'San Diego Strykers', stat: '8 PTS, 8 REB, 3 AST, 2 STL' },
@@ -576,7 +576,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
   {
     id: 's4-potw-week-2-bowen-hinton',
     title: 'Players of the Week (Oct 22–28): Joshua Bowen & A.J. Hinton Capture Week 2 Honors',
-    subtitle: 'Oakland\'s versatile forward Joshua Bowen anchors a 4-0 Renegades start to win the Northern Cali award, while San Diego superstar A.J. Hinton unleashes an historic 42.0 PPG and 12.0 3PMPG barrage for the Southern Cali nod.',
+    subtitle: 'Oakland\'s versatile forward Joshua Bowen anchors a 4-0 Renegades start to win the Northern Cali award, while San Diego superstar A.J. Hinton sets a new all-time CCH single-game record with 12 triples (42.0 PPG, 12.0 3PMPG) for the Southern Cali nod.',
     date: 'Season 4 Official Awards • Week 2 (Oct 22–28)',
     season: 4,
     category: 'feature',
@@ -584,19 +584,19 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     author: 'CCH League Office & Awards Committee',
     readTime: '3 min read',
     imageUrl: hintonPOTWImg || hinton42vsCalImg,
-    imageCaption: 'A.J. Hinton (Southern Cali POTW, 42.0 PPG, 12.0 3PMPG) and Joshua Bowen (Northern Cali POTW, 14.5 PTS, 11.5 REB, 4.5 AST) captured Week 2 Player of the Week honors.',
-    headlineQuote: 'Joshua Bowen\'s interior double-double mastery and A.J. Hinton\'s jaw-dropping 12 three-pointers per game set a thrilling new standard in Week 2.',
+    imageCaption: 'A.J. Hinton (Southern Cali POTW, 42.0 PPG, all-time record 12.0 3PMPG) and Joshua Bowen (Northern Cali POTW, 14.5 PTS, 11.5 REB, 4.5 AST) captured Week 2 Player of the Week honors.',
+    headlineQuote: 'Joshua Bowen\'s interior double-double mastery and A.J. Hinton\'s all-time record-shattering 12 three-pointers per game set a thrilling new standard in Week 2.',
     contentParagraphs: [
       'CALIFORNIA — The Cali Championship Hoops League Office has officially announced the Players of the Week for Week 2 of Season 4, covering matchups contested from October 22 through October 28.',
       'NORTHERN CALI PLAYER OF THE WEEK: JOSHUA BOWEN (OAKLAND RENEGADES)\nOakland Renegades forward/center Joshua Bowen captured Northern Cali honors after orchestrating two decisive victories to keep Oakland undefeated at 4-0. Bowen averaged a dominant double-double of 14.5 points, 11.5 rebounds, 4.5 assists, and 1.5 steals per game. In Oakland\'s 74-50 statement rout over the California Reds, Bowen delivered 20 points, 14 rebounds, and 5 assists, anchoring Oakland\'s frontline on both ends of the floor.',
-      'SOUTHERN CALI PLAYER OF THE WEEK: A.J. HINTON (SAN DIEGO STRYKERS)\nSan Diego Strykers superstar and reigning MVP A.J. Hinton took home Southern Cali honors following one of the most blistering three-point shooting clinics in professional basketball history. Hinton averaged a staggering 42.0 points, 4.0 rebounds, 3.0 assists, and an unprecedented 12.0 made three-pointers per game. Hinton punctuated the week with a 42-point explosion against California, sinking 12 three-pointers in a 102-64 triumph.',
+      'SOUTHERN CALI PLAYER OF THE WEEK: A.J. HINTON (SAN DIEGO STRYKERS)\nSan Diego Strykers superstar and reigning MVP A.J. Hinton took home Southern Cali honors following one of the most blistering perimeter shooting displays in professional basketball history. Hinton averaged a staggering 42.0 points, 4.0 rebounds, 3.0 assists, and an unprecedented 12.0 made three-pointers per game. Hinton punctuated the week by breaking the all-time CCH single-game record with 12 three-pointers (12-of-14 3PT) in a 42-point explosion during a 102-64 triumph over California.',
       'HONORABLE MENTIONS:\n• Lloyd Boomer (Fresno Mad Dogs): Poured in 26 points with 5 rebounds and 4 assists to lead Fresno\'s 57-50 triumph over Sacramento.\n• Carlton Daugherty (Golden State Enterprise): #1 overall pick registered 20 points and 4 rebounds in his pro debut to defeat California 65-58.\n• Mo Alexander (Los Angeles Dynamics): Posted 18.5 PPG, 13.0 RPG, and 3.5 BPG in a flawless 2-0 week for Los Angeles.\n• Kirk Barnes (San Diego Sabrewolves): Averaged 28.0 PPG and 6.0 RPG under new head coach Jacob Underwood.'
     ],
     quotes: [
       {
         speaker: 'Ray Lenearl',
         title: 'CCH Commissioner',
-        quote: 'Week 2 showcased individual excellence at the highest level. A.J. Hinton\'s 12 triples a game is revolutionary, and Joshua Bowen has established Oakland as the team to beat in California.'
+        quote: 'Week 2 showcased individual excellence at the highest level. A.J. Hinton\'s single-game record 12 triples is revolutionary, and Joshua Bowen has established Oakland as the team to beat in California.'
       },
       {
         speaker: 'Carson Goodwin',
@@ -606,12 +606,12 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
       {
         speaker: 'Adam Saunders',
         title: 'Head Coach • San Diego Strykers',
-        quote: 'A.J. Hinton is on another planet right now. To average 42 points and 12 threes in competitive league matchups shows why he is the reigning MVP.'
+        quote: 'A.J. Hinton is on another planet right now. Setting the league single-game record with 12 threes and averaging 42 points shows why he is the reigning MVP.'
       }
     ],
     playerStats: [
       { player: 'Joshua Bowen (Northern Cali POTW)', team: 'Oakland Renegades', stat: '14.5 PTS, 11.5 REB, 4.5 AST, 1.5 SPG • 2-0 Week (4-0 Overall)' },
-      { player: 'A.J. Hinton (Southern Cali POTW)', team: 'San Diego Strykers', stat: '42.0 PPG, 4.0 RPG, 3.0 APG, 12.0 3PMPG • 2-0 Week (3-0 Overall)' },
+      { player: 'A.J. Hinton (Southern Cali POTW)', team: 'San Diego Strykers', stat: '42.0 PPG, 4.0 RPG, 3.0 APG, 12.0 3PMPG (New Single-Game Record: 12 3PM) • 2-0 Week (3-0 Overall)' },
       { player: 'Lloyd Boomer (Hon. Mention)', team: 'Fresno Mad Dogs', stat: '26.0 PPG, 5.0 RPG, 4.0 APG (57-50 win vs SAC)' },
       { player: 'Carlton Daugherty (Hon. Mention)', team: 'Golden State Enterprise', stat: '20.0 PPG, 4.0 RPG, 3 3PM (Pro Debut Win)' },
       { player: 'Mo Alexander (Hon. Mention)', team: 'Los Angeles Dynamics', stat: '18.5 PPG, 13.0 RPG, 3.5 BPG (2-0 Week)' }

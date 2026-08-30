@@ -94,6 +94,7 @@ export const PLAYERS: Player[] = [
     ftPct: 0.872,
     mpg: 23.8,
     accolades: [
+      'All-Time Single-Game 3PT Record (12 3PM)',
       'Season 3 CCH League MVP',
       'Season 3 Scoring Champion (21.1 PPG)',
       'Season 3 All-Cali 1st Team',
@@ -102,6 +103,7 @@ export const PLAYERS: Player[] = [
       '3x All-Star Selection (S1, S2, S3)',
     ],
     awardsList: [
+      { season: 4, title: 'Single-Game 3PT Record (12 3PM)', type: 'record', description: 'All-time CCH single-game record with 12 3-pointers vs. California (102-64 W)' },
       { season: 3, title: 'League MVP', type: 'mvp', description: 'Carried San Diego Strykers to #1 seed in Southern Cali with 21.1 PPG' },
       { season: 3, title: 'Scoring Champion', type: 'stat_leader', description: '21.1 PPG across 22 games in Season 3' },
       { season: 3, title: 'All-Cali 1st Team', type: 'all_cali', description: 'Consensus 1st Team All-Cali Guard' },
@@ -117,12 +119,12 @@ export const PLAYERS: Player[] = [
       { season: 3, team: 'San Diego Strykers', ppg: 21.1, rpg: 4.1, apg: 4.6, spg: 1.4, bpg: 0.6, fgPct: 0.534, threePct: 0.442, ftPct: 0.881, mpg: 23.8, gamesPlayed: 22 },
     ],
     careerHighs: {
-      points: 40,
+      points: 42,
       rebounds: 9,
       assists: 10,
       steals: 4,
       blocks: 3,
-      threePointers: 6,
+      threePointers: 12,
     },
     attributes: {
       scoring: 99,
@@ -134,7 +136,7 @@ export const PLAYERS: Player[] = [
       clutch: 98,
       athleticism: 96,
     },
-    signaturePerformance: '40 points vs. Dynamics (Feb 20, S3) and 28 points vs. Admirals.',
+    signaturePerformance: 'All-time single-game record 12 3-pointers & 42 PTS vs California (S4) and 40 PTS vs Dynamics (S3).',
     bio: 'Drafted by the Long Beach Vipers in Season 1 where he led the squad to a 13-9 record (#3 seed) with 18.5 PPG before signing with San Diego in Season 2. Under coach Jacob Underwood, Hinton evolved into the undisputed 99 OVR premier offensive juggernaut in CCH, capturing the Season 3 League MVP and Scoring Title (21.1 PPG).',
   },
   {
@@ -472,7 +474,7 @@ export const PLAYERS: Player[] = [
     ftPct: 0.885,
     mpg: 23.4,
     accolades: [
-      'Single-Game 3PT Record Holder (9 Three-Pointers Made)',
+      'Former Single-Game 3PT Record Holder (9 3PM vs SF Knights)',
       'Season 1 3-Point % Leader (.626 3PT%)',
       'Season 2 3-Point Contest Champion',
       'Season 3 Clutch Player of the Year (Honorable Mention)',
@@ -480,7 +482,7 @@ export const PLAYERS: Player[] = [
       '2x All-Star Selection (S2, S3)',
     ],
     awardsList: [
-      { season: 3, title: 'Single-Game 3PT Record (9 3PM)', type: 'record', description: 'Set CCH single-game record with 9 three-pointers made' },
+      { season: 3, title: 'Single-Game 3PT Record (9 3PM)', type: 'record', description: 'Set CCH single-game record with 9 three-pointers made vs. SF Knights (Jan 18, S3)' },
       { season: 1, title: '3-Point % Leader (.626 3PT%)', type: 'stat_leader', description: 'Highest single-season 3-point percentage in CCH history' },
       { season: 2, title: '3-Point Shootout Champion', type: 'all_star', description: 'Captured Season 2 3-Point Contest trophy' },
       { season: 2, title: 'All-Cali 3rd Team', type: 'all_cali', description: 'All-Cali 3rd Team selection' },
@@ -510,7 +512,7 @@ export const PLAYERS: Player[] = [
       clutch: 94,
       athleticism: 82,
     },
-    signaturePerformance: 'Single-game record 9 three-pointers made and .626 3PT% accuracy.',
+    signaturePerformance: 'Single-game record 9 three-pointers made vs. SF Knights (Jan 18, S3) and .626 3PT% accuracy.',
     bio: 'Sharpshooting guard known for his lethal perimeter accuracy (.626 3PT%) and clutch shot-making across multiple seasons.',
   },
   {

@@ -42,7 +42,7 @@ export const RecordBookView: React.FC<RecordBookViewProps> = ({ onSelectTeamReca
                 The Official CCH Record Book
               </h1>
               <span className="inline-flex items-center gap-1 text-[10px] sm:text-xs text-amber-300 font-mono bg-amber-950/80 border border-amber-800/60 px-2.5 py-0.5 rounded-full font-bold">
-                <Sparkles size={11} /> Updated S3 Archives
+                <Sparkles size={11} /> Updated S4 Records
               </span>
             </div>
             <p className="text-xs text-slate-300 font-medium mt-1">

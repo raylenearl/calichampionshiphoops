@@ -100,9 +100,9 @@ export const POTW_WEEKS: POTWWeek[] = [
       conference: 'Southern',
       record: '2-0 (3-0 Overall)',
       statSummary: '42.0 PPG • 4.0 RPG • 3.0 APG • 12.0 3PMPG',
-      keyGame: '42 PTS, 12 3PT, 5 REB, 4 AST vs California Reds (102-64 W)',
+      keyGame: '42 PTS, 12 3PT (All-Time CCH Record), 5 REB, 4 AST vs California (102-64 W)',
       imageUrl: hintonPOTWImg || hinton42Img,
-      blurb: 'Reigning MVP A.J. Hinton produced one of the most prolific scoring stretches in league history, averaging 42.0 points per game while sinking an astronomical 12.0 three-pointers per contest. His 42-point blitz sparked San Diego\'s 102-64 blowout of California.',
+      blurb: 'Reigning MVP A.J. Hinton produced one of the most prolific scoring stretches in league history, shattering the all-time CCH single-game record with 12 three-pointers (12-14 3PT) on 15-of-17 shooting en route to 42 points vs. California. Hinton averaged 42.0 PPG and an unprecedented 12.0 3PMPG.',
       stats: [
         { label: 'PPG', value: '42.0', sub: 'Points Per Game' },
         { label: 'RPG', value: '4.0', sub: 'Rebounds Per Game' },

@@ -326,10 +326,10 @@ export const PlayerOfTheWeekCard: React.FC<PlayerOfTheWeekCardProps> = ({
                 <div className="bg-slate-900/90 p-3 rounded-xl border border-slate-800 text-xs text-slate-300 space-y-1">
                   <div className="flex items-center justify-between text-emerald-400 font-mono font-bold">
                     <span>Key Showcase Performance:</span>
-                    <span>42 PTS • 12 3PT vs CAL (102-64 W)</span>
+                    <span className="text-amber-300">42 PTS • 12 3PT (CCH Record)</span>
                   </div>
                   <p className="text-[11px] text-slate-300 font-sans leading-relaxed pt-1 border-t border-slate-800">
-                    Reigning MVP staged an historic long-range shooting display, sinking 12 threes against California and powering San Diego to a league-best +32.7 scoring margin.
+                    Reigning MVP shattered the all-time CCH single-game record with 12 three-pointers (12-14 3PT) against California, averaging 42.0 PPG and 12.0 3PMPG on the week.
                   </p>
                 </div>
               </div>
@@ -337,7 +337,7 @@ export const PlayerOfTheWeekCard: React.FC<PlayerOfTheWeekCardProps> = ({
               {/* Coach Quote Box */}
               <div className="bg-slate-900/80 border border-slate-800 p-3 rounded-2xl text-xs text-slate-300">
                 <p className="italic text-amber-200">
-                  &ldquo;A.J. Hinton is playing at an all-time level. When he gets into a shooting groove like that, you just clear out and let the MVP work.&rdquo;
+                  &ldquo;A.J. Hinton shattered the all-time league record with 12 threes. When he gets into a shooting groove like that, you just clear out and let the MVP work.&rdquo;
                 </p>
                 <span className="text-[10px] font-mono text-slate-400 font-bold block mt-1">
                   — Adam Saunders, Head Coach • San Diego Strykers
