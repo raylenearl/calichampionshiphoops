@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Search, Menu, X, Trophy, Calendar, Users, Award, BookOpen, Activity, GitCompare, ExternalLink, Star, ArrowLeftRight, Newspaper, Sun, Moon, Sparkles, Share2, Check } from 'lucide-react';
+import { Search, Menu, X, Trophy, Calendar, Users, Award, BookOpen, Activity, GitCompare, ExternalLink, Star, ArrowLeftRight, Newspaper, Sun, Moon, Sparkles, Share2, Check, BarChart2 } from 'lucide-react';
 import { CCHLeagueLogo } from './TeamLogos';
 import { SocialHeaderButtons, SOCIAL_PLATFORMS } from './SocialLinks';
 import { ScoreboardTicker } from './ScoreboardTicker';
@@ -53,6 +53,7 @@ export const Header: React.FC<HeaderProps> = ({
   const navItems: NavItem[] = [
     { id: 'hub', label: 'League Hub', icon: Trophy },
     { id: 'rosters', label: 'S4 Rosters', icon: Users, highlight: true },
+    { id: 'statleaders', label: 'Stat Leaders', icon: BarChart2, highlight: true },
     { id: 'news', label: 'News', icon: Newspaper },
     { id: 'draft', label: 'S4 Draft', icon: Sparkles, highlight: true },
     { id: 'standings', label: 'Standings', icon: Activity },

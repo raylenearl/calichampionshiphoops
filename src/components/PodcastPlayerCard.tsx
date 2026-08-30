@@ -47,6 +47,9 @@ export const PodcastPlayerCard: React.FC<PodcastPlayerCardProps> = ({
     if (primaryUrl.includes('archive.org/download/')) {
       return primaryUrl.replace('archive.org/download/', 'ia800000.us.archive.org/items/');
     }
+    if (primaryUrl.includes('dn800307.us.archive.org/0/items/')) {
+      return primaryUrl.replace('dn800307.us.archive.org/0/items/', 'archive.org/download/');
+    }
     return primaryUrl;
   }, [primaryUrl]);
 

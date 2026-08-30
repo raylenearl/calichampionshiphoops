@@ -101,6 +101,58 @@ export interface CCHNewsArticle {
 
 export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
   {
+    id: 's4-podcast-san-diego-impossible-five-percent-defense',
+    title: 'PODCAST: San Diego\'s Impossible Five Percent Defense & The Anatomy of a Lockdown Contender',
+    subtitle: 'An exhaustive film breakdown of the San Diego Strykers\' historically suffocating defensive scheme, holding opponents to an unbelievable 5% from three-point range and unleashing back-to-back blowout quarter blitzes.',
+    date: 'Season 4 Official Film Breakdown • Audio Podcast',
+    season: 4,
+    category: 'feature',
+    featured: true,
+    author: 'CCH Film Room & Media Network',
+    readTime: 'Audio Podcast • Film Breakdown',
+    imageUrl: ajHintonS4_1Img,
+    imageCaption: 'Film breakdown of how A.J. Hinton, Johnny Galloway, and DeAnte Gray orchestrated San Diego\'s suffocating defensive scheme, holding opponents to an historic 5% 3-point percentage across early Season 4 action.',
+    audioUrl: 'https://dn800307.us.archive.org/0/items/nba-2-k-24-2024-05-12-02-07-45/San_Diego_s_Impossible_Five_Percent_Defense.m4a',
+    podcastInfo: {
+      episodeTitle: 'San Diego\'s Impossible Five Percent Defense',
+      broadcastBy: 'CCH Media Network • Official Film Room Podcast',
+      duration: 'Official Audio Podcast',
+      description: 'Tactical breakdown of how Adam Saunders and the San Diego Strykers constructed an historically suffocating perimeter defense—holding opponents to an unfathomable 5% from beyond the arc (1-of-19 3PT vs. Long Beach), engineering back-to-back 25-6 and 24-4 quarter blitzes, and pairing elite defensive discipline with A.J. Hinton\'s MVP offensive firepower.',
+    },
+    headlineQuote: 'Holding professional shooters to 5% from deep isn\'t luck—it\'s a masterclass in scheme, switchability, and relentless perimeter recovery by the San Diego Strykers.',
+    contentParagraphs: [
+      'SAN DIEGO, CA — While A.J. Hinton\'s 12-three-pointer record and 42-point explosions have grabbed every headline in early Season 4, the true foundation of the San Diego Strykers\' 3-0 surge is on the defensive end of the floor.',
+      'In this special film room audio breakdown, the CCH Media Network dives deep into the metrics, scheme adjustments, and individual match-up discipline that have produced "The Impossible 5% Defense."',
+      'HOW THE FIVE PERCENT DEFENSE WORKS:\n• Perimeter Containment & Help-Side Timing: Against Long Beach in Game 1, the Strykers held the Vipers to an unfathomable 1-of-19 (5.3%) from beyond the arc. San Diego runs off-ball shooters off the line while maintaining crisp rotations that eliminate corner kick-outs.\n• Devastating Third-Quarter Blitzes: Over consecutive games, San Diego outscored Long Beach 25-6 and Anaheim 24-4 in the third quarter—holding Anaheim to just one made field goal in 12 minutes.\n• Two-Way Synergy: Johnny Galloway\'s 11-rebound glue work and DeAnte Gray\'s switchability free up A.J. Hinton to aggressively jump passing lanes (4.0 SPG), turning stops into instant transition offense.',
+      'LISTEN TO THE FULL PODCAST:\nStream the complete film study above for an in-depth breakdown of San Diego\'s defensive rotations, coaching philosophies, and why this unit poses an existential threat to the rest of the CCH championship field.'
+    ],
+    quotes: [
+      {
+        speaker: 'Adam Saunders',
+        title: 'Head Coach • San Diego Strykers (3-0 Start)',
+        quote: 'Defense is our bedrock. When we communicate and execute our switch schemes, it completely chokes off the opponent\'s perimeter rhythm.'
+      },
+      {
+        speaker: 'Johnny Galloway',
+        title: 'Defensive Anchor • San Diego Strykers',
+        quote: 'We take pride in contesting every single shot. When you hold teams to one shot and control the glass, nobody can get going from deep.'
+      },
+      {
+        speaker: 'A.J. Hinton',
+        title: 'Reigning MVP • San Diego Strykers (4.0 SPG)',
+        quote: 'Our stops generate our fastest breaks. When the defense is flying around like that, everything on the offensive end just opens up.'
+      }
+    ],
+    playerStats: [
+      { player: 'Opponent 3PT % vs San Diego', team: 'Defensive Metric', stat: '5.3% (1/19 3PT vs Long Beach)' },
+      { player: '3rd Quarter Blitz vs Long Beach', team: 'Defensive Dominance', stat: 'Outscored Vipers 25-6 (+19)' },
+      { player: '3rd Quarter Blitz vs Anaheim', team: 'Defensive Dominance', stat: 'Outscored Admirals 24-4 (1 Made FG)' },
+      { player: 'A.J. Hinton', team: 'San Diego Strykers', stat: '4.0 SPG • 42 PTS vs CAL • 30 PTS vs ANA' },
+      { player: 'Johnny Galloway', team: 'San Diego Strykers', stat: '11 REB vs ANA • 8 REB, 2 STL vs CAL' },
+      { player: 'San Diego Strykers', team: 'Team Defense', stat: '47.3 OPP PPG • +32.7 Point Differential (3-0 Record)' }
+    ]
+  },
+  {
     id: 's4-update-renegades-standings-signings',
     title: 'Season 4 Update: Renegades Take Command of the Standings; Heavy Signing Spree Shakes Up the League',
     subtitle: 'The Oakland Renegades surge to 4-0 to capture the #1 spot in CCH, while San Diego (3-0) and Fresno (2-0) stay undefeated and six franchises execute key roster acquisitions.',
@@ -673,6 +725,13 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     readTime: '3 min read',
     imageUrl: ajHintonS4_1Img,
     imageCaption: 'A.J. Hinton caught fire from downtown, hitting 8 three-pointers on his way to 30 points, 4 steals, and 3 assists in San Diego\'s 85-43 blowout road victory over Anaheim.',
+    audioUrl: 'https://dn800307.us.archive.org/0/items/nba-2-k-24-2024-05-12-02-07-45/San_Diego_s_Impossible_Five_Percent_Defense.m4a',
+    podcastInfo: {
+      episodeTitle: 'San Diego\'s Impossible Five Percent Defense: Film Breakdown & Tactical Review',
+      broadcastBy: 'CCH Media Network • Official Film Room Podcast',
+      duration: 'Official Audio Podcast',
+      description: 'Film analysis of the Strykers\' 85-43 rout in Anaheim: How San Diego held opponents to 5% from deep, mounted a 24-4 third-quarter lockdown, and paired Hinton\'s 30-point eruption with elite two-way team defense.',
+    },
     teams: {
       team1: 'San Diego Strykers',
       team1Id: 'san-diego-strykers',
