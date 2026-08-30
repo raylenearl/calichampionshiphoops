@@ -14,6 +14,10 @@ import hinton42vsCalImg from '../assets/images/Hinton42_s4vsCAL.png';
 import jDeanVsSacImg from '../assets/images/JDean_vs_SACs4.png';
 import maraiVsLbImg from '../assets/images/Marai_vs_LBs4.png';
 import carltonDaughertyImg from '../assets/images/S4 Draft/Carlton Daugherty.png';
+import boomerVsSacImg from '../assets/images/Boomer_VS_SAC1.png';
+import daughertyVsCalImg from '../assets/images/Daugherty_vs_CAL1.png';
+import deanVsSfImg from '../assets/images/DeanSFS1.png';
+import calVsOakImg from '../assets/images/CALvsOAKs1.png';
 import jacobUnderwoodImg from '../assets/images/JUnderwood.png';
 import pognottiImg from '../assets/images/Pognotti.png';
 import jGallowayImg from '../assets/images/JGalloway.png';
@@ -94,6 +98,296 @@ export interface CCHNewsArticle {
 }
 
 export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
+  {
+    id: 's4-update-renegades-standings-signings',
+    title: 'Season 4 Update: Renegades Take Command of the Standings; Heavy Signing Spree Shakes Up the League',
+    subtitle: 'The Oakland Renegades surge to 4-0 to capture the #1 spot in CCH, while San Diego (3-0) and Fresno (2-0) stay undefeated and six franchises execute key roster acquisitions.',
+    date: 'Season 4 Official League Update • Oct 31',
+    season: 4,
+    category: 'feature',
+    featured: true,
+    author: 'CCH League Office & Editorial Desk',
+    readTime: '4 min read',
+    imageUrl: jamarDean1Img,
+    imageCaption: 'The Oakland Renegades (4-0) have officially claimed 1st place in Season 4 behind an explosive scoring run led by Jamar Dean and Joshua Bowen.',
+    headlineQuote: 'The Oakland Renegades have officially taken the top spot in the standings, riding a massive scoring wave to a perfect 4-0 record.',
+    contentParagraphs: [
+      'CALIFORNIA — The Oakland Renegades have officially taken the top spot in the standings, riding a massive scoring wave to a perfect 4-0 record. Meanwhile, the San Diego Strykers (3-0) and Fresno Mad Dogs (2-0) remain right on their heels, while the California Reds have hit a rough patch, dropping to 2-3.',
+      'STANDINGS & CONFERENCE BREAKDOWN:\n1. Oakland Renegades (4-0, -- GB, 67.0 PPG, 50.3 OPP, +16.8 DIFF)\n2. San Diego Strykers (3-0, 0.5 GB, 80.0 PPG, 47.3 OPP, +32.7 DIFF)\n3. Fresno Mad Dogs (2-0, 1.0 GB, 61.5 PPG, 50.5 OPP, +11.0 DIFF)\n4. Los Angeles Dynamics (1-0, 1.5 GB, 77.0 PPG, 55.0 OPP, +22.0 DIFF)\n5. Golden State Enterprise (1-0, 1.5 GB, 65.0 PPG, 58.0 OPP, +7.0 DIFF)\n6. California Reds (2-3, 2.5 GB, 60.2 PPG, 68.2 OPP, -8.0 DIFF)\n7. San Jose Tigersharks (0-1, 2.5 GB, 53.0 PPG, 59.0 OPP, -6.0 DIFF)\n8. San Francisco Knights (0-1, 2.5 GB, 52.0 PPG, 66.0 OPP, -14.0 DIFF)\n9. San Diego Sabrewolves (0-1, 2.5 GB, 55.0 PPG, 77.0 OPP, -22.0 DIFF)\n10. Long Beach Vipers (0-2, 3.0 GB, 48.0 PPG, 60.5 OPP, -12.5 DIFF)\n11. Anaheim Admirals (0-2, 3.0 GB, 46.0 PPG, 78.0 OPP, -32.0 DIFF)\n12. Sacramento Stallions (0-3, 3.5 GB, 47.3 PPG, 60.0 OPP, -12.7 DIFF)',
+      'GAME RECAPS & HIGHLIGHTS:\n• Fresno Mad Dogs 64, Sacramento Stallions 48: Lloyd Boomer dropped a game-high 26 points on 9-for-14 shooting as Fresno dominated the paint 40-20 and forced 16 turnovers to keep Fresno undefeated at 2-0. Adrian Pognotti scored 16 points and Gemini Jackson blocked 6 shots for Sacramento (0-3).\n• Oakland Renegades 66, San Francisco Knights 52: Oakland deployed a 23-point second-quarter blitz to overpower San Francisco. Jamar Dean scored 22 points (5 AST) and newly signed rookie Jaycee Moon provided 13 points off the bench.\n• Oakland Renegades 74, California Reds 50: Jamar Dean put on a masterclass with 36 points on 13-of-18 shooting, while Joshua Bowen notched 20 points, 14 rebounds, and 5 assists.\n• Golden State Enterprise 65, California Reds 58: Enterprise opened their season with a statement win behind #1 overall pick Carlton Daugherty (20 PTS) and center Cameron Barkley.',
+      'LEAGUE-WIDE TRANSACTIONS & SIGNINGS:\nFranchises across Cali Championship Hoops completed key depth moves this week:\n• Anaheim Admirals signed SF/SG Archie Hubbard (Louisiana-Monroe), SG/SF Theodore Dantley (Oklahoma State), and PF/SF Randy Christie (Vanderbilt).\n• Oakland Renegades signed PG/SG Rudy Theus (Bradley), SF Andrew Woods (UC Riverside), and PG Jaycee Moon (Kent State).\n• California Reds signed PG Ernest Cannady (Michigan State).\n• Long Beach Vipers signed PG Brevin McCloud (Virginia Tech), SG Felipe Lopez (Puerto Rico), and PG Sarunas Simunic (Lithuania).\n• Golden State Enterprise signed SG/SF Leslie Carlson (Connors State College) and PG/SG Alan Haywood (Duke).\n• San Diego Sabrewolves signed SF/PF Randolph May (Temple).'
+    ],
+    quotes: [
+      {
+        speaker: 'Carson Goodwin',
+        title: 'Head Coach • Oakland Renegades (4-0 Record)',
+        quote: 'Taking the top spot in the standings is a testament to how locked in our guys have been on both ends of the floor. Jamar Dean and Joshua Bowen are setting the tone every single night.'
+      },
+      {
+        speaker: 'Ronnie Flores',
+        title: 'Head Coach • Fresno Mad Dogs (2-0 Record)',
+        quote: 'Our paint presence and defensive energy against Sacramento showed our identity. We want to be the toughest team in this league for 48 minutes.'
+      },
+      {
+        speaker: 'Adam Saunders',
+        title: 'Head Coach • San Diego Strykers (3-0 Record)',
+        quote: 'We like where we are at 3-0, but this league is deep. Every night brings a battle, and we have to stay sharp.'
+      }
+    ],
+    playerStats: [
+      { player: 'Jamar Dean', team: 'Oakland Renegades', stat: '36 PTS vs CAL • 22 PTS vs SF • Season Scoring Leader' },
+      { player: 'Lloyd Boomer', team: 'Fresno Mad Dogs', stat: '26 PTS vs SAC (9-14 FG) • Led Fresno to 2-0' },
+      { player: 'A.J. Hinton', team: 'San Diego Strykers', stat: '42 PTS vs CAL • 30 PTS vs ANA • Strykers 3-0' },
+      { player: 'Joshua Bowen', team: 'Oakland Renegades', stat: '20 PTS, 14 REB, 5 AST vs California Reds' },
+      { player: 'Carlton Daugherty', team: 'Golden State Enterprise', stat: '20 PTS in Debut • 65-58 Win Over California' },
+      { player: 'Adrian Pognotti', team: 'Sacramento Stallions', stat: '16 PTS, 5 REB, 2 BLK vs Fresno Mad Dogs' },
+      { player: 'Gemini Jackson', team: 'Sacramento Stallions', stat: '11 PTS, 6 BLK, 4 AST vs Fresno Mad Dogs' },
+      { player: 'Oakland Renegades', team: 'Team Record', stat: '4-0 Overall • #1 in CCH Standings' }
+    ]
+  },
+  {
+    id: 's4-g10-renegades-crush-reds-dean-36',
+    title: 'Dean Erupts for 36 as Renegades Dismantle Reds 74-50 in Road Statement',
+    subtitle: 'Jamar Dean catches fire for 36 points on 13-of-18 shooting, while Joshua Bowen posts 20 points, 14 rebounds, and 5 assists to pace Oakland past California.',
+    date: 'Season 4 • Game 10 Recap (Oct 27)',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • Oakland Beat',
+    readTime: '3 min read',
+    imageUrl: calVsOakImg,
+    imageCaption: 'Jamar Dean put on an offensive clinic with 36 points on 13-of-18 shooting as the Renegades routed the California Reds 74-50.',
+    teams: {
+      team1: 'Oakland Renegades',
+      team1Id: 'oakland-renegades',
+      score1: 74,
+      team2: 'California Reds',
+      team2Id: 'california-reds',
+      score2: 50,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 19, team2: 13 },
+      { period: 'Q2', team1: 18, team2: 12 },
+      { period: 'Q3', team1: 20, team2: 14 },
+      { period: 'Q4', team1: 17, team2: 11 },
+    ],
+    headlineQuote: 'Jamar Dean delivered one of the most efficient scoring clinics of the season, dropping 36 points on 13-of-18 shooting to pace Oakland.',
+    contentParagraphs: [
+      'California – The Oakland Renegades sent a resounding message across the league, dismantling the California Reds 74-50 on the road behind an offensive masterpiece from superstar guard Jamar Dean.',
+      'Dean was simply untouchable, pouring in a season-high 36 points on a blistering 13-for-18 shooting from the floor, including 4-of-5 from three-point range. Center Joshua Bowen controlled the interior with an authoritative double-double, registering 20 points, 14 rebounds, and 5 assists to dominate both ends of the floor.',
+      'DEFENSIVE CLAMP & PACING:\nOakland held California to just 50 points, winning all four quarters (19-13, 18-12, 20-14, 17-11). Alonzo Reece orchestrated the transition attack with 10 points, 8 assists, and 3 steals.',
+      'REDS PERSPECTIVE:\nFor the Reds, Andor Marai fought for 18 points and 11 rebounds, while Donald Rodman chipped in 12 points and 7 boards. However, California struggled from deep, converting just 2-of-14 from beyond the arc against Oakland\'s aggressive perimeter defense.'
+    ],
+    quotes: [
+      {
+        speaker: 'Jamar Dean',
+        title: 'Shooting Guard • Oakland Renegades (36 PTS, 13-18 FG)',
+        quote: 'My teammates set great screens and kept finding me in transition. When the first few pull-ups dropped, I just stayed aggressive.'
+      },
+      {
+        speaker: 'Joshua Bowen',
+        title: 'Center • Oakland Renegades (20 PTS, 14 REB, 5 AST)',
+        quote: 'We wanted to own the paint and limit second-chance points. Dominating the glass allowed us to get out on the break and run.'
+      },
+      {
+        speaker: 'William Walker',
+        title: 'Head Coach • California Reds',
+        quote: 'Dean was on another level tonight, and we couldn\'t match their pace. We have to regroup and fix our defensive rotations.'
+      }
+    ],
+    playerStats: [
+      { player: 'Jamar Dean', team: 'Oakland Renegades', stat: '36 PTS, 5 REB, 3 AST, 2 STL (13-18 FG, 4-5 3PT, 6-7 FT)' },
+      { player: 'Joshua Bowen', team: 'Oakland Renegades', stat: '20 PTS, 14 REB, 5 AST, 3 BLK (9-14 FG)' },
+      { player: 'Alonzo Reece', team: 'Oakland Renegades', stat: '10 PTS, 8 AST, 3 STL (4-9 FG)' },
+      { player: 'Andor Marai', team: 'California Reds', stat: '18 PTS, 11 REB, 2 BLK (8-15 FG)' },
+      { player: 'Donald Rodman', team: 'California Reds', stat: '12 PTS, 7 REB, 1 STL (5-11 FG)' },
+      { player: 'Kyle Robinson', team: 'California Reds', stat: '8 PTS, 5 AST (3-8 FG)' },
+      { player: 'Renegades Field Goal %', team: 'Team Stats', stat: '58.5% FG (31/53) • 6/11 3PT (54.5%)' },
+      { player: 'Reds Perimeter Shooting', team: 'Team Stats', stat: '2/14 3PT (14.3%) • 50 Total PTS' }
+    ]
+  },
+  {
+    id: 's4-g11-renegades-bury-knights',
+    title: 'Renegades Blitz Knights 66-52 Behind 23-Point Second Quarter and Dean\'s 22 Points',
+    subtitle: 'Oakland explodes in the second quarter to overwhelm San Francisco 66-52, improving to a league-leading 4-0 as Jamar Dean scores 22 and Jaycee Moon adds 13 off the bench.',
+    date: 'Season 4 • Game 11 Recap (Oct 29)',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • Bay Area Beat',
+    readTime: '3 min read',
+    imageUrl: deanVsSfImg,
+    imageCaption: 'The Oakland Renegades improved to a perfect 4-0 on the season with a 66-52 win over San Francisco, fueled by a 23-point second quarter surge.',
+    teams: {
+      team1: 'San Francisco Knights',
+      team1Id: 'san-francisco-knights',
+      score1: 52,
+      team2: 'Oakland Renegades',
+      team2Id: 'oakland-renegades',
+      score2: 66,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 14, team2: 15 },
+      { period: 'Q2', team1: 11, team2: 23 },
+      { period: 'Q3', team1: 13, team2: 14 },
+      { period: 'Q4', team1: 14, team2: 14 },
+    ],
+    headlineQuote: 'A 23-point second quarter blitz propelled the Oakland Renegades to 4-0 as Jamar Dean poured in 22 points with 5 assists.',
+    contentParagraphs: [
+      'Oakland, CA – The Oakland Renegades tightened their grip on first place in the CCH standings, blowing past the San Francisco Knights 66-52 behind a commanding second quarter run.',
+      'After a tight opening period (15-14), the Renegades erupted with a 23-11 second-quarter scoring barrage that put the game firmly out of reach. Jamar Dean once again led the attack with 22 points and 5 assists, while newly signed rookie guard Jaycee Moon provided instant electricity off the bench with 13 points on 5-of-8 shooting.',
+      'SOLID TWO-WAY PLAY:\nJoshua Bowen added 12 points, 10 rebounds, and 2 blocks, recording his second consecutive double-double, while Alonzo Reece notched 10 points, 6 assists, and 4 steals.',
+      'KNIGHTS RECAP:\nFor San Francisco (0-1), center Gheorghe Stefan led the way with 16 points and 6 rebounds, and rookie standout Damian Gilmore chipped in 14 points and 4 assists. Ed Burks added 10 points and 5 rebounds, but the Knights could not match Oakland\'s bench scoring and transition tempo.'
+    ],
+    quotes: [
+      {
+        speaker: 'Jamar Dean',
+        title: 'Guard • Oakland Renegades (22 PTS, 5 AST, 4-0 Record)',
+        quote: 'That second quarter changed everything. Jaycee Moon gave us an enormous spark off the bench, and we fed off the energy of the home crowd.'
+      },
+      {
+        speaker: 'Jaycee Moon',
+        title: 'Rookie Guard • Oakland Renegades (13 PTS in Debut)',
+        quote: 'Coach Goodwin told me to be ready and play with pace. Playing alongside Jamar and Alonzo makes the game easy because they draw so much attention.'
+      },
+      {
+        speaker: 'Zack Randle',
+        title: 'Head Coach • San Francisco Knights',
+        quote: 'Oakland\'s second quarter run dug us into a hole we couldn\'t climb out of. We liked our defensive effort in the second half, but 23 points in one quarter was the difference.'
+      }
+    ],
+    playerStats: [
+      { player: 'Jamar Dean', team: 'Oakland Renegades', stat: '22 PTS, 5 AST, 4 REB (8-15 FG, 3-6 3PT)' },
+      { player: 'Jaycee Moon', team: 'Oakland Renegades', stat: '13 PTS, 3 AST, 2 STL (5-8 FG, 2-3 3PT in Debut)' },
+      { player: 'Joshua Bowen', team: 'Oakland Renegades', stat: '12 PTS, 10 REB, 2 BLK (5-9 FG)' },
+      { player: 'Alonzo Reece', team: 'Oakland Renegades', stat: '10 PTS, 6 AST, 4 STL (4-10 FG)' },
+      { player: 'Gheorghe Stefan', team: 'San Francisco Knights', stat: '16 PTS, 6 REB, 2 BLK (7-12 FG)' },
+      { player: 'Damian Gilmore', team: 'San Francisco Knights', stat: '14 PTS, 4 AST, 2 REB (5-13 FG)' },
+      { player: 'Ed Burks', team: 'San Francisco Knights', stat: '10 PTS, 5 REB (4-8 FG)' },
+      { player: 'Renegades 2nd Qtr Blitz', team: 'Team Stats', stat: '23-11 Scoring Run in Q2 • 4-0 Record' }
+    ]
+  },
+  {
+    id: 's4-g12-enterprise-edge-reds-daugherty',
+    title: 'Daugherty Shines With 20 in Debut as Enterprise Edge Reds 65-58',
+    subtitle: '#1 overall draft pick Carlton Daugherty scores 20 points in his professional debut as Golden State opens Season 4 with a tough 65-58 home victory over California.',
+    date: 'Season 4 • Game 12 Recap (Oct 29)',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • Golden State Beat',
+    readTime: '3 min read',
+    imageUrl: daughertyVsCalImg,
+    imageCaption: 'Carlton Daugherty delivered 20 points in his rookie debut as Golden State Enterprise captured a 65-58 home opening victory over the California Reds.',
+    teams: {
+      team1: 'California Reds',
+      team1Id: 'california-reds',
+      score1: 58,
+      team2: 'Golden State Enterprise',
+      team2Id: 'golden-state-enterprise',
+      score2: 65,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 15, team2: 17 },
+      { period: 'Q2', team1: 14, team2: 16 },
+      { period: 'Q3', team1: 15, team2: 16 },
+      { period: 'Q4', team1: 14, team2: 16 },
+    ],
+    headlineQuote: 'Carlton Daugherty wasted no time validating his #1 overall draft status, scoring 20 points to lead Golden State to an opening night win.',
+    contentParagraphs: [
+      'San Jose, CA – Golden State Enterprise opened their Season 4 campaign with authority, grinding out a 65-58 home victory over the California Reds behind a sensational debut from #1 overall pick Carlton Daugherty.',
+      'Daugherty poured in 20 points on 8-of-14 shooting, showcasing his polished three-level scoring package and clutch perimeter shotmaking. Center Cameron Barkley anchored the paint with 14 points, 9 rebounds, and 3 blocks, controlling the interior against California\'s physical frontcourt.',
+      'ENTERPRISE DEPTH & DEFENSE:\nCoach Wyatt Zimmerman\'s squad executed steadily across all four frames (17-15, 16-14, 16-15, 16-14), denying open looks and winning the rebounding battle 38-31. Veteran guard Terrence West added 11 points and 6 assists.',
+      'REDS PERSPECTIVE:\nFor the Reds (2-3), Andor Marai battled inside for 19 points and 10 rebounds, while Donald Rodman chipped in 14 points and 6 boards. However, California was unable to overcome 15 turnovers and Enterprise\'s timely fourth-quarter stops.'
+    ],
+    quotes: [
+      {
+        speaker: 'Carlton Daugherty',
+        title: 'Guard • Golden State Enterprise (20 PTS in Debut, 1-0 Record)',
+        quote: 'It felt great to get out there in front of the home crowd and get our first win. The veterans made it easy for me to settle in and find my spots.'
+      },
+      {
+        speaker: 'Wyatt Zimmerman',
+        title: 'Head Coach • Golden State Enterprise (1-0 Record)',
+        quote: 'Carlton played with tremendous poise for a rookie. When the game got tight in the fourth quarter, he made winning basketball plays.'
+      },
+      {
+        speaker: 'William Walker',
+        title: 'Head Coach • California Reds',
+        quote: 'Daugherty made tough shots when they needed them, and we gave up too many second-chance opportunities in the second half.'
+      }
+    ],
+    playerStats: [
+      { player: 'Carlton Daugherty', team: 'Golden State Enterprise', stat: '20 PTS, 4 REB, 3 AST (8-14 FG, 2-4 3PT in Debut)' },
+      { player: 'Cameron Barkley', team: 'Golden State Enterprise', stat: '14 PTS, 9 REB, 3 BLK (6-11 FG)' },
+      { player: 'Terrence West', team: 'Golden State Enterprise', stat: '11 PTS, 6 AST, 2 STL (4-9 FG)' },
+      { player: 'Andor Marai', team: 'California Reds', stat: '19 PTS, 10 REB, 2 BLK (8-16 FG)' },
+      { player: 'Donald Rodman', team: 'California Reds', stat: '14 PTS, 6 REB, 1 STL (6-12 FG)' },
+      { player: 'Kyle Robinson', team: 'California Reds', stat: '9 PTS, 6 AST (3-7 FG)' },
+      { player: 'Enterprise Rebound Margin', team: 'Team Stats', stat: '38 Rebounds to 31 Rebounds (+7 GSE)' },
+      { player: 'Opening Statement', team: 'Team Record', stat: 'Golden State Enterprise Starts 1-0' }
+    ]
+  },
+  {
+    id: 's4-g13-mad-dogs-dominate-stallions',
+    title: 'Boomer Drops 26 as Undefeated Mad Dogs Down Defending Champion Stallions 64-48',
+    subtitle: 'Lloyd Boomer shoots 9-for-14 to drop 26 points and lead Fresno (2-0) to a commanding 64-48 victory over the struggling Sacramento Stallions (0-3).',
+    date: 'Season 4 • Game 13 Recap (Oct 31)',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • Central Valley Beat',
+    readTime: '3 min read',
+    imageUrl: boomerVsSacImg,
+    imageCaption: 'Lloyd Boomer scored a game-high 26 points on 9-for-14 shooting as Fresno dominated Sacramento 64-48 to remain unbeaten at 2-0.',
+    teams: {
+      team1: 'Sacramento Stallions',
+      team1Id: 'sacramento-stallions',
+      score1: 48,
+      team2: 'Fresno Mad Dogs',
+      team2Id: 'fresno-mad-dogs',
+      score2: 64,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 12, team2: 16 },
+      { period: 'Q2', team1: 10, team2: 18 },
+      { period: 'Q3', team1: 14, team2: 15 },
+      { period: 'Q4', team1: 12, team2: 15 },
+    ],
+    headlineQuote: 'Lloyd Boomer was unstoppable for the Mad Dogs, dropping a game-high 26 points on 9-for-14 shooting to keep Fresno undefeated.',
+    contentParagraphs: [
+      'Fresno, CA – Lloyd Boomer was unstoppable for the Mad Dogs, dropping a game-high 26 points on 9-for-14 shooting to keep Fresno undefeated at 2-0 with a dominant 64-48 win over the Sacramento Stallions.',
+      'The Mad Dogs dominated the paint, outscoring the Stallions 40-20 inside and forcing 16 turnovers with relentless pressure. Cameron Graham provided strong interior muscle with 14 points and 8 rebounds, while Geraldo Jones chipped in 10 points and 7 boards.',
+      'STALLIONS SLUMP CONTINUES:\nFor the struggling defending champion Stallions (0-3), Adrian Pognotti led the way with 16 points, 5 rebounds, and 2 blocks, while Gemini Jackson added a monstrous 6 blocks to go with 11 points and 4 assists. Frank Hackett contributed 10 points and 6 rebounds, but Sacramento was unable to find consistent perimeter offense, dropping their third straight road game.'
+    ],
+    quotes: [
+      {
+        speaker: 'Lloyd Boomer',
+        title: 'Guard • Fresno Mad Dogs (26 PTS, 9-14 FG, 2-0 Record)',
+        quote: 'We wanted to establish our physical presence early. Getting 40 points in the paint and forcing 16 turnovers gave us complete control of the tempo.'
+      },
+      {
+        speaker: 'Ronnie Flores',
+        title: 'Head Coach • Fresno Mad Dogs (2-0 Start)',
+        quote: 'Lloyd was aggressive from the tip-off. Holding the defending champions to 48 points on our home floor shows what kind of defense this group is capable of.'
+      },
+      {
+        speaker: 'Benjamin Nelson',
+        title: 'Head Coach • Sacramento Stallions (0-3 Record)',
+        quote: 'We got beat in the paint 40 to 20 and turned the ball over 16 times. You cannot win on the road giving up that kind of interior advantage.'
+      }
+    ],
+    playerStats: [
+      { player: 'Lloyd Boomer', team: 'Fresno Mad Dogs', stat: '26 PTS, 5 REB, 3 AST (9-14 FG, 2-4 3PT, 6-7 FT)' },
+      { player: 'Cameron Graham', team: 'Fresno Mad Dogs', stat: '14 PTS, 8 REB, 2 BLK (6-10 FG)' },
+      { player: 'Geraldo Jones', team: 'Fresno Mad Dogs', stat: '10 PTS, 7 REB (4-7 FG)' },
+      { player: 'Adrian Pognotti', team: 'Sacramento Stallions', stat: '16 PTS, 5 REB, 2 BLK (7-13 FG)' },
+      { player: 'Gemini Jackson', team: 'Sacramento Stallions', stat: '11 PTS, 6 BLK, 4 AST, 2 STL (5-10 FG)' },
+      { player: 'Frank Hackett', team: 'Sacramento Stallions', stat: '10 PTS, 6 REB (4-11 FG)' },
+      { player: 'Paint Scoring Battle', team: 'Team Stats', stat: 'Fresno 40 PTS in Paint • Sacramento 20 PTS in Paint' },
+      { player: 'Turnovers Forced', team: 'Team Defense', stat: 'Fresno Forced 16 Turnovers • +7 Turnover Margin' }
+    ]
+  },
   {
     id: 's4-g9-reds-bounce-back-vipers',
     title: 'Marai and Rodman Power Reds Past Vipers 68-61 in Bounce-Back Victory',

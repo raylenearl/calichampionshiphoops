@@ -19,6 +19,13 @@ import { TeamBadge } from './TeamBadge';
 import hinton42vsCalImg from '../assets/images/Hinton42_s4vsCAL.png';
 import jDeanVsSacImg from '../assets/images/JDean_vs_SACs4.png';
 import maraiVsLbImg from '../assets/images/Marai_vs_LBs4.png';
+import jamarDean1Img from '../assets/images/JamarDean1.png';
+import sjAtFre1Img from '../assets/images/SJatFREs4_1.png';
+import carltonDaughertyImg from '../assets/images/S4 Draft/Carlton Daugherty.png';
+import boomerVsSacImg from '../assets/images/Boomer_VS_SAC1.png';
+import daughertyVsCalImg from '../assets/images/Daugherty_vs_CAL1.png';
+import deanVsSfImg from '../assets/images/DeanSFS1.png';
+import calVsOakImg from '../assets/images/CALvsOAKs1.png';
 
 interface LatestGamesShowcaseProps {
   onNavigateToNews: (articleId: string) => void;
@@ -62,11 +69,231 @@ interface GameHighlight {
   keyStats: { label: string; value: string; desc: string }[];
   secondaryPerformers: { name: string; team: string; stat: string }[];
   badgeColor: string;
-  tagIcon: 'flame' | 'shield' | 'zap';
+  tagIcon: 'flame' | 'shield' | 'zap' | 'sparkles';
   tagText: string;
 }
 
 const HIGHLIGHT_GAMES: GameHighlight[] = [
+  {
+    id: 'game-13',
+    articleId: 's4-g13-mad-dogs-dominate-stallions',
+    date: 'Oct 31 • Season 4 Game 13',
+    headline: 'Fresno Mad Dogs 64, Sacramento Stallions 48',
+    subheadline: 'Boomer Erupts for 26 PTS (9-14 FG); Mad Dogs Stay Unbeaten at 2-0; Stallions Fall to 0-3',
+    narrative:
+      'Lloyd Boomer was unstoppable for the Mad Dogs, dropping a game-high 26 points on 9-for-14 shooting to keep Fresno undefeated. The Mad Dogs dominated the paint 40-20 and forced 16 turnovers. Defending champion Stallions drop to 0-3.',
+    venue: 'Save Mart Center',
+    city: 'Fresno, CA',
+    winner: {
+      id: 'fresno-mad-dogs',
+      name: 'Fresno Mad Dogs',
+      score: 64,
+      record: '2-0 (3rd)',
+      isHome: true,
+    },
+    loser: {
+      id: 'sacramento-stallions',
+      name: 'Sacramento Stallions',
+      score: 48,
+      record: '0-3 (12th)',
+      isHome: false,
+    },
+    quarters: [
+      { period: 'Q1', team1: 12, team2: 16 },
+      { period: 'Q2', team1: 10, team2: 18 },
+      { period: 'Q3', team1: 14, team2: 15 },
+      { period: 'Q4', team1: 12, team2: 15 },
+    ],
+    starPlayer: {
+      name: 'Lloyd Boomer',
+      number: '#2',
+      team: 'Fresno Mad Dogs',
+      position: 'G • 89 OVR',
+      statline: '26 PTS • 5 REB • 3 AST • 9-14 FG (Game High)',
+      highlightPill: '26-POINT EXPLOSION & 2-0 RECORD',
+      image: boomerVsSacImg,
+    },
+    keyStats: [
+      { label: 'Lloyd Boomer', value: '26 PTS (9/14 FG)', desc: 'Game-High Scoring Clinic' },
+      { label: 'Paint Dominance', value: '40 - 20 Paint PTS', desc: 'Mad Dogs Controlled the Interior' },
+      { label: 'Defense & Turnovers', value: '16 Forced TOs', desc: 'Fresno Relentless Pressure' },
+      { label: 'Stallions Road Woes', value: '0 - 3 Record', desc: 'Defending Champions Slump' },
+    ],
+    secondaryPerformers: [
+      { name: 'Cameron Graham (FRE)', team: 'Mad Dogs', stat: '14 PTS, 8 REB, 2 BLK (6-10 FG)' },
+      { name: 'Geraldo Jones (FRE)', team: 'Mad Dogs', stat: '10 PTS, 7 REB (4-7 FG)' },
+      { name: 'Adrian Pognotti (SAC)', team: 'Stallions', stat: '16 PTS, 5 REB, 2 BLK' },
+      { name: 'Gemini Jackson (SAC)', team: 'Stallions', stat: '11 PTS, 6 BLK, 4 AST, 2 STL' },
+    ],
+    badgeColor: 'border-blue-500/60 from-blue-950/40 via-slate-900 to-indigo-950/30',
+    tagIcon: 'flame',
+    tagText: 'PAINT DOMINANCE • MAD DOGS 2-0',
+  },
+  {
+    id: 'game-12',
+    articleId: 's4-g12-enterprise-edge-reds-daugherty',
+    date: 'Oct 29 • Season 4 Game 12',
+    headline: 'Golden State Enterprise 65, California Reds 58',
+    subheadline: '#1 Pick Carlton Daugherty Drops 20 in Debut; Enterprise Defends Home Floor (1-0)',
+    narrative:
+      '#1 overall pick Carlton Daugherty scored 20 points in his pro debut, leading Golden State Enterprise to a 65-58 victory over the California Reds. Cameron Barkley controlled the glass with 14 points, 9 rebounds, and 3 blocks.',
+    venue: 'SAP Center',
+    city: 'San Jose, CA',
+    winner: {
+      id: 'golden-state-enterprise',
+      name: 'Golden State Enterprise',
+      score: 65,
+      record: '1-0 (5th)',
+      isHome: true,
+    },
+    loser: {
+      id: 'california-reds',
+      name: 'California Reds',
+      score: 58,
+      record: '2-3 (6th)',
+      isHome: false,
+    },
+    quarters: [
+      { period: 'Q1', team1: 15, team2: 17 },
+      { period: 'Q2', team1: 14, team2: 16 },
+      { period: 'Q3', team1: 15, team2: 16 },
+      { period: 'Q4', team1: 14, team2: 16 },
+    ],
+    starPlayer: {
+      name: 'Carlton Daugherty',
+      number: '#1',
+      team: 'Golden State Enterprise',
+      position: 'G • 88 OVR',
+      statline: '20 PTS • 4 REB • 3 AST • 8-14 FG in Rookie Debut',
+      highlightPill: '20 PTS IN #1 PICK DEBUT',
+      image: daughertyVsCalImg,
+    },
+    keyStats: [
+      { label: 'Carlton Daugherty', value: '20 PTS (8/14 FG)', desc: '#1 Pick Statement Debut' },
+      { label: 'Cameron Barkley', value: '14 PTS • 9 REB', desc: '3 BLK Interior Muscle' },
+      { label: 'Rebound Advantage', value: '38 - 31 REB', desc: 'Enterprise Controlled Glass' },
+      { label: 'Enterprise Record', value: '1 - 0 (5th)', desc: 'Perfect Season Opener' },
+    ],
+    secondaryPerformers: [
+      { name: 'Cameron Barkley (GSE)', team: 'Enterprise', stat: '14 PTS, 9 REB, 3 BLK (6-11 FG)' },
+      { name: 'Terrence West (GSE)', team: 'Enterprise', stat: '11 PTS, 6 AST, 2 STL' },
+      { name: 'Andor Marai (CAL)', team: 'Reds', stat: '19 PTS, 10 REB, 2 BLK' },
+      { name: 'Donald Rodman (CAL)', team: 'Reds', stat: '14 PTS, 6 REB, 1 STL' },
+    ],
+    badgeColor: 'border-cyan-500/60 from-cyan-950/40 via-slate-900 to-blue-950/30',
+    tagIcon: 'sparkles',
+    tagText: '#1 PICK DEBUT • ENTERPRISE 1-0',
+  },
+  {
+    id: 'game-11',
+    articleId: 's4-g11-renegades-bury-knights',
+    date: 'Oct 29 • Season 4 Game 11',
+    headline: 'Oakland Renegades 66, San Francisco Knights 52',
+    subheadline: '23-Point 2nd Quarter Surge Sparks Renegades to 4-0; Dean (22 PTS) & Moon (13 PTS) Shine',
+    narrative:
+      'The Oakland Renegades took complete command of first place in CCH with a 66-52 victory over San Francisco, fueled by a devastating 23-11 second quarter blitz. Jamar Dean scored 22 and newly signed Jaycee Moon added 13 off the bench.',
+    venue: 'Oakland Arena',
+    city: 'Oakland, CA',
+    winner: {
+      id: 'oakland-renegades',
+      name: 'Oakland Renegades',
+      score: 66,
+      record: '4-0 (1st)',
+      isHome: true,
+    },
+    loser: {
+      id: 'san-francisco-knights',
+      name: 'San Francisco Knights',
+      score: 52,
+      record: '0-1 (8th)',
+      isHome: false,
+    },
+    quarters: [
+      { period: 'Q1', team1: 14, team2: 15 },
+      { period: 'Q2', team1: 11, team2: 23 },
+      { period: 'Q3', team1: 13, team2: 14 },
+      { period: 'Q4', team1: 14, team2: 14 },
+    ],
+    starPlayer: {
+      name: 'Jamar Dean',
+      number: '#3',
+      team: 'Oakland Renegades',
+      position: 'G • 96 OVR',
+      statline: '22 PTS • 5 AST • 4 REB • 8-15 FG • League-Leading 4-0',
+      highlightPill: '22 PTS & 2ND QUARTER SURGE',
+      image: deanVsSfImg,
+    },
+    keyStats: [
+      { label: 'Jamar Dean', value: '22 PTS • 5 AST', desc: 'Game-High Scorer & General' },
+      { label: 'Jaycee Moon Debut', value: '13 PTS (5/8 FG)', desc: 'Instant Spark Off Bench' },
+      { label: '2nd Quarter Blitz', value: '23 - 11 Run', desc: 'Decisive Scoring Explosion' },
+      { label: 'Renegades Standing', value: '4 - 0 (1st)', desc: 'Sole Undefeated 4-0 Squad' },
+    ],
+    secondaryPerformers: [
+      { name: 'Jaycee Moon (OAK)', team: 'Renegades', stat: '13 PTS, 3 AST, 2 STL (5-8 FG)' },
+      { name: 'Joshua Bowen (OAK)', team: 'Renegades', stat: '12 PTS, 10 REB, 2 BLK' },
+      { name: 'Gheorghe Stefan (SF)', team: 'Knights', stat: '16 PTS, 6 REB, 2 BLK' },
+      { name: 'Damian Gilmore (SF)', team: 'Knights', stat: '14 PTS, 4 AST, 2 REB' },
+    ],
+    badgeColor: 'border-amber-500/60 from-amber-950/40 via-slate-900 to-yellow-950/30',
+    tagIcon: 'zap',
+    tagText: 'LEAGUE LEADERS • RENEGADES 4-0',
+  },
+  {
+    id: 'game-10',
+    articleId: 's4-g10-renegades-crush-reds-dean-36',
+    date: 'Oct 27 • Season 4 Game 10',
+    headline: 'Oakland Renegades 74, California Reds 50',
+    subheadline: 'Dean Catches Fire for 36 PTS (13-18 FG); Bowen Grabs 20 PTS & 14 REB in Blowout',
+    narrative:
+      'Jamar Dean put on an offensive masterpiece, exploding for 36 points on 13-of-18 shooting, while Joshua Bowen notched 20 points, 14 rebounds, and 5 assists to pace Oakland past California.',
+    venue: 'California Pavilion',
+    city: 'Fresno, CA',
+    winner: {
+      id: 'oakland-renegades',
+      name: 'Oakland Renegades',
+      score: 74,
+      record: '3-0 (1st)',
+      isHome: false,
+    },
+    loser: {
+      id: 'california-reds',
+      name: 'California Reds',
+      score: 50,
+      record: '2-2 (6th)',
+      isHome: true,
+    },
+    quarters: [
+      { period: 'Q1', team1: 19, team2: 13 },
+      { period: 'Q2', team1: 18, team2: 12 },
+      { period: 'Q3', team1: 20, team2: 14 },
+      { period: 'Q4', team1: 17, team2: 11 },
+    ],
+    starPlayer: {
+      name: 'Jamar Dean',
+      number: '#3',
+      team: 'Oakland Renegades',
+      position: 'G • 96 OVR',
+      statline: '36 PTS • 13-18 FG • 4-5 3PT • 5 REB • 3 AST',
+      highlightPill: '36-POINT CLINIC (72.2% FG)',
+      image: calVsOakImg,
+    },
+    keyStats: [
+      { label: 'Jamar Dean Clinic', value: '36 PTS (13/18 FG)', desc: '72.2% FG • 4/5 3PT' },
+      { label: 'Joshua Bowen', value: '20 PTS • 14 REB', desc: '5 AST, 3 BLK Interior Dominance' },
+      { label: 'Renegades FG%', value: '58.5% FG', desc: '31/53 Team Shooting' },
+      { label: 'Reds 3-Point Defense', value: '2 / 14 3PT', desc: 'Reds Held to 14.3% from Deep' },
+    ],
+    secondaryPerformers: [
+      { name: 'Joshua Bowen (OAK)', team: 'Renegades', stat: '20 PTS, 14 REB, 5 AST, 3 BLK' },
+      { name: 'Alonzo Reece (OAK)', team: 'Renegades', stat: '10 PTS, 8 AST, 3 STL' },
+      { name: 'Andor Marai (CAL)', team: 'Reds', stat: '18 PTS, 11 REB, 2 BLK' },
+      { name: 'Donald Rodman (CAL)', team: 'Reds', stat: '12 PTS, 7 REB, 1 STL' },
+    ],
+    badgeColor: 'border-yellow-500/60 from-yellow-950/40 via-slate-900 to-amber-950/30',
+    tagIcon: 'flame',
+    tagText: '36-PT SCORING MASTERCLASS',
+  },
   {
     id: 'game-9',
     articleId: 's4-g9-reds-bounce-back-vipers',
@@ -261,10 +488,7 @@ export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
               🔥 LATEST SEASON 4 ACTION
             </span>
             <span className="text-[10px] font-mono font-bold text-amber-300 bg-amber-500/20 px-2.5 py-1 rounded-md border border-amber-500/30">
-              OCT 22 – OCT 25 SLATE
-            </span>
-            <span className="text-[10px] font-mono font-bold text-sky-400 bg-sky-500/15 px-2.5 py-1 rounded-md border border-sky-500/30">
-              3 GAMES REPORTED
+              OCTOBER SLATE
             </span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight mt-1">
@@ -312,6 +536,9 @@ export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
                 )}
                 {game.tagIcon === 'zap' && (
                   <Zap size={14} className={isSelected ? 'fill-slate-950 text-slate-950 shrink-0' : 'text-red-400 shrink-0'} />
+                )}
+                {game.tagIcon === 'sparkles' && (
+                  <Sparkles size={14} className={isSelected ? 'fill-slate-950 text-slate-950 shrink-0' : 'text-cyan-400 shrink-0'} />
                 )}
                 <span>
                   {winnerShort} {game.winner.score}, {loserShort} {game.loser.score}
@@ -428,51 +655,60 @@ export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
             </div>
 
             {/* Quarter Box Scores Table */}
-            <div className="overflow-x-auto border-t border-slate-800/80 pt-3">
-              <table className="w-full text-xs font-mono">
-                <thead>
-                  <tr className="text-slate-400 text-[10px] uppercase border-b border-slate-800">
-                    <th className="text-left py-1 font-bold">Team</th>
-                    {activeGame.quarters.map((q) => (
-                      <th key={q.period} className="text-center py-1 font-bold">
-                        {q.period}
-                      </th>
-                    ))}
-                    <th className="text-right py-1 font-bold text-amber-400">Total</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-800/50">
-                  <tr>
-                    <td className="py-1.5 font-bold text-white flex items-center gap-1.5">
-                      <TeamBadge teamId={activeGame.quarters[0].team1 === activeGame.winner.score ? activeGame.winner.id : (activeGame.id === 'game-7' ? 'california-reds' : (activeGame.id === 'game-8' ? 'sacramento-stallions' : 'california-reds'))} size="xs" />
-                      <span>{activeGame.id === 'game-7' ? 'CAL' : (activeGame.id === 'game-8' ? 'SAC' : 'CAL')}</span>
-                    </td>
-                    {activeGame.quarters.map((q) => (
-                      <td key={q.period} className="text-center py-1.5 text-slate-300">
-                        {q.team1}
-                      </td>
-                    ))}
-                    <td className="text-right py-1.5 font-bold text-white">
-                      {activeGame.id === 'game-7' ? 64 : (activeGame.id === 'game-8' ? 50 : 68)}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="py-1.5 font-bold text-white flex items-center gap-1.5">
-                      <TeamBadge teamId={activeGame.id === 'game-7' ? 'san-diego-strykers' : (activeGame.id === 'game-8' ? 'oakland-renegades' : 'long-beach-vipers')} size="xs" />
-                      <span>{activeGame.id === 'game-7' ? 'SDS' : (activeGame.id === 'game-8' ? 'OAK' : 'LB')}</span>
-                    </td>
-                    {activeGame.quarters.map((q) => (
-                      <td key={q.period} className="text-center py-1.5 text-slate-300 font-bold">
-                        {q.team2}
-                      </td>
-                    ))}
-                    <td className="text-right py-1.5 font-black text-amber-400">
-                      {activeGame.id === 'game-7' ? 102 : (activeGame.id === 'game-8' ? 57 : 61)}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            {(() => {
+              const q1Sum = activeGame.quarters.reduce((acc, q) => acc + q.team1, 0);
+              const isFirstTeamWinner = q1Sum === activeGame.winner.score;
+              const firstTeam = isFirstTeamWinner ? activeGame.winner : activeGame.loser;
+              const secondTeam = isFirstTeamWinner ? activeGame.loser : activeGame.winner;
+
+              return (
+                <div className="overflow-x-auto border-t border-slate-800/80 pt-3">
+                  <table className="w-full text-xs font-mono">
+                    <thead>
+                      <tr className="text-slate-400 text-[10px] uppercase border-b border-slate-800">
+                        <th className="text-left py-1 font-bold">Team</th>
+                        {activeGame.quarters.map((q) => (
+                          <th key={q.period} className="text-center py-1 font-bold">
+                            {q.period}
+                          </th>
+                        ))}
+                        <th className="text-right py-1 font-bold text-amber-400">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-800/50">
+                      <tr>
+                        <td className="py-1.5 font-bold text-white flex items-center gap-1.5">
+                          <TeamBadge teamId={firstTeam.id} size="xs" />
+                          <span>{firstTeam.name.split(' ').pop()}</span>
+                        </td>
+                        {activeGame.quarters.map((q) => (
+                          <td key={q.period} className="text-center py-1.5 text-slate-300">
+                            {q.team1}
+                          </td>
+                        ))}
+                        <td className={`text-right py-1.5 font-black ${isFirstTeamWinner ? 'text-amber-400' : 'text-slate-300'}`}>
+                          {firstTeam.score}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="py-1.5 font-bold text-white flex items-center gap-1.5">
+                          <TeamBadge teamId={secondTeam.id} size="xs" />
+                          <span>{secondTeam.name.split(' ').pop()}</span>
+                        </td>
+                        {activeGame.quarters.map((q) => (
+                          <td key={q.period} className="text-center py-1.5 text-slate-300">
+                            {q.team2}
+                          </td>
+                        ))}
+                        <td className={`text-right py-1.5 font-black ${!isFirstTeamWinner ? 'text-amber-400' : 'text-slate-300'}`}>
+                          {secondTeam.score}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              );
+            })()}
           </div>
 
           {/* Star Player Spotlight Card (Cols 8-12) */}
