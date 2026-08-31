@@ -318,7 +318,8 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
       coachTenure: '1st Season',
       players: [
         { number: '39', name: 'Lloyd Boomer', position: 'PG', ovr: 83, seasonYear: 'Rookie', schoolOrNote: 'Wyoming', age: 20, height: '6-5', weight: 193 },
-        { number: '7', name: 'Cameron Graham', position: 'SF/PF', ovr: 78, seasonYear: 'Rookie', schoolOrNote: 'Delta State', age: 22, height: '6-10', weight: 260 },
+        { number: '35', name: 'Luke Davidson', position: 'SF/PF', ovr: 79, seasonYear: 'Rookie', schoolOrNote: 'Nebraska', age: 21, height: '6-9', weight: 212, contract: '1 Yr / $5.88M' },
+        { number: '7', name: 'Carson Graham', position: 'SF/PF', ovr: 78, seasonYear: 'Rookie', schoolOrNote: 'Delta State', age: 22, height: '6-10', weight: 260 },
         { number: '50', name: 'Geraldo Jones', position: 'PF/C', ovr: 78, seasonYear: 'Rookie', schoolOrNote: 'Cincinnati', age: 20, height: '6-11', weight: 240 },
         { number: '24', name: 'Charlie Simms', position: 'SF/PF', ovr: 76, seasonYear: 'Rookie', schoolOrNote: 'Portland', age: 18, height: '6-7', weight: 233 },
         { number: '48', name: 'Kaya Izzet', position: 'PF', ovr: 75, seasonYear: 'Rookie', schoolOrNote: 'Turkey', age: 19, height: '6-6', weight: 204 },
@@ -407,6 +408,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
         { number: '1', name: 'Donald Pittman', position: 'SG/PG', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'Boise State', age: 22, height: '6-7', weight: 226 },
         { number: '41', name: 'Mitch Copeland', position: 'C/PF', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'Maryland', age: 22, height: '6-8', weight: 234 },
         { number: '20', name: 'Dan Brooks Jr.', position: 'PG/SG', ovr: 67, seasonYear: 'Rookie', schoolOrNote: 'Loyola (IL)', age: 22, height: '6-1', weight: 187, personality: 'Laid Back', contract: '1 Yr / $1.45M' },
+        { number: '8', name: 'Marcus Pollard', position: 'SG', ovr: 66, seasonYear: 'Rookie', schoolOrNote: 'North Carolina', age: 22, height: '6-4', weight: 200, contract: '1 Yr / $1.45M' },
         { number: '31', name: 'Ernest Cannady', position: 'PG', ovr: 64, seasonYear: 'Rookie', schoolOrNote: 'Michigan State', age: 24, height: '6-2', weight: 197, contract: '1 Yr / $1.45M' },
       ],
     },

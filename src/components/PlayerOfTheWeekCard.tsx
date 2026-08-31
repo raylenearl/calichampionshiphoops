@@ -19,13 +19,12 @@ export const PlayerOfTheWeekCard: React.FC<PlayerOfTheWeekCardProps> = ({
   onSelectTeam,
   onNavigateToTab
 }) => {
-  const [selectedWeek, setSelectedWeek] = useState<2 | 1>(2);
+  const [selectedWeek, setSelectedWeek] = useState<3 | 2 | 1>(3);
   const [copied, setCopied] = useState(false);
 
   const handleShare = (e: React.MouseEvent) => {
     e.stopPropagation();
     const baseUrl = window.location.href.split('#')[0];
-    const articleId = selectedWeek === 2 ? 's4-potw-week-2-bowen-hinton' : 's4-potw-week-1-dean-marai';
     const directUrl = `${baseUrl}#potw?week=s4-week-${selectedWeek}`;
     if (navigator.clipboard) {
       navigator.clipboard.writeText(directUrl).catch(() => {});
@@ -53,7 +52,7 @@ export const PlayerOfTheWeekCard: React.FC<PlayerOfTheWeekCardProps> = ({
               <Award size={14} className="fill-slate-950" /> OFFICIAL LEAGUE AWARDS
             </span>
             <span className="px-2.5 py-0.5 bg-amber-500/20 text-amber-300 border border-amber-500/40 font-mono font-black text-[11px] uppercase rounded-md flex items-center gap-1">
-              <Star size={12} className="fill-amber-300" /> {selectedWeek === 2 ? 'WEEK 2 (OCT 22–28)' : 'WEEK 1 (OCT 15–21)'}
+              <Star size={12} className="fill-amber-300" /> {selectedWeek === 3 ? 'WEEK 3 (OCT 29–NOV 4)' : selectedWeek === 2 ? 'WEEK 2 (OCT 22–28)' : 'WEEK 1 (OCT 15–21)'}
             </span>
             <span className="px-2.5 py-0.5 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-mono font-bold text-[11px] uppercase rounded-md">
               Season 4 Official Slate
@@ -64,6 +63,16 @@ export const PlayerOfTheWeekCard: React.FC<PlayerOfTheWeekCardProps> = ({
             {/* Week Selector Toggle */}
             <div className="inline-flex rounded-xl bg-slate-900 border border-slate-700 p-0.5">
               <button
+                onClick={() => setSelectedWeek(3)}
+                className={`px-3 py-1 text-xs font-mono font-black rounded-lg transition-all cursor-pointer ${
+                  selectedWeek === 3
+                    ? 'bg-amber-500 text-slate-950 shadow-sm'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                Week 3 (Latest)
+              </button>
+              <button
                 onClick={() => setSelectedWeek(2)}
                 className={`px-3 py-1 text-xs font-mono font-black rounded-lg transition-all cursor-pointer ${
                   selectedWeek === 2
@@ -71,7 +80,7 @@ export const PlayerOfTheWeekCard: React.FC<PlayerOfTheWeekCardProps> = ({
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
-                Week 2 (Latest)
+                Week 2
               </button>
               <button
                 onClick={() => setSelectedWeek(1)}
@@ -117,7 +126,16 @@ export const PlayerOfTheWeekCard: React.FC<PlayerOfTheWeekCardProps> = ({
           </div>
         </div>
 
-        {selectedWeek === 2 ? (
+        {selectedWeek === 3 ? (
+          <>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white leading-tight">
+              Players of the Week (Oct 29–Nov 4): Carson Graham &amp; Andor Marai Capture Week 3 Honors
+            </h2>
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-medium max-w-5xl">
+              Fresno forward <strong className="text-sky-300">Carson Graham</strong> takes home the Northern Cali honor after leading the Mad Dogs to a perfect 3-0 start with stellar two-way play (15.5 PPG, 8.5 RPG, 2.0 BPG), while California center <strong className="text-amber-300">Andor Marai</strong> captures the Southern Cali nod following a 20-point, 14-rebound, 4-steal road victory over the LA Dynamics.
+            </p>
+          </>
+        ) : selectedWeek === 2 ? (
           <>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white leading-tight">
               Players of the Week (Oct 22–28): Joshua Bowen &amp; A.J. Hinton Capture Week 2 Honors
@@ -139,7 +157,201 @@ export const PlayerOfTheWeekCard: React.FC<PlayerOfTheWeekCardProps> = ({
       </div>
 
       {/* Dual Winner Spotlight Grid */}
-      {selectedWeek === 2 ? (
+      {selectedWeek === 3 ? (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 relative z-10">
+          {/* ========================================================================= */}
+          {/* WEEK 3 NORTHERN CALI: CARSON GRAHAM (FRESNO MAD DOGS) */}
+          {/* ========================================================================= */}
+          <div className="bg-slate-950/90 border-2 border-sky-500/40 hover:border-sky-400 rounded-3xl p-5 sm:p-6 space-y-4 shadow-xl transition-all flex flex-col justify-between group/graham">
+            <div className="space-y-4">
+              {/* Top Badging */}
+              <div className="flex items-center justify-between border-b border-sky-500/20 pb-3">
+                <div
+                  onClick={() => onSelectTeam?.('fresno-mad-dogs')}
+                  className="flex items-center gap-2.5 cursor-pointer group/team"
+                >
+                  <TeamBadge teamId="fresno-mad-dogs" size="md" />
+                  <div>
+                    <span className="text-[10px] font-mono font-black uppercase text-sky-400 tracking-wider block">
+                      NORTHERN CALI WINNER SPOTLIGHT
+                    </span>
+                    <h3 className="text-base sm:text-lg font-black text-white group-team:text-sky-300 transition-colors">
+                      Fresno Mad Dogs
+                    </h3>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <span className="text-xs font-mono font-black bg-sky-500 text-slate-950 px-2.5 py-1 rounded-xl shadow inline-block">
+                    78 OVR
+                  </span>
+                  <span className="text-[10px] font-mono text-emerald-400 block font-bold mt-0.5">2-0 Slate (3-0 Overall)</span>
+                </div>
+              </div>
+
+              {/* Bio & Stats Box */}
+              <div className="space-y-3">
+                <div className="flex items-baseline justify-between">
+                  <h4 className="text-2xl font-black text-white">Carson Graham</h4>
+                  <span className="text-xs font-mono font-bold text-sky-400">#7 • SF / PF</span>
+                </div>
+
+                {/* 4-Stat Box */}
+                <div className="grid grid-cols-4 gap-2">
+                  <div className="bg-slate-900 p-2.5 rounded-xl border border-slate-800 text-center">
+                    <span className="text-[10px] font-mono text-slate-400 block uppercase">PPG</span>
+                    <span className="text-xl font-black font-mono text-sky-300">15.5</span>
+                  </div>
+                  <div className="bg-slate-900 p-2.5 rounded-xl border border-slate-800 text-center">
+                    <span className="text-[10px] font-mono text-slate-400 block uppercase">RPG</span>
+                    <span className="text-xl font-black font-mono text-white">8.5</span>
+                  </div>
+                  <div className="bg-slate-900 p-2.5 rounded-xl border border-slate-800 text-center">
+                    <span className="text-[10px] font-mono text-slate-400 block uppercase">BPG</span>
+                    <span className="text-xl font-black font-mono text-sky-300">2.0</span>
+                  </div>
+                  <div className="bg-slate-900 p-2.5 rounded-xl border border-slate-800 text-center">
+                    <span className="text-[10px] font-mono text-slate-400 block uppercase">FG%</span>
+                    <span className="text-xl font-black font-mono text-white">61.5%</span>
+                  </div>
+                </div>
+
+                <div className="bg-slate-900/90 p-3 rounded-xl border border-slate-800 text-xs text-slate-300 space-y-1">
+                  <div className="flex items-center justify-between text-emerald-400 font-mono font-bold">
+                    <span>Key Showcase Performance:</span>
+                    <span>14 PTS • 8 REB • 2 BLK (6-10 FG)</span>
+                  </div>
+                  <p className="text-[11px] text-slate-300 font-sans leading-relaxed pt-1 border-t border-slate-800">
+                    Set a ferocious defensive tone in Fresno&apos;s victory over defending champion Sacramento, anchoring the Mad Dogs paint presence to protect their undefeated 3-0 start.
+                  </p>
+                </div>
+              </div>
+
+              {/* Coach Quote Box */}
+              <div className="bg-slate-900/80 border border-slate-800 p-3 rounded-2xl text-xs text-slate-300">
+                <p className="italic text-sky-200">
+                  &ldquo;Carson Graham gives us the physical edge and defensive toughness every night. He sets the tone inside and does everything asked of him.&rdquo;
+                </p>
+                <span className="text-[10px] font-mono text-slate-400 font-bold block mt-1">
+                  — Ronnie Flores, Head Coach • Fresno Mad Dogs
+                </span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 pt-3 border-t border-slate-800">
+              <button
+                onClick={() => onNavigateToNews('s4-update-renegades-reign-supreme-weekly-honors')}
+                className="flex-1 px-3 py-2 bg-sky-500 hover:bg-sky-400 text-slate-950 font-black text-xs rounded-xl shadow-md flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+              >
+                <Shield size={14} />
+                <span>Week 3 Recap</span>
+              </button>
+            </div>
+          </div>
+
+          {/* ========================================================================= */}
+          {/* WEEK 3 SOUTHERN CALI: ANDOR MARAI (CALIFORNIA REDS) */}
+          {/* ========================================================================= */}
+          <div className="bg-slate-950/90 border-2 border-red-500/40 hover:border-red-400 rounded-3xl p-5 sm:p-6 space-y-4 shadow-xl transition-all flex flex-col justify-between group/marai">
+            <div className="space-y-4">
+              {/* Top Badging */}
+              <div className="flex items-center justify-between border-b border-red-500/20 pb-3">
+                <div
+                  onClick={() => onSelectTeam?.('california-reds')}
+                  className="flex items-center gap-2.5 cursor-pointer group/team"
+                >
+                  <TeamBadge teamId="california-reds" size="md" />
+                  <div>
+                    <span className="text-[10px] font-mono font-black uppercase text-red-400 tracking-wider block">
+                      SOUTHERN CALI WINNER SPOTLIGHT
+                    </span>
+                    <h3 className="text-base sm:text-lg font-black text-white group-team:text-red-300 transition-colors">
+                      California Reds
+                    </h3>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <span className="text-xs font-mono font-black bg-red-500 text-white px-2.5 py-1 rounded-xl shadow inline-block">
+                    93 OVR
+                  </span>
+                  <span className="text-[10px] font-mono text-amber-300 block font-bold mt-0.5">1-1 Slate (3-3 Overall)</span>
+                </div>
+              </div>
+
+              {/* Bio & Stats Box */}
+              <div className="space-y-3">
+                <div className="relative rounded-2xl overflow-hidden border border-red-500/30 bg-slate-900 aspect-[16/9] shadow-inner group/img">
+                  <img
+                    src={aMaraiS4_1Img}
+                    alt="Andor Marai Player of the Week"
+                    className="w-full h-full object-cover object-center group-hover/img:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80" />
+                  <div className="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between">
+                    <span className="text-[10px] font-mono font-black bg-red-500 text-white px-2 py-0.5 rounded shadow">
+                      SOUTHERN CALI POTW
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex items-baseline justify-between">
+                  <h4 className="text-2xl font-black text-white">Andor Marai</h4>
+                  <span className="text-xs font-mono font-bold text-red-400">#33 • C</span>
+                </div>
+
+                {/* 4-Stat Box */}
+                <div className="grid grid-cols-4 gap-2">
+                  <div className="bg-slate-900 p-2.5 rounded-xl border border-slate-800 text-center">
+                    <span className="text-[10px] font-mono text-slate-400 block uppercase">PPG</span>
+                    <span className="text-xl font-black font-mono text-red-400">20.5</span>
+                  </div>
+                  <div className="bg-slate-900 p-2.5 rounded-xl border border-slate-800 text-center">
+                    <span className="text-[10px] font-mono text-slate-400 block uppercase">RPG</span>
+                    <span className="text-xl font-black font-mono text-white">12.5</span>
+                  </div>
+                  <div className="bg-slate-900 p-2.5 rounded-xl border border-slate-800 text-center">
+                    <span className="text-[10px] font-mono text-slate-400 block uppercase">SPG</span>
+                    <span className="text-xl font-black font-mono text-amber-300">3.5</span>
+                  </div>
+                  <div className="bg-slate-900 p-2.5 rounded-xl border border-slate-800 text-center">
+                    <span className="text-[10px] font-mono text-slate-400 block uppercase">BPG</span>
+                    <span className="text-xl font-black font-mono text-white">2.0</span>
+                  </div>
+                </div>
+
+                <div className="bg-slate-900/90 p-3 rounded-xl border border-slate-800 text-xs text-slate-300 space-y-1">
+                  <div className="flex items-center justify-between text-emerald-400 font-mono font-bold">
+                    <span>Key Showcase Performance:</span>
+                    <span>20 PTS • 14 REB • 4 STL vs LA</span>
+                  </div>
+                  <p className="text-[11px] text-slate-300 font-sans leading-relaxed pt-1 border-t border-slate-800">
+                    Dominated the paint on the road in Los Angeles, compiling 20 points, 14 boards, and 4 steals to push California back to .500 (3-3).
+                  </p>
+                </div>
+              </div>
+
+              {/* Coach Quote Box */}
+              <div className="bg-slate-900/80 border border-slate-800 p-3 rounded-2xl text-xs text-slate-300">
+                <p className="italic text-red-200">
+                  &ldquo;Andor Marai took over that game in Los Angeles. He set the tone physically and demanded the ball when we needed stops and buckets.&rdquo;
+                </p>
+                <span className="text-[10px] font-mono text-slate-400 font-bold block mt-1">
+                  — William Walker, Head Coach • California Reds
+                </span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 pt-3 border-t border-slate-800">
+              <button
+                onClick={() => onNavigateToNews('s4-update-renegades-reign-supreme-weekly-honors')}
+                className="flex-1 px-3 py-2 bg-red-600 hover:bg-red-500 text-white font-black text-xs rounded-xl shadow-md flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+              >
+                <Shield size={14} />
+                <span>Week 3 Recap</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : selectedWeek === 2 ? (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 relative z-10">
           {/* ========================================================================= */}
           {/* WEEK 2 NORTHERN CALI: JOSHUA BOWEN (OAKLAND RENEGADES) */}
@@ -507,12 +719,54 @@ export const PlayerOfTheWeekCard: React.FC<PlayerOfTheWeekCardProps> = ({
       <div className="bg-slate-950/90 border border-slate-800 rounded-2xl p-4 space-y-3 relative z-10">
         <div className="flex items-center justify-between">
           <span className="text-xs font-mono font-black uppercase text-amber-400 tracking-wider flex items-center gap-1.5">
-            <Star size={14} className="fill-amber-400" /> {selectedWeek === 2 ? 'WEEK 2' : 'WEEK 1'} HONORABLE MENTIONS
+            <Star size={14} className="fill-amber-400" /> {selectedWeek === 3 ? 'WEEK 3' : selectedWeek === 2 ? 'WEEK 2' : 'WEEK 1'} HONORABLE MENTIONS
           </span>
           <span className="text-[10px] font-mono text-slate-400">Official Finalists</span>
         </div>
 
-        {selectedWeek === 2 ? (
+        {selectedWeek === 3 ? (
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs">
+            <div className="bg-slate-900/90 p-3 rounded-xl border border-slate-800/80 space-y-1">
+              <div className="flex items-center justify-between">
+                <span className="font-black text-white">Lloyd Boomer</span>
+                <span className="text-[10px] font-mono font-bold text-amber-400">Fresno</span>
+              </div>
+              <p className="text-[11px] text-slate-300">
+                26.0 PPG, 8.0 APG, 3.0 SPG in 82-75 road win at Golden State.
+              </p>
+            </div>
+
+            <div className="bg-slate-900/90 p-3 rounded-xl border border-slate-800/80 space-y-1">
+              <div className="flex items-center justify-between">
+                <span className="font-black text-white">Stephan Sirven</span>
+                <span className="text-[10px] font-mono font-bold text-amber-400">Anaheim</span>
+              </div>
+              <p className="text-[11px] text-slate-300">
+                18.0 PPG (6-6 FT) to guide Admirals to season-first win (56-52 vs SF).
+              </p>
+            </div>
+
+            <div className="bg-slate-900/90 p-3 rounded-xl border border-slate-800/80 space-y-1">
+              <div className="flex items-center justify-between">
+                <span className="font-black text-white">Carlton Daugherty</span>
+                <span className="text-[10px] font-mono font-bold text-amber-400">Golden State</span>
+              </div>
+              <p className="text-[11px] text-slate-300">
+                18.0 PPG (4 3PM) and strong perimeter scoring vs undefeated Fresno.
+              </p>
+            </div>
+
+            <div className="bg-slate-900/90 p-3 rounded-xl border border-slate-800/80 space-y-1">
+              <div className="flex items-center justify-between">
+                <span className="font-black text-white">Eric Higgins</span>
+                <span className="text-[10px] font-mono font-bold text-amber-400">San Francisco</span>
+              </div>
+              <p className="text-[11px] text-slate-300">
+                16.0 PPG, 9.0 RPG, 2.0 BPG in tough defensive road battle.
+              </p>
+            </div>
+          </div>
+        ) : selectedWeek === 2 ? (
           <div className="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs">
             <div className="bg-slate-900/90 p-3 rounded-xl border border-slate-800/80 space-y-1">
               <div className="flex items-center justify-between">
@@ -592,7 +846,7 @@ export const PlayerOfTheWeekCard: React.FC<PlayerOfTheWeekCardProps> = ({
       {/* Action Footer */}
       <div className="flex flex-wrap items-center justify-between gap-3 pt-1 border-t border-slate-800/80 relative z-10">
         <button
-          onClick={() => onNavigateToNews(selectedWeek === 2 ? 's4-potw-week-2-bowen-hinton' : 's4-potw-week-1-dean-marai')}
+          onClick={() => onNavigateToNews(selectedWeek === 3 ? 's4-update-renegades-reign-supreme-weekly-honors' : selectedWeek === 2 ? 's4-potw-week-2-bowen-hinton' : 's4-potw-week-1-dean-marai')}
           className="px-5 py-2.5 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs sm:text-sm shadow-lg shadow-amber-500/20 flex items-center gap-2 transition-all cursor-pointer"
         >
           <BookOpen size={16} />

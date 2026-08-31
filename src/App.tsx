@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Header } from './components/Header';
 import { HeroBanner } from './components/HeroBanner';
+import { LatestLeagueNewsCard } from './components/LatestLeagueNewsCard';
 import { OpeningDayRecapCard } from './components/OpeningDayRecapCard';
 import { PlayerOfTheWeekCard } from './components/PlayerOfTheWeekCard';
 import { LatestGamesShowcase } from './components/LatestGamesShowcase';
@@ -282,7 +283,14 @@ export default function App() {
             {/* Hero Showcase */}
             <HeroBanner onNavigate={(tab) => setActiveTab(tab)} selectedSeason={selectedSeason} />
 
-            {/* FEATURE 1: LATEST PODCAST & FILM ROOM SPECIAL - San Diego's Impossible 5% Defense */}
+            {/* FEATURE 1: LATEST LEAGUE UPDATE - S4 Standings, Latest Games & Week 3 Honors */}
+            <LatestLeagueNewsCard
+              onNavigateToNews={handleNavigateToNews}
+              onSelectTeam={(teamId) => handleSelectTeamRecap(teamId, 4)}
+              onNavigateToTab={(tab) => setActiveTab(tab)}
+            />
+
+            {/* FEATURE 2: LATEST PODCAST & FILM ROOM SPECIAL - San Diego's Impossible 5% Defense */}
             <FivePercentDefensePodcastCard
               onNavigateToNews={handleNavigateToNews}
               onSelectTeam={(teamId) => handleSelectTeamRecap(teamId, 4)}

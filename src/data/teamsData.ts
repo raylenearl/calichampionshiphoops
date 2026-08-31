@@ -130,7 +130,7 @@ export const TEAMS: Team[] = [
     accentColor: '#000000',
     iconName: 'Dog',
     description: 'Season 3 Cinderella finalist turns the page with new head coach Ronnie Flores and an all-rookie starting core headlined by 6\'5" jumbo playmaker Lloyd Boomer (83 OVR). Home venue: Fresno Center.',
-    keyPlayers: ['Lloyd Boomer (PG, 83 OVR • Rookie)', 'Cameron Graham (SF/PF, 78 OVR • Rookie)', 'Geraldo Jones (PF/C, 78 OVR • Rookie)', 'Charlie Simms (SF/PF, 76 OVR • Rookie)'],
+    keyPlayers: ['Lloyd Boomer (PG, 83 OVR • Rookie)', 'Carson Graham (SF/PF, 78 OVR • Rookie)', 'Geraldo Jones (PF/C, 78 OVR • Rookie)', 'Charlie Simms (SF/PF, 76 OVR • Rookie)'],
     coach: 'Ronnie Flores (1st Season)',
     titles: ['Season 3 CCH Finals Runner-Up (#8 Seed Cinderella Run)', 'Defeated #1 Seed CA Reds 90-86 in S3 QF'],
     s1Record: '7-15 (12th)',

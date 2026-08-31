@@ -17,10 +17,10 @@ export const SEASON_4_SCHEDULE: GameRecord[] = [
   { id: 's4-13', season: 4, date: 'Oct 31', month: 'October', team1: 'Sacramento Stallions', score1: 48, team2: 'Fresno Mad Dogs', score2: 64, highScorer: 'Lloyd Boomer (FRE)', points: 26, recapArticleId: 's4-g13-mad-dogs-dominate-stallions', notes: 'Stallions @ Mad Dogs • Boomer 26 PTS (9-14 FG) • Mad Dogs 40-20 Paint Pts, 16 TOs forced • FRE 64-48' },
 
   // NOVEMBER (26 Games)
-  { id: 's4-14', season: 4, date: 'Nov 1', month: 'November', team1: 'California Reds', score1: 0, team2: 'Los Angeles Dynamics', score2: 0, notes: 'Reds @ Dynamics' },
-  { id: 's4-15', season: 4, date: 'Nov 2', month: 'November', team1: 'San Francisco Knights', score1: 0, team2: 'Anaheim Admirals', score2: 0, notes: 'Knights @ Admirals' },
+  { id: 's4-14', season: 4, date: 'Nov 1', month: 'November', team1: 'California Reds', score1: 61, team2: 'Los Angeles Dynamics', score2: 56, highScorer: 'Andor Marai (CAL)', points: 20, recapArticleId: 's4-g14-reds-edge-dynamics-marai', notes: 'Reds @ Dynamics • Marai 20 PTS, 14 REB, 4 STL • Rush 14 PTS • Reds Win 61-56' },
+  { id: 's4-15', season: 4, date: 'Nov 2', month: 'November', team1: 'San Francisco Knights', score1: 52, team2: 'Anaheim Admirals', score2: 56, highScorer: 'Stephan Sirven (ANA)', points: 18, recapArticleId: 's4-g15-admirals-edge-knights-first-win', notes: 'Knights @ Admirals • Sirven 18 PTS (6-6 FT) • Tinsley 16 PTS (4-5 3PT) • Admirals Win First Game 56-52' },
   { id: 's4-16', season: 4, date: 'Nov 5', month: 'November', team1: 'Los Angeles Dynamics', score1: 0, team2: 'San Diego Strykers', score2: 0, notes: 'Dynamics @ Strykers' },
-  { id: 's4-17', season: 4, date: 'Nov 5', month: 'November', team1: 'Fresno Mad Dogs', score1: 0, team2: 'Golden State Enterprise', score2: 0, notes: 'Mad Dogs @ Enterprise' },
+  { id: 's4-17', season: 4, date: 'Nov 5', month: 'November', team1: 'Fresno Mad Dogs', score1: 82, team2: 'Golden State Enterprise', score2: 75, highScorer: 'Lloyd Boomer (FRE)', points: 26, recapArticleId: 's4-g16-mad-dogs-outlast-enterprise-boomer', notes: 'Mad Dogs @ Enterprise • Boomer 26 PTS, 8 AST, 3 STL • Davidson 12 PTS, 10 REB • Daugherty 18 PTS • FRE 82-75' },
   { id: 's4-18', season: 4, date: 'Nov 7', month: 'November', team1: 'San Diego Sabrewolves', score1: 0, team2: 'San Francisco Knights', score2: 0, notes: 'Sabrewolves @ Knights' },
   { id: 's4-19', season: 4, date: 'Nov 9', month: 'November', team1: 'Oakland Renegades', score1: 0, team2: 'San Diego Sabrewolves', score2: 0, notes: 'Renegades @ Sabrewolves' },
   { id: 's4-20', season: 4, date: 'Nov 9', month: 'November', team1: 'San Francisco Knights', score1: 0, team2: 'California Reds', score2: 0, notes: 'Knights @ Reds' },

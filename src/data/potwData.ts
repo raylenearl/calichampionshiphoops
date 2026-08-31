@@ -58,7 +58,103 @@ export interface POTWWeek {
 
 export const POTW_WEEKS: POTWWeek[] = [
   // ==========================================
-  // SEASON 4 - WEEK 2 (OCT 22 - OCT 28) [CURRENT LATEST]
+  // SEASON 4 - WEEK 3 (OCT 29 - NOV 4) [CURRENT LATEST]
+  // ==========================================
+  {
+    id: 's4-week-3',
+    season: 4,
+    weekNumber: 3,
+    dateRange: 'Oct 29 – Nov 4',
+    headline: 'Players of the Week: Carson Graham & Andor Marai Earn Week 3 Honors',
+    subheadline: 'Carson Graham anchors the 3-0 Fresno Mad Dogs with two-way interior mastery in Northern Cali, while Andor Marai posts 20.5 PPG & 12.5 RPG to guide California in Southern Cali.',
+    overview: 'The CCH League Office has announced the Players of the Week for Week 3 of Season 4. Fresno forward Carson Graham took Northern Cali honors after leading the Mad Dogs to a perfect 3-0 start with stellar two-way play, while California Reds superstar center Andor Marai captured Southern Cali honors following a 20-point, 14-rebound, 4-steal road victory over the LA Dynamics.',
+    status: 'awarded',
+    newsArticleId: 's4-update-renegades-reign-supreme-weekly-honors',
+    northernWinner: {
+      player: 'Carson Graham',
+      team: 'Fresno Mad Dogs',
+      teamId: 'fresno-mad-dogs',
+      jersey: '#7',
+      position: 'SF / PF',
+      ovr: 78,
+      conference: 'Northern',
+      record: '2-0 (3-0 Overall)',
+      statSummary: '15.5 PPG • 8.5 RPG • 2.0 BPG • 61.5% FG',
+      keyGame: '14 PTS, 8 REB, 2 BLK vs Sacramento (64-48 W)',
+      blurb: 'Graham was a two-way force for the Mad Dogs, controlling the interior glass, providing essential weak-side rim protection, and shooting over 60% from the field to keep Fresno undefeated at 3-0.',
+      stats: [
+        { label: 'PPG', value: '15.5', sub: 'Points Per Game' },
+        { label: 'RPG', value: '8.5', sub: 'Rebounds Per Game' },
+        { label: 'BPG', value: '2.0', sub: 'Blocks Per Game' },
+        { label: 'FG%', value: '61.5%', sub: 'Field Goal %' }
+      ]
+    },
+    southernWinner: {
+      player: 'Andor Marai',
+      team: 'California Reds',
+      teamId: 'california-reds',
+      jersey: '#33',
+      position: 'C',
+      ovr: 93,
+      conference: 'Southern',
+      record: '1-1 (3-3 Overall)',
+      statSummary: '20.5 PPG • 12.5 RPG • 3.5 SPG • 2.0 BPG',
+      keyGame: '20 PTS, 14 REB, 4 STL vs Los Angeles Dynamics (61-56 W)',
+      imageUrl: aMaraiS4_1Img,
+      blurb: 'Marai put on an absolute clinic in Los Angeles, compiling 20 points, 14 rebounds, and 4 steals while leading the Reds to a crucial 61-56 road victory over the Dynamics to pull California back to .500.',
+      stats: [
+        { label: 'PPG', value: '20.5', sub: 'Points Per Game' },
+        { label: 'RPG', value: '12.5', sub: 'Rebounds Per Game' },
+        { label: 'SPG', value: '3.5', sub: 'Steals Per Game' },
+        { label: 'BPG', value: '2.0', sub: 'Blocks Per Game' }
+      ]
+    },
+    honorableMentions: [
+      {
+        player: 'Lloyd Boomer',
+        team: 'Fresno Mad Dogs',
+        teamId: 'fresno-mad-dogs',
+        conference: 'Northern',
+        stat: '26.0 PPG, 8.0 APG, 3.0 SPG in 82-75 road win at Golden State'
+      },
+      {
+        player: 'Stephan Sirven',
+        team: 'Anaheim Admirals',
+        teamId: 'anaheim-admirals',
+        conference: 'Southern',
+        stat: '18.0 PPG, 6-6 FT in 56-52 win over San Francisco (First S4 Win)'
+      },
+      {
+        player: 'Carlton Daugherty',
+        team: 'Golden State Enterprise',
+        teamId: 'golden-state-enterprise',
+        conference: 'Northern',
+        stat: '18.0 PPG, 4 3PM, 3.0 RPG vs Fresno Mad Dogs'
+      },
+      {
+        player: 'Eric Higgins',
+        team: 'San Francisco Knights',
+        teamId: 'san-francisco-knights',
+        conference: 'Northern',
+        stat: '16.0 PPG, 9.0 RPG, 2.0 BPG at Anaheim'
+      }
+    ],
+    quotes: [
+      {
+        speaker: 'Ronnie Flores',
+        title: 'Head Coach • Fresno Mad Dogs (3-0 Start)',
+        quote: 'Carson Graham gives us the physical edge and defensive toughness every night. He sets the tone inside and does everything asked of him.'
+      },
+      {
+        speaker: 'William Walker',
+        title: 'Head Coach • California Reds',
+        quote: 'Andor Marai was unstoppable in Los Angeles. He wanted the ball, made huge defensive stops, and carried us back to .500.'
+      }
+    ]
+  },
+
+  // ==========================================
+  // SEASON 4 - WEEK 2 (OCT 22 - OCT 28)
   // ==========================================
   {
     id: 's4-week-2',
@@ -240,54 +336,6 @@ export const POTW_WEEKS: POTWWeek[] = [
   // ==========================================
   // SEASON 4 - UPCOMING CALENDAR SLATES
   // ==========================================
-  {
-    id: 's4-week-3',
-    season: 4,
-    weekNumber: 3,
-    dateRange: 'Oct 29 – Nov 4',
-    headline: 'Week 3 Player of the Week',
-    subheadline: 'Upcoming slate featuring rivalry clashes and inter-conference battles.',
-    overview: 'Voting and official tabulation will conclude upon the completion of all scheduled games on November 4.',
-    status: 'upcoming',
-    northernWinner: {
-      player: 'TBD',
-      team: 'Northern Cali Candidate',
-      teamId: 'oakland-renegades',
-      jersey: '--',
-      position: 'TBD',
-      ovr: 0,
-      conference: 'Northern',
-      record: '--',
-      statSummary: 'Voting in Progress',
-      keyGame: 'Pending Week 3 Games',
-      stats: [
-        { label: 'PTS', value: '--', sub: 'In Progress' },
-        { label: 'REB', value: '--', sub: 'In Progress' },
-        { label: 'AST', value: '--', sub: 'In Progress' },
-        { label: 'SPG', value: '--', sub: 'In Progress' }
-      ],
-      blurb: 'Northern Cali voting will be finalized following the conclusion of Sunday evening contests.'
-    },
-    southernWinner: {
-      player: 'TBD',
-      team: 'Southern Cali Candidate',
-      teamId: 'san-diego-strykers',
-      jersey: '--',
-      position: 'TBD',
-      ovr: 0,
-      conference: 'Southern',
-      record: '--',
-      statSummary: 'Voting in Progress',
-      keyGame: 'Pending Week 3 Games',
-      stats: [
-        { label: 'PPG', value: '--', sub: 'In Progress' },
-        { label: 'RPG', value: '--', sub: 'In Progress' },
-        { label: 'APG', value: '--', sub: 'In Progress' },
-        { label: '3PM', value: '--', sub: 'In Progress' }
-      ],
-      blurb: 'Southern Cali voting will be finalized following the conclusion of Sunday evening contests.'
-    }
-  },
   {
     id: 's4-week-4',
     season: 4,

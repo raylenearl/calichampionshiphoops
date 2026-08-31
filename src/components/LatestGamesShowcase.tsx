@@ -120,7 +120,7 @@ const HIGHLIGHT_GAMES: GameHighlight[] = [
       { label: 'Stallions Road Woes', value: '0 - 3 Record', desc: 'Defending Champions Slump' },
     ],
     secondaryPerformers: [
-      { name: 'Cameron Graham (FRE)', team: 'Mad Dogs', stat: '14 PTS, 8 REB, 2 BLK (6-10 FG)' },
+      { name: 'Carson Graham (FRE)', team: 'Mad Dogs', stat: '14 PTS, 8 REB, 2 BLK (6-10 FG)' },
       { name: 'Geraldo Jones (FRE)', team: 'Mad Dogs', stat: '10 PTS, 7 REB (4-7 FG)' },
       { name: 'Adrian Pognotti (SAC)', team: 'Stallions', stat: '16 PTS, 5 REB, 2 BLK' },
       { name: 'Gemini Jackson (SAC)', team: 'Stallions', stat: '11 PTS, 6 BLK, 4 AST, 2 STL' },

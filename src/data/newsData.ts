@@ -101,6 +101,45 @@ export interface CCHNewsArticle {
 
 export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
   {
+    id: 's4-update-renegades-reign-supreme-weekly-honors',
+    title: 'Season 4 Update: Renegades Reign Supreme, Marai and Graham Earn Weekly Honors',
+    subtitle: 'The battle for the top of the CCH standings is heating up as Oakland sits at 4-0, Fresno and San Diego follow at 3-0, California claws back to .500, and Anaheim notches its first win.',
+    date: 'Season 4 Official League Update • Nov 6',
+    season: 4,
+    category: 'feature',
+    featured: true,
+    author: 'CCH League Office & Editorial Desk',
+    readTime: '4 min read',
+    imageUrl: aMaraiS4_1Img,
+    imageCaption: 'Andor Marai posted 20 points, 14 rebounds, and 4 steals to push the California Reds back to .500 while earning South Player of the Week honors.',
+    headlineQuote: 'The battle for the top of the CCH standings is heating up with Oakland, San Diego, and Fresno leading the pack.',
+    contentParagraphs: [
+      'CALIFORNIA — The battle for the top of the CCH standings is heating up. The Oakland Renegades remain the only unbeaten team at 4-0, but the San Diego Strykers and Fresno Mad Dogs are right on their heels at 3-0. Meanwhile, the California Reds have clawed back to .500 with a gritty win, and the Anaheim Admirals finally got their first win of the season.',
+      'STANDINGS & CONFERENCE BREAKDOWN:\n1. Oakland Renegades (4-0, -- GB, 67.0 PPG, 50.3 OPP, +16.8 DIFF)\n2. San Diego Strykers (3-0, 0.5 GB, 80.0 PPG, 47.3 OPP, +32.7 DIFF)\n3. Fresno Mad Dogs (3-0, 0.5 GB, 68.3 PPG, 58.7 OPP, +9.7 DIFF)\n4. California Reds (3-3, 2.0 GB, 60.0 PPG, 67.0 OPP, -7.0 DIFF)\n5. Los Angeles Dynamics (1-1, 2.0 GB, 66.5 PPG, 58.0 OPP, +8.5 DIFF)\n6. Golden State Enterprise (1-1, 2.0 GB, 70.0 PPG, 70.0 OPP, 0.0 DIFF)\n7. Anaheim Admirals (1-2, 2.5 GB, 49.3 PPG, 69.3 OPP, -20.0 DIFF)\n8. San Jose Tigersharks (0-1, 2.5 GB, 53.0 PPG, 59.0 OPP, -6.0 DIFF)\n9. San Francisco Knights (0-2, 3.0 GB, 52.0 PPG, 61.0 OPP, -9.0 DIFF)\n10. San Diego Sabrewolves (0-1, 2.5 GB, 55.0 PPG, 77.0 OPP, -22.0 DIFF)\n11. Long Beach Vipers (0-2, 3.0 GB, 48.0 PPG, 60.5 OPP, -12.5 DIFF)\n12. Sacramento Stallions (0-3, 3.5 GB, 47.3 PPG, 60.0 OPP, -12.7 DIFF)',
+      'GAME RECAPS:\n• Fresno Mad Dogs 82, Golden State Enterprise 75: The Mad Dogs outlasted a tough Enterprise squad on the road to stay perfect. Lloyd Boomer was outstanding again, dropping 26 points, dishing out 8 assists, and adding 3 steals. The Mad Dogs got a massive boost from newly signed forward Luke Davidson, who recorded a 12-point, 10-rebound double-double in his debut. Jud Drew added 13 points and 5 rebounds. For Enterprise (1-1), Carlton Daugherty scored 18 points (4 3PM) and Jud Thompson chipped in 17 points and 6 assists.\n• Anaheim Admirals 56, San Francisco Knights 52: The Admirals held off the Knights to notch their first win of Season 4. Stephan Sirven led Anaheim with 18 points (6-of-6 FT), while Kirk Tinsley provided efficient scoring with 16 points (4-of-5 3PT). For San Francisco (0-2), Eric Higgins recorded a 16-point, 9-rebound line and Manny Payton added 10 points and 11 boards.\n• California Reds 61, Los Angeles Dynamics 56: The Reds rebounded in dramatic fashion, taking down the Dynamics on the road. Center Andor Marai was dominant in the paint, posting a massive 20-point, 14-rebound, 4-steal performance to lead California back to .500 (3-3). Donald Rodman added 11 points and 9 boards. For LA (1-1), rookie sensation R.J. Rush finished with 14 points and Reggie Forte added 9.',
+      'PLAYERS OF THE WEEK (OCT 29 – NOV 4):\n• North Player of the Week: Carson Graham (Fresno Mad Dogs) — Powered Fresno to an undefeated 3-0 start with stellar two-way production, elite interior defense, and leadership.\n• South Player of the Week: Andor Marai (California Reds) — Dominated inside with 20.5 PPG, 12.5 RPG, and 3.5 SPG over the week to guide California back to .500.',
+      'LEAGUE TRANSACTIONS:\n• Fresno Mad Dogs signed rookie forward Luke Davidson (6\'9", Nebraska) to a 1-year, $5.88M contract. In his debut, Davidson tallied 12 points and 10 rebounds in an 82-75 victory over Golden State.\n• California Reds signed SG Marcus Pollard (6\'4", North Carolina) to a 1-year, $1.45M contract.'
+    ],
+    quotes: [
+      {
+        speaker: 'Ronnie Flores',
+        title: 'Head Coach • Fresno Mad Dogs (3-0 Record)',
+        quote: 'Adding Luke Davidson gives us the size and rebounding we need. Lloyd Boomer and our frontcourt played with immense poise down the stretch in Oakland.'
+      },
+      {
+        speaker: 'William Walker',
+        title: 'Head Coach • California Reds (3-3 Record)',
+        quote: 'Andor Marai took over that game in Los Angeles. He set the tone physically and demanded the ball when we needed stops and buckets.'
+      }
+    ],
+    playerStats: [
+      { player: 'Lloyd Boomer', team: 'Fresno Mad Dogs', stat: '26 PTS, 8 AST, 3 STL vs Enterprise' },
+      { player: 'Luke Davidson', team: 'Fresno Mad Dogs', stat: '12 PTS, 10 REB (Debut Double-Double)' },
+      { player: 'Andor Marai', team: 'California Reds', stat: '20 PTS, 14 REB, 4 STL vs LA Dynamics' },
+      { player: 'Stephan Sirven', team: 'Anaheim Admirals', stat: '18 PTS, 6/6 FT in Season-First Win' }
+    ]
+  },
+  {
     id: 's4-podcast-san-diego-impossible-five-percent-defense',
     title: 'PODCAST: San Diego\'s Impossible Five Percent Defense & The Anatomy of a Lockdown Contender',
     subtitle: 'An exhaustive film breakdown of the San Diego Strykers\' historically suffocating defensive scheme, holding opponents to an unbelievable 5% from three-point range and unleashing back-to-back blowout quarter blitzes.',
@@ -411,7 +450,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     headlineQuote: 'Lloyd Boomer was unstoppable for the Mad Dogs, dropping a game-high 26 points on 9-for-14 shooting to keep Fresno undefeated.',
     contentParagraphs: [
       'Fresno, CA – Lloyd Boomer was unstoppable for the Mad Dogs, dropping a game-high 26 points on 9-for-14 shooting to keep Fresno undefeated at 2-0 with a dominant 64-48 win over the Sacramento Stallions.',
-      'The Mad Dogs dominated the paint, outscoring the Stallions 40-20 inside and forcing 16 turnovers with relentless pressure. Cameron Graham provided strong interior muscle with 14 points and 8 rebounds, while Geraldo Jones chipped in 10 points and 7 boards.',
+      'The Mad Dogs dominated the paint, outscoring the Stallions 40-20 inside and forcing 16 turnovers with relentless pressure. Carson Graham provided strong interior muscle with 14 points and 8 rebounds, while Geraldo Jones chipped in 10 points and 7 boards.',
       'STALLIONS SLUMP CONTINUES:\nFor the struggling defending champion Stallions (0-3), Adrian Pognotti led the way with 16 points, 5 rebounds, and 2 blocks, while Gemini Jackson added a monstrous 6 blocks to go with 11 points and 4 assists. Frank Hackett contributed 10 points and 6 rebounds, but Sacramento was unable to find consistent perimeter offense, dropping their third straight road game.'
     ],
     quotes: [
@@ -433,7 +472,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     ],
     playerStats: [
       { player: 'Lloyd Boomer', team: 'Fresno Mad Dogs', stat: '26 PTS, 5 REB, 3 AST (9-14 FG, 2-4 3PT, 6-7 FT)' },
-      { player: 'Cameron Graham', team: 'Fresno Mad Dogs', stat: '14 PTS, 8 REB, 2 BLK (6-10 FG)' },
+      { player: 'Carson Graham', team: 'Fresno Mad Dogs', stat: '14 PTS, 8 REB, 2 BLK (6-10 FG)' },
       { player: 'Geraldo Jones', team: 'Fresno Mad Dogs', stat: '10 PTS, 7 REB (4-7 FG)' },
       { player: 'Adrian Pognotti', team: 'Sacramento Stallions', stat: '16 PTS, 5 REB, 2 BLK (7-13 FG)' },
       { player: 'Gemini Jackson', team: 'Sacramento Stallions', stat: '11 PTS, 6 BLK, 4 AST, 2 STL (5-10 FG)' },
@@ -966,7 +1005,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
       { player: 'Lloyd Boomer', team: 'Fresno Mad Dogs', stat: '25 PTS, 4 REB, 1 AST, 9-22 FG, 6-6 FT (Player of the Game)' },
       { player: 'Al Sloan', team: 'San Jose Tigersharks', stat: '21 PTS, 6 REB, 9-11 FG (81.8%), 3-3 FT' },
       { player: 'Albert Gill', team: 'San Jose Tigersharks', stat: '9 PTS, 3-3 3PT in 10 MIN' },
-      { player: 'Cameron Graham', team: 'Fresno Mad Dogs', stat: '8 PTS, 4 REB, 2 AST, 1 STL, 2-4 FG' },
+      { player: 'Carson Graham', team: 'Fresno Mad Dogs', stat: '8 PTS, 4 REB, 2 AST, 1 STL, 2-4 FG' },
       { player: 'Dell Gooden', team: 'San Jose Tigersharks', stat: '8 PTS, 2 REB, 1 AST, 1 STL, 4-8 FG' },
       { player: 'Donnell Wingate', team: 'Fresno Mad Dogs', stat: '7 PTS, 3 REB, 2 AST, 1 BLK' },
       { player: 'Jud Drew', team: 'Fresno Mad Dogs', stat: '7 PTS, 5 REB, 1 STL (3-3 FG)' },
@@ -1493,7 +1532,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
         tenureYears: '1st Season in Fresno',
         tenureNote: '(New Head Coach)',
         photo: rFloresImg,
-        background: 'Takes the reins in Fresno following the Mad Dogs’ historic Season 3 Cinderella Finals run. Brings intense defensive pressure and fast-break schemes to empower rookie point guard Lloyd Boomer and forward Cameron Graham.',
+        background: 'Takes the reins in Fresno following the Mad Dogs’ historic Season 3 Cinderella Finals run. Brings intense defensive pressure and fast-break schemes to empower rookie point guard Lloyd Boomer and forward Carson Graham.',
         philosophy: 'Relentless underdog energy, full-court pressure, and aggressive paint attacking.'
       },
       {
