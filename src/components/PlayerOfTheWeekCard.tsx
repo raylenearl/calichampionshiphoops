@@ -816,7 +816,7 @@ export const PlayerOfTheWeekCard: React.FC<PlayerOfTheWeekCardProps> = ({
                 <span className="text-[10px] font-mono font-bold text-amber-400">San Diego Strykers</span>
               </div>
               <p className="text-[11px] text-slate-300">
-                Exploded for 30 points (8-11 3PT, 4 STL) in Game 6 blowout of Anaheim; led Strykers to 2-0 start.
+                Exploded for 30 points (8-11 3PT, 4 STL) in blowout of Anaheim; led Strykers to 2-0 start.
               </p>
             </div>
 

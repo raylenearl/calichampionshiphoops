@@ -24,12 +24,11 @@ export const TEAMS: Team[] = [
     abbreviation: 'SAC',
     city: 'Sacramento',
     conference: 'Northern Cali',
-    arena: 'Sac Town Center',
     primaryColor: '#4a03a9', // Purple
     secondaryColor: '#000000', // Gold
     accentColor: '#ffffff',
     iconName: 'Crown',
-    description: 'The league’s premier dynasty and 2-Time CCH Champions (Season 1 & Season 3). Veteran frontcourt anchored by All-Star Frank Hackett (89) and Finals standout George Madsen (88). Home venue: Sac Town Center.',
+    description: 'The league’s premier dynasty and 2-Time CCH Champions (Season 1 & Season 3). Veteran frontcourt anchored by All-Star Frank Hackett (89) and Finals standout George Madsen (88).',
     keyPlayers: ['Frank Hackett (PF, 89 OVR • 4th Season)', 'George Madsen (SG/SF, 88 OVR • 4th Season)', 'Leo Bass (C, 80 OVR • Rookie)', 'Isaac Livingston (PF/C, 76 OVR • Rookie)'],
     coach: 'Benjamin Nelson (4th Season)',
     titles: ['2-Time CCH Champions (Season 1 & Season 3)', '3 Consecutive CCH Finals Appearances', 'Season 1 Regular Season Champions (17-5)'],
@@ -44,7 +43,6 @@ export const TEAMS: Team[] = [
     abbreviation: 'SF',
     city: 'San Francisco',
     conference: 'Northern Cali',
-    arena: 'San Francisco Arena',
     primaryColor: '#ee1e24', // Midnight Red
     secondaryColor: '#d2ab66', // Gold
     accentColor: '#000000',
@@ -64,12 +62,11 @@ export const TEAMS: Team[] = [
     abbreviation: 'OAK',
     city: 'Oakland',
     conference: 'Northern Cali',
-    arena: 'Oakland Arena',
     primaryColor: '#2d1e0a', // Brown
     secondaryColor: '#bfaa8c', // Baige
     accentColor: '#000000',
     iconName: 'Flame',
-    description: 'An explosive, high-octane powerhouse boasting the league’s most lethal backcourt in superstar Jamar Dean (96) and All-Star Alonzo Reece (92), plus paint protector Joshua Bowen (86). Home venue: Oakland Arena.',
+    description: 'An explosive, high-octane powerhouse boasting the league’s most lethal backcourt in superstar Jamar Dean (96) and All-Star Alonzo Reece (92), plus paint protector Joshua Bowen (86).',
     keyPlayers: ['Jamar Dean (SG/PG, 96 OVR • 4th Season)', 'Alonzo Reece (PG/SG, 92 OVR • 4th Season)', 'Joshua Bowen (C, 86 OVR • 4th Season)', 'Carl Marks (PF/C, 81 OVR • Rookie)'],
     coach: 'Carson Goodwin (1st Season)',
     titles: ['Highest Single-Game Scoring Highlights', 'Dual 90+ OVR Super Backcourt'],
@@ -84,7 +81,6 @@ export const TEAMS: Team[] = [
     abbreviation: 'SJ',
     city: 'San Jose',
     conference: 'Northern Cali',
-    arena: 'San Jose Arena',
     primaryColor: '#ff9900', // Orange
     secondaryColor: '#ffffff', // Slate Dark
     accentColor: '#000000',
@@ -104,12 +100,11 @@ export const TEAMS: Team[] = [
     abbreviation: 'GS',
     city: 'San Francisco',
     conference: 'Northern Cali',
-    arena: 'Enterprise Headquarters',
     primaryColor: '#000000', // Black
     secondaryColor: '#f59e0b', // Gold
     accentColor: '#60a5fa',
     iconName: 'Activity',
-    description: 'Franchise revitalized with the #1 overall pick Carlton Daugherty (85 OVR), veteran center Cameron Barkley (88 OVR), and sharp-shooting forward Chad Bryant (83 OVR). Home venue: Enterprise Headquarters.',
+    description: 'Franchise revitalized with the #1 overall pick Carlton Daugherty (85 OVR), veteran center Cameron Barkley (88 OVR), and sharp-shooting forward Chad Bryant (83 OVR).',
     keyPlayers: ['Cameron Barkley (C, 88 OVR • 5th Season)', 'Carlton Daugherty (SF, 85 OVR • Rookie)', 'Chad Bryant (SF/SG, 83 OVR • 2nd Season)', 'Jud Thompson (PG/SG, 78 OVR • Rookie)'],
     coach: 'Wyatt Zimmerman (1st Season)',
     titles: ['Season 1 Finals Runner-Up', 'Drafted #1 Overall Pick Carlton Daugherty'],
@@ -124,12 +119,11 @@ export const TEAMS: Team[] = [
     abbreviation: 'FRE',
     city: 'Fresno',
     conference: 'Northern Cali',
-    arena: 'Fresno Center',
     primaryColor: '#b41927', // Mad Dog Red
     secondaryColor: '#f66d23', // Orange
     accentColor: '#000000',
     iconName: 'Dog',
-    description: 'Season 3 Cinderella finalist turns the page with new head coach Ronnie Flores and an all-rookie starting core headlined by 6\'5" jumbo playmaker Lloyd Boomer (83 OVR). Home venue: Fresno Center.',
+    description: 'Season 3 Cinderella finalist turns the page with new head coach Ronnie Flores and an all-rookie starting core headlined by 6\'5" jumbo playmaker Lloyd Boomer (83 OVR).',
     keyPlayers: ['Lloyd Boomer (PG, 83 OVR • Rookie)', 'Carson Graham (SF/PF, 78 OVR • Rookie)', 'Geraldo Jones (PF/C, 78 OVR • Rookie)', 'Charlie Simms (SF/PF, 76 OVR • Rookie)'],
     coach: 'Ronnie Flores (1st Season)',
     titles: ['Season 3 CCH Finals Runner-Up (#8 Seed Cinderella Run)', 'Defeated #1 Seed CA Reds 90-86 in S3 QF'],
@@ -146,12 +140,11 @@ export const TEAMS: Team[] = [
     abbreviation: 'LA',
     city: 'Los Angeles',
     conference: 'Southern Cali',
-    arena: 'LA Arena',
     primaryColor: '#004aad', // Blue
     secondaryColor: '#ffffff', // White
     accentColor: '#000000',
     iconName: 'Trophy',
-    description: 'A perennial title contender powered by superstar floor general Jack McMichael Jr. (96), 7\'2" defensive titan Mo Alexander (94), and #5 overall pick R.J. Rush (83). The Dynamics share their home court at the LA Arena in downtown Los Angeles with intra-city rivals the California Reds.',
+    description: 'A perennial title contender powered by superstar floor general Jack McMichael Jr. (96), 7\'2" defensive titan Mo Alexander (94), and #5 overall pick R.J. Rush (83).',
     keyPlayers: ['Jack McMichael Jr. (PG/SG, 96 OVR • 4th Season)', 'Mo Alexander (C/PF, 94 OVR • 4th Season)', 'R.J. Rush (PG, 83 OVR • Rookie)', 'Robert Riley (SF, 78 OVR • Rookie)'],
     coach: 'Pooh Splitter (1st Season)',
     titles: ['Season 3 Record: Largest Margin of Victory (+39 pts)', 'Season 1 #2 Seed (16-6)'],
@@ -166,12 +159,11 @@ export const TEAMS: Team[] = [
     abbreviation: 'CAL',
     city: 'Los Angeles',
     conference: 'Southern Cali',
-    arena: 'LA Arena',
     primaryColor: '#ff3131', // Deep Red
     secondaryColor: '#f8fafc', // Pure White
     accentColor: '#000000',
     iconName: 'Award',
-    description: 'The Season 2 Champions and Season 3 Regular Season Top Seed. Led by 4th-year Coach William Walker, 7\'2" Hungarian titan Andor Marai (93), and high-motor forward Donald Rodman (88). The Reds play their home games at the LA Arena in Los Angeles, which they share with the Los Angeles Dynamics.',
+    description: 'The Season 2 Champions and Season 3 Regular Season Top Seed. Led by 4th-year Coach William Walker, 7\'2" Hungarian titan Andor Marai (93), and high-motor forward Donald Rodman (88).',
     keyPlayers: ['Andor Marai (C, 93 OVR • 3rd Season)', 'Donald Rodman (PF/C, 88 OVR • 3rd Season)', 'Jadon Gordon (PF/C, 77 OVR • Rookie)', 'Don Irving (SF/SG, 75 OVR • Rookie)'],
     coach: 'William Walker (4th Season)',
     executive: 'Terry Hart (S3 Executive of the Year)',
@@ -187,7 +179,6 @@ export const TEAMS: Team[] = [
     abbreviation: 'SD',
     city: 'San Diego',
     conference: 'Southern Cali',
-    arena: 'San Diego Arena',
     primaryColor: '#e47334', // Cyber Orange
     secondaryColor: '#8c8c8c', // Sky Gray
     accentColor: '#000000',
@@ -207,7 +198,6 @@ export const TEAMS: Team[] = [
     abbreviation: 'SDS',
     city: 'San Diego',
     conference: 'Southern Cali',
-    arena: 'San Diego Arena',
     primaryColor: '#e95315', // Bright Orange
     secondaryColor: '#2b2e13', // Combat Green
     accentColor: '#f97316',
@@ -227,12 +217,11 @@ export const TEAMS: Team[] = [
     abbreviation: 'ANA',
     city: 'Anaheim',
     conference: 'Southern Cali',
-    arena: 'Anaheim Arena',
     primaryColor: '#f15a2d', // Marine Orange
     secondaryColor: '#458f8a', // Brass Blue
     accentColor: '#000000',
     iconName: 'Anchor',
-    description: 'Perimeter sharpshooting squad guided by 4th-year head coach Steve Porter, led by franchise sharpshooter Kirk Tinsley (87) and French phenom Stephan Sirven (84). Home venue: Anaheim Arena.',
+    description: 'Perimeter sharpshooting squad guided by 4th-year head coach Steve Porter, led by franchise sharpshooter Kirk Tinsley (87) and French phenom Stephan Sirven (84).',
     keyPlayers: ['Kirk Tinsley (PG, 87 OVR • 4th Season)', 'Stephan Sirven (SG, 84 OVR • Rookie)', 'Pete Dantley (PF/SF, 79 OVR • Rookie)', 'Jesse Wingate (C, 77 OVR • Rookie)'],
     coach: 'Steve Porter (4th Season)',
     titles: ['Highest Free Throw % Team (.804 FT%)', 'Most Bench Points (549 pts)'],
@@ -247,12 +236,11 @@ export const TEAMS: Team[] = [
     abbreviation: 'LB',
     city: 'Long Beach',
     conference: 'Southern Cali',
-    arena: 'The LBC Pit',
     primaryColor: '#003f25', // Viper Green
     secondaryColor: '#000000', // Black
     accentColor: '#afaeae',
     iconName: 'Zap',
-    description: 'A physical, defense-first unit under 4th-year coach Stretch Roberts, anchored by veteran forward J.C. McMillan (86) and 7-foot Kentucky rookie titan Grok Wilkens (83). Home venue: The LBC Pit.',
+    description: 'A physical, defense-first unit under 4th-year coach Stretch Roberts, anchored by veteran forward J.C. McMillan (86) and 7-foot Kentucky rookie titan Grok Wilkens (83).',
     keyPlayers: ['J.C. McMillan (PF, 86 OVR • 4th Season)', 'Grok Wilkens (C, 83 OVR • Rookie)', 'Maxwell Mayo (SF/PF, 79 OVR • Rookie)', 'Rickey Dunleavy (SG/PG, 78 OVR • Rookie)'],
     coach: 'Stretch Roberts (4th Season)',
     executive: 'Anthony Nance (S1 Executive of the Year)',

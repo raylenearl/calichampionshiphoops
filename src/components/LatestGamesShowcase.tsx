@@ -10,12 +10,14 @@ import {
   Award,
   Calendar,
   Activity,
-  MapPin,
   TrendingUp,
   BarChart3,
   ExternalLink
 } from 'lucide-react';
 import { TeamBadge } from './TeamBadge';
+import aMaraiS4_1Img from '../assets/images/AMaraiS4_1.png';
+import boomerVsGsImg from '../assets/images/Boomer_vs_GS.png';
+import ktVsSfImg from '../assets/images/KTvsSF_S4.png';
 import hinton42vsCalImg from '../assets/images/Hinton42_s4vsCAL.png';
 import jDeanVsSacImg from '../assets/images/JDean_vs_SACs4.png';
 import maraiVsLbImg from '../assets/images/Marai_vs_LBs4.png';
@@ -40,8 +42,6 @@ interface GameHighlight {
   headline: string;
   subheadline: string;
   narrative: string;
-  venue: string;
-  city: string;
   winner: {
     id: string;
     name: string;
@@ -75,15 +75,172 @@ interface GameHighlight {
 
 const HIGHLIGHT_GAMES: GameHighlight[] = [
   {
+    id: 'game-16',
+    articleId: 's4-g16-mad-dogs-outlast-enterprise-boomer',
+    date: 'Nov 5 • Season 4',
+    headline: 'Fresno Mad Dogs 82, Golden State Enterprise 75',
+    subheadline: 'Boomer Dazzles with 26 PTS & 8 AST; Davidson Double-Doubles in Debut (12 PTS, 10 REB); Mad Dogs 3-0',
+    narrative:
+      'Lloyd Boomer put on a playmaking clinic on the road, dropping 26 points and 8 assists to power the Mad Dogs past Golden State 82-75. Newly signed rookie forward Luke Davidson contributed an immediate 12-point, 10-rebound double-double.',
+    winner: {
+      id: 'fresno-mad-dogs',
+      name: 'Fresno Mad Dogs',
+      score: 82,
+      record: '3-0 (2nd)',
+      isHome: false,
+    },
+    loser: {
+      id: 'golden-state-enterprise',
+      name: 'Golden State Enterprise',
+      score: 75,
+      record: '1-1 (6th)',
+      isHome: true,
+    },
+    quarters: [
+      { period: 'Q1', team1: 22, team2: 19 },
+      { period: 'Q2', team1: 20, team2: 18 },
+      { period: 'Q3', team1: 19, team2: 20 },
+      { period: 'Q4', team1: 21, team2: 18 },
+    ],
+    starPlayer: {
+      name: 'Lloyd Boomer',
+      number: '#2',
+      team: 'Fresno Mad Dogs',
+      position: 'G • 89 OVR',
+      statline: '26 PTS • 8 AST • 5 REB • 3 STL (10-17 FG)',
+      highlightPill: '26 PTS, 8 AST & 3-0 RECORD',
+      image: boomerVsGsImg,
+    },
+    keyStats: [
+      { label: 'Lloyd Boomer', value: '26 PTS • 8 AST', desc: '10/17 FG • 3 STL Road Masterclass' },
+      { label: 'Luke Davidson Debut', value: '12 PTS • 10 REB', desc: 'Instant Double-Double Off Sign' },
+      { label: 'Fast Break Points', value: '22 - 12 FB PTS', desc: 'Fresno Paced the Open Floor' },
+      { label: 'Mad Dogs Standing', value: '3 - 0 (2nd)', desc: 'Undefeated Start Continues' },
+    ],
+    secondaryPerformers: [
+      { name: 'Luke Davidson (FRE)', team: 'Mad Dogs', stat: '12 PTS, 10 REB, 1 BLK (5-8 FG)' },
+      { name: 'Jud Drew (FRE)', team: 'Mad Dogs', stat: '13 PTS, 5 REB, 2 AST (2 3PM)' },
+      { name: 'Carlton Daugherty (GSE)', team: 'Enterprise', stat: '18 PTS, 4 REB, 3 AST (4 3PM)' },
+      { name: 'Jud Thompson (GSE)', team: 'Enterprise', stat: '17 PTS, 6 AST, 3 REB' },
+    ],
+    badgeColor: 'border-blue-500/60 from-blue-950/40 via-slate-900 to-indigo-950/30',
+    tagIcon: 'flame',
+    tagText: 'ROAD THRILLER • MAD DOGS 3-0',
+  },
+  {
+    id: 'game-15',
+    articleId: 's4-g15-admirals-edge-knights-first-win',
+    date: 'Nov 2 • Season 4',
+    headline: 'Anaheim Admirals 56, San Francisco Knights 52',
+    subheadline: 'Sirven (18 PTS) & Tinsley (16 PTS, 4-5 3PT) Seal Admirals’ First Season 4 Win',
+    narrative:
+      'The Admirals held off the Knights in a tense 56-52 battle to earn their first win of Season 4. Stephan Sirven went 6-for-6 from the free throw line late, and Kirk Tinsley went 4-for-5 from three-point range.',
+    winner: {
+      id: 'anaheim-admirals',
+      name: 'Anaheim Admirals',
+      score: 56,
+      record: '1-2 (7th)',
+      isHome: true,
+    },
+    loser: {
+      id: 'san-francisco-knights',
+      name: 'San Francisco Knights',
+      score: 52,
+      record: '0-2 (9th)',
+      isHome: false,
+    },
+    quarters: [
+      { period: 'Q1', team1: 12, team2: 15 },
+      { period: 'Q2', team1: 14, team2: 13 },
+      { period: 'Q3', team1: 11, team2: 16 },
+      { period: 'Q4', team1: 15, team2: 12 },
+    ],
+    starPlayer: {
+      name: 'Kirk Tinsley & Stephan Sirven',
+      number: '#11 & #4',
+      team: 'Anaheim Admirals',
+      position: 'G • 86 & 88 OVR',
+      statline: '34 PTS Combined • 4-5 3PT • 6-6 FT (Clutch Finish)',
+      highlightPill: '16 PTS (4 3PM) & FIRST S4 WIN',
+      image: ktVsSfImg,
+    },
+    keyStats: [
+      { label: 'Kirk Tinsley', value: '16 PTS (4/5 3PT)', desc: '80.0% 3PT Perimeter Spark' },
+      { label: 'Stephan Sirven', value: '18 PTS (6/6 FT)', desc: 'Ice in Veins at Free Throw Line' },
+      { label: '3-Point Shooting', value: '50% vs 20%', desc: 'Anaheim 6/12 • SF 3/15' },
+      { label: 'Admirals Record', value: '1 - 2 (7th)', desc: 'First Victory of Season 4' },
+    ],
+    secondaryPerformers: [
+      { name: 'Barry Nelson (ANA)', team: 'Admirals', stat: '6 PTS, 8 REB, 2 BLK' },
+      { name: 'Eric Higgins (SF)', team: 'Knights', stat: '16 PTS, 9 REB, 2 BLK (7-13 FG)' },
+      { name: 'Manny Payton (SF)', team: 'Knights', stat: '10 PTS, 11 REB, 2 AST' },
+      { name: 'Gheorghe Stefan (SF)', team: 'Knights', stat: '9 PTS, 7 REB (4-8 FG)' },
+    ],
+    badgeColor: 'border-cyan-500/60 from-cyan-950/40 via-slate-900 to-teal-950/30',
+    tagIcon: 'zap',
+    tagText: 'FIRST S4 WIN • ADMIRALS 56-52',
+  },
+  {
+    id: 'game-14',
+    articleId: 's4-g14-reds-edge-dynamics-marai',
+    date: 'Nov 1 • Season 4',
+    headline: 'California Reds 61, Los Angeles Dynamics 56',
+    subheadline: 'Marai Dominates with 20 PTS, 14 REB & 4 STL; Reds Claw Back to .500 (3-3)',
+    narrative:
+      'Andor Marai proved unstoppable in the interior, posting 20 points, 14 rebounds, and 4 steals to lead the California Reds to a gritty 61-56 road win over the Los Angeles Dynamics. Donald Rodman added 11 points and 9 rebounds.',
+    winner: {
+      id: 'california-reds',
+      name: 'California Reds',
+      score: 61,
+      record: '3-3 (4th)',
+      isHome: false,
+    },
+    loser: {
+      id: 'los-angeles-dynamics',
+      name: 'Los Angeles Dynamics',
+      score: 56,
+      record: '1-1 (5th)',
+      isHome: true,
+    },
+    quarters: [
+      { period: 'Q1', team1: 16, team2: 15 },
+      { period: 'Q2', team1: 15, team2: 13 },
+      { period: 'Q3', team1: 14, team2: 16 },
+      { period: 'Q4', team1: 16, team2: 12 },
+    ],
+    starPlayer: {
+      name: 'Andor Marai',
+      number: '#33',
+      team: 'California Reds',
+      position: 'C • 93 OVR',
+      statline: '20 PTS • 14 REB • 4 STL • 2 BLK (8-13 FG)',
+      highlightPill: '20 PTS, 14 REB & .500 RECORD',
+      image: aMaraiS4_1Img,
+    },
+    keyStats: [
+      { label: 'Andor Marai', value: '20 PTS • 14 REB', desc: '4 STL, 2 BLK Monster Night' },
+      { label: 'Donald Rodman', value: '11 PTS • 9 REB', desc: 'Frontcourt Rebounding Muscle' },
+      { label: 'Rebounding Battle', value: '41 - 33 REB', desc: 'Reds Controlled the Glass' },
+      { label: 'Reds Season Mark', value: '3 - 3 (.500)', desc: 'Back to .500 After Road Win' },
+    ],
+    secondaryPerformers: [
+      { name: 'Donald Rodman (CAL)', team: 'Reds', stat: '11 PTS, 9 REB, 2 AST (5-10 FG)' },
+      { name: 'Kyle Robinson (CAL)', team: 'Reds', stat: '10 PTS, 5 AST, 3 REB' },
+      { name: 'R.J. Rush (LA)', team: 'Dynamics', stat: '14 PTS, 4 AST, 3 REB (5-12 FG)' },
+      { name: 'Reggie Forte (LA)', team: 'Dynamics', stat: '9 PTS, 6 REB, 1 BLK' },
+    ],
+    badgeColor: 'border-red-500/60 from-red-950/40 via-slate-900 to-rose-950/30',
+    tagIcon: 'flame',
+    tagText: 'PAINT MONSTER • REDS 3-3',
+  },
+  {
     id: 'game-13',
     articleId: 's4-g13-mad-dogs-dominate-stallions',
-    date: 'Oct 31 • Season 4 Game 13',
+    date: 'Oct 31 • Season 4',
     headline: 'Fresno Mad Dogs 64, Sacramento Stallions 48',
     subheadline: 'Boomer Erupts for 26 PTS (9-14 FG); Mad Dogs Stay Unbeaten at 2-0; Stallions Fall to 0-3',
     narrative:
       'Lloyd Boomer was unstoppable for the Mad Dogs, dropping a game-high 26 points on 9-for-14 shooting to keep Fresno undefeated. The Mad Dogs dominated the paint 40-20 and forced 16 turnovers. Defending champion Stallions drop to 0-3.',
-    venue: 'Save Mart Center',
-    city: 'Fresno, CA',
     winner: {
       id: 'fresno-mad-dogs',
       name: 'Fresno Mad Dogs',
@@ -132,13 +289,11 @@ const HIGHLIGHT_GAMES: GameHighlight[] = [
   {
     id: 'game-12',
     articleId: 's4-g12-enterprise-edge-reds-daugherty',
-    date: 'Oct 29 • Season 4 Game 12',
+    date: 'Oct 29 • Season 4',
     headline: 'Golden State Enterprise 65, California Reds 58',
     subheadline: '#1 Pick Carlton Daugherty Drops 20 in Debut; Enterprise Defends Home Floor (1-0)',
     narrative:
       '#1 overall pick Carlton Daugherty scored 20 points in his pro debut, leading Golden State Enterprise to a 65-58 victory over the California Reds. Cameron Barkley controlled the glass with 14 points, 9 rebounds, and 3 blocks.',
-    venue: 'San Jose Arena',
-    city: 'San Jose, CA',
     winner: {
       id: 'golden-state-enterprise',
       name: 'Golden State Enterprise',
@@ -187,13 +342,11 @@ const HIGHLIGHT_GAMES: GameHighlight[] = [
   {
     id: 'game-11',
     articleId: 's4-g11-renegades-bury-knights',
-    date: 'Oct 29 • Season 4 Game 11',
+    date: 'Oct 29 • Season 4',
     headline: 'Oakland Renegades 66, San Francisco Knights 52',
     subheadline: '23-Point 2nd Quarter Surge Sparks Renegades to 4-0; Dean (22 PTS) & Moon (13 PTS) Shine',
     narrative:
       'The Oakland Renegades took complete command of first place in CCH with a 66-52 victory over San Francisco, fueled by a devastating 23-11 second quarter blitz. Jamar Dean scored 22 and newly signed Jaycee Moon added 13 off the bench.',
-    venue: 'Oakland Arena',
-    city: 'Oakland, CA',
     winner: {
       id: 'oakland-renegades',
       name: 'Oakland Renegades',
@@ -242,13 +395,11 @@ const HIGHLIGHT_GAMES: GameHighlight[] = [
   {
     id: 'game-10',
     articleId: 's4-g10-renegades-crush-reds-dean-36',
-    date: 'Oct 27 • Season 4 Game 10',
+    date: 'Oct 27 • Season 4',
     headline: 'Oakland Renegades 74, California Reds 50',
     subheadline: 'Dean Catches Fire for 36 PTS (13-18 FG); Bowen Grabs 20 PTS & 14 REB in Blowout',
     narrative:
       'Jamar Dean put on an offensive masterpiece, exploding for 36 points on 13-of-18 shooting, while Joshua Bowen notched 20 points, 14 rebounds, and 5 assists to pace Oakland past California.',
-    venue: 'California Pavilion',
-    city: 'Fresno, CA',
     winner: {
       id: 'oakland-renegades',
       name: 'Oakland Renegades',
@@ -297,13 +448,11 @@ const HIGHLIGHT_GAMES: GameHighlight[] = [
   {
     id: 'game-9',
     articleId: 's4-g9-reds-bounce-back-vipers',
-    date: 'Oct 25 • Season 4 Game 9',
+    date: 'Oct 25 • Season 4',
     headline: 'California Reds 68, Long Beach Vipers 61',
     subheadline: 'Marai (21 PTS) and Rodman (17 PTS) Fuel Reds Rebound; Vipers Fall to 0-2',
     narrative:
       'Despite a tough loss to the Strykers, the Reds (2-1) bounced back behind 21 points from Andor Marai and 17 points from Donald Rodman. The Vipers fall to 0-2.',
-    venue: 'The LBC Pit',
-    city: 'Long Beach, CA',
     winner: {
       id: 'california-reds',
       name: 'California Reds',
@@ -352,13 +501,11 @@ const HIGHLIGHT_GAMES: GameHighlight[] = [
   {
     id: 'game-8',
     articleId: 's4-g8-renegades-edge-stallions',
-    date: 'Oct 25 • Season 4 Game 8',
+    date: 'Oct 25 • Season 4',
     headline: 'Oakland Renegades 57, Sacramento Stallions 50',
     subheadline: 'Renegades Move to 2-0 Behind Dean & Reece; Stallions Drop to 0-2',
     narrative:
       'The Renegades remain undefeated at 2-0 thanks to a gritty defensive effort. Jamar Dean paced the offense with 16 points, while Alonzo Reece added 14 points and 5 steals. For the 0-2 Stallions, Gemini Jackson was a bright spot, stuffing the stat sheet with 13 points, 4 assists, 2 steals, and an impressive 3 blocks.',
-    venue: 'Oakland Arena',
-    city: 'Oakland, CA',
     winner: {
       id: 'oakland-renegades',
       name: 'Oakland Renegades',
@@ -407,13 +554,11 @@ const HIGHLIGHT_GAMES: GameHighlight[] = [
   {
     id: 'game-7',
     articleId: 's4-g7-strykers-rout-reds-hinton-42',
-    date: 'Oct 22 • Season 4 Game 7',
+    date: 'Oct 22 • Season 4',
     headline: 'San Diego Strykers 102, California Reds 64',
     subheadline: 'Hinton Erupts for 42 Points on 12-of-14 from Three as Strykers Cruise to 3-0',
     narrative:
       'The Strykers are looking utterly unstoppable, improving to a perfect 3-0 record with a staggering 38-point demolition of the California Reds. Superstar guard A.J. Hinton delivered a performance for the ages, erupting for a game-high 42 points on a blistering 15-of-17 shooting from the field, including a perfect 12-for-14 from beyond the arc. Ray Gamble contributed 17 points and 5 assists in the blowout. The Strykers shot a scorching 67% from the floor, leading by as many as 40 points.',
-    venue: 'San Diego Arena',
-    city: 'San Diego, CA',
     winner: {
       id: 'san-diego-strykers',
       name: 'San Diego Strykers',
@@ -461,12 +606,51 @@ const HIGHLIGHT_GAMES: GameHighlight[] = [
   },
 ];
 
+const getTeamShortName = (teamId: string, fullName: string): string => {
+  const map: Record<string, string> = {
+    'fresno-mad-dogs': 'Mad Dogs',
+    'golden-state-enterprise': 'Enterprise',
+    'sacramento-stallions': 'Stallions',
+    'san-francisco-knights': 'Knights',
+    'oakland-renegades': 'Renegades',
+    'san-jose-tigersharks': 'Tigersharks',
+    'los-angeles-dynamics': 'Dynamics',
+    'california-reds': 'Reds',
+    'san-diego-sabrewolves': 'Sabrewolves',
+    'san-diego-strykers': 'Strykers',
+    'anaheim-admirals': 'Admirals',
+    'long-beach-vipers': 'Vipers',
+  };
+  if (map[teamId]) return map[teamId];
+  if (fullName.toLowerCase().includes('mad dogs')) return 'Mad Dogs';
+  return fullName.split(' ').pop() || fullName;
+};
+
+const getTeamCityName = (teamId: string, fullName: string): string => {
+  const cityMap: Record<string, string> = {
+    'sacramento-stallions': 'Sacramento',
+    'san-francisco-knights': 'San Francisco',
+    'oakland-renegades': 'Oakland',
+    'san-jose-tigersharks': 'San Jose',
+    'golden-state-enterprise': 'Golden State',
+    'fresno-mad-dogs': 'Fresno',
+    'los-angeles-dynamics': 'Los Angeles',
+    'california-reds': 'California',
+    'san-diego-sabrewolves': 'San Diego',
+    'san-diego-strykers': 'San Diego',
+    'anaheim-admirals': 'Anaheim',
+    'long-beach-vipers': 'Long Beach',
+  };
+  if (cityMap[teamId]) return cityMap[teamId];
+  return fullName.replace(/\s+(Mad Dogs|Enterprise|Admirals|Knights|Reds|Dynamics|Strykers|Sabrewolves|Renegades|Tigersharks|Stallions|Vipers)$/i, '').trim() || fullName;
+};
+
 export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
   onNavigateToNews,
   onSelectTeam,
   onNavigateToTab,
 }) => {
-  const [selectedGameId, setSelectedGameId] = useState<string>('game-9');
+  const [selectedGameId, setSelectedGameId] = useState<string>('game-16');
 
   const activeGame = HIGHLIGHT_GAMES.find((g) => g.id === selectedGameId) || HIGHLIGHT_GAMES[0];
 
@@ -487,8 +671,8 @@ export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
             <span className="text-xs font-black uppercase tracking-widest bg-amber-500 text-slate-950 px-3 py-1 rounded-md font-mono flex items-center gap-1.5 shadow">
               🔥 LATEST SEASON 4 ACTION
             </span>
-            <span className="text-[10px] font-mono font-bold text-amber-300 bg-amber-500/20 px-2.5 py-1 rounded-md border border-amber-500/30">
-              OCTOBER SLATE
+            <span className="text-[10px] font-mono font-bold text-emerald-300 bg-emerald-500/20 px-2.5 py-1 rounded-md border border-emerald-500/30">
+              NOVEMBER SLATE • LATEST RESULTS
             </span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight mt-1">
@@ -500,24 +684,8 @@ export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
         <div className="flex flex-wrap items-center gap-2 max-w-full">
           {HIGHLIGHT_GAMES.map((game) => {
             const isSelected = game.id === selectedGameId;
-            const winnerShort =
-              game.winner.id === 'san-diego-strykers'
-                ? 'Strykers'
-                : game.winner.id === 'california-reds'
-                ? 'Reds'
-                : game.winner.id === 'oakland-renegades'
-                ? 'Renegades'
-                : game.winner.name.split(' ').pop();
-            const loserShort =
-              game.loser.id === 'san-diego-strykers'
-                ? 'Strykers'
-                : game.loser.id === 'california-reds'
-                ? 'Reds'
-                : game.loser.id === 'sacramento-stallions'
-                ? 'Stallions'
-                : game.loser.id === 'long-beach-vipers'
-                ? 'Vipers'
-                : game.loser.name.split(' ').pop();
+            const winnerShort = getTeamShortName(game.winner.id, game.winner.name);
+            const loserShort = getTeamShortName(game.loser.id, game.loser.name);
             return (
               <button
                 key={game.id}
@@ -557,11 +725,6 @@ export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
             <div className="flex items-center gap-2 font-mono text-xs text-amber-300 font-bold">
               <Calendar size={14} className="text-amber-400" />
               <span>{activeGame.date}</span>
-              <span className="text-slate-500">•</span>
-              <MapPin size={14} className="text-amber-400" />
-              <span>
-                {activeGame.venue} • {activeGame.city}
-              </span>
             </div>
             <span className="text-[10px] font-mono font-black uppercase px-2.5 py-0.5 rounded bg-black/40 text-amber-300 border border-amber-500/30">
               {activeGame.tagText}
@@ -620,7 +783,7 @@ export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
                   <TeamBadge teamId={activeGame.winner.id} size="md" />
                   <div className="min-w-0 flex-1">
                     <h4 className="text-sm sm:text-base font-black text-white group-hover/win:text-amber-300 transition-colors truncate">
-                      {activeGame.winner.name}
+                      {getTeamCityName(activeGame.winner.id, activeGame.winner.name)}
                     </h4>
                     <div className="text-[10px] sm:text-[11px] font-mono text-emerald-400 font-bold truncate">
                       {activeGame.winner.record} • {activeGame.winner.isHome ? 'Home' : 'Away'}
@@ -641,7 +804,7 @@ export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
                   <TeamBadge teamId={activeGame.loser.id} size="md" />
                   <div className="min-w-0 flex-1">
                     <h4 className="text-sm sm:text-base font-black text-slate-300 group-hover/lose:text-white transition-colors truncate">
-                      {activeGame.loser.name}
+                      {getTeamCityName(activeGame.loser.id, activeGame.loser.name)}
                     </h4>
                     <div className="text-[10px] sm:text-[11px] font-mono text-slate-400 truncate">
                       {activeGame.loser.record} • {activeGame.loser.isHome ? 'Home' : 'Away'}
@@ -679,7 +842,7 @@ export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
                       <tr>
                         <td className="py-1.5 font-bold text-white flex items-center gap-1.5">
                           <TeamBadge teamId={firstTeam.id} size="xs" />
-                          <span>{firstTeam.name.split(' ').pop()}</span>
+                          <span>{getTeamShortName(firstTeam.id, firstTeam.name)}</span>
                         </td>
                         {activeGame.quarters.map((q) => (
                           <td key={q.period} className="text-center py-1.5 text-slate-300">
@@ -693,7 +856,7 @@ export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
                       <tr>
                         <td className="py-1.5 font-bold text-white flex items-center gap-1.5">
                           <TeamBadge teamId={secondTeam.id} size="xs" />
-                          <span>{secondTeam.name.split(' ').pop()}</span>
+                          <span>{getTeamShortName(secondTeam.id, secondTeam.name)}</span>
                         </td>
                         {activeGame.quarters.map((q) => (
                           <td key={q.period} className="text-center py-1.5 text-slate-300">
@@ -816,12 +979,12 @@ export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
         </div>
       </div>
 
-      {/* Mini Cards for All 3 Games in the Set */}
+      {/* Mini Cards for All Matchups */}
       <div className="space-y-3 relative z-10">
         <div className="flex items-center justify-between">
           <span className="text-xs font-mono font-black uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
             <BarChart3 size={14} className="text-amber-400" />
-            Quick Overview: All 3 Matchups in this Slate
+            Matchup Highlights
           </span>
           <span className="text-[11px] font-mono text-slate-400">
             Click any game card to expand
@@ -843,7 +1006,7 @@ export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
               >
                 <div className="flex items-center justify-between text-[10px] font-mono text-slate-400 border-b border-slate-800/80 pb-2 mb-3">
                   <span>{game.date.split('•')[0].trim()}</span>
-                  <span className="font-bold text-amber-400">{game.venue.split(' ')[0]}</span>
+                  <span className="font-bold text-amber-400">{game.date.split('•')[1]?.trim() || 'Final'}</span>
                 </div>
 
                 <div className="space-y-2">
@@ -851,13 +1014,7 @@ export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
                     <div className="flex items-center gap-2 min-w-0 flex-1">
                       <TeamBadge teamId={game.winner.id} size="xs" />
                       <span className="text-sm font-black text-white truncate">
-                        {game.winner.id === 'san-diego-strykers'
-                          ? 'SD Strykers'
-                          : game.winner.id === 'california-reds'
-                          ? 'California Reds'
-                          : game.winner.id === 'oakland-renegades'
-                          ? 'Oakland Renegades'
-                          : game.winner.name}
+                        {getTeamCityName(game.winner.id, game.winner.name)}
                       </span>
                     </div>
                     <span className="text-base font-mono font-black text-amber-400 shrink-0">
@@ -869,15 +1026,7 @@ export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
                     <div className="flex items-center gap-2 min-w-0 flex-1">
                       <TeamBadge teamId={game.loser.id} size="xs" />
                       <span className="text-sm font-bold text-slate-400 truncate">
-                        {game.loser.id === 'san-diego-strykers'
-                          ? 'SD Strykers'
-                          : game.loser.id === 'california-reds'
-                          ? 'California Reds'
-                          : game.loser.id === 'sacramento-stallions'
-                          ? 'Sacramento Stallions'
-                          : game.loser.id === 'long-beach-vipers'
-                          ? 'Long Beach Vipers'
-                          : game.loser.name}
+                        {getTeamCityName(game.loser.id, game.loser.name)}
                       </span>
                     </div>
                     <span className="text-base font-mono font-bold text-slate-400 shrink-0">

@@ -54,7 +54,7 @@ export const Header: React.FC<HeaderProps> = ({
     { id: 'hub', label: 'League Hub', icon: Trophy },
     { id: 'rosters', label: 'S4 Rosters', icon: Users, highlight: true },
     { id: 'statleaders', label: 'Stat Leaders', icon: BarChart2, highlight: true },
-    { id: 'news', label: 'News', icon: Newspaper },
+    { id: 'news', label: 'News & Archives', icon: Newspaper },
     { id: 'draft', label: 'S4 Draft', icon: Sparkles, highlight: true },
     { id: 'standings', label: 'Standings', icon: Activity },
     { id: 'playoffs', label: 'Playoffs', icon: Trophy },

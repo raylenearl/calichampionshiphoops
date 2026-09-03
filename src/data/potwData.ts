@@ -314,7 +314,7 @@ export const POTW_WEEKS: POTWWeek[] = [
         team: 'San Diego Strykers',
         teamId: 'san-diego-strykers',
         conference: 'Southern',
-        stat: '22.5 PPG, 3.5 RPG, 4.0 SPG, 8 3PM (30 PTS in Game 6)'
+        stat: '22.5 PPG, 3.5 RPG, 4.0 SPG, 8 3PM (30 PTS vs Anaheim)'
       },
       {
         player: 'R.J. Rush',

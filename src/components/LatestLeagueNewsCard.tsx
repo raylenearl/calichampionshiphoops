@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { TeamBadge } from './TeamBadge';
 import aMaraiS4_1Img from '../assets/images/AMaraiS4_1.png';
+import boomerVsGsImg from '../assets/images/Boomer_vs_GS.png';
 import boomerVsSacImg from '../assets/images/Boomer_VS_SAC1.png';
 
 interface LatestLeagueNewsCardProps {
@@ -54,8 +55,8 @@ export const LatestLeagueNewsCard: React.FC<LatestLeagueNewsCardProps> = ({
       <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/15 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20 group-hover:bg-amber-500/25 transition-all" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-red-500/10 rounded-full blur-3xl pointer-events-none -ml-20 -mb-20" />
 
-      {/* Header Banner */}
-      <div className="space-y-3 relative z-10 border-b border-slate-800/80 pb-4">
+      {/* Header Banner with Cover Photo */}
+      <div className="space-y-4 relative z-10 border-b border-slate-800/80 pb-5">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex flex-wrap items-center gap-2">
             <span className="px-3 py-1 bg-amber-500 text-slate-950 font-mono font-black text-xs uppercase tracking-wider rounded-md shadow-sm flex items-center gap-1.5">
@@ -88,13 +89,59 @@ export const LatestLeagueNewsCard: React.FC<LatestLeagueNewsCardProps> = ({
           </button>
         </div>
 
-        <div>
-          <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight group-hover:text-amber-400 transition-colors">
-            Season 4 Update: Renegades Reign Supreme, Marai and Graham Earn Weekly Honors
-          </h2>
-          <p className="text-sm sm:text-base text-slate-300 mt-2 leading-relaxed">
-            The battle for the top of the CCH standings is heating up. Oakland sits alone at 4-0, Fresno (3-0) and San Diego (3-0) follow undefeated, California claws back to .500, and Anaheim notches its first win.
-          </p>
+        {/* Hero Headline & Cover Photo Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <div className="lg:col-span-7 space-y-3">
+            <h2 
+              onClick={() => onNavigateToNews(articleId)}
+              className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight group-hover:text-amber-400 transition-colors cursor-pointer"
+            >
+              Season 4 Update: Renegades Reign Supreme, Marai and Graham Earn Weekly Honors
+            </h2>
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+              The battle for the top of the CCH standings is heating up. Oakland sits alone at 4-0, Fresno (3-0) and San Diego (3-0) follow undefeated, California claws back to .500, and Anaheim notches its first win.
+            </p>
+            <div className="flex flex-wrap items-center gap-3 pt-1">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-xs font-mono text-slate-300">
+                <Calendar size={12} className="text-amber-400" /> Official League Dispatch
+              </span>
+              <button
+                onClick={() => onNavigateToNews(articleId)}
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-mono font-black text-xs transition-all cursor-pointer shadow"
+              >
+                <BookOpen size={13} /> Read Full Story →
+              </button>
+            </div>
+          </div>
+
+          {/* Cover Photo */}
+          <div className="lg:col-span-5">
+            <div
+              onClick={() => onNavigateToNews(articleId)}
+              className="relative rounded-2xl overflow-hidden border-2 border-amber-500/40 hover:border-amber-400 shadow-xl bg-slate-950 group/cover cursor-pointer transition-all hover:shadow-amber-500/10"
+            >
+              <img
+                src={boomerVsGsImg}
+                alt="Lloyd Boomer in Fresno Mad Dogs 82-75 win over Golden State"
+                className="w-full h-48 sm:h-56 object-cover object-center group-hover/cover:scale-105 transition-transform duration-500"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
+              <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between">
+                <div>
+                  <span className="text-[10px] font-mono font-black uppercase tracking-wider bg-amber-500 text-slate-950 px-2 py-0.5 rounded shadow">
+                    COVER STORY PHOTO
+                  </span>
+                  <p className="text-xs font-bold text-white mt-1 drop-shadow leading-snug">
+                    Lloyd Boomer (26 PTS, 8 AST) powers Mad Dogs to 3-0 in 82-75 thriller
+                  </p>
+                </div>
+                <div className="p-1.5 rounded-lg bg-slate-900/90 text-amber-400 border border-amber-500/40 shrink-0 ml-2">
+                  <ArrowUpRight size={14} />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -127,20 +174,7 @@ export const LatestLeagueNewsCard: React.FC<LatestLeagueNewsCardProps> = ({
             </p>
           </div>
 
-          {/* Game 2: California vs LA Dynamics */}
-          <div className="bg-slate-900/90 border border-slate-800 hover:border-amber-500/50 p-4 rounded-2xl space-y-2.5 transition-all">
-            <div className="flex items-center justify-between text-xs">
-              <span className="font-mono font-bold text-red-400 bg-red-500/10 px-2 py-0.5 rounded border border-red-500/20">
-                California 61, LA Dynamics 56 (Final)
-              </span>
-              <span className="text-slate-400 font-mono">Nov 1</span>
-            </div>
-            <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
-              <strong>Andor Marai</strong> was dominant in the paint, posting 20 points, 14 rebounds, and 4 steals to push the Reds back to .500 (3-3). Donald Rodman added 11 PTS and 9 REB. For LA (1-1), rookie sensation R.J. Rush paced the Dynamics with 14 points.
-            </p>
-          </div>
-
-          {/* Game 3: Anaheim vs San Francisco */}
+          {/* Game 2: Anaheim vs San Francisco */}
           <div className="bg-slate-900/90 border border-slate-800 hover:border-amber-500/50 p-4 rounded-2xl space-y-2.5 transition-all">
             <div className="flex items-center justify-between text-xs">
               <span className="font-mono font-bold text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">
@@ -150,6 +184,19 @@ export const LatestLeagueNewsCard: React.FC<LatestLeagueNewsCardProps> = ({
             </div>
             <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
               The Admirals earned their first win of Season 4 behind <strong>Stephan Sirven</strong> (18 PTS, 6-6 FT) and <strong>Kirk Tinsley</strong> (16 PTS, 4-5 3PT). For San Francisco (0-2), Eric Higgins had 16 PTS & 9 REB and Manny Payton added 10 PTS & 11 REB.
+            </p>
+          </div>
+
+          {/* Game 3: California vs LA Dynamics */}
+          <div className="bg-slate-900/90 border border-slate-800 hover:border-amber-500/50 p-4 rounded-2xl space-y-2.5 transition-all">
+            <div className="flex items-center justify-between text-xs">
+              <span className="font-mono font-bold text-red-400 bg-red-500/10 px-2 py-0.5 rounded border border-red-500/20">
+                California 61, LA Dynamics 56 (Final)
+              </span>
+              <span className="text-slate-400 font-mono">Nov 1</span>
+            </div>
+            <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
+              <strong>Andor Marai</strong> was dominant in the paint, posting 20 points, 14 rebounds, and 4 steals to push the Reds back to .500 (3-3). Donald Rodman added 11 PTS and 9 REB. For LA (1-1), rookie sensation R.J. Rush paced the Dynamics with 14 points.
             </p>
           </div>
         </div>
@@ -240,10 +287,6 @@ export const LatestLeagueNewsCard: React.FC<LatestLeagueNewsCardProps> = ({
             <TrendingUp size={14} className="text-amber-400" /> League News Desk
           </button>
         </div>
-
-        <span className="text-xs text-slate-400 font-mono">
-          Updated with official box scores &amp; transactions
-        </span>
       </div>
     </div>
   );

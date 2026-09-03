@@ -1,11 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Header } from './components/Header';
 import { HeroBanner } from './components/HeroBanner';
-import { LatestLeagueNewsCard } from './components/LatestLeagueNewsCard';
-import { OpeningDayRecapCard } from './components/OpeningDayRecapCard';
-import { PlayerOfTheWeekCard } from './components/PlayerOfTheWeekCard';
-import { LatestGamesShowcase } from './components/LatestGamesShowcase';
-import { FivePercentDefensePodcastCard } from './components/FivePercentDefensePodcastCard';
+import { FeaturedGameStories } from './components/FeaturedGameStories';
 import { StandingsView } from './components/StandingsView';
 import { PlayoffsView } from './components/PlayoffsView';
 import { ScheduleBrowser } from './components/ScheduleBrowser';
@@ -283,38 +279,11 @@ export default function App() {
             {/* Hero Showcase */}
             <HeroBanner onNavigate={(tab) => setActiveTab(tab)} selectedSeason={selectedSeason} />
 
-            {/* FEATURE 1: LATEST LEAGUE UPDATE - S4 Standings, Latest Games & Week 3 Honors */}
-            <LatestLeagueNewsCard
+            {/* Featured Game Stories (SD Sabrewolves vs SF Knights & SD Strykers vs LA Dynamics) */}
+            <FeaturedGameStories
               onNavigateToNews={handleNavigateToNews}
               onSelectTeam={(teamId) => handleSelectTeamRecap(teamId, 4)}
               onNavigateToTab={(tab) => setActiveTab(tab)}
-            />
-
-            {/* FEATURE 2: LATEST PODCAST & FILM ROOM SPECIAL - San Diego's Impossible 5% Defense */}
-            <FivePercentDefensePodcastCard
-              onNavigateToNews={handleNavigateToNews}
-              onSelectTeam={(teamId) => handleSelectTeamRecap(teamId, 4)}
-              onNavigateToTab={(tab) => setActiveTab(tab)}
-            />
-
-            {/* FEATURE 2: OFFICIAL LEAGUE AWARDS - Player of the Week (Week 2 & Week 1) */}
-            <PlayerOfTheWeekCard
-              onNavigateToNews={handleNavigateToNews}
-              onSelectTeam={(teamId) => handleSelectTeamRecap(teamId, 4)}
-              onNavigateToTab={(tab) => setActiveTab(tab)}
-            />
-
-            {/* FEATURE 3: LATEST MATCHUPS SHOWCASE - Season 4 Games 7 through 13 */}
-            <LatestGamesShowcase
-              onNavigateToNews={handleNavigateToNews}
-              onSelectTeam={(teamId) => handleSelectTeamRecap(teamId, 4)}
-              onNavigateToTab={(tab) => setActiveTab(tab)}
-            />
-
-            {/* FEATURE 4: OPENING WEEK CHRONICLE - Season 4 Games 1 through 6 Recap & Highlights */}
-            <OpeningDayRecapCard
-              onNavigateToNews={handleNavigateToNews}
-              onSelectTeam={(teamId) => handleSelectTeamRecap(teamId, 4)}
             />
 
             {/* Quick Access Sections */}

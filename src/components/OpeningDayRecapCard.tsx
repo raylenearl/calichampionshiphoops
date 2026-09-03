@@ -11,7 +11,6 @@ import {
   Activity,
   Flame,
   Clock,
-  MapPin,
   Users,
   Award,
   ExternalLink,
@@ -85,7 +84,7 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
             }`}
           >
             <Flame size={14} className={selectedGame === 'game6' ? 'fill-slate-950 text-slate-950' : 'text-amber-400 fill-amber-400 animate-pulse'} />
-            ★ Game 6 (LATEST): Strykers 85, Admirals 43
+            ★ LATEST: Strykers 85, Admirals 43
           </button>
 
           <button
@@ -97,7 +96,7 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
             }`}
           >
             <Shield size={13} className={selectedGame === 'game5' ? 'text-slate-950' : 'text-amber-400'} />
-            Game 5: Reds 59, Stallions 44
+            Reds 59, Stallions 44
           </button>
 
           <button
@@ -109,7 +108,7 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
             }`}
           >
             <Zap size={13} className={selectedGame === 'game4' ? 'text-slate-950' : 'text-amber-400'} />
-            Game 4: Mad Dogs 59, Tigersharks 53
+            Mad Dogs 59, Tigersharks 53
           </button>
 
           <button
@@ -121,7 +120,7 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
             }`}
           >
             <Flame size={13} className={selectedGame === 'game3' ? 'text-slate-950' : 'text-red-400'} />
-            Game 3: Renegades 71, Admirals 49
+            Renegades 71, Admirals 49
           </button>
 
           <button
@@ -133,7 +132,7 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
             }`}
           >
             <Sparkles size={13} className={selectedGame === 'game2' ? 'text-slate-950' : 'text-yellow-400'} />
-            Game 2: Dynamics 77, Sabrewolves 55
+            Dynamics 77, Sabrewolves 55
           </button>
 
           <button
@@ -145,21 +144,11 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
             }`}
           >
             <Tv size={13} className={selectedGame === 'game1' ? 'text-slate-950' : 'text-slate-400'} />
-            Game 1: Strykers 53, Vipers 35
+            Strykers 53, Vipers 35
           </button>
         </div>
 
         <div className="flex items-center gap-3">
-          <span className="text-slate-400 font-mono text-xs hidden md:flex items-center gap-1">
-            <MapPin size={13} className="text-amber-400" />
-            {selectedGame === 'game1' && 'The LBC Pit • Long Beach, CA'}
-            {selectedGame === 'game2' && 'LA Arena • Los Angeles, CA'}
-            {selectedGame === 'game3' && 'Oakland Arena • Oakland, CA'}
-            {selectedGame === 'game4' && 'Fresno Center • Fresno, CA'}
-            {selectedGame === 'game5' && 'LA Arena • Los Angeles, CA'}
-            {selectedGame === 'game6' && 'Anaheim Arena • Anaheim, CA'}
-          </span>
-
           <div className="flex items-center gap-2.5 self-start sm:self-auto">
             <button
               onClick={handleShare}
@@ -219,7 +208,7 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
                 <Award size={12} /> 21-7 THIRD-QUARTER BLITZ
               </span>
               <span className="px-2.5 py-0.5 bg-purple-500/20 text-purple-300 border border-purple-500/30 font-mono font-bold text-[11px] uppercase rounded-md">
-                Season 4 Opening Night • Game 3
+                Season 4 Opening Night
               </span>
             </div>
 
@@ -238,7 +227,7 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
                 <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] flex items-center justify-center bg-black overflow-hidden">
                   <img
                     src={jamarDean1Img}
-                    alt="Jamar Dean Season 4 Game 3"
+                    alt="Jamar Dean Season 4"
                     className="w-full h-full object-cover object-center group-hover/photo:scale-[1.03] transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/20 to-transparent pointer-events-none" />
@@ -276,7 +265,7 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
                     width="100%"
                     height="100%"
                     src="https://www.youtube.com/embed/dT8Kop4dOxo?si=1cZFfuDOY1FHwffO"
-                    title="YouTube video player - Admirals vs Renegades Season 4 Game 3"
+                    title="YouTube video player - Admirals vs Renegades Season 4"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerPolicy="strict-origin-when-cross-origin"
@@ -466,7 +455,7 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
                 <Award size={12} /> CCH ALL-TIME RECORD: 14/14 FT
               </span>
               <span className="px-2.5 py-0.5 bg-purple-500/20 text-purple-300 border border-purple-500/30 font-mono font-bold text-[11px] uppercase rounded-md">
-                Season 4 Opening Night • Game 2
+                Season 4 Opening Night
               </span>
             </div>
 
@@ -484,7 +473,7 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
                 <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] flex items-center justify-center bg-black overflow-hidden">
                   <img
                     src={rjRush1Img}
-                    alt="R.J. Rush Season 4 Game 2"
+                    alt="R.J. Rush Season 4"
                     className="w-full h-full object-cover object-center group-hover/photo:scale-[1.03] transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/20 to-transparent pointer-events-none" />
@@ -508,7 +497,7 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
                     width="100%"
                     height="100%"
                     src="https://www.youtube.com/embed/vrro7eyGMMk?si=UrCRkjRO9DNCVVeh"
-                    title="YouTube video player - Dynamics vs Sabrewolves Season 4 Game 2"
+                    title="YouTube video player - Dynamics vs Sabrewolves Season 4"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerPolicy="strict-origin-when-cross-origin"
@@ -683,7 +672,7 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
                 <Flame size={12} /> Opening Day Opener
               </span>
               <span className="px-2.5 py-0.5 bg-red-500/20 text-red-400 border border-red-500/30 font-mono font-bold text-[11px] uppercase rounded-md flex items-center gap-1">
-                <Tv size={12} /> Game 1 Broadcast &amp; Podcast
+                <Tv size={12} /> Broadcast &amp; Podcast
               </span>
             </div>
 
@@ -701,7 +690,7 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
                 <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] flex items-center justify-center bg-black overflow-hidden">
                   <img
                     src={hintonS4G1Img}
-                    alt="A.J. Hinton Season 4 Game 1"
+                    alt="A.J. Hinton Season 4"
                     className="w-full h-full object-cover object-center group-hover/photo:scale-[1.03] transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/20 to-transparent pointer-events-none" />
@@ -728,7 +717,7 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
                     width="100%"
                     height="100%"
                     src="https://www.youtube.com/embed/LqS71EzeFUc?si=NlaEW8hZMWHBcE8v"
-                    title="YouTube video player - Strykers vs Vipers Season 4 Game 1"
+                    title="YouTube video player - Strykers vs Vipers Season 4"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerPolicy="strict-origin-when-cross-origin"
@@ -897,7 +886,7 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
             <PodcastPlayerCard
               audioUrl="https://archive.org/download/nba-2-k-24-2024-05-12-02-07-45/Why_the_Strykers_box_score_lies.m4a"
               title="Game Recap Podcast: Why the Strykers Box Score Lies"
-              subtitle="Official CCH Season 4 Game 1 Breakdown • Defensive clinic, third-quarter surge, and film review"
+              subtitle="Official CCH Season 4 Breakdown • Defensive clinic, third-quarter surge, and film review"
               compact={false}
             />
           </div>
@@ -918,7 +907,7 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
                 <Zap size={12} /> BOOMER: 25 PTS (6-6 FT)
               </span>
               <span className="px-2.5 py-0.5 bg-slate-800 text-slate-300 font-mono font-bold text-[11px] uppercase rounded-md">
-                Season 4 Opening Night • Game 4
+                Season 4 Opening Night
               </span>
             </div>
 
@@ -973,7 +962,7 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
                     width="100%"
                     height="100%"
                     src="https://www.youtube.com/embed/jOZHLsv44uw?si=-uW-g7sz9KPYCezp"
-                    title="YouTube video player - Tigersharks vs Mad Dogs Season 4 Game 4"
+                    title="YouTube video player - Tigersharks vs Mad Dogs Season 4"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerPolicy="strict-origin-when-cross-origin"
@@ -1164,7 +1153,7 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
                 <Award size={12} /> MARAI 24 PTS & 11 REB (10-12 FG)
               </span>
               <span className="px-2.5 py-0.5 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-mono font-bold text-[11px] uppercase rounded-md">
-                Season 4 • Game 5
+                Season 4
               </span>
             </div>
 
@@ -1183,7 +1172,7 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
                 <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] flex items-center justify-center bg-black overflow-hidden">
                   <img
                     src={aMaraiS4_1Img}
-                    alt="Andor Marai Season 4 Game 5"
+                    alt="Andor Marai Season 4"
                     className="w-full h-full object-cover object-center group-hover/photo:scale-[1.03] transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/20 to-transparent pointer-events-none" />
@@ -1364,7 +1353,7 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
                 <Award size={12} /> HINTON 30 PTS & 8 3PM
               </span>
               <span className="px-2.5 py-0.5 bg-purple-500/20 text-purple-300 border border-purple-500/30 font-mono font-bold text-[11px] uppercase rounded-md">
-                Season 4 • Game 6 (Oct 20)
+                Season 4 (Oct 20)
               </span>
             </div>
 
@@ -1383,7 +1372,7 @@ export const OpeningDayRecapCard: React.FC<OpeningDayRecapCardProps> = ({
                 <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] flex items-center justify-center bg-black overflow-hidden">
                   <img
                     src={ajHintonS4_1Img}
-                    alt="A.J. Hinton Season 4 Game 6"
+                    alt="A.J. Hinton Season 4"
                     className="w-full h-full object-cover object-center group-hover/photo:scale-[1.03] transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/20 to-transparent pointer-events-none" />

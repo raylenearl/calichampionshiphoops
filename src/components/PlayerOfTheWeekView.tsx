@@ -9,6 +9,11 @@ import hinton42Img from '../assets/images/Hinton42_s4vsCAL.png';
 import bowenPOTWImg from '../assets/images/BowenPOTW.png';
 import hintonPOTWImg from '../assets/images/HintonPOTW.png';
 
+const getTeamShortName = (team: string): string => {
+  if (team.toLowerCase().includes('mad dogs')) return 'Mad Dogs';
+  return team.split(' ').pop() || team;
+};
+
 interface PlayerOfTheWeekViewProps {
   onNavigateToNews: (articleId: string) => void;
   onSelectTeam?: (teamId: string, season?: 1 | 2 | 3 | 4) => void;
@@ -527,7 +532,7 @@ export const PlayerOfTheWeekView: React.FC<PlayerOfTheWeekViewProps> = ({
                           <div>
                             <span className="font-black text-white">{northWinner.player}</span>
                             <span className="text-[10px] text-slate-400 block">
-                              {northWinner.team.split(' ').pop()} • {northWinner.statSummary}
+                              {getTeamShortName(northWinner.team)} • {northWinner.statSummary}
                             </span>
                           </div>
                         </div>
@@ -542,7 +547,7 @@ export const PlayerOfTheWeekView: React.FC<PlayerOfTheWeekViewProps> = ({
                           <div>
                             <span className="font-black text-white">{southWinner.player}</span>
                             <span className="text-[10px] text-slate-400 block">
-                              {southWinner.team.split(' ').pop()} • {southWinner.statSummary}
+                              {getTeamShortName(southWinner.team)} • {southWinner.statSummary}
                             </span>
                           </div>
                         </div>

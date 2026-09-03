@@ -9,12 +9,16 @@ import { GameRecord } from '../types';
 import rjRush1Img from '../assets/images/RJRush1.png';
 import ajHinton99Img from '../assets/images/AJHinton99.png';
 import ajHintonS4_1Img from '../assets/images/AJHintonS4_1.png';
+import sdReboundS4Img from '../assets/images/SD_Rebound_S4.png';
+import hintonVsJmjS4Img from '../assets/images/Hinton_vs_JMJs4.png';
 import aMaraiS4_1Img from '../assets/images/AMaraiS4_1.png';
 import hinton42vsCalImg from '../assets/images/Hinton42_s4vsCAL.png';
 import jDeanVsSacImg from '../assets/images/JDean_vs_SACs4.png';
 import maraiVsLbImg from '../assets/images/Marai_vs_LBs4.png';
 import carltonDaughertyImg from '../assets/images/S4 Draft/Carlton Daugherty.png';
 import boomerVsSacImg from '../assets/images/Boomer_VS_SAC1.png';
+import boomerVsGsImg from '../assets/images/Boomer_vs_GS.png';
+import ktVsSfImg from '../assets/images/KTvsSF_S4.png';
 import daughertyVsCalImg from '../assets/images/Daugherty_vs_CAL1.png';
 import deanVsSfImg from '../assets/images/DeanSFS1.png';
 import calVsOakImg from '../assets/images/CALvsOAKs1.png';
@@ -101,42 +105,368 @@ export interface CCHNewsArticle {
 
 export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
   {
+    id: 's4-g18-sabrewolves-stifle-knights-creek',
+    title: "Creek's Flawless 23-Point Masterclass Lifts Sabrewolves Past Knights 61-48 for First Win",
+    subtitle: 'Andre Creek shoots a scorching 11-of-12 from the floor for 23 points and 6 rebounds as San Diego pulls away in the second half to defeat San Francisco 61-48.',
+    date: 'Season 4 Recap • Nov 7',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • Bay Area Beat',
+    readTime: '3 min read',
+    imageUrl: sdReboundS4Img,
+    imageCaption: 'Andre Creek connected on 11-of-12 field goal attempts for a game-high 23 points and 6 rebounds as the San Diego Sabrewolves captured their first win of Season 4, 61-48 over San Francisco.',
+    teams: {
+      team1: 'San Diego Sabrewolves',
+      team1Id: 'san-diego-sabrewolves',
+      score1: 61,
+      team2: 'San Francisco Knights',
+      team2Id: 'san-francisco-knights',
+      score2: 48,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 13, team2: 16 },
+      { period: 'Q2', team1: 11, team2: 8 },
+      { period: 'Q3', team1: 23, team2: 15 },
+      { period: 'Q4', team1: 14, team2: 9 },
+    ],
+    headlineQuote: 'Andre Creek was practically automatic tonight. When your leading scorer goes 11-of-12 from the field, everything else flows naturally on offense.',
+    contentParagraphs: [
+      'San Francisco – The San Diego Sabrewolves secured their first victory of Season 4 on Friday night, holding the San Francisco Knights to just 48 points in a disciplined 61-48 road win at the Bill Graham Civic Auditorium.',
+      'Forward Andre Creek was the undisputed star of the evening, putting on a clinic in mid-range and interior scoring with 23 points on 11-of-12 shooting (91.7% FG) to go along with 6 rebounds and a block. San Diego controlled the second half with a 23-15 third quarter push, exploiting their size and transition opportunities (13 fast break points to SF’s 4, and 38 paint points to 18).',
+      'SUPPORTING PRODUCTION:\nAlan Perben gave San Diego 9 points and 3 rebounds, while veteran playmaker Kirk Barnes dished out a game-high 6 assists with 8 points (2-of-3 3PT). Garrison Iverson contributed 7 points and 4 rebounds, while Lynwood Washington Jr. swatted 2 blocks. On the perimeter, Rick Glover made huge defensive plays, collecting 4 steals in the second half.',
+      'KNIGHTS RECAP:\nFor San Francisco (0-3), Damian Gilmore led the scoring with 11 points (6-8 FT) and 2 blocks, while Erik Higgins matched him with 11 points on 5-of-8 shooting. Marion Payton pulled down 6 rebounds and Gheorghe Stefan grabbed 5 boards. However, the Knights struggled from outside (4-of-17, 24% 3PT) and turned the ball over 16 times against San Diego’s active passing-lane defense.'
+    ],
+    quotes: [
+      {
+        speaker: 'Andre Creek',
+        title: 'Forward • San Diego Sabrewolves (23 PTS, 11-12 FG)',
+        quote: 'My teammates found me in rhythm and in spots where I could attack quickly. We needed this win to bounce back after the opener, and our second-half defense was locked in.'
+      },
+      {
+        speaker: 'Jacob Underwood',
+        title: 'Head Coach • San Diego Sabrewolves (1-1 Record)',
+        quote: 'Andre Creek was practically automatic tonight. We defended with discipline, limited them to 18 paint points, and executed our halfcourt sets.'
+      },
+      {
+        speaker: 'Zack Randle',
+        title: 'Head Coach • San Francisco Knights (0-3 Record)',
+        quote: 'Creek hurt us in the high post all night. We had open looks in the third quarter that didn’t fall, and you can’t give up 38 points in the paint when shooting 35%.'
+      }
+    ],
+    playerStats: [
+      { player: 'Andre Creek', team: 'San Diego Sabrewolves', stat: '23 PTS, 6 REB, 1 BLK (11-12 FG, 1-2 FT)' },
+      { player: 'Alan Perben', team: 'San Diego Sabrewolves', stat: '9 PTS, 3 REB, 1 AST, 1 STL, 1 BLK (4-8 FG, 1-2 3PT)' },
+      { player: 'Kirk Barnes', team: 'San Diego Sabrewolves', stat: '8 PTS, 6 AST, 1 REB, 1 BLK (3-9 FG, 2-3 3PT)' },
+      { player: 'Garrison Iverson', team: 'San Diego Sabrewolves', stat: '7 PTS, 4 REB, 1 STL (3-6 FG, 1-2 FT)' },
+      { player: 'Lynwood Washington Jr.', team: 'San Diego Sabrewolves', stat: '6 PTS, 2 BLK, 1 AST (2-7 FG, 2-2 FT)' },
+      { player: 'Wes Taylor', team: 'San Diego Sabrewolves', stat: '3 PTS, 5 AST, 3 REB (1-4 FG, 1-2 FT)' },
+      { player: 'Tingus Atgusanas', team: 'San Diego Sabrewolves', stat: '2 PTS, 7 REB, 3 AST, 2 STL' },
+      { player: 'Rick Glover', team: 'San Diego Sabrewolves', stat: '2 PTS, 4 REB, 4 STL, 1 AST' },
+      { player: 'Damian Gilmore', team: 'San Francisco Knights', stat: '11 PTS, 2 STL, 2 BLK (2-5 FG, 6-8 FT)' },
+      { player: 'Erik Higgins', team: 'San Francisco Knights', stat: '11 PTS, 3 REB, 2 STL, 1 BLK (5-8 FG)' },
+      { player: 'Marty Dunn', team: 'San Francisco Knights', stat: '7 PTS, 4 REB, 1 STL (3-4 FG)' },
+      { player: 'Donnie Anderson', team: 'San Francisco Knights', stat: '6 PTS, 4 AST, 3 STL, 1 BLK' },
+      { player: 'Points in Paint', team: 'Team Comparison', stat: 'San Diego 38 PTS • San Francisco 18 PTS (+20 SD)' },
+      { player: 'Fast Break Points', team: 'Team Comparison', stat: 'San Diego 13 PTS • San Francisco 4 PTS (+9 SD)' }
+    ]
+  },
+  {
+    id: 's4-g17-strykers-blowout-dynamics-hinton',
+    title: 'Strykers Dismantle Dynamics 82-58 in Marquee Clash to Remain Undefeated at 4-0',
+    subtitle: 'San Diego opens with an overpowering 28-8 first quarter, generating 29 fast break points and 11 steals to cruise past Los Angeles 82-58 behind A.J. Hinton’s 18 points.',
+    date: 'Season 4 Recap • Nov 5',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • Southern Cali Beat',
+    readTime: '4 min read',
+    imageUrl: hintonVsJmjS4Img,
+    imageCaption: 'A.J. Hinton scored 18 points with 6 rebounds and 3 steals as the San Diego Strykers unleashed a 28-8 opening blitz to crush the LA Dynamics 82-58.',
+    teams: {
+      team1: 'Los Angeles Dynamics',
+      team1Id: 'los-angeles-dynamics',
+      score1: 58,
+      team2: 'San Diego Strykers',
+      team2Id: 'san-diego-strykers',
+      score2: 82,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 8, team2: 28 },
+      { period: 'Q2', team1: 10, team2: 18 },
+      { period: 'Q3', team1: 19, team2: 13 },
+      { period: 'Q4', team1: 21, team2: 23 },
+    ],
+    headlineQuote: 'Our defensive intensity in the first 12 minutes set the tone. 29 fast-break points and only 3 turnovers all night is championship basketball.',
+    contentParagraphs: [
+      'San Diego – In one of the most anticipated matchups of the young Season 4 calendar, the San Diego Strykers made a resounding statement, dominating the Los Angeles Dynamics 82-58 in front of a capacity crowd at Pechanga Arena.',
+      'The Strykers blew the game wide open in the opening quarter with a devastating 28-8 blitz, converting defensive pressure into instantaneous transition offense. San Diego scored an astounding 29 fast-break points and dished out 23 assists on 33 made field goals while committing just 3 turnovers all game.',
+      'BALANCED STRIKE FORCE:\nA.J. Hinton led the way with 18 points (8-14 FG, 2 3PM), 6 rebounds, and 3 steals. DeAnte Gray delivered an efficient 15 points (6-10 FG, 2-3 3PT) and 6 boards, while Ray "Gambino" Gamble controlled the tempo with 14 points and 4 assists. In the frontcourt, Johnny Galloway and Carl Marshall chipped in 8 points apiece.',
+      'DYNAMICS HIGHLIGHTS:\nLos Angeles (1-2) fought back in the second half behind rookie guard R.J. Rush, who posted 19 points and went a perfect 7-of-7 from the foul line. Jack McMichael Jr. (14 PTS, 7-7 FT) and Mo Alexander (14 PTS, 5 REB, 2 BLK, 7-11 FG) provided solid interior punch, but the early 29-point deficit proved insurmountable against the league\'s top defense.'
+    ],
+    quotes: [
+      {
+        speaker: 'A.J. Hinton',
+        title: 'Guard • San Diego Strykers (18 PTS, 6 REB, 3 STL)',
+        quote: 'We wanted to set the tone immediately. When we run the floor and share the ball like we did in that first quarter, we are extremely tough to stop.'
+      },
+      {
+        speaker: 'Adam Saunders',
+        title: 'Head Coach • San Diego Strykers (4-0 Record)',
+        quote: 'Our defensive intensity in the first 12 minutes set the tone. 29 fast-break points and only 3 turnovers all night is championship basketball.'
+      },
+      {
+        speaker: 'Pooh Splitter',
+        title: 'Head Coach • Los Angeles Dynamics (1-2 Record)',
+        quote: 'You cannot spot the Strykers a 20-point first quarter on their home floor. We battled in the second half, but the early turnovers cost us.'
+      }
+    ],
+    playerStats: [
+      { player: 'A.J. Hinton', team: 'San Diego Strykers', stat: '18 PTS, 6 REB, 3 STL, 2 AST, 1 BLK (8-14 FG, 2-6 3PT)' },
+      { player: 'DeAnte Gray', team: 'San Diego Strykers', stat: '15 PTS, 6 REB, 3 AST, 1 BLK (6-10 FG, 2-3 3PT)' },
+      { player: 'Ray Gambino Gamble', team: 'San Diego Strykers', stat: '14 PTS, 4 AST, 3 REB, 1 STL (6-14 FG)' },
+      { player: 'Johnny Galloway', team: 'San Diego Strykers', stat: '8 PTS, 4 REB, 1 AST (3-4 FG, 1-1 3PT)' },
+      { player: 'Carl Marshall', team: 'San Diego Strykers', stat: '8 PTS, 4 AST, 3 REB, 1 STL, 1 BLK (4-6 FG)' },
+      { player: 'Joe Grantham', team: 'San Diego Strykers', stat: '6 PTS, 5 AST, 3 REB, 3 STL (4-4 FT)' },
+      { player: 'Milo Novak', team: 'San Diego Strykers', stat: '6 PTS, 1 REB (3-3 FG)' },
+      { player: 'Lance Nixon', team: 'San Diego Strykers', stat: '4 PTS, 2 AST (2-2 FT)' },
+      { player: 'R.J. Rush', team: 'Los Angeles Dynamics', stat: '19 PTS, 2 AST, 1 REB, 1 BLK (6-13 FG, 7-7 FT)' },
+      { player: 'Jack McMichael Jr.', team: 'Los Angeles Dynamics', stat: '14 PTS, 4 REB, 1 AST (3-5 FG, 1-1 3PT, 7-7 FT)' },
+      { player: 'Mo Alexander', team: 'Los Angeles Dynamics', stat: '14 PTS, 5 REB, 3 AST, 2 BLK (7-11 FG)' },
+      { player: 'Uwe Kramer', team: 'Los Angeles Dynamics', stat: '5 PTS, 3 REB (1-3 FG, 2-2 FT)' },
+      { player: 'Fast Break Points', team: 'Team Comparison', stat: 'San Diego 29 PTS • LA Dynamics 10 PTS (+19 SDS)' },
+      { player: 'Turnovers', team: 'Team Comparison', stat: 'San Diego 3 TOs • LA Dynamics 13 TOs (+10 SDS)' }
+    ]
+  },
+  {
     id: 's4-update-renegades-reign-supreme-weekly-honors',
-    title: 'Season 4 Update: Renegades Reign Supreme, Marai and Graham Earn Weekly Honors',
-    subtitle: 'The battle for the top of the CCH standings is heating up as Oakland sits at 4-0, Fresno and San Diego follow at 3-0, California claws back to .500, and Anaheim notches its first win.',
-    date: 'Season 4 Official League Update • Nov 6',
+    title: 'Season 4 Update: Strykers & Renegades Undefeated at 4-0, Sabrewolves Break Through',
+    subtitle: 'San Diego and Oakland share the top spot at 4-0, Fresno stays unbeaten at 3-0, Sabrewolves capture their first win behind Creek’s 23, and the standings tighten.',
+    date: 'Season 4 Official League Update • Nov 8',
     season: 4,
     category: 'feature',
     featured: true,
     author: 'CCH League Office & Editorial Desk',
     readTime: '4 min read',
-    imageUrl: aMaraiS4_1Img,
-    imageCaption: 'Andor Marai posted 20 points, 14 rebounds, and 4 steals to push the California Reds back to .500 while earning South Player of the Week honors.',
-    headlineQuote: 'The battle for the top of the CCH standings is heating up with Oakland, San Diego, and Fresno leading the pack.',
+    imageUrl: ajHinton99Img,
+    imageCaption: 'The San Diego Strykers moved to 4-0 behind an 82-58 blowout over LA Dynamics, sharing the league’s top record with the 4-0 Oakland Renegades.',
+    headlineQuote: 'The battle for the top of the CCH standings is electrifying, with San Diego and Oakland setting the pace at 4-0.',
     contentParagraphs: [
-      'CALIFORNIA — The battle for the top of the CCH standings is heating up. The Oakland Renegades remain the only unbeaten team at 4-0, but the San Diego Strykers and Fresno Mad Dogs are right on their heels at 3-0. Meanwhile, the California Reds have clawed back to .500 with a gritty win, and the Anaheim Admirals finally got their first win of the season.',
-      'STANDINGS & CONFERENCE BREAKDOWN:\n1. Oakland Renegades (4-0, -- GB, 67.0 PPG, 50.3 OPP, +16.8 DIFF)\n2. San Diego Strykers (3-0, 0.5 GB, 80.0 PPG, 47.3 OPP, +32.7 DIFF)\n3. Fresno Mad Dogs (3-0, 0.5 GB, 68.3 PPG, 58.7 OPP, +9.7 DIFF)\n4. California Reds (3-3, 2.0 GB, 60.0 PPG, 67.0 OPP, -7.0 DIFF)\n5. Los Angeles Dynamics (1-1, 2.0 GB, 66.5 PPG, 58.0 OPP, +8.5 DIFF)\n6. Golden State Enterprise (1-1, 2.0 GB, 70.0 PPG, 70.0 OPP, 0.0 DIFF)\n7. Anaheim Admirals (1-2, 2.5 GB, 49.3 PPG, 69.3 OPP, -20.0 DIFF)\n8. San Jose Tigersharks (0-1, 2.5 GB, 53.0 PPG, 59.0 OPP, -6.0 DIFF)\n9. San Francisco Knights (0-2, 3.0 GB, 52.0 PPG, 61.0 OPP, -9.0 DIFF)\n10. San Diego Sabrewolves (0-1, 2.5 GB, 55.0 PPG, 77.0 OPP, -22.0 DIFF)\n11. Long Beach Vipers (0-2, 3.0 GB, 48.0 PPG, 60.5 OPP, -12.5 DIFF)\n12. Sacramento Stallions (0-3, 3.5 GB, 47.3 PPG, 60.0 OPP, -12.7 DIFF)',
-      'GAME RECAPS:\n• Fresno Mad Dogs 82, Golden State Enterprise 75: The Mad Dogs outlasted a tough Enterprise squad on the road to stay perfect. Lloyd Boomer was outstanding again, dropping 26 points, dishing out 8 assists, and adding 3 steals. The Mad Dogs got a massive boost from newly signed forward Luke Davidson, who recorded a 12-point, 10-rebound double-double in his debut. Jud Drew added 13 points and 5 rebounds. For Enterprise (1-1), Carlton Daugherty scored 18 points (4 3PM) and Jud Thompson chipped in 17 points and 6 assists.\n• Anaheim Admirals 56, San Francisco Knights 52: The Admirals held off the Knights to notch their first win of Season 4. Stephan Sirven led Anaheim with 18 points (6-of-6 FT), while Kirk Tinsley provided efficient scoring with 16 points (4-of-5 3PT). For San Francisco (0-2), Eric Higgins recorded a 16-point, 9-rebound line and Manny Payton added 10 points and 11 boards.\n• California Reds 61, Los Angeles Dynamics 56: The Reds rebounded in dramatic fashion, taking down the Dynamics on the road. Center Andor Marai was dominant in the paint, posting a massive 20-point, 14-rebound, 4-steal performance to lead California back to .500 (3-3). Donald Rodman added 11 points and 9 boards. For LA (1-1), rookie sensation R.J. Rush finished with 14 points and Reggie Forte added 9.',
-      'PLAYERS OF THE WEEK (OCT 29 – NOV 4):\n• North Player of the Week: Carson Graham (Fresno Mad Dogs) — Powered Fresno to an undefeated 3-0 start with stellar two-way production, elite interior defense, and leadership.\n• South Player of the Week: Andor Marai (California Reds) — Dominated inside with 20.5 PPG, 12.5 RPG, and 3.5 SPG over the week to guide California back to .500.',
-      'LEAGUE TRANSACTIONS:\n• Fresno Mad Dogs signed rookie forward Luke Davidson (6\'9", Nebraska) to a 1-year, $5.88M contract. In his debut, Davidson tallied 12 points and 10 rebounds in an 82-75 victory over Golden State.\n• California Reds signed SG Marcus Pollard (6\'4", North Carolina) to a 1-year, $1.45M contract.'
+      'CALIFORNIA — Season 4 action has reached full throttle across the California Champions Hoop circuit. Two powerhouses stand atop the conference ladders at 4-0: the San Diego Strykers (South #1) and the Oakland Renegades (North #1). Meanwhile, the Fresno Mad Dogs are lurking right behind at 3-0, and the San Diego Sabrewolves have broken through for their first win of the campaign.',
+      'STANDINGS & CONFERENCE BREAKDOWN:\n1. San Diego Strykers (4-0, -- GB, 80.5 PPG, 50.0 OPP, +30.5 DIFF)\n2. Oakland Renegades (4-0, -- GB, 67.0 PPG, 50.3 OPP, +16.8 DIFF)\n3. Fresno Mad Dogs (3-0, 0.5 GB, 68.3 PPG, 58.7 OPP, +9.7 DIFF)\n4. California Reds (3-3, 2.0 GB, 60.0 PPG, 67.0 OPP, -7.0 DIFF)\n5. Golden State Enterprise (1-1, 2.0 GB, 70.0 PPG, 70.0 OPP, 0.0 DIFF)\n6. San Diego Sabrewolves (1-1, 2.0 GB, 58.0 PPG, 62.5 OPP, -4.5 DIFF)\n7. Los Angeles Dynamics (1-2, 2.5 GB, 63.7 PPG, 66.0 OPP, -2.3 DIFF)\n8. Anaheim Admirals (1-2, 2.5 GB, 49.3 PPG, 69.3 OPP, -20.0 DIFF)\n9. San Jose Tigersharks (0-1, 2.5 GB, 53.0 PPG, 59.0 OPP, -6.0 DIFF)\n10. Long Beach Vipers (0-2, 3.0 GB, 48.0 PPG, 60.5 OPP, -12.5 DIFF)\n11. San Francisco Knights (0-3, 3.5 GB, 50.7 PPG, 61.0 OPP, -10.3 DIFF)\n12. Sacramento Stallions (0-3, 3.5 GB, 47.3 PPG, 60.0 OPP, -12.7 DIFF)',
+      'LATEST GAMES RECAPS:\n• San Diego Strykers 82, Los Angeles Dynamics 58: The Strykers blew open the showdown with a 28-8 first-quarter barrage, forcing 13 turnovers and pouring in 29 fast-break points. A.J. Hinton scored 18 points with 6 rebounds and 3 steals, DeAnte Gray tallied 15 points, and Ray Gamble added 14. For LA (1-2), R.J. Rush led with 19 points (7-7 FT) and Jack McMichael Jr. and Mo Alexander added 14 apiece.\n• San Diego Sabrewolves 61, San Francisco Knights 48: Andre Creek delivered one of the most efficient scoring performances of the season, scoring 23 points on 11-of-12 shooting (91.7% FG) with 6 rebounds to give San Diego its first win. Kirk Barnes added 8 points and 6 assists. For San Francisco (0-3), Damian Gilmore and Eric Higgins scored 11 points each.\n• Fresno Mad Dogs 82, Golden State Enterprise 75: Lloyd Boomer dropped 26 points with 8 assists, while newly signed Luke Davidson notched a 12-point, 10-rebound double-double in his Fresno debut.\n• Anaheim Admirals 56, San Francisco Knights 52: Stephan Sirven (18 PTS) and Kirk Tinsley (16 PTS, 4 3PM) delivered Anaheim’s first win of the season.'
     ],
     quotes: [
       {
+        speaker: 'Adam Saunders',
+        title: 'Head Coach • San Diego Strykers (4-0 Record)',
+        quote: 'We are clicking on all cylinders right now, but we know every team is bringing their best shot against us.'
+      },
+      {
+        speaker: 'Jacob Underwood',
+        title: 'Head Coach • San Diego Sabrewolves (1-1 Record)',
+        quote: 'Getting this first win in San Francisco is huge for our confidence. Andre Creek gave us tremendous interior punch.'
+      }
+    ],
+    playerStats: [
+      { player: 'Andre Creek', team: 'San Diego Sabrewolves', stat: '23 PTS, 6 REB (11-12 FG vs Knights)' },
+      { player: 'A.J. Hinton', team: 'San Diego Strykers', stat: '18 PTS, 6 REB, 3 STL vs LA Dynamics' },
+      { player: 'R.J. Rush', team: 'Los Angeles Dynamics', stat: '19 PTS, 7/7 FT vs SD Strykers' },
+      { player: 'Lloyd Boomer', team: 'Fresno Mad Dogs', stat: '26 PTS, 8 AST, 3 STL vs Enterprise' }
+    ]
+  },
+  {
+    id: 's4-g16-mad-dogs-outlast-enterprise-boomer',
+    title: 'Boomer Drops 26 & 8 AST as Mad Dogs Stay Unbeaten at 3-0 in 82-75 Thriller Over Enterprise',
+    subtitle: 'Lloyd Boomer orchestrates an electric 82-75 road victory with 26 points and 8 assists, while newly acquired forward Luke Davidson records a 12-point, 10-rebound double-double in his Fresno debut.',
+    date: 'Season 4 Recap • Nov 5',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • Central Valley Beat',
+    readTime: '3 min read',
+    imageUrl: boomerVsGsImg,
+    imageCaption: 'Lloyd Boomer scored 26 points with 8 assists and 3 steals as the Fresno Mad Dogs outlasted Golden State 82-75 to stay undefeated at 3-0.',
+    teams: {
+      team1: 'Fresno Mad Dogs',
+      team1Id: 'fresno-mad-dogs',
+      score1: 82,
+      team2: 'Golden State Enterprise',
+      team2Id: 'golden-state-enterprise',
+      score2: 75,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 22, team2: 19 },
+      { period: 'Q2', team1: 20, team2: 18 },
+      { period: 'Q3', team1: 19, team2: 20 },
+      { period: 'Q4', team1: 21, team2: 18 },
+    ],
+    headlineQuote: 'Lloyd Boomer was masterful down the stretch, orchestrating our transition attack and finding open looks whenever Enterprise mounted a run.',
+    contentParagraphs: [
+      'Golden State – The Fresno Mad Dogs remained undefeated at 3-0, securing a gritty 82-75 road victory over Golden State Enterprise in a high-octane battle between two of the league’s most explosive perimeter offenses.',
+      'Rookie sensation Lloyd Boomer put on a playmaking clinic, dropping 26 points on 10-of-17 shooting while dishing out 8 assists and picking up 3 steals. Fresno received an immediate boost from newly signed rookie forward Luke Davidson (6\'9", Nebraska), who dominated the glass with a 12-point, 10-rebound double-double in his Mad Dogs debut.',
+      'FOURTH-QUARTER POISE:\nJud Drew added 13 points and 5 rebounds, including a clutch corner three with 1:14 remaining to put Fresno ahead by two possessions. Carson Graham anchored the interior defense with 8 points, 7 rebounds, and 2 blocks.',
+      'ENTERPRISE RECAP:\nFor Golden State (1-1), #1 overall draft pick Carlton Daugherty scored 18 points on four three-pointers, while Jud Thompson contributed 17 points and 6 assists. Cameron Barkley posted 14 points and 8 rebounds, but Enterprise was unable to contain Fresno\'s fast-break scoring (22-12 in transition).'
+    ],
+    quotes: [
+      {
+        speaker: 'Lloyd Boomer',
+        title: 'Guard • Fresno Mad Dogs (26 PTS, 8 AST, 3 STL)',
+        quote: 'We knew this would be a hostile environment against a very talented Enterprise team. Luke Davidson gave us a huge physical presence inside and we executed our sets down the stretch.'
+      },
+      {
+        speaker: 'Luke Davidson',
+        title: 'Forward • Fresno Mad Dogs (12 PTS, 10 REB Debut)',
+        quote: 'Coach Flores and the guys welcomed me with open arms. When Boomer drives, he pulls so much gravity that all I have to do is crash the boards and finish inside.'
+      },
+      {
         speaker: 'Ronnie Flores',
         title: 'Head Coach • Fresno Mad Dogs (3-0 Record)',
-        quote: 'Adding Luke Davidson gives us the size and rebounding we need. Lloyd Boomer and our frontcourt played with immense poise down the stretch in Oakland.'
+        quote: 'Lloyd Boomer was masterful down the stretch. He controlled the game tempo, made the right reads, and our defense got the necessary stops late.'
+      },
+      {
+        speaker: 'Wyatt Zimmerman',
+        title: 'Head Coach • Golden State Enterprise (1-1 Record)',
+        quote: 'Boomer is special in the open floor. We made runs in the second half, but Davidson hurt us on the offensive glass and we gave up too many transition points.'
+      }
+    ],
+    playerStats: [
+      { player: 'Lloyd Boomer', team: 'Fresno Mad Dogs', stat: '26 PTS, 8 AST, 5 REB, 3 STL (10-17 FG, 2-5 3PT, 4-4 FT)' },
+      { player: 'Luke Davidson', team: 'Fresno Mad Dogs', stat: '12 PTS, 10 REB, 1 BLK (Debut Double-Double, 5-8 FG)' },
+      { player: 'Jud Drew', team: 'Fresno Mad Dogs', stat: '13 PTS, 5 REB, 2 AST (5-9 FG, 2-3 3PT)' },
+      { player: 'Carson Graham', team: 'Fresno Mad Dogs', stat: '8 PTS, 7 REB, 2 BLK, 2 STL' },
+      { player: 'Carlton Daugherty', team: 'Golden State Enterprise', stat: '18 PTS, 4 REB, 3 AST (4-8 3PT)' },
+      { player: 'Jud Thompson', team: 'Golden State Enterprise', stat: '17 PTS, 6 AST, 3 REB (7-13 FG)' },
+      { player: 'Cameron Barkley', team: 'Golden State Enterprise', stat: '14 PTS, 8 REB, 2 BLK (6-11 FG)' },
+      { player: 'Fast Break Points', team: 'Team Stats', stat: 'Fresno 22 PTS • Golden State 12 PTS (+10 FRE)' },
+      { player: 'Fresno Mad Dogs', team: 'Team Record', stat: '3-0 Overall • Undefeated Start' }
+    ]
+  },
+  {
+    id: 's4-g15-admirals-edge-knights-first-win',
+    title: 'Admirals Capture Season-First Victory Behind Sirven and Tinsley in 56-52 Nailbiter Over Knights',
+    subtitle: 'Stephan Sirven scores 18 points (6-of-6 FT) and Kirk Tinsley drains 4-of-5 three-pointers for 16 points as Anaheim notches its first win of Season 4.',
+    date: 'Season 4 Recap • Nov 2',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • Southern Cali Beat',
+    readTime: '3 min read',
+    imageUrl: ktVsSfImg,
+    imageCaption: 'Kirk Tinsley connected on 4-of-5 from deep for 16 points and Stephan Sirven scored 18 as the Anaheim Admirals captured their first win of the season, 56-52 over San Francisco.',
+    teams: {
+      team1: 'San Francisco Knights',
+      team1Id: 'san-francisco-knights',
+      score1: 52,
+      team2: 'Anaheim Admirals',
+      team2Id: 'anaheim-admirals',
+      score2: 56,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 12, team2: 15 },
+      { period: 'Q2', team1: 14, team2: 13 },
+      { period: 'Q3', team1: 11, team2: 16 },
+      { period: 'Q4', team1: 15, team2: 12 },
+    ],
+    headlineQuote: 'Kirk Tinsley gave us the perimeter spark we desperately needed, and Stephan Sirven sealed the game at the charity stripe.',
+    contentParagraphs: [
+      'Anaheim, CA – The Anaheim Admirals broke through for their first victory of Season 4, holding off the San Francisco Knights in a tense 56-52 finish behind the clutch perimeter shooting of Kirk Tinsley and steady scoring from Stephan Sirven.',
+      'Sirven led Anaheim with 18 points, converting a perfect 6-of-6 from the free throw line in the fourth quarter to keep the Knights at bay. Sharpshooter Kirk Tinsley provided an offensive jolt, pouring in 16 points on an ultra-efficient 4-of-5 shooting from beyond the three-point arc.',
+      'DEFENSIVE STAND & CRUNCH TIME:\nAnaheim (1-2) locked down defensively in the third quarter (16-11), denying paint penetration and forcing 14 San Francisco turnovers. Center Barry Nelson grabbed 8 rebounds and blocked 2 shots to anchor the backline.',
+      'KNIGHTS HEARTBREAK:\nFor San Francisco (0-2), Eric Higgins led the charge with a 16-point, 9-rebound performance, while Manny Payton chipped in 10 points and 11 rebounds. Despite out-rebounding Anaheim 39-32, the Knights were unable to overcome a 3-of-15 shooting slump from three-point range.'
+    ],
+    quotes: [
+      {
+        speaker: 'Stephan Sirven',
+        title: 'Guard • Anaheim Admirals (18 PTS, 6-6 FT)',
+        quote: 'Getting that first win off our backs is huge. We stayed disciplined, communicated on defensive switches, and trusted our sets down the stretch.'
+      },
+      {
+        speaker: 'Kirk Tinsley',
+        title: 'Guard • Anaheim Admirals (16 PTS, 4-5 3PT)',
+        quote: 'My teammates found me in rhythm on the perimeter. Knocking down those threes early gave our whole team confidence.'
+      },
+      {
+        speaker: 'Sam Porter',
+        title: 'Head Coach • Anaheim Admirals (1-2 Record)',
+        quote: 'Kirk Tinsley gave us the perimeter spark we needed, and Sirven closed it out with veteran leadership. This is the defensive standard we want moving forward.'
+      },
+      {
+        speaker: 'Zack Randle',
+        title: 'Head Coach • San Francisco Knights (0-2 Record)',
+        quote: 'We fought hard on the glass, but shooting 20% from three and turning it over 14 times makes it very difficult to win close games on the road.'
+      }
+    ],
+    playerStats: [
+      { player: 'Stephan Sirven', team: 'Anaheim Admirals', stat: '18 PTS, 4 REB, 3 AST (6-6 FT, 5-11 FG)' },
+      { player: 'Kirk Tinsley', team: 'Anaheim Admirals', stat: '16 PTS, 3 REB, 2 AST (4-5 3PT, 6-9 FG)' },
+      { player: 'Barry Nelson', team: 'Anaheim Admirals', stat: '6 PTS, 8 REB, 2 BLK, 1 STL' },
+      { player: 'Eric Higgins', team: 'San Francisco Knights', stat: '16 PTS, 9 REB, 2 BLK (7-13 FG)' },
+      { player: 'Manny Payton', team: 'San Francisco Knights', stat: '10 PTS, 11 REB, 2 AST (5-9 FG)' },
+      { player: 'Gheorghe Stefan', team: 'San Francisco Knights', stat: '9 PTS, 7 REB (4-8 FG)' },
+      { player: 'Perimeter Shooting Battle', team: 'Team Stats', stat: 'Anaheim 6/12 3PT (50.0%) • San Francisco 3/15 3PT (20.0%)' },
+      { player: 'Anaheim Admirals', team: 'Team Record', stat: '1-2 Overall • First Win of Season 4' }
+    ]
+  },
+  {
+    id: 's4-g14-reds-edge-dynamics-marai',
+    title: 'Marai Dominates with 20 PTS, 14 REB & 4 STL as Reds Edge Dynamics 61-56 on the Road',
+    subtitle: 'Andor Marai puts on a masterclass in the paint to power California back to .500 (3-3), overcoming 14 points from rookie sensation R.J. Rush in Los Angeles.',
+    date: 'Season 4 Recap • Nov 1',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • Southern Cali Beat',
+    readTime: '3 min read',
+    imageUrl: aMaraiS4_1Img,
+    imageCaption: 'Andor Marai scored 20 points, grabbed 14 rebounds, and notched 4 steals as the California Reds (3-3) earned a gritty 61-56 road victory over the LA Dynamics.',
+    teams: {
+      team1: 'California Reds',
+      team1Id: 'california-reds',
+      score1: 61,
+      team2: 'Los Angeles Dynamics',
+      team2Id: 'los-angeles-dynamics',
+      score2: 56,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 16, team2: 15 },
+      { period: 'Q2', team1: 15, team2: 13 },
+      { period: 'Q3', team1: 14, team2: 16 },
+      { period: 'Q4', team1: 16, team2: 12 },
+    ],
+    headlineQuote: 'Andor Marai demanded the ball inside and delivered, controlling the glass and giving us second-chance opportunities when the game was on the line.',
+    contentParagraphs: [
+      'Los Angeles, CA – The California Reds clawed their way back to .500 on the season, battling to a tough 61-56 road victory over the Los Angeles Dynamics behind an all-around masterpiece from superstar center Andor Marai.',
+      'Marai was an immovable force in the interior, recording 20 points, 14 rebounds, 4 steals, and 2 blocks on 8-of-13 shooting. Donald Rodman provided crucial support with 11 points and 9 boards, allowing the Reds to control the rebounding battle 41-33.',
+      'DEFENSIVE LOCKDOWN:\nWith the score tied at 52-52 with three minutes left in the fourth quarter, Marai scored back-to-back interior baskets and intercepted a Dynamics entry pass, leading to a transition jumper by Kyle Robinson to ice the victory.',
+      'DYNAMICS HIGHLIGHTS:\nFor Los Angeles (1-1), rookie sensation R.J. Rush led the squad with 14 points and 4 assists, while Reggie Forte contributed 9 points and 6 rebounds. Forward Travis Weaver added 8 points, but the Dynamics shot just 39% from the field against California\'s physical frontcourt.'
+    ],
+    quotes: [
+      {
+        speaker: 'Andor Marai',
+        title: 'Center • California Reds (20 PTS, 14 REB, 4 STL)',
+        quote: 'We took our recent losses personally. Getting back to .500 was our sole focus, and we brought high intensity from the opening tip in LA.'
       },
       {
         speaker: 'William Walker',
         title: 'Head Coach • California Reds (3-3 Record)',
-        quote: 'Andor Marai took over that game in Los Angeles. He set the tone physically and demanded the ball when we needed stops and buckets.'
+        quote: 'Andor Marai demanded the ball inside and delivered. He set the tone physically and anchored our half-court defense down the stretch.'
+      },
+      {
+        speaker: 'Marshall Stauffer',
+        title: 'Head Coach • Los Angeles Dynamics (1-1 Record)',
+        quote: 'Marai beat us to too many loose balls and rebounds. We had our chances in the fourth quarter, but give California credit for executing in the clutch.'
       }
     ],
     playerStats: [
-      { player: 'Lloyd Boomer', team: 'Fresno Mad Dogs', stat: '26 PTS, 8 AST, 3 STL vs Enterprise' },
-      { player: 'Luke Davidson', team: 'Fresno Mad Dogs', stat: '12 PTS, 10 REB (Debut Double-Double)' },
-      { player: 'Andor Marai', team: 'California Reds', stat: '20 PTS, 14 REB, 4 STL vs LA Dynamics' },
-      { player: 'Stephan Sirven', team: 'Anaheim Admirals', stat: '18 PTS, 6/6 FT in Season-First Win' }
+      { player: 'Andor Marai', team: 'California Reds', stat: '20 PTS, 14 REB, 4 STL, 2 BLK (8-13 FG, 4-5 FT)' },
+      { player: 'Donald Rodman', team: 'California Reds', stat: '11 PTS, 9 REB, 2 AST (5-10 FG)' },
+      { player: 'Kyle Robinson', team: 'California Reds', stat: '10 PTS, 5 AST, 3 REB (4-8 FG)' },
+      { player: 'R.J. Rush', team: 'Los Angeles Dynamics', stat: '14 PTS, 4 AST, 3 REB (5-12 FG)' },
+      { player: 'Reggie Forte', team: 'Los Angeles Dynamics', stat: '9 PTS, 6 REB, 1 BLK' },
+      { player: 'Travis Weaver', team: 'Los Angeles Dynamics', stat: '8 PTS, 5 REB, 2 STL' },
+      { player: 'Rebounding Battle', team: 'Team Stats', stat: 'California 41 REB • Los Angeles 33 REB (+8 CAL)' },
+      { player: 'California Reds', team: 'Team Record', stat: '3-3 Overall • Claws Back to .500' }
     ]
   },
   {
@@ -162,7 +492,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     contentParagraphs: [
       'SAN DIEGO, CA — While A.J. Hinton\'s 12-three-pointer record and 42-point explosions have grabbed every headline in early Season 4, the true foundation of the San Diego Strykers\' 3-0 surge is on the defensive end of the floor.',
       'In this special film room audio breakdown, the CCH Media Network dives deep into the metrics, scheme adjustments, and individual match-up discipline that have produced "The Impossible 5% Defense."',
-      'HOW THE FIVE PERCENT DEFENSE WORKS:\n• Perimeter Containment & Help-Side Timing: Against Long Beach in Game 1, the Strykers held the Vipers to an unfathomable 1-of-19 (5.3%) from beyond the arc. San Diego runs off-ball shooters off the line while maintaining crisp rotations that eliminate corner kick-outs.\n• Devastating Third-Quarter Blitzes: Over consecutive games, San Diego outscored Long Beach 25-6 and Anaheim 24-4 in the third quarter—holding Anaheim to just one made field goal in 12 minutes.\n• Two-Way Synergy: Johnny Galloway\'s 11-rebound glue work and DeAnte Gray\'s switchability free up A.J. Hinton to aggressively jump passing lanes (4.0 SPG), turning stops into instant transition offense.',
+      'HOW THE FIVE PERCENT DEFENSE WORKS:\n• Perimeter Containment & Help-Side Timing: Against Long Beach, the Strykers held the Vipers to an unfathomable 1-of-19 (5.3%) from beyond the arc. San Diego runs off-ball shooters off the line while maintaining crisp rotations that eliminate corner kick-outs.\n• Devastating Third-Quarter Blitzes: Over consecutive games, San Diego outscored Long Beach 25-6 and Anaheim 24-4 in the third quarter—holding Anaheim to just one made field goal in 12 minutes.\n• Two-Way Synergy: Johnny Galloway\'s 11-rebound glue work and DeAnte Gray\'s switchability free up A.J. Hinton to aggressively jump passing lanes (4.0 SPG), turning stops into instant transition offense.',
       'LISTEN TO THE FULL PODCAST:\nStream the complete film study above for an in-depth breakdown of San Diego\'s defensive rotations, coaching philosophies, and why this unit poses an existential threat to the rest of the CCH championship field.'
     ],
     quotes: [
@@ -242,7 +572,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     id: 's4-g10-renegades-crush-reds-dean-36',
     title: 'Dean Erupts for 36 as Renegades Dismantle Reds 74-50 in Road Statement',
     subtitle: 'Jamar Dean catches fire for 36 points on 13-of-18 shooting, while Joshua Bowen posts 20 points, 14 rebounds, and 5 assists to pace Oakland past California.',
-    date: 'Season 4 • Game 10 Recap (Oct 27)',
+    date: 'Season 4 Recap • Oct 27',
     season: 4,
     category: 'recap',
     featured: true,
@@ -303,7 +633,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     id: 's4-g11-renegades-bury-knights',
     title: 'Renegades Blitz Knights 66-52 Behind 23-Point Second Quarter and Dean\'s 22 Points',
     subtitle: 'Oakland explodes in the second quarter to overwhelm San Francisco 66-52, improving to a league-leading 4-0 as Jamar Dean scores 22 and Jaycee Moon adds 13 off the bench.',
-    date: 'Season 4 • Game 11 Recap (Oct 29)',
+    date: 'Season 4 Recap • Oct 29',
     season: 4,
     category: 'recap',
     featured: true,
@@ -364,7 +694,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     id: 's4-g12-enterprise-edge-reds-daugherty',
     title: 'Daugherty Shines With 20 in Debut as Enterprise Edge Reds 65-58',
     subtitle: '#1 overall draft pick Carlton Daugherty scores 20 points in his professional debut as Golden State opens Season 4 with a tough 65-58 home victory over California.',
-    date: 'Season 4 • Game 12 Recap (Oct 29)',
+    date: 'Season 4 Recap • Oct 29',
     season: 4,
     category: 'recap',
     featured: true,
@@ -425,7 +755,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     id: 's4-g13-mad-dogs-dominate-stallions',
     title: 'Boomer Drops 26 as Undefeated Mad Dogs Down Defending Champion Stallions 64-48',
     subtitle: 'Lloyd Boomer shoots 9-for-14 to drop 26 points and lead Fresno (2-0) to a commanding 64-48 victory over the struggling Sacramento Stallions (0-3).',
-    date: 'Season 4 • Game 13 Recap (Oct 31)',
+    date: 'Season 4 Recap • Oct 31',
     season: 4,
     category: 'recap',
     featured: true,
@@ -485,7 +815,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     id: 's4-g9-reds-bounce-back-vipers',
     title: 'Marai and Rodman Power Reds Past Vipers 68-61 in Bounce-Back Victory',
     subtitle: 'Andor Marai scores 21 points and Donald Rodman adds 17 as the California Reds rebound to improve to 2-1 on the season, dropping Long Beach to 0-2.',
-    date: 'Season 4 • Game 9 Recap (Oct 25)',
+    date: 'Season 4 Recap • Oct 25',
     season: 4,
     category: 'recap',
     featured: true,
@@ -546,7 +876,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     id: 's4-g8-renegades-edge-stallions',
     title: 'Renegades Remain Undefeated at 2-0 with Gritty 57-50 Defensive Win Over Stallions',
     subtitle: 'Jamar Dean scores 16 points and Alonzo Reece racks up 14 points with 5 steals as Oakland clamps down late to send the defending champion Sacramento Stallions to 0-2.',
-    date: 'Season 4 • Game 8 Recap (Oct 25)',
+    date: 'Season 4 Recap • Oct 25',
     season: 4,
     category: 'recap',
     featured: true,
@@ -607,7 +937,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     id: 's4-g7-strykers-rout-reds-hinton-42',
     title: 'Hinton Shatters All-Time 3PT Record With 12 Triples, Strykers Demolish Reds 102-64',
     subtitle: 'A.J. Hinton puts on a shooting clinic for the ages with 42 points, breaking the all-time CCH single-game record with 12 made three-pointers (12-14 3PT) on 15-of-17 shooting in a 38-point rout over California.',
-    date: 'Season 4 • Game 7 Recap (Oct 22)',
+    date: 'Season 4 Recap • Oct 22',
     season: 4,
     category: 'recap',
     featured: true,
@@ -725,7 +1055,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
       'CALIFORNIA — The Cali Championship Hoops League Office has officially announced the Players of the Week for Week 1 of Season 4, spanning games played from October 15 through October 21.',
       'NORTHERN CONFERENCE PLAYER OF THE WEEK: JAMAR DEAN (OAKLAND RENEGADES)\nOakland Renegades superstar shooting guard Jamar Dean takes home Northern Conference honors after igniting Oakland\'s 71-49 Opening Night victory over the Anaheim Admirals. Dean scored a game-high 26 points on an electric 8-of-12 shooting from the floor, adding 3 rebounds and 2 steals while converting 7-of-8 from the free-throw line. Dean spearheaded a 21-7 third-quarter blitz that blew the game open for the Renegades.',
       'SOUTHERN CONFERENCE PLAYER OF THE WEEK: ANDOR MARAI (CALIFORNIA REDS)\nCalifornia Reds center Andor Marai captured the Southern Conference award following a vintage paint performance in California\'s 59-44 statement win over the defending champion Sacramento Stallions. Marai posted 24 points, 11 rebounds, 2 steals, and 2 blocks on an astounding 10-of-12 shooting (83.3%) from the field, dominating the boards and anchoring California\'s defense to hold Sacramento to just 44 points.',
-      'HONORABLE MENTIONS:\n• A.J. Hinton (San Diego Strykers): Exploded for 30 points (8-11 3PT, 4 STL) against Anaheim in Game 6 and led San Diego to a league-best 2-0 start.\n• R.J. Rush (Los Angeles Dynamics): Smashed the all-time CCH single-game record with 14-of-14 free throws, scoring 33 points in a 77-55 rout of San Diego.\n• Lloyd Boomer (Fresno Mad Dogs): Poured in 25 points (6-6 FT) to guide Fresno\'s 59-53 fourth-quarter comeback over San Jose.'
+      'HONORABLE MENTIONS:\n• A.J. Hinton (San Diego Strykers): Exploded for 30 points (8-11 3PT, 4 STL) against Anaheim and led San Diego to a league-best 2-0 start.\n• R.J. Rush (Los Angeles Dynamics): Smashed the all-time CCH single-game record with 14-of-14 free throws, scoring 33 points in a 77-55 rout of San Diego.\n• Lloyd Boomer (Fresno Mad Dogs): Poured in 25 points (6-6 FT) to guide Fresno\'s 59-53 fourth-quarter comeback over San Jose.'
     ],
     quotes: [
       {
@@ -747,7 +1077,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     playerStats: [
       { player: 'Jamar Dean (Northern POTW)', team: 'Oakland Renegades', stat: '26.0 PPG, 3.0 RPG, 2.0 SPG (66.7% FG, 87.5% FT) • 1-0 Record' },
       { player: 'Andor Marai (Southern POTW)', team: 'California Reds', stat: '24.0 PPG, 11.0 RPG, 2.0 BPG, 2.0 SPG (83.3% FG, 80.0% FT) • 1-0 Record' },
-      { player: 'A.J. Hinton (Hon. Mention)', team: 'San Diego Strykers', stat: '22.5 PPG, 3.5 RPG, 4.0 SPG, 8 3PM (30 PTS in G6) • 2-0 Record' },
+      { player: 'A.J. Hinton (Hon. Mention)', team: 'San Diego Strykers', stat: '22.5 PPG, 3.5 RPG, 4.0 SPG, 8 3PM (30 PTS vs Anaheim) • 2-0 Record' },
       { player: 'R.J. Rush (Hon. Mention)', team: 'Los Angeles Dynamics', stat: '33.0 PPG, 2.0 BPG (CCH Record 14-14 FT) • 1-0 Record' },
       { player: 'Lloyd Boomer (Hon. Mention)', team: 'Fresno Mad Dogs', stat: '25.0 PPG, 4.0 RPG, 1.0 APG (6-6 FT) • 1-0 Record' }
     ]
@@ -756,7 +1086,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     id: 's4-g6-hinton-strykers-rout-admirals',
     title: 'Hinton Erupts for 30 as Strykers Demolish Admirals, 85-43',
     subtitle: 'A 24-4 third-quarter blitz powers the San Diego Strykers to an 85-43 demolition of the Anaheim Admirals at Anaheim Arena as A.J. Hinton sinks 8 three-pointers.',
-    date: 'Season 4 • Game 6 Recap (Oct 20)',
+    date: 'Season 4 Recap • Oct 20',
     season: 4,
     category: 'recap',
     featured: true,
@@ -827,7 +1157,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     id: 's4-g5-reds-stallions-s4',
     title: 'Marai, Rodman Lead Reds Past Stallions in 59-44 Grudge Match',
     subtitle: 'Andor Marai posts 24 points and 11 rebounds on 10-of-12 shooting as the California Reds stifle the defending champion Sacramento Stallions 59-44.',
-    date: 'Season 4 Opening Night • Game 5 Recap (Oct 17)',
+    date: 'Season 4 Opening Night Recap (Oct 17)',
     season: 4,
     category: 'recap',
     featured: true,
@@ -890,7 +1220,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     id: 's4-g3-renegades-blitz-admirals',
     title: "Renegades' Third-Quarter Blitz Sinks Admirals, 71-49 Behind Jamar Dean's 26 Points",
     subtitle: 'A 21-7 third-quarter surge powers the Oakland Renegades to a convincing 71-49 victory over the Anaheim Admirals in front of a sold-out Oakland Arena.',
-    date: 'Season 4 Opening Night • Game 3 Recap',
+    date: 'Season 4 Opening Night Recap',
     season: 4,
     category: 'recap',
     featured: true,
@@ -953,7 +1283,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     id: 's4-g4-tigersharks-mad-dogs-s4',
     title: 'Boomer Leads Mad Dogs\' Comeback Over Tigersharks, 59-53',
     subtitle: 'Fresno clamps down after falling behind 23-8 early, outscoring San Jose 26-16 in the 4th quarter as Lloyd Boomer erupts for 25 points at the Fresno Center.',
-    date: 'Season 4 Opening Night • Game 4 Recap',
+    date: 'Season 4 Opening Night Recap',
     season: 4,
     category: 'recap',
     featured: true,
@@ -1020,7 +1350,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     id: 's4-g2-rush-dynamics-cruise-sabrewolves',
     title: 'Rookie R.J. Rush Sets CCH Record with 14-of-14 Free Throws, Drops 33 as Dynamics Cruise',
     subtitle: 'A historic, record-breaking shooting performance propelled the Los Angeles Dynamics to a resounding 77-55 victory over the San Diego Sabrewolves as rookie R.J. Rush broke the all-time single-game free throws record.',
-    date: 'Season 4 Opening Night • Game 2 Recap',
+    date: 'Season 4 Opening Night Recap',
     season: 4,
     category: 'recap',
     featured: true,
@@ -1090,7 +1420,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     id: 's4-g1-strykers-crush-vipers',
     title: 'Strykers Crush Vipers Behind Dominant 3rd Quarter, Win 53-35',
     subtitle: 'A suffocating defensive performance and a monumental 25-6 third-quarter blitz propel the Strykers to a resounding 53-35 victory over the Vipers at The LBC Pit.',
-    date: 'Season 4 Opening Night • Game 1 Recap',
+    date: 'Season 4 Opening Night Recap',
     season: 4,
     category: 'recap',
     featured: true,
@@ -1102,9 +1432,9 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     audioUrl: 'https://archive.org/download/nba-2-k-24-2024-05-12-02-07-45/Why_the_Strykers_box_score_lies.m4a',
     podcastInfo: {
       episodeTitle: 'Why the Strykers Box Score Lies: Opening Night Breakdown & Season 4 Film Review',
-      broadcastBy: 'CCH Media Network • Official Game 1 Recap Podcast',
+      broadcastBy: 'CCH Media Network • Official Recap Podcast',
       duration: 'Official Audio Podcast',
-      description: 'Deep dive into Season 4 Game 1: Why the 53-35 final score masks a 33-point blowout, A.J. Hinton\'s lockdown defense, the explosive 25-6 third-quarter blitz, and what the Vipers must adjust going forward.',
+      description: 'Deep dive into Season 4 Opener: Why the 53-35 final score masks a 33-point blowout, A.J. Hinton\'s lockdown defense, the explosive 25-6 third-quarter blitz, and what the Vipers must adjust going forward.',
     },
     teams: {
       team1: 'San Diego Strykers',
@@ -2186,7 +2516,7 @@ export function generateArticleForGameRecord(game: GameRecord, isPlayoff = false
   const contentParagraphs: string[] = [];
   if (isPlayed) {
     contentParagraphs.push(
-      `${winnerObj?.arena || 'The Arena'} – In a high-energy Season ${game.season} battle, the ${winner} earned a ${winningScore}-${losingScore} victory over the ${loser} on ${game.date}.`
+      `${winnerObj?.city || 'California'} – In a high-energy Season ${game.season} battle, the ${winner} earned a ${winningScore}-${losingScore} victory over the ${loser} on ${game.date}.`
     );
 
     if (game.notes) {

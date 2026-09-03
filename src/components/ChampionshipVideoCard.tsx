@@ -28,7 +28,7 @@ export const ChampionshipVideoCard: React.FC = () => {
               <span className="text-[10px] font-black uppercase tracking-wider text-amber-400 bg-amber-950/80 border border-amber-800/80 px-2.5 py-0.5 rounded-full flex items-center gap-1">
                 <Trophy size={12} className="text-amber-400" /> Finals Replay & Audio Special
               </span>
-              <span className="text-[11px] text-slate-400 font-mono font-bold">SAC TOWN ARENA</span>
+              <span className="text-[11px] text-slate-400 font-mono font-bold">SACRAMENTO, CA</span>
             </div>
             <span className="text-[10px] font-bold text-amber-400 bg-amber-950/50 border border-amber-800/50 px-2 py-0.5 rounded-lg flex items-center gap-1">
               <Sparkles size={12} /> Stallions 87, Mad Dogs 72

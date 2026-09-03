@@ -216,7 +216,7 @@ export const ALL_STAR_GAMES: AllStarGame[] = [
   {
     season: 1,
     title: 'Season 1 All-Star Game',
-    location: 'Oakland Arena – Oakland, CA',
+    location: 'Oakland, CA',
     format: 'Traditional 4-Quarter Showcase',
     winner: 'Northern Cali All-Stars',
     winningScore: 85,
@@ -266,6 +266,6 @@ export const ALL_STAR_GAMES: AllStarGame[] = [
       { name: 'DeAnte Gray', team: 'Golden State Enterprise', teamId: 'golden-state-enterprise', pts: 8, ast: 3 },
     ],
     recap:
-      'Season 1 All-Star Game was hosted at Oakland Arena in Oakland, CA. Northern Cali (85) defeated Southern Cali (73). Lamar Anderson (CAL) won the 3pt Contest and Dorell Kabal (SAC) won the Dunk Contest. In the USA vs. World showcase, USA defeated World 88-86 as Alonzo Reece hit the game-winning bucket with 7.2 seconds left to play.',
+      'Season 1 All-Star Game was hosted in Oakland, CA. Northern Cali (85) defeated Southern Cali (73). Lamar Anderson (CAL) won the 3pt Contest and Dorell Kabal (SAC) won the Dunk Contest. In the USA vs. World showcase, USA defeated World 88-86 as Alonzo Reece hit the game-winning bucket with 7.2 seconds left to play.',
   },
 ];

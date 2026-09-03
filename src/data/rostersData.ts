@@ -556,7 +556,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
         { number: '13', name: 'Wesley Gibson', position: 'SG/PG', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'Louisville', age: 21, height: '6-5', weight: 200 },
         { number: '44', name: 'Martin Tinsley', position: 'PF/SF', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'Illinois', age: 22, height: '6-8', weight: 211 },
         { number: '10', name: 'Donnie Anderson', position: 'PG/SG', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'Central Florida', age: 23, height: '6-1', weight: 198 },
-        { number: '34', name: 'Marty Dunn', position: 'C', ovr: 72, seasonYear: 'Rookie', schoolOrNote: 'Free Agent Signing', age: 23, height: '6-11', weight: 245, contract: '1 Yr / $3.86M' },
+        { number: '31', name: 'Marty Dunn', position: 'C', ovr: 72, seasonYear: 'Rookie', schoolOrNote: 'Free Agent Signing', age: 23, height: '6-11', weight: 245, contract: '1 Yr / $3.86M' },
       ],
     },
   },
