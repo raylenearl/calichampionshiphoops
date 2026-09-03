@@ -10,6 +10,7 @@ export interface RosterPlayer {
   weight?: number | string;
   personality?: string;
   contract?: string;
+  status?: 'Active' | 'Waived' | string;
 }
 
 export interface TeamSeasonRoster {
@@ -330,6 +331,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
         { number: '52', name: 'Jud Drew', position: 'C/PF', ovr: 71, seasonYear: 'Rookie', schoolOrNote: 'Santa Clara', age: 21, height: '6-10', weight: 234 },
         { number: '34', name: 'Edmond Warren', position: 'SF/SG', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'High School', age: 18, height: '6-5', weight: 196 },
         { number: '43', name: 'Chucky Miller', position: 'PG/SG', ovr: 68, seasonYear: 'Rookie', schoolOrNote: 'Creighton', age: 23, height: '6-0', weight: 202, personality: 'Laid Back', contract: '1 Yr / $5.88M' },
+        { number: '14', name: 'Glen Washington Jr.', position: 'PG', ovr: 67, seasonYear: 'Rookie', schoolOrNote: 'Waived (11/09/2029)', age: 22, height: '6-2', weight: 195, status: 'Waived', contract: 'Waived' },
       ],
     },
   },
@@ -401,7 +403,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
         { number: '24', name: 'Jadon Gordon', position: 'PF/C', ovr: 77, seasonYear: 'Rookie', schoolOrNote: 'Kansas', age: 22, height: '6-11', weight: 242 },
         { number: '33', name: 'Don Irving', position: 'SF/SG', ovr: 75, seasonYear: 'Rookie', schoolOrNote: 'Santa Clara', age: 22, height: '6-6', weight: 211 },
         { number: '4', name: 'Stan Roberts', position: 'SG/PG', ovr: 75, seasonYear: 'Rookie', schoolOrNote: 'Miami (OH)', age: 21, height: '6-7', weight: 218 },
-        { number: '15', name: 'Malik GPT Holman', position: 'SF/SG', ovr: 74, seasonYear: 'Rookie', schoolOrNote: 'Arizona', age: 18, height: '6-7', weight: 218 },
+        { number: '15', name: 'Malik Holman', position: 'SF/SG', ovr: 74, seasonYear: 'Rookie', schoolOrNote: 'Arizona', age: 18, height: '6-7', weight: 218 },
         { number: '18', name: 'Kyle Robinson', position: 'PG', ovr: 74, seasonYear: 'Rookie', schoolOrNote: 'Arkansas', age: 18, height: '6-0', weight: 205 },
         { number: '17', name: 'Ronnie Pierce', position: 'PF/C', ovr: 71, seasonYear: 'Rookie', schoolOrNote: 'Stanford', age: 21, height: '6-10', weight: 243 },
         { number: '43', name: 'Rex Swift', position: 'SF', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'Ohio State', age: 21, height: '6-8', weight: 211 },
@@ -557,6 +559,7 @@ export const SEASON_ROSTERS: Record<string, TeamAllRosters> = {
         { number: '44', name: 'Martin Tinsley', position: 'PF/SF', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'Illinois', age: 22, height: '6-8', weight: 211 },
         { number: '10', name: 'Donnie Anderson', position: 'PG/SG', ovr: 70, seasonYear: 'Rookie', schoolOrNote: 'Central Florida', age: 23, height: '6-1', weight: 198 },
         { number: '31', name: 'Marty Dunn', position: 'C', ovr: 72, seasonYear: 'Rookie', schoolOrNote: 'Free Agent Signing', age: 23, height: '6-11', weight: 245, contract: '1 Yr / $3.86M' },
+        { number: '18', name: 'Irv Hicks', position: 'PG', ovr: 66, seasonYear: 'Rookie', schoolOrNote: 'Waived (11/09/2029)', age: 21, height: '6-1', weight: 188, status: 'Waived', contract: 'Waived' },
       ],
     },
   },

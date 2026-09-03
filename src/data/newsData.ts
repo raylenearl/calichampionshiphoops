@@ -15,6 +15,7 @@ import aMaraiS4_1Img from '../assets/images/AMaraiS4_1.png';
 import hinton42vsCalImg from '../assets/images/Hinton42_s4vsCAL.png';
 import jDeanVsSacImg from '../assets/images/JDean_vs_SACs4.png';
 import maraiVsLbImg from '../assets/images/Marai_vs_LBs4.png';
+import maraiVsSfImg from '../assets/images/Marai_vs_SFs4.png';
 import carltonDaughertyImg from '../assets/images/S4 Draft/Carlton Daugherty.png';
 import boomerVsSacImg from '../assets/images/Boomer_VS_SAC1.png';
 import boomerVsGsImg from '../assets/images/Boomer_vs_GS.png';
@@ -104,6 +105,81 @@ export interface CCHNewsArticle {
 }
 
 export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
+  {
+    id: 's4-g20-reds-rout-knights-marai',
+    title: "Marai's 18 & 14 Double-Double Anchors Reds in 64-49 Rout Over Knights",
+    subtitle: 'Andor Marai posts 18 points, 14 rebounds, and 3 assists while California shoots 51% from the field and dominates the boards to drop San Francisco to 0-4.',
+    date: 'Season 4 Recap • Nov 9',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • SoCal Beat',
+    readTime: '3 min read',
+    youtubeUrl: 'https://www.youtube.com/embed/cHJfZTom0GU?si=fvuu2sTPlT1MeK8A',
+    imageUrl: maraiVsSfImg,
+    imageCaption: 'Andor Marai registered 18 points, 14 rebounds, 3 assists, 2 steals, and 1 block to lead the California Reds to a convincing 64-49 home victory over the San Francisco Knights.',
+    teams: {
+      team1: 'California Reds',
+      team1Id: 'california-reds',
+      score1: 64,
+      team2: 'San Francisco Knights',
+      team2Id: 'san-francisco-knights',
+      score2: 49,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 18, team2: 8 },
+      { period: 'Q2', team1: 18, team2: 12 },
+      { period: 'Q3', team1: 15, team2: 15 },
+      { period: 'Q4', team1: 13, team2: 14 },
+    ],
+    headlineQuote: 'Andor Marai controlled both ends of the floor tonight. When he commands the glass with 14 rebounds and we shoot over 50%, we establish our signature physical brand.',
+    contentParagraphs: [
+      'Inglewood, CA – The California Reds (4-3) continued their positive momentum on Sunday night, pulling away early and playing suffocating halfcourt defense to secure a comfortable 64-49 home victory over the winless San Francisco Knights (0-4) at the Forum.',
+      'Hungarian center Andor Marai was dominant in the paint, recording a massive double-double with 18 points on 8-of-15 shooting, a game-high 14 rebounds (2 offensive, 12 defensive), 3 assists, 2 steals, and a block in 28 minutes. California established an 18-8 lead in the opening period and maintained a double-digit cushion throughout the evening, shooting an efficient 51% (27-of-53) from the floor and 40% (6-of-15) from three-point range.',
+      'SUPPORTING PRODUCTION:\nForward Donald Rodman provided steady frontcourt muscle with 11 points and 7 rebounds on 5-of-8 shooting. Guard Stan Roberts contributed 10 points (2-of-4 3PT) and 3 assists, while reserve Jadon Gordon provided instant energy off the bench with 10 points, 5 rebounds, and 3 steals in only 12 minutes. Kyle Robinson sank two triples for 8 points, and Malik Holman orchestrated the offense with 6 assists and 7 rebounds.',
+      'KNIGHTS RECAP:\nFor San Francisco (0-4), Ed Burks paced the offense with 12 points, 2 rebounds, 2 assists, and 2 steals. Dexter Cage and Marion Payton chipped in 7 points apiece off the bench, with Payton grabbing 4 steals in just 6 minutes of action. Nelson Battle added 6 points on two 3-pointers, and center Marty Dunn contributed 5 points, 6 rebounds, and a game-high 3 blocks. However, the Knights were held to just 33% shooting (18-of-55) and 24% from beyond the arc (4-of-17).'
+    ],
+    quotes: [
+      {
+        speaker: 'Andor Marai',
+        title: 'Center • California Reds (18 PTS, 14 REB)',
+        quote: 'We wanted to establish our physical presence on the glass right from the tip. Our guards did a tremendous job finding me in good post spots, and our defensive rotations were sharp all night.'
+      },
+      {
+        speaker: 'William Walker',
+        title: 'Head Coach • California Reds (4-3 Record)',
+        quote: 'Andor Marai controlled both ends of the floor tonight. When he commands the glass with 14 rebounds and we shoot over 50%, we establish our signature physical brand.'
+      },
+      {
+        speaker: 'Zack Randle',
+        title: 'Head Coach • San Francisco Knights (0-4 Record)',
+        quote: 'You cannot spot a team like California an 18-8 first quarter deficit and expect to claw back on their home floor. We struggled to finish at the rim against Marai and gave up too many high-percentage looks.'
+      }
+    ],
+    playerStats: [
+      { player: 'Andor Marai', team: 'California Reds', stat: '18 PTS, 14 REB, 3 AST, 2 STL, 1 BLK (8-15 FG, 1-1 3PT, 1-1 FT)' },
+      { player: 'Donald Rodman', team: 'California Reds', stat: '11 PTS, 7 REB (5-8 FG, 1-3 3PT)' },
+      { player: 'Stan Roberts', team: 'California Reds', stat: '10 PTS, 2 REB, 3 AST, 1 STL (4-9 FG, 2-4 3PT)' },
+      { player: 'Jadon Gordon', team: 'California Reds', stat: '10 PTS, 5 REB, 3 STL (4-6 FG, 2-4 FT)' },
+      { player: 'Kyle Robinson', team: 'California Reds', stat: '8 PTS, 3 AST (3-5 FG, 2-3 3PT)' },
+      { player: 'Don Irving', team: 'California Reds', stat: '3 PTS, 3 REB, 1 AST, 1 STL (1-2 FG, 1-2 FT)' },
+      { player: 'Malik Holman', team: 'California Reds', stat: '2 PTS, 7 REB, 6 AST (1-2 FG)' },
+      { player: 'Ronnie Pierce', team: 'California Reds', stat: '2 PTS, 1 STL (1-1 FG)' },
+      { player: 'Ed Burks', team: 'San Francisco Knights', stat: '12 PTS, 2 REB, 2 AST, 2 STL (4-15 FG, 2-8 3PT, 2-2 FT)' },
+      { player: 'Dexter Cage', team: 'San Francisco Knights', stat: '7 PTS, 2 REB, 4 AST, 1 STL (3-6 FG, 1-1 FT)' },
+      { player: 'Marion Payton', team: 'San Francisco Knights', stat: '7 PTS, 2 REB, 4 STL (3-3 FG, 1-2 FT)' },
+      { player: 'Nelson Battle', team: 'San Francisco Knights', stat: '6 PTS, 2 REB (2-7 FG, 2-4 3PT)' },
+      { player: 'Marty Dunn', team: 'San Francisco Knights', stat: '5 PTS, 6 REB, 1 STL, 3 BLK (2-7 FG, 1-2 FT)' },
+      { player: 'Damian Gilmore', team: 'San Francisco Knights', stat: '3 PTS, 4 REB, 1 STL, 1 BLK (0-5 FG, 3-4 FT)' },
+      { player: 'Gheorghe Stefan', team: 'San Francisco Knights', stat: '3 PTS, 2 REB, 1 AST (1-4 FG, 1-1 FT)' },
+      { player: 'Donnie Anderson', team: 'San Francisco Knights', stat: '2 PTS, 1 REB, 3 AST, 1 STL (1-3 FG)' },
+      { player: 'Erik Higgins', team: 'San Francisco Knights', stat: '2 PTS, 4 REB, 1 AST, 2 STL (1-4 FG)' },
+      { player: 'Martin Tinsley', team: 'San Francisco Knights', stat: '2 PTS, 1 REB (1-1 FG)' },
+      { player: 'Field Goal %', team: 'Team Comparison', stat: 'California 27-53 (51%) • San Francisco 18-55 (33%)' },
+      { player: 'Rebounds', team: 'Team Comparison', stat: 'California 41 REB (5 OFF, 36 DEF) • San Francisco 28 REB (4 OFF, 24 DEF)' },
+      { player: 'Assists / Turnovers', team: 'Team Comparison', stat: 'California 19 AST, 13 TO • San Francisco 12 AST, 9 TO' }
+    ]
+  },
   {
     id: 's4-g18-sabrewolves-stifle-knights-creek',
     title: "Creek's Flawless 23-Point Masterclass Lifts Sabrewolves Past Knights 61-48 for First Win",
@@ -254,7 +330,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     contentParagraphs: [
       'CALIFORNIA — Season 4 action has reached full throttle across the California Champions Hoop circuit. Two powerhouses stand atop the conference ladders at 4-0: the San Diego Strykers (South #1) and the Oakland Renegades (North #1). Meanwhile, the Fresno Mad Dogs are lurking right behind at 3-0, and the San Diego Sabrewolves have broken through for their first win of the campaign.',
       'STANDINGS & CONFERENCE BREAKDOWN:\n1. San Diego Strykers (4-0, -- GB, 80.5 PPG, 50.0 OPP, +30.5 DIFF)\n2. Oakland Renegades (4-0, -- GB, 67.0 PPG, 50.3 OPP, +16.8 DIFF)\n3. Fresno Mad Dogs (3-0, 0.5 GB, 68.3 PPG, 58.7 OPP, +9.7 DIFF)\n4. California Reds (3-3, 2.0 GB, 60.0 PPG, 67.0 OPP, -7.0 DIFF)\n5. Golden State Enterprise (1-1, 2.0 GB, 70.0 PPG, 70.0 OPP, 0.0 DIFF)\n6. San Diego Sabrewolves (1-1, 2.0 GB, 58.0 PPG, 62.5 OPP, -4.5 DIFF)\n7. Los Angeles Dynamics (1-2, 2.5 GB, 63.7 PPG, 66.0 OPP, -2.3 DIFF)\n8. Anaheim Admirals (1-2, 2.5 GB, 49.3 PPG, 69.3 OPP, -20.0 DIFF)\n9. San Jose Tigersharks (0-1, 2.5 GB, 53.0 PPG, 59.0 OPP, -6.0 DIFF)\n10. Long Beach Vipers (0-2, 3.0 GB, 48.0 PPG, 60.5 OPP, -12.5 DIFF)\n11. San Francisco Knights (0-3, 3.5 GB, 50.7 PPG, 61.0 OPP, -10.3 DIFF)\n12. Sacramento Stallions (0-3, 3.5 GB, 47.3 PPG, 60.0 OPP, -12.7 DIFF)',
-      'LATEST GAMES RECAPS:\n• San Diego Strykers 82, Los Angeles Dynamics 58: The Strykers blew open the showdown with a 28-8 first-quarter barrage, forcing 13 turnovers and pouring in 29 fast-break points. A.J. Hinton scored 18 points with 6 rebounds and 3 steals, DeAnte Gray tallied 15 points, and Ray Gamble added 14. For LA (1-2), R.J. Rush led with 19 points (7-7 FT) and Jack McMichael Jr. and Mo Alexander added 14 apiece.\n• San Diego Sabrewolves 61, San Francisco Knights 48: Andre Creek delivered one of the most efficient scoring performances of the season, scoring 23 points on 11-of-12 shooting (91.7% FG) with 6 rebounds to give San Diego its first win. Kirk Barnes added 8 points and 6 assists. For San Francisco (0-3), Damian Gilmore and Eric Higgins scored 11 points each.\n• Fresno Mad Dogs 82, Golden State Enterprise 75: Lloyd Boomer dropped 26 points with 8 assists, while newly signed Luke Davidson notched a 12-point, 10-rebound double-double in his Fresno debut.\n• Anaheim Admirals 56, San Francisco Knights 52: Stephan Sirven (18 PTS) and Kirk Tinsley (16 PTS, 4 3PM) delivered Anaheim’s first win of the season.'
+      'LATEST GAMES RECAPS:\n• San Diego Strykers 82, Los Angeles Dynamics 58: The Strykers blew open the showdown with a 28-8 first-quarter barrage, forcing 13 turnovers and pouring in 29 fast-break points. A.J. Hinton scored 18 points with 6 rebounds and 3 steals, DeAnte Gray tallied 15 points, and Ray Gamble added 14. For LA (1-2), R.J. Rush led with 19 points (7-7 FT) and Jack McMichael Jr. and Mo Alexander added 14 apiece.\n• San Diego Sabrewolves 61, San Francisco Knights 48: Andre Creek delivered one of the most efficient scoring performances of the season, scoring 23 points on 11-of-12 shooting (91.7% FG) with 6 rebounds to give San Diego its first win. Kirk Barnes added 8 points and 6 assists. For San Francisco (0-3), Damian Gilmore and Erik Higgins scored 11 points each.\n• Fresno Mad Dogs 82, Golden State Enterprise 75: Lloyd Boomer dropped 26 points with 8 assists, while newly signed Luke Davidson notched a 12-point, 10-rebound double-double in his Fresno debut.\n• Anaheim Admirals 56, San Francisco Knights 52: Stephan Sirven (18 PTS) and Kirk Tinsley (16 PTS, 4 3PM) delivered Anaheim’s first win of the season.'
     ],
     quotes: [
       {
@@ -373,7 +449,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
       'Anaheim, CA – The Anaheim Admirals broke through for their first victory of Season 4, holding off the San Francisco Knights in a tense 56-52 finish behind the clutch perimeter shooting of Kirk Tinsley and steady scoring from Stephan Sirven.',
       'Sirven led Anaheim with 18 points, converting a perfect 6-of-6 from the free throw line in the fourth quarter to keep the Knights at bay. Sharpshooter Kirk Tinsley provided an offensive jolt, pouring in 16 points on an ultra-efficient 4-of-5 shooting from beyond the three-point arc.',
       'DEFENSIVE STAND & CRUNCH TIME:\nAnaheim (1-2) locked down defensively in the third quarter (16-11), denying paint penetration and forcing 14 San Francisco turnovers. Center Barry Nelson grabbed 8 rebounds and blocked 2 shots to anchor the backline.',
-      'KNIGHTS HEARTBREAK:\nFor San Francisco (0-2), Eric Higgins led the charge with a 16-point, 9-rebound performance, while Manny Payton chipped in 10 points and 11 rebounds. Despite out-rebounding Anaheim 39-32, the Knights were unable to overcome a 3-of-15 shooting slump from three-point range.'
+      'KNIGHTS HEARTBREAK:\nFor San Francisco (0-2), Erik Higgins led the charge with a 16-point, 9-rebound performance, while Marion Payton chipped in 10 points and 11 rebounds. Despite out-rebounding Anaheim 39-32, the Knights were unable to overcome a 3-of-15 shooting slump from three-point range.'
     ],
     quotes: [
       {
@@ -401,8 +477,8 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
       { player: 'Stephan Sirven', team: 'Anaheim Admirals', stat: '18 PTS, 4 REB, 3 AST (6-6 FT, 5-11 FG)' },
       { player: 'Kirk Tinsley', team: 'Anaheim Admirals', stat: '16 PTS, 3 REB, 2 AST (4-5 3PT, 6-9 FG)' },
       { player: 'Barry Nelson', team: 'Anaheim Admirals', stat: '6 PTS, 8 REB, 2 BLK, 1 STL' },
-      { player: 'Eric Higgins', team: 'San Francisco Knights', stat: '16 PTS, 9 REB, 2 BLK (7-13 FG)' },
-      { player: 'Manny Payton', team: 'San Francisco Knights', stat: '10 PTS, 11 REB, 2 AST (5-9 FG)' },
+      { player: 'Erik Higgins', team: 'San Francisco Knights', stat: '16 PTS, 9 REB, 2 BLK (7-13 FG)' },
+      { player: 'Marion Payton', team: 'San Francisco Knights', stat: '10 PTS, 11 REB, 2 AST (5-9 FG)' },
       { player: 'Gheorghe Stefan', team: 'San Francisco Knights', stat: '9 PTS, 7 REB (4-8 FG)' },
       { player: 'Perimeter Shooting Battle', team: 'Team Stats', stat: 'Anaheim 6/12 3PT (50.0%) • San Francisco 3/15 3PT (20.0%)' },
       { player: 'Anaheim Admirals', team: 'Team Record', stat: '1-2 Overall • First Win of Season 4' }

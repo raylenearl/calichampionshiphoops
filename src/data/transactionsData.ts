@@ -311,6 +311,26 @@ export const TRANSACTIONS_DATA: Transaction[] = [
   },
   // --- SEASON 4 TRANSACTIONS & SIGNINGS (Latest on top) ---
   {
+    id: 's4-waiver-mad-dogs-washington',
+    season: 4,
+    date: '11/09/2029',
+    type: 'waiver',
+    title: 'Fresno Mad Dogs Waive PG Glen Washington Jr.',
+    teams: [{ id: 'fresno-mad-dogs', name: 'Fresno Mad Dogs' }],
+    description: 'The Fresno Mad Dogs waived rookie point guard Glen Washington Jr., opening up a roster spot following the first week of the Season 4 regular season.',
+    impact: 'Trims backcourt depth behind starting rookie floor general Lloyd Boomer and Chucky Miller.',
+  },
+  {
+    id: 's4-waiver-knights-hicks',
+    season: 4,
+    date: '11/09/2029',
+    type: 'waiver',
+    title: 'San Francisco Knights Waive PG Irv Hicks',
+    teams: [{ id: 'san-francisco-knights', name: 'San Francisco Knights' }],
+    description: 'The San Francisco Knights waived rookie point guard Irv Hicks as head coach Zack Randle alters the rotation following an 0-4 start to the season.',
+    impact: 'Creates backcourt roster flexibility under head coach Zack Randle.',
+  },
+  {
     id: 's4-signing-hubbard',
     season: 4,
     date: '10/30/2029',

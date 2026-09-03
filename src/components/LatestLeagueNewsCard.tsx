@@ -183,7 +183,7 @@ export const LatestLeagueNewsCard: React.FC<LatestLeagueNewsCardProps> = ({
               <span className="text-slate-400 font-mono">Nov 2</span>
             </div>
             <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
-              The Admirals earned their first win of Season 4 behind <strong>Stephan Sirven</strong> (18 PTS, 6-6 FT) and <strong>Kirk Tinsley</strong> (16 PTS, 4-5 3PT). For San Francisco (0-2), Eric Higgins had 16 PTS & 9 REB and Manny Payton added 10 PTS & 11 REB.
+              The Admirals earned their first win of Season 4 behind <strong>Stephan Sirven</strong> (18 PTS, 6-6 FT) and <strong>Kirk Tinsley</strong> (16 PTS, 4-5 3PT). For San Francisco (0-2), Erik Higgins had 16 PTS & 9 REB and Marion Payton added 10 PTS & 11 REB.
             </p>
           </div>
 

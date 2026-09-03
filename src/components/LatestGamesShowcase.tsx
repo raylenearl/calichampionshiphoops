@@ -172,8 +172,8 @@ const HIGHLIGHT_GAMES: GameHighlight[] = [
     ],
     secondaryPerformers: [
       { name: 'Barry Nelson (ANA)', team: 'Admirals', stat: '6 PTS, 8 REB, 2 BLK' },
-      { name: 'Eric Higgins (SF)', team: 'Knights', stat: '16 PTS, 9 REB, 2 BLK (7-13 FG)' },
-      { name: 'Manny Payton (SF)', team: 'Knights', stat: '10 PTS, 11 REB, 2 AST' },
+      { name: 'Erik Higgins (SF)', team: 'Knights', stat: '16 PTS, 9 REB, 2 BLK (7-13 FG)' },
+      { name: 'Marion Payton (SF)', team: 'Knights', stat: '10 PTS, 11 REB, 2 AST' },
       { name: 'Gheorghe Stefan (SF)', team: 'Knights', stat: '9 PTS, 7 REB (4-8 FG)' },
     ],
     badgeColor: 'border-cyan-500/60 from-cyan-950/40 via-slate-900 to-teal-950/30',

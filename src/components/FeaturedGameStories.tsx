@@ -10,11 +10,11 @@ import {
   BarChart3,
   Calendar,
   Share2,
-  Check
+  Check,
+  Play
 } from 'lucide-react';
 import { TeamBadge } from './TeamBadge';
-import sdReboundS4Img from '../assets/images/SD_Rebound_S4.png';
-import hintonVsJmjS4Img from '../assets/images/Hinton_vs_JMJs4.png';
+import maraiVsSfImg from '../assets/images/Marai_vs_SFs4.png';
 
 interface FeaturedGameStoriesProps {
   onNavigateToNews: (articleId: string) => void;
@@ -29,6 +29,7 @@ interface GameStory {
   badgeColor: string;
   title: string;
   subtitle: string;
+  youtubeUrl?: string;
   date: string;
   image: string;
   imageCaption: string;
@@ -63,109 +64,57 @@ interface GameStory {
 
 const FEATURED_STORIES: GameStory[] = [
   {
-    id: 's4-g17-strykers-vs-dynamics',
-    articleId: 's4-g17-strykers-blowout-dynamics-hinton',
-    badgeTag: 'SOUTH RIVALRY • MARQUEE CLASH',
-    badgeColor: 'border-amber-500/60 bg-amber-500/10 text-amber-400',
-    title: 'Strykers Dismantle Dynamics 82-58 to Remain Undefeated at 4-0',
+    id: 's4-g20-reds-vs-knights',
+    articleId: 's4-g20-reds-rout-knights-marai',
+    badgeTag: 'SOUTHERN STATEMENT • LATEST RECAP',
+    badgeColor: 'border-red-500/60 bg-red-500/10 text-red-400',
+    title: "Marai's 18 & 14 Double-Double Anchors Reds in 64-49 Rout Over Knights",
     subtitle:
-      'San Diego unleashes a devastating 28-8 opening quarter blitz, forcing 13 turnovers and pouring in 29 fast-break points behind A.J. Hinton (18 PTS, 6 REB, 3 STL).',
-    date: 'Nov 5 • Season 4 Marquee Game',
-    image: hintonVsJmjS4Img,
-    imageCaption: 'A.J. Hinton (18 PTS, 6 REB, 3 STL) and Jack McMichael Jr. (14 PTS, 7-7 FT) battle in the marquee Southern Cali clash as San Diego improves to 4-0.',
+      'Andor Marai posts 18 points, 14 rebounds, and 3 assists while California shoots 51% from the floor and dominates the glass to roll past San Francisco.',
+    youtubeUrl: 'https://www.youtube.com/watch?v=cHJfZTom0GU',
+    date: 'Nov 9 • Season 4 Regular Season',
+    image: maraiVsSfImg,
+    imageCaption: 'Andor Marai powered the California Reds with 18 points, 14 rebounds, 3 assists, and 2 steals in a 64-49 victory over the San Francisco Knights.',
     winner: {
-      id: 'san-diego-strykers',
-      name: 'San Diego Strykers',
-      city: 'San Diego',
-      nickname: 'Strykers',
-      score: 82,
-      record: '4-0 (1st)',
+      id: 'california-reds',
+      name: 'California Reds',
+      city: 'California',
+      nickname: 'Reds',
+      score: 64,
+      record: '4-3 (4th)',
       isHome: true,
-    },
-    loser: {
-      id: 'los-angeles-dynamics',
-      name: 'Los Angeles Dynamics',
-      city: 'Los Angeles',
-      nickname: 'Dynamics',
-      score: 58,
-      record: '1-2 (7th)',
-      isHome: false,
-    },
-    quarterScores: [
-      { period: 'Q1', team1: 28, team2: 8 },
-      { period: 'Q2', team1: 18, team2: 10 },
-      { period: 'Q3', team1: 13, team2: 19 },
-      { period: 'Q4', team1: 23, team2: 21 },
-    ],
-    starPlayer: {
-      name: 'A.J. Hinton',
-      team: 'San Diego Strykers',
-      statline: '18 PTS • 6 REB • 3 STL • 2 AST (8-14 FG, 2-6 3PT)',
-      highlight: '18 PTS & 28-8 Opening Blitz Lead Strykers to 4-0',
-    },
-    keyStats: [
-      { label: 'Fast Break PTS', value: '29 - 10', desc: 'Strykers Transition Dominance' },
-      { label: 'Turnovers', value: '3 - 13', desc: 'San Diego Committed Just 3 TOs' },
-      { label: 'Paint Points', value: '42 - 32', desc: 'Interior Scoring Control' },
-      { label: 'Strykers Record', value: '4 - 0', desc: 'Tied for League Lead (+30.5 Diff)' },
-    ],
-    quote: {
-      speaker: 'Adam Saunders',
-      role: 'Head Coach • San Diego Strykers (4-0 Record)',
-      text: 'Our defensive intensity in the first 12 minutes set the tone. 29 fast-break points and only 3 turnovers all night is championship basketball.',
-    },
-  },
-  {
-    id: 's4-g18-sabrewolves-vs-knights',
-    articleId: 's4-g18-sabrewolves-stifle-knights-creek',
-    badgeTag: 'BREAKTHROUGH WIN • INTER-CONFERENCE',
-    badgeColor: 'border-emerald-500/60 bg-emerald-500/10 text-emerald-400',
-    title: "Creek's Flawless 23-Point Masterclass Lifts Sabrewolves Past Knights 61-48",
-    subtitle:
-      'Andre Creek shoots an unbelievable 11-of-12 from the floor for 23 points and 6 rebounds as San Diego pulls away in the 2nd half to capture their first win of Season 4.',
-    date: 'Nov 7 • Season 4 Road Victory',
-    image: sdReboundS4Img,
-    imageCaption: 'Andre Creek connected on 11-of-12 field goals for 23 points and 6 rebounds as the San Diego Sabrewolves locked down San Francisco 61-48.',
-    winner: {
-      id: 'san-diego-sabrewolves',
-      name: 'San Diego Sabrewolves',
-      city: 'San Diego',
-      nickname: 'Sabrewolves',
-      score: 61,
-      record: '1-1 (6th)',
-      isHome: false,
     },
     loser: {
       id: 'san-francisco-knights',
       name: 'San Francisco Knights',
       city: 'San Francisco',
       nickname: 'Knights',
-      score: 48,
-      record: '0-3 (11th)',
-      isHome: true,
+      score: 49,
+      record: '0-4 (11th)',
+      isHome: false,
     },
     quarterScores: [
-      { period: 'Q1', team1: 13, team2: 16 },
-      { period: 'Q2', team1: 11, team2: 8 },
-      { period: 'Q3', team1: 23, team2: 15 },
-      { period: 'Q4', team1: 14, team2: 9 },
+      { period: 'Q1', team1: 18, team2: 8 },
+      { period: 'Q2', team1: 18, team2: 12 },
+      { period: 'Q3', team1: 15, team2: 15 },
+      { period: 'Q4', team1: 13, team2: 14 },
     ],
     starPlayer: {
-      name: 'Andre Creek',
-      team: 'San Diego Sabrewolves',
-      statline: '23 PTS • 6 REB • 1 BLK • 11-12 FG (91.7% Shooting)',
-      highlight: '23 PTS on 11/12 FG Fuels First Win of Season 4',
+      name: 'Andor Marai',
+      team: 'California Reds',
+      statline: '18 PTS • 14 REB • 3 AST • 2 STL • 1 BLK (8-15 FG, 28 MIN)',
+      highlight: '18 PTS & 14 REB Dominates Glass to Secure 2nd Straight Win',
     },
     keyStats: [
-      { label: 'Andre Creek FG%', value: '91.7%', desc: '11 of 12 from the Floor' },
-      { label: 'Paint Points', value: '38 - 18', desc: '+20 Paint Advantage for SD' },
-      { label: 'Fast Break PTS', value: '13 - 4', desc: 'Sabrewolves Controlled Tempo' },
-      { label: 'Sabrewolves Mark', value: '1 - 1', desc: 'Bounce Back Road Victory' },
+      { label: 'Field Goal %', value: '51% - 33%', desc: 'California 27-53 vs SF 18-55' },
+      { label: 'Total Rebounds', value: '41 - 28', desc: '+13 Glass Advantage for Reds' },
+      { label: 'Points in Paint', value: '28 - 22', desc: 'Reds Interior Scoring Control' },
+      { label: 'Marai Double-Double', value: '18 & 14', desc: 'Game-High 14 Boards (12 Def)' },
     ],
     quote: {
-      speaker: 'Andre Creek',
-      role: 'Forward • San Diego Sabrewolves (23 PTS, 11-12 FG)',
-      text: 'My teammates found me in rhythm and in spots where I could attack quickly. We needed this win to bounce back, and our second-half defense was locked in.',
+      speaker: 'William Walker',
+      role: 'Head Coach • California Reds (4-3 Record)',
+      text: 'Andor Marai controlled both ends of the floor tonight. When he commands the glass with 14 rebounds and we shoot over 50%, we establish our signature physical brand.',
     },
   },
 ];
@@ -187,10 +136,10 @@ export const FeaturedGameStories: React.FC<FeaturedGameStoriesProps> = ({
               <Flame size={18} />
             </span>
             <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight">
-              Featured Game Stories
+              Featured Game Story
             </h2>
             <span className="text-xs font-mono font-bold uppercase tracking-wider bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full border border-amber-500/30">
-              Season 4 Latest
+              Nov 9 • California 64, SF 49
             </span>
           </div>
           <p className="text-xs sm:text-sm text-slate-400">
@@ -217,8 +166,8 @@ export const FeaturedGameStories: React.FC<FeaturedGameStoriesProps> = ({
         </div>
       </div>
 
-      {/* Two Prominent Game Story Cards Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {/* Featured Game Story Presentation */}
+      <div className={FEATURED_STORIES.length === 1 ? "max-w-4xl mx-auto w-full" : "grid grid-cols-1 lg:grid-cols-2 gap-6"}>
         {FEATURED_STORIES.map((story) => {
           return (
             <article
@@ -394,8 +343,19 @@ export const FeaturedGameStories: React.FC<FeaturedGameStoriesProps> = ({
                   </div>
                 </div>
 
-                {/* Read Full Article Button */}
-                <div className="pt-4 border-t border-slate-800/80 flex items-center justify-end">
+                {/* Action Buttons */}
+                <div className="pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-end gap-2.5">
+                  {story.youtubeUrl && (
+                    <a
+                      href={story.youtubeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-red-600 hover:bg-red-500 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-red-600/20 transition-all"
+                    >
+                      <Play size={14} className="fill-white" />
+                      <span>Watch Replay</span>
+                    </a>
+                  )}
                   <button
                     onClick={() => onNavigateToNews(story.articleId)}
                     className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 transition-all cursor-pointer"

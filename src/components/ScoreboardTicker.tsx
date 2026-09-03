@@ -162,6 +162,16 @@ export const ScoreboardTicker: React.FC<ScoreboardTickerProps> = ({
     return rawGames;
   }, [activeSeasonFilter, filterMode]);
 
+  // Find index of the latest played (FINAL) game in the active list
+  const latestPlayedIndex = useMemo(() => {
+    for (let i = gamesList.length - 1; i >= 0; i--) {
+      if (gamesList[i].score1 > 0 || gamesList[i].score2 > 0) {
+        return i;
+      }
+    }
+    return -1;
+  }, [gamesList]);
+
   // Check scroll position to show/hide scroll indicators
   const checkScroll = () => {
     if (scrollRef.current) {
@@ -180,6 +190,37 @@ export const ScoreboardTicker: React.FC<ScoreboardTickerProps> = ({
     }
   }, [gamesList]);
 
+  // Position the scoreboard so the latest FINAL game is shown to the left before upcoming games
+  const scrollToLatestFinal = (behavior: ScrollBehavior = 'smooth') => {
+    if (scrollRef.current) {
+      const latestEl = scrollRef.current.querySelector('[data-latest-final="true"]') as HTMLElement | null;
+      if (latestEl) {
+        const targetLeft = Math.max(0, latestEl.offsetLeft - 12);
+        scrollRef.current.scrollTo({ left: targetLeft, behavior });
+      } else if (latestPlayedIndex !== -1) {
+        const cardWidth = 205;
+        const targetLeft = Math.max(0, latestPlayedIndex * cardWidth - 12);
+        scrollRef.current.scrollTo({ left: targetLeft, behavior });
+      }
+      setTimeout(checkScroll, 100);
+    }
+  };
+
+  // On mount or season change, show the latest FINAL game to the left before the upcoming games
+  useEffect(() => {
+    if (latestPlayedIndex !== -1 && latestPlayedIndex < gamesList.length - 1) {
+      const timer = setTimeout(() => {
+        scrollToLatestFinal('auto');
+      }, 80);
+      return () => clearTimeout(timer);
+    } else {
+      if (scrollRef.current && activeSeasonFilter !== 4) {
+        scrollRef.current.scrollTo({ left: 0, behavior: 'auto' });
+      }
+      checkScroll();
+    }
+  }, [activeSeasonFilter, filterMode, latestPlayedIndex, gamesList.length]);
+
   const handleScroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
       const scrollAmount = 380;
@@ -190,23 +231,9 @@ export const ScoreboardTicker: React.FC<ScoreboardTickerProps> = ({
     }
   };
 
-  // Jump directly to the latest played game
+  // Jump directly to the latest played game (positioned to the left before upcoming)
   const jumpToLatest = () => {
-    if (scrollRef.current) {
-      // Find index of last played game in current list
-      let lastPlayedIdx = -1;
-      for (let i = gamesList.length - 1; i >= 0; i--) {
-        if (gamesList[i].score1 > 0 || gamesList[i].score2 > 0) {
-          lastPlayedIdx = i;
-          break;
-        }
-      }
-      if (lastPlayedIdx !== -1) {
-        const cardWidth = 200; // estimated card + gap
-        const targetScroll = Math.max(0, lastPlayedIdx * cardWidth - 200);
-        scrollRef.current.scrollTo({ left: targetScroll, behavior: 'smooth' });
-      }
-    }
+    scrollToLatestFinal('smooth');
   };
 
   const handleGameCardClick = (game: GameRecord) => {
@@ -352,7 +379,7 @@ export const ScoreboardTicker: React.FC<ScoreboardTickerProps> = ({
             ref={scrollRef}
             className="flex items-center gap-2.5 sm:gap-3 overflow-x-auto scrollbar-none scroll-smooth px-2 sm:px-4 py-1"
           >
-            {gamesList.map((game) => {
+            {gamesList.map((game, idx) => {
               const team1Obj = findTeam(game.team1);
               const team2Obj = findTeam(game.team2);
               const isPlayed = game.score1 > 0 || game.score2 > 0;
@@ -360,12 +387,18 @@ export const ScoreboardTicker: React.FC<ScoreboardTickerProps> = ({
               const isTeam2Winner = isPlayed && game.score2 > game.score1;
               const team1Abbr = getTeamAbbreviation(game.team1);
               const team2Abbr = getTeamAbbreviation(game.team2);
+              const isLatestPlayed = idx === latestPlayedIndex;
 
               return (
                 <div
                   key={game.id}
+                  data-latest-final={isLatestPlayed ? "true" : undefined}
                   onClick={() => handleGameCardClick(game)}
-                  className="min-w-[185px] sm:min-w-[200px] max-w-[215px] shrink-0 bg-gradient-to-b from-slate-900/90 to-slate-950/95 hover:from-slate-850 hover:to-slate-900 border border-slate-800 hover:border-amber-500/60 rounded-2xl p-2.5 transition-all duration-200 cursor-pointer shadow-md hover:shadow-xl hover:-translate-y-0.5 group/card relative overflow-hidden"
+                  className={`min-w-[185px] sm:min-w-[200px] max-w-[215px] shrink-0 bg-gradient-to-b from-slate-900/90 to-slate-950/95 hover:from-slate-850 hover:to-slate-900 border ${
+                    isLatestPlayed
+                      ? 'border-amber-500/80 shadow-[0_0_15px_rgba(245,158,11,0.15)] ring-1 ring-amber-500/30'
+                      : 'border-slate-800 hover:border-amber-500/60'
+                  } rounded-2xl p-2.5 transition-all duration-200 cursor-pointer shadow-md hover:shadow-xl hover:-translate-y-0.5 group/card relative overflow-hidden`}
                   title={isPlayed ? "Click to view full game recap article" : "Click to view matchup details"}
                 >
                   {/* Top Status & Date Row */}
@@ -375,6 +408,11 @@ export const ScoreboardTicker: React.FC<ScoreboardTickerProps> = ({
                         <span className="font-extrabold text-emerald-400 flex items-center gap-1">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                           FINAL
+                          {isLatestPlayed && (
+                            <span className="text-[9px] text-amber-400 font-black tracking-tight ml-0.5">
+                              • LATEST
+                            </span>
+                          )}
                         </span>
                       ) : (
                         <span className="font-bold text-sky-400">UPCOMING</span>
@@ -628,25 +666,51 @@ export const ScoreboardTicker: React.FC<ScoreboardTickerProps> = ({
               </div>
             )}
 
-            {/* YouTube Embed or Link if available */}
-            {selectedGameForModal.youtubeUrl && (
-              <div className="space-y-2">
-                <div className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                  <Play size={12} className="text-red-400 fill-red-400" />
-                  <span>Official Video Broadcast Highlights</span>
+            {/* YouTube Embed & Link if available */}
+            {selectedGameForModal.youtubeUrl && (() => {
+              const yt = selectedGameForModal.youtubeUrl;
+              let embedUrl = yt;
+              if (yt.includes('watch?v=')) {
+                const vidId = yt.split('watch?v=')[1].split('&')[0];
+                embedUrl = `https://www.youtube.com/embed/${vidId}`;
+              } else if (yt.includes('youtu.be/')) {
+                const vidId = yt.split('youtu.be/')[1].split('?')[0];
+                embedUrl = `https://www.youtube.com/embed/${vidId}`;
+              }
+
+              return (
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">
+                    <div className="flex items-center gap-1.5 text-red-400">
+                      <Play size={12} className="fill-red-400" />
+                      <span>Official Game Broadcast</span>
+                    </div>
+                    <a
+                      href={selectedGameForModal.youtubeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[11px] text-red-400 hover:text-red-300 flex items-center gap-1 underline underline-offset-2 transition-colors"
+                    >
+                      <span>Watch on YouTube</span>
+                      <ExternalLink size={11} />
+                    </a>
+                  </div>
+                  <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg border border-red-500/30 bg-black">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={embedUrl}
+                      title={`${selectedGameForModal.team1} vs ${selectedGameForModal.team2}`}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
-                <a
-                  href={selectedGameForModal.youtubeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-red-950/60 hover:bg-red-900/80 text-red-200 border border-red-700/60 font-bold text-xs transition-all shadow-md"
-                >
-                  <Play size={14} className="fill-red-400" />
-                  <span>Watch Complete Game Highlights on YouTube</span>
-                  <ExternalLink size={12} />
-                </a>
-              </div>
-            )}
+              );
+            })()}
 
             {/* Actions */}
             <div className="flex items-center justify-end gap-3 pt-2">

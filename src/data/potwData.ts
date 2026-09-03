@@ -132,7 +132,7 @@ export const POTW_WEEKS: POTWWeek[] = [
         stat: '18.0 PPG, 4 3PM, 3.0 RPG vs Fresno Mad Dogs'
       },
       {
-        player: 'Eric Higgins',
+        player: 'Erik Higgins',
         team: 'San Francisco Knights',
         teamId: 'san-francisco-knights',
         conference: 'Northern',

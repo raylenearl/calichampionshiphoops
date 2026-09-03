@@ -585,8 +585,16 @@ export const OpeningDayRostersView: React.FC<OpeningDayRostersViewProps> = ({
                         </span>
                         <span className="text-slate-600">•</span>
                         <span className="text-[10px] font-bold text-amber-400">
-                          11-Player Roster
+                          {roster.players.filter((p) => p.status !== 'Waived').length}-Player Active Roster
                         </span>
+                        {roster.players.some((p) => p.status === 'Waived') && (
+                          <>
+                            <span className="text-slate-600">•</span>
+                            <span className="text-[10px] font-bold text-rose-400">
+                              {roster.players.filter((p) => p.status === 'Waived').length} Waived
+                            </span>
+                          </>
+                        )}
                       </div>
                       <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
                         {team.name}
@@ -636,12 +644,15 @@ export const OpeningDayRostersView: React.FC<OpeningDayRostersViewProps> = ({
                     const isRookie = player.seasonYear?.toLowerCase().includes('rookie');
                     const isSuperstar = (player.ovr || 0) >= 90;
                     const isAllStar = (player.ovr || 0) >= 80 && (player.ovr || 0) < 90;
+                    const isWaived = player.status === 'Waived';
 
                     return (
                       <div
                         key={idx}
                         className={`p-3.5 rounded-2xl border transition-all flex flex-col justify-between gap-2.5 shadow-sm hover:-translate-y-0.5 ${
-                          isSuperstar
+                          isWaived
+                            ? 'bg-rose-950/10 border-rose-500/30 opacity-80'
+                            : isSuperstar
                             ? 'bg-gradient-to-br from-amber-950/40 via-slate-950 to-slate-900 border-amber-500/50 shadow-amber-500/5'
                             : isAllStar
                             ? 'bg-gradient-to-br from-emerald-950/30 via-slate-950 to-slate-900 border-emerald-500/30'
@@ -655,8 +666,13 @@ export const OpeningDayRostersView: React.FC<OpeningDayRostersViewProps> = ({
                               #{player.number || '—'}
                             </span>
                             <div className="min-w-0">
-                              <h4 className="font-black text-white text-xs sm:text-sm truncate flex items-center gap-1">
-                                {player.name}
+                              <h4 className="font-black text-white text-xs sm:text-sm truncate flex items-center gap-1.5">
+                                <span>{player.name}</span>
+                                {isWaived && (
+                                  <span className="px-1.5 py-0.5 rounded text-[8px] font-black uppercase tracking-wider bg-rose-500/20 text-rose-300 border border-rose-500/40 shrink-0">
+                                    WAIVED
+                                  </span>
+                                )}
                               </h4>
                               <div className="flex items-center gap-1.5">
                                 <span className="text-[10px] font-extrabold uppercase text-amber-400">
@@ -899,7 +915,14 @@ export const OpeningDayRostersView: React.FC<OpeningDayRostersViewProps> = ({
                         {p.number || '—'}
                       </td>
                       <td className="py-2.5 px-3.5 font-bold text-white whitespace-nowrap">
-                        {p.name}
+                        <span className="flex items-center gap-1.5">
+                          <span>{p.name}</span>
+                          {p.status === 'Waived' && (
+                            <span className="px-1.5 py-0.5 rounded text-[8px] font-black uppercase tracking-wider bg-rose-500/20 text-rose-300 border border-rose-500/40">
+                              WAIVED
+                            </span>
+                          )}
+                        </span>
                       </td>
                       <td className="py-2.5 px-3.5 whitespace-nowrap">
                         <span className="flex items-center gap-1.5">

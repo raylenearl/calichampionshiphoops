@@ -758,7 +758,7 @@ export const PlayerOfTheWeekCard: React.FC<PlayerOfTheWeekCardProps> = ({
 
             <div className="bg-slate-900/90 p-3 rounded-xl border border-slate-800/80 space-y-1">
               <div className="flex items-center justify-between">
-                <span className="font-black text-white">Eric Higgins</span>
+                <span className="font-black text-white">Erik Higgins</span>
                 <span className="text-[10px] font-mono font-bold text-amber-400">San Francisco</span>
               </div>
               <p className="text-[11px] text-slate-300">

@@ -406,7 +406,7 @@ export const TeamSeasonModal: React.FC<TeamSeasonModalProps> = ({
                 <div className="flex items-center gap-2 text-amber-400">
                   <Users size={16} />
                   <h4 className="text-xs font-extrabold uppercase text-white tracking-wider">
-                    Official Season {selectedSeason} Opening Day Roster ({rosterData.players.length} Players)
+                    Official Season {selectedSeason} Roster ({rosterData.players.filter(p => p.status !== 'Waived').length} Active{rosterData.players.some(p => p.status === 'Waived') ? `, ${rosterData.players.filter(p => p.status === 'Waived').length} Waived` : ''})
                   </h4>
                 </div>
 
@@ -462,7 +462,12 @@ export const TeamSeasonModal: React.FC<TeamSeasonModalProps> = ({
                           )}
                           <div className="min-w-0">
                             <p className="font-black text-slate-100 text-xs flex items-center gap-1.5">
-                              {p.name}
+                              <span>{p.name}</span>
+                              {p.status === 'Waived' && (
+                                <span className="px-1.5 py-0.2 rounded text-[8px] font-black uppercase tracking-wider bg-rose-500/20 text-rose-300 border border-rose-500/40 shrink-0">
+                                  WAIVED
+                                </span>
+                              )}
                             </p>
                             <p className="text-[10px] text-slate-400 font-semibold">
                               {p.position}
