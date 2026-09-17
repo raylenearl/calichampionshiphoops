@@ -76,6 +76,25 @@ interface GameStory {
   quote: { speaker: string; text: string; role: string };
 }
 
+const getYouTubeEmbedSrc = (url?: string, embedUrl?: string) => {
+  if (embedUrl) return embedUrl;
+  if (!url) return '';
+  if (url.includes('/embed/')) return url;
+  if (url.includes('youtu.be/')) {
+    const id = url.split('youtu.be/')[1].split('?')[0];
+    return `https://www.youtube.com/embed/${id}`;
+  }
+  if (url.includes('youtube.com/live/')) {
+    const id = url.split('youtube.com/live/')[1].split('?')[0];
+    return `https://www.youtube.com/embed/${id}`;
+  }
+  if (url.includes('watch?v=')) {
+    const id = url.split('watch?v=')[1].split('&')[0];
+    return `https://www.youtube.com/embed/${id}`;
+  }
+  return url;
+};
+
 const FEATURED_STORIES: GameStory[] = [
   {
     id: 's4-g23-mad-dogs-vs-knights',
@@ -85,6 +104,8 @@ const FEATURED_STORIES: GameStory[] = [
     title: 'Mad Dogs Bounce Back With 68-55 Road Victory Over Knights Behind Boomer & Jones',
     subtitle:
       'Lloyd Boomer scores 21 points (9-of-17 FG) and Geraldo Jones posts 10 PTS, 12 REB, 4 AST, 2 STL as Fresno controls the paint (28-26) and fast break (14-7) in San Francisco.',
+    youtubeUrl: 'https://youtu.be/jQ8U80VCVBk?si=y8Z1FoRbbcB2XTDu',
+    youtubeEmbedUrl: 'https://www.youtube.com/embed/jQ8U80VCVBk?si=y8Z1FoRbbcB2XTDu',
     date: 'Nov 13 • Season 4 Regular Season',
     image: boomerVsSf1Img,
     imageCaption:
@@ -139,6 +160,8 @@ const FEATURED_STORIES: GameStory[] = [
     title: 'Enterprise Silences Sabrewolves 65-51 Behind Carlton Daugherty’s 31-Point Clinic',
     subtitle:
       'The #1 overall pick knocks down 7 three-pointers on 11-of-23 shooting as Golden State dominates the second quarter and cruises to a 14-point road victory in San Diego.',
+    youtubeUrl: 'https://www.youtube.com/live/sZmDulCp-CY?si=BqXQ1pbiHlVReHCu',
+    youtubeEmbedUrl: 'https://www.youtube.com/embed/sZmDulCp-CY?si=BqXQ1pbiHlVReHCu',
     date: 'Nov 12 • Season 4 Regular Season',
     image: kingJordan1Img,
     imageCaption:
@@ -193,6 +216,8 @@ const FEATURED_STORIES: GameStory[] = [
     title: 'Dynamics Clamp Down in 2nd Half to Hand Mad Dogs Narrow 59-57 Defeat in Fresno',
     subtitle:
       'Trailing 41-34 at halftime, Los Angeles holds Fresno to 16 second-half points as R.J. Rush scores 23 (10-10 FT), Reggie Forte adds 12 off the bench, and Mo Alexander grabs 13 boards.',
+    youtubeUrl: 'https://www.youtube.com/live/fXPrOZMpMBQ?si=vn8IostE2dSEMPZg',
+    youtubeEmbedUrl: 'https://www.youtube.com/embed/fXPrOZMpMBQ?si=vn8IostE2dSEMPZg',
     date: 'Nov 11 • Season 4 Regular Season',
     image: rjRushVsFresnoImg,
     imageCaption:
@@ -667,7 +692,7 @@ export const FeaturedGameStories: React.FC<FeaturedGameStoriesProps> = ({
                   <iframe
                     width="100%"
                     height="100%"
-                    src={`${story.youtubeEmbedUrl || story.youtubeUrl}?autoplay=1`}
+                    src={`${getYouTubeEmbedSrc(story.youtubeUrl, story.youtubeEmbedUrl)}?autoplay=1`}
                     title="YouTube video player"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

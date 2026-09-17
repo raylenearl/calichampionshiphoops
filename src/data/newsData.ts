@@ -119,6 +119,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     featured: true,
     author: 'CCH Game Recap Desk • Bay Area Beat',
     readTime: '3 min read',
+    youtubeUrl: 'https://www.youtube.com/embed/jQ8U80VCVBk?si=y8Z1FoRbbcB2XTDu',
     imageUrl: boomerVsSf1Img,
     imageCaption: 'Lloyd Boomer led the charge with 21 points (9-of-17 FG) while Geraldo Jones stuffed the stat sheet as the Fresno Mad Dogs dominated the paint and fast break to defeat the San Francisco Knights 68-55.',
     teams: {
@@ -182,6 +183,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     featured: true,
     author: 'CCH Game Recap Desk • SoCal Beat',
     readTime: '3 min read',
+    youtubeUrl: 'https://www.youtube.com/embed/sZmDulCp-CY?si=BqXQ1pbiHlVReHCu',
     imageUrl: kingJordan1Img,
     imageCaption: 'Carlton Daugherty put on an absolute masterclass, dropping 31 points on 11-of-23 shooting and 7 three-pointers to power Golden State Enterprise to a 65-51 road victory over the San Diego Sabrewolves.',
     teams: {
@@ -246,6 +248,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     featured: true,
     author: 'CCH Game Recap Desk • Central Valley Beat',
     readTime: '3 min read',
+    youtubeUrl: 'https://www.youtube.com/embed/fXPrOZMpMBQ?si=vn8IostE2dSEMPZg',
     imageUrl: rjRushVsFresnoImg,
     imageCaption: 'R.J. Rush tallied a game-high 23 points, shooting 10-of-10 from the free throw line, to propel the Los Angeles Dynamics to a gritty 59-57 road comeback over the Fresno Mad Dogs.',
     teams: {
