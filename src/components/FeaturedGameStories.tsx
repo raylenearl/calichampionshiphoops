@@ -128,7 +128,7 @@ const FEATURED_STORIES: GameStory[] = [
     quote: {
       speaker: 'Lloyd Boomer',
       role: 'Guard • Fresno Mad Dogs (21 PTS, 9-17 FG)',
-      text: 'We took that loss to the Dynamics personally. We came into the Cow Palace locked in, pushed the ball on the break, and Geraldo anchored the paint for all four quarters.',
+      text: 'We took that loss to the Dynamics personally. We came into San Francisco Arena locked in, pushed the ball on the break, and Geraldo anchored the paint for all four quarters.',
     },
   },
   {
