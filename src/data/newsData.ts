@@ -7,6 +7,9 @@ import { PLAYOFF_HISTORY } from './playoffsData';
 import { TEAMS } from './teamsData';
 import { GameRecord } from '../types';
 import rjRush1Img from '../assets/images/RJRush1.png';
+import boomerVsSf1Img from '../assets/images/Boomer_vs_SF1.png';
+import kingJordan1Img from '../assets/images/KingJordan1.png';
+import rjRushVsFresnoImg from '../assets/images/RJRush_vs_Freso.png';
 import ajHinton99Img from '../assets/images/AJHinton99.png';
 import ajHintonS4_1Img from '../assets/images/AJHintonS4_1.png';
 import sdReboundS4Img from '../assets/images/SD_Rebound_S4.png';
@@ -21,6 +24,7 @@ import boomerVsSacImg from '../assets/images/Boomer_VS_SAC1.png';
 import boomerVsGsImg from '../assets/images/Boomer_vs_GS.png';
 import ktVsSfImg from '../assets/images/KTvsSF_S4.png';
 import daughertyVsCalImg from '../assets/images/Daugherty_vs_CAL1.png';
+import jDeanVsSdImg from '../assets/images/JDean_vs_SDs4.png';
 import deanVsSfImg from '../assets/images/DeanSFS1.png';
 import calVsOakImg from '../assets/images/CALvsOAKs1.png';
 import jacobUnderwoodImg from '../assets/images/JUnderwood.png';
@@ -105,6 +109,271 @@ export interface CCHNewsArticle {
 }
 
 export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
+  {
+    id: 's4-g23-mad-dogs-rout-knights-boomer',
+    title: 'Fresno Mad Dogs 68, San Francisco Knights 55',
+    subtitle: 'The Mad Dogs bounce back from their loss to the Dynamics with a decisive victory over the Knights behind Lloyd Boomer\'s 21 points and Geraldo Jones\' double-double.',
+    date: 'Season 4 Recap • Nov 13',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • Bay Area Beat',
+    readTime: '3 min read',
+    imageUrl: boomerVsSf1Img,
+    imageCaption: 'Lloyd Boomer led the charge with 21 points (9-of-17 FG) while Geraldo Jones stuffed the stat sheet as the Fresno Mad Dogs dominated the paint and fast break to defeat the San Francisco Knights 68-55.',
+    teams: {
+      team1: 'Fresno Mad Dogs',
+      team1Id: 'fresno-mad-dogs',
+      score1: 68,
+      team2: 'San Francisco Knights',
+      team2Id: 'san-francisco-knights',
+      score2: 55,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 18, team2: 12 },
+      { period: 'Q2', team1: 16, team2: 15 },
+      { period: 'Q3', team1: 17, team2: 14 },
+      { period: 'Q4', team1: 17, team2: 14 },
+    ],
+    headlineQuote: 'The Mad Dogs bounced back from their loss to the Dynamics with a decisive victory over the Knights. Lloyd Boomer led the charge with 21 points (9-of-17 FG), while Geraldo Jones stuffed the stat sheet with 10 points, 12 rebounds, 4 assists, and 2 steals. The Mad Dogs dominated the paint (28-26) and the fast break (14-7).',
+    contentParagraphs: [
+      'San Francisco, CA – The Fresno Mad Dogs (4-1) bounced back emphatically from their loss to the Dynamics, securing a decisive 68-55 road victory over the San Francisco Knights (0-5) at Chase Center on Thursday night.',
+      'BOOMER LEADS THE CHARGE:\nLloyd Boomer led the charge with 21 points on 9-of-17 shooting from the floor, dictating tempo from the opening tip and answering every San Francisco run with timely baskets inside and in the mid-range.',
+      'JONES STUFFS STAT SHEET & INTERIOR DOMINANCE:\nGeraldo Jones stuffed the stat sheet with 10 points, 12 rebounds, 4 assists, and 2 steals, providing relentless energy on both ends of the floor. The Mad Dogs dominated the paint (28-26) and pushed the tempo relentlessly, controlling the fast break by a decisive 14-7 margin.',
+      'KNIGHTS RECAP:\nFor the winless Knights (0-5), guard Ed Burks had a tough shooting night (5-of-19 FG) but still finished with 14 points and 6 assists, while Marion Payton added 11 points and 8 rebounds. Erik Higgins chipped in 10 points, but San Francisco could not overcome Fresno\'s transition scoring and interior rebounding.'
+    ],
+    quotes: [
+      {
+        speaker: 'Lloyd Boomer',
+        title: 'Guard • Fresno Mad Dogs (21 PTS, 9-17 FG)',
+        quote: 'We took that Dynamics loss personally and came in determined to set the tone from the opening tip. Geraldo was phenomenal on the glass and our defense got us easy points in transition.'
+      },
+      {
+        speaker: 'Ronnie Flores',
+        title: 'Head Coach • Fresno Mad Dogs (4-1 Record)',
+        quote: 'That was the response we needed. Bouncing back on the road against a desperate Knights team showed our maturity. Lloyd controlled the flow and Geraldo gave us huge minutes on both ends.'
+      },
+      {
+        speaker: 'Arthur Saunders',
+        title: 'Head Coach • San Francisco Knights (0-5 Record)',
+        quote: 'Ed Burks and Marion Payton battled all night, but giving up a 14-7 fast break advantage and shooting cold from the perimeter makes it tough to beat a disciplined team like Fresno.'
+      }
+    ],
+    playerStats: [
+      { player: 'Lloyd Boomer', team: 'Fresno Mad Dogs', stat: '21 PTS, 5 AST, 3 REB (9-17 FG)' },
+      { player: 'Geraldo Jones', team: 'Fresno Mad Dogs', stat: '10 PTS, 12 REB, 4 AST, 2 STL (Double-Double)' },
+      { player: 'Ed Burks', team: 'San Francisco Knights', stat: '14 PTS, 6 AST, 2 STL (5-19 FG)' },
+      { player: 'Marion Payton', team: 'San Francisco Knights', stat: '11 PTS, 8 REB, 1 BLK' },
+      { player: 'Erik Higgins', team: 'San Francisco Knights', stat: '10 PTS, 6 REB (5-11 FG)' },
+      { player: 'Luke Davidson', team: 'Fresno Mad Dogs', stat: '9 PTS, 7 REB' },
+      { player: 'Carson Graham', team: 'Fresno Mad Dogs', stat: '8 PTS, 5 REB, 1 BLK' },
+      { player: 'Fast Break Points', team: 'Team Comparison', stat: 'Fresno 14 • San Francisco 7 (+7 FRE)' },
+      { player: 'Points in Paint', team: 'Team Comparison', stat: 'Fresno 28 • San Francisco 26 (+2 FRE)' },
+      { player: 'Rebound Battle', team: 'Team Comparison', stat: 'Fresno 39 (Jones 12) • San Francisco 36 (Payton 8)' }
+    ]
+  },
+  {
+    id: 's4-g22-enterprise-rout-sabrewolves-daugherty',
+    title: 'Golden State Enterprise 65, San Diego Sabrewolves 51',
+    subtitle: 'Carlton Daugherty drops 31 points (7-12 3PT), Cameron Barkley pulls down 12 rebounds with 3 blocks, and Golden State silences the Sabrewolves in San Diego.',
+    date: 'Season 4 Recap • Nov 12',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • SoCal Beat',
+    readTime: '3 min read',
+    imageUrl: kingJordan1Img,
+    imageCaption: 'Carlton Daugherty put on an absolute masterclass, dropping 31 points on 11-of-23 shooting and 7 three-pointers to power Golden State Enterprise to a 65-51 road victory over the San Diego Sabrewolves.',
+    teams: {
+      team1: 'Golden State Enterprise',
+      team1Id: 'golden-state-enterprise',
+      score1: 65,
+      team2: 'San Diego Sabrewolves',
+      team2Id: 'san-diego-sabrewolves',
+      score2: 51,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 16, team2: 14 },
+      { period: 'Q2', team1: 20, team2: 12 },
+      { period: 'Q3', team1: 13, team2: 11 },
+      { period: 'Q4', team1: 16, team2: 14 },
+    ],
+    headlineQuote: 'Carlton Daugherty put on an absolute masterclass, dropping 31 points on 11-of-23 shooting (7-of-12 from three-point range) to single-handedly dismantle the Sabrewolves defense in a commanding 65-51 road victory.',
+    contentParagraphs: [
+      'San Diego, CA – Golden State Enterprise (2-1) delivered an emphatic statement on Wednesday night at Pechanga Arena, dismantling the San Diego Sabrewolves (1-3) in a 65-51 road triumph propelled by an unforgettable offensive masterpiece from rookie sensation Carlton Daugherty.',
+      'DAUGHERTY MASTERCLASS:\nCarlton Daugherty put on an absolute masterclass, dropping 31 points on 11-of-23 shooting (7-of-12 from three-point range) to single-handedly dismantle the Sabrewolves defense. Daugherty caught fire early and never cooled off, drilling contested step-backs, pull-up jumpers, and transition triples from all angles on the floor to put the contest out of reach.',
+      "ENTERPRISE INTERIOR & PLAYMAKING:\nBacking Daugherty's scoring explosion, center Cameron Barkley anchored the interior with 8 points, 12 rebounds, and 3 blocked shots, completely neutralizing San Diego's paint attack. Playmaker Jud Thompson orchestrated the offense with precision, recording 10 points and 6 assists while committing zero turnovers. Chad Bryant added 8 points and 4 rebounds as Golden State outscored San Diego 20-12 in the second quarter to seize total momentum.",
+      "SABREWOLVES RECAP:\nFor San Diego (1-3), star guard Kirk Barnes battled for a team-high 18 points on 6-of-14 shooting, 4 assists, and 3 rebounds, while center Andre Creek contributed 14 points, 9 rebounds, and 2 blocks. However, San Diego struggled mightily from long distance (3-of-16 3PT) and could not contain Daugherty's 7-of-12 barrage from beyond the arc as the Sabrewolves suffered their second straight defeat."
+    ],
+    quotes: [
+      {
+        speaker: 'Carlton Daugherty',
+        title: 'Forward • Golden State Enterprise (31 PTS, 7-12 3PT)',
+        quote: 'My teammates set great screens and found me in rhythm. Once that first three went down, the basket looked huge. We wanted to set a tone on the road and Cameron and Jud were unbelievable on both ends.'
+      },
+      {
+        speaker: 'Wyatt Zimmerman',
+        title: 'Head Coach • Golden State Enterprise (2-1 Record)',
+        quote: "Carlton was completely in the zone. Thirty-one points and seven threes on the road against a tough defense is special. Barkley's 12 rebounds and 3 blocks kept them from getting anything easy inside."
+      },
+      {
+        speaker: 'Jacob Underwood',
+        title: 'Head Coach • San Diego Sabrewolves (1-3 Record)',
+        quote: "When a scorer like Daugherty gets hot and hits seven threes, you have to run him off the line. We let him get comfortable in the second quarter, and we didn't hit enough shots on our end to keep pace."
+      }
+    ],
+    playerStats: [
+      { player: 'Carlton Daugherty', team: 'Golden State Enterprise', stat: '31 PTS, 5 REB, 2 STL (11-23 FG, 7-12 3PT)' },
+      { player: 'Kirk Barnes', team: 'San Diego Sabrewolves', stat: '18 PTS, 3 REB, 4 AST (6-14 FG, 2-5 3PT, 4-4 FT)' },
+      { player: 'Andre Creek', team: 'San Diego Sabrewolves', stat: '14 PTS, 9 REB, 2 BLK (6-11 FG)' },
+      { player: 'Jud Thompson', team: 'Golden State Enterprise', stat: '10 PTS, 6 AST, 2 STL (4-7 FG, 0 TO)' },
+      { player: 'Cameron Barkley', team: 'Golden State Enterprise', stat: '8 PTS, 12 REB, 3 BLK (4-8 FG)' },
+      { player: 'Chad Bryant', team: 'Golden State Enterprise', stat: '8 PTS, 4 REB (3-7 FG)' },
+      { player: 'Wes Taylor', team: 'San Diego Sabrewolves', stat: '7 PTS, 4 REB, 2 STL' },
+      { player: 'Leo Washington Jr.', team: 'San Diego Sabrewolves', stat: '6 PTS, 2 AST' },
+      { player: '3-Point Shooting', team: 'Team Comparison', stat: 'Golden State 9-18 (50%) • San Diego 3-16 (18.8%)' },
+      { player: 'Rebounds', team: 'Team Comparison', stat: 'Golden State 38 • San Diego 34 (+4 GSE)' },
+      { player: '2nd Quarter Margin', team: 'Team Comparison', stat: 'Golden State 20 • San Diego 12 (+8 GSE)' }
+    ]
+  },
+  {
+    id: 's4-g21-dynamics-edge-mad-dogs-rush',
+    title: 'Los Angeles Dynamics 59, Fresno Mad Dogs 57',
+    subtitle: 'R.J. Rush leads with game-high 23 points (10-10 FT), Reggie Forte adds 12 off the bench, and Mo Alexander grabs 13 boards as LA rallies from 7 down at the break.',
+    date: 'Season 4 Recap • Nov 11',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • Central Valley Beat',
+    readTime: '3 min read',
+    imageUrl: rjRushVsFresnoImg,
+    imageCaption: 'R.J. Rush tallied a game-high 23 points, shooting 10-of-10 from the free throw line, to propel the Los Angeles Dynamics to a gritty 59-57 road comeback over the Fresno Mad Dogs.',
+    teams: {
+      team1: 'Los Angeles Dynamics',
+      team1Id: 'los-angeles-dynamics',
+      score1: 59,
+      team2: 'Fresno Mad Dogs',
+      team2Id: 'fresno-mad-dogs',
+      score2: 57,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 16, team2: 20 },
+      { period: 'Q2', team1: 18, team2: 21 },
+      { period: 'Q3', team1: 10, team2: 4 },
+      { period: 'Q4', team1: 15, team2: 12 },
+    ],
+    headlineQuote: 'The Dynamics pulled off a gritty upset on the road, handing the Mad Dogs a narrow defeat. Despite trailing 41-34 at halftime, Los Angeles clamped down defensively in the second half, winning the third quarter 10-4 and the fourth 15-12 to steal the game.',
+    contentParagraphs: [
+      'Fresno, CA – The Los Angeles Dynamics (2-2) pulled off a gritty upset on the road at Save Mart Center, handing the Fresno Mad Dogs (3-1) a narrow 59-57 defeat in a defensive second-half slugfest.',
+      'SECOND-HALF CLAMPDOWN:\nDespite trailing 41-34 at halftime, Los Angeles clamped down defensively in the second half, winning the third quarter 10-4 and the fourth 15-12 to steal the game. The Dynamics held Fresno to just 16 total points over the final two periods while forcing contested shots and controlling the glass.',
+      'DYNAMICS PRODUCTION:\nR.J. Rush led the way for the Dynamics with a game-high 23 points, hitting 10-of-10 free throws, while Reggie Forte added 12 points off the bench with timely interior scoring and energetic defense. Mo Alexander controlled the glass with 13 rebounds, locking down the paint and preventing second-chance opportunities in the fourth quarter.',
+      'MAD DOGS EFFORT:\nFor the Mad Dogs (3-1), newly acquired Luke Davidson was incredibly efficient, scoring 17 points on 7-of-10 shooting (3-of-4 from deep). Despite the loss, Lloyd Boomer finished with 12 points and 5 assists, and Geraldo Jones secured a double-double with 10 points and 10 rebounds.'
+    ],
+    quotes: [
+      {
+        speaker: 'R.J. Rush',
+        title: 'Guard • Los Angeles Dynamics (23 PTS, 10-10 FT)',
+        quote: 'We knew we had to tighten up defensively after giving up 41 in the first half. Winning the third quarter 10-4 set the tone. Reggie Forte was huge off the bench, and Mo controlled the glass down the stretch.'
+      },
+      {
+        speaker: 'Pooh Splitter',
+        title: 'Head Coach • Los Angeles Dynamics (2-2 Record)',
+        quote: 'That was pure grit. Trailing by seven on the road and holding an undefeated team to 16 points in the entire second half proves what our defense is capable of when we stay disciplined.'
+      },
+      {
+        speaker: 'Ronnie Flores',
+        title: 'Head Coach • Fresno Mad Dogs (3-1 Record)',
+        quote: 'Luke Davidson gave us great efficiency with 17 points, but scoring four points in the third quarter cost us. Credit to LA; Rush got to the line and went 10-for-10, and they executed when it mattered most.'
+      }
+    ],
+    playerStats: [
+      { player: 'R.J. Rush', team: 'Los Angeles Dynamics', stat: '23 PTS, 3 AST, 2 STL (6-14 FG, 10-10 FT)' },
+      { player: 'Luke Davidson', team: 'Fresno Mad Dogs', stat: '17 PTS, 4 REB (7-10 FG, 3-4 3PT)' },
+      { player: 'Reggie Forte', team: 'Los Angeles Dynamics', stat: '12 PTS, 5 REB, 1 BLK off bench (5-8 FG)' },
+      { player: 'Lloyd Boomer', team: 'Fresno Mad Dogs', stat: '12 PTS, 5 AST, 3 REB (5-12 FG)' },
+      { player: 'Geraldo Jones', team: 'Fresno Mad Dogs', stat: '10 PTS, 10 REB (Double-Double, 4-8 FG)' },
+      { player: 'Mo Alexander', team: 'Los Angeles Dynamics', stat: '6 PTS, 13 REB, 2 BLK (10 Def REB)' },
+      { player: 'Jack McMichael Jr.', team: 'Los Angeles Dynamics', stat: '8 PTS, 4 AST, 3 REB' },
+      { player: 'Carson Graham', team: 'Fresno Mad Dogs', stat: '6 PTS, 4 REB' },
+      { player: '2nd-Half Defense', team: 'Team Comparison', stat: 'LA held Fresno to 16 PTS (10-4 Q3, 15-12 Q4)' },
+      { player: 'Free Throw Shooting', team: 'Team Comparison', stat: 'LA 15-17 (Rush 10-10) • Fresno 6-8' },
+      { player: 'Rebound Battle', team: 'Team Comparison', stat: 'LA 37 (Alexander 13) • Fresno 35 (Jones 10)' }
+    ]
+  },
+  {
+    id: 's4-g21-renegades-edge-sabrewolves-dean',
+    title: 'Renegades Edge Sabrewolves 60-59 in 4th-Quarter Thriller to Stay Unbeaten at 5-0',
+    subtitle: "Jamar Dean scores 18 points, Alonzo Reece adds 12 with clutch free throws, and Oakland mounts an 18-14 fourth-quarter comeback in San Diego to overcome Kirk Barnes' 19 points.",
+    date: 'Season 4 Recap • Nov 9',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • SoCal Beat',
+    readTime: '3 min read',
+    youtubeUrl: 'https://www.youtube.com/embed/JdRXhCSupwM?si=LroEqV-JMzZreXc_',
+    imageUrl: jDeanVsSdImg,
+    imageCaption: 'Jamar Dean poured in 18 points, 6 rebounds, and 4 assists as the Oakland Renegades rallied in the fourth quarter to edge the San Diego Sabrewolves 60-59 at Pechanga Arena.',
+    teams: {
+      team1: 'Oakland Renegades',
+      team1Id: 'oakland-renegades',
+      score1: 60,
+      team2: 'San Diego Sabrewolves',
+      team2Id: 'san-diego-sabrewolves',
+      score2: 59,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 10, team2: 13 },
+      { period: 'Q2', team1: 20, team2: 19 },
+      { period: 'Q3', team1: 12, team2: 13 },
+      { period: 'Q4', team1: 18, team2: 14 },
+    ],
+    headlineQuote: 'Three turnovers in 32 minutes on the road against a defense that blocked 9 shots is championship poise. Jamar and Alonzo controlled crunch time.',
+    contentParagraphs: [
+      'San Diego, CA – In one of the most intense, defense-dominated showdowns of Season 4, the visiting Oakland Renegades (5-0) preserved their unblemished record with a nerve-wracking 60-59 victory over the San Diego Sabrewolves (1-2) at Pechanga Arena on Sunday night.',
+      'FOURTH-QUARTER COMEBACK:\nEntering the fourth quarter trailing 45-42 in a hostile environment, Oakland leaned on their superstar backcourt and textbook ball protection to stage an 18-14 final-period surge. The defining statistic of the game was turnovers: Oakland committed a season-low 3 turnovers across the entire contest while forcing 11 Sabrewolves giveaways. The Renegades transformed those mistakes into 17 crucial points off turnovers (compared to just 4 points off turnovers for San Diego), providing the razor-thin margin needed to secure the one-point win on the road.',
+      "RENEGADES PRODUCTION:\nAll-Cali guard Jamar Dean spearheaded Oakland's attack with a team-high 18 points, 6 rebounds (2 offensive), 4 assists, and a steal in 26 minutes of action. Co-star Alonzo Reece orchestrated the late-game offense with supreme poise, delivering 12 points and 5 assists while finishing a flawless 6-of-6 from the free throw line. Rookie big man Carl Marks turned in a stellar, hyper-efficient performance with 11 points (3-of-4 FG, 1-of-1 3PT, 4-of-4 FT) and 5 rebounds. Off the bench, Jaylen Moon provided instant offensive punch with 10 points in just 12 minutes (5-of-9 FG), and center Joshua Bowen anchored the passing lanes with 4 steals and 7 rebounds alongside Andrew Woods (5 points, 2 steals). Oakland shot 13-of-15 (86.7%) from the free throw line as a team.",
+      "SABREWOLVES RECAP:\nFor San Diego (1-2), premier scoring maestro Kirk Barnes delivered a sensational display, racking up a game-high 19 points on 5-of-10 shooting, 2-of-4 from downtown, and a perfect 7-of-7 from the charity stripe, plus 5 rebounds, 3 assists, and a block. Anchor center Andre Creek was an intimidating force in the paint with 12 points on 6-of-9 shooting, 7 rebounds, and 3 blocked shots, pacing a Sabrewolves defense that tallied 9 blocks. Reserve guard Leo Washington Jr. gave San Diego huge production off the bench with 10 points on 4-of-6 shooting (2-of-2 3PT), Alan Perben added 6 points and 3 assists, and Wes Taylor battled for 4 rebounds, 2 assists, and 2 blocks. However, San Diego's 11 turnovers and inability to slow Oakland's late free-throw parade proved decisive in the final seconds."
+    ],
+    quotes: [
+      {
+        speaker: 'Jamar Dean',
+        title: 'Guard • Oakland Renegades (18 PTS, 6 REB, 4 AST)',
+        quote: 'Playing in San Diego is always a dogfight. They protected the rim with Creek and blocked nine shots, but we never got rattled. We took care of the ball, had only 3 turnovers the whole night, and Alonzo and Carl came up huge at the line.'
+      },
+      {
+        speaker: 'Carson Goodwin',
+        title: 'Head Coach • Oakland Renegades (5-0 Record)',
+        quote: 'Three turnovers in 32 minutes on the road against a defense that blocked 9 shots is championship poise. Jamar and Alonzo controlled crunch time, and our bench gave us vital minutes when we were down entering the fourth.'
+      },
+      {
+        speaker: 'Jacob Underwood',
+        title: 'Head Coach • San Diego Sabrewolves (1-2 Record)',
+        quote: 'To hold Oakland to 60 points and 41% shooting and lose by a single point is gut-wrenching. Kirk Barnes and Andre Creek competed at an elite level, but giving up 17 points off our 11 turnovers is what decided the ballgame.'
+      }
+    ],
+    playerStats: [
+      { player: 'Kirk Barnes', team: 'San Diego Sabrewolves', stat: '19 PTS, 5 REB, 3 AST, 1 BLK (5-10 FG, 2-4 3PT, 7-7 FT)' },
+      { player: 'Jamar Dean', team: 'Oakland Renegades', stat: '18 PTS, 6 REB, 4 AST, 1 STL (7-20 FG, 1-4 3PT, 3-3 FT)' },
+      { player: 'Alonzo Reece', team: 'Oakland Renegades', stat: '12 PTS, 5 AST, 2 REB (3-5 FG, 6-6 FT)' },
+      { player: 'Andre Creek', team: 'San Diego Sabrewolves', stat: '12 PTS, 7 REB, 3 BLK, 1 STL (6-9 FG)' },
+      { player: 'Carl Marks', team: 'Oakland Renegades', stat: '11 PTS, 5 REB, 1 STL (3-4 FG, 1-1 3PT, 4-4 FT)' },
+      { player: 'Jaylen Moon', team: 'Oakland Renegades', stat: '10 PTS (5-9 FG in 12 MIN)' },
+      { player: 'Leo Washington Jr.', team: 'San Diego Sabrewolves', stat: '10 PTS, 1 STL, 1 BLK (4-6 FG, 2-2 3PT)' },
+      { player: 'Alan Perben', team: 'San Diego Sabrewolves', stat: '6 PTS, 3 REB, 3 AST, 1 BLK (2-4 FG, 2-3 FT)' },
+      { player: 'Andrew Woods', team: 'Oakland Renegades', stat: '5 PTS, 1 REB, 1 AST, 2 STL (2-5 FG, 1-4 3PT)' },
+      { player: 'Joshua Bowen', team: 'Oakland Renegades', stat: '4 PTS, 7 REB, 4 STL (2-4 FG)' },
+      { player: 'Tingus Atgusanas', team: 'San Diego Sabrewolves', stat: '3 PTS, 2 REB, 2 AST, 1 BLK (1-3 FG, 1-2 FT)' },
+      { player: 'Rick Glover', team: 'San Diego Sabrewolves', stat: '3 PTS, 3 REB (1-3 FG, 1-2 FT)' },
+      { player: 'Wes Taylor', team: 'San Diego Sabrewolves', stat: '2 PTS, 4 REB, 2 AST, 2 BLK, 1 STL (1-5 FG)' },
+      { player: 'Matt Holland', team: 'San Diego Sabrewolves', stat: '2 PTS, 2 REB, 1 AST (1-2 FG)' },
+      { player: 'Garrison Iverson', team: 'San Diego Sabrewolves', stat: '2 PTS, 3 REB, 1 AST (1-3 FG)' },
+      { player: 'Points Off Turnovers', team: 'Team Comparison', stat: 'Oakland 17 PTS (3 TO) • San Diego 4 PTS (11 TO) [+13 OAK]' },
+      { player: 'Free Throw %', team: 'Team Comparison', stat: 'Oakland 13-15 (86.7%) • San Diego 11-14 (78.6%)' },
+      { player: 'Turnovers', team: 'Team Comparison', stat: 'Oakland 3 TO • San Diego 11 TO' },
+      { player: 'Team Blocks', team: 'Team Comparison', stat: 'San Diego 9 BLK • Oakland 0 BLK' },
+      { player: 'Bench Points', team: 'Team Comparison', stat: 'San Diego 21 PTS • Oakland 10 PTS' }
+    ]
+  },
   {
     id: 's4-g20-reds-rout-knights-marai',
     title: "Marai's 18 & 14 Double-Double Anchors Reds in 64-49 Rout Over Knights",

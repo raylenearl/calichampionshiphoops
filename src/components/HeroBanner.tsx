@@ -56,8 +56,8 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onNavigate, selectedSeas
               <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wide">Franchises</span>
             </div>
             <div className="bg-slate-900/80 border border-slate-800 p-3 rounded-2xl">
-              <span className="block text-2xl font-black text-amber-400">3</span>
-              <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wide">Seasons Logged</span>
+              <span className="block text-2xl font-black text-amber-400">4</span>
+              <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wide">Seasons Active (S4 Live)</span>
             </div>
           </div>
 

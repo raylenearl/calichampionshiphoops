@@ -28,6 +28,11 @@ import boomerVsSacImg from '../assets/images/Boomer_VS_SAC1.png';
 import daughertyVsCalImg from '../assets/images/Daugherty_vs_CAL1.png';
 import deanVsSfImg from '../assets/images/DeanSFS1.png';
 import calVsOakImg from '../assets/images/CALvsOAKs1.png';
+import maraiVsSfImg from '../assets/images/Marai_vs_SFs4.png';
+import jDeanVsSdImg from '../assets/images/JDean_vs_SDs4.png';
+import sdReboundS4Img from '../assets/images/SD_Rebound_S4.png';
+import hintonVsJmjS4Img from '../assets/images/Hinton_vs_JMJs4.png';
+import rjRush1Img from '../assets/images/RJRush1.png';
 
 interface LatestGamesShowcaseProps {
   onNavigateToNews: (articleId: string) => void;
@@ -74,6 +79,324 @@ interface GameHighlight {
 }
 
 const HIGHLIGHT_GAMES: GameHighlight[] = [
+  {
+    id: 'game-22',
+    articleId: 's4-g22-enterprise-rout-sabrewolves-daugherty',
+    date: 'Nov 12 • Season 4',
+    headline: 'Golden State Enterprise 65, San Diego Sabrewolves 51',
+    subheadline: 'Carlton Daugherty (31 PTS, 7-12 3PT) Drops Masterclass in 65-51 Road Triumph',
+    narrative:
+      'Carlton Daugherty put on an absolute masterclass, dropping 31 points on 11-of-23 shooting (7-of-12 from three-point range) to single-handedly dismantle the Sabrewolves defense in a commanding 65-51 road victory. Cameron Barkley added 12 rebounds and 3 blocks while Jud Thompson dished 6 assists.',
+    winner: {
+      id: 'golden-state-enterprise',
+      name: 'Golden State Enterprise',
+      score: 65,
+      record: '2-1 (4th)',
+      isHome: false,
+    },
+    loser: {
+      id: 'san-diego-sabrewolves',
+      name: 'San Diego Sabrewolves',
+      score: 51,
+      record: '1-3 (8th)',
+      isHome: true,
+    },
+    quarters: [
+      { period: 'Q1', team1: 16, team2: 14 },
+      { period: 'Q2', team1: 20, team2: 12 },
+      { period: 'Q3', team1: 13, team2: 11 },
+      { period: 'Q4', team1: 16, team2: 14 },
+    ],
+    starPlayer: {
+      name: 'Carlton Daugherty',
+      number: '#28',
+      team: 'Golden State Enterprise',
+      position: 'SF • 85 OVR',
+      statline: '31 PTS • 5 REB • 2 STL • 7-12 3PT (11-23 FG)',
+      highlightPill: '31 PTS & 7 Threes • #1 Pick Masterclass',
+      image: carltonDaughertyImg,
+    },
+    keyStats: [
+      { label: 'Carlton Daugherty', value: '31 PTS', desc: 'Game-High 31 Points & 7 Threes' },
+      { label: '3-Point Shooting', value: '9-18 (50%)', desc: 'Enterprise Perimeter Blitz' },
+      { label: 'Barkley Defense', value: '12 REB • 3 BLK', desc: 'Dominant Interior Rim Protection' },
+      { label: '2nd Quarter Margin', value: '20 - 12', desc: 'Decisive 2nd Period Separation' },
+    ],
+    secondaryPerformers: [
+      { name: 'Cameron Barkley (GSE)', team: 'Enterprise', stat: '8 PTS, 12 REB, 3 BLK' },
+      { name: 'Jud Thompson (GSE)', team: 'Enterprise', stat: '10 PTS, 6 AST, 0 TO' },
+      { name: 'Kirk Barnes (SD)', team: 'Sabrewolves', stat: '18 PTS, 4 AST, 3 REB (6-14 FG)' },
+      { name: 'Andre Creek (SD)', team: 'Sabrewolves', stat: '14 PTS, 9 REB, 2 BLK' },
+    ],
+    badgeColor: 'border-amber-500/60 from-amber-950/40 via-slate-900 to-yellow-950/30',
+    tagIcon: 'flame',
+    tagText: 'DAUGHERTY 31-PT EXPLOSION • 7 THREES',
+  },
+  {
+    id: 'game-21',
+    articleId: 's4-g21-dynamics-edge-mad-dogs-rush',
+    date: 'Nov 11 • Season 4',
+    headline: 'Los Angeles Dynamics 59, Fresno Mad Dogs 57',
+    subheadline: 'Rush Clutches 23 PTS (10-10 FT); Dynamics Stifle Mad Dogs 16-25 in 2nd-Half Comeback',
+    narrative:
+      'The Dynamics pulled off a gritty upset on the road, handing the Mad Dogs a narrow 59-57 defeat. Despite trailing 41-34 at halftime, Los Angeles clamped down defensively in the second half, winning the third quarter 10-4 and the fourth 15-12 behind R.J. Rush (23 PTS, 10-10 FT), Reggie Forte (12 PTS), and Mo Alexander (13 REB).',
+    winner: {
+      id: 'los-angeles-dynamics',
+      name: 'Los Angeles Dynamics',
+      score: 59,
+      record: '2-2 (6th)',
+      isHome: false,
+    },
+    loser: {
+      id: 'fresno-mad-dogs',
+      name: 'Fresno Mad Dogs',
+      score: 57,
+      record: '3-1 (3rd)',
+      isHome: true,
+    },
+    quarters: [
+      { period: 'Q1', team1: 16, team2: 20 },
+      { period: 'Q2', team1: 18, team2: 21 },
+      { period: 'Q3', team1: 10, team2: 4 },
+      { period: 'Q4', team1: 15, team2: 12 },
+    ],
+    starPlayer: {
+      name: 'R.J. Rush',
+      number: '#6',
+      team: 'Los Angeles Dynamics',
+      position: 'PG • 83 OVR',
+      statline: '23 PTS • 3 AST • 2 STL • 10-10 FT',
+      highlightPill: '23 PTS & Perfect 10-10 FT • Gritty Road Upset',
+      image: rjRush1Img,
+    },
+    keyStats: [
+      { label: 'R.J. Rush', value: '23 PTS', desc: 'Game-High & Perfect 10/10 Free Throws' },
+      { label: '2nd-Half Defense', value: '25 - 16 LA', desc: '10-4 Q3 & 15-12 Q4 Defensive Lockdown' },
+      { label: 'Mo Alexander', value: '13 REB', desc: 'Game-High Rebounds (10 Defensive)' },
+      { label: 'Luke Davidson (FRE)', value: '17 PTS', desc: '7-10 FG, 3-4 3PT in Tough Loss' },
+    ],
+    secondaryPerformers: [
+      { name: 'Reggie Forte (LA)', team: 'Dynamics', stat: '12 PTS, 5 REB off bench' },
+      { name: 'Mo Alexander (LA)', team: 'Dynamics', stat: '6 PTS, 13 REB, 2 BLK' },
+      { name: 'Luke Davidson (FRE)', team: 'Mad Dogs', stat: '17 PTS, 4 REB (7-10 FG, 3-4 3PT)' },
+      { name: 'Geraldo Jones (FRE)', team: 'Mad Dogs', stat: '10 PTS, 10 REB (Double-Double)' },
+    ],
+    badgeColor: 'border-blue-500/60 from-blue-950/40 via-slate-900 to-indigo-950/30',
+    tagIcon: 'shield',
+    tagText: '2ND-HALF LOCKDOWN • 10-10 FT CLUTCH',
+  },
+  {
+    id: 'game-20',
+    articleId: 's4-g21-renegades-edge-sabrewolves-dean',
+    date: 'Nov 9 • Season 4',
+    headline: 'Oakland Renegades 60, San Diego Sabrewolves 59',
+    subheadline: 'Jamar Dean (18 PTS) Powers 4th-Quarter Comeback; Renegades Remain Unbeaten at 5-0',
+    narrative:
+      'Oakland mounted an 18-14 fourth-quarter comeback in San Diego behind Jamar Dean (18 PTS) and Alonzo Reece (12 PTS) to steal a 60-59 thriller over Kirk Barnes and the Sabrewolves.',
+    winner: {
+      id: 'oakland-renegades',
+      name: 'Oakland Renegades',
+      score: 60,
+      record: '5-0 (1st)',
+      isHome: false,
+    },
+    loser: {
+      id: 'san-diego-sabrewolves',
+      name: 'San Diego Sabrewolves',
+      score: 59,
+      record: '1-2 (7th)',
+      isHome: true,
+    },
+    quarters: [
+      { period: 'Q1', team1: 11, team2: 17 },
+      { period: 'Q2', team1: 19, team2: 14 },
+      { period: 'Q3', team1: 12, team2: 14 },
+      { period: 'Q4', team1: 18, team2: 14 },
+    ],
+    starPlayer: {
+      name: 'Jamar Dean',
+      number: '#1',
+      team: 'Oakland Renegades',
+      position: 'G • 90 OVR',
+      statline: '18 PTS • 6 REB • 4 AST • 1 STL (7-15 FG)',
+      highlightPill: 'Game-Winning Surge • 5-0 Record',
+      image: jDeanVsSdImg,
+    },
+    keyStats: [
+      { label: '4th Quarter Margin', value: '18 - 14', desc: 'Oakland Comeback Late' },
+      { label: 'Jamar Dean', value: '18 PTS', desc: 'Team-High Scoring & Playmaking' },
+      { label: 'Fast Break Points', value: '16 - 10', desc: 'Renegades Transition Advantage' },
+      { label: 'Kirk Barnes', value: '19 PTS', desc: 'Game-High in Tough Loss' },
+    ],
+    secondaryPerformers: [
+      { name: 'Alonzo Reece (OAK)', team: 'Renegades', stat: '12 PTS, 5 REB, 4-4 FT' },
+      { name: 'Chris Goodwin (OAK)', team: 'Renegades', stat: '10 PTS, 7 REB, 2 BLK' },
+      { name: 'Kirk Barnes (SD)', team: 'Sabrewolves', stat: '19 PTS, 4 REB, 3 AST (8-16 FG)' },
+      { name: 'Andre Creek (SD)', team: 'Sabrewolves', stat: '14 PTS, 8 REB, 1 BLK' },
+    ],
+    badgeColor: 'border-amber-500/60 from-amber-950/40 via-slate-900 to-orange-950/30',
+    tagIcon: 'flame',
+    tagText: '1-POINT THRILLER • 5-0 RECORD',
+  },
+  {
+    id: 'game-19',
+    articleId: 's4-g20-reds-dominate-knights-marai',
+    date: 'Nov 9 • Season 4',
+    headline: 'California Reds 64, San Francisco Knights 49',
+    subheadline: 'Marai Double-Doubles (18 PTS, 14 REB); Reds Shoot 51% to Hand Knights 0-4 Start',
+    narrative:
+      'Andor Marai commanded the paint with 18 points and 14 rebounds as California shot 51% from the field to cruise past San Francisco 64-49 on the road.',
+    winner: {
+      id: 'california-reds',
+      name: 'California Reds',
+      score: 64,
+      record: '4-3 (4th)',
+      isHome: false,
+    },
+    loser: {
+      id: 'san-francisco-knights',
+      name: 'San Francisco Knights',
+      score: 49,
+      record: '0-4 (12th)',
+      isHome: true,
+    },
+    quarters: [
+      { period: 'Q1', team1: 16, team2: 11 },
+      { period: 'Q2', team1: 15, team2: 13 },
+      { period: 'Q3', team1: 17, team2: 15 },
+      { period: 'Q4', team1: 16, team2: 10 },
+    ],
+    starPlayer: {
+      name: 'Andor Marai',
+      number: '#15',
+      team: 'California Reds',
+      position: 'C • 91 OVR',
+      statline: '18 PTS • 14 REB • 2 BLK • 8-14 FG',
+      highlightPill: '14 Rebounds Dominance • 2nd Straight Win',
+      image: maraiVsSfImg,
+    },
+    keyStats: [
+      { label: 'Field Goal %', value: '51% - 33%', desc: 'California 27-53 vs SF 18-55' },
+      { label: 'Total Rebounds', value: '41 - 28', desc: '+13 Glass Advantage for Reds' },
+      { label: 'Points in Paint', value: '28 - 22', desc: 'Reds Interior Scoring Control' },
+      { label: 'Marai Rebounds', value: '14 REB', desc: 'Game-High 14 Boards (12 Def)' },
+    ],
+    secondaryPerformers: [
+      { name: 'Donald Rodman (CAL)', team: 'Reds', stat: '14 PTS, 6 REB, 2 STL' },
+      { name: 'Gary Payton II (CAL)', team: 'Reds', stat: '11 PTS, 6 AST, 2 STL' },
+      { name: 'Larry Smith (SF)', team: 'Knights', stat: '16 PTS, 5 REB (6-13 FG)' },
+      { name: 'Mike Evans (SF)', team: 'Knights', stat: '10 PTS, 6 REB, 2 BLK' },
+    ],
+    badgeColor: 'border-red-500/60 from-red-950/40 via-slate-900 to-amber-950/30',
+    tagIcon: 'shield',
+    tagText: 'MARAI DOUBLE-DOUBLE • 4-3 RECORD',
+  },
+  {
+    id: 'game-18',
+    articleId: 's4-g18-sabrewolves-stifle-knights-creek',
+    date: 'Nov 7 • Season 4',
+    headline: 'San Diego Sabrewolves 61, San Francisco Knights 48',
+    subheadline: "Creek's 11-12 Shooting Clinic Sparks 23-Point Masterclass; Sabrewolves Notch First Win",
+    narrative:
+      'Andre Creek put on an ultra-efficient shooting masterclass, hitting 11 of 12 shots for 23 points and 6 rebounds to power San Diego past San Francisco 61-48 for their first win of Season 4.',
+    winner: {
+      id: 'san-diego-sabrewolves',
+      name: 'San Diego Sabrewolves',
+      score: 61,
+      record: '1-1 (6th)',
+      isHome: false,
+    },
+    loser: {
+      id: 'san-francisco-knights',
+      name: 'San Francisco Knights',
+      score: 48,
+      record: '0-3 (11th)',
+      isHome: true,
+    },
+    quarters: [
+      { period: 'Q1', team1: 13, team2: 16 },
+      { period: 'Q2', team1: 11, team2: 8 },
+      { period: 'Q3', team1: 23, team2: 15 },
+      { period: 'Q4', team1: 14, team2: 9 },
+    ],
+    starPlayer: {
+      name: 'Andre Creek',
+      number: '#32',
+      team: 'San Diego Sabrewolves',
+      position: 'F • 88 OVR',
+      statline: '23 PTS • 6 REB • 1 BLK • 11-12 FG (91.7%)',
+      highlightPill: 'Near-Perfect 11-of-12 Shooting Masterclass',
+      image: sdReboundS4Img,
+    },
+    keyStats: [
+      { label: 'Creek Field Goals', value: '11 - 12 FG', desc: '91.7% Shooting Accuracy' },
+      { label: 'Points in Paint', value: '38 - 18', desc: '+20 Paint Advantage for SD' },
+      { label: 'Fast Break Pts', value: '13 - 4', desc: 'Sabrewolves Transition Prowess' },
+      { label: '3rd Quarter Surge', value: '23 - 15', desc: 'San Diego Blows Game Open' },
+    ],
+    secondaryPerformers: [
+      { name: 'Kirk Barnes (SD)', team: 'Sabrewolves', stat: '8 PTS, 6 AST, 2 3PM' },
+      { name: 'Damon Bell (SD)', team: 'Sabrewolves', stat: '10 PTS, 5 REB, 2 BLK' },
+      { name: 'Larry Smith (SF)', team: 'Knights', stat: '14 PTS, 4 REB, 2 STL' },
+      { name: 'Rickey Vance (SF)', team: 'Knights', stat: '12 PTS, 6 REB' },
+    ],
+    badgeColor: 'border-blue-500/60 from-blue-950/40 via-slate-900 to-indigo-950/30',
+    tagIcon: 'zap',
+    tagText: 'CREEK 23 PTS (11-12 FG) • 1ST WIN',
+  },
+  {
+    id: 'game-17',
+    articleId: 's4-g17-strykers-blowout-dynamics-hinton',
+    date: 'Nov 5 • Season 4',
+    headline: 'San Diego Strykers 82, Los Angeles Dynamics 58',
+    subheadline: 'Strykers Explode with 28-8 First Quarter Blitz; Hinton (18 PTS) Guides 4-0 Start',
+    narrative:
+      'The Strykers unleashed an overpowering 28-8 opening quarter blitz, scoring 29 fast break points with only 3 turnovers to blow out LA 82-58 in front of a capacity crowd at Pechanga Arena.',
+    winner: {
+      id: 'san-diego-strykers',
+      name: 'San Diego Strykers',
+      score: 82,
+      record: '4-0 (1st)',
+      isHome: true,
+    },
+    loser: {
+      id: 'los-angeles-dynamics',
+      name: 'Los Angeles Dynamics',
+      score: 58,
+      record: '1-2 (7th)',
+      isHome: false,
+    },
+    quarters: [
+      { period: 'Q1', team1: 28, team2: 8 },
+      { period: 'Q2', team1: 18, team2: 10 },
+      { period: 'Q3', team1: 13, team2: 19 },
+      { period: 'Q4', team1: 23, team2: 21 },
+    ],
+    starPlayer: {
+      name: 'A.J. Hinton',
+      number: '#0',
+      team: 'San Diego Strykers',
+      position: 'G • 92 OVR',
+      statline: '18 PTS • 6 REB • 3 STL • 2 AST • 1 BLK (8-14 FG)',
+      highlightPill: '28-8 Opening Blitz Catalyst • 4-0 Record',
+      image: hintonVsJmjS4Img,
+    },
+    keyStats: [
+      { label: 'Q1 Blitz', value: '28 - 8', desc: 'Strykers +20 Opening Surge' },
+      { label: 'Fast Break Pts', value: '29 - 8', desc: 'Devastating Transition Pace' },
+      { label: 'Turnovers', value: '3 - 12', desc: 'Season-Low 3 Turnovers' },
+      { label: 'Team Assists', value: '23 AST', desc: '23 Assists on 33 Field Goals' },
+    ],
+    secondaryPerformers: [
+      { name: 'DeAnte Gray (SD)', team: 'Strykers', stat: '15 PTS, 6 REB, 3 AST (6-10 FG)' },
+      { name: 'Ray Gamble (SD)', team: 'Strykers', stat: '14 PTS, 4 AST, 3 REB' },
+      { name: 'R.J. Rush (LAD)', team: 'Dynamics', stat: '19 PTS, 7-7 FT, 3 AST' },
+      { name: 'Jack McMichael Jr. (LAD)', team: 'Dynamics', stat: '14 PTS, 7-7 FT' },
+    ],
+    badgeColor: 'border-yellow-500/60 from-yellow-950/40 via-slate-900 to-amber-950/30',
+    tagIcon: 'sparkles',
+    tagText: '24-PT MARQUEE WIN • 4-0 RECORD',
+  },
   {
     id: 'game-16',
     articleId: 's4-g16-mad-dogs-outlast-enterprise-boomer',
@@ -604,6 +927,59 @@ const HIGHLIGHT_GAMES: GameHighlight[] = [
     tagIcon: 'flame',
     tagText: '38-POINT BLOWOUT • 3-0 RECORD',
   },
+  {
+    id: 'game-4',
+    articleId: 's4-g4-tigersharks-mad-dogs-s4',
+    date: 'Nov 1 • Season 4',
+    headline: 'Fresno Mad Dogs 59, San Jose Tigersharks 53',
+    subheadline: 'Boomer Takes Over with 25 PTS (6-6 FT); Mad Dogs Secure Opening Night Road Triumph',
+    narrative:
+      'In a defensive battle on Season 4 Opening Night, Lloyd Boomer scored 25 points and drained 6-of-6 clutch free throws to carry Fresno past San Jose 59-53 at SAP Center.',
+    winner: {
+      id: 'fresno-mad-dogs',
+      name: 'Fresno Mad Dogs',
+      score: 59,
+      record: '1-0 (1st)',
+      isHome: false,
+    },
+    loser: {
+      id: 'san-jose-tigersharks',
+      name: 'San Jose Tigersharks',
+      score: 53,
+      record: '0-1 (7th)',
+      isHome: true,
+    },
+    quarters: [
+      { period: 'Q1', team1: 14, team2: 12 },
+      { period: 'Q2', team1: 16, team2: 13 },
+      { period: 'Q3', team1: 13, team2: 15 },
+      { period: 'Q4', team1: 16, team2: 13 },
+    ],
+    starPlayer: {
+      name: 'Lloyd Boomer',
+      number: '#2',
+      team: 'Fresno Mad Dogs',
+      position: 'G • 89 OVR',
+      statline: '25 PTS • 4 AST • 3 STL • 6-6 FT',
+      highlightPill: 'Opening Night Scoring Clinic in Road Win',
+      image: sjAtFre1Img,
+    },
+    keyStats: [
+      { label: 'Boomer Clutch FTs', value: '6 - 6 FT', desc: '100% Free Throw Accuracy' },
+      { label: 'Points Off Turnovers', value: '19 - 11', desc: 'Mad Dogs Disruptive Defense' },
+      { label: 'Second Half Margin', value: '+3 PTS', desc: 'Fresno Closes Out in Crunch Time' },
+      { label: 'Season 4 Opener', value: '1-0', desc: 'Fresno Sets Tone for Undefeated Run' },
+    ],
+    secondaryPerformers: [
+      { name: 'Geraldo Jones (FRE)', team: 'Mad Dogs', stat: '11 PTS, 9 REB, 2 BLK' },
+      { name: 'Vance Miller (FRE)', team: 'Mad Dogs', stat: '9 PTS, 5 AST, 2 STL' },
+      { name: 'Marcus Reed (SJ)', team: 'Tigersharks', stat: '18 PTS, 6 REB, 3 AST' },
+      { name: 'Tariq Bell (SJ)', team: 'Tigersharks', stat: '14 PTS, 8 REB, 2 BLK' },
+    ],
+    badgeColor: 'border-emerald-500/60 from-emerald-950/40 via-slate-900 to-teal-950/30',
+    tagIcon: 'shield',
+    tagText: 'OPENING NIGHT THRILLER • 1-0 RECORD',
+  },
 ];
 
 const getTeamShortName = (teamId: string, fullName: string): string => {
@@ -650,7 +1026,7 @@ export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
   onSelectTeam,
   onNavigateToTab,
 }) => {
-  const [selectedGameId, setSelectedGameId] = useState<string>('game-16');
+  const [selectedGameId, setSelectedGameId] = useState<string>('game-20');
 
   const activeGame = HIGHLIGHT_GAMES.find((g) => g.id === selectedGameId) || HIGHLIGHT_GAMES[0];
 

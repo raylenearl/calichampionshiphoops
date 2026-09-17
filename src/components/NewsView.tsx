@@ -861,13 +861,24 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                   <span className="text-xs font-mono font-black uppercase tracking-wider text-red-400 flex items-center gap-1.5">
                     <Tv size={14} className="text-red-400" /> Official Video Broadcast & Highlights
                   </span>
-                  <span className="text-[10px] font-mono text-slate-400">1080p High-Definition</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-mono text-slate-400">1080p High-Definition</span>
+                    <a
+                      href={selectedArticle.youtubeUrl.includes('/embed/') ? selectedArticle.youtubeUrl.replace('/embed/', '/watch?v=').split('?')[0] : selectedArticle.youtubeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[11px] font-mono font-bold text-red-300 hover:text-red-100 flex items-center gap-1 bg-red-500/20 hover:bg-red-500/30 px-2.5 py-0.5 rounded-lg border border-red-500/30 transition-all cursor-pointer"
+                      title="Open on YouTube"
+                    >
+                      <span>YouTube</span> <ExternalLink size={11} />
+                    </a>
+                  </div>
                 </div>
                 <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-red-500/30 bg-slate-950">
                   <iframe
                     width="100%"
                     height="100%"
-                    src={selectedArticle.youtubeUrl}
+                    src={selectedArticle.youtubeUrl.includes('/embed/') ? selectedArticle.youtubeUrl : `https://www.youtube.com/embed/${selectedArticle.youtubeUrl.split('v=')[1] || ''}`}
                     title={selectedArticle.title}
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

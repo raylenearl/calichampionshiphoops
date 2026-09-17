@@ -279,7 +279,7 @@ export default function App() {
             {/* Hero Showcase */}
             <HeroBanner onNavigate={(tab) => setActiveTab(tab)} selectedSeason={selectedSeason} />
 
-            {/* Featured Game Story (California Reds vs San Francisco Knights) */}
+            {/* Lead Front Page Stories (Last 3 Games & Archives) */}
             <FeaturedGameStories
               onNavigateToNews={handleNavigateToNews}
               onSelectTeam={(teamId) => handleSelectTeamRecap(teamId, 4)}
