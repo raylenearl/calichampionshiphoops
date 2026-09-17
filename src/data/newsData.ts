@@ -8,6 +8,7 @@ import { TEAMS } from './teamsData';
 import { GameRecord } from '../types';
 import rjRush1Img from '../assets/images/RJRush1.png';
 import boomerVsSf1Img from '../assets/images/Boomer_vs_SF1.png';
+import cDaughertyVsSdImg from '../assets/images/CDaugherty_vs_SD.png';
 import kingJordan1Img from '../assets/images/KingJordan1.png';
 import rjRushVsFresnoImg from '../assets/images/RJRush_vs_Freso.png';
 import ajHinton99Img from '../assets/images/AJHinton99.png';
@@ -87,6 +88,8 @@ export interface CCHNewsArticle {
   readTime: string;
   imageUrl?: string;
   imageCaption?: string;
+  secondaryImage?: string;
+  secondaryImageCaption?: string;
   youtubeUrl?: string;
   instagramUrl?: string;
   instagramEmbedUrl?: string;
@@ -184,8 +187,10 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     author: 'CCH Game Recap Desk • SoCal Beat',
     readTime: '3 min read',
     youtubeUrl: 'https://www.youtube.com/embed/sZmDulCp-CY?si=BqXQ1pbiHlVReHCu',
-    imageUrl: kingJordan1Img,
+    imageUrl: cDaughertyVsSdImg,
     imageCaption: 'Carlton Daugherty put on an absolute masterclass, dropping 31 points on 11-of-23 shooting and 7 three-pointers to power Golden State Enterprise to a 65-51 road victory over the San Diego Sabrewolves.',
+    secondaryImage: kingJordan1Img,
+    secondaryImageCaption: 'Sabrewolves star Kirk "King Jordan" Barnes (18 PTS, 4 AST) and Andre Creek (14 PTS, 9 REB) battle Enterprise on their home floor at San Diego Arena.',
     teams: {
       team1: 'Golden State Enterprise',
       team1Id: 'golden-state-enterprise',
@@ -202,7 +207,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     ],
     headlineQuote: 'Carlton Daugherty put on an absolute masterclass, dropping 31 points on 11-of-23 shooting (7-of-12 from three-point range) to single-handedly dismantle the Sabrewolves defense in a commanding 65-51 road victory.',
     contentParagraphs: [
-      'San Diego, CA – Golden State Enterprise (2-1) delivered an emphatic statement on Wednesday night at Pechanga Arena, dismantling the San Diego Sabrewolves (1-3) in a 65-51 road triumph propelled by an unforgettable offensive masterpiece from rookie sensation Carlton Daugherty.',
+      'San Diego, CA – Golden State Enterprise (2-1) delivered an emphatic statement on Wednesday night at San Diego Arena, dismantling the San Diego Sabrewolves (1-3) in a 65-51 road triumph propelled by an unforgettable offensive masterpiece from rookie sensation Carlton Daugherty.',
       'DAUGHERTY MASTERCLASS:\nCarlton Daugherty put on an absolute masterclass, dropping 31 points on 11-of-23 shooting (7-of-12 from three-point range) to single-handedly dismantle the Sabrewolves defense. Daugherty caught fire early and never cooled off, drilling contested step-backs, pull-up jumpers, and transition triples from all angles on the floor to put the contest out of reach.',
       "ENTERPRISE INTERIOR & PLAYMAKING:\nBacking Daugherty's scoring explosion, center Cameron Barkley anchored the interior with 8 points, 12 rebounds, and 3 blocked shots, completely neutralizing San Diego's paint attack. Playmaker Jud Thompson orchestrated the offense with precision, recording 10 points and 6 assists while committing zero turnovers. Chad Bryant added 8 points and 4 rebounds as Golden State outscored San Diego 20-12 in the second quarter to seize total momentum.",
       "SABREWOLVES RECAP:\nFor San Diego (1-3), star guard Kirk Barnes battled for a team-high 18 points on 6-of-14 shooting, 4 assists, and 3 rebounds, while center Andre Creek contributed 14 points, 9 rebounds, and 2 blocks. However, San Diego struggled mightily from long distance (3-of-16 3PT) and could not contain Daugherty's 7-of-12 barrage from beyond the arc as the Sabrewolves suffered their second straight defeat."
@@ -315,7 +320,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     readTime: '3 min read',
     youtubeUrl: 'https://www.youtube.com/embed/JdRXhCSupwM?si=LroEqV-JMzZreXc_',
     imageUrl: jDeanVsSdImg,
-    imageCaption: 'Jamar Dean poured in 18 points, 6 rebounds, and 4 assists as the Oakland Renegades rallied in the fourth quarter to edge the San Diego Sabrewolves 60-59 at Pechanga Arena.',
+    imageCaption: 'Jamar Dean poured in 18 points, 6 rebounds, and 4 assists as the Oakland Renegades rallied in the fourth quarter to edge the San Diego Sabrewolves 60-59 at San Diego Arena.',
     teams: {
       team1: 'Oakland Renegades',
       team1Id: 'oakland-renegades',
@@ -332,7 +337,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     ],
     headlineQuote: 'Three turnovers in 32 minutes on the road against a defense that blocked 9 shots is championship poise. Jamar and Alonzo controlled crunch time.',
     contentParagraphs: [
-      'San Diego, CA – In one of the most intense, defense-dominated showdowns of Season 4, the visiting Oakland Renegades (5-0) preserved their unblemished record with a nerve-wracking 60-59 victory over the San Diego Sabrewolves (1-2) at Pechanga Arena on Sunday night.',
+      'San Diego, CA – In one of the most intense, defense-dominated showdowns of Season 4, the visiting Oakland Renegades (5-0) preserved their unblemished record with a nerve-wracking 60-59 victory over the San Diego Sabrewolves (1-2) at San Diego Arena on Sunday night.',
       'FOURTH-QUARTER COMEBACK:\nEntering the fourth quarter trailing 45-42 in a hostile environment, Oakland leaned on their superstar backcourt and textbook ball protection to stage an 18-14 final-period surge. The defining statistic of the game was turnovers: Oakland committed a season-low 3 turnovers across the entire contest while forcing 11 Sabrewolves giveaways. The Renegades transformed those mistakes into 17 crucial points off turnovers (compared to just 4 points off turnovers for San Diego), providing the razor-thin margin needed to secure the one-point win on the road.',
       "RENEGADES PRODUCTION:\nAll-Cali guard Jamar Dean spearheaded Oakland's attack with a team-high 18 points, 6 rebounds (2 offensive), 4 assists, and a steal in 26 minutes of action. Co-star Alonzo Reece orchestrated the late-game offense with supreme poise, delivering 12 points and 5 assists while finishing a flawless 6-of-6 from the free throw line. Rookie big man Carl Marks turned in a stellar, hyper-efficient performance with 11 points (3-of-4 FG, 1-of-1 3PT, 4-of-4 FT) and 5 rebounds. Off the bench, Jaylen Moon provided instant offensive punch with 10 points in just 12 minutes (5-of-9 FG), and center Joshua Bowen anchored the passing lanes with 4 steals and 7 rebounds alongside Andrew Woods (5 points, 2 steals). Oakland shot 13-of-15 (86.7%) from the free throw line as a team.",
       "SABREWOLVES RECAP:\nFor San Diego (1-2), premier scoring maestro Kirk Barnes delivered a sensational display, racking up a game-high 19 points on 5-of-10 shooting, 2-of-4 from downtown, and a perfect 7-of-7 from the charity stripe, plus 5 rebounds, 3 assists, and a block. Anchor center Andre Creek was an intimidating force in the paint with 12 points on 6-of-9 shooting, 7 rebounds, and 3 blocked shots, pacing a Sabrewolves defense that tallied 9 blocks. Reserve guard Leo Washington Jr. gave San Diego huge production off the bench with 10 points on 4-of-6 shooting (2-of-2 3PT), Alan Perben added 6 points and 3 assists, and Wes Taylor battled for 4 rebounds, 2 assists, and 2 blocks. However, San Diego's 11 turnovers and inability to slow Oakland's late free-throw parade proved decisive in the final seconds."
@@ -547,7 +552,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     ],
     headlineQuote: 'Our defensive intensity in the first 12 minutes set the tone. 29 fast-break points and only 3 turnovers all night is championship basketball.',
     contentParagraphs: [
-      'San Diego – In one of the most anticipated matchups of the young Season 4 calendar, the San Diego Strykers made a resounding statement, dominating the Los Angeles Dynamics 82-58 in front of a capacity crowd at Pechanga Arena.',
+      'San Diego – In one of the most anticipated matchups of the young Season 4 calendar, the San Diego Strykers made a resounding statement, dominating the Los Angeles Dynamics 82-58 in front of a capacity crowd at San Diego Arena.',
       'The Strykers blew the game wide open in the opening quarter with a devastating 28-8 blitz, converting defensive pressure into instantaneous transition offense. San Diego scored an astounding 29 fast-break points and dished out 23 assists on 33 made field goals while committing just 3 turnovers all game.',
       'BALANCED STRIKE FORCE:\nA.J. Hinton led the way with 18 points (8-14 FG, 2 3PM), 6 rebounds, and 3 steals. DeAnte Gray delivered an efficient 15 points (6-10 FG, 2-3 3PT) and 6 boards, while Ray "Gambino" Gamble controlled the tempo with 14 points and 4 assists. In the frontcourt, Johnny Galloway and Carl Marshall chipped in 8 points apiece.',
       'DYNAMICS HIGHLIGHTS:\nLos Angeles (1-2) fought back in the second half behind rookie guard R.J. Rush, who posted 19 points and went a perfect 7-of-7 from the foul line. Jack McMichael Jr. (14 PTS, 7-7 FT) and Mo Alexander (14 PTS, 5 REB, 2 BLK, 7-11 FG) provided solid interior punch, but the early 29-point deficit proved insurmountable against the league\'s top defense.'

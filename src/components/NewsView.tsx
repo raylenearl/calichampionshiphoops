@@ -940,6 +940,27 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
               ))}
             </div>
 
+            {/* Additional Article Photo if available */}
+            {selectedArticle.secondaryImage && (
+              <div className="relative overflow-hidden rounded-2xl border border-slate-800 shadow-2xl bg-slate-950 flex flex-col items-center my-4">
+                <div className="w-full flex items-center justify-center p-2 sm:p-4 bg-black/60 relative overflow-hidden">
+                  <img
+                    src={selectedArticle.secondaryImage}
+                    alt={selectedArticle.secondaryImageCaption || selectedArticle.title}
+                    className="w-full max-h-[380px] sm:max-h-[440px] object-contain rounded-xl shadow-xl transition-transform duration-300"
+                  />
+                </div>
+                {selectedArticle.secondaryImageCaption && (
+                  <div className="w-full bg-slate-950 border-t border-slate-800 p-3 sm:p-3.5 text-left">
+                    <p className="text-xs sm:text-sm text-slate-300 font-mono font-medium flex items-center gap-1.5">
+                      <Sparkles size={14} className="text-amber-400 shrink-0" />
+                      <span>{selectedArticle.secondaryImageCaption}</span>
+                    </p>
+                  </div>
+                )}
+              </div>
+            )}
+
             {/* Article Quotes Section */}
             {selectedArticle.quotes && selectedArticle.quotes.length > 0 && (
               <div className="space-y-3 pt-2">

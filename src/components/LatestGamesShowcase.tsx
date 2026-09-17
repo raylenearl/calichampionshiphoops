@@ -351,7 +351,7 @@ const HIGHLIGHT_GAMES: GameHighlight[] = [
     headline: 'San Diego Strykers 82, Los Angeles Dynamics 58',
     subheadline: 'Strykers Explode with 28-8 First Quarter Blitz; Hinton (18 PTS) Guides 4-0 Start',
     narrative:
-      'The Strykers unleashed an overpowering 28-8 opening quarter blitz, scoring 29 fast break points with only 3 turnovers to blow out LA 82-58 in front of a capacity crowd at Pechanga Arena.',
+      'The Strykers unleashed an overpowering 28-8 opening quarter blitz, scoring 29 fast break points with only 3 turnovers to blow out LA 82-58 in front of a capacity crowd at San Diego Arena.',
     winner: {
       id: 'san-diego-strykers',
       name: 'San Diego Strykers',

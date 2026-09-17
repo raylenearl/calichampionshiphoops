@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import { TeamBadge } from './TeamBadge';
 import boomerVsSf1Img from '../assets/images/Boomer_vs_SF1.png';
+import cDaughertyVsSdImg from '../assets/images/CDaugherty_vs_SD.png';
 import kingJordan1Img from '../assets/images/KingJordan1.png';
 import rjRushVsFresnoImg from '../assets/images/RJRush_vs_Freso.png';
 import maraiVsSfImg from '../assets/images/Marai_vs_SFs4.png';
@@ -163,7 +164,7 @@ const FEATURED_STORIES: GameStory[] = [
     youtubeUrl: 'https://www.youtube.com/live/sZmDulCp-CY?si=BqXQ1pbiHlVReHCu',
     youtubeEmbedUrl: 'https://www.youtube.com/embed/sZmDulCp-CY?si=BqXQ1pbiHlVReHCu',
     date: 'Nov 12 • Season 4 Regular Season',
-    image: kingJordan1Img,
+    image: cDaughertyVsSdImg,
     imageCaption:
       'Carlton Daugherty put on an absolute masterclass, dropping 31 points on 11-of-23 shooting (7-of-12 from three) to lead Golden State Enterprise to a 65-51 road victory.',
     winner: {
@@ -280,7 +281,7 @@ const ARCHIVED_STORIES: GameStory[] = [
     date: 'Nov 9 • Season 4 Regular Season',
     image: jDeanVsSdImg,
     imageCaption:
-      'Jamar Dean poured in 18 points, 6 rebounds, and 4 assists as the Oakland Renegades rallied in the fourth quarter to edge the San Diego Sabrewolves 60-59 at Pechanga Arena.',
+      'Jamar Dean poured in 18 points, 6 rebounds, and 4 assists as the Oakland Renegades rallied in the fourth quarter to edge the San Diego Sabrewolves 60-59 at San Diego Arena.',
     winner: {
       id: 'oakland-renegades',
       name: 'Oakland Renegades',
@@ -441,7 +442,7 @@ const ARCHIVED_STORIES: GameStory[] = [
       'San Diego detonates with a 28-8 first quarter blitz, scoring 29 fast-break points and committing only 3 turnovers as A.J. Hinton (18 PTS) and DeAnte Gray (15 PTS) dominate.',
     date: 'Nov 5 • Season 4 Regular Season',
     image: hintonVsJmjS4Img,
-    imageCaption: 'A.J. Hinton scored 18 points with 6 rebounds and 3 steals as the San Diego Strykers steamrolled the LA Dynamics 82-58 in front of a sold-out Pechanga Arena.',
+    imageCaption: 'A.J. Hinton scored 18 points with 6 rebounds and 3 steals as the San Diego Strykers steamrolled the LA Dynamics 82-58 in front of a sold-out San Diego Arena.',
     winner: {
       id: 'san-diego-strykers',
       name: 'San Diego Strykers',
