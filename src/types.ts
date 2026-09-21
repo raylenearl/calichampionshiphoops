@@ -140,6 +140,8 @@ export interface GameRecord {
   score2: number;
   highScorer?: string;
   points?: number;
+  starPlayer?: string;
+  playerOfTheGame?: string;
   notes?: string;
   isPlayoff?: boolean;
   recapArticleId?: string;

@@ -308,6 +308,24 @@ export const FeaturedGameStories: React.FC<FeaturedGameStoriesProps> = ({
                       </div>
                     </div>
                   </div>
+
+                  {/* Score bug star player indicator */}
+                  {story.starPlayer && (
+                    <div className="mt-2 pt-2 border-t border-slate-800/80 flex items-center justify-between text-[11px]">
+                      <div className="flex items-center gap-1.5 text-amber-300 font-medium truncate">
+                        <span className="text-amber-400">⭐️</span>
+                        <span className="font-bold text-white">{story.starPlayer.name}</span>
+                        <span className="text-slate-400 text-[10px]">
+                          ({story.starPlayer.team.includes('San Diego') ? 'SD' : story.starPlayer.team})
+                        </span>
+                        <span className="text-slate-500 hidden sm:inline">•</span>
+                        <span className="text-slate-300 text-[10px] hidden sm:inline">{story.starPlayer.statline}</span>
+                      </div>
+                      <span className="text-[9px] font-mono uppercase tracking-wider font-extrabold text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20 shrink-0 ml-2">
+                        POTG
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
             )}

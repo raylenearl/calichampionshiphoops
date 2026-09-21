@@ -8,7 +8,7 @@ import { TEAMS } from '../data/teamsData';
 import { GameRecord } from '../types';
 import { TeamBadge } from './TeamBadge';
 import { InauguralGameModal } from './InauguralGameModal';
-import { Calendar, Search, Flame, User, Trophy, Layers, X, Sparkles, BookOpen, FileText, Play, Tv } from 'lucide-react';
+import { Calendar, Search, Flame, User, Trophy, Layers, X, Sparkles, BookOpen, FileText, Play, Tv, Star } from 'lucide-react';
 import { InstagramIcon } from './SocialLinks';
 
 interface ScheduleBrowserProps {
@@ -512,14 +512,24 @@ export const ScheduleBrowser: React.FC<ScheduleBrowserProps> = ({
               </div>
 
               {/* Leading Scorer or Notes */}
-              {(game.highScorer || game.notes || isInauguralGame) && (
+              {(game.starPlayer || game.playerOfTheGame || game.highScorer || game.notes || isInauguralGame) && (
                 <div className="pt-2.5 border-t border-slate-800/80 flex flex-col gap-1.5 text-xs">
+                  {(game.starPlayer || game.playerOfTheGame) && (
+                    <div className="flex items-center justify-between text-slate-300">
+                      <span className="text-[11px] text-amber-400 font-bold flex items-center gap-1">
+                        <Star size={12} className="fill-amber-400 text-amber-400" /> Star of the Game:
+                      </span>
+                      <span className="font-mono font-bold text-amber-300">
+                        {game.starPlayer || game.playerOfTheGame}
+                      </span>
+                    </div>
+                  )}
                   {game.highScorer && (
                     <div className="flex items-center justify-between text-slate-300">
                       <span className="text-[11px] text-slate-400 font-bold flex items-center gap-1">
-                        <User size={12} className="text-amber-400" /> Leading Scorer:
+                        <User size={12} className="text-slate-400" /> Leading Scorer:
                       </span>
-                      <span className="font-mono font-bold text-amber-300">
+                      <span className="font-mono font-bold text-slate-300">
                         {game.highScorer}
                         {game.points && !game.highScorer.includes('pts') ? ` (${game.points} pts)` : ''}
                       </span>

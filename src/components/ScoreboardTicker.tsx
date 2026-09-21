@@ -501,7 +501,11 @@ export const ScoreboardTicker: React.FC<ScoreboardTickerProps> = ({
 
                   {/* Card Bottom / High Scorer or Notes Snippet */}
                   <div className="mt-2 pt-1.5 border-t border-slate-800/60 text-[10px] text-slate-400 truncate flex items-center justify-between">
-                    {game.highScorer ? (
+                    {(game.starPlayer || game.playerOfTheGame) ? (
+                      <span className="truncate text-amber-300/90 font-medium">
+                        ⭐️ {game.starPlayer || game.playerOfTheGame}
+                      </span>
+                    ) : game.highScorer ? (
                       <span className="truncate text-amber-300/90 font-medium">
                         ⭐️ {game.highScorer}
                       </span>
@@ -637,19 +641,26 @@ export const ScoreboardTicker: React.FC<ScoreboardTickerProps> = ({
             </div>
 
             {/* Key Performer / High Scorer */}
-            {selectedGameForModal.highScorer && (
+            {(selectedGameForModal.playerOfTheGame || selectedGameForModal.starPlayer || selectedGameForModal.highScorer) && (
               <div className="bg-amber-950/20 border border-amber-500/30 rounded-2xl p-4 flex items-center gap-3">
                 <div className="p-2.5 rounded-xl bg-amber-500 text-slate-950 font-black shrink-0">
                   <Flame size={20} />
                 </div>
                 <div>
                   <div className="text-xs font-mono font-bold text-amber-400 uppercase tracking-wider">
-                    Game High Scorer / Top Performer
+                    {selectedGameForModal.playerOfTheGame || selectedGameForModal.starPlayer
+                      ? 'Player of the Game (⭐️)'
+                      : 'Game High Scorer / Top Performer'}
                   </div>
                   <div className="text-sm font-extrabold text-white">
-                    {selectedGameForModal.highScorer}
-                    {selectedGameForModal.points ? ` (${selectedGameForModal.points} PTS)` : ''}
+                    {selectedGameForModal.playerOfTheGame || selectedGameForModal.starPlayer || selectedGameForModal.highScorer}
+                    {!selectedGameForModal.playerOfTheGame && !selectedGameForModal.starPlayer && selectedGameForModal.points ? ` (${selectedGameForModal.points} PTS)` : ''}
                   </div>
+                  {(selectedGameForModal.playerOfTheGame || selectedGameForModal.starPlayer) && selectedGameForModal.highScorer && (
+                    <div className="text-xs text-slate-400 mt-0.5 font-medium">
+                      Leading Scorer: {selectedGameForModal.highScorer} {selectedGameForModal.points ? `(${selectedGameForModal.points} PTS)` : ''}
+                    </div>
+                  )}
                 </div>
               </div>
             )}
