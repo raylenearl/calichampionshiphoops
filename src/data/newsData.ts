@@ -116,7 +116,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
   {
     id: 's4-g24-sabrewolves-edge-tigersharks-pierce-record',
     title: 'San Diego Sabrewolves 48, San Jose Tigersharks 43',
-    subtitle: 'Sabrewolves mount 18-11 fourth-quarter rally behind 10 team blocks and 23 bench points, overcoming Malique Pierce’s league-record 5 steals in a 48-43 defensive thriller.',
+    subtitle: 'Andre Creek named Player of the Game with 13 rebounds, 8 points, and 2 blocks as Sabrewolves mount 18-11 fourth-quarter rally to edge Tigersharks 48-43.',
     date: 'Season 4 Recap • Nov 14',
     season: 4,
     category: 'recap',
@@ -124,7 +124,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     author: 'CCH Game Recap Desk • SoCal Beat',
     readTime: '3 min read',
     imageUrl: aCreekVsSjImg,
-    imageCaption: 'The San Diego Sabrewolves rallied with an 18-11 fourth quarter to defeat San Jose 48-43 at San Diego Arena, withstanding 15 team steals and an all-time CCH single-game record 5 steals by Tigersharks rookie Malique Pierce.',
+    imageCaption: 'Sabrewolves center Andre Creek was named Player of the Game after dominating the interior with 13 rebounds (4-4 FG) and anchoring a 10-block defense as San Diego rallied in the fourth quarter to defeat San Jose 48-43.',
     teams: {
       team1: 'San Diego Sabrewolves',
       team1Id: 'san-diego-sabrewolves',
@@ -139,14 +139,19 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
       { period: 'Q3', team1: 8, team2: 8 },
       { period: 'Q4', team1: 18, team2: 11 },
     ],
-    headlineQuote: 'San Jose rookie Malique Pierce broke the league single-game record for Steals with 5. DeAnte Gray held the previous record with 4 back in Season 1 when he played for Golden State. Tigersharks veteran Donald Hardy tied the previous record with 4 of his own. But San Diego clamped down with 10 team blocks and an 18-11 fourth-quarter rally to secure a 48-43 home victory.',
+    headlineQuote: 'San Jose rookie Malique Pierce broke the league single-game record for Steals with 5. Tigersharks veteran Donald Hardy tied the previous record with 4 of his own. But San Diego center Andre Creek was named Player of the Game after hauling in 13 rebounds, shooting a perfect 4-for-4, and anchoring a 10-block defensive effort to secure a 48-43 home victory.',
     contentParagraphs: [
       'San Diego, CA – In one of the most intense, defense-dominated slugfests in CCH history, the San Diego Sabrewolves (2-3) rallied from a second-half deficit to claim their first home victory of Season 4, grinding out a thrilling 48-43 victory over the San Jose Tigersharks (0-2) on Thursday night at San Diego Arena.',
       'MALIQUE PIERCE BREAKS ALL-TIME RECORD WITH 5 STEALS:\nThe contest featured individual league history as San Jose rookie Malique Pierce broke the CCH single-game record for Steals with 5, putting on an absolute clinic in off-ball anticipation and perimeter disruption despite being held scoreless (0-5 FG). DeAnte Gray held the previous record with 4 back in Season 1 with Golden State. Adding to the Tigersharks\' defensive menace, veteran Donald Hardy tied Gray\'s previous record with 4 steals of his own while pouring in a game-high 15 points (5-9 FG, 3-4 3PT). Together with Gooden (2 STL), Butler (2 STL), and Waters (2 STL), San Jose generated an astounding 15 team steals and forced 20 Sabrewolves turnovers.',
       'SABREWOLVES 4TH-QUARTER SURGE & RIM PROTECTION:\nDespite trailing 24-22 at halftime and 32-30 entering the fourth quarter, San Diego refused to buckle. The Sabrewolves unleashed an 18-11 fourth-quarter run powered by stifling interior defense and massive second-unit depth. San Diego registered an astounding 10 team blocks (Glover 3, Creek 2, Atgusanas 2, Barnes 1, Iverson 1, Sharp 1) and held the Tigersharks to 21% shooting from the floor (11-of-52 FG). The Sabrewolves bench outscored San Jose\'s reserves 23-7, led by Alan Perben\'s 8 points on a perfect 3-of-3 shooting.',
-      'GLASS DOMINANCE & CLOSING STRETCH:\nSan Diego completely dominated the glass, pulling down 41 defensive rebounds (42 total) to San Jose\'s 25, led by Andre Creek\'s game-high 13 rebounds (8 PTS, 4-4 FG, 2 BLK) and Tingus Atgusanas\' 9 boards. Kirk Barnes paced the Sabrewolves offensively with 12 points (2 triples), helping San Diego salt away the win at the free throw line (8-of-11, 73%) as the Sabrewolves secured their first home victory 48-43.'
+      'ANDRE CREEK NAMED PLAYER OF THE GAME:\nSan Diego completely owned the glass, pulling down 41 defensive rebounds (42 total) to San Jose\'s 25. Sabrewolves center Andre Creek was officially named Player of the Game after a commanding performance on both sides of the ball, racking up a game-high 13 rebounds (4-4 FG, 8 PTS, 2 AST, 2 BLK) without missing a shot from the field. Kirk Barnes paced the Sabrewolves offensively with 12 points (2 triples), helping San Diego salt away the win at the free throw line (8-of-11, 73%) as the Sabrewolves secured their first home victory 48-43.'
     ],
     quotes: [
+      {
+        speaker: 'Andre Creek',
+        title: 'Center • San Diego Sabrewolves (Player of the Game • 8 PTS, 13 REB, 2 BLK, 4-4 FG)',
+        quote: 'We knew San Jose was going to gamble and jump passing lanes, and they got 15 steals on us. Coach told us to settle down, protect the rim, and secure every single rebound. We held them to one shot, executed down the stretch, and got our first win at home in front of our fans.'
+      },
       {
         speaker: 'Malique Pierce',
         title: 'Forward • San Jose Tigersharks (5 Steals - All-Time CCH Single-Game Record)',
@@ -155,7 +160,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
       {
         speaker: 'Jacob Underwood',
         title: 'Head Coach • San Diego Sabrewolves (2-3 Record • First Home Win)',
-        quote: 'San Jose gave us everything we could handle with Pierce and Hardy jumping our passing lanes for 15 steals. Giving up 20 turnovers is something we must clean up. But our defense held them to 21 percent shooting, our bench gave us 23 huge points, and our 10 team blocks won this game in the fourth quarter.'
+        quote: 'Andre Creek was the Player of the Game for a reason—he owned the paint, didn\'t miss a shot, grabbed 13 boards, and altered everything around the rim. Our defense held them to 21 percent shooting, our bench gave us 23 huge points, and our 10 team blocks won this game in the fourth quarter.'
       },
       {
         speaker: 'Michael Stauffer',
@@ -164,6 +169,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
       }
     ],
     playerStats: [
+      { player: 'Andre Creek', team: 'San Diego Sabrewolves', stat: '★ PLAYER OF THE GAME • 8 PTS (4-4 FG), 13 REB (Game-High), 2 AST, 2 BLK' },
       { player: 'Donald Hardy', team: 'San Jose Tigersharks', stat: '15 PTS (Game-High, 3-4 3PT), 5 REB, 2 AST, 4 STL (Tied Prev Record)' },
       { player: 'Malique Pierce', team: 'San Jose Tigersharks', stat: '5 STL (All-Time CCH Single-Game Record), 3 AST, 2 REB (0 PTS, 0-5 FG)' },
       { player: 'Kirk Barnes', team: 'San Diego Sabrewolves', stat: '12 PTS (Team-High, 5-11 FG, 2-5 3PT), 2 REB, 1 BLK' },
