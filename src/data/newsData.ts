@@ -6,6 +6,7 @@ import { SEASON_4_SCHEDULE } from './s4ScheduleData';
 import { PLAYOFF_HISTORY } from './playoffsData';
 import { TEAMS } from './teamsData';
 import { GameRecord } from '../types';
+import aCreekVsSjImg from '../assets/images/ACreek_vs_SJs4.png';
 import rjRush1Img from '../assets/images/RJRush1.png';
 import boomerVsSf1Img from '../assets/images/Boomer_vs_SF1.png';
 import cDaughertyVsSdImg from '../assets/images/CDaugherty_vs_SD.png';
@@ -113,13 +114,80 @@ export interface CCHNewsArticle {
 
 export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
   {
+    id: 's4-g24-sabrewolves-edge-tigersharks-pierce-record',
+    title: 'San Diego Sabrewolves 48, San Jose Tigersharks 43',
+    subtitle: 'Sabrewolves mount 18-11 fourth-quarter rally behind 10 team blocks and 23 bench points, overcoming Malique Pierce’s league-record 5 steals in a 48-43 defensive thriller.',
+    date: 'Season 4 Recap • Nov 14',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • SoCal Beat',
+    readTime: '3 min read',
+    imageUrl: aCreekVsSjImg,
+    imageCaption: 'The San Diego Sabrewolves rallied with an 18-11 fourth quarter to defeat San Jose 48-43 at San Diego Arena, withstanding 15 team steals and an all-time CCH single-game record 5 steals by Tigersharks rookie Malique Pierce.',
+    teams: {
+      team1: 'San Diego Sabrewolves',
+      team1Id: 'san-diego-sabrewolves',
+      score1: 48,
+      team2: 'San Jose Tigersharks',
+      team2Id: 'san-jose-tigersharks',
+      score2: 43,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 8, team2: 12 },
+      { period: 'Q2', team1: 14, team2: 12 },
+      { period: 'Q3', team1: 8, team2: 8 },
+      { period: 'Q4', team1: 18, team2: 11 },
+    ],
+    headlineQuote: 'San Jose rookie Malique Pierce broke the league single-game record for Steals with 5. DeAnte Gray held the previous record with 4 back in Season 1 when he played for Golden State. Tigersharks veteran Donald Hardy tied the previous record with 4 of his own. But San Diego clamped down with 10 team blocks and an 18-11 fourth-quarter rally to secure a 48-43 home victory.',
+    contentParagraphs: [
+      'San Diego, CA – In one of the most intense, defense-dominated slugfests in CCH history, the San Diego Sabrewolves (2-3) rallied from a second-half deficit to claim their first home victory of Season 4, grinding out a thrilling 48-43 victory over the San Jose Tigersharks (0-2) on Thursday night at San Diego Arena.',
+      'MALIQUE PIERCE BREAKS ALL-TIME RECORD WITH 5 STEALS:\nThe contest featured individual league history as San Jose rookie Malique Pierce broke the CCH single-game record for Steals with 5, putting on an absolute clinic in off-ball anticipation and perimeter disruption despite being held scoreless (0-5 FG). DeAnte Gray held the previous record with 4 back in Season 1 with Golden State. Adding to the Tigersharks\' defensive menace, veteran Donald Hardy tied Gray\'s previous record with 4 steals of his own while pouring in a game-high 15 points (5-9 FG, 3-4 3PT). Together with Gooden (2 STL), Butler (2 STL), and Waters (2 STL), San Jose generated an astounding 15 team steals and forced 20 Sabrewolves turnovers.',
+      'SABREWOLVES 4TH-QUARTER SURGE & RIM PROTECTION:\nDespite trailing 24-22 at halftime and 32-30 entering the fourth quarter, San Diego refused to buckle. The Sabrewolves unleashed an 18-11 fourth-quarter run powered by stifling interior defense and massive second-unit depth. San Diego registered an astounding 10 team blocks (Glover 3, Creek 2, Atgusanas 2, Barnes 1, Iverson 1, Sharp 1) and held the Tigersharks to 21% shooting from the floor (11-of-52 FG). The Sabrewolves bench outscored San Jose\'s reserves 23-7, led by Alan Perben\'s 8 points on a perfect 3-of-3 shooting.',
+      'GLASS DOMINANCE & CLOSING STRETCH:\nSan Diego completely dominated the glass, pulling down 41 defensive rebounds (42 total) to San Jose\'s 25, led by Andre Creek\'s game-high 13 rebounds (8 PTS, 4-4 FG, 2 BLK) and Tingus Atgusanas\' 9 boards. Kirk Barnes paced the Sabrewolves offensively with 12 points (2 triples), helping San Diego salt away the win at the free throw line (8-of-11, 73%) as the Sabrewolves secured their first home victory 48-43.'
+    ],
+    quotes: [
+      {
+        speaker: 'Malique Pierce',
+        title: 'Forward • San Jose Tigersharks (5 Steals - All-Time CCH Single-Game Record)',
+        quote: 'Breaking the steals record means a lot, especially with DeAnte Gray setting the bar in Season 1 and Donald right beside me with 4. We wanted to make every catch difficult and turn defense into fast breaks. But this one hurts because we were right there for three quarters. Their size and shot blocking in the fourth quarter made it tough inside.'
+      },
+      {
+        speaker: 'Jacob Underwood',
+        title: 'Head Coach • San Diego Sabrewolves (2-3 Record • First Home Win)',
+        quote: 'San Jose gave us everything we could handle with Pierce and Hardy jumping our passing lanes for 15 steals. Giving up 20 turnovers is something we must clean up. But our defense held them to 21 percent shooting, our bench gave us 23 huge points, and our 10 team blocks won this game in the fourth quarter.'
+      },
+      {
+        speaker: 'Michael Stauffer',
+        title: 'Head Coach • San Jose Tigersharks (0-2 Record)',
+        quote: 'Donald Hardy played an exceptional all-around game with 15 points and 4 steals, and Malique Pierce made league history with 5 steals. But when you shoot 21 percent from the field and get out-blocked 10 to zero, it\'s difficult to close out a game on the road. We let this slip away in the fourth quarter.'
+      }
+    ],
+    playerStats: [
+      { player: 'Donald Hardy', team: 'San Jose Tigersharks', stat: '15 PTS (Game-High, 3-4 3PT), 5 REB, 2 AST, 4 STL (Tied Prev Record)' },
+      { player: 'Malique Pierce', team: 'San Jose Tigersharks', stat: '5 STL (All-Time CCH Single-Game Record), 3 AST, 2 REB (0 PTS, 0-5 FG)' },
+      { player: 'Kirk Barnes', team: 'San Diego Sabrewolves', stat: '12 PTS (Team-High, 5-11 FG, 2-5 3PT), 2 REB, 1 BLK' },
+      { player: 'Dell Gooden', team: 'San Jose Tigersharks', stat: '9 PTS, 4 REB, 2 AST, 2 STL (5-7 FT)' },
+      { player: 'Andre Creek', team: 'San Diego Sabrewolves', stat: '8 PTS (4-4 FG), 13 REB, 2 AST, 2 BLK' },
+      { player: 'Alan Perben', team: 'San Diego Sabrewolves', stat: '8 PTS (3-3 FG, 1-1 3PT), 3 REB, 3 AST (Bench Spark)' },
+      { player: 'Dell Butler', team: 'San Jose Tigersharks', stat: '7 PTS, 2 REB, 2 STL (3-4 FT)' },
+      { player: 'Rick Glover', team: 'San Diego Sabrewolves', stat: '6 PTS, 2 REB, 3 BLK (2-2 FT)' },
+      { player: 'Al Sloan', team: 'San Jose Tigersharks', stat: '5 PTS, 10 REB, 1 AST (5-8 FT)' },
+      { player: 'Sabrewolves Bench', team: 'San Diego Sabrewolves', stat: '23 PTS (Perben 8, Glover 6, Washington Jr. 5, Beasley 2, May 2)' },
+      { player: 'Team Blocks', team: 'Team Comparison', stat: 'San Diego 10 (Glover 3, Creek 2, Atgusanas 2, Barnes 1, Iverson 1, Sharp 1) • San Jose 0' },
+      { player: 'Team Steals', team: 'Team Comparison', stat: 'San Jose 15 (Pierce 5, Hardy 4, Gooden 2, Butler 2, Waters 2) • San Diego 2' },
+      { player: 'Rebound Battle', team: 'Team Comparison', stat: 'San Diego 42 (41 DEF) • San Jose 25 (24 DEF)' },
+      { player: 'Single-Game Steals Record', team: 'League Milestone', stat: 'Malique Pierce: 5 STL (Previous: DeAnte Gray 4, Donald Hardy 4)' }
+    ]
+  },
+  {
     id: 's4-g23-mad-dogs-rout-knights-boomer',
     title: 'Fresno Mad Dogs 68, San Francisco Knights 55',
     subtitle: 'The Mad Dogs bounce back from their loss to the Dynamics with a decisive victory over the Knights behind Lloyd Boomer\'s 21 points and Geraldo Jones\' double-double.',
     date: 'Season 4 Recap • Nov 13',
     season: 4,
     category: 'recap',
-    featured: true,
+    featured: false,
     author: 'CCH Game Recap Desk • Bay Area Beat',
     readTime: '3 min read',
     youtubeUrl: 'https://www.youtube.com/embed/jQ8U80VCVBk?si=y8Z1FoRbbcB2XTDu',
@@ -183,7 +251,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     date: 'Season 4 Recap • Nov 12',
     season: 4,
     category: 'recap',
-    featured: true,
+    featured: false,
     author: 'CCH Game Recap Desk • SoCal Beat',
     readTime: '3 min read',
     youtubeUrl: 'https://www.youtube.com/embed/sZmDulCp-CY?si=BqXQ1pbiHlVReHCu',
@@ -237,7 +305,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
       { player: 'Cameron Barkley', team: 'Golden State Enterprise', stat: '8 PTS, 12 REB, 3 BLK (4-8 FG)' },
       { player: 'Chad Bryant', team: 'Golden State Enterprise', stat: '8 PTS, 4 REB (3-7 FG)' },
       { player: 'Wes Taylor', team: 'San Diego Sabrewolves', stat: '7 PTS, 4 REB, 2 STL' },
-      { player: 'Leo Washington Jr.', team: 'San Diego Sabrewolves', stat: '6 PTS, 2 AST' },
+      { player: 'Lynwood Washington Jr.', team: 'San Diego Sabrewolves', stat: '6 PTS, 2 AST' },
       { player: '3-Point Shooting', team: 'Team Comparison', stat: 'Golden State 9-18 (50%) • San Diego 3-16 (18.8%)' },
       { player: 'Rebounds', team: 'Team Comparison', stat: 'Golden State 38 • San Diego 34 (+4 GSE)' },
       { player: '2nd Quarter Margin', team: 'Team Comparison', stat: 'Golden State 20 • San Diego 12 (+8 GSE)' }
@@ -250,7 +318,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     date: 'Season 4 Recap • Nov 11',
     season: 4,
     category: 'recap',
-    featured: true,
+    featured: false,
     author: 'CCH Game Recap Desk • Central Valley Beat',
     readTime: '3 min read',
     youtubeUrl: 'https://www.youtube.com/embed/fXPrOZMpMBQ?si=vn8IostE2dSEMPZg',
@@ -340,7 +408,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
       'San Diego, CA – In one of the most intense, defense-dominated showdowns of Season 4, the visiting Oakland Renegades (5-0) preserved their unblemished record with a nerve-wracking 60-59 victory over the San Diego Sabrewolves (1-2) at San Diego Arena on Sunday night.',
       'FOURTH-QUARTER COMEBACK:\nEntering the fourth quarter trailing 45-42 in a hostile environment, Oakland leaned on their superstar backcourt and textbook ball protection to stage an 18-14 final-period surge. The defining statistic of the game was turnovers: Oakland committed a season-low 3 turnovers across the entire contest while forcing 11 Sabrewolves giveaways. The Renegades transformed those mistakes into 17 crucial points off turnovers (compared to just 4 points off turnovers for San Diego), providing the razor-thin margin needed to secure the one-point win on the road.',
       "RENEGADES PRODUCTION:\nAll-Cali guard Jamar Dean spearheaded Oakland's attack with a team-high 18 points, 6 rebounds (2 offensive), 4 assists, and a steal in 26 minutes of action. Co-star Alonzo Reece orchestrated the late-game offense with supreme poise, delivering 12 points and 5 assists while finishing a flawless 6-of-6 from the free throw line. Rookie big man Carl Marks turned in a stellar, hyper-efficient performance with 11 points (3-of-4 FG, 1-of-1 3PT, 4-of-4 FT) and 5 rebounds. Off the bench, Jaylen Moon provided instant offensive punch with 10 points in just 12 minutes (5-of-9 FG), and center Joshua Bowen anchored the passing lanes with 4 steals and 7 rebounds alongside Andrew Woods (5 points, 2 steals). Oakland shot 13-of-15 (86.7%) from the free throw line as a team.",
-      "SABREWOLVES RECAP:\nFor San Diego (1-2), premier scoring maestro Kirk Barnes delivered a sensational display, racking up a game-high 19 points on 5-of-10 shooting, 2-of-4 from downtown, and a perfect 7-of-7 from the charity stripe, plus 5 rebounds, 3 assists, and a block. Anchor center Andre Creek was an intimidating force in the paint with 12 points on 6-of-9 shooting, 7 rebounds, and 3 blocked shots, pacing a Sabrewolves defense that tallied 9 blocks. Reserve guard Leo Washington Jr. gave San Diego huge production off the bench with 10 points on 4-of-6 shooting (2-of-2 3PT), Alan Perben added 6 points and 3 assists, and Wes Taylor battled for 4 rebounds, 2 assists, and 2 blocks. However, San Diego's 11 turnovers and inability to slow Oakland's late free-throw parade proved decisive in the final seconds."
+      "SABREWOLVES RECAP:\nFor San Diego (1-2), premier scoring maestro Kirk Barnes delivered a sensational display, racking up a game-high 19 points on 5-of-10 shooting, 2-of-4 from downtown, and a perfect 7-of-7 from the charity stripe, plus 5 rebounds, 3 assists, and a block. Anchor center Andre Creek was an intimidating force in the paint with 12 points on 6-of-9 shooting, 7 rebounds, and 3 blocked shots, pacing a Sabrewolves defense that tallied 9 blocks. Reserve guard Lynwood Washington Jr. gave San Diego huge production off the bench with 10 points on 4-of-6 shooting (2-of-2 3PT), Alan Perben added 6 points and 3 assists, and Wes Taylor battled for 4 rebounds, 2 assists, and 2 blocks. However, San Diego's 11 turnovers and inability to slow Oakland's late free-throw parade proved decisive in the final seconds."
     ],
     quotes: [
       {
@@ -366,7 +434,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
       { player: 'Andre Creek', team: 'San Diego Sabrewolves', stat: '12 PTS, 7 REB, 3 BLK, 1 STL (6-9 FG)' },
       { player: 'Carl Marks', team: 'Oakland Renegades', stat: '11 PTS, 5 REB, 1 STL (3-4 FG, 1-1 3PT, 4-4 FT)' },
       { player: 'Jaylen Moon', team: 'Oakland Renegades', stat: '10 PTS (5-9 FG in 12 MIN)' },
-      { player: 'Leo Washington Jr.', team: 'San Diego Sabrewolves', stat: '10 PTS, 1 STL, 1 BLK (4-6 FG, 2-2 3PT)' },
+      { player: 'Lynwood Washington Jr.', team: 'San Diego Sabrewolves', stat: '10 PTS, 1 STL, 1 BLK (4-6 FG, 2-2 3PT)' },
       { player: 'Alan Perben', team: 'San Diego Sabrewolves', stat: '6 PTS, 3 REB, 3 AST, 1 BLK (2-4 FG, 2-3 FT)' },
       { player: 'Andrew Woods', team: 'Oakland Renegades', stat: '5 PTS, 1 REB, 1 AST, 2 STL (2-5 FG, 1-4 3PT)' },
       { player: 'Joshua Bowen', team: 'Oakland Renegades', stat: '4 PTS, 7 REB, 4 STL (2-4 FG)' },

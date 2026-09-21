@@ -15,6 +15,7 @@ import {
   ExternalLink
 } from 'lucide-react';
 import { TeamBadge } from './TeamBadge';
+import aCreekVsSjImg from '../assets/images/ACreek_vs_SJs4.png';
 import aMaraiS4_1Img from '../assets/images/AMaraiS4_1.png';
 import boomerVsGsImg from '../assets/images/Boomer_vs_GS.png';
 import ktVsSfImg from '../assets/images/KTvsSF_S4.png';
@@ -33,6 +34,7 @@ import jDeanVsSdImg from '../assets/images/JDean_vs_SDs4.png';
 import sdReboundS4Img from '../assets/images/SD_Rebound_S4.png';
 import hintonVsJmjS4Img from '../assets/images/Hinton_vs_JMJs4.png';
 import rjRush1Img from '../assets/images/RJRush1.png';
+import cDaughertyVsSdImg from '../assets/images/CDaugherty_vs_SD.png';
 
 interface LatestGamesShowcaseProps {
   onNavigateToNews: (articleId: string) => void;
@@ -80,6 +82,59 @@ interface GameHighlight {
 
 const HIGHLIGHT_GAMES: GameHighlight[] = [
   {
+    id: 'game-24',
+    articleId: 's4-g24-sabrewolves-edge-tigersharks-pierce-record',
+    date: 'Nov 14 • Season 4',
+    headline: 'San Diego Sabrewolves 48, San Jose Tigersharks 43',
+    subheadline: 'Sabrewolves Rally in 4th (18-11) Behind 10 Blocks & 23 Bench Points; Pierce Sets All-Time Record with 5 Steals',
+    narrative:
+      'The Sabrewolves captured their first home win of Season 4 with an 18-11 fourth-quarter surge to defeat the Tigersharks 48-43. San Diego registered 10 blocks and 23 bench points to overcome 15 team steals by San Jose, including rookie Malique Pierce shattering the all-time single-game steals record with 5 and Donald Hardy tying the previous mark with 4.',
+    winner: {
+      id: 'san-diego-sabrewolves',
+      name: 'San Diego Sabrewolves',
+      score: 48,
+      record: '2-3 (7th)',
+      isHome: true,
+    },
+    loser: {
+      id: 'san-jose-tigersharks',
+      name: 'San Jose Tigersharks',
+      score: 43,
+      record: '0-2 (9th)',
+      isHome: false,
+    },
+    quarters: [
+      { period: 'Q1', team1: 8, team2: 12 },
+      { period: 'Q2', team1: 14, team2: 12 },
+      { period: 'Q3', team1: 8, team2: 8 },
+      { period: 'Q4', team1: 18, team2: 11 },
+    ],
+    starPlayer: {
+      name: 'Malique Pierce',
+      number: '#7',
+      team: 'San Jose Tigersharks',
+      position: 'SF • 78 OVR',
+      statline: '5 STL (All-Time Record) • 3 AST • 2 REB (0 PTS, 0-5 FG)',
+      highlightPill: '5 STEALS • All-Time CCH Single-Game Record',
+      image: aCreekVsSjImg,
+    },
+    keyStats: [
+      { label: 'Donald Hardy', value: '15 PTS, 4 STL', desc: 'Game-High 15 PTS (3-4 3PT), 5 REB, 4 STL' },
+      { label: 'Malique Pierce', value: '5 STL', desc: 'All-Time Single-Game Steals Record' },
+      { label: 'Team Blocks', value: '10 - 0 SD', desc: 'Sabrewolves Rim Protection (Glover 3 BLK)' },
+      { label: 'Bench Scoring', value: '23 - 7 SD', desc: 'Sabrewolves Reserves Outscore SJ Bench 23-7' },
+    ],
+    secondaryPerformers: [
+      { name: 'Donald Hardy (SJ)', team: 'Tigersharks', stat: '15 PTS (Game-High, 3-4 3PT), 5 REB, 4 STL' },
+      { name: 'Kirk Barnes (SD)', team: 'Sabrewolves', stat: '12 PTS (Team-High, 2 3PM), 2 REB, 1 BLK' },
+      { name: 'Andre Creek (SD)', team: 'Sabrewolves', stat: '8 PTS (4-4 FG), 13 REB, 2 AST, 2 BLK' },
+      { name: 'Alan Perben (SD)', team: 'Sabrewolves', stat: '8 PTS (3-3 FG, 1-1 3PT), 3 REB, 3 AST off bench' },
+    ],
+    badgeColor: 'border-amber-500/60 from-amber-950/40 via-slate-900 to-yellow-950/30',
+    tagIcon: 'sparkles',
+    tagText: 'ALL-TIME RECORD • PIERCE 5 STEALS • SD 48-43',
+  },
+  {
     id: 'game-22',
     articleId: 's4-g22-enterprise-rout-sabrewolves-daugherty',
     date: 'Nov 12 • Season 4',
@@ -114,7 +169,7 @@ const HIGHLIGHT_GAMES: GameHighlight[] = [
       position: 'SF • 85 OVR',
       statline: '31 PTS • 5 REB • 2 STL • 7-12 3PT (11-23 FG)',
       highlightPill: '31 PTS & 7 Threes • #1 Pick Masterclass',
-      image: carltonDaughertyImg,
+      image: cDaughertyVsSdImg,
     },
     keyStats: [
       { label: 'Carlton Daugherty', value: '31 PTS', desc: 'Game-High 31 Points & 7 Threes' },
@@ -1026,7 +1081,7 @@ export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
   onSelectTeam,
   onNavigateToTab,
 }) => {
-  const [selectedGameId, setSelectedGameId] = useState<string>('game-20');
+  const [selectedGameId, setSelectedGameId] = useState<string>('game-24');
 
   const activeGame = HIGHLIGHT_GAMES.find((g) => g.id === selectedGameId) || HIGHLIGHT_GAMES[0];
 

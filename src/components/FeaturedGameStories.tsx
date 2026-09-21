@@ -19,6 +19,7 @@ import {
   ArrowLeft
 } from 'lucide-react';
 import { TeamBadge } from './TeamBadge';
+import aCreekVsSjImg from '../assets/images/ACreek_vs_SJs4.png';
 import boomerVsSf1Img from '../assets/images/Boomer_vs_SF1.png';
 import cDaughertyVsSdImg from '../assets/images/CDaugherty_vs_SD.png';
 import kingJordan1Img from '../assets/images/KingJordan1.png';
@@ -75,6 +76,8 @@ interface GameStory {
   };
   keyStats: { label: string; value: string; desc: string }[];
   quote: { speaker: string; text: string; role: string };
+  secondaryImage?: string;
+  secondaryImageCaption?: string;
 }
 
 const getYouTubeEmbedSrc = (url?: string, embedUrl?: string) => {
@@ -98,9 +101,66 @@ const getYouTubeEmbedSrc = (url?: string, embedUrl?: string) => {
 
 const FEATURED_STORIES: GameStory[] = [
   {
+    id: 's4-g24-tigersharks-vs-sabrewolves',
+    articleId: 's4-g24-sabrewolves-edge-tigersharks-pierce-record',
+    badgeTag: '★ ALL-TIME RECORD • PIERCE 5 STEALS',
+    badgeColor: 'border-emerald-500/60 bg-emerald-500/20 text-emerald-300',
+    title: 'Sabrewolves Rally in 4th (18-11) to Edge Tigersharks 48-43 Despite Pierce’s Record 5 Steals',
+    subtitle:
+      'San Diego captures its first home win of Season 4 behind 10 team blocks, 23 bench points, and an 18-11 fourth-quarter surge to overcome 15 team steals and rookie Malique Pierce’s historic 5 thefts.',
+    date: 'Nov 14 • Season 4 Regular Season',
+    image: aCreekVsSjImg,
+    imageCaption:
+      'The San Diego Sabrewolves clamped down with 10 team blocks and rallied in the fourth quarter to claim a 48-43 win over San Jose, withstanding an all-time CCH single-game record 5 steals by Tigersharks rookie Malique Pierce.',
+    winner: {
+      id: 'san-diego-sabrewolves',
+      name: 'San Diego Sabrewolves',
+      city: 'San Diego',
+      nickname: 'Sabrewolves',
+      score: 48,
+      record: '2-3 (7th)',
+      isHome: true,
+    },
+    loser: {
+      id: 'san-jose-tigersharks',
+      name: 'San Jose Tigersharks',
+      city: 'San Jose',
+      nickname: 'Tigersharks',
+      score: 43,
+      record: '0-2 (9th)',
+      isHome: false,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 8, team2: 12 },
+      { period: 'Q2', team1: 14, team2: 12 },
+      { period: 'Q3', team1: 8, team2: 8 },
+      { period: 'Q4', team1: 18, team2: 11 },
+    ],
+    starPlayer: {
+      name: 'Malique Pierce',
+      team: 'San Jose Tigersharks',
+      statline: '5 STL (All-Time CCH Record) • 3 AST • 2 REB (0 PTS, 0-5 FG)',
+      highlight: 'Shattered CCH single-game steals record with 5 thefts, eclipsing DeAnte Gray’s mark',
+    },
+    keyStats: [
+      { label: 'Donald Hardy', value: '15 PTS, 4 STL', desc: 'Game-High 15 PTS (3-4 3PT), 5 REB, 4 STL' },
+      { label: 'Malique Pierce', value: '5 STL', desc: 'All-Time CCH Single-Game Record' },
+      { label: 'Team Blocks', value: '10 - 0 SD', desc: 'Sabrewolves Rim Protection (Glover 3 BLK)' },
+      { label: 'Bench Points', value: '23 - 7 SD', desc: 'Sabrewolves 2nd Unit Outscores SJ 23-7' },
+    ],
+    quote: {
+      speaker: 'Jacob Underwood',
+      role: 'Head Coach • San Diego Sabrewolves (First Home S4 Win)',
+      text: 'San Jose gave us everything with Pierce and Hardy jumping our passing lanes for 15 steals. But our defense held them to 21% shooting, our bench gave us 23 points, and our 10 team blocks won this in the fourth quarter.',
+    },
+  },
+];
+
+const ARCHIVED_STORIES: GameStory[] = [
+  {
     id: 's4-g23-mad-dogs-vs-knights',
     articleId: 's4-g23-mad-dogs-rout-knights-boomer',
-    badgeTag: '★ LEAD RECAP • BOOMER 21 PTS',
+    badgeTag: '★ ARCHIVE • BOOMER 21 PTS',
     badgeColor: 'border-red-500/60 bg-red-500/20 text-red-300',
     title: 'Mad Dogs Bounce Back With 68-55 Road Victory Over Knights Behind Boomer & Jones',
     subtitle:
@@ -156,7 +216,7 @@ const FEATURED_STORIES: GameStory[] = [
   {
     id: 's4-g22-enterprise-vs-sabrewolves',
     articleId: 's4-g22-enterprise-rout-sabrewolves-daugherty',
-    badgeTag: '★ 31-PT EXPLOSION • 7 THREES',
+    badgeTag: '★ ARCHIVE • 31-PT EXPLOSION',
     badgeColor: 'border-amber-500/60 bg-amber-500/20 text-amber-300',
     title: 'Enterprise Silences Sabrewolves 65-51 Behind Carlton Daugherty’s 31-Point Clinic',
     subtitle:
@@ -208,11 +268,13 @@ const FEATURED_STORIES: GameStory[] = [
       role: 'Head Coach • Golden State Enterprise (2-1 Record)',
       text: 'Carlton was completely in the zone. Thirty-one points and seven threes on the road against a tough defense is special.',
     },
+    secondaryImage: kingJordan1Img,
+    secondaryImageCaption: 'Sabrewolves star Kirk "King Jordan" Barnes (18 PTS, 4 AST) and Andre Creek battle Enterprise at San Diego Arena.',
   },
   {
     id: 's4-g21-dynamics-vs-mad-dogs',
     articleId: 's4-g21-dynamics-edge-mad-dogs-rush',
-    badgeTag: '★ ROAD UPSET • 2ND-HALF COMEBACK',
+    badgeTag: '★ ARCHIVE • 2ND-HALF COMEBACK',
     badgeColor: 'border-blue-500/60 bg-blue-500/20 text-blue-300',
     title: 'Dynamics Clamp Down in 2nd Half to Hand Mad Dogs Narrow 59-57 Defeat in Fresno',
     subtitle:
@@ -265,9 +327,6 @@ const FEATURED_STORIES: GameStory[] = [
       text: 'That was pure grit. Trailing by seven on the road and holding an undefeated team to 16 points in the second half proves what our defense is capable of.',
     },
   },
-];
-
-const ARCHIVED_STORIES: GameStory[] = [
   {
     id: 's4-g21-renegades-vs-sabrewolves',
     articleId: 's4-g21-renegades-edge-sabrewolves-dean',
@@ -518,61 +577,31 @@ export const FeaturedGameStories: React.FC<FeaturedGameStoriesProps> = ({
             </h2>
             <span className="text-xs font-mono font-bold uppercase tracking-wider bg-amber-500/20 text-amber-300 px-2.5 py-0.5 rounded-full border border-amber-500/30 flex items-center gap-1.5">
               <Sparkles size={11} className="text-amber-400" />
-              {isArchiveView ? 'ARCHIVED GAMES' : 'LAST 3 GAMES • SEASON 4'}
+              {isArchiveView ? 'ARCHIVED GAMES' : 'FEATURED GAME STORY • SEASON 4'}
             </span>
           </div>
           <p className="text-xs sm:text-sm text-slate-400">
             {isArchiveView
               ? 'Archived game recaps and verified box scores from earlier in Season 4.'
-              : 'The latest 3 verified matchups from the Season 4 slate with full game recaps and cover photos.'}
+              : 'The latest verified matchup from the Season 4 slate with full game recap, stats, and cover photo.'}
           </p>
         </div>
 
         {/* Story Selector Switcher & Quick Nav Links */}
         <div className="flex flex-wrap items-center gap-2 shrink-0">
           {!isArchiveView ? (
-            /* LAST 3 GAMES CONTROLS */
+            /* FEATURED GAME CONTROLS */
             <>
               <div className="flex items-center bg-slate-950 p-1 rounded-2xl border border-slate-800 flex-wrap gap-1">
                 <button
-                  onClick={() => setSelectedStoryId('s4-g23-mad-dogs-vs-knights')}
+                  onClick={() => setSelectedStoryId('s4-g24-tigersharks-vs-sabrewolves')}
                   className={`px-2.5 py-1 rounded-xl text-xs font-mono font-black transition-all cursor-pointer flex items-center gap-1 ${
-                    selectedStoryId === 's4-g23-mad-dogs-vs-knights'
+                    selectedStoryId === 's4-g24-tigersharks-vs-sabrewolves'
                       ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20'
                       : 'text-slate-400 hover:text-white'
                   }`}
                 >
-                  <span>★ FRE 68, SF 55</span>
-                </button>
-                <button
-                  onClick={() => setSelectedStoryId('s4-g22-enterprise-vs-sabrewolves')}
-                  className={`px-2.5 py-1 rounded-xl text-xs font-mono font-black transition-all cursor-pointer flex items-center gap-1 ${
-                    selectedStoryId === 's4-g22-enterprise-vs-sabrewolves'
-                      ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20'
-                      : 'text-slate-400 hover:text-white'
-                  }`}
-                >
-                  <span>GSE 65, SD 51</span>
-                </button>
-                <button
-                  onClick={() => setSelectedStoryId('s4-g21-dynamics-vs-mad-dogs')}
-                  className={`px-2.5 py-1 rounded-xl text-xs font-mono font-black transition-all cursor-pointer flex items-center gap-1 ${
-                    selectedStoryId === 's4-g21-dynamics-vs-mad-dogs'
-                      ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20'
-                      : 'text-slate-400 hover:text-white'
-                  }`}
-                >
-                  <span>LAD 59, FRE 57</span>
-                </button>
-                <button
-                  onClick={() => setSelectedStoryId('all')}
-                  className={`px-2.5 py-1 rounded-xl text-xs font-mono font-black transition-all cursor-pointer ${
-                    selectedStoryId === 'all'
-                      ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20'
-                      : 'text-slate-400 hover:text-white'
-                  }`}
-                >
-                  All 3
+                  <span>★ SJ 64, SD 52 (Pierce Record)</span>
                 </button>
               </div>
 
@@ -599,10 +628,40 @@ export const FeaturedGameStories: React.FC<FeaturedGameStoriesProps> = ({
                 className="px-3.5 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-mono font-black flex items-center gap-1.5 transition-colors cursor-pointer"
               >
                 <ArrowLeft size={13} />
-                <span>Latest 3 Games</span>
+                <span>Featured Game</span>
               </button>
 
               <div className="flex items-center bg-slate-950 p-1 rounded-2xl border border-slate-800 flex-wrap gap-1">
+                <button
+                  onClick={() => setSelectedStoryId('s4-g23-mad-dogs-vs-knights')}
+                  className={`px-2.5 py-1 rounded-xl text-xs font-mono font-black transition-all cursor-pointer flex items-center gap-1 ${
+                    selectedStoryId === 's4-g23-mad-dogs-vs-knights'
+                      ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  <span>FRE vs SF</span>
+                </button>
+                <button
+                  onClick={() => setSelectedStoryId('s4-g22-enterprise-vs-sabrewolves')}
+                  className={`px-2.5 py-1 rounded-xl text-xs font-mono font-black transition-all cursor-pointer flex items-center gap-1 ${
+                    selectedStoryId === 's4-g22-enterprise-vs-sabrewolves'
+                      ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  <span>GSE vs SD</span>
+                </button>
+                <button
+                  onClick={() => setSelectedStoryId('s4-g21-dynamics-vs-mad-dogs')}
+                  className={`px-2.5 py-1 rounded-xl text-xs font-mono font-black transition-all cursor-pointer flex items-center gap-1 ${
+                    selectedStoryId === 's4-g21-dynamics-vs-mad-dogs'
+                      ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  <span>LAD vs FRE</span>
+                </button>
                 <button
                   onClick={() => setSelectedStoryId('s4-g21-renegades-vs-sabrewolves')}
                   className={`px-2.5 py-1 rounded-xl text-xs font-mono font-black transition-all cursor-pointer flex items-center gap-1 ${
@@ -614,36 +673,6 @@ export const FeaturedGameStories: React.FC<FeaturedGameStoriesProps> = ({
                   <span>OAK vs SD</span>
                 </button>
                 <button
-                  onClick={() => setSelectedStoryId('s4-g20-reds-vs-knights')}
-                  className={`px-2.5 py-1 rounded-xl text-xs font-mono font-black transition-all cursor-pointer flex items-center gap-1 ${
-                    selectedStoryId === 's4-g20-reds-vs-knights'
-                      ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20'
-                      : 'text-slate-400 hover:text-white'
-                  }`}
-                >
-                  <span>CAL vs SF</span>
-                </button>
-                <button
-                  onClick={() => setSelectedStoryId('s4-g18-sabrewolves-vs-knights')}
-                  className={`px-2.5 py-1 rounded-xl text-xs font-mono font-black transition-all cursor-pointer flex items-center gap-1 ${
-                    selectedStoryId === 's4-g18-sabrewolves-vs-knights'
-                      ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20'
-                      : 'text-slate-400 hover:text-white'
-                  }`}
-                >
-                  <span>SD vs SF</span>
-                </button>
-                <button
-                  onClick={() => setSelectedStoryId('s4-g17-strykers-vs-dynamics')}
-                  className={`px-2.5 py-1 rounded-xl text-xs font-mono font-black transition-all cursor-pointer flex items-center gap-1 ${
-                    selectedStoryId === 's4-g17-strykers-vs-dynamics'
-                      ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20'
-                      : 'text-slate-400 hover:text-white'
-                  }`}
-                >
-                  <span>SDS vs LAD</span>
-                </button>
-                <button
                   onClick={() => setSelectedStoryId('all')}
                   className={`px-2.5 py-1 rounded-xl text-xs font-mono font-black transition-all cursor-pointer ${
                     selectedStoryId === 'all'
@@ -651,7 +680,7 @@ export const FeaturedGameStories: React.FC<FeaturedGameStoriesProps> = ({
                       : 'text-slate-400 hover:text-white'
                   }`}
                 >
-                  All Archives
+                  All Archives ({ARCHIVED_STORIES.length})
                 </button>
               </div>
             </>
@@ -898,6 +927,25 @@ export const FeaturedGameStories: React.FC<FeaturedGameStoriesProps> = ({
                         {story.quote.speaker} ({story.quote.role}):
                       </span>
                       &ldquo;{story.quote.text}&rdquo;
+                    </div>
+                  )}
+
+                  {/* Secondary Story Image (placed later in the article) */}
+                  {story.secondaryImage && (
+                    <div className="pt-2">
+                      <div className="rounded-xl overflow-hidden border border-slate-800 bg-slate-950">
+                        <img
+                          src={story.secondaryImage}
+                          alt={story.secondaryImageCaption || story.title}
+                          className="w-full max-h-56 object-cover object-center"
+                        />
+                        {story.secondaryImageCaption && (
+                          <div className="p-2.5 bg-slate-950/90 border-t border-slate-800/80 text-[11px] font-mono text-slate-300 flex items-center gap-1.5">
+                            <Sparkles size={12} className="text-amber-400 shrink-0" />
+                            <span>{story.secondaryImageCaption}</span>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   )}
                 </div>
