@@ -123,6 +123,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     featured: true,
     author: 'CCH Game Recap Desk • SoCal Beat',
     readTime: '3 min read',
+    youtubeUrl: 'https://www.youtube.com/embed/U4PB1p0-A5M?si=kBVv6HoFduOFIotO',
     imageUrl: aCreekVsSjImg,
     imageCaption: 'Sabrewolves center Andre Creek was named Player of the Game after dominating the interior with 13 rebounds (4-4 FG) and anchoring a 10-block defense as San Diego rallied in the fourth quarter to defeat San Jose 48-43.',
     teams: {

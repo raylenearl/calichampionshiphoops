@@ -99,6 +99,8 @@ const FEATURED_STORIES: GameStory[] = [
     subtitle:
       'San Diego captures its first home win of Season 4 behind 10 team blocks, 23 bench points, and an 18-11 fourth-quarter surge to overcome 15 team steals and rookie Malique Pierce’s historic 5 thefts.',
     date: 'Nov 14 • Season 4 Regular Season',
+    youtubeUrl: 'https://www.youtube.com/watch?v=U4PB1p0-A5M',
+    youtubeEmbedUrl: 'https://www.youtube.com/embed/U4PB1p0-A5M?si=kBVv6HoFduOFIotO',
     image: aCreekVsSjImg,
     imageCaption:
       'The San Diego Sabrewolves clamped down with 10 team blocks and rallied in the fourth quarter to claim a 48-43 win over San Jose, withstanding an all-time CCH single-game record 5 steals by Tigersharks rookie Malique Pierce.',

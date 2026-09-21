@@ -12,7 +12,8 @@ import {
   Activity,
   TrendingUp,
   BarChart3,
-  ExternalLink
+  ExternalLink,
+  Tv
 } from 'lucide-react';
 import { TeamBadge } from './TeamBadge';
 import aCreekVsSjImg from '../assets/images/ACreek_vs_SJs4.png';
@@ -78,6 +79,7 @@ interface GameHighlight {
   badgeColor: string;
   tagIcon: 'flame' | 'shield' | 'zap' | 'sparkles';
   tagText: string;
+  youtubeUrl?: string;
 }
 
 const HIGHLIGHT_GAMES: GameHighlight[] = [
@@ -85,6 +87,7 @@ const HIGHLIGHT_GAMES: GameHighlight[] = [
     id: 'game-24',
     articleId: 's4-g24-sabrewolves-edge-tigersharks-pierce-record',
     date: 'Nov 14 • Season 4',
+    youtubeUrl: 'https://www.youtube.com/watch?v=U4PB1p0-A5M',
     headline: 'San Diego Sabrewolves 48, San Jose Tigersharks 43',
     subheadline: 'Sabrewolves Rally in 4th (18-11) Behind 10 Blocks & 23 Bench Points; Pierce Sets All-Time Record with 5 Steals',
     narrative:
@@ -1380,7 +1383,7 @@ export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
 
         {/* Bottom Nav Bar with Quick Links */}
         <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-white/10">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             <button
               onClick={() => onNavigateToNews(activeGame.articleId)}
               className="text-xs font-mono font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1.5 cursor-pointer bg-transparent border-0"
@@ -1389,6 +1392,19 @@ export const LatestGamesShowcase: React.FC<LatestGamesShowcaseProps> = ({
               <span>Full Box Score &amp; Player Quotes</span>
               <ChevronRight size={14} />
             </button>
+            {activeGame.youtubeUrl && (
+              <a
+                href={activeGame.youtubeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1 rounded-xl bg-red-600/20 hover:bg-red-600/30 text-red-300 hover:text-red-100 border border-red-500/40 text-xs font-mono font-bold flex items-center gap-1.5 transition-all cursor-pointer"
+                title="Watch Full Game on YouTube"
+              >
+                <Tv size={13} className="text-red-400" />
+                <span>Watch on YouTube</span>
+                <ExternalLink size={12} />
+              </a>
+            )}
           </div>
 
           <div className="flex items-center gap-2">

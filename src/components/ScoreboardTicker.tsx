@@ -687,7 +687,13 @@ export const ScoreboardTicker: React.FC<ScoreboardTickerProps> = ({
               } else if (yt.includes('youtu.be/')) {
                 const vidId = yt.split('youtu.be/')[1].split('?')[0];
                 embedUrl = `https://www.youtube.com/embed/${vidId}`;
+              } else if (yt.includes('youtube.com/live/')) {
+                const vidId = yt.split('youtube.com/live/')[1].split('?')[0];
+                embedUrl = `https://www.youtube.com/embed/${vidId}`;
               }
+              const watchUrl = yt.includes('/embed/')
+                ? yt.replace('/embed/', '/watch?v=').split('?')[0]
+                : yt;
 
               return (
                 <div className="space-y-2">
@@ -697,7 +703,7 @@ export const ScoreboardTicker: React.FC<ScoreboardTickerProps> = ({
                       <span>Official Game Broadcast</span>
                     </div>
                     <a
-                      href={selectedGameForModal.youtubeUrl}
+                      href={watchUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-[11px] text-red-400 hover:text-red-300 flex items-center gap-1 underline underline-offset-2 transition-colors"
