@@ -7,6 +7,7 @@ import { PLAYOFF_HISTORY } from './playoffsData';
 import { TEAMS } from './teamsData';
 import { GameRecord } from '../types';
 import aCreekVsSjImg from '../assets/images/ACreek_vs_SJs4.png';
+import laVsCalImg from '../assets/images/NBA 2K26 for Xbox Series X_S-2026_09_23-05_44_58.png';
 import rjRush1Img from '../assets/images/RJRush1.png';
 import boomerVsSf1Img from '../assets/images/Boomer_vs_SF1.png';
 import cDaughertyVsSdImg from '../assets/images/CDaugherty_vs_SD.png';
@@ -114,13 +115,87 @@ export interface CCHNewsArticle {
 
 export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
   {
+    id: 's4-g26-dynamics-rout-reds-mcmichael',
+    title: 'Dynamics Ride Balanced Attack and Ball Security to 67-60 Road Win Over Reds',
+    subtitle: 'Four Dynamics score 10 points and LA commits just 4 turnovers, overcoming a historic 34-point, 12-rebound masterclass from California center Andor Marai.',
+    date: 'Season 4 Recap • Nov 15',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • Los Angeles Beat',
+    readTime: '3 min read',
+    youtubeUrl: 'https://www.youtube.com/embed/lCLaRvf_OGs?si=uewzUDoma-TNOhwR',
+    imageUrl: laVsCalImg,
+    imageCaption: 'California Reds center Andor Marai delivered a historic 34-point, 12-rebound masterpiece (16-22 FG) to earn Player of the Game, but the Los Angeles Dynamics used a 25-3 bench advantage and elite ball security to secure a 67-60 road win.',
+    teams: {
+      team1: 'Los Angeles Dynamics',
+      team1Id: 'los-angeles-dynamics',
+      score1: 67,
+      team2: 'California Reds',
+      team2Id: 'california-reds',
+      score2: 60,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 12, team2: 17 },
+      { period: 'Q2', team1: 18, team2: 9 },
+      { period: 'Q3', team1: 21, team2: 18 },
+      { period: 'Q4', team1: 16, team2: 16 },
+    ],
+    headlineQuote: 'Despite Andor Marai’s 34-point masterclass (16-of-22 FG), the Los Angeles Dynamics relied on a 25-3 bench advantage, committing just 4 turnovers to capture a hard-fought 67-60 road victory over the California Reds.',
+    contentParagraphs: [
+      'Los Angeles, CA – The Los Angeles Dynamics (3-2) secured a hard-fought 67-60 road victory over the California Reds (4-4) on November 15th, using a stellar second quarter and a massive advantage in bench production to overcome a historic individual performance from Reds center Andor Marai.',
+      'Despite Marai\'s utter dominance in the paint, the Dynamics executed a balanced offensive attack and protected the basketball at an elite level, committing just four turnovers as a team compared to 12 for the Reds.',
+      'HOW THE GAME WAS WON:\nThe Reds came out of the gates strong, taking a 17-12 lead after the first quarter. However, the Dynamics flipped the script in the second period. Los Angeles clamped down defensively, holding the Reds to just 9 points while scoring 18 of their own. That 18-9 run gave the Dynamics a 30-26 halftime lead, a lead they would never relinquish. The third quarter was a back-and-forth affair, but the Dynamics maintained their edge, outscoring California 21-18 to stretch the lead to seven going into the final frame. The Reds made a late push in the fourth, but the Dynamics\' perfect 4-for-4 free-throw shooting in the clutch sealed the victory.',
+      'PLAYER OF THE GAME: ANDOR MARAI (CAL):\nIn a losing effort, Marai put on an absolute masterclass. He finished with a staggering 34 points and 12 rebounds on a scorching hot 16-of-22 shooting from the field. He also added a steal and a block. However, his supporting cast struggled mightily, as the rest of the Reds combined to shoot just 10-of-36 from the floor. Kyle Robinson was the only other Red in double figures with 13 points.',
+      'THE DYNAMICS\' BALANCED ATTACK:\nWhile Marai dominated individually, the Dynamics won with teamwork. Four players finished with exactly 10 points:\n• Mo Alexander: 10 points, 9 rebounds, 4 assists, 4 steals, and 2 blocks. A truly Swiss Army knife performance.\n• R. Riley: 10 points on a highly efficient 5-of-6 shooting off the bench.\n• R. Forte: 10 points in just 11 minutes of action.\n• J. McMichael Jr.: 10 points, 6 assists, and 2 steals. He had a brutal shooting night (1-of-14 from the field and 0-of-8 from three) but salvaged his performance by hitting all 8 of his free throws and facilitating the offense.\n• R.J. Rush: Chipped in 8 points, 3 assists, and 1 steal in a quiet night by his standards.',
+      'KEY TEAM STATS:\nThe game was decided by the margins:\n• Bench Points: Los Angeles 25, California 3. The Dynamics\' second unit completely outclassed the Reds\' reserves.\n• Turnovers: Los Angeles 4, California 12. The Dynamics took care of the ball, leading to an 18-4 advantage in points off turnovers.\n• Fast Break Points: Los Angeles 14, California 4.\n• Free Throws: Los Angeles 14-of-16 (88%), California 5-of-7 (71%).'
+    ],
+    quotes: [
+      {
+        speaker: 'Andor Marai',
+        title: 'Center • California Reds (Player of the Game • 34 PTS, 12 REB, 16-22 FG)',
+        quote: 'I left everything out there on the court, but basketball is a team game and Los Angeles did an incredible job taking care of the ball and winning the battle of the benches. We have to execute better and cut down on the turnovers.'
+      },
+      {
+        speaker: 'Pooh Splitter',
+        title: 'Head Coach • Los Angeles Dynamics (3-2 Record • 2nd Straight Win)',
+        quote: 'I am extremely proud of our discipline tonight. Committing only four turnovers on the road against a high-pressure team is championship-level ball security. Our bench gave us 25 huge points, and guys like Mo, Riley, Forte, and McMichael stepped up in crucial moments.'
+      },
+      {
+        speaker: 'Mo Alexander',
+        title: 'Center • Los Angeles Dynamics (10 PTS, 9 REB, 4 AST, 4 STL, 2 BLK)',
+        quote: 'Andor Marai was incredible inside, but we stayed composed and stuck to our game plan. We protected the ball, got 14 fast-break points, and trusted our depth. That Swiss Army knife mentality across the entire roster is why we walked out with the win.'
+      },
+      {
+        speaker: 'William Walker',
+        title: 'Head Coach • California Reds (4-4 Record)',
+        quote: 'Andor gave us a historic performance shooting 16-of-22, but we didn\'t give him enough help. Giving up a 25-3 bench discrepancy and losing the turnover battle 12 to 4 proved to be the deciding factor.'
+      }
+    ],
+    playerStats: [
+      { player: 'Andor Marai', team: 'California Reds', stat: '34 PTS, 12 REB, 1 STL, 1 BLK (16-22 FG) • POTG' },
+      { player: 'Kyle Robinson', team: 'California Reds', stat: '13 PTS, 4 REB, 2 AST (Only other Red in double figures)' },
+      { player: 'Mo Alexander', team: 'Los Angeles Dynamics', stat: '10 PTS, 9 REB, 4 AST, 4 STL, 2 BLK' },
+      { player: 'R. Riley', team: 'Los Angeles Dynamics', stat: '10 PTS, 5-6 FG off bench' },
+      { player: 'R. Forte', team: 'Los Angeles Dynamics', stat: '10 PTS in 11 minutes' },
+      { player: 'Jack McMichael Jr.', team: 'Los Angeles Dynamics', stat: '10 PTS, 6 AST, 2 STL (8-8 FT)' },
+      { player: 'R.J. Rush', team: 'Los Angeles Dynamics', stat: '8 PTS, 3 AST, 1 STL' },
+      { player: 'Rest of California Reds', team: 'California Reds', stat: '10-of-36 FG combined' },
+      { player: 'Bench Points', team: 'Team Comparison', stat: 'Los Angeles 25 • California 3 (+22 LA)' },
+      { player: 'Turnovers', team: 'Team Comparison', stat: 'Los Angeles 4 • California 12 (Points off TO: LA 18, CAL 4)' },
+      { player: 'Fast Break Points', team: 'Team Comparison', stat: 'Los Angeles 14 • California 4 (+10 LA)' },
+      { player: 'Free Throws', team: 'Team Comparison', stat: 'Los Angeles 14-of-16 (88%) • California 5-of-7 (71%)' },
+      { player: 'Second Quarter Run', team: 'Team Comparison', stat: 'Los Angeles outscored California 18-9 (30-26 Halftime)' }
+    ]
+  },
+  {
     id: 's4-g24-sabrewolves-edge-tigersharks-pierce-record',
     title: 'San Diego Sabrewolves 48, San Jose Tigersharks 43',
     subtitle: 'Andre Creek named Player of the Game with 13 rebounds, 8 points, and 2 blocks as Sabrewolves mount 18-11 fourth-quarter rally to edge Tigersharks 48-43.',
     date: 'Season 4 Recap • Nov 14',
     season: 4,
     category: 'recap',
-    featured: true,
+    featured: false,
     author: 'CCH Game Recap Desk • SoCal Beat',
     readTime: '3 min read',
     youtubeUrl: 'https://www.youtube.com/embed/U4PB1p0-A5M?si=kBVv6HoFduOFIotO',
@@ -390,7 +465,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     date: 'Season 4 Recap • Nov 9',
     season: 4,
     category: 'recap',
-    featured: true,
+    featured: false,
     author: 'CCH Game Recap Desk • SoCal Beat',
     readTime: '3 min read',
     youtubeUrl: 'https://www.youtube.com/embed/JdRXhCSupwM?si=LroEqV-JMzZreXc_',
@@ -464,7 +539,7 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
     date: 'Season 4 Recap • Nov 9',
     season: 4,
     category: 'recap',
-    featured: true,
+    featured: false,
     author: 'CCH Game Recap Desk • SoCal Beat',
     readTime: '3 min read',
     youtubeUrl: 'https://www.youtube.com/embed/cHJfZTom0GU?si=fvuu2sTPlT1MeK8A',

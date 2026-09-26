@@ -18,8 +18,7 @@ import {
   Newspaper,
 } from 'lucide-react';
 import { TeamBadge } from './TeamBadge';
-import aCreekVsSjImg from '../assets/images/ACreek_vs_SJs4.png';
-import sdReboundS4Img from '../assets/images/SD_Rebound_S4.png';
+import laVsCalImg from '../assets/images/NBA 2K26 for Xbox Series X_S-2026_09_23-05_44_58.png';
 
 interface FeaturedGameStoriesProps {
   onNavigateToNews: (articleId: string) => void;
@@ -91,59 +90,59 @@ const getYouTubeEmbedSrc = (url?: string, embedUrl?: string) => {
 
 const FEATURED_STORIES: GameStory[] = [
   {
-    id: 's4-g24-tigersharks-vs-sabrewolves',
-    articleId: 's4-g24-sabrewolves-edge-tigersharks-pierce-record',
-    badgeTag: '★ ALL-TIME RECORD • PIERCE 5 STEALS',
-    badgeColor: 'border-emerald-500/60 bg-emerald-500/20 text-emerald-300',
-    title: 'Sabrewolves Rally in 4th (18-11) to Edge Tigersharks 48-43 Despite Pierce’s Record 5 Steals',
+    id: 's4-g26-dynamics-vs-reds',
+    articleId: 's4-g26-dynamics-rout-reds-mcmichael',
+    badgeTag: '★ S4 REGULAR SEASON • NOV 15',
+    badgeColor: 'border-amber-500/60 bg-amber-500/20 text-amber-300',
+    title: 'Dynamics Ride Balanced Attack and Ball Security to 67-60 Road Win Over Reds',
     subtitle:
-      'San Diego captures its first home win of Season 4 behind 10 team blocks, 23 bench points, and an 18-11 fourth-quarter surge to overcome 15 team steals and rookie Malique Pierce’s historic 5 thefts.',
-    date: 'Nov 14 • Season 4 Regular Season',
-    youtubeUrl: 'https://www.youtube.com/watch?v=U4PB1p0-A5M',
-    youtubeEmbedUrl: 'https://www.youtube.com/embed/U4PB1p0-A5M?si=kBVv6HoFduOFIotO',
-    image: aCreekVsSjImg,
+      'Four Dynamics score 10 points and Los Angeles commits just 4 turnovers, overcoming a historic 34-point, 12-rebound masterclass from California center Andor Marai.',
+    date: 'Nov 15 • Season 4 Regular Season',
+    youtubeUrl: 'https://www.youtube.com/watch?v=lCLaRvf_OGs',
+    youtubeEmbedUrl: 'https://www.youtube.com/embed/lCLaRvf_OGs?si=uewzUDoma-TNOhwR',
+    image: laVsCalImg,
     imageCaption:
-      'The San Diego Sabrewolves clamped down with 10 team blocks and rallied in the fourth quarter to claim a 48-43 win over San Jose, withstanding an all-time CCH single-game record 5 steals by Tigersharks rookie Malique Pierce.',
+      'California Reds center Andor Marai delivered a historic 34-point, 12-rebound masterpiece (16-22 FG) to earn Player of the Game, but the Los Angeles Dynamics used a 25-3 bench advantage and elite ball security to secure a 67-60 road win.',
     winner: {
-      id: 'san-diego-sabrewolves',
-      name: 'San Diego Sabrewolves',
-      city: 'San Diego',
-      nickname: 'Sabrewolves',
-      score: 48,
-      record: '2-3 (7th)',
-      isHome: true,
-    },
-    loser: {
-      id: 'san-jose-tigersharks',
-      name: 'San Jose Tigersharks',
-      city: 'San Jose',
-      nickname: 'Tigersharks',
-      score: 43,
-      record: '0-2 (9th)',
+      id: 'los-angeles-dynamics',
+      name: 'Los Angeles Dynamics',
+      city: 'Los Angeles',
+      nickname: 'Dynamics',
+      score: 67,
+      record: '3-2 (5th)',
       isHome: false,
     },
+    loser: {
+      id: 'california-reds',
+      name: 'California Reds',
+      city: 'California',
+      nickname: 'Reds',
+      score: 60,
+      record: '4-4 (6th)',
+      isHome: true,
+    },
     quarterScores: [
-      { period: 'Q1', team1: 8, team2: 12 },
-      { period: 'Q2', team1: 14, team2: 12 },
-      { period: 'Q3', team1: 8, team2: 8 },
-      { period: 'Q4', team1: 18, team2: 11 },
+      { period: 'Q1', team1: 12, team2: 17 },
+      { period: 'Q2', team1: 18, team2: 9 },
+      { period: 'Q3', team1: 21, team2: 18 },
+      { period: 'Q4', team1: 16, team2: 16 },
     ],
     starPlayer: {
-      name: 'Andre Creek',
-      team: 'San Diego Sabrewolves',
-      statline: '8 PTS (4-4 FG) • 13 REB (Game-High) • 2 AST • 2 BLK',
-      highlight: 'Named Player of the Game after dominating the glass and anchoring 10-block interior defense in 48-43 comeback win',
+      name: 'Andor Marai',
+      team: 'California Reds',
+      statline: '34 PTS (16-22 FG) • 12 REB • 1 STL • 1 BLK',
+      highlight: 'Named Player of the Game in a losing effort after an unstoppable 34-point, 12-rebound masterclass inside.',
     },
     keyStats: [
-      { label: 'Andre Creek', value: '8 PTS, 13 REB', desc: 'Player of the Game • 4-4 FG, 2 BLK' },
-      { label: 'Malique Pierce', value: '5 STL', desc: 'All-Time CCH Single-Game Record' },
-      { label: 'Donald Hardy', value: '15 PTS, 4 STL', desc: 'Game-High 15 PTS (3-4 3PT), 5 REB' },
-      { label: 'Team Blocks', value: '10 - 0 SD', desc: 'Sabrewolves Rim Protection (Glover 3 BLK)' },
+      { label: 'Andor Marai (POTG)', value: '34 PTS, 12 REB', desc: 'Historic 16-of-22 FG (72.7%) performance' },
+      { label: 'Bench Points', value: '25 - 3 LA', desc: 'Dynamics second unit completely outclassed Reds reserves' },
+      { label: 'Turnovers', value: '4 - 12 LA', desc: '18-4 LA advantage in points off turnovers' },
+      { label: 'Balanced Attack', value: '4 Players w/ 10 PTS', desc: 'Alexander (10p/9r/4a/4s/2b), Riley (10p), Forte (10p), McMichael (10p)' },
     ],
     quote: {
-      speaker: 'Jacob Underwood',
-      role: 'Head Coach • San Diego Sabrewolves (First Home S4 Win)',
-      text: 'San Jose gave us everything with Pierce and Hardy jumping our passing lanes for 15 steals. But our defense held them to 21% shooting, our bench gave us 23 points, and our 10 team blocks won this in the fourth quarter.',
+      speaker: 'Pooh Splitter',
+      role: 'Head Coach • Los Angeles Dynamics (3-2 Record)',
+      text: 'Committing only four turnovers on the road against a high-pressure team is championship-level ball security. Our bench gave us 25 huge points, and our balanced attack carried us through.',
     },
   },
 ];

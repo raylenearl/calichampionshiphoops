@@ -16,6 +16,7 @@ import {
   Tv
 } from 'lucide-react';
 import { TeamBadge } from './TeamBadge';
+import laVsCalImg from '../assets/images/NBA 2K26 for Xbox Series X_S-2026_09_23-05_44_58.png';
 import aCreekVsSjImg from '../assets/images/ACreek_vs_SJs4.png';
 import aMaraiS4_1Img from '../assets/images/AMaraiS4_1.png';
 import boomerVsGsImg from '../assets/images/Boomer_vs_GS.png';
@@ -83,6 +84,62 @@ interface GameHighlight {
 }
 
 const HIGHLIGHT_GAMES: GameHighlight[] = [
+  {
+    id: 'game-26',
+    articleId: 's4-g26-dynamics-rout-reds-mcmichael',
+    date: 'Nov 15 • Season 4',
+    youtubeUrl: 'https://www.youtube.com/watch?v=lCLaRvf_OGs',
+    headline: 'Los Angeles Dynamics 67, California Reds 60',
+    subheadline: 'Dynamics Ride Balanced Attack & Ball Security (4 TOs) to 67-60 Win; Marai Pours in 34 PTS',
+    narrative:
+      'The Los Angeles Dynamics secured a hard-fought 67-60 road victory over the California Reds, using an 18-9 second quarter and a 25-3 bench advantage to overcome a historic 34-point, 12-rebound masterclass from California center Andor Marai. Four Dynamics scored exactly 10 points while LA committed just four turnovers as a team.',
+    winner: {
+      id: 'los-angeles-dynamics',
+      name: 'Los Angeles Dynamics',
+      score: 67,
+      record: '3-2 (5th)',
+      isHome: false,
+    },
+    loser: {
+      id: 'california-reds',
+      name: 'California Reds',
+      score: 60,
+      record: '4-4 (6th)',
+      isHome: true,
+    },
+    quarters: [
+      { period: 'Q1', team1: 12, team2: 17 },
+      { period: 'Q2', team1: 18, team2: 9 },
+      { period: 'Q3', team1: 21, team2: 18 },
+      { period: 'Q4', team1: 16, team2: 16 },
+    ],
+    starPlayer: {
+      name: 'Andor Marai',
+      number: '#15',
+      team: 'California Reds',
+      position: 'C',
+      statline: '34 PTS • 12 REB • 1 STL • 1 BLK (16-22 FG)',
+      highlightPill: 'Player of the Game • 34 PTS',
+      image: laVsCalImg,
+    },
+    keyStats: [
+      { label: 'Bench Points', value: '25 - 3 LA', desc: 'Dynamics second unit completely dominated (+22 LA)' },
+      { label: 'Turnovers', value: '4 - 12 LA', desc: '18-4 LA edge in points off turnovers' },
+      { label: 'Fast Break Points', value: '14 - 4 LA', desc: 'Dynamics capitalized in transition' },
+      { label: 'Free Throws', value: '14/16 (88%)', desc: 'Clutch 4-of-4 FT shooting in final frame sealed win' },
+    ],
+    secondaryPerformers: [
+      { name: 'Kyle Robinson', team: 'CAL', stat: '13 PTS, 4 REB, 2 AST' },
+      { name: 'Mo Alexander', team: 'LA', stat: '10 PTS, 9 REB, 4 AST, 4 STL, 2 BLK' },
+      { name: 'R. Riley', team: 'LA', stat: '10 PTS (5-6 FG off bench)' },
+      { name: 'R. Forte', team: 'LA', stat: '10 PTS (11 MIN off bench)' },
+      { name: 'Jack McMichael Jr.', team: 'LA', stat: '10 PTS, 6 AST, 2 STL (8-8 FT)' },
+      { name: 'R.J. Rush', team: 'LA', stat: '8 PTS, 3 AST, 1 STL' },
+    ],
+    badgeColor: 'from-amber-600 to-red-800',
+    tagIcon: 'flame',
+    tagText: 'POTG Masterclass • Road Win',
+  },
   {
     id: 'game-24',
     articleId: 's4-g24-sabrewolves-edge-tigersharks-pierce-record',
