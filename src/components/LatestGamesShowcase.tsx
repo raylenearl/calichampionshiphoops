@@ -16,6 +16,7 @@ import {
   Tv
 } from 'lucide-react';
 import { TeamBadge } from './TeamBadge';
+import sacVsSfImg from '../assets/images/NBA 2K26 2026-09-30 01-31-31.png';
 import laVsCalImg from '../assets/images/NBA 2K26 for Xbox Series X_S-2026_09_23-05_44_58.png';
 import aCreekVsSjImg from '../assets/images/ACreek_vs_SJs4.png';
 import aMaraiS4_1Img from '../assets/images/AMaraiS4_1.png';
@@ -84,6 +85,62 @@ interface GameHighlight {
 }
 
 const HIGHLIGHT_GAMES: GameHighlight[] = [
+  {
+    id: 'game-27',
+    articleId: 's4-g27-stallions-edge-knights-pognotti',
+    date: 'Nov 15 • Season 4',
+    youtubeUrl: 'https://www.youtube.com/watch?v=qXQbLWK53t0',
+    headline: 'Sacramento Stallions 58, San Francisco Knights 51',
+    subheadline: 'Pognotti Pours in 23 PTS & 9 REB; Hackett Blocks 4 as Stallions Earn 1st Win of Season 4',
+    narrative:
+      'The Sacramento Stallions captured their first win of Season 4 with a gritty 58-51 road victory over the San Francisco Knights. Player of the Game Adrian Pognotti dominated the paint with 23 points (10-17 FG) and 9 rebounds, while Frank Hackett added 13 points and 4 blocks. Sacramento outscored San Francisco 32-22 in the paint and 17-4 in points off turnovers.',
+    winner: {
+      id: 'sacramento-stallions',
+      name: 'Sacramento Stallions',
+      score: 58,
+      record: '1-3 (10th)',
+      isHome: false,
+    },
+    loser: {
+      id: 'san-francisco-knights',
+      name: 'San Francisco Knights',
+      score: 51,
+      record: '0-6 (12th)',
+      isHome: true,
+    },
+    quarters: [
+      { period: 'Q1', team1: 8, team2: 13 },
+      { period: 'Q2', team1: 15, team2: 9 },
+      { period: 'Q3', team1: 17, team2: 10 },
+      { period: 'Q4', team1: 18, team2: 19 },
+    ],
+    starPlayer: {
+      name: 'Adrian Pognotti',
+      number: '#33',
+      team: 'Sacramento Stallions',
+      position: 'C',
+      statline: '23 PTS • 9 REB • 2 STL (10-17 FG, 2-2 FT)',
+      highlightPill: 'Player of the Game • 23 PTS',
+      image: sacVsSfImg,
+    },
+    keyStats: [
+      { label: 'Points in Paint', value: '32 - 22 SAC', desc: 'Stallions controlled interior scoring +10 margin' },
+      { label: 'Points off TOs', value: '17 - 4 SAC', desc: 'Stallions committed just 7 TOs, forced 12' },
+      { label: 'Fast Break Points', value: '12 - 4 SAC', desc: 'Sacramento pushed tempo in transition' },
+      { label: 'Hackett Rim Protection', value: '4 Blocks', desc: 'Hackett added 13 PTS on 6-7 FG and 6 REB' },
+    ],
+    secondaryPerformers: [
+      { name: 'Frank Hackett', team: 'SAC', stat: '13 PTS, 6 REB, 4 BLK (6-7 FG)' },
+      { name: 'Erik Higgins', team: 'SF', stat: '12 PTS, 10 REB, 3 STL' },
+      { name: 'N. Battle', team: 'SF', stat: '12 PTS (2-4 3PT in 11 MIN)' },
+      { name: 'Edgar Reynolds', team: 'SAC', stat: '8 PTS, 7 REB, 6 AST' },
+      { name: 'Marion Payton', team: 'SF', stat: '5 PTS, 6 REB, 2 STL' },
+      { name: 'George Madsen', team: 'SAC', stat: '3 REB, 4 AST, 1 STL, 1 BLK' },
+    ],
+    badgeColor: 'from-purple-600 to-indigo-900',
+    tagIcon: 'zap',
+    tagText: 'First S4 Victory • Paint Control',
+  },
   {
     id: 'game-26',
     articleId: 's4-g26-dynamics-rout-reds-mcmichael',

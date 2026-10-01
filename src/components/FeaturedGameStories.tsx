@@ -18,6 +18,7 @@ import {
   Newspaper,
 } from 'lucide-react';
 import { TeamBadge } from './TeamBadge';
+import sacVsSfImg from '../assets/images/NBA 2K26 2026-09-30 01-31-31.png';
 import laVsCalImg from '../assets/images/NBA 2K26 for Xbox Series X_S-2026_09_23-05_44_58.png';
 
 interface FeaturedGameStoriesProps {
@@ -90,59 +91,59 @@ const getYouTubeEmbedSrc = (url?: string, embedUrl?: string) => {
 
 const FEATURED_STORIES: GameStory[] = [
   {
-    id: 's4-g26-dynamics-vs-reds',
-    articleId: 's4-g26-dynamics-rout-reds-mcmichael',
+    id: 's4-g27-stallions-vs-knights',
+    articleId: 's4-g27-stallions-edge-knights-pognotti',
     badgeTag: '★ S4 REGULAR SEASON • NOV 15',
-    badgeColor: 'border-amber-500/60 bg-amber-500/20 text-amber-300',
-    title: 'Dynamics Ride Balanced Attack and Ball Security to 67-60 Road Win Over Reds',
+    badgeColor: 'border-purple-500/60 bg-purple-500/20 text-purple-300',
+    title: 'Stallions Ride Dominant Paint Performance to 58-51 Road Win Over Knights',
     subtitle:
-      'Four Dynamics score 10 points and Los Angeles commits just 4 turnovers, overcoming a historic 34-point, 12-rebound masterclass from California center Andor Marai.',
+      'Adrian Pognotti pours in 23 points and 9 rebounds while Frank Hackett tallies 13 points and 4 blocks as Sacramento captures its first win of Season 4.',
     date: 'Nov 15 • Season 4 Regular Season',
-    youtubeUrl: 'https://www.youtube.com/watch?v=lCLaRvf_OGs',
-    youtubeEmbedUrl: 'https://www.youtube.com/embed/lCLaRvf_OGs?si=uewzUDoma-TNOhwR',
-    image: laVsCalImg,
+    youtubeUrl: 'https://www.youtube.com/watch?v=qXQbLWK53t0',
+    youtubeEmbedUrl: 'https://www.youtube.com/embed/qXQbLWK53t0?si=FmOerr3REDQ2JTcu',
+    image: sacVsSfImg,
     imageCaption:
-      'California Reds center Andor Marai delivered a historic 34-point, 12-rebound masterpiece (16-22 FG) to earn Player of the Game, but the Los Angeles Dynamics used a 25-3 bench advantage and elite ball security to secure a 67-60 road win.',
+      'Stallions center Adrian Pognotti was a force in the paint, finishing with a game-high 23 points and 9 rebounds (10-17 FG) as Sacramento notched its first win of Season 4, 58-51 at San Francisco.',
     winner: {
-      id: 'los-angeles-dynamics',
-      name: 'Los Angeles Dynamics',
-      city: 'Los Angeles',
-      nickname: 'Dynamics',
-      score: 67,
-      record: '3-2 (5th)',
+      id: 'sacramento-stallions',
+      name: 'Sacramento Stallions',
+      city: 'Sacramento',
+      nickname: 'Stallions',
+      score: 58,
+      record: '1-3 (10th)',
       isHome: false,
     },
     loser: {
-      id: 'california-reds',
-      name: 'California Reds',
-      city: 'California',
-      nickname: 'Reds',
-      score: 60,
-      record: '4-4 (6th)',
+      id: 'san-francisco-knights',
+      name: 'San Francisco Knights',
+      city: 'San Francisco',
+      nickname: 'Knights',
+      score: 51,
+      record: '0-6 (12th)',
       isHome: true,
     },
     quarterScores: [
-      { period: 'Q1', team1: 12, team2: 17 },
-      { period: 'Q2', team1: 18, team2: 9 },
-      { period: 'Q3', team1: 21, team2: 18 },
-      { period: 'Q4', team1: 16, team2: 16 },
+      { period: 'Q1', team1: 8, team2: 13 },
+      { period: 'Q2', team1: 15, team2: 9 },
+      { period: 'Q3', team1: 17, team2: 10 },
+      { period: 'Q4', team1: 18, team2: 19 },
     ],
     starPlayer: {
-      name: 'Andor Marai',
-      team: 'California Reds',
-      statline: '34 PTS (16-22 FG) • 12 REB • 1 STL • 1 BLK',
-      highlight: 'Named Player of the Game in a losing effort after an unstoppable 34-point, 12-rebound masterclass inside.',
+      name: 'Adrian Pognotti',
+      team: 'Sacramento Stallions',
+      statline: '23 PTS (10-17 FG, 1-4 3PT, 2-2 FT) • 9 REB • 2 STL',
+      highlight: 'Named Player of the Game after dominating the interior with 23 points, 9 boards, and zero turnovers in 27 minutes.',
     },
     keyStats: [
-      { label: 'Andor Marai (POTG)', value: '34 PTS, 12 REB', desc: 'Historic 16-of-22 FG (72.7%) performance' },
-      { label: 'Bench Points', value: '25 - 3 LA', desc: 'Dynamics second unit completely outclassed Reds reserves' },
-      { label: 'Turnovers', value: '4 - 12 LA', desc: '18-4 LA advantage in points off turnovers' },
-      { label: 'Balanced Attack', value: '4 Players w/ 10 PTS', desc: 'Alexander (10p/9r/4a/4s/2b), Riley (10p), Forte (10p), McMichael (10p)' },
+      { label: 'Adrian Pognotti (POTG)', value: '23 PTS, 9 REB', desc: 'Game-high 23 PTS on 10-17 FG with 2 steals' },
+      { label: 'Points in Paint', value: '32 - 22 SAC', desc: 'Stallions dominated inside with 32 paint points (+10)' },
+      { label: 'Points off Turnovers', value: '17 - 4 SAC', desc: 'Sacramento forced 12 TOs while committing only 7' },
+      { label: 'Frank Hackett', value: '13 PTS, 4 BLK', desc: '6-of-7 FG shooting, 6 REB, and 2 steals' },
     ],
     quote: {
-      speaker: 'Pooh Splitter',
-      role: 'Head Coach • Los Angeles Dynamics (3-2 Record)',
-      text: 'Committing only four turnovers on the road against a high-pressure team is championship-level ball security. Our bench gave us 25 huge points, and our balanced attack carried us through.',
+      speaker: 'Shawn Roberts',
+      role: 'Head Coach • Sacramento Stallions (1st Season 4 Win)',
+      text: 'Our interior play was the difference tonight. Scoring 32 points in the paint, committing only 7 turnovers, and outscoring them 17-4 off turnovers is how we want Stallions basketball to look. Adrian Pognotti anchored us all night.',
     },
   },
 ];

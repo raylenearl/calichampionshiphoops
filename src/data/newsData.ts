@@ -7,6 +7,8 @@ import { PLAYOFF_HISTORY } from './playoffsData';
 import { TEAMS } from './teamsData';
 import { GameRecord } from '../types';
 import aCreekVsSjImg from '../assets/images/ACreek_vs_SJs4.png';
+import sacVsSfImg from '../assets/images/NBA 2K26 2026-09-30 01-31-31.png';
+import sacVsSfBoxImg from '../assets/images/NBA 2K26 2026-09-30 01-31-46.png';
 import laVsCalImg from '../assets/images/NBA 2K26 for Xbox Series X_S-2026_09_23-05_44_58.png';
 import rjRush1Img from '../assets/images/RJRush1.png';
 import boomerVsSf1Img from '../assets/images/Boomer_vs_SF1.png';
@@ -115,13 +117,94 @@ export interface CCHNewsArticle {
 
 export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
   {
+    id: 's4-g27-stallions-edge-knights-pognotti',
+    title: 'Stallions Ride Dominant Paint Performance to 58-51 Road Win Over Knights',
+    subtitle: 'Adrian Pognotti anchors Sacramento with 23 points and 9 rebounds as Stallions dominate the interior and capitalize on turnovers to capture their first win of Season 4.',
+    date: 'Season 4 Recap • Nov 15',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • NorCal Beat',
+    readTime: '3 min read',
+    youtubeUrl: 'https://www.youtube.com/embed/qXQbLWK53t0?si=FmOerr3REDQ2JTcu',
+    imageUrl: sacVsSfImg,
+    imageCaption: 'Sacramento Stallions center Adrian Pognotti was a force in the paint, finishing with a game-high 23 points and 9 rebounds (10-17 FG) as the Stallions secured a 58-51 road victory over the San Francisco Knights.',
+    secondaryImage: sacVsSfBoxImg,
+    secondaryImageCaption: 'Official box score summary from the Sacramento Stallions\' 58-51 road victory over the San Francisco Knights at the Chase Center.',
+    teams: {
+      team1: 'Sacramento Stallions',
+      team1Id: 'sacramento-stallions',
+      score1: 58,
+      team2: 'San Francisco Knights',
+      team2Id: 'san-francisco-knights',
+      score2: 51,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 8, team2: 13 },
+      { period: 'Q2', team1: 15, team2: 9 },
+      { period: 'Q3', team1: 17, team2: 10 },
+      { period: 'Q4', team1: 18, team2: 19 },
+    ],
+    headlineQuote: 'Stallions center Adrian Pognotti was a force in the paint with 23 points and 9 rebounds, Frank Hackett rejected 4 shots, and Sacramento used a 17-4 advantage in points off turnovers to defeat San Francisco 58-51 for their first win of Season 4.',
+    contentParagraphs: [
+      'San Francisco, CA – The Sacramento Stallions (1-3) secured their first win of the season, defeating the San Francisco Knights (0-6) 58-51 on the road. Despite trailing early, the Stallions used a dominant second and third quarter to take control of the game and never looked back.',
+      'HOW THE GAME WAS WON:\nThe Knights jumped out to an early 13-8 lead after the first quarter, but the Stallions responded emphatically. Sacramento outscored San Francisco 15-9 in the second quarter to take a narrow 23-22 halftime lead. They blew the game open in the third quarter, extending their lead with a 17-10 run to enter the final frame up by eight. The Knights made a late push in the fourth, but the Stallions\' efficient interior scoring and ball security proved too much to overcome.',
+      'PLAYER OF THE GAME: ADRIAN POGNOTTI (SAC):\nStallions center Adrian Pognotti was a force in the paint, finishing with a game-high 23 points and 9 rebounds on an efficient 10-of-17 shooting from the field, including 2 steals. He was the anchor for Sacramento all night.',
+      'KEY PERFORMERS:\nSacramento Stallions:\n• Frank Hackett: 13 points, 6 rebounds, 2 steals, and a massive 4 blocks on 6-of-7 shooting.\n• Edgar Reynolds: A solid all-around game with 8 points, 7 rebounds, and 6 assists.\n• George Madsen: Didn\'t score, but contributed 3 rebounds and 4 assists.\n\nSan Francisco Knights:\n• Erik Higgins: A double-double with 12 points and 10 rebounds, adding 3 steals.\n• N. Battle: Provided a spark off the bench with 12 points on 2-of-4 shooting from three-point range in just 11 minutes.\n• Marion Payton: Chipped in 5 points, 6 rebounds, and 2 steals.',
+      'TEAM STATISTICS BREAKDOWN:\nThe game was decided in the paint and by taking care of the basketball:\n• Points in the Paint: Sacramento 32, San Francisco 22.\n• Fast Break Points: Sacramento 12, San Francisco 4.\n• Turnovers: Sacramento 7, San Francisco 12.\n• Field Goal Percentage: Sacramento 44% (24/54), San Francisco 35% (18/51).\n• Bench Points: San Francisco 21, Sacramento 11.\n• Rebounds: Sacramento 37, San Francisco 36.\n\nDespite San Francisco shooting better from three-point range (33% to 27%) and the free-throw line (67% to 60%), Sacramento\'s dominance inside the arc and their ability to limit turnovers (leading to a 17-4 advantage in points off turnovers) proved to be the difference.\n\nThe win moves the Stallions to 1-3 on the season, while the Knights remain winless at 0-6.'
+    ],
+    quotes: [
+      {
+        speaker: 'Adrian Pognotti',
+        title: 'Center • Sacramento Stallions (Player of the Game • 23 PTS, 9 REB, 2 STL)',
+        quote: 'We knew we needed to establish our physical identity inside tonight. Frank Hackett protected the rim with four blocks and Edgar found the open man all night. Getting this first win is huge for our confidence as we get into the groove of Season 4.'
+      },
+      {
+        speaker: 'Shawn Roberts',
+        title: 'Head Coach • Sacramento Stallions (1-3 Record • 1st S4 Win)',
+        quote: 'Our paint execution and ball security won this game. Holding them to 7 turnovers while forcing 12 and generating a 17-4 edge in points off turnovers allowed us to control the tempo when it mattered most.'
+      },
+      {
+        speaker: 'Erik Higgins',
+        title: 'Forward • San Francisco Knights (12 PTS, 10 REB, 3 STL)',
+        quote: 'We had a good start in the first quarter, but Sacramento\'s size in the paint and those second and third quarter runs put us on our heels. We fought until the end, but we need to limit turnovers.'
+      },
+      {
+        speaker: 'Frank Hackett',
+        title: 'Forward • Sacramento Stallions (13 PTS, 6 REB, 4 BLK, 6-7 FG)',
+        quote: 'We wanted to make every look at the rim difficult for them. Blocking shots and getting out in transition for 12 fast-break points set the tone in that second half.'
+      }
+    ],
+    playerStats: [
+      { player: 'Adrian Pognotti', team: 'Sacramento Stallions', stat: '23 PTS, 9 REB, 2 STL (10-17 FG, 1-4 3PT, 2-2 FT) • POTG' },
+      { player: 'Frank Hackett', team: 'Sacramento Stallions', stat: '13 PTS, 6 REB, 4 BLK, 2 STL (6-7 FG, 1-1 3PT)' },
+      { player: 'Erik Higgins', team: 'San Francisco Knights', stat: '12 PTS, 10 REB, 3 STL (Double-Double)' },
+      { player: 'N. Battle', team: 'San Francisco Knights', stat: '12 PTS, 1 REB (2-4 3PT off bench in 11 MIN)' },
+      { player: 'Edgar Reynolds', team: 'Sacramento Stallions', stat: '8 PTS, 7 REB, 6 AST (3-10 FG, 1-1 3PT)' },
+      { player: 'D. Gilmore', team: 'San Francisco Knights', stat: '5 PTS, 2 REB, 2 AST' },
+      { player: 'G. Stefan', team: 'San Francisco Knights', stat: '5 PTS, 5 REB, 4 AST' },
+      { player: 'Marion Payton', team: 'San Francisco Knights', stat: '5 PTS, 6 REB, 2 STL' },
+      { player: 'D. Cage', team: 'San Francisco Knights', stat: '5 PTS (2-2 FG off bench)' },
+      { player: 'R. Dunleavy Sr.', team: 'Sacramento Stallions', stat: '5 PTS, 2 AST (2-8 FG, 1-6 3PT)' },
+      { player: 'G. Jackson', team: 'Sacramento Stallions', stat: '3 PTS, 3 REB, 1 AST, 1 STL' },
+      { player: 'George Madsen', team: 'Sacramento Stallions', stat: '3 REB, 4 AST, 1 STL, 1 BLK' },
+      { player: 'Points in Paint', team: 'Team Comparison', stat: 'Sacramento 32 • San Francisco 22 (+10 SAC)' },
+      { player: 'Points off Turnovers', team: 'Team Comparison', stat: 'Sacramento 17 • San Francisco 4 (+13 SAC)' },
+      { player: 'Fast Break Points', team: 'Team Comparison', stat: 'Sacramento 12 • San Francisco 4 (+8 SAC)' },
+      { player: 'Turnovers', team: 'Team Comparison', stat: 'Sacramento 7 • San Francisco 12' },
+      { player: 'Field Goal %', team: 'Team Comparison', stat: 'Sacramento 44% (24/54) • San Francisco 35% (18/51)' },
+      { player: 'Bench Points', team: 'Team Comparison', stat: 'San Francisco 21 • Sacramento 11' },
+      { player: 'Rebounds', team: 'Team Comparison', stat: 'Sacramento 37 • San Francisco 36' }
+    ]
+  },
+  {
     id: 's4-g26-dynamics-rout-reds-mcmichael',
     title: 'Dynamics Ride Balanced Attack and Ball Security to 67-60 Road Win Over Reds',
     subtitle: 'Four Dynamics score 10 points and LA commits just 4 turnovers, overcoming a historic 34-point, 12-rebound masterclass from California center Andor Marai.',
     date: 'Season 4 Recap • Nov 15',
     season: 4,
     category: 'recap',
-    featured: true,
+    featured: false,
     author: 'CCH Game Recap Desk • Los Angeles Beat',
     readTime: '3 min read',
     youtubeUrl: 'https://www.youtube.com/embed/lCLaRvf_OGs?si=uewzUDoma-TNOhwR',
