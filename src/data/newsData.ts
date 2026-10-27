@@ -17,6 +17,9 @@ import kingJordan1Img from '../assets/images/KingJordan1.png';
 import rjRushVsFresnoImg from '../assets/images/RJRush_vs_Freso.png';
 import ajHinton99Img from '../assets/images/AJHinton99.png';
 import ajHintonS4_1Img from '../assets/images/AJHintonS4_1.png';
+import sdsVsFreGray3PtImg from '../assets/images/NBA 2K26 2026-10-16 14-45-57.png';
+import sjVsCalSloanVsRodmanImg from '../assets/images/NBA 2K26 2026-10-16 16-48-01-1.png';
+import sjVsAnaCoverImg from '../assets/images/NBA 2K26 for Xbox Series X_S-2026_10_23-05_01_07.png';
 import sdReboundS4Img from '../assets/images/SD_Rebound_S4.png';
 import hintonVsJmjS4Img from '../assets/images/Hinton_vs_JMJs4.png';
 import aMaraiS4_1Img from '../assets/images/AMaraiS4_1.png';
@@ -80,6 +83,12 @@ export interface QuarterScore {
   team2: number;
 }
 
+export interface ArticleGalleryImage {
+  url: string;
+  caption: string;
+  tag: string;
+}
+
 export interface CCHNewsArticle {
   id: string;
   title: string;
@@ -94,6 +103,7 @@ export interface CCHNewsArticle {
   imageCaption?: string;
   secondaryImage?: string;
   secondaryImageCaption?: string;
+  galleryImages?: ArticleGalleryImage[];
   youtubeUrl?: string;
   instagramUrl?: string;
   instagramEmbedUrl?: string;
@@ -117,13 +127,255 @@ export interface CCHNewsArticle {
 
 export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
   {
+    id: 's4-g30-tigersharks-dominate-paint-admirals-sloan',
+    title: 'San Jose Tigersharks Dominate the Paint to Secure 57-48 Road Win Over Anaheim Admirals',
+    subtitle: 'Al Sloan posts a massive 18-point, 11-rebound double-double on 9-of-10 shooting as San Jose outscores Anaheim 36-16 in the paint to capture its first win of Season 4, moving to 1-3.',
+    date: 'Season 4 Recap • Nov 19',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH Game Recap Desk • Southern California Beat',
+    readTime: '3 min read',
+    youtubeUrl: 'https://www.youtube.com/embed/5tieOrMUva0?si=XLVibwdPil406ldp',
+    imageUrl: sjVsAnaCoverImg,
+    imageCaption: 'Tigersharks center Al Sloan (#1) controls the interior at Honda Center, posting a monster 18-point, 11-rebound double-double (9-10 FG) in San Jose’s 57-48 road victory over Anaheim.',
+    teams: {
+      team1: 'San Jose Tigersharks',
+      team1Id: 'san-jose-tigersharks',
+      score1: 57,
+      team2: 'Anaheim Admirals',
+      team2Id: 'anaheim-admirals',
+      score2: 48,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 19, team2: 8 },
+      { period: 'Q2', team1: 9, team2: 10 },
+      { period: 'Q3', team1: 15, team2: 14 },
+      { period: 'Q4', team1: 14, team2: 16 },
+    ],
+    headlineQuote: 'Tigersharks center Al Sloan was an absolute force of efficiency, posting a massive 18-point, 11-rebound double-double on 9-of-10 shooting as San Jose dominated the paint 36-16 to secure a 57-48 road victory in Anaheim.',
+    contentParagraphs: [
+      'Anaheim, CA – The San Jose Tigersharks (1-3) picked up their first win of the season on the road, defeating the Anaheim Admirals (1-3) 57-48. Despite a late fourth-quarter push from the home team, the Tigersharks\' overwhelming advantage inside the paint proved to be the deciding factor.',
+      'HOW THE GAME WAS WON:\nThe Tigersharks set the tone early, jumping out to a commanding 19-8 lead after the first quarter. They extended that lead to double digits by halftime (28-18). While the Admirals found their footing in the second half behind some hot three-point shooting, the early deficit was too much to overcome. San Jose dominated the interior all night, outscoring Anaheim 36-16 in the paint.',
+      'PLAYER OF THE GAME: AL SLOAN (SJ):\nTigersharks center Al Sloan was an absolute force of efficiency. He posted a massive double-double with 18 points and 11 rebounds, shooting a blistering 9-of-10 from the field. He single-handedly kept the Admirals\' defense on its heels all night.',
+      'KEY PERFORMERS:\nSan Jose Tigersharks:\n• Donald Hardy: Provided a strong secondary scoring punch with 12 points on 5-of-7 shooting.\n• Malique Pierce: Filled the stat sheet with 9 points, 3 rebounds, a game-high 8 assists, and 3 steals. (Halftime note: Pierce led the way at the break with 6 points, 2 rebounds, and 5 assists).\n• Dell Butler: Chipped in 8 points and 2 blocks off the bench.\n\nAnaheim Admirals:\n• Stephan Sirven: Did his best to keep Anaheim in it, scoring a team-high 14 points to go with 4 assists.\n• Kirk Tinsley: Added 12 points and 4 rebounds.\n• Jesse Wingate: Was a monster on the glass, pulling down 10 rebounds to go with 6 points and 3 steals.',
+      'STATISTICAL BREAKDOWN:\n• Points in the Paint: San Jose 36, Anaheim 16 (The story of the game).\n• Field Goal Percentage: San Jose 49% (24/49), Anaheim 36% (18/50).\n• Rebounds: San Jose 36, Anaheim 26.\n• 3-Pointers: Anaheim 6/14 (43%), San Jose 5/15 (33%). The Admirals shot well from deep but simply couldn\'t generate enough looks inside.\n• Assists: San Jose 18, Anaheim 13.',
+      'AROUND THE LEAGUE: SEASON 4 UPDATE:\n\nPlayers of the Week Announced:\nThe league has named its Players of the Week for the most recent stretch of games:\n• Northern Cali: Carlton Daugherty (Golden State Enterprise) – Daugherty has been on an absolute tear, averaging 31.0 points, 6.0 rebounds, and 7.0 three-pointers made per game.\n• Southern Cali: Mo Alexander (Los Angeles Dynamics) – Alexander earns the honor by anchoring the paint and dominating the glass, averaging 8.0 points, 11.0 rebounds, 3.0 assists, and 2.0 steals per game.\n\nTransaction Wire:\nFront offices have been busy trimming rosters:\n• The San Francisco Knights have waived SG Hasan Akyel.\n• The Fresno Mad Dogs have waived SG Ronny Bates and PG Chucky Miller.\n\nThe win moves San Jose to 1-3 on the season, while Anaheim continues to search for consistency on both ends of the floor at 1-3.'
+    ],
+    quotes: [
+      {
+        speaker: 'Al Sloan',
+        title: 'Center • San Jose Tigersharks (Player of the Game • 18 PTS, 11 REB, 9-10 FG)',
+        quote: 'We knew we had the physical edge inside and coach wanted us to exploit it right from the opening tip. Donald Hardy and Malique Pierce delivered incredible passes and created open looks for me in the paint. Getting our first win on the road moves us to 1-3 and gives us great momentum.'
+      },
+      {
+        speaker: 'Michael Stauffer',
+        title: 'Head Coach • San Jose Tigersharks (1-3 Record)',
+        quote: 'Setting the tone with that 19-8 first quarter was critical. We outscored them 36-16 in the paint and won the glass 36-26. When Al Sloan shoots 9-of-10 and Malique dishes out 8 assists, our offensive execution is right where we want it to be.'
+      },
+      {
+        speaker: 'Steve Porter',
+        title: 'Head Coach • Anaheim Admirals (1-3 Record)',
+        quote: 'Falling behind 19-8 in the first quarter put us in a hole we couldn\'t climb out of. We shot 43% from three, but giving up 36 points in the paint and getting outrebounded by 10 will cost you every single night. We have to be more physical inside.'
+      }
+    ],
+    playerStats: [
+      { player: 'Al Sloan', team: 'San Jose Tigersharks', stat: '18 PTS, 11 REB, 2 BLK (9-10 FG, 90%) • POTG Double-Double' },
+      { player: 'Donald Hardy', team: 'San Jose Tigersharks', stat: '12 PTS, 2 REB, 1 AST (5-7 FG, 2-3 3PT)' },
+      { player: 'Malique Pierce', team: 'San Jose Tigersharks', stat: '9 PTS, 3 REB, 8 AST, 3 STL (4-9 FG)' },
+      { player: 'Dell Butler', team: 'San Jose Tigersharks', stat: '8 PTS, 3 REB, 2 BLK (3-6 FG, 2-2 FT)' },
+      { player: 'Stephan Sirven', team: 'Anaheim Admirals', stat: '14 PTS, 2 REB, 4 AST (5-12 FG, 2-5 3PT, 2-2 FT)' },
+      { player: 'Kirk Tinsley', team: 'Anaheim Admirals', stat: '12 PTS, 4 REB, 1 STL (4-10 FG, 2-4 3PT, 2-2 FT)' },
+      { player: 'Jesse Wingate', team: 'Anaheim Admirals', stat: '6 PTS, 10 REB, 3 STL, 1 BLK (2-6 FG)' },
+      { player: 'Points in Paint', team: 'Team Comparison', stat: 'San Jose 36 • Anaheim 16 (+20 SJ)' },
+      { player: 'Field Goal %', team: 'Team Comparison', stat: 'San Jose 49% (24/49) • Anaheim 36% (18/50)' },
+      { player: 'Rebounds', team: 'Team Comparison', stat: 'San Jose 36 • Anaheim 26 (+10 SJ)' },
+      { player: '3-Pointers', team: 'Team Comparison', stat: 'Anaheim 6/14 (43%) • San Jose 5/15 (33%)' },
+      { player: 'Assists', team: 'Team Comparison', stat: 'San Jose 18 • Anaheim 13 (+5 SJ)' }
+    ]
+  },
+  {
+    id: 's4-g29-strykers-rout-mad-dogs-gray',
+    title: 'Strykers Overpower Mad Dogs 70-50 Behind DeAnte Gray’s 20-Point Shooting Masterclass',
+    subtitle: 'DeAnte Gray explodes for 20 points on 7-of-9 shooting (3-of-3 from deep) as San Diego outscores Fresno 25-10 in the third quarter to improve to an unblemished 5-0.',
+    date: 'Season 4 Recap • Nov 17',
+    season: 4,
+    category: 'recap',
+    featured: false,
+    author: 'CCH Game Recap Desk • San Diego Beat',
+    readTime: '3 min read',
+    youtubeUrl: 'https://www.youtube.com/embed/B6u5ml79Kno?si=pzOt10Ck60yk7MZj',
+    imageUrl: sdsVsFreGray3PtImg,
+    imageCaption: 'Player of the Game DeAnte Gray (#84) rises up from downtown right over Lloyd Boomer (#39). Gray went a perfect 3-of-3 from deep for 20 points to lead the unbeaten Strykers (5-0) to a dominant 70-50 rout of Fresno.',
+    secondaryImage: ajHintonS4_1Img,
+    secondaryImageCaption: 'A.J. Hinton (11 PTS, 4 REB, 2 STL) and Ray Gamble (12 PTS, 6 AST) helped the Strykers shoot a blistering 56% from the floor and 43% from 3-point range to remain unbeaten at 5-0.',
+    teams: {
+      team1: 'Fresno Mad Dogs',
+      team1Id: 'fresno-mad-dogs',
+      score1: 50,
+      team2: 'San Diego Strykers',
+      team2Id: 'san-diego-strykers',
+      score2: 70,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 13, team2: 18 },
+      { period: 'Q2', team1: 8, team2: 17 },
+      { period: 'Q3', team1: 10, team2: 25 },
+      { period: 'Q4', team1: 19, team2: 10 },
+    ],
+    headlineQuote: 'Behind DeAnte Gray’s 20 points (7-9 FG, 3-3 3PT) and a blistering 25-10 third-quarter explosion, the San Diego Strykers rolled to a 70-50 home victory over the Fresno Mad Dogs to remain undefeated at 5-0.',
+    contentParagraphs: [
+      'San Diego, CA – The undefeated San Diego Strykers (5-0) continued their dominant march through the California Classic Hoops Season 4 campaign, dispatching the previously red-hot Fresno Mad Dogs (4-2) 70-50 on November 17th in front of a capacity crowd at Pechanga Arena.',
+      'HOW THE GAME WAS WON:\nThe Strykers established control early, carrying an 18-13 lead through the opening frame before suffocating the Mad Dogs defensively in the second quarter. Holding Fresno to just 8 points while adding 17, San Diego took a commanding 35-21 lead into halftime.\n\nThe defining stretch came immediately following the break. San Diego exploded for a devastating 25-10 third quarter, stretching their lead to as much as 31 points (60-31) and putting the contest completely out of reach. While Fresno battled in the fourth quarter with a 19-10 run behind Lloyd Boomer, the deficit was insurmountable.',
+      'PLAYER OF THE GAME: DEANTE GRAY (SD):\nStrykers forward DeAnte Gray put on an absolute clinic. In just 19 minutes of action, Gray posted a game-high 20 points, 6 rebounds, and 1 assist while shooting an extraordinary 7-of-9 from the field, a perfect 3-of-3 from beyond the arc, and 3-of-4 from the free throw line.',
+      'KEY PERFORMERS:\nSan Diego Strykers:\n• DeAnte Gray: 20 points, 6 rebounds, 7-9 FG, 3-3 3PT in 19 minutes.\n• Ray Gamble: 12 points, 4 rebounds, 6 assists, 2 steals, 5-9 FG.\n• A.J. Hinton: 11 points, 4 rebounds, 2 assists, 2 steals, 5-10 FG.\n• C. Marshall: 7 points, 2 rebounds, 2 assists, 1 steal, 1 block (2-2 FG, 3-4 FT).\n• J. Grantham & R. Hammonds: 6 points each off the bench.\n\nFresno Mad Dogs:\n• Lloyd Boomer: 20 points, 4 assists, 7-18 FG, 4-4 FT in 24 minutes.\n• L. Davidson: 7 points, 1 rebound, 1 assist, 1 steal.\n• G. Jones: 6 points, 6 rebounds, 1 block.\n• K. Izzet: 6 points, 2 rebounds, 2 assists, 1 steal (3-4 FG).',
+      'TEAM STATISTICS BREAKDOWN:\nSan Diego dominated the key statistical categories:\n• Points in the Paint: San Diego 40, Fresno 28 (+12 SD).\n• Field Goal Percentage: San Diego 56% (28/50), Fresno 39% (21/54).\n• 3-Point Percentage: San Diego 43% (6/14), Fresno 25% (4/16).\n• Fast Break Points: San Diego 13, Fresno 8.\n• Assists: San Diego 21, Fresno 12.\n• Rebounds: San Diego 33 (4 OR / 29 DR), Fresno 24 (5 OR / 19 DR).\n• Bench Points: San Diego 18, Fresno 13.\n• Biggest Lead: San Diego 31, Fresno 2.\n• Time of Possession: Fresno 18:06, San Diego 13:52.\n\nThe victory elevates the Strykers to a league-best 5-0 record, while the Mad Dogs drop to 4-2 on the season.'
+    ],
+    quotes: [
+      {
+        speaker: 'DeAnte Gray',
+        title: 'Forward • San Diego Strykers (Player of the Game • 20 PTS, 6 REB, 3-3 3PT)',
+        quote: 'My teammates found me in great spots all night. Ray Gamble and A.J. pushed the pace, and when our defense created stops in that third quarter, we were able to run and get easy looks. Staying undefeated feels good, but we have to keep our foot on the gas.'
+      },
+      {
+        speaker: 'Adam Saunders',
+        title: 'Head Coach • San Diego Strykers (5-0 Record • 1st in League)',
+        quote: 'That 25-10 third quarter was the exact brand of basketball we talk about every day in practice. We shot 56% from the floor, shared the ball for 21 assists, and put 40 points in the paint. DeAnte was phenomenal tonight.'
+      },
+      {
+        speaker: 'Lloyd Boomer',
+        title: 'Guard • Fresno Mad Dogs (20 PTS, 4 AST, 4-4 FT)',
+        quote: 'Credit to San Diego. That third quarter run punched us in the mouth and we could not climb back out. We took care of the ball with just 7 turnovers, but when you shoot 39% against a team hitting 56%, the margin for error disappears.'
+      },
+      {
+        speaker: 'Ronnie Flores',
+        title: 'Head Coach • Fresno Mad Dogs (4-2 Record)',
+        quote: 'San Diego showed why they are undefeated. They dominated the glass 33-24 and outscored us 40-28 inside. We will watch the film, learn from it, and come back ready for our next matchup.'
+      }
+    ],
+    playerStats: [
+      { player: 'DeAnte Gray', team: 'San Diego Strykers', stat: '20 PTS, 6 REB, 1 AST (7-9 FG, 3-3 3PT, 3-4 FT, 1 OR, 19 MIN) • POTG' },
+      { player: 'Lloyd Boomer', team: 'Fresno Mad Dogs', stat: '20 PTS, 4 AST, 2 TO (7-18 FG, 2-8 3PT, 4-4 FT, 24 MIN)' },
+      { player: 'Ray Gamble', team: 'San Diego Strykers', stat: '12 PTS, 4 REB, 6 AST, 2 STL (5-9 FG, 2-5 3PT, 22 MIN)' },
+      { player: 'A.J. Hinton', team: 'San Diego Strykers', stat: '11 PTS, 4 REB, 2 AST, 2 STL (5-10 FG, 1-3 3PT, 18 MIN)' },
+      { player: 'C. Marshall', team: 'San Diego Strykers', stat: '7 PTS, 2 REB, 2 AST, 1 STL, 1 BLK (2-2 FG, 3-4 FT, 15 MIN)' },
+      { player: 'L. Davidson', team: 'Fresno Mad Dogs', stat: '7 PTS, 1 REB, 1 AST, 1 STL (3-8 FG, 1-2 3PT, 22 MIN)' },
+      { player: 'J. Grantham', team: 'San Diego Strykers', stat: '6 PTS, 1 REB, 1 AST, 1 BLK (3-7 FG, 20 MIN)' },
+      { player: 'R. Hammonds', team: 'San Diego Strykers', stat: '6 PTS, 4 REB, 2 AST, 1 STL (2-3 FG, 2-2 FT, 15 MIN)' },
+      { player: 'G. Jones', team: 'Fresno Mad Dogs', stat: '6 PTS, 6 REB, 1 BLK (3-7 FG, 20 MIN)' },
+      { player: 'K. Izzet', team: 'Fresno Mad Dogs', stat: '6 PTS, 2 REB, 2 AST, 1 STL (3-4 FG, 12 MIN)' },
+      { player: 'C. Simms', team: 'Fresno Mad Dogs', stat: '5 PTS, 2 REB, 1 AST, 1 STL (2-7 FG, 1-3 3PT, 10 MIN)' },
+      { player: 'M. Novak', team: 'San Diego Strykers', stat: '4 PTS, 5 REB, 1 STL (2-4 FG, 11 MIN)' },
+      { player: 'J. Galloway', team: 'San Diego Strykers', stat: '2 PTS, 3 REB, 3 AST, 1 BLK (1-2 FG, 18 MIN)' },
+      { player: 'N. Webber', team: 'San Diego Strykers', stat: '2 PTS, 2 REB (1-2 FG, 9 MIN)' },
+      { player: 'D. Wingate', team: 'Fresno Mad Dogs', stat: '2 PTS, 2 REB, 2 AST, 3 STL (1-5 FG, 22 MIN)' },
+      { player: 'L. Lucas', team: 'Fresno Mad Dogs', stat: '2 PTS, 1 REB, 1 AST, 1 STL (1-1 FG, 20 MIN)' },
+      { player: 'Carson Graham', team: 'Fresno Mad Dogs', stat: '2 PTS, 4 REB, 2 STL, 2 TO (1-3 FG, 16 MIN)' },
+      { player: 'L. Nixon', team: 'San Diego Strykers', stat: '0 PTS, 1 REB, 4 AST (10 MIN)' },
+      { player: 'E. Udoh', team: 'San Diego Strykers', stat: '0 PTS (0-2 FG, 3 MIN)' },
+      { player: 'C. Sloan', team: 'Fresno Mad Dogs', stat: '0 PTS, 1 REB, 1 AST (12 MIN)' },
+      { player: 'Field Goal %', team: 'Team Comparison', stat: 'San Diego 56% (28/50) • Fresno 39% (21/54)' },
+      { player: '3-Point %', team: 'Team Comparison', stat: 'San Diego 43% (6/14) • Fresno 25% (4/16)' },
+      { player: 'Free Throws', team: 'Team Comparison', stat: 'Fresno 4/4 (100%) • San Diego 8/10 (80%)' },
+      { player: 'Points in Paint', team: 'Team Comparison', stat: 'San Diego 40 • Fresno 28 (+12 SD)' },
+      { player: 'Third Quarter Blitz', team: 'Team Comparison', stat: 'San Diego outscored Fresno 25-10 (60-31 End 3rd)' },
+      { player: 'Fast Break Points', team: 'Team Comparison', stat: 'San Diego 13 • Fresno 8' },
+      { player: 'Bench Points', team: 'Team Comparison', stat: 'San Diego 18 • Fresno 13' },
+      { player: 'Assists', team: 'Team Comparison', stat: 'San Diego 21 • Fresno 12' },
+      { player: 'Rebounds', team: 'Team Comparison', stat: 'San Diego 33 (4 OR/29 DR) • Fresno 24 (5 OR/19 DR)' },
+      { player: 'Biggest Lead', team: 'Team Comparison', stat: 'San Diego 31 • Fresno 2' }
+    ]
+  },
+  {
+    id: 's4-g28-reds-edge-tigersharks-marai',
+    title: 'Reds Hold Off Tigersharks 60-58 in Thriller Behind Marai and Clutch Fourth-Quarter Rally',
+    subtitle: 'Andor Marai posts 18 points, 7 rebounds, and 3 steals with zero turnovers, while Shawn Roberts scores 15 with 6 assists and clutch free throws as California overcomes an 11-point deficit.',
+    date: 'Season 4 Recap • Nov 17',
+    season: 4,
+    category: 'recap',
+    featured: false,
+    author: 'CCH Game Recap Desk • California Beat',
+    readTime: '3 min read',
+    youtubeUrl: 'https://www.youtube.com/embed/Ck5v-GZXTGs?si=wa9BAUT5llsBvg1E',
+    imageUrl: sjVsCalSloanVsRodmanImg,
+    imageCaption: 'San Jose Tigersharks star Austin Sloan (#1) elevates for a contested jumper against California Reds forward Donald Rodman (#2). Sloan tallied 15 points, 3 steals, and 4 blocks, but California rallied for a 60-58 comeback victory.',
+    secondaryImage: aCreekVsSjImg,
+    secondaryImageCaption: 'Austin Sloan paced San Jose with 15 points, 3 steals, and 4 blocks, but the Reds outscored the Tigersharks 19-13 in the fourth quarter to improve to 5-4.',
+    teams: {
+      team1: 'San Jose Tigersharks',
+      team1Id: 'san-jose-tigersharks',
+      score1: 58,
+      team2: 'California Reds',
+      team2Id: 'california-reds',
+      score2: 60,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 8, team2: 14 },
+      { period: 'Q2', team1: 18, team2: 15 },
+      { period: 'Q3', team1: 19, team2: 12 },
+      { period: 'Q4', team1: 13, team2: 19 },
+    ],
+    headlineQuote: 'Andor Marai delivered 18 points (9-14 FG) with zero turnovers, Shawn Roberts added 15 points and 6 assists, and the California Reds mounted a 19-13 fourth-quarter comeback to hold off the San Jose Tigersharks 60-58.',
+    contentParagraphs: [
+      'California – The California Reds (5-4) rallied in the fourth quarter to edge the San Jose Tigersharks (0-3) 60-58 in a dramatic wire-to-wire battle on November 17th. Despite falling behind by as many as 11 points in the second half, the Reds leaned on veteran center Andor Marai and clutch free-throw execution to capture their fifth victory of Season 4.',
+      'HOW THE GAME WAS WON:\nThe Reds gained early separation in the first quarter, claiming a 14-8 advantage. However, the Tigersharks stormed back in the second and third frames behind aggressive defense and rim protection from Austin Sloan. San Jose outscored California 18-15 in the second and 19-12 in the third to take a 45-41 lead into the final period, even stretching their advantage to 11 points at one stage.\n\nIn the fourth quarter, California flipped the switch. Led by Andor Marai’s high-percentage finishing inside and Shawn Roberts’ clutch foul shooting (hitting 6-of-7 from the stripe), the Reds outscored San Jose 19-13 in the fourth quarter to take the lead in the final minute and secure the 60-58 triumph.',
+      'PLAYER OF THE GAME: ANDOR MARAI (CAL):\nReds center Andor Marai continued his stellar play, leading California with 18 points on 9-of-14 shooting from the field (64%), pulling down 7 rebounds, dishing 2 assists, and swiping 3 steals while committing zero turnovers in 20 minutes of action.',
+      'KEY PERFORMERS:\nCalifornia Reds:\n• Andor Marai: 18 points, 7 rebounds, 2 assists, 3 steals, 1 block (9-14 FG, 0 TO).\n• Shawn Roberts: 15 points, 1 rebound, 6 assists, 2 steals, 6-7 FT in 25 minutes.\n• D. Pittman: 7 points, 1 rebound, 2-5 FG, 1-2 3PT, 2-3 FT in 6 minutes.\n• J. Gordon: 6 points, 7 rebounds, 2-2 FT, 1 OR in 17 minutes.\n• Donald Rodman: 5 points, 9 rebounds, 1 assist, 3 steals, 1 block (2-2 FG, 1-1 3PT in 24 minutes).\n• M. Holman: 4 points, 2 rebounds, 2 assists (2-3 FG in 23 minutes).\n• Kyle Robinson: 3 points, 1 rebound, 2 assists (25 minutes).\n• D. Irving: 2 points, 1 rebound, 1 assist (12 minutes).\n\nSan Jose Tigersharks:\n• Austin Sloan: 15 points, 3 steals, 4 blocks to pace San Jose on both ends.\n• Tigersharks combined for 22/50 FG (44%) and 5 three-pointers.',
+      'TEAM STATISTICS BREAKDOWN:\nKey margins from the game:\n• Field Goal Percentage: California 44% (23/52), San Jose 44% (22/50).\n• 3-Point Percentage: San Jose 26% (5/19), California 23% (3/13).\n• Free Throws: California 11/14 (79%), San Jose 9/14 (64%).\n• Points in the Paint: California 36, San Jose 30 (+6 CAL).\n• Fast Break Points: California 12, San Jose 9 (+3 CAL).\n• Second Chance Points: California 6, San Jose 4.\n• Rebounds: California 34 (8 OR / 26 DR), San Jose 32 (7 OR / 25 DR).\n• Turnovers: California 8, San Jose 11.\n• Steals / Blocks: San Jose 8/5, California 9/3.\n• Biggest Lead: San Jose 11, California 9.\n• Time of Possession: San Jose 17:03, California 14:55.\n\nThe victory improves the California Reds to 5-4, while the San Jose Tigersharks drop to 0-3.'
+    ],
+    quotes: [
+      {
+        speaker: 'Andor Marai',
+        title: 'Center • California Reds (Player of the Game • 18 PTS, 7 REB, 3 STL, 9-14 FG, 0 TO)',
+        quote: 'Down 11 in the second half, we didn\'t panic. We locked in defensively, took care of the ball with only 8 turnovers all game, and worked it inside for 36 paint points. Shawn Roberts made huge decisions and clutch free throws down the stretch.'
+      },
+      {
+        speaker: 'William Walker',
+        title: 'Head Coach • California Reds (5-4 Record)',
+        quote: 'That was gut-check time for our team. San Jose played phenomenal defense and Austin Sloan made everything tough around the rim, but our guys responded with a 19-13 fourth quarter. Andor was flawless with zero turnovers, and our free-throw shooting at 79% came through when we needed it most.'
+      },
+      {
+        speaker: 'Shawn Roberts',
+        title: 'Guard • California Reds (15 PTS, 6 AST, 2 STL, 6-7 FT)',
+        quote: 'We knew we had to execute down the stretch. They made a big run in the third quarter, but in the fourth we controlled the tempo, hit our free throws, and got the stops we needed.'
+      },
+      {
+        speaker: 'Michael Stauffer',
+        title: 'Head Coach • San Jose Tigersharks (0-3 Record)',
+        quote: 'It is a tough pill to swallow when you build an 11-point lead and hold the ball for 17 minutes of possession. Austin Sloan played an incredible two-way game with 15 points and 4 blocks, but California’s veteran execution inside the final three minutes was the difference.'
+      }
+    ],
+    playerStats: [
+      { player: 'Andor Marai', team: 'California Reds', stat: '18 PTS, 7 REB, 2 AST, 3 STL, 1 BLK, 0 TO (9-14 FG, 20 MIN) • POTG' },
+      { player: 'Austin Sloan', team: 'San Jose Tigersharks', stat: '15 PTS, 3 STL, 4 BLK (Notables leader for San Jose)' },
+      { player: 'Shawn Roberts', team: 'California Reds', stat: '15 PTS, 1 REB, 6 AST, 2 STL (4-13 FG, 1-6 3PT, 6-7 FT, 25 MIN)' },
+      { player: 'D. Pittman', team: 'California Reds', stat: '7 PTS, 1 REB (2-5 FG, 1-2 3PT, 2-3 FT, 6 MIN)' },
+      { player: 'J. Gordon', team: 'California Reds', stat: '6 PTS, 7 REB, 1 OR (2-8 FG, 2-2 FT, 17 MIN)' },
+      { player: 'Donald Rodman', team: 'California Reds', stat: '5 PTS, 9 REB, 1 AST, 3 STL, 1 BLK (2-2 FG, 1-1 3PT, 24 MIN)' },
+      { player: 'M. Holman', team: 'California Reds', stat: '4 PTS, 2 REB, 2 AST (2-3 FG, 23 MIN)' },
+      { player: 'Kyle Robinson', team: 'California Reds', stat: '3 PTS, 1 REB, 2 AST (1-4 FG, 1-2 FT, 25 MIN)' },
+      { player: 'D. Irving', team: 'California Reds', stat: '2 PTS, 1 REB, 1 AST (1-3 FG, 12 MIN)' },
+      { player: 'R. Pierce', team: 'California Reds', stat: '0 PTS, 1 STL, 1 BLK (2 MIN)' },
+      { player: 'R. Swift', team: 'California Reds', stat: '0 PTS, 1 AST (4 MIN)' },
+      { player: 'D. Brooks Jr.', team: 'California Reds', stat: '0 PTS (2 MIN)' },
+      { player: 'Free Throws', team: 'Team Comparison', stat: 'California 11/14 (79%) • San Jose 9/14 (64%)' },
+      { player: 'Points in Paint', team: 'Team Comparison', stat: 'California 36 • San Jose 30 (+6 CAL)' },
+      { player: 'Fourth Quarter Rally', team: 'Team Comparison', stat: 'California outscored San Jose 19-13 to win 60-58' },
+      { player: 'Fast Break Points', team: 'Team Comparison', stat: 'California 12 • San Jose 9' },
+      { player: 'Turnovers', team: 'Team Comparison', stat: 'California 8 • San Jose 11' },
+      { player: 'Rebounds', team: 'Team Comparison', stat: 'California 34 (8 OR/26 DR) • San Jose 32 (7 OR/25 DR)' },
+      { player: 'Steals / Blocks', team: 'Team Comparison', stat: 'San Jose 8/5 • California 9/3' },
+      { player: 'Biggest Lead', team: 'Team Comparison', stat: 'San Jose 11 • California 9' }
+    ]
+  },
+  {
     id: 's4-g27-stallions-edge-knights-pognotti',
     title: 'Stallions Ride Dominant Paint Performance to 58-51 Road Win Over Knights',
     subtitle: 'Adrian Pognotti anchors Sacramento with 23 points and 9 rebounds as Stallions dominate the interior and capitalize on turnovers to capture their first win of Season 4.',
     date: 'Season 4 Recap • Nov 15',
     season: 4,
     category: 'recap',
-    featured: true,
+    featured: false,
     author: 'CCH Game Recap Desk • NorCal Beat',
     readTime: '3 min read',
     youtubeUrl: 'https://www.youtube.com/embed/qXQbLWK53t0?si=FmOerr3REDQ2JTcu',

@@ -4,6 +4,7 @@ import ajHintonS4_1Img from '../assets/images/AJHintonS4_1.png';
 import hinton42Img from '../assets/images/Hinton42_s4vsCAL.png';
 import bowenPOTWImg from '../assets/images/BowenPOTW.png';
 import hintonPOTWImg from '../assets/images/HintonPOTW.png';
+import carltonDaughertyImg from '../assets/images/S4 Draft/Carlton Daugherty.png';
 
 export interface POTWStat {
   label: string;
@@ -58,7 +59,60 @@ export interface POTWWeek {
 
 export const POTW_WEEKS: POTWWeek[] = [
   // ==========================================
-  // SEASON 4 - WEEK 3 (OCT 29 - NOV 4) [CURRENT LATEST]
+  // SEASON 4 - WEEK 4 (NOV 12 - NOV 19) [CURRENT LATEST]
+  // ==========================================
+  {
+    id: 's4-week-4',
+    season: 4,
+    weekNumber: 4,
+    dateRange: 'Nov 12 – Nov 19',
+    headline: 'Players of the Week: Carlton Daugherty & Mo Alexander Earn Weekly Honors',
+    subheadline: 'Carlton Daugherty torches defenses averaging 31.0 PPG & 7.0 3PM in Northern Cali, while Mo Alexander anchors the paint in Southern Cali with 11.0 RPG.',
+    overview: 'The CCH League Office has officially named its Players of the Week for the most recent stretch of games. Golden State Enterprise rookie sensation Carlton Daugherty claimed Northern Cali honors by averaging a blistering 31.0 points, 6.0 rebounds, and 7.0 three-pointers made per game. In Southern Cali, Los Angeles Dynamics center Mo Alexander earned the award by commanding the interior, averaging 8.0 points, 11.0 rebounds, 3.0 assists, and 2.0 steals per game.',
+    status: 'awarded',
+    newsArticleId: 's4-g30-tigersharks-dominate-paint-admirals-sloan',
+    northernWinner: {
+      player: 'Carlton Daugherty',
+      team: 'Golden State Enterprise',
+      teamId: 'golden-state-enterprise',
+      jersey: '#1',
+      position: 'SG',
+      ovr: 88,
+      conference: 'Northern',
+      record: '2-1 Stretch',
+      statSummary: '31.0 PPG • 6.0 RPG • 7.0 3PM • 54.2% 3PT',
+      keyGame: '35 PTS, 7 REB, 8 3PM vs San Jose (W)',
+      imageUrl: carltonDaughertyImg,
+      blurb: 'Daugherty has been on an absolute tear, scorching perimeter defenses and setting league rookie scoring marks with 31.0 PPG and 7.0 three-pointers made per contest.',
+      stats: [
+        { label: 'PPG', value: '31.0', sub: 'Points Per Game' },
+        { label: 'RPG', value: '6.0', sub: 'Rebounds Per Game' },
+        { label: '3PM', value: '7.0', sub: '3-Pointers Made' },
+        { label: '3PT%', value: '54.2%', sub: 'Three Point %' }
+      ]
+    },
+    southernWinner: {
+      player: 'Mo Alexander',
+      team: 'Los Angeles Dynamics',
+      teamId: 'los-angeles-dynamics',
+      jersey: '#15',
+      position: 'C',
+      ovr: 81,
+      conference: 'Southern',
+      record: '2-1 Stretch',
+      statSummary: '8.0 PPG • 11.0 RPG • 3.0 APG • 2.0 SPG',
+      keyGame: '10 PTS, 13 REB, 4 AST, 3 STL vs California',
+      blurb: 'Alexander anchored the Dynamics defense with disciplined rim deterrence and relentless glass cleaning, averaging 11.0 rebounds, 3.0 assists, and 2.0 steals per game.',
+      stats: [
+        { label: 'PPG', value: '8.0', sub: 'Points Per Game' },
+        { label: 'RPG', value: '11.0', sub: 'Rebounds Per Game' },
+        { label: 'APG', value: '3.0', sub: 'Assists Per Game' },
+        { label: 'SPG', value: '2.0', sub: 'Steals Per Game' }
+      ]
+    }
+  },
+  // ==========================================
+  // SEASON 4 - WEEK 3 (OCT 29 - NOV 4)
   // ==========================================
   {
     id: 's4-week-3',

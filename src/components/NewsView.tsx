@@ -634,22 +634,24 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
               </div>
             </div>
 
-            {/* Article Main Standout Photo Banner (always shown unless interactive coachesList is present) */}
+            {/* Article Main Standout Photo Banner */}
             {!selectedArticle.coachesList && (
               <div className="relative overflow-hidden rounded-2xl border-2 border-amber-500/40 shadow-2xl bg-slate-950 flex flex-col items-center">
                 <div className="w-full flex items-center justify-center p-2 sm:p-4 bg-black/60 relative overflow-hidden">
                   <img
                     src={selectedArticle.imageUrl || '/logos/cch_league_logo.png'}
                     alt={selectedArticle.title}
-                    className="w-full max-h-[420px] sm:max-h-[480px] object-contain rounded-xl shadow-2xl transition-transform duration-300"
+                    className="w-full max-h-[460px] sm:max-h-[520px] object-contain rounded-xl shadow-2xl transition-transform duration-300"
                   />
                 </div>
-                <div className="w-full bg-slate-950 border-t border-slate-800 p-3 sm:p-3.5 text-left">
-                  <p className="text-xs sm:text-sm text-amber-300 font-mono font-bold flex items-center gap-1.5">
-                    <Sparkles size={15} className="text-amber-400 shrink-0" />
-                    <span>{selectedArticle.imageCaption || (selectedArticle.imageUrl ? 'Official Press Photo' : 'Official Cali Championship Hoops League Record')}</span>
-                  </p>
-                </div>
+                {selectedArticle.imageCaption && (
+                  <div className="w-full bg-slate-950 border-t border-slate-800 p-3 sm:p-3.5 text-left">
+                    <p className="text-xs sm:text-sm text-amber-300 font-mono font-bold flex items-center gap-1.5">
+                      <Sparkles size={15} className="text-amber-400 shrink-0" />
+                      <span>{selectedArticle.imageCaption}</span>
+                    </p>
+                  </div>
+                )}
               </div>
             )}
 

@@ -19,7 +19,9 @@ import {
 } from 'lucide-react';
 import { TeamBadge } from './TeamBadge';
 import sacVsSfImg from '../assets/images/NBA 2K26 2026-09-30 01-31-31.png';
-import laVsCalImg from '../assets/images/NBA 2K26 for Xbox Series X_S-2026_09_23-05_44_58.png';
+import sdsVsFreGray3PtImg from '../assets/images/NBA 2K26 2026-10-16 14-45-57.png';
+import sjVsCalSloanVsRodmanImg from '../assets/images/NBA 2K26 2026-10-16 16-48-01-1.png';
+import sjVsAnaCoverImg from '../assets/images/NBA 2K26 for Xbox Series X_S-2026_10_23-05_01_07.png';
 
 interface FeaturedGameStoriesProps {
   onNavigateToNews: (articleId: string) => void;
@@ -91,6 +93,175 @@ const getYouTubeEmbedSrc = (url?: string, embedUrl?: string) => {
 
 const FEATURED_STORIES: GameStory[] = [
   {
+    id: 's4-g30-tigersharks-vs-admirals',
+    articleId: 's4-g30-tigersharks-dominate-paint-admirals-sloan',
+    badgeTag: '★ S4 REGULAR SEASON • COVER STORY',
+    badgeColor: 'border-teal-500/60 bg-teal-500/20 text-teal-300',
+    title: 'San Jose Tigersharks Dominate the Paint to Secure 57-48 Road Win Over Anaheim Admirals',
+    subtitle:
+      'Al Sloan posts a massive 18-point, 11-rebound double-double on 9-of-10 shooting as San Jose outscores Anaheim 36-16 in the paint to capture its first win of Season 4.',
+    date: 'Nov 19 • Season 4 Regular Season',
+    youtubeUrl: 'https://www.youtube.com/watch?v=5tieOrMUva0',
+    youtubeEmbedUrl: 'https://www.youtube.com/embed/5tieOrMUva0?si=XLVibwdPil406ldp',
+    image: sjVsAnaCoverImg,
+    imageCaption:
+      'Tigersharks center Al Sloan (#1) controls the interior at Honda Center, posting a monster 18-point, 11-rebound double-double (9-10 FG) in San Jose’s 57-48 road victory over Anaheim.',
+    winner: {
+      id: 'san-jose-tigersharks',
+      name: 'San Jose Tigersharks',
+      city: 'San Jose',
+      nickname: 'Tigersharks',
+      score: 57,
+      record: '1-3 (9th)',
+      isHome: false,
+    },
+    loser: {
+      id: 'anaheim-admirals',
+      name: 'Anaheim Admirals',
+      city: 'Anaheim',
+      nickname: 'Admirals',
+      score: 48,
+      record: '1-3 (11th)',
+      isHome: true,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 19, team2: 8 },
+      { period: 'Q2', team1: 9, team2: 10 },
+      { period: 'Q3', team1: 15, team2: 14 },
+      { period: 'Q4', team1: 14, team2: 16 },
+    ],
+    starPlayer: {
+      name: 'Al Sloan',
+      team: 'San Jose Tigersharks',
+      statline: '18 PTS (9-10 FG, 90%) • 11 REB • 2 BLK • Double-Double',
+      highlight:
+        'Named Player of the Game after shooting a blistering 9-of-10 inside with 11 boards to completely overpower the Admirals defense.',
+    },
+    keyStats: [
+      { label: 'Al Sloan (POTG)', value: '18 PTS, 11 REB', desc: '9-10 FG (90%), 2 BLK in dominant double-double' },
+      { label: 'Points in Paint', value: '36 - 16 SJ', desc: 'Tigersharks outscored Admirals by 20 inside (+20)' },
+      { label: 'First Quarter Blitz', value: '19 - 8 SJ', desc: 'San Jose surged out to an immediate 11-point lead' },
+      { label: 'Field Goal %', value: '49% - 36% SJ', desc: 'Tigersharks shot 24/49 FG while holding ANA to 18/50' },
+    ],
+    quote: {
+      speaker: 'Al Sloan',
+      role: 'Center • San Jose Tigersharks (Player of the Game)',
+      text: 'We knew we had the physical edge inside and coach wanted us to exploit it right from the opening tip. Donald Hardy and Malique Pierce delivered incredible passes and created open looks for me in the paint. Getting our first win on the road moves us to 1-3 and gives us great momentum.',
+    },
+  },
+  {
+    id: 's4-g29-strykers-vs-maddogs',
+    articleId: 's4-g29-strykers-rout-mad-dogs-gray',
+    badgeTag: '★ S4 REGULAR SEASON • NOV 17',
+    badgeColor: 'border-orange-500/60 bg-orange-500/20 text-orange-300',
+    title: 'Strykers Overpower Mad Dogs 70-50 Behind DeAnte Gray’s 20-Point Shooting Masterclass',
+    subtitle:
+      'DeAnte Gray explodes for 20 points on 7-of-9 shooting (3-of-3 from deep) as undefeated San Diego pulls away with a 25-10 third quarter to improve to 5-0.',
+    date: 'Nov 17 • Season 4 Regular Season',
+    youtubeUrl: 'https://www.youtube.com/watch?v=B6u5ml79Kno',
+    youtubeEmbedUrl: 'https://www.youtube.com/embed/B6u5ml79Kno?si=pzOt10Ck60yk7MZj',
+    image: sdsVsFreGray3PtImg,
+    imageCaption:
+      'Player of the Game DeAnte Gray (#84) rises up from downtown right over Lloyd Boomer (#39). Gray went a perfect 3-of-3 from deep for 20 points to lead the unbeaten Strykers (5-0) to a dominant 70-50 victory over Fresno.',
+    winner: {
+      id: 'san-diego-strykers',
+      name: 'San Diego Strykers',
+      city: 'San Diego',
+      nickname: 'Strykers',
+      score: 70,
+      record: '5-0 (1st)',
+      isHome: true,
+    },
+    loser: {
+      id: 'fresno-mad-dogs',
+      name: 'Fresno Mad Dogs',
+      city: 'Fresno',
+      nickname: 'Mad Dogs',
+      score: 50,
+      record: '4-2 (3rd)',
+      isHome: false,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 18, team2: 13 },
+      { period: 'Q2', team1: 17, team2: 8 },
+      { period: 'Q3', team1: 25, team2: 10 },
+      { period: 'Q4', team1: 10, team2: 19 },
+    ],
+    starPlayer: {
+      name: 'DeAnte Gray',
+      team: 'San Diego Strykers',
+      statline: '20 PTS (7-9 FG, 3-3 3PT, 3-4 FT) • 6 REB • 1 AST',
+      highlight: 'Named Player of the Game after shooting a scorching 78% FG and 100% 3PT in just 19 minutes to blow open a 31-point lead.',
+    },
+    keyStats: [
+      { label: 'DeAnte Gray (POTG)', value: '20 PTS, 6 REB', desc: '7-9 FG, 3-3 3PT, 3-4 FT in just 19 MIN' },
+      { label: 'Third Quarter Blitz', value: '25 - 10 SD', desc: 'Strykers blew the game open after halftime' },
+      { label: 'Points in Paint', value: '40 - 28 SD', desc: 'San Diego dominated interior scoring (+12)' },
+      { label: 'Shooting Efficiency', value: '56% FG / 43% 3PT', desc: 'Strykers shot 28/50 FG and 6/14 from three' },
+    ],
+    quote: {
+      speaker: 'Adam Saunders',
+      role: 'Head Coach • San Diego Strykers (5-0 Record)',
+      text: 'That 25-10 third quarter was the exact brand of basketball we talk about every day in practice. We shot 56% from the floor, shared the ball for 21 assists, and put 40 points in the paint. DeAnte was phenomenal tonight.',
+    },
+  },
+  {
+    id: 's4-g28-reds-vs-tigersharks',
+    articleId: 's4-g28-reds-edge-tigersharks-marai',
+    badgeTag: '★ S4 REGULAR SEASON • NOV 17',
+    badgeColor: 'border-red-500/60 bg-red-500/20 text-red-300',
+    title: 'Reds Hold Off Tigersharks 60-58 in Thriller Behind Marai and Clutch Fourth-Quarter Rally',
+    subtitle:
+      'Andor Marai posts 18 points, 7 rebounds, and 3 steals with zero turnovers, while Shawn Roberts orchestrates 15 points and 6 assists as California overcomes an 11-point deficit.',
+    date: 'Nov 17 • Season 4 Regular Season',
+    youtubeUrl: 'https://www.youtube.com/watch?v=Ck5v-GZXTGs',
+    youtubeEmbedUrl: 'https://www.youtube.com/embed/Ck5v-GZXTGs?si=wa9BAUT5llsBvg1E',
+    image: sjVsCalSloanVsRodmanImg,
+    imageCaption:
+      'San Jose Tigersharks star Austin Sloan (#1) rises high for a contested mid-range jumper against California Reds forward Donald Rodman (#2). Sloan tallied 15 points, 3 steals, and 4 blocks, but California rallied for a 60-58 win.',
+    winner: {
+      id: 'california-reds',
+      name: 'California Reds',
+      city: 'California',
+      nickname: 'Reds',
+      score: 60,
+      record: '5-4 (6th)',
+      isHome: true,
+    },
+    loser: {
+      id: 'san-jose-tigersharks',
+      name: 'San Jose Tigersharks',
+      city: 'San Jose',
+      nickname: 'Tigersharks',
+      score: 58,
+      record: '0-3 (9th)',
+      isHome: false,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 14, team2: 8 },
+      { period: 'Q2', team1: 15, team2: 18 },
+      { period: 'Q3', team1: 12, team2: 19 },
+      { period: 'Q4', team1: 19, team2: 13 },
+    ],
+    starPlayer: {
+      name: 'Andor Marai',
+      team: 'California Reds',
+      statline: '18 PTS (9-14 FG, 64%) • 7 REB • 3 STL • 0 TO',
+      highlight: 'Named Player of the Game after shooting 9-of-14 inside with 7 boards, 3 steals, and zero turnovers in 20 minutes.',
+    },
+    keyStats: [
+      { label: 'Andor Marai (POTG)', value: '18 PTS, 7 REB', desc: '9-14 FG (64%), 3 STL, 1 BLK, 0 turnovers' },
+      { label: 'Shawn Roberts', value: '15 PTS, 6 AST', desc: 'Clutch 6-7 FT shooting down the stretch' },
+      { label: 'Fourth Quarter Comeback', value: '19 - 13 CAL', desc: 'Reds rallied from an 11-point deficit' },
+      { label: 'Free Throws', value: '79% (11/14) CAL', desc: 'Clutch foul shooting sealed the 2-point win' },
+    ],
+    quote: {
+      speaker: 'William Walker',
+      role: 'Head Coach • California Reds (5-4 Record)',
+      text: 'That was gut-check time for our team. San Jose played phenomenal defense and Austin Sloan made everything tough around the rim, but our guys responded with a 19-13 fourth quarter. Andor was flawless with zero turnovers, and our free-throw shooting at 79% came through when we needed it most.',
+    },
+  },
+  {
     id: 's4-g27-stallions-vs-knights',
     articleId: 's4-g27-stallions-edge-knights-pognotti',
     badgeTag: '★ S4 REGULAR SEASON • NOV 15',
@@ -154,8 +325,14 @@ export const FeaturedGameStories: React.FC<FeaturedGameStoriesProps> = ({
   onNavigateToTab,
 }) => {
   const [activeVideoStoryId, setActiveVideoStoryId] = useState<string | null>(null);
+  const [selectedStoryFilter, setSelectedStoryFilter] = useState<'cover' | 'all' | string>('cover');
 
-  const displayedStories = FEATURED_STORIES;
+  const displayedStories =
+    selectedStoryFilter === 'cover' || selectedStoryFilter === 'nov17'
+      ? FEATURED_STORIES.slice(0, 1)
+      : selectedStoryFilter === 'all'
+      ? FEATURED_STORIES
+      : FEATURED_STORIES.filter((s) => s.id === selectedStoryFilter);
 
   return (
     <section className="space-y-6">
@@ -167,17 +344,40 @@ export const FeaturedGameStories: React.FC<FeaturedGameStoriesProps> = ({
               <Flame size={18} />
             </span>
             <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight">
-              Lead Front Page Story
+              Featured Cover Story
             </h2>
             <span className="text-xs font-mono font-bold uppercase tracking-wider bg-amber-500/20 text-amber-300 px-2.5 py-0.5 rounded-full border border-amber-500/30 flex items-center gap-1.5">
               <Sparkles size={11} className="text-amber-400" />
-              FEATURED GAME STORY • SEASON 4
+              LATEST HEADLINE • SEASON 4
             </span>
           </div>
         </div>
 
-        {/* Quick Nav Links */}
+        {/* Quick Game Switcher and Nav Links */}
         <div className="flex flex-wrap items-center gap-2 shrink-0">
+          <div className="flex items-center bg-slate-900 border border-slate-800 rounded-xl p-1 gap-1">
+            <button
+              onClick={() => setSelectedStoryFilter('cover')}
+              className={`px-2.5 py-1 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer ${
+                selectedStoryFilter === 'cover' || selectedStoryFilter === 'nov17'
+                  ? 'bg-amber-500 text-slate-950 shadow'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              Cover Story
+            </button>
+            <button
+              onClick={() => setSelectedStoryFilter('all')}
+              className={`px-2.5 py-1 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer ${
+                selectedStoryFilter === 'all'
+                  ? 'bg-amber-500 text-slate-950 shadow'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              All Recaps & Archives ({FEATURED_STORIES.length})
+            </button>
+          </div>
+
           <button
             onClick={() => onNavigateToTab && onNavigateToTab('news')}
             className="px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 text-xs font-mono font-bold flex items-center gap-1.5 transition-colors cursor-pointer"
@@ -253,7 +453,7 @@ export const FeaturedGameStories: React.FC<FeaturedGameStoriesProps> = ({
                   )}
 
                   {/* Badge Tag */}
-                  <div className="absolute top-4 left-4 flex items-center gap-2">
+                  <div className="absolute top-4 left-4 flex items-center gap-2 z-10 flex-wrap max-w-[70%]">
                     <span
                       className={`text-[10px] sm:text-[11px] font-mono font-black uppercase tracking-wider px-3 py-1 rounded-full border backdrop-blur-md ${story.badgeColor}`}
                     >
@@ -261,7 +461,7 @@ export const FeaturedGameStories: React.FC<FeaturedGameStoriesProps> = ({
                     </span>
                   </div>
 
-                  <div className="absolute top-4 right-4 bg-slate-950/80 backdrop-blur-md border border-slate-700 text-slate-300 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold">
+                  <div className="absolute top-4 right-4 bg-slate-950/80 backdrop-blur-md border border-slate-700 text-slate-300 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold z-10">
                     {story.date}
                   </div>
 

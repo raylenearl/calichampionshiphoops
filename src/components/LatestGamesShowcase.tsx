@@ -35,6 +35,9 @@ import calVsOakImg from '../assets/images/CALvsOAKs1.png';
 import maraiVsSfImg from '../assets/images/Marai_vs_SFs4.png';
 import jDeanVsSdImg from '../assets/images/JDean_vs_SDs4.png';
 import sdReboundS4Img from '../assets/images/SD_Rebound_S4.png';
+import sdsVsFreGray3PtImg from '../assets/images/NBA 2K26 2026-10-16 14-45-57.png';
+import sjVsCalSloanVsRodmanImg from '../assets/images/NBA 2K26 2026-10-16 16-48-01-1.png';
+import sjVsAnaCoverImg from '../assets/images/NBA 2K26 for Xbox Series X_S-2026_10_23-05_01_07.png';
 import hintonVsJmjS4Img from '../assets/images/Hinton_vs_JMJs4.png';
 import rjRush1Img from '../assets/images/RJRush1.png';
 import cDaughertyVsSdImg from '../assets/images/CDaugherty_vs_SD.png';
@@ -85,6 +88,174 @@ interface GameHighlight {
 }
 
 const HIGHLIGHT_GAMES: GameHighlight[] = [
+  {
+    id: 'game-30',
+    articleId: 's4-g30-tigersharks-dominate-paint-admirals-sloan',
+    date: 'Nov 19 • Season 4',
+    youtubeUrl: 'https://www.youtube.com/watch?v=5tieOrMUva0',
+    headline: 'San Jose Tigersharks 57, Anaheim Admirals 48',
+    subheadline: 'Al Sloan Explodes for 18 PTS & 11 REB (9-10 FG); Tigersharks Outscore Admirals 36-16 in Paint',
+    narrative:
+      'The San Jose Tigersharks (1-3) picked up their first win of the season on the road, defeating the Anaheim Admirals (1-3) 57-48 behind an overwhelming 36-16 paint dominance. Center Al Sloan was virtually unstoppable inside, shooting a blistering 9-of-10 from the field for 18 points, 11 rebounds, and 2 blocks. Donald Hardy chipped in 12 points while Malique Pierce orchestrated 8 assists as San Jose led wire-to-wire after jumping out to a 19-8 first quarter.',
+    winner: {
+      id: 'san-jose-tigersharks',
+      name: 'San Jose Tigersharks',
+      score: 57,
+      record: '1-3 (9th)',
+      isHome: false,
+    },
+    loser: {
+      id: 'anaheim-admirals',
+      name: 'Anaheim Admirals',
+      score: 48,
+      record: '1-3 (11th)',
+      isHome: true,
+    },
+    quarters: [
+      { period: 'Q1', team1: 19, team2: 8 },
+      { period: 'Q2', team1: 9, team2: 10 },
+      { period: 'Q3', team1: 15, team2: 14 },
+      { period: 'Q4', team1: 14, team2: 16 },
+    ],
+    starPlayer: {
+      name: 'Al Sloan',
+      number: '#1',
+      team: 'San Jose Tigersharks',
+      position: 'C',
+      statline: '18 PTS • 11 REB • 2 BLK (9-10 FG, 90%)',
+      highlightPill: 'Player of the Game • 18 PTS, 11 REB on 9/10 FG',
+      image: sjVsAnaCoverImg,
+    },
+    keyStats: [
+      { label: 'Paint Dominance', value: '36 - 16 SJ', desc: 'Tigersharks outscored Anaheim by 20 inside (+20)' },
+      { label: 'First Quarter Tone', value: '19 - 8 SJ', desc: 'San Jose jumped out to a commanding double-digit lead' },
+      { label: 'Field Goal %', value: '49% (24/49)', desc: 'San Jose shot 49% FG while holding Anaheim to 36% (18/50)' },
+      { label: 'Rebounding Margin', value: '36 - 26 SJ', desc: 'Tigersharks controlled the boards with +10 advantage' },
+    ],
+    secondaryPerformers: [
+      { name: 'Donald Hardy', team: 'SJ', stat: '12 PTS, 2 REB (5-7 FG, 2-3 3PT)' },
+      { name: 'Stephan Sirven', team: 'ANA', stat: '14 PTS, 4 AST (5-12 FG, 2-5 3PT)' },
+      { name: 'Kirk Tinsley', team: 'ANA', stat: '12 PTS, 4 REB (4-10 FG, 2-4 3PT)' },
+      { name: 'Malique Pierce', team: 'SJ', stat: '9 PTS, 3 REB, 8 AST, 3 STL' },
+      { name: 'Dell Butler', team: 'SJ', stat: '8 PTS, 3 REB, 2 BLK (3-6 FG)' },
+      { name: 'Jesse Wingate', team: 'ANA', stat: '6 PTS, 10 REB, 3 STL (2-6 FG)' },
+    ],
+    badgeColor: 'from-teal-600 to-slate-900',
+    tagIcon: 'zap',
+    tagText: 'Paint Dominance • First Season 4 Win',
+  },
+  {
+    id: 'game-29',
+    articleId: 's4-g29-strykers-rout-mad-dogs-gray',
+    date: 'Nov 17 • Season 4',
+    youtubeUrl: 'https://www.youtube.com/watch?v=B6u5ml79Kno',
+    headline: 'San Diego Strykers 70, Fresno Mad Dogs 50',
+    subheadline: 'DeAnte Gray Erupts for 20 PTS (3-3 3PT); Strykers Unleash 25-10 3rd Qtr Blitz to Move to 5-0',
+    narrative:
+      'The undefeated San Diego Strykers rolled to a 70-50 home victory over the Fresno Mad Dogs behind a sensational shooting night from Player of the Game DeAnte Gray (20 points, 7-9 FG, 3-3 3PT, 6 REB in 19 minutes). Holding Fresno to 8 points in the second quarter and erupting for 25 points in the third, San Diego built a 31-point lead, shot 56% from the floor, and dominated the paint 40-28.',
+    winner: {
+      id: 'san-diego-strykers',
+      name: 'San Diego Strykers',
+      score: 70,
+      record: '5-0 (1st)',
+      isHome: true,
+    },
+    loser: {
+      id: 'fresno-mad-dogs',
+      name: 'Fresno Mad Dogs',
+      score: 50,
+      record: '4-2 (3rd)',
+      isHome: false,
+    },
+    quarters: [
+      { period: 'Q1', team1: 18, team2: 13 },
+      { period: 'Q2', team1: 17, team2: 8 },
+      { period: 'Q3', team1: 25, team2: 10 },
+      { period: 'Q4', team1: 10, team2: 19 },
+    ],
+    starPlayer: {
+      name: 'DeAnte Gray',
+      number: '#22',
+      team: 'San Diego Strykers',
+      position: 'SF',
+      statline: '20 PTS • 6 REB • 1 AST (7-9 FG, 3-3 3PT, 3-4 FT)',
+      highlightPill: 'Player of the Game • 20 PTS in 19 MIN',
+      image: sdsVsFreGray3PtImg,
+    },
+    keyStats: [
+      { label: 'Third Quarter Blitz', value: '25 - 10 SD', desc: 'Strykers blew game open to build 31-pt lead' },
+      { label: 'Paint Dominance', value: '40 - 28 SD', desc: 'San Diego scored 40 points in the paint (+12)' },
+      { label: 'Field Goal %', value: '56% (28/50)', desc: 'Strykers shot 56% FG and 43% from three (6/14)' },
+      { label: 'Ball Movement', value: '21 Assists', desc: 'Gamble led with 6 AST; 21 team assists on 28 FGs' },
+    ],
+    secondaryPerformers: [
+      { name: 'Lloyd Boomer', team: 'FRE', stat: '20 PTS, 4 AST, 4-4 FT (24 MIN)' },
+      { name: 'Ray Gamble', team: 'SD', stat: '12 PTS, 4 REB, 6 AST, 2 STL (5-9 FG)' },
+      { name: 'A.J. Hinton', team: 'SD', stat: '11 PTS, 4 REB, 2 AST, 2 STL (5-10 FG)' },
+      { name: 'C. Marshall', team: 'SD', stat: '7 PTS, 2 REB, 2 AST, 1 BLK (2-2 FG)' },
+      { name: 'L. Davidson', team: 'FRE', stat: '7 PTS, 1 REB, 1 AST, 1 STL' },
+      { name: 'Geraldo Jones', team: 'FRE', stat: '6 PTS, 6 REB, 1 BLK' },
+    ],
+    badgeColor: 'from-amber-600 to-orange-900',
+    tagIcon: 'zap',
+    tagText: '5-0 Undefeated • 3rd Qtr Blitz',
+  },
+  {
+    id: 'game-28',
+    articleId: 's4-g28-reds-edge-tigersharks-marai',
+    date: 'Nov 17 • Season 4',
+    youtubeUrl: 'https://www.youtube.com/watch?v=Ck5v-GZXTGs',
+    headline: 'California Reds 60, San Jose Tigersharks 58',
+    subheadline: 'Marai Posts 18 PTS & 7 REB; Roberts Adds 15 PTS & 6 AST as Reds Mount 19-13 4th Qtr Rally',
+    narrative:
+      'The California Reds overcame an 11-point second-half deficit to pull off a thrilling 60-58 home victory over the San Jose Tigersharks. Player of the Game Andor Marai was rock-solid with 18 points (9-14 FG), 7 rebounds, and 3 steals with zero turnovers, while Shawn Roberts contributed 15 points and 6 assists. California outscored San Jose 19-13 in the fourth quarter to improve to 5-4.',
+    winner: {
+      id: 'california-reds',
+      name: 'California Reds',
+      score: 60,
+      record: '5-4 (6th)',
+      isHome: true,
+    },
+    loser: {
+      id: 'san-jose-tigersharks',
+      name: 'San Jose Tigersharks',
+      score: 58,
+      record: '0-3 (9th)',
+      isHome: false,
+    },
+    quarters: [
+      { period: 'Q1', team1: 14, team2: 8 },
+      { period: 'Q2', team1: 15, team2: 18 },
+      { period: 'Q3', team1: 12, team2: 19 },
+      { period: 'Q4', team1: 19, team2: 13 },
+    ],
+    starPlayer: {
+      name: 'Andor Marai',
+      number: '#15',
+      team: 'California Reds',
+      position: 'C',
+      statline: '18 PTS • 7 REB • 3 STL • 0 TO (9-14 FG, 64%)',
+      highlightPill: 'Player of the Game • 18 PTS',
+      image: sjVsCalSloanVsRodmanImg,
+    },
+    keyStats: [
+      { label: 'Fourth Quarter Rally', value: '19 - 13 CAL', desc: 'Reds erased 11-point deficit in final frame' },
+      { label: 'Andor Marai Interior', value: '18 PTS, 7 REB', desc: '9-14 FG with 3 steals and 0 turnovers in 20 MIN' },
+      { label: 'Free Throw Clutch', value: '79% (11/14)', desc: 'Roberts went 6-7 FT down the stretch to seal win' },
+      { label: 'Points in Paint', value: '36 - 30 CAL', desc: 'California controlled scoring inside the paint' },
+    ],
+    secondaryPerformers: [
+      { name: 'Austin Sloan', team: 'SJ', stat: '15 PTS, 3 STL, 4 BLK (Notables leader)' },
+      { name: 'Shawn Roberts', team: 'CAL', stat: '15 PTS, 6 AST, 2 STL (6-7 FT)' },
+      { name: 'D. Pittman', team: 'CAL', stat: '7 PTS (2-5 FG, 1-2 3PT in 6 MIN)' },
+      { name: 'J. Gordon', team: 'CAL', stat: '6 PTS, 7 REB, 1 OR' },
+      { name: 'Donald Rodman', team: 'CAL', stat: '5 PTS, 9 REB, 3 STL, 1 BLK' },
+      { name: 'M. Holman', team: 'CAL', stat: '4 PTS, 2 REB, 2 AST' },
+    ],
+    badgeColor: 'from-red-600 to-rose-950',
+    tagIcon: 'flame',
+    tagText: 'Fourth-Quarter Comeback • Marai 18 PTS',
+  },
   {
     id: 'game-27',
     articleId: 's4-g27-stallions-edge-knights-pognotti',
