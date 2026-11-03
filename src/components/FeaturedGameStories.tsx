@@ -22,6 +22,7 @@ import sacVsSfImg from '../assets/images/NBA 2K26 2026-09-30 01-31-31.png';
 import sdsVsFreGray3PtImg from '../assets/images/NBA 2K26 2026-10-16 14-45-57.png';
 import sjVsCalSloanVsRodmanImg from '../assets/images/NBA 2K26 2026-10-16 16-48-01-1.png';
 import sjVsAnaCoverImg from '../assets/images/NBA 2K26 for Xbox Series X_S-2026_10_23-05_01_07.png';
+import sdsVsCalNov19Img from '../assets/images/NBA 2K26 2026-11-02 23-29-23.png';
 
 interface FeaturedGameStoriesProps {
   onNavigateToNews: (articleId: string) => void;
@@ -93,9 +94,66 @@ const getYouTubeEmbedSrc = (url?: string, embedUrl?: string) => {
 
 const FEATURED_STORIES: GameStory[] = [
   {
+    id: 's4-strykers-unbeaten-leaders-roster-update',
+    articleId: 's4-strykers-unbeaten-leaders-roster-update',
+    badgeTag: '★ S4 REGULAR SEASON • COVER STORY',
+    badgeColor: 'border-amber-500/60 bg-amber-500/20 text-amber-300',
+    title: 'Season 4 Update: Strykers Remain Unbeaten, League Leaders Emerge, and Roster Shakeups',
+    subtitle:
+      'The San Diego Strykers stay perfect at 6-0 behind suffocating perimeter defense in a 65-52 win over California, while Season 4 leaderboards take shape and front offices execute key signings and waivers.',
+    date: 'Nov 19 • Season 4 Regular Season',
+    youtubeUrl: 'https://www.youtube.com/watch?v=vrU2u0OIIVk',
+    youtubeEmbedUrl: 'https://www.youtube.com/embed/vrU2u0OIIVk?si=CIOzrVVNHG-v4g4c',
+    image: sdsVsCalNov19Img,
+    imageCaption:
+      'San Diego Strykers battle the California Reds in a marquee Nov 19 matchup. San Diego locked down the perimeter to hand California a 65-52 defeat and remain undefeated at 6-0.',
+    winner: {
+      id: 'san-diego-strykers',
+      name: 'San Diego Strykers',
+      city: 'San Diego',
+      nickname: 'Strykers',
+      score: 65,
+      record: '6-0 (1st)',
+      isHome: false,
+    },
+    loser: {
+      id: 'california-reds',
+      name: 'California Reds',
+      city: 'California',
+      nickname: 'Reds',
+      score: 52,
+      record: '5-4 (6th)',
+      isHome: true,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 19, team2: 14 },
+      { period: 'Q2', team1: 11, team2: 15 },
+      { period: 'Q3', team1: 18, team2: 12 },
+      { period: 'Q4', team1: 17, team2: 11 },
+    ],
+    starPlayer: {
+      name: 'DeAnte Gray',
+      team: 'San Diego Strykers',
+      statline: '16 PTS (7-12 FG) • 6 REB • 3 AST • 1 STL • 1 BLK',
+      highlight:
+        'Paced the undefeated Strykers in scoring with 16 points and 6 rebounds, while helping hold the Reds to 1-of-11 (9%) from deep to improve to 6-0.',
+    },
+    keyStats: [
+      { label: 'DeAnte Gray', value: '16 PTS, 6 REB', desc: '7-12 FG, 3 AST, 1 STL, 1 BLK in 24 MIN' },
+      { label: '3-Point Defense', value: '1/11 (9%) CAL', desc: 'Strykers perimeter defense completely silenced the Reds from deep' },
+      { label: 'A.J. Hinton All-Around', value: '13 PTS, 7 REB, 3 STL', desc: '5-12 FG, 3 AST, 1 BLK in 22 MIN' },
+      { label: 'J. Gordon Bench Spark', value: '19 PTS (7-13 FG)', desc: 'Game-high scorer in just 13 minutes off California bench' },
+    ],
+    quote: {
+      speaker: 'Adam Saunders',
+      role: 'Head Coach • San Diego Strykers',
+      text: 'Holding an explosive team like the Reds to 1-of-11 from beyond the arc takes supreme focus. Our defensive discipline in the second half was championship caliber.',
+    },
+  },
+  {
     id: 's4-g30-tigersharks-vs-admirals',
     articleId: 's4-g30-tigersharks-dominate-paint-admirals-sloan',
-    badgeTag: '★ S4 REGULAR SEASON • COVER STORY',
+    badgeTag: '★ S4 REGULAR SEASON • GAME RECAP',
     badgeColor: 'border-teal-500/60 bg-teal-500/20 text-teal-300',
     title: 'San Jose Tigersharks Dominate the Paint to Secure 57-48 Road Win Over Anaheim Admirals',
     subtitle:
@@ -250,10 +308,10 @@ const FEATURED_STORIES: GameStory[] = [
       highlight: 'Named Player of the Game after shooting 9-of-14 inside with 7 boards, 3 steals, and zero turnovers in 20 minutes.',
     },
     keyStats: [
-      { label: 'Andor Marai (POTG)', value: '18 PTS, 7 REB', desc: '9-14 FG (64%), 3 STL, 1 BLK, 0 turnovers' },
-      { label: 'Shawn Roberts', value: '15 PTS, 6 AST', desc: 'Clutch 6-7 FT shooting down the stretch' },
-      { label: 'Fourth Quarter Comeback', value: '19 - 13 CAL', desc: 'Reds rallied from an 11-point deficit' },
-      { label: 'Free Throws', value: '79% (11/14) CAL', desc: 'Clutch foul shooting sealed the 2-point win' },
+      { label: 'Andor Marai (POTG)', value: '18 PTS, 7 REB', desc: '9-14 FG (64%), 3 STL, 1 BLK, 0 turnovers in 21 MIN' },
+      { label: 'Shawn Roberts', value: '15 PTS, 6 AST', desc: '4-13 FG, 6-7 FT down the stretch, 2 STL in 25 MIN' },
+      { label: 'Gooden & Sloan (SJ)', value: '15 PTS Each', desc: 'Gooden (5-8 FG) & Sloan (8 REB, 4 BLK, 6-8 FG)' },
+      { label: 'Fourth Quarter Comeback', value: '19 - 13 CAL', desc: 'Reds rallied from an 11-point deficit (36-30 Paint)' },
     ],
     quote: {
       speaker: 'William Walker',

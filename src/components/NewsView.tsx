@@ -998,13 +998,43 @@ export const NewsView: React.FC<NewsViewProps> = ({ onSelectTeamRecap, initialAr
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-800/60">
-                      {selectedArticle.playerStats.map((ps, idx) => (
-                        <tr key={idx} className="hover:bg-slate-900/40">
-                          <td className="py-2 px-4 font-bold text-white">{ps.player}</td>
-                          <td className="py-2 px-4 text-slate-300">{ps.team}</td>
-                          <td className="py-2 px-4 text-right font-mono font-bold text-amber-400">{ps.stat}</td>
-                        </tr>
-                      ))}
+                      {selectedArticle.playerStats.map((ps, idx) => {
+                        const isTeamComparison = ps.team === 'Team Comparison';
+                        const isTeamTotal =
+                          ps.team.toLowerCase().includes('team total') ||
+                          ps.player.toLowerCase().includes('team total');
+                        return (
+                          <tr
+                            key={idx}
+                            className={`transition-colors ${
+                              isTeamTotal
+                                ? 'bg-amber-500/10 font-bold border-t border-b border-amber-500/20'
+                                : isTeamComparison
+                                ? 'bg-slate-900/60 font-medium'
+                                : 'hover:bg-slate-900/40'
+                            }`}
+                          >
+                            <td className="py-2 px-4 font-bold text-white flex items-center gap-1.5">
+                              {isTeamTotal && <span className="inline-block w-1.5 h-1.5 rounded-full bg-amber-400"></span>}
+                              {ps.player}
+                            </td>
+                            <td className="py-2 px-4 text-slate-300">
+                              {isTeamComparison ? (
+                                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-800 text-slate-300 uppercase tracking-wider">
+                                  Comparison
+                                </span>
+                              ) : isTeamTotal ? (
+                                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-300 uppercase tracking-wider">
+                                  {ps.team}
+                                </span>
+                              ) : (
+                                ps.team
+                              )}
+                            </td>
+                            <td className="py-2 px-4 text-right font-mono font-bold text-amber-400">{ps.stat}</td>
+                          </tr>
+                        );
+                      })}
                     </tbody>
                   </table>
                 </div>

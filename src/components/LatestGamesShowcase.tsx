@@ -38,6 +38,7 @@ import sdReboundS4Img from '../assets/images/SD_Rebound_S4.png';
 import sdsVsFreGray3PtImg from '../assets/images/NBA 2K26 2026-10-16 14-45-57.png';
 import sjVsCalSloanVsRodmanImg from '../assets/images/NBA 2K26 2026-10-16 16-48-01-1.png';
 import sjVsAnaCoverImg from '../assets/images/NBA 2K26 for Xbox Series X_S-2026_10_23-05_01_07.png';
+import sdsVsCalNov19Img from '../assets/images/NBA 2K26 2026-11-02 23-29-23.png';
 import hintonVsJmjS4Img from '../assets/images/Hinton_vs_JMJs4.png';
 import rjRush1Img from '../assets/images/RJRush1.png';
 import cDaughertyVsSdImg from '../assets/images/CDaugherty_vs_SD.png';
@@ -88,6 +89,64 @@ interface GameHighlight {
 }
 
 const HIGHLIGHT_GAMES: GameHighlight[] = [
+  {
+    id: 'game-31',
+    articleId: 's4-strykers-unbeaten-leaders-roster-update',
+    date: 'Nov 19 • Season 4',
+    youtubeUrl: 'https://www.youtube.com/watch?v=vrU2u0OIIVk',
+    headline: 'San Diego Strykers 65, California Reds 52',
+    subheadline: 'Strykers Remain Unbeaten (6-0); Lockdown Defense Holds Reds to 1-of-11 (9%) From Deep',
+    narrative:
+      'The San Diego Strykers (6-0) continued their perfect start to Season 4, defeating the California Reds (5-4) 65-52. DeAnte Gray paced the Strykers with 16 points and 6 rebounds, while A.J. Hinton added 13 points, 7 rebounds, 3 assists, and 3 steals. Ray Gamble provided 12 points and 3 blocks. After carrying a 30-29 edge into halftime, the Strykers pulled away with a 35-23 second-half charge and completely clamped the perimeter, holding California to 1-of-11 (9%) from deep. J. Gordon poured in 19 points off the bench for the Reds.',
+    winner: {
+      id: 'san-diego-strykers',
+      name: 'San Diego Strykers',
+      score: 65,
+      record: '6-0 (1st)',
+      isHome: false,
+    },
+    loser: {
+      id: 'california-reds',
+      name: 'California Reds',
+      score: 52,
+      record: '5-4 (6th)',
+      isHome: true,
+    },
+    quarters: [
+      { period: 'Q1', team1: 19, team2: 14 },
+      { period: 'Q2', team1: 11, team2: 15 },
+      { period: 'Q3', team1: 18, team2: 12 },
+      { period: 'Q4', team1: 17, team2: 11 },
+    ],
+    starPlayer: {
+      name: 'DeAnte Gray',
+      number: '#84',
+      team: 'San Diego Strykers',
+      position: 'SF',
+      statline: '16 PTS (7-12 FG) • 6 REB • 3 AST • 1 STL • 1 BLK in 24 MIN',
+      highlightPill: 'Top Scorer • 16 PTS & 6 REB for 6-0 Strykers',
+      image: sdsVsCalNov19Img,
+    },
+    keyStats: [
+      { label: 'DeAnte Gray (SDS)', value: '16 PTS, 6 REB', desc: '7-12 FG, 3 AST, 1 STL, 1 BLK in 24 MIN' },
+      { label: '3-Point Defense', value: '1/11 (9%) CAL', desc: 'Strykers perimeter defense completely suffocated the Reds from deep' },
+      { label: 'A.J. Hinton (SDS)', value: '13 PTS, 7 REB', desc: '5-12 FG, 3 AST, 3 STL, 1 BLK in 22 MIN' },
+      { label: 'J. Gordon (CAL)', value: '19 PTS (7-13 FG)', desc: 'Game-high scorer in just 13 minutes off California bench' },
+    ],
+    secondaryPerformers: [
+      { name: 'A.J. Hinton', team: 'SDS', stat: '13 PTS, 7 REB, 3 AST, 3 STL, 1 BLK' },
+      { name: 'Ray Gamble', team: 'SDS', stat: '12 PTS, 5 REB, 3 AST, 3 BLK' },
+      { name: 'C. Marshall', team: 'SDS', stat: '11 PTS, 1 STL, 1 BLK (5-8 FG)' },
+      { name: 'J. Gordon', team: 'CAL', stat: '19 PTS (7-13 FG) in 13 MIN' },
+      { name: 'Andor Marai', team: 'CAL', stat: '15 PTS, 7 REB, 2 BLK (6-12 FG)' },
+      { name: 'Kyle Robinson', team: 'CAL', stat: '8 PTS, 2 REB, 2 STL' },
+      { name: 'Shawn Roberts', team: 'CAL', stat: '5 PTS, 2 REB, 2 STL' },
+      { name: 'Donald Rodman', team: 'CAL', stat: '2 PTS, 8 REB, 3 AST, 2 BLK' },
+    ],
+    badgeColor: 'from-amber-600 to-slate-900',
+    tagIcon: 'flame',
+    tagText: 'Unbeaten 6-0 • Perimeter Lockdown',
+  },
   {
     id: 'game-30',
     articleId: 's4-g30-tigersharks-dominate-paint-admirals-sloan',
@@ -245,12 +304,16 @@ const HIGHLIGHT_GAMES: GameHighlight[] = [
       { label: 'Points in Paint', value: '36 - 30 CAL', desc: 'California controlled scoring inside the paint' },
     ],
     secondaryPerformers: [
-      { name: 'Austin Sloan', team: 'SJ', stat: '15 PTS, 3 STL, 4 BLK (Notables leader)' },
-      { name: 'Shawn Roberts', team: 'CAL', stat: '15 PTS, 6 AST, 2 STL (6-7 FT)' },
-      { name: 'D. Pittman', team: 'CAL', stat: '7 PTS (2-5 FG, 1-2 3PT in 6 MIN)' },
-      { name: 'J. Gordon', team: 'CAL', stat: '6 PTS, 7 REB, 1 OR' },
-      { name: 'Donald Rodman', team: 'CAL', stat: '5 PTS, 9 REB, 3 STL, 1 BLK' },
-      { name: 'M. Holman', team: 'CAL', stat: '4 PTS, 2 REB, 2 AST' },
+      { name: 'D. Gooden', team: 'SJ', stat: '15 PTS, 2 REB, 2 AST (5-8 FG, 1-1 3PT, 27 MIN)' },
+      { name: 'Austin Sloan', team: 'SJ', stat: '15 PTS, 8 REB, 3 STL, 4 BLK (6-8 FG, 25 MIN)' },
+      { name: 'Shawn Roberts', team: 'CAL', stat: '15 PTS, 6 AST, 2 STL (4-13 FG, 6-7 FT, 25 MIN)' },
+      { name: 'P. Waters', team: 'SJ', stat: '7 PTS, 3 REB, 1 STL (3-4 FG, 9 MIN)' },
+      { name: 'D. Pittman', team: 'CAL', stat: '7 PTS, 1 REB (2-5 FG, 1-2 3PT, 6 MIN)' },
+      { name: 'Dell Butler', team: 'SJ', stat: '6 PTS, 2 REB, 2 AST, 1 BLK (2-2 3PT, 25 MIN)' },
+      { name: 'J. Gordon', team: 'CAL', stat: '6 PTS, 7 REB, 2-2 FT (18 MIN)' },
+      { name: 'Donald Rodman', team: 'CAL', stat: '5 PTS, 9 REB, 3 STL, 1 BLK (25 MIN)' },
+      { name: 'R. Wilson', team: 'SJ', stat: '6 PTS, 1 REB (2-3 3PT, 10 MIN)' },
+      { name: 'M. Holman', team: 'CAL', stat: '4 PTS, 2 REB, 2 AST (23 MIN)' },
     ],
     badgeColor: 'from-red-600 to-rose-950',
     tagIcon: 'flame',

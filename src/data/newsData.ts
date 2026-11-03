@@ -20,6 +20,7 @@ import ajHintonS4_1Img from '../assets/images/AJHintonS4_1.png';
 import sdsVsFreGray3PtImg from '../assets/images/NBA 2K26 2026-10-16 14-45-57.png';
 import sjVsCalSloanVsRodmanImg from '../assets/images/NBA 2K26 2026-10-16 16-48-01-1.png';
 import sjVsAnaCoverImg from '../assets/images/NBA 2K26 for Xbox Series X_S-2026_10_23-05_01_07.png';
+import sdsVsCalNov19Img from '../assets/images/NBA 2K26 2026-11-02 23-29-23.png';
 import sdReboundS4Img from '../assets/images/SD_Rebound_S4.png';
 import hintonVsJmjS4Img from '../assets/images/Hinton_vs_JMJs4.png';
 import aMaraiS4_1Img from '../assets/images/AMaraiS4_1.png';
@@ -127,13 +128,103 @@ export interface CCHNewsArticle {
 
 export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
   {
+    id: 's4-strykers-unbeaten-leaders-roster-update',
+    title: 'Season 4 Update: Strykers Remain Unbeaten, League Leaders Emerge, and Roster Shakeups',
+    subtitle: 'The race for the Cali Championship Hoops (CCH) title is heating up as teams approach the quarter-mark of Season 4. The San Diego Strykers continue to dominate the standings, while front offices across the league are making strategic roster moves to bolster their depth.',
+    date: 'Season 4 Update • Nov 19',
+    season: 4,
+    category: 'recap',
+    featured: true,
+    author: 'CCH League Media Desk • State of the League',
+    readTime: '4 min read',
+    imageUrl: sdsVsCalNov19Img,
+    imageCaption: 'San Diego Strykers battle the California Reds in a marquee Nov 19 matchup. San Diego locked down the perimeter to hand California a 65-52 defeat and remain undefeated at 6-0.',
+    youtubeUrl: 'https://www.youtube.com/embed/vrU2u0OIIVk?si=CIOzrVVNHG-v4g4c',
+    teams: {
+      team1: 'San Diego Strykers',
+      team1Id: 'san-diego-strykers',
+      score1: 65,
+      team2: 'California Reds',
+      team2Id: 'california-reds',
+      score2: 52,
+    },
+    quarterScores: [
+      { period: 'Q1', team1: 19, team2: 14 },
+      { period: 'Q2', team1: 11, team2: 15 },
+      { period: 'Q3', team1: 18, team2: 12 },
+      { period: 'Q4', team1: 17, team2: 11 },
+    ],
+    headlineQuote: 'The race for the Cali Championship Hoops (CCH) title is heating up as teams approach the quarter-mark of Season 4. The San Diego Strykers continue to dominate the standings, while front offices across the league are making strategic roster moves to bolster their depth.',
+    contentParagraphs: [
+      'The race for the Cali Championship Hoops (CCH) title is heating up as teams approach the quarter-mark of Season 4. The San Diego Strykers continue to dominate the standings, while front offices across the league are making strategic roster moves to bolster their depth.\n\nHere is everything you need to update the official website.',
+      'GAME RECAP: SAN DIEGO STRYKERS VS. CALIFORNIA REDS (NOV 19):\nFinal Score: San Diego Strykers 65, California Reds 52\n\nThe San Diego Strykers (6-0) continued their perfect start to the season, handing the California Reds (5-4) a 65-52 defeat. Despite a valiant effort from the Reds\' second unit, the Strykers\' balanced offensive attack and stifling perimeter defense proved decisive.\n\nKey Stats & Storylines:\n• The Difference: The Strykers\' defense completely locked down the three-point line, holding the Reds to a dismal 1-of-11 (9%) from beyond the arc, compared to San Diego\'s 6-of-21 (29%).\n• Balanced Strykers Attack: DeAnte Gray paced the Strykers with 16 points (7-12 FG), 6 rebounds, and 3 assists. Reigning MVP A.J. Hinton stuffed the stat sheet with 13 points, 7 rebounds, 3 assists, 3 steals, and 1 block. Ray Gamble commanded the floor with 12 points, 5 rebounds, 3 assists, and 3 blocks, while C. Marshall added 11 points on 5-of-8 shooting.\n• Reds\' Bench Shines: California\'s second unit kept them within striking distance, outscoring the Strykers\' bench 22-11. J. Gordon erupted for a game-high 19 points off the bench in just 13 minutes on 7-of-13 shooting. Star center Andor Marai posted 15 points, 7 rebounds, and 2 blocks in 28 minutes.\n• Halftime Battle: San Diego jumped out to a 19-14 lead after Q1, but the Reds took the second quarter 15-11 to trim San Diego\'s lead to 30-29 at the break.',
+      'TOTAL TEAM STATS & QUARTER BREAKDOWN:\nTotal Team Stats:\n• Final Score: San Diego Strykers 65, California Reds 52\n• Field Goals: Strykers 24/58 (41%), Reds 20/54 (37%)\n• 3-Pointers: Strykers 6/21 (29%), Reds 1/11 (9%)\n• Free Throws: Strykers 11/15 (73%), Reds 11/15 (73%)\n• Fast Break Points: Strykers 10, Reds 10\n• Points in the Paint: Reds 30, Strykers 26 (+4 Reds)\n• Second Chance Points: Strykers 6, Reds 6\n• Bench Points: Reds 22, Strykers 11 (+11 Reds)\n• Assists: Strykers 15, Reds 11 (+4 SDS)\n• Offensive Rebounds: Strykers 9, Reds 9\n• Defensive Rebounds: Strykers 30, Reds 29 (Total: Strykers 39, Reds 38)\n• Steals: Strykers 8, Reds 6\n• Blocks: Strykers 6, Reds 6\n• Turnovers (Points Off): Strykers 7 (8 pts), Reds 10 (4 pts)\n• Dunks: Strykers 7, Reds 6\n• Team Fouls: Strykers 9, Reds 9\n• Biggest Lead: Strykers 14, Reds 6\n• Time of Possession: Reds 17:00, Strykers 14:59\n\nQuarter & Half Breakdowns:\n• 1st Quarter: SDS 19 | CAL 14 (FG: SDS 7/18 39% | CAL 6/16 38%; 3PT: SDS 2/8 25% | CAL 0/2 0%; Paint: SDS 8 | CAL 10)\n• 2nd Quarter: CAL 15 | SDS 11 (FG: CAL 5/11 45% | SDS 5/13 38%; 3PT: SDS 1/4 25% | CAL 0/1 0%; Paint: SDS 6 | CAL 6)\n• 1st Half Totals: SDS 30 | CAL 29 (FG: SDS 12/31 39% | CAL 11/27 41%; 3PT: SDS 3/12 25% | CAL 0/3 0%; Paint: SDS 14 | CAL 16)\n• 2nd Half Totals: SDS 35 | CAL 23 (FG: SDS 12/27 44% | CAL 9/27 33%; 3PT: SDS 3/9 33% | CAL 1/8 12%; Paint: SDS 12 | CAL 14)',
+      'LEAGUE STANDINGS UPDATE (TOP TIER & BOTTOM TIER):\n\nTop Contenders:\n1. San Diego Strykers (SDS): 6-0 | Power Rank: 1st | Won 6\n2. Oakland Renegades (OAK): 5-0 | Power Rank: 2nd | Won 5\n3. Fresno Mad Dogs (FRE): 4-2 | Power Rank: 3rd\n4. Los Angeles Dynamics (LA): 3-2 | Power Rank: 4th | Won 2\n5. Golden State Enterprise (GS): 2-1 | Power Rank: 5th\n\nHunting for a Spot:\n6. California Reds (CAL): 5-4\n7. San Diego Sabrewolves (SD): 2-3\n8. San Jose Tigersharks (SJ): 1-3 (Won 1)\n9. Sacramento Stallions (SAC): 1-3 (Won 1)\n10. Anaheim Admirals (ANA): 1-3\n11. Long Beach Vipers (LB): 0-2\n\nStruggling:\n12. San Francisco Knights (SF): 0-6 | Power Rank: 12th | Lost 6',
+      'LEAGUE LEADERS (PER GAME):\n\nScoring & Efficiency:\n• Points: Jamar Dean (OAK) – 23.6 PPG\n• Field Goals Made: Andor Marai (CAL) – 9.5 FGM\n• Field Goal Percentage: Andre Creek (SD) – .806 (min. 4 GP)\n\nShooting:\n• 3-Pointers Made: Carlton Daugherty (GS) – 5.0 3PM\n• 3-Point Percentage: DeAnte Gray (SDS) – .733\n• Free Throws Made & Attempted: R.J. Rush (LA) – 7.4 FTM / 7.4 FTA (100%)\n\nPlaymaking & Defense:\n• Assists: Malique Pierce (SJ) – 5.5 APG\n• Rebounds: J.C. McMillan (LB) – 11.0 RPG\n• Steals: A.J. Hinton (SDS) – 2.8 SPG\n• Blocks: Andre Creek (SD) – 1.8 BPG\n\nMinutes & Misc:\n• Minutes Played: Kirk Tinsley (ANA) – 27.7 MPG\n• Turnovers: Gemini Jackson (SAC) – 3.8 TPG\n• Fouls: Grok Wilkens (LB) – 3.0 FPG',
+      'TRANSACTION WIRE: WAIVERS & SIGNINGS:\n\nWaived Players:\n• Lowell Felder (C, 69 OVR) – Waived by the San Diego Strykers. (Fan sentiment on social media was notably harsh regarding his departure).\n• Damian Brady (C, 69 OVR) – Waived by Golden State Enterprise.\n\nNew Signings:\n• Franklin Winston (PF/C) – Signed by the San Jose Tigersharks (6\'8", 241 lbs | 84 OVR | 1yr / $2.34M deal)\n• Ben Best (SG) – Signed by the San Diego Strykers (6\'3", 204 lbs | 80 OVR | 1yr / $1.45M deal)\n• Kurt Hood (PF) – Signed by the San Diego Sabrewolves (6\'10", 238 lbs | 79 OVR | 1yr / $1.45M deal)\n• Alvin Neal (SG) – Signed by the San Jose Tigersharks (6\'0", 208 lbs | 75 OVR | 1yr / $1.45M deal)\n• Tommy Clayton (SF) – Signed by Golden State Enterprise (6\'9", 230 lbs | 82 OVR | 1yr / $1.45M deal)\n\nCheck back for the next set of game results and league updates as the race for the Top 8 playoff seeds continues.'
+    ],
+    quotes: [
+      {
+        speaker: 'Adam Saunders',
+        title: 'Head Coach • San Diego Strykers (6-0 Record • Power Rank: 1st)',
+        quote: 'Holding an explosive offensive team like the Reds to 1-of-11 from beyond the arc takes supreme focus for all 48 minutes. We challenged our perimeter group at halftime when it was 30-29, and they responded with one of our best defensive halves of the season.'
+      },
+      {
+        speaker: 'A.J. Hinton',
+        title: 'Shooting Guard • San Diego Strykers (Reigning MVP • League Leader in Steals)',
+        quote: 'We knew they\'d throw punches at us on their home floor. J. Gordon came out firing for their second unit, but our team defense locked in during the second half. Being 6-0 is a great foundation, but we know every team is hunting us.'
+      },
+      {
+        speaker: 'William Walker',
+        title: 'Head Coach • California Reds (5-4 Record • Power Rank: 6th)',
+        quote: 'You can\'t shoot 9 percent from three-point territory and expect to take down the best team in the league. J. Gordon gave us unbelievable spark off the bench with 19 points and Marai battled all night, but our perimeter dry spell in the second half decided it.'
+      }
+    ],
+    playerStats: [
+      { player: 'D. Gray', team: 'San Diego Strykers', stat: '16 PTS, 6 REB, 3 AST, 1 STL, 1 BLK, 4 TO (7-12 FG, 24 MIN)' },
+      { player: 'A.J. Hinton', team: 'San Diego Strykers', stat: '13 PTS, 7 REB, 3 AST, 3 STL, 1 BLK, 2 TO (5-12 FG, 22 MIN)' },
+      { player: 'R. Gamble', team: 'San Diego Strykers', stat: '12 PTS, 5 REB, 3 AST, 1 STL, 3 BLK, 1 TO (5-12 FG, 23 MIN)' },
+      { player: 'C. Marshall', team: 'San Diego Strykers', stat: '11 PTS, 1 STL, 1 BLK, 0 TO (5-8 FG, 18 MIN)' },
+      { player: 'M. Novak', team: 'San Diego Strykers', stat: '4 PTS, 5 REB, 1 STL, 0 TO (0-0 FG, 9 MIN)' },
+      { player: 'J. Grantham', team: 'San Diego Strykers', stat: '3 PTS, 3 REB, 1 AST, 0 TO (0-2 FG, 17 MIN)' },
+      { player: 'J. Galloway', team: 'San Diego Strykers', stat: '2 PTS, 7 REB, 2 AST, 1 STL, 0 TO (0-5 FG, 25 MIN)' },
+      { player: 'R. Hammonds', team: 'San Diego Strykers', stat: '2 PTS, 1 AST, 0 TO (1-4 FG, 13 MIN)' },
+      { player: 'N. Webber', team: 'San Diego Strykers', stat: '2 PTS, 0 TO (1-1 FG, 4 MIN)' },
+      { player: 'J. Gordon', team: 'California Reds', stat: '19 PTS, 3 REB, 0 TO (7-13 FG, 13 MIN) • Game-High Scorer off bench' },
+      { player: 'A. Marai', team: 'California Reds', stat: '15 PTS, 7 REB, 1 AST, 2 BLK, 3 TO (6-12 FG, 28 MIN)' },
+      { player: 'K. Robinson', team: 'California Reds', stat: '8 PTS, 2 REB, 1 AST, 2 STL, 1 TO (3-13 FG, 23 MIN)' },
+      { player: 'S. Roberts', team: 'California Reds', stat: '5 PTS, 2 REB, 1 AST, 2 STL, 2 TO (2-8 FG, 23 MIN)' },
+      { player: 'D. Pittman', team: 'California Reds', stat: '3 PTS, 1 REB, 1 BLK, 0 TO (1-4 FG, 10 MIN)' },
+      { player: 'D. Rodman', team: 'California Reds', stat: '2 PTS, 8 REB, 3 AST, 1 STL, 2 BLK, 0 TO (1-2 FG, 22 MIN)' },
+      { player: 'M. Holman', team: 'California Reds', stat: '0 PTS, 6 REB, 2 AST, 1 STL, 2 TO (0-0 FG, 24 MIN)' },
+      { player: 'D. Irving', team: 'California Reds', stat: '0 PTS, 2 REB, 1 AST, 1 BLK, 2 TO (0-2 FG, 12 MIN)' },
+      { player: 'R. Pierce', team: 'California Reds', stat: '0 PTS, 1 REB, 0 TO (0-0 FG, 4 MIN)' },
+      { player: 'San Diego Strykers (Team Total)', team: 'San Diego Strykers', stat: '65 PTS, 39 REB (9 OR/30 DR), 15 AST, 8 STL, 6 BLK, 7 TO, 24-58 FG (41%), 6-21 3PT (29%), 11-15 FT (73%)' },
+      { player: 'California Reds (Team Total)', team: 'California Reds', stat: '52 PTS, 38 REB (9 OR/29 DR), 11 AST, 6 STL, 6 BLK, 10 TO, 20-54 FG (37%), 1-11 3PT (9%), 11-15 FT (73%), 22 Bench PTS' },
+      { player: '3-Point Shooting', team: 'Team Comparison', stat: 'Strykers 6/21 (29%) • Reds 1/11 (9%)' },
+      { player: 'Field Goal %', team: 'Team Comparison', stat: 'Strykers 41% (24/58) • Reds 37% (20/54)' },
+      { player: 'Free Throws', team: 'Team Comparison', stat: 'Strykers 11/15 (73%) • Reds 11/15 (73%)' },
+      { player: 'Fast Break Points', team: 'Team Comparison', stat: 'Strykers 10 • Reds 10' },
+      { player: 'Points in Paint', team: 'Team Comparison', stat: 'Reds 30 • Strykers 26 (+4 Reds)' },
+      { player: 'Second Chance Points', team: 'Team Comparison', stat: 'Strykers 6 • Reds 6' },
+      { player: 'Bench Points', team: 'Team Comparison', stat: 'Reds 22 • Strykers 11 (+11 Reds)' },
+      { player: 'Assists', team: 'Team Comparison', stat: 'Strykers 15 • Reds 11 (+4 SDS)' },
+      { player: 'Rebounds', team: 'Team Comparison', stat: 'Strykers 39 (9 OR/30 DR) • Reds 38 (9 OR/29 DR)' },
+      { player: 'Steals / Blocks', team: 'Team Comparison', stat: 'Strykers 8/6 • Reds 6/6' },
+      { player: 'Turnovers (Points Off)', team: 'Team Comparison', stat: 'Strykers 7 (8 pts) • Reds 10 (4 pts)' },
+      { player: 'Dunks', team: 'Team Comparison', stat: 'Strykers 7 • Reds 6' },
+      { player: 'Biggest Lead', team: 'Team Comparison', stat: 'Strykers 14 • Reds 6' },
+      { player: 'Time of Possession', team: 'Team Comparison', stat: 'Reds 17:00 • Strykers 14:59 (+2:01 CAL)' }
+    ]
+  },
+  {
     id: 's4-g30-tigersharks-dominate-paint-admirals-sloan',
     title: 'San Jose Tigersharks Dominate the Paint to Secure 57-48 Road Win Over Anaheim Admirals',
     subtitle: 'Al Sloan posts a massive 18-point, 11-rebound double-double on 9-of-10 shooting as San Jose outscores Anaheim 36-16 in the paint to capture its first win of Season 4, moving to 1-3.',
     date: 'Season 4 Recap • Nov 19',
     season: 4,
     category: 'recap',
-    featured: true,
+    featured: false,
     author: 'CCH Game Recap Desk • Southern California Beat',
     readTime: '3 min read',
     youtubeUrl: 'https://www.youtube.com/embed/5tieOrMUva0?si=XLVibwdPil406ldp',
@@ -320,8 +411,8 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
       'California – The California Reds (5-4) rallied in the fourth quarter to edge the San Jose Tigersharks (0-3) 60-58 in a dramatic wire-to-wire battle on November 17th. Despite falling behind by as many as 11 points in the second half, the Reds leaned on veteran center Andor Marai and clutch free-throw execution to capture their fifth victory of Season 4.',
       'HOW THE GAME WAS WON:\nThe Reds gained early separation in the first quarter, claiming a 14-8 advantage. However, the Tigersharks stormed back in the second and third frames behind aggressive defense and rim protection from Austin Sloan. San Jose outscored California 18-15 in the second and 19-12 in the third to take a 45-41 lead into the final period, even stretching their advantage to 11 points at one stage.\n\nIn the fourth quarter, California flipped the switch. Led by Andor Marai’s high-percentage finishing inside and Shawn Roberts’ clutch foul shooting (hitting 6-of-7 from the stripe), the Reds outscored San Jose 19-13 in the fourth quarter to take the lead in the final minute and secure the 60-58 triumph.',
       'PLAYER OF THE GAME: ANDOR MARAI (CAL):\nReds center Andor Marai continued his stellar play, leading California with 18 points on 9-of-14 shooting from the field (64%), pulling down 7 rebounds, dishing 2 assists, and swiping 3 steals while committing zero turnovers in 20 minutes of action.',
-      'KEY PERFORMERS:\nCalifornia Reds:\n• Andor Marai: 18 points, 7 rebounds, 2 assists, 3 steals, 1 block (9-14 FG, 0 TO).\n• Shawn Roberts: 15 points, 1 rebound, 6 assists, 2 steals, 6-7 FT in 25 minutes.\n• D. Pittman: 7 points, 1 rebound, 2-5 FG, 1-2 3PT, 2-3 FT in 6 minutes.\n• J. Gordon: 6 points, 7 rebounds, 2-2 FT, 1 OR in 17 minutes.\n• Donald Rodman: 5 points, 9 rebounds, 1 assist, 3 steals, 1 block (2-2 FG, 1-1 3PT in 24 minutes).\n• M. Holman: 4 points, 2 rebounds, 2 assists (2-3 FG in 23 minutes).\n• Kyle Robinson: 3 points, 1 rebound, 2 assists (25 minutes).\n• D. Irving: 2 points, 1 rebound, 1 assist (12 minutes).\n\nSan Jose Tigersharks:\n• Austin Sloan: 15 points, 3 steals, 4 blocks to pace San Jose on both ends.\n• Tigersharks combined for 22/50 FG (44%) and 5 three-pointers.',
-      'TEAM STATISTICS BREAKDOWN:\nKey margins from the game:\n• Field Goal Percentage: California 44% (23/52), San Jose 44% (22/50).\n• 3-Point Percentage: San Jose 26% (5/19), California 23% (3/13).\n• Free Throws: California 11/14 (79%), San Jose 9/14 (64%).\n• Points in the Paint: California 36, San Jose 30 (+6 CAL).\n• Fast Break Points: California 12, San Jose 9 (+3 CAL).\n• Second Chance Points: California 6, San Jose 4.\n• Rebounds: California 34 (8 OR / 26 DR), San Jose 32 (7 OR / 25 DR).\n• Turnovers: California 8, San Jose 11.\n• Steals / Blocks: San Jose 8/5, California 9/3.\n• Biggest Lead: San Jose 11, California 9.\n• Time of Possession: San Jose 17:03, California 14:55.\n\nThe victory improves the California Reds to 5-4, while the San Jose Tigersharks drop to 0-3.'
+      'KEY PERFORMERS:\nSan Jose Tigersharks:\n• D. Gooden: 27 MIN, 15 PTS, 2 REB, 2 AST, 0 STL, 0 BLK, 2 TO (5-8 FG, 1-1 3PT, 4-5 FT)\n• Austin Sloan: 25 MIN, 15 PTS, 8 REB, 1 AST, 3 STL, 4 BLK, 1 TO (6-8 FG, 3-5 FT)\n• P. Waters: 9 MIN, 7 PTS, 3 REB, 0 AST, 1 STL, 0 BLK, 1 TO (3-4 FG, 1-2 FT)\n• Dell Butler: 25 MIN, 6 PTS, 2 REB, 2 AST, 1 STL, 1 BLK, 1 TO (2-4 FG, 2-2 3PT)\n• R. Wilson: 10 MIN, 6 PTS, 1 REB, 0 AST, 0 STL, 0 BLK, 0 TO (2-3 FG, 2-3 3PT)\n• Donald Hardy: 25 MIN, 3 PTS, 6 REB, 2 AST, 1 STL, 0 BLK, 2 TO (1-6 FG, 0-5 3PT, 1-2 FT)\n• Malique Pierce: 25 MIN, 2 PTS, 3 REB, 3 AST, 1 STL, 0 BLK, 3 TO (1-10 FG, 0-5 3PT)\n• A. Gill: 6 MIN, 2 PTS, 0 REB, 0 AST, 1 STL, 0 BLK, 0 TO (1-1 FG)\n• C. Moor: 4 MIN, 2 PTS, 0 REB, 1 AST, 0 STL, 0 BLK, 1 TO (1-2 FG)\n\nCalifornia Reds:\n• Andor Marai: 21 MIN, 18 PTS, 7 REB, 2 AST, 3 STL, 1 BLK, 0 TO (9-14 FG) • Player of the Game\n• Shawn Roberts: 25 MIN, 15 PTS, 1 REB, 6 AST, 2 STL, 0 BLK, 3 TO (4-13 FG, 1-6 3PT, 6-7 FT)\n• D. Pittman: 6 MIN, 7 PTS, 1 REB, 0 AST, 0 STL, 0 BLK, 2 TO (2-5 FG, 1-2 3PT, 2-3 FT)\n• J. Gordon: 18 MIN, 6 PTS, 7 REB, 0 AST, 0 STL, 0 BLK, 0 TO (2-8 FG, 2-2 FT)\n• Donald Rodman: 25 MIN, 5 PTS, 9 REB, 1 AST, 3 STL, 1 BLK, 0 TO (2-2 FG, 1-1 3PT)\n• M. Holman: 23 MIN, 4 PTS, 2 REB, 2 AST, 0 STL, 0 BLK, 0 TO (2-3 FG)\n• Kyle Robinson: 25 MIN, 3 PTS, 1 REB, 2 AST, 0 STL, 0 BLK, 2 TO (1-4 FG, 0-3 3PT, 1-2 FT)\n• D. Irving: 13 MIN, 2 PTS, 1 REB, 1 AST, 0 STL, 0 BLK, 1 TO (1-3 FG, 0-1 3PT)\n• R. Pierce: 3 MIN, 0 PTS, 0 REB, 0 AST, 1 STL, 1 BLK, 0 TO (0-0 FG)',
+      'TEAM STATISTICS & QUARTER BREAKDOWN:\nTotal Team Stats:\n• Final Score: California Reds 60, San Jose Tigersharks 58\n• Field Goals: Reds 23/52 (44%), Tigersharks 22/50 (44%)\n• 3-Pointers: Tigersharks 5/19 (26%), Reds 3/13 (23%)\n• Free Throws: Reds 11/14 (79%), Tigersharks 9/14 (64%)\n• Fast Break Points: Reds 12, Tigersharks 9\n• Points in the Paint: Reds 36, Tigersharks 30\n• Second Chance Points: Reds 6, Tigersharks 4\n• Bench Points: Tigersharks 17, Reds 15\n• Assists: Reds 15, Tigersharks 12\n• Rebounds: Reds 34 (8 OR / 26 DR), Tigersharks 32 (7 OR / 25 DR)\n• Steals: Reds 9, Tigersharks 8\n• Blocks: Tigersharks 5, Reds 3\n• Turnovers (Points Off): Tigersharks 11 (10 pts), Reds 8 (13 pts)\n• Dunks: Reds 12, Tigersharks 7\n• Team Fouls: Tigersharks 7, Reds 8\n• Biggest Lead: Tigersharks 11, Reds 9\n• Time of Possession: Tigersharks 17:03, Reds 14:55\n\nQuarter-by-Quarter Flow:\n• 1st Quarter: CAL 14, SJ 8 (Reds jump out early)\n• 2nd Quarter: SJ 18, CAL 15 (Tigersharks rally behind Gooden & Butler)\n• 1st Half: Reds 29, Tigersharks 26\n• 3rd Quarter: SJ 19, CAL 12 (San Jose defense surges to take 45-41 lead, leading by up to 11)\n• 4th Quarter: CAL 19, SJ 13 (Marai and Roberts spark 19-13 clutch comeback to win 60-58)\n• 2nd Half: Reds 31, Tigersharks 32\n\nThe victory elevates the California Reds to 5-4, while the Tigersharks drop to 0-3.'
     ],
     quotes: [
       {
@@ -342,30 +433,42 @@ export const CCH_NEWS_ARTICLES: CCHNewsArticle[] = [
       {
         speaker: 'Michael Stauffer',
         title: 'Head Coach • San Jose Tigersharks (0-3 Record)',
-        quote: 'It is a tough pill to swallow when you build an 11-point lead and hold the ball for 17 minutes of possession. Austin Sloan played an incredible two-way game with 15 points and 4 blocks, but California’s veteran execution inside the final three minutes was the difference.'
+        quote: 'It is a tough pill to swallow when you build an 11-point lead and hold the ball for 17 minutes of possession. Austin Sloan played an incredible two-way game with 15 points and 4 blocks, and Gooden stepped up with 15 points, but California’s veteran execution inside the final three minutes was the difference.'
       }
     ],
     playerStats: [
-      { player: 'Andor Marai', team: 'California Reds', stat: '18 PTS, 7 REB, 2 AST, 3 STL, 1 BLK, 0 TO (9-14 FG, 20 MIN) • POTG' },
-      { player: 'Austin Sloan', team: 'San Jose Tigersharks', stat: '15 PTS, 3 STL, 4 BLK (Notables leader for San Jose)' },
+      { player: 'Andor Marai', team: 'California Reds', stat: '18 PTS, 7 REB, 2 AST, 3 STL, 1 BLK, 0 TO (9-14 FG, 21 MIN) • POTG' },
+      { player: 'D. Gooden', team: 'San Jose Tigersharks', stat: '15 PTS, 2 REB, 2 AST (5-8 FG, 1-1 3PT, 4-5 FT, 27 MIN)' },
+      { player: 'Austin Sloan', team: 'San Jose Tigersharks', stat: '15 PTS, 8 REB, 1 AST, 3 STL, 4 BLK, 1 TO (6-8 FG, 25 MIN)' },
       { player: 'Shawn Roberts', team: 'California Reds', stat: '15 PTS, 1 REB, 6 AST, 2 STL (4-13 FG, 1-6 3PT, 6-7 FT, 25 MIN)' },
+      { player: 'P. Waters', team: 'San Jose Tigersharks', stat: '7 PTS, 3 REB, 1 STL, 1 TO (3-4 FG, 9 MIN)' },
       { player: 'D. Pittman', team: 'California Reds', stat: '7 PTS, 1 REB (2-5 FG, 1-2 3PT, 2-3 FT, 6 MIN)' },
-      { player: 'J. Gordon', team: 'California Reds', stat: '6 PTS, 7 REB, 1 OR (2-8 FG, 2-2 FT, 17 MIN)' },
-      { player: 'Donald Rodman', team: 'California Reds', stat: '5 PTS, 9 REB, 1 AST, 3 STL, 1 BLK (2-2 FG, 1-1 3PT, 24 MIN)' },
+      { player: 'J. Gordon', team: 'California Reds', stat: '6 PTS, 7 REB (2-8 FG, 2-2 FT, 18 MIN)' },
+      { player: 'Dell Butler', team: 'San Jose Tigersharks', stat: '6 PTS, 2 REB, 2 AST, 1 STL, 1 BLK (2-4 FG, 2-2 3PT, 25 MIN)' },
+      { player: 'R. Wilson', team: 'San Jose Tigersharks', stat: '6 PTS, 1 REB (2-3 FG, 2-3 3PT, 10 MIN)' },
+      { player: 'Donald Rodman', team: 'California Reds', stat: '5 PTS, 9 REB, 1 AST, 3 STL, 1 BLK (2-2 FG, 1-1 3PT, 25 MIN)' },
       { player: 'M. Holman', team: 'California Reds', stat: '4 PTS, 2 REB, 2 AST (2-3 FG, 23 MIN)' },
-      { player: 'Kyle Robinson', team: 'California Reds', stat: '3 PTS, 1 REB, 2 AST (1-4 FG, 1-2 FT, 25 MIN)' },
-      { player: 'D. Irving', team: 'California Reds', stat: '2 PTS, 1 REB, 1 AST (1-3 FG, 12 MIN)' },
-      { player: 'R. Pierce', team: 'California Reds', stat: '0 PTS, 1 STL, 1 BLK (2 MIN)' },
-      { player: 'R. Swift', team: 'California Reds', stat: '0 PTS, 1 AST (4 MIN)' },
-      { player: 'D. Brooks Jr.', team: 'California Reds', stat: '0 PTS (2 MIN)' },
-      { player: 'Free Throws', team: 'Team Comparison', stat: 'California 11/14 (79%) • San Jose 9/14 (64%)' },
+      { player: 'Kyle Robinson', team: 'California Reds', stat: '3 PTS, 1 REB, 2 AST (1-4 FG, 0-3 3PT, 25 MIN)' },
+      { player: 'Donald Hardy', team: 'San Jose Tigersharks', stat: '3 PTS, 6 REB, 2 AST, 1 STL, 2 TO (1-6 FG, 25 MIN)' },
+      { player: 'Malique Pierce', team: 'San Jose Tigersharks', stat: '2 PTS, 3 REB, 3 AST, 1 STL, 3 TO (1-10 FG, 25 MIN)' },
+      { player: 'D. Irving', team: 'California Reds', stat: '2 PTS, 1 REB, 1 AST (1-3 FG, 13 MIN)' },
+      { player: 'A. Gill', team: 'San Jose Tigersharks', stat: '2 PTS, 1 STL (1-1 FG, 6 MIN)' },
+      { player: 'C. Moor', team: 'San Jose Tigersharks', stat: '2 PTS, 1 AST, 1 TO (1-2 FG, 4 MIN)' },
+      { player: 'R. Pierce', team: 'California Reds', stat: '0 PTS, 1 STL, 1 BLK (3 MIN)' },
+      { player: 'California Reds (Team Total)', team: 'California Reds', stat: '60 PTS, 26 REB, 15 AST, 9 STL, 3 BLK, 8 TO, 23-52 FG (44%), 3-13 3PT, 11-14 FT' },
+      { player: 'San Jose Tigersharks (Team Total)', team: 'San Jose Tigersharks', stat: '58 PTS, 23 REB, 12 AST, 6 STL, 5 BLK, 9 TO, 22-50 FG (44%), 5-19 3PT, 9-14 FT' },
       { player: 'Points in Paint', team: 'Team Comparison', stat: 'California 36 • San Jose 30 (+6 CAL)' },
-      { player: 'Fourth Quarter Rally', team: 'Team Comparison', stat: 'California outscored San Jose 19-13 to win 60-58' },
-      { player: 'Fast Break Points', team: 'Team Comparison', stat: 'California 12 • San Jose 9' },
-      { player: 'Turnovers', team: 'Team Comparison', stat: 'California 8 • San Jose 11' },
+      { player: 'Dunks', team: 'Team Comparison', stat: 'California 12 • San Jose 7 (+5 CAL)' },
+      { player: 'Fast Break Points', team: 'Team Comparison', stat: 'California 12 • San Jose 9 (+3 CAL)' },
+      { player: 'Second Chance Points', team: 'Team Comparison', stat: 'California 6 • San Jose 4 (+2 CAL)' },
+      { player: 'Free Throws', team: 'Team Comparison', stat: 'California 11/14 (79%) • San Jose 9/14 (64%)' },
+      { player: 'Bench Points', team: 'Team Comparison', stat: 'San Jose 17 • California 15 (+2 SJ)' },
+      { player: 'Turnovers (Points Off)', team: 'Team Comparison', stat: 'California 8 (13 pts) • San Jose 11 (10 pts)' },
       { player: 'Rebounds', team: 'Team Comparison', stat: 'California 34 (8 OR/26 DR) • San Jose 32 (7 OR/25 DR)' },
-      { player: 'Steals / Blocks', team: 'Team Comparison', stat: 'San Jose 8/5 • California 9/3' },
-      { player: 'Biggest Lead', team: 'Team Comparison', stat: 'San Jose 11 • California 9' }
+      { player: 'Steals / Blocks', team: 'Team Comparison', stat: 'California 9/3 • San Jose 8/5' },
+      { player: 'Time of Possession', team: 'Team Comparison', stat: 'San Jose 17:03 • California 14:55 (+2:08 SJ)' },
+      { player: 'Biggest Lead', team: 'Team Comparison', stat: 'San Jose 11 • California 9' },
+      { player: 'Fourth Quarter Rally', team: 'Team Comparison', stat: 'California outscored San Jose 19-13 to win 60-58' }
     ]
   },
   {
